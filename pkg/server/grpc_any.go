@@ -9,7 +9,7 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/metadata"
 
-	"github.com/hashicorp/waypoint/pkg/nullify"
+	"github.com/nomatronio/derrick/pkg/nullify"
 )
 
 // GWNullAnyUnaryInterceptor returns a gRPC unary interceptor that replaces all

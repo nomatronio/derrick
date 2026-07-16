@@ -7,7 +7,7 @@
 package null
 
 import (
-	"github.com/hashicorp/waypoint-plugin-sdk"
+	"github.com/nomatronio/derrick-plugin-sdk"
 )
 
 // Options are the SDK options to use for instantiation for this plugin.

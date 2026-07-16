@@ -15,19 +15,19 @@ import (
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/go-multierror"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clicontext"
-	clientpkg "github.com/hashicorp/waypoint/internal/client"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/config"
-	"github.com/hashicorp/waypoint/internal/config/variables"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clicontext"
+	clientpkg "github.com/nomatronio/derrick/internal/client"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/config"
+	"github.com/nomatronio/derrick/internal/config/variables"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 const (
 	defaultWorkspace        = "default"
-	defaultWorkspaceEnvName = "WAYPOINT_WORKSPACE"
+	defaultWorkspaceEnvName = "DERRICK_WORKSPACE"
 )
 
 // baseCommand is embedded in all commands to provide common logic and data.
@@ -201,7 +201,7 @@ func (c *baseCommand) showValidations(validationResults config.ValidationResults
 //   - Creates a project client
 //   - Triggers creation of the in-memory server (if necessary)
 //   - Starts a local runner (if necessary)
-//   - Attempts to find a waypoint.hcl config file, and parse it
+//   - Attempts to find a derrick.hcl config file, and parse it
 //   - Determines which project/apps are being targeted, by looking at
 //     the -project and -app flags, the local config, the waypoint server.
 func (c *baseCommand) Init(opts ...Option) error {
@@ -260,7 +260,7 @@ func (c *baseCommand) Init(opts ...Option) error {
 	}
 
 	// Setup our base config path
-	homeConfigPath, err := xdg.ConfigFile("waypoint/.ignore")
+	homeConfigPath, err := xdg.ConfigFile("derrick/.ignore")
 	if err != nil {
 		c.ui.Output(clierrors.Humanize(err), terminal.WithErrorStyle())
 		return err
@@ -310,7 +310,7 @@ func (c *baseCommand) Init(opts ...Option) error {
 	// WithProjectTarget:
 	//   - c.refProject set
 	//   - value of []c.refApps doesn't matter; likely will be set when using
-	//     a local waypoint.hcl or if someone also includes -app flag, but not
+	//     a local derrick.hcl or if someone also includes -app flag, but not
 	//     required
 
 	// 1. Parse the configuration
@@ -335,7 +335,7 @@ func (c *baseCommand) Init(opts ...Option) error {
 
 				// NOTE(izaak): unless we force remoteness, we may spawn a local runner which will operate against
 				// the current config (which isn't relevant)
-				c.Log.Debug("Forcing any future operations to occur remotely because the relevant waypoint.hcl is not present.")
+				c.Log.Debug("Forcing any future operations to occur remotely because the relevant derrick.hcl is not present.")
 				flagLocal := false
 				c.flagLocal = &flagLocal
 			} else {
@@ -363,7 +363,7 @@ func (c *baseCommand) Init(opts ...Option) error {
 		// The user must not have specified a project flag, and config parsing didn't produce one either.
 
 		// NOTE(izaak) The UX here will be refined in the next pass - it's ok that this is terse for now.
-		err := errors.New("No project specified, and no waypoint.hcl found.")
+		err := errors.New("No project specified, and no derrick.hcl found.")
 		c.ui.Output(clierrors.Humanize(err), terminal.WithErrorStyle())
 		return err
 	}
@@ -388,7 +388,7 @@ func (c *baseCommand) Init(opts ...Option) error {
 	}
 
 	// 4.a. If app(s) are required but not set, we do a final check to the
-	// Waypoint server to see if it knows what apps belong to the project. We
+	// Derrick server to see if it knows what apps belong to the project. We
 	// set ProjectTargetRequired to `true` for both AppTarget options, so at this
 	// point, if an AppTarget option is set then we should have a c.refProject.
 	if (baseCfg.SingleAppTarget || baseCfg.MultiAppTarget) && len(c.refApps) == 0 {
@@ -504,7 +504,7 @@ func (c *baseCommand) flagSet(bit flagSetBit, f func(*flag.Sets)) *flag.Sets {
 			Aliases: []string{"a"},
 			Default: "",
 			Usage: "App to target. Certain commands require a single app target for " +
-				"Waypoint configurations with multiple apps. If you have a single app, " +
+				"Derrick configurations with multiple apps. If you have a single app, " +
 				"then this can be ignored.",
 		})
 
@@ -543,7 +543,7 @@ func (c *baseCommand) flagSet(bit flagSetBit, f func(*flag.Sets)) *flag.Sets {
 			Name:   "local",
 			Target: &c.flagLocal,
 			Usage: "True to use a local runner to execute the operation, false to use a remote runner. \n" +
-				"If unset, Waypoint will automatically determine where the operation will occur, \n" +
+				"If unset, Derrick will automatically determine where the operation will occur, \n" +
 				"defaulting to remote if possible.",
 		})
 
@@ -678,7 +678,7 @@ func checkFlagsAfterArgs(args []string, set *flag.Sets) error {
 // precedence (last value wins):
 //
 // - value stored in the CLI context
-// - value from the environment variable WAYPOINT_WORKSPACE
+// - value from the environment variable DERRICK_WORKSPACE
 // - value set in the CLI flag -workspace
 //
 // The default value is "default"
@@ -752,7 +752,7 @@ short notation -p and -a.
 `)
 
 	snapshotUnimplementedErr = strings.TrimSpace(`
-The current Waypoint server does not support snapshots. Rerunning the command
+The current Derrick server does not support snapshots. Rerunning the command
 with '-snapshot=false' is required, and there will be no automatic data backups
 for the server.
 `)

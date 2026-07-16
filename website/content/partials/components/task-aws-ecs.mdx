@@ -1,30 +1,30 @@
 ## aws-ecs (task)
 
-Launch an ECS task for on-demand tasks from the Waypoint server.
+Launch an ECS task for on-demand tasks from the Derrick server.
 
 This will use the standard AWS environment variables and IAM Role information to
 source authentication information for AWS, using the configured task role.
-If no task role name is specified, Waypoint will create one with the required
+If no task role name is specified, Derrick will create one with the required
 permissions.
 
 ### Interface
 
 ### Required Parameters
 
-These parameters are used in the [`use` stanza](/waypoint/docs/waypoint-hcl/use) for this plugin.
+These parameters are used in the [`use` stanza](/waypoint/docs/derrick-hcl/use) for this plugin.
 
 #### odr_image
 
-Docker image for the Waypoint On-Demand Runners.
+Docker image for the Derrick On-Demand Runners.
 
-Docker image for the Waypoint On-Demand Runners. This will
+Docker image for the Derrick On-Demand Runners. This will
 default to the server image with the name (not label) suffixed with '-odr'.".
 
 #### security_group_id
 
 Security Group ID to place the On-Demand Runner task in.
 
-Security Group ID to place the On-Demand Runner task in. This defaults to the security group used for the Waypoint server.
+Security Group ID to place the On-Demand Runner task in. This defaults to the security group used for the Derrick server.
 
 - Type: **string**
 
@@ -32,19 +32,19 @@ Security Group ID to place the On-Demand Runner task in. This defaults to the se
 
 List of subnets to place the On-Demand Runner task in.
 
-List of subnets to place the On-Demand Runner task in. This defaults to the list of subnets configured for the Waypoint server and must be either identical or a subset of the subnets used by the Waypoint server.
+List of subnets to place the On-Demand Runner task in. This defaults to the list of subnets configured for the Derrick server and must be either identical or a subset of the subnets used by the Derrick server.
 
 - Type: **string**
 
 ### Optional Parameters
 
-These parameters are used in the [`use` stanza](/waypoint/docs/waypoint-hcl/use) for this plugin.
+These parameters are used in the [`use` stanza](/waypoint/docs/derrick-hcl/use) for this plugin.
 
 #### cluster
 
 Cluster name to place On-Demand runner tasks in.
 
-ECS Cluster to place On-Demand runners in. This defaults to the cluster used by the Waypoint server.
+ECS Cluster to place On-Demand runners in. This defaults to the cluster used by the Derrick server.
 
 - Type: **string**
 - **Optional**
@@ -53,7 +53,7 @@ ECS Cluster to place On-Demand runners in. This defaults to the cluster used by 
 
 The name of the AWS IAM role to apply to the task's Execution Role.
 
-ExecutionRoleName is the name of the AWS IAM role to apply to the task's Execution Role. At this time we reuse the same Role as the Waypoint server Execution Role.
+ExecutionRoleName is the name of the AWS IAM role to apply to the task's Execution Role. At this time we reuse the same Role as the Derrick server Execution Role.
 
 - Type: **string**
 - **Optional**
@@ -89,7 +89,7 @@ Configure the memory for the On-Demand runners. The default is 1024. See https:/
 
 AWS Region to use.
 
-AWS region to use. Defaults to the region used for the Waypoint Server.
+AWS region to use. Defaults to the region used for the Derrick Server.
 
 - Type: **string**
 - **Optional**
@@ -105,7 +105,7 @@ TaskRoleName is the name of the AWS IAM role to apply to the task. This role det
 
 ### Output Attributes
 
-Output attributes can be used in your `waypoint.hcl` as [variables](/waypoint/docs/waypoint-hcl/variables) via [`artifact`](/waypoint/docs/waypoint-hcl/variables/artifact) or [`deploy`](/waypoint/docs/waypoint-hcl/variables/deploy).
+Output attributes can be used in your `derrick.hcl` as [variables](/waypoint/docs/derrick-hcl/variables) via [`artifact`](/waypoint/docs/derrick-hcl/variables/artifact) or [`deploy`](/waypoint/docs/derrick-hcl/variables/deploy).
 
 #### id
 

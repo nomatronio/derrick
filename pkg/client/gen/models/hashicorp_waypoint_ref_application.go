@@ -15,7 +15,7 @@ import (
 // HashicorpWaypointRefApplication Application references an application. To uniquely identify an
 // application, this must encapsulate the full hierarchy to the application.
 //
-// swagger:model hashicorp.waypoint.Ref.Application
+// swagger:model nomatron.derrick.Ref.Application
 type HashicorpWaypointRefApplication struct {
 
 	// application

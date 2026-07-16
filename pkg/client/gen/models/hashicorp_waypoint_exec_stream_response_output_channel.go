@@ -16,7 +16,7 @@ import (
 
 // HashicorpWaypointExecStreamResponseOutputChannel hashicorp waypoint exec stream response output channel
 //
-// swagger:model hashicorp.waypoint.ExecStreamResponse.Output.Channel
+// swagger:model nomatron.derrick.ExecStreamResponse.Output.Channel
 type HashicorpWaypointExecStreamResponseOutputChannel string
 
 func NewHashicorpWaypointExecStreamResponseOutputChannel(value HashicorpWaypointExecStreamResponseOutputChannel) *HashicorpWaypointExecStreamResponseOutputChannel {

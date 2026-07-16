@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointGenerateRunnerTokenRequest hashicorp waypoint generate runner token request
 //
-// swagger:model hashicorp.waypoint.GenerateRunnerTokenRequest
+// swagger:model nomatron.derrick.GenerateRunnerTokenRequest
 type HashicorpWaypointGenerateRunnerTokenRequest struct {
 
 	// How long the token should be valid from the time the request

@@ -1,5 +1,5 @@
 import { Model, belongsTo, hasMany } from 'miragejs';
-import { StatusReport } from 'waypoint-pb';
+import { StatusReport } from 'derrick-pb';
 import MirageDeployment from './deployment';
 import MirageRelease from './release';
 

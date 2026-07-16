@@ -18,7 +18,7 @@ import (
 // ListProjects because the application list will be based on the config
 // and not the database.
 //
-// swagger:model hashicorp.waypoint.Job.QueueProjectOp
+// swagger:model nomatron.derrick.Job.QueueProjectOp
 type HashicorpWaypointJobQueueProjectOp struct {
 
 	// The template for the job to queue for each application. The "application"

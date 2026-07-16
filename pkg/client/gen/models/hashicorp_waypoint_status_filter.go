@@ -16,7 +16,7 @@ import (
 
 // HashicorpWaypointStatusFilter hashicorp waypoint status filter
 //
-// swagger:model hashicorp.waypoint.StatusFilter
+// swagger:model nomatron.derrick.StatusFilter
 type HashicorpWaypointStatusFilter struct {
 
 	// Filters are ANDed together.

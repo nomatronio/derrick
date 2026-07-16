@@ -7,8 +7,8 @@ import (
 	"github.com/hashicorp/cap/oidc"
 	"github.com/stretchr/testify/require"
 
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	serverptypes "github.com/hashicorp/waypoint/pkg/server/ptypes"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	serverptypes "github.com/nomatronio/derrick/pkg/server/ptypes"
 )
 
 func init() {

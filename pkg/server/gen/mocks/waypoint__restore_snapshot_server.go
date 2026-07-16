@@ -5,7 +5,7 @@ package mocks
 import (
 	context "context"
 
-	gen "github.com/hashicorp/waypoint/pkg/server/gen"
+	gen "github.com/nomatronio/derrick/pkg/server/gen"
 	emptypb "google.golang.org/protobuf/types/known/emptypb"
 
 	metadata "google.golang.org/grpc/metadata"

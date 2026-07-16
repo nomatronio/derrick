@@ -6,8 +6,8 @@ import (
 	"google.golang.org/protobuf/types/known/timestamppb"
 	"k8s.io/client-go/kubernetes"
 
-	sdk "github.com/hashicorp/waypoint-plugin-sdk/proto/gen"
-	"github.com/hashicorp/waypoint/builtin/k8s/internal/manifest"
+	sdk "github.com/nomatronio/derrick-plugin-sdk/proto/gen"
+	"github.com/nomatronio/derrick/builtin/k8s/internal/manifest"
 )
 
 func FromManifest(

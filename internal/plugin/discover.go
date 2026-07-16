@@ -82,7 +82,7 @@ func Discover(cfg *Config, paths []string) (*exec.Cmd, error) {
 //   - "$pwd/.waypoint/plugins"
 //   - "$XDG_CONFIG_DIR/waypoint/plugins"
 func DefaultPaths(pwd string) ([]string, error) {
-	xdgPath, err := xdg.ConfigFile("waypoint/plugins/.ignore")
+	xdgPath, err := xdg.ConfigFile("derrick/plugins/.ignore")
 	if err != nil {
 		return nil, err
 	}

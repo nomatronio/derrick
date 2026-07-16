@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointEntrypointExecRequestExit hashicorp waypoint entrypoint exec request exit
 //
-// swagger:model hashicorp.waypoint.EntrypointExecRequest.Exit
+// swagger:model nomatron.derrick.EntrypointExecRequest.Exit
 type HashicorpWaypointEntrypointExecRequestExit struct {
 
 	// code

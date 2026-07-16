@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointSetConfigSourceRequest hashicorp waypoint set config source request
 //
-// swagger:model hashicorp.waypoint.SetConfigSourceRequest
+// swagger:model nomatron.derrick.SetConfigSourceRequest
 type HashicorpWaypointSetConfigSourceRequest struct {
 
 	// config source

@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointUIGetProjectResponse hashicorp waypoint UI get project response
 //
-// swagger:model hashicorp.waypoint.UI.GetProjectResponse
+// swagger:model nomatron.derrick.UI.GetProjectResponse
 type HashicorpWaypointUIGetProjectResponse struct {
 
 	// latest init job

@@ -13,7 +13,7 @@ import (
 	testing "github.com/mitchellh/go-testing-interface"
 	"github.com/stretchr/testify/require"
 
-	"github.com/hashicorp/waypoint/builtin/vault/freeport"
+	"github.com/nomatronio/derrick/builtin/vault/freeport"
 )
 
 // TestVault starts a new dev-mode Vault cluster and returns a client that

@@ -39,7 +39,7 @@ import (
 //   - ADOPTED: Explicitly adopted. Runner will get a token on handshake.
 //   - REJECTED: Explicitly rejected. Runner will error immediately on startup.
 //
-// swagger:model hashicorp.waypoint.Runner.AdoptionState
+// swagger:model nomatron.derrick.Runner.AdoptionState
 type HashicorpWaypointRunnerAdoptionState string
 
 func NewHashicorpWaypointRunnerAdoptionState(value HashicorpWaypointRunnerAdoptionState) *HashicorpWaypointRunnerAdoptionState {

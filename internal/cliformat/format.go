@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"strings"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
 )
 
 // FormatTableJson takes a waypoint-plugin-sdk.terminal Table and remaps it

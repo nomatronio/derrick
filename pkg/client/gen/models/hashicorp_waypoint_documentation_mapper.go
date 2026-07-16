@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointDocumentationMapper hashicorp waypoint documentation mapper
 //
-// swagger:model hashicorp.waypoint.Documentation.Mapper
+// swagger:model nomatron.derrick.Documentation.Mapper
 type HashicorpWaypointDocumentationMapper struct {
 
 	// description

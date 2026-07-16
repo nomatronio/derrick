@@ -7,8 +7,8 @@ import (
 
 	"github.com/hashicorp/go-hclog"
 
-	"github.com/hashicorp/waypoint/pkg/server"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick/pkg/server"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 // Run initializes and starts the server. This will block until the server
@@ -106,7 +106,7 @@ type options struct {
 	Logger hclog.Logger
 
 	// Service is the backend service implementation to use for the server.
-	Service pb.WaypointServer
+	Service pb.DerrickServer
 
 	// GRPCListener will setup the gRPC server. If this is nil, then a
 	// random loopback port will be chosen. The gRPC server must run since it
@@ -155,7 +155,7 @@ func WithHTTP(ln net.Listener) Option {
 }
 
 // WithImpl sets the service implementation to serve.
-func WithImpl(impl pb.WaypointServer) Option {
+func WithImpl(impl pb.DerrickServer) Option {
 	return func(opts *options) { opts.Service = impl }
 }
 

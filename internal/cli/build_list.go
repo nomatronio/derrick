@@ -8,13 +8,13 @@ import (
 	"github.com/dustin/go-humanize"
 	"github.com/posener/complete"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
 
-	clientpkg "github.com/hashicorp/waypoint/internal/client"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	serversort "github.com/hashicorp/waypoint/pkg/server/sort"
+	clientpkg "github.com/nomatronio/derrick/internal/client"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	serversort "github.com/nomatronio/derrick/pkg/server/sort"
 )
 
 type BuildListCommand struct {
@@ -148,7 +148,7 @@ func (c *BuildListCommand) Synopsis() string {
 
 func (c *BuildListCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint artifact list-builds [options]
+Usage: derrick artifact list-builds [options]
 
 List artifacts created from a build. An artifact is the result of a build or
 registry. This is the metadata only. The binary contents of an artifact are

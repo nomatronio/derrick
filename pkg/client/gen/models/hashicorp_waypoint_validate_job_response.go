@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointValidateJobResponse hashicorp waypoint validate job response
 //
-// swagger:model hashicorp.waypoint.ValidateJobResponse
+// swagger:model nomatron.derrick.ValidateJobResponse
 type HashicorpWaypointValidateJobResponse struct {
 
 	// assignable will be true if the job is assignable at this point-in-time.

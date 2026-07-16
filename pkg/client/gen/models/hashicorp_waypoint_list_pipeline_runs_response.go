@@ -16,7 +16,7 @@ import (
 
 // HashicorpWaypointListPipelineRunsResponse hashicorp waypoint list pipeline runs response
 //
-// swagger:model hashicorp.waypoint.ListPipelineRunsResponse
+// swagger:model nomatron.derrick.ListPipelineRunsResponse
 type HashicorpWaypointListPipelineRunsResponse struct {
 
 	// All of the listed pipelines

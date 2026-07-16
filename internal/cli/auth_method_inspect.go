@@ -3,10 +3,10 @@ package cli
 import (
 	"fmt"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 	"github.com/posener/complete"
 )
 
@@ -74,7 +74,7 @@ func (c *AuthMethodInspectCommand) Synopsis() string {
 
 func (c *AuthMethodInspectCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint auth-method inspect NAME
+Usage: derrick auth-method inspect NAME
 
   Show detailed information about a configured auth method.
 
@@ -83,6 +83,6 @@ Usage: waypoint auth-method inspect NAME
 
 const outInspectToken = `
 The token auth method has no additional configuration. The token auth
-method is the most fundamental auth method in Waypoint and can't be disabled.
+method is the most fundamental auth method in Derrick and can't be disabled.
 This auth method accepts an API token for authentication.
 `

@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointConfigVarDynamicVal DynamicVal is the configuration for dynamic values for configuration.
 //
-// swagger:model hashicorp.waypoint.ConfigVar.DynamicVal
+// swagger:model nomatron.derrick.ConfigVar.DynamicVal
 type HashicorpWaypointConfigVarDynamicVal struct {
 
 	// config is the configuration for the config source plugin that

@@ -15,8 +15,8 @@ import (
 
 	wphznpb "github.com/hashicorp/waypoint-hzn/pkg/pb"
 
-	"github.com/hashicorp/waypoint/internal/pkg/grpcready"
-	"github.com/hashicorp/waypoint/internal/serverconfig"
+	"github.com/nomatronio/derrick/internal/pkg/grpcready"
+	"github.com/nomatronio/derrick/internal/serverconfig"
 )
 
 // urlClient returns the URL service client. This may return nil if the

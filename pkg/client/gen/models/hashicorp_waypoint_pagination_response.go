@@ -15,7 +15,7 @@ import (
 // HashicorpWaypointPaginationResponse PaginationResponse is the response holding the page tokens for a paginated
 // list response.
 //
-// swagger:model hashicorp.waypoint.PaginationResponse
+// swagger:model nomatron.derrick.PaginationResponse
 type HashicorpWaypointPaginationResponse struct {
 
 	// This token allows you to get the next page of results for list requests.

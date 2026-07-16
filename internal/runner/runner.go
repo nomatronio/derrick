@@ -12,13 +12,13 @@ import (
 	"google.golang.org/grpc/metadata"
 	"google.golang.org/grpc/status"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/component"
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/factory"
-	"github.com/hashicorp/waypoint/internal/plugin"
-	"github.com/hashicorp/waypoint/pkg/server"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	"github.com/hashicorp/waypoint/pkg/tokenutil"
+	"github.com/nomatronio/derrick-plugin-sdk/component"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/factory"
+	"github.com/nomatronio/derrick/internal/plugin"
+	"github.com/nomatronio/derrick/pkg/server"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	"github.com/nomatronio/derrick/pkg/tokenutil"
 )
 
 var (
@@ -30,7 +30,7 @@ const (
 	// envLogLevel is the env var to set with the log level. This
 	// env var matches the Waypoint CLI on purpose. This can be set on
 	// the runner process OR via app config (`waypoint config`).
-	envLogLevel = "WAYPOINT_LOG_LEVEL"
+	envLogLevel = "DERRICK_LOG_LEVEL"
 )
 
 // Runners in Waypoint execute operations. These can be local (the CLI)
@@ -55,7 +55,7 @@ const (
 type Runner struct {
 	id          string
 	logger      hclog.Logger
-	client      pb.WaypointClient
+	client      pb.DerrickClient
 	cookie      string
 	cleanupFunc func()
 	runner      *pb.Runner
@@ -421,7 +421,7 @@ type Option func(*Runner, *config) error
 // If this is specified, the client MUST use a tokenutil.ContextToken
 // type for the PerRPCCredentials setting. This package and others will use
 // context overrides for the token. If you do not use this, things will break.
-func WithClient(client pb.WaypointClient) Option {
+func WithClient(client pb.DerrickClient) Option {
 	return func(r *Runner, cfg *config) error {
 		r.client = client
 		return nil

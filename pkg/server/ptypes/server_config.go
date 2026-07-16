@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/go-testing-interface"
 	"github.com/stretchr/testify/require"
 
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 func TestServerConfig(t testing.T, src *pb.ServerConfig) *pb.ServerConfig {

@@ -27,7 +27,7 @@ registry {
 
 ### Required Parameters
 
-These parameters are used in the [`use` stanza](/waypoint/docs/waypoint-hcl/use) for this plugin.
+These parameters are used in the [`use` stanza](/waypoint/docs/derrick-hcl/use) for this plugin.
 
 #### tag
 
@@ -37,7 +37,7 @@ The docker tag to assign to the new image.
 
 ### Optional Parameters
 
-These parameters are used in the [`use` stanza](/waypoint/docs/waypoint-hcl/use) for this plugin.
+These parameters are used in the [`use` stanza](/waypoint/docs/derrick-hcl/use) for this plugin.
 
 #### region
 
@@ -53,14 +53,14 @@ If not set uses the environment variable AWS_REGION or AWS_REGION_DEFAULT.
 
 The ECR repository to store the image into.
 
-This defaults to waypoint- then the application name. The repository will be automatically created if needed.
+This defaults to derrick- then the application name. The repository will be automatically created if needed.
 
 - Type: **string**
 - **Optional**
 
 ### Output Attributes
 
-Output attributes can be used in your `waypoint.hcl` as [variables](/waypoint/docs/waypoint-hcl/variables) via [`artifact`](/waypoint/docs/waypoint-hcl/variables/artifact) or [`deploy`](/waypoint/docs/waypoint-hcl/variables/deploy).
+Output attributes can be used in your `derrick.hcl` as [variables](/waypoint/docs/derrick-hcl/variables) via [`artifact`](/waypoint/docs/derrick-hcl/variables/artifact) or [`deploy`](/waypoint/docs/derrick-hcl/variables/deploy).
 
 #### architecture
 

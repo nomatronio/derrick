@@ -16,7 +16,7 @@ import (
 
 // HashicorpWaypointRunnerConfig hashicorp waypoint runner config
 //
-// swagger:model hashicorp.waypoint.RunnerConfig
+// swagger:model nomatron.derrick.RunnerConfig
 type HashicorpWaypointRunnerConfig struct {
 
 	// The configuration for any config sources that may be used in the

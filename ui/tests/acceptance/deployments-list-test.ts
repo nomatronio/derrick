@@ -4,7 +4,7 @@ import { module, test } from 'qunit';
 
 import { setupApplicationTest } from 'ember-qunit';
 import { setupMirage } from 'ember-cli-mirage/test-support';
-import { setupSession } from 'waypoint/tests/helpers/login';
+import { setupSession } from 'derrick/tests/helpers/login';
 
 const url = '/default/microchip/app/wp-bandwidth/deployments';
 const emptyStateUrl = '/default/microchip/app/wp-bandwidth/deployments';
@@ -40,7 +40,7 @@ module('Acceptance | deployments list', function (hooks) {
     assert.equal(page.operationStatuses.length, 3);
     assert.equal(page.gitCommits.length, 3);
     assert.equal(page.healthCheckOrDeployUrls[1].text, 'Starting…');
-    assert.equal(page.healthCheckOrDeployUrls[0].text, 'wildly-intent-honeybee--v2.waypoint.run');
+    assert.equal(page.healthCheckOrDeployUrls[0].text, 'wildly-intent-honeybee--v2.derrick.run');
   });
 
   test('visiting deployments page redirects to latest', async function (assert) {

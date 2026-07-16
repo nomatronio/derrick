@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointJobProjectDestroyResult hashicorp waypoint job project destroy result
 //
-// swagger:model hashicorp.waypoint.Job.ProjectDestroyResult
+// swagger:model nomatron.derrick.Job.ProjectDestroyResult
 type HashicorpWaypointJobProjectDestroyResult struct {
 
 	// job id

@@ -16,7 +16,7 @@ import (
 // HashicorpWaypointTokenTransport The outer structure of the token that is directly Marshaled and
 // ASCII armored.
 //
-// swagger:model hashicorp.waypoint.TokenTransport
+// swagger:model nomatron.derrick.TokenTransport
 type HashicorpWaypointTokenTransport struct {
 
 	// A Marshaled token, stored as bytes because we need to to validate

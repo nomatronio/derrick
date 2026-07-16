@@ -7,5 +7,5 @@ package models
 
 // HashicorpWaypointJobConfigSyncOp hashicorp waypoint job config sync op
 //
-// swagger:model hashicorp.waypoint.Job.ConfigSyncOp
+// swagger:model nomatron.derrick.Job.ConfigSyncOp
 type HashicorpWaypointJobConfigSyncOp interface{}

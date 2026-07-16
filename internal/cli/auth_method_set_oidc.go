@@ -1,10 +1,10 @@
 package cli
 
 import (
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 	"github.com/posener/complete"
 )
 
@@ -156,7 +156,7 @@ func (c *AuthMethodSetOIDCCommand) Synopsis() string {
 
 func (c *AuthMethodSetOIDCCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint auth-method set oidc [options] NAME
+Usage: derrick auth-method set oidc [options] NAME
 
   Configure an OIDC auth method.
 

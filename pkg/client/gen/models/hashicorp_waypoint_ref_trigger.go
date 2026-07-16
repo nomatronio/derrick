@@ -15,7 +15,7 @@ import (
 // HashicorpWaypointRefTrigger Trigger references a Trigger message value to be used for a given operation.
 // It can be looked up by id.
 //
-// swagger:model hashicorp.waypoint.Ref.Trigger
+// swagger:model nomatron.derrick.Ref.Trigger
 type HashicorpWaypointRefTrigger struct {
 
 	// id

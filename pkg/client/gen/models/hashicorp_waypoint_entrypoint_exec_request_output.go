@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointEntrypointExecRequestOutput hashicorp waypoint entrypoint exec request output
 //
-// swagger:model hashicorp.waypoint.EntrypointExecRequest.Output
+// swagger:model nomatron.derrick.EntrypointExecRequest.Output
 type HashicorpWaypointEntrypointExecRequestOutput struct {
 
 	// channel

@@ -1,10 +1,10 @@
 package cli
 
 import (
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 	"github.com/posener/complete"
 )
 
@@ -83,9 +83,9 @@ func (c *WorkspaceCreateCommand) Synopsis() string {
 
 func (c *WorkspaceCreateCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint workspace create [options] <name>
+Usage: derrick workspace create [options] <name>
 
-  Create a workspace in Waypoint with the given value. If a workspace with the
+  Create a workspace in Derrick with the given value. If a workspace with the
   given name already exists, no error will be returned. This command ignores
   the -workspace flag.
 

@@ -1,6 +1,6 @@
-# Waypoint Documentation Website
+# Derrick Documentation Website
 
-This subdirectory contains the content for the [Waypoint Reference Documentation](https://developer.hashicorp.com/waypoint/docs).
+This subdirectory contains the content for the [Derrick Reference Documentation](https://derrick.dev/docs/docs).
 
 <!--
   This readme file contains several blocks of generated text, to make it easier to share common information

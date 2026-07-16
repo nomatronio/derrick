@@ -16,7 +16,7 @@ import (
 
 // HashicorpWaypointListTaskResponse hashicorp waypoint list task response
 //
-// swagger:model hashicorp.waypoint.ListTaskResponse
+// swagger:model nomatron.derrick.ListTaskResponse
 type HashicorpWaypointListTaskResponse struct {
 
 	// An array of all available Tasks and their jobs

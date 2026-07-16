@@ -9,7 +9,7 @@ export default class OnboardingInstallIndex extends Route {
       case 'Mac OS':
         this.transitionTo('onboarding.install.homebrew');
         return;
-      // There isn't yet a chocolatey package for Waypoint
+      // There isn't yet a chocolatey package for Derrick
       // case 'Windows':
       //   return this.transitionTo('onboarding.install.chocolatey');
       case 'Debian':

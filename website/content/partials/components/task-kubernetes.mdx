@@ -1,6 +1,6 @@
 ## kubernetes (task)
 
-Launch a Kubernetes pod for on-demand tasks from the Waypoint server.
+Launch a Kubernetes pod for on-demand tasks from the Derrick server.
 
 This will use the standard Kubernetes environment variables to source
 authentication information for Kubernetes. If this is running within Kubernetes
@@ -20,7 +20,7 @@ task {
 
 ### Required Parameters
 
-These parameters are used in the [`use` stanza](/waypoint/docs/waypoint-hcl/use) for this plugin.
+These parameters are used in the [`use` stanza](/waypoint/docs/derrick-hcl/use) for this plugin.
 
 #### security_context
 
@@ -28,7 +28,7 @@ These parameters are used in the [`use` stanza](/waypoint/docs/waypoint-hcl/use)
 
 ### Optional Parameters
 
-These parameters are used in the [`use` stanza](/waypoint/docs/waypoint-hcl/use) for this plugin.
+These parameters are used in the [`use` stanza](/waypoint/docs/derrick-hcl/use) for this plugin.
 
 #### context
 
@@ -62,7 +62,7 @@ Pull policy to use for the task container image.
 
 Name of the Kubernetes secret to use for the image.
 
-This references an existing secret; Waypoint does not create this secret.
+This references an existing secret; Derrick does not create this secret.
 
 - Type: **string**
 - **Optional**
@@ -110,7 +110,7 @@ This option configures how long the WatchTask should wait for a task pod to star
 
 ### Output Attributes
 
-Output attributes can be used in your `waypoint.hcl` as [variables](/waypoint/docs/waypoint-hcl/variables) via [`artifact`](/waypoint/docs/waypoint-hcl/variables/artifact) or [`deploy`](/waypoint/docs/waypoint-hcl/variables/deploy).
+Output attributes can be used in your `derrick.hcl` as [variables](/waypoint/docs/derrick-hcl/variables) via [`artifact`](/waypoint/docs/derrick-hcl/variables/artifact) or [`deploy`](/waypoint/docs/derrick-hcl/variables/deploy).
 
 #### id
 

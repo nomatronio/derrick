@@ -16,7 +16,7 @@ import (
 // HashicorpWaypointJobPipelineStepResult Note that since we run pipeline steps as jobs, the output of the pipeline
 // execution is in the job log.
 //
-// swagger:model hashicorp.waypoint.Job.PipelineStepResult
+// swagger:model nomatron.derrick.Job.PipelineStepResult
 type HashicorpWaypointJobPipelineStepResult struct {
 
 	// The resulting status from the pipeline step execution. This will

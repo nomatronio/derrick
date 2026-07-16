@@ -16,7 +16,7 @@ import (
 
 // HashicorpWaypointListPushedArtifactsResponse hashicorp waypoint list pushed artifacts response
 //
-// swagger:model hashicorp.waypoint.ListPushedArtifactsResponse
+// swagger:model nomatron.derrick.ListPushedArtifactsResponse
 type HashicorpWaypointListPushedArtifactsResponse struct {
 
 	// artifacts is the list of artifacts.

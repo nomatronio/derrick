@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointReleasePreload hashicorp waypoint release preload
 //
-// swagger:model hashicorp.waypoint.Release.Preload
+// swagger:model nomatron.derrick.Release.Preload
 type HashicorpWaypointReleasePreload struct {
 
 	// Populated when LoadDetails is set.

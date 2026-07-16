@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointJobQueueProjectResultApplication hashicorp waypoint job queue project result application
 //
-// swagger:model hashicorp.waypoint.Job.QueueProjectResult.Application
+// swagger:model nomatron.derrick.Job.QueueProjectResult.Application
 type HashicorpWaypointJobQueueProjectResultApplication struct {
 
 	// Application that was queued.

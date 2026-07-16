@@ -5,10 +5,10 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 type TriggerDeleteCommand struct {
@@ -84,9 +84,9 @@ func (c *TriggerDeleteCommand) Synopsis() string {
 
 func (c *TriggerDeleteCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint trigger delete [options] <trigger-id>
+Usage: derrick trigger delete [options] <trigger-id>
 
-  Delete a trigger URL from Waypoint Server.
+  Delete a trigger URL from Derrick Server.
 
 ` + c.Flags().Help())
 }

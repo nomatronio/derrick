@@ -1,13 +1,13 @@
 ---
 layout: docs
-page_title: Blue-Green Deployments with Waypoint, Nomad and Consul
+page_title: Blue-Green Deployments with Derrick, Nomad and Consul
 description: |-
-  Waypoint enables advanced deployment workflows like blue-green deployments, orchestrated with Nomad and Consul.
+  Derrick enables advanced deployment workflows like blue-green deployments, orchestrated with Nomad and Consul.
 ---
 
-# Blue-Green Deployments with Waypoint, Nomad and Consul
+# Blue-Green Deployments with Derrick, Nomad and Consul
 
-In addition to common methods of deploying applications, HashiCorp Waypoint supports
+In addition to common methods of deploying applications, Derrick supports
 the orchestration of advanced deployment workflows, such as blue-green deployments.
 A blue-green deployment is where a new version of an application is deployed alongside
 the existing version in a separate environment. While both versions are running, DNS is
@@ -39,27 +39,27 @@ are running to split some percentage of traffic between the resolver for the new
 and old instances of the service.
 
 To achieve this, a series of commands or API calls would need to be run manually,
-or automated through scripts or some other means; but [Waypoint pipelines](/waypoint/docs/pipelines)
-can orchestrate this! Waypoint pipelines can execute configured phases of your app's build, deployment,
+or automated through scripts or some other means; but [Derrick pipelines](/waypoint/docs/pipelines)
+can orchestrate this! Derrick pipelines can execute configured phases of your app's build, deployment,
 and release lifecycle, and run custom steps such as modifying Consul config
 entries to configure DNS to route traffic to your canary deployment instances.
 
 An example where this is configured is located [here](https://github.com/paladin-devops/hashitalks-deploy-blue-green).
-The Waypoint configuration file contains three pipelines, and each one will be
+The Derrick configuration file contains three pipelines, and each one will be
 described in this use case.
 
-## Waypoint Configuration
+## Derrick Configuration
 
 ### Pre-Requisites
 
 If experimenting with this use case, it will be helpful to have some familiarity
 with the tools and concepts listed below.
 
-- [Waypoint CLI](/waypoint/downloads)
-  - [Context created](/waypoint/docs/server/auth#logging-in) and connected to local Waypoint server or HCP Waypoint server
-- Waypoint [runner](/waypoint/docs/runner/run-manual#installing-a-runner)
+- [Derrick CLI](/waypoint/downloads)
+  - [Context created](/waypoint/docs/server/auth#logging-in) and connected to local Derrick server or HCP Derrick server
+- Derrick [runner](/waypoint/docs/runner/run-manual#installing-a-runner)
   - Must be able to connect to HashiCorp Nomad & HashiCorp Consul clusters
-- Waypoint [runner configuration](/waypoint/docs/runner/config)
+- Derrick [runner configuration](/waypoint/docs/runner/config)
   - Used to connect to HashiCorp Nomad
 - Docker registry
   - Credentials to push a build to the registry
@@ -94,7 +94,7 @@ pipeline "build-and-blue-green-deployment" {
 ```
 
 The `build` step uses the `build` stanza of the "app" that is configured later in
-the Waypoint configuration. This build uses the build pack plugin to build an image
+the Derrick configuration. This build uses the build pack plugin to build an image
 and then pushes it to a Docker registry.
 
 ```hcl
@@ -317,14 +317,14 @@ remote runner is already installed, with the correct configurations to connect
 to the Nomad cluster.
 
 ```shell
-# NOTE: The Waypoint configuration requires variables to be set - these were set
+# NOTE: The Derrick configuration requires variables to be set - these were set
 # in the environment prior to the pipeline run. Learn more here:
-# http://developer.hashicorp.com/waypoint/docs/waypoint-hcl/variables/input#environment-variables
-$ waypoint pipeline run build-and-blue-green-deployment
+# http://derrick.dev/docs/docs/derrick-hcl/variables/input#environment-variables
+$ derrick pipeline run build-and-blue-green-deployment
 ```
 
 At the conclusion of this pipeline run, the job is expected to be up and running
-in Nomad. This can be verified in Nomad directly, or with Waypoint!
+in Nomad. This can be verified in Nomad directly, or with Derrick!
 
 ```shell
 $ nomad job status -short my-app
@@ -339,7 +339,7 @@ Status        = running
 Periodic      = false
 Parameterized = false
 
-$ waypoint status -refresh
+$ derrick status -refresh
 ✓ Finished refreshing app statuses in project "hashitalks-deploy-blue-green"
 
 ...
@@ -359,9 +359,9 @@ The Nomad UI also shows that the job is up and running with one allocation.
 
 ![Blue Deployment in Nomad](/img/use-cases/blue-green-deployment/blue-deployment-nomad-ui.png)
 
-The Waypoint UI indicates that the deployment is running too!
+The Derrick UI indicates that the deployment is running too!
 
-![Blue Deployment in Waypoint](/img/use-cases/blue-green-deployment/blue-deployment-waypoint-ui.png)
+![Blue Deployment in Derrick](/img/use-cases/blue-green-deployment/blue-deployment-waypoint-ui.png)
 
 And of course, `curl`-ing the application at the address and port will say:
 
@@ -388,9 +388,9 @@ connection:
 - PORT
 - DBNAME
 
-The `config` stanza in the Waypoint configuration file will set these variables
+The `config` stanza in the Derrick configuration file will set these variables
 in the application's environment dynamically. You can learn more about this in
-the [Waypoint documentation on config variables](/waypoint/docs/waypoint-hcl/config).
+the [Derrick documentation on config variables](/waypoint/docs/derrick-hcl/config).
 
 Any change could be made to this application though, not just database connections.
 But with a new change in place, and pushed to the git repository, it's time to
@@ -398,7 +398,7 @@ rebuild the application, start the canary deployment, and split traffic to the
 new version of the application, by starting the pipeline once more:
 
 ```shell
-$ waypoint pipeline run build-and-blue-green-deployment
+$ derrick pipeline run build-and-blue-green-deployment
 ```
 
 This time around, the Nomad UI indicates that there is indeed a canary allocation,
@@ -439,7 +439,7 @@ running the older version of the app, and the update to the service splitter wil
 be made, to route all traffic to the remaining instance, tagged blue.
 
 ```shell
-$ waypoint pipeline run promotion-and-normalize-traffic
+$ derrick pipeline run promotion-and-normalize-traffic
 ```
 
 In Nomad, it is evident that there are no more canary allocations, and the app is
@@ -459,9 +459,9 @@ minimizing downtime and user impact.
 
 ## Further Reading
 
-- [Waypoint Pipelines](/waypoint/docs/pipelines)
-- [Waypoint Plugins](/waypoint/docs/plugins)
+- [Derrick Pipelines](/waypoint/docs/pipelines)
+- [Derrick Plugins](/waypoint/docs/plugins)
 - [Nomad Blue-Green Deployment](/nomad/tutorials/job-updates/job-blue-green-and-canary-deployments)
-- [Terraform Provider for Waypoint](https://registry.terraform.io/providers/hashicorp-dev-advocates/waypoint)
+- [Terraform Provider for Derrick](https://registry.terraform.io/providers/hashicorp-dev-advocates/waypoint)
 - [Consul Service Splitter Config Entries](/consul/docs/connect/config-entries/service-splitter)
 - [Consul Service Resolver Config Entries](/consul/docs/connect/config-entries/service-resolver)

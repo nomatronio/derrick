@@ -15,7 +15,7 @@ import (
 // HashicorpWaypointJobUpResult UpResult is the result of an UpOp. Because "up" calls other operations,
 // the Result message will set the build, deploy, push, and release results.
 //
-// swagger:model hashicorp.waypoint.Job.UpResult
+// swagger:model nomatron.derrick.Job.UpResult
 type HashicorpWaypointJobUpResult struct {
 
 	// app_url is the HashiCorp URL service URL for the entire application.

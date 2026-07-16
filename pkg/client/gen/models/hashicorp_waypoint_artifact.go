@@ -16,7 +16,7 @@ import (
 // HashicorpWaypointArtifact Artifact is the result of a build or registry. This is the metadata only.
 // The binary contents of an artifact are expected to be stored in a registry.
 //
-// swagger:model hashicorp.waypoint.Artifact
+// swagger:model nomatron.derrick.Artifact
 type HashicorpWaypointArtifact struct {
 
 	// artifact is the full artifact encoded directly from the component plugin.

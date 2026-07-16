@@ -18,7 +18,7 @@ import (
 // within Waypoint from multiple auth sources (i.e. GitHub auth,
 // user/pass, etc.).
 //
-// swagger:model hashicorp.waypoint.User.Link
+// swagger:model nomatron.derrick.User.Link
 type HashicorpWaypointUserLink struct {
 
 	// oidc

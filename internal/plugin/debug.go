@@ -7,7 +7,7 @@ import (
 	"strings"
 
 	goplugin "github.com/hashicorp/go-plugin"
-	sdk "github.com/hashicorp/waypoint-plugin-sdk"
+	sdk "github.com/nomatronio/derrick-plugin-sdk"
 )
 
 // ParseReattachPlugins parses information on reattaching to plugins out of a JSON-encoded environment variable.

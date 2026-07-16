@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointUpsertReleaseResponse hashicorp waypoint upsert release response
 //
-// swagger:model hashicorp.waypoint.UpsertReleaseResponse
+// swagger:model nomatron.derrick.UpsertReleaseResponse
 type HashicorpWaypointUpsertReleaseResponse struct {
 
 	// resulting object, you should replace this with what was sent in the request

@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointGetPipelineRunResponse hashicorp waypoint get pipeline run response
 //
-// swagger:model hashicorp.waypoint.GetPipelineRunResponse
+// swagger:model nomatron.derrick.GetPipelineRunResponse
 type HashicorpWaypointGetPipelineRunResponse struct {
 
 	// A single pipeline run

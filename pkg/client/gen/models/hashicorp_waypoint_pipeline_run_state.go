@@ -16,7 +16,7 @@ import (
 
 // HashicorpWaypointPipelineRunState hashicorp waypoint pipeline run state
 //
-// swagger:model hashicorp.waypoint.PipelineRun.State
+// swagger:model nomatron.derrick.PipelineRun.State
 type HashicorpWaypointPipelineRunState string
 
 func NewHashicorpWaypointPipelineRunState(value HashicorpWaypointPipelineRunState) *HashicorpWaypointPipelineRunState {

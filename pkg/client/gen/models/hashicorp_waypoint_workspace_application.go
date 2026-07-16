@@ -16,7 +16,7 @@ import (
 
 // HashicorpWaypointWorkspaceApplication hashicorp waypoint workspace application
 //
-// swagger:model hashicorp.waypoint.Workspace.Application
+// swagger:model nomatron.derrick.Workspace.Application
 type HashicorpWaypointWorkspaceApplication struct {
 
 	// active_time is the last time that this application was active

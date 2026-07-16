@@ -1,10 +1,10 @@
-import { ConfigVar, Project } from 'waypoint-pb';
+import { ConfigVar, Project } from 'derrick-pb';
 
-import ApiService from 'waypoint/services/api';
+import ApiService from 'derrick/services/api';
 import { BufferedChangeset } from 'ember-changeset/types';
 import { Changeset } from 'ember-changeset';
 import Component from '@glimmer/component';
-import FlashMessagesService from 'waypoint/services/pds-flash-messages';
+import FlashMessagesService from 'derrick/services/pds-flash-messages';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';

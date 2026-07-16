@@ -12,10 +12,10 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// HashicorpWaypointServerConfigAdvertiseAddr hashicorp waypoint server config advertise addr
+// HashicorpDerrickServerConfigAdvertiseAddr hashicorp waypoint server config advertise addr
 //
-// swagger:model hashicorp.waypoint.ServerConfig.AdvertiseAddr
-type HashicorpWaypointServerConfigAdvertiseAddr struct {
+// swagger:model nomatron.derrick.ServerConfig.AdvertiseAddr
+type HashicorpDerrickServerConfigAdvertiseAddr struct {
 
 	// addr
 	Addr string `json:"addr,omitempty"`
@@ -28,17 +28,17 @@ type HashicorpWaypointServerConfigAdvertiseAddr struct {
 }
 
 // Validate validates this hashicorp waypoint server config advertise addr
-func (m *HashicorpWaypointServerConfigAdvertiseAddr) Validate(formats strfmt.Registry) error {
+func (m *HashicorpDerrickServerConfigAdvertiseAddr) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
 // ContextValidate validates this hashicorp waypoint server config advertise addr based on context it is used
-func (m *HashicorpWaypointServerConfigAdvertiseAddr) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+func (m *HashicorpDerrickServerConfigAdvertiseAddr) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 
 // MarshalBinary interface implementation
-func (m *HashicorpWaypointServerConfigAdvertiseAddr) MarshalBinary() ([]byte, error) {
+func (m *HashicorpDerrickServerConfigAdvertiseAddr) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -46,8 +46,8 @@ func (m *HashicorpWaypointServerConfigAdvertiseAddr) MarshalBinary() ([]byte, er
 }
 
 // UnmarshalBinary interface implementation
-func (m *HashicorpWaypointServerConfigAdvertiseAddr) UnmarshalBinary(b []byte) error {
-	var res HashicorpWaypointServerConfigAdvertiseAddr
+func (m *HashicorpDerrickServerConfigAdvertiseAddr) UnmarshalBinary(b []byte) error {
+	var res HashicorpDerrickServerConfigAdvertiseAddr
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

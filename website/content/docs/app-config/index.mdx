@@ -2,44 +2,44 @@
 layout: docs
 page_title: Application Configuration
 description: |-
-  Waypoint can configure your application by setting environment variables and writing files. Both the environment variables and files can use values sourced from external systems such as Kubernetes ConfigMaps, HashiCorp Vault, Amazon Parameter Store, etc.
+  Derrick can configure your application by setting environment variables and writing files. Both the environment variables and files can use values sourced from external systems such as Kubernetes ConfigMaps, HashiCorp Vault, Amazon Parameter Store, etc.
 ---
 
 # Application Configuration
 
-Waypoint can configure your application by setting environment variables
+Derrick can configure your application by setting environment variables
 and writing files. Both the environment variables and files can use
 values sourced from external systems such as Kubernetes ConfigMaps,
 HashiCorp Vault, Amazon Parameter Store, etc.
 
 Application configuration can be set two ways. First, it may be set using the
-[`config` stanza](/waypoint/docs/waypoint-hcl/config) in the `waypoint.hcl` file. You
-may also use the [`waypoint config`](/waypoint/commands/config-set) CLI command, but this
+[`config` stanza](/waypoint/docs/derrick-hcl/config) in the `derrick.hcl` file. You
+may also use the [`derrick config`](/waypoint/commands/config-set) CLI command, but this
 can only be used for environment variables.
 
-When configuration values change, Waypoint will automatically
+When configuration values change, Derrick will automatically
 [restart your application](#application-restart-behavior).
 
-This functionality requires the [Waypoint entrypoint](/waypoint/docs/entrypoint).
+This functionality requires the [Derrick entrypoint](/waypoint/docs/entrypoint).
 
 ## Setting Configuration via the CLI
 
-Static configuration are values that are set directly using [`waypoint config set`](/waypoint/commands/config-set).
-They are "static" because they are set with a predetermined value directly on the Waypoint
+Static configuration are values that are set directly using [`derrick config set`](/waypoint/commands/config-set).
+They are "static" because they are set with a predetermined value directly on the Derrick
 server.
 
 ```shell-session
-$ waypoint config set DATABASE_URL="postgresql://example.com:5432"
+$ derrick config set DATABASE_URL="postgresql://example.com:5432"
 ```
 
 This will make the `DATABASE_URL` environment variable present with the
 given value for all deployed applications. For already-deployed applications,
-Waypoint will [restart running applications](#application-restart-behavior)
+Derrick will [restart running applications](#application-restart-behavior)
 when configuration changes.
 
 ### Project Scope
 
-[`waypoint config set`](/waypoint/commands/config-set) will set variables by default scoped to the _project_.
+[`derrick config set`](/waypoint/commands/config-set) will set variables by default scoped to the _project_.
 This means that all applications within your project will have the environment
 variable set.
 
@@ -50,14 +50,14 @@ For this scope, only a specific application in the project will have the
 configuration set.
 
 ```shell-session
-$ waypoint config set -app web PORT=8080
+$ derrick config set -app web PORT=8080
 ```
 
-## Setting Configuration via `waypoint.hcl`
+## Setting Configuration via `derrick.hcl`
 
-Configuration can also be set directly in the `waypoint.hcl` file using
-the [`config` stanza](/waypoint/docs/waypoint-hcl/config). The example below achieves
-the same thing as the [`waypoint config set`](/waypoint/commands/config-set) example in the [section above](/waypoint/docs/app-config#setting-configuration-via-the-cli).
+Configuration can also be set directly in the `derrick.hcl` file using
+the [`config` stanza](/waypoint/docs/derrick-hcl/config). The example below achieves
+the same thing as the [`derrick config set`](/waypoint/commands/config-set) example in the [section above](/waypoint/docs/app-config#setting-configuration-via-the-cli).
 
 ```hcl
 config {
@@ -67,27 +67,27 @@ config {
 }
 ```
 
-Configuration specified in the `waypoint.hcl` file has a number of benefits:
+Configuration specified in the `derrick.hcl` file has a number of benefits:
 
-- The configuration is made available immediately during all lifecycle operations (such as [`waypoint up`](/waypoint/commands/up), [`waypoint deploy`](/waypoint/commands/deploy), etc.).
+- The configuration is made available immediately during all lifecycle operations (such as [`derrick up`](/waypoint/commands/up), [`derrick deploy`](/waypoint/commands/deploy), etc.).
 
 - The configuration is persisted as code and can be committed to version control.
 
 - The configuration can make use of
-  [functions](/waypoint/docs/waypoint-hcl/functions) and
-  [variables](/waypoint/docs/waypoint-hcl/variables) to compute the keys and values.
+  [functions](/waypoint/docs/derrick-hcl/functions) and
+  [variables](/waypoint/docs/derrick-hcl/variables) to compute the keys and values.
 
 ### Updating the Configuration of Existing Deployments
 
-Changes to configuration within the `waypoint.hcl` file take effect
-whenever a new deploy occurs (such as via a [`waypoint up`](/waypoint/commands/up) or [`waypoint deploy`](/waypoint/commands/deploy)).
+Changes to configuration within the `derrick.hcl` file take effect
+whenever a new deploy occurs (such as via a [`derrick up`](/waypoint/commands/up) or [`derrick deploy`](/waypoint/commands/deploy)).
 Existing deployments can be updated without
-a new deploy by using the [`waypoint config sync`](/waypoint/commands/config-sync) CLI command.
+a new deploy by using the [`derrick config sync`](/waypoint/commands/config-sync) CLI command.
 
 When configuration changes take effect, any changes will affect
 _all deployments_ of that project or application. Practically, this
-means if you change a configuration value in the `waypoint.hcl` file
-and run [`waypoint up`](/waypoint/commands/up), the new deployment as well as any previous deployments
+means if you change a configuration value in the `derrick.hcl` file
+and run [`derrick up`](/waypoint/commands/up), the new deployment as well as any previous deployments
 that are still running will be updated with the new configuration value.
 
 ### Project vs. Application Scope
@@ -125,35 +125,35 @@ be used instead of the project-scoped value.
 To delete a configuration variable, use the CLI to set it to an empty string:
 
 ```shell-session
-$ waypoint config set DATABASE_URL=
+$ derrick config set DATABASE_URL=
 ```
 
-This works for configuration set via the CLI as well as `waypoint.hcl`.
+This works for configuration set via the CLI as well as `derrick.hcl`.
 This also works for static as well as dynamic configuration values.
 
--> For configuration set using a `config` stanza in a `waypoint.hcl` file,
+-> For configuration set using a `config` stanza in a `derrick.hcl` file,
 deleting the configuration will not currently unset the configuration. This
 will be fixed in a future version.
 
 ## Syncing with External Systems
 
-Waypoint can sync application configuration values with external systems
+Derrick can sync application configuration values with external systems
 such as Kubernetes ConfigMaps, HashiCorp Vault, Amazon Parameter Store,
 and more. To learn more about this, see the documentation page on
 [dynamic configuration values](/waypoint/docs/app-config/dynamic).
 
 ## Application Restart Behavior
 
-Waypoint will automatically restart your running applications whenever
-a configuration change is detected for that application. Waypoint restarts
+Derrick will automatically restart your running applications whenever
+a configuration change is detected for that application. Derrick restarts
 your application with the following steps:
 
 1. The `SIGTERM` signal is sent to your application process. This signal
    can be trapped to perform last minute cleanup and shutdown.
 
-2. Waypoint will wait up to 30 seconds for your application to gracefully exit.
+2. Derrick will wait up to 30 seconds for your application to gracefully exit.
 
-3. After 30 seconds, Waypoint will send the `SIGKILL` signal to your
+3. After 30 seconds, Derrick will send the `SIGKILL` signal to your
    application process group. This will kill the application process as well
    as any subprocesses it may have started. This signal is not able to be trapped
    and your application will be killed immediately.

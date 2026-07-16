@@ -2,19 +2,19 @@
 layout: docs
 page_title: Plugins
 description: |-
-  Waypoint can be extended using custom plugins. Waypoint supports custom builders, deployment platforms, registries, release managers, and more.
+  Derrick can be extended using custom plugins. Derrick supports custom builders, deployment platforms, registries, release managers, and more.
 ---
 
 # Plugins
 
-Waypoint can be extended using custom plugins. Waypoint supports
+Derrick can be extended using custom plugins. Derrick supports
 custom builders, deployment platforms, registries, release managers,
-and more. This allows you to extend the Waypoint workflow and featureset
+and more. This allows you to extend the Derrick workflow and featureset
 anywhere. This page will focus on _using_ plugins. To learn more about
-how to write plugins, see the [Extending Waypoint guide](/waypoint/docs/extending-waypoint).
+how to write plugins, see the [Extending Derrick guide](/waypoint/docs/extending-derrick).
 
-Waypoint ships with dozens of built-in plugins. These plugins are available
-out-of-the-box with Waypoint and are built directly on the same plugin system
+Derrick ships with dozens of built-in plugins. These plugins are available
+out-of-the-box with Derrick and are built directly on the same plugin system
 as external plugins. To see a list of supported plugins, see the
 [integrations library](/waypoint/integrations).
 
@@ -29,14 +29,14 @@ We maintain a list of external plugins [here](https://github.com/hashicorp/waypo
 External plugins are distributed as executable binaries. To use an external
 plugin, you must download the correct binary for your operating system,
 place it at the correct location, and use it within your
-[waypoint configuration](/waypoint/docs/waypoint-hcl/use).
+[derrick configuration](/waypoint/docs/derrick-hcl/use).
 
 ### Installing an External Plugin - Local Operations
 
 To install an external plugin, the binary must first be named
-`waypoint-plugin-<name>` where `<name>` is the same label that is used
-with the [`use` stanza](/waypoint/docs/waypoint-hcl/use) in your Waypoint configuration.
-For the example below, our binary must be named `waypoint-plugin-hashicloud`.
+`derrick-plugin-<name>` where `<name>` is the same label that is used
+with the [`use` stanza](/waypoint/docs/derrick-hcl/use) in your Derrick configuration.
+For the example below, our binary must be named `derrick-plugin-hashicloud`.
 If you're on Windows, the binary must end in ".exe".
 
 ```hcl
@@ -49,11 +49,11 @@ app {
 }
 ```
 
-Once the plugin is named, it must be copied into the correct location. Waypoint
+Once the plugin is named, it must be copied into the correct location. Derrick
 will look for plugins in the following locations in the following order:
 
-1. In the same directory as the `waypoint.hcl` file.
-2. In `./.waypoint/plugins/` relative to the `waypoint.hcl` file.
+1. In the same directory as the `derrick.hcl` file.
+2. In `./.waypoint/plugins/` relative to the `derrick.hcl` file.
 3. In `$XDG_CONFIG_HOME/waypoint/plugins`
 
 Once a plugin is found, it will not search the later paths.
@@ -63,7 +63,7 @@ Once a plugin is found, it will not search the later paths.
 In order to use a custom plugin with remote operations, the plugin must be built-in
 to the Docker image used for the on-demand runner profile configured to execute your
 remote operations. The default on-demand runner image, hashicorp/waypoint-odr:latest,
-contains only the plugins which are built-in to the Waypoint binary. To add a custom
+contains only the plugins which are built-in to the Derrick binary. To add a custom
 plugin, you may extend this image to add your own plugin:
 
 ```Dockerfile
@@ -76,9 +76,9 @@ How to configure your runner profile to use the new image is detailed [here](/wa
 
 #### Troubleshooting
 
-If you're seeing `waypoint init` errors that a plugin cannot be found,
-run `waypoint init` with the `-vv` flag and look for the line that says
-"plugin search path". This will list the search path that Waypoint is
+If you're seeing `derrick init` errors that a plugin cannot be found,
+run `derrick init` with the `-vv` flag and look for the line that says
+"plugin search path". This will list the search path that Derrick is
 using for finding your plugins.
 
 If the path isn't correct, this is usually due to unset environment variables
@@ -86,7 +86,7 @@ If the path isn't correct, this is usually due to unset environment variables
 try again.
 
 ```
-2020-10-17T11:32:12.743-0700 [DEBUG] waypoint.runner: plugin search path: job_id=01EMVXARPMVCPYWE4FPECZY30B path=[, .waypoint/plugins, /Users/mitchellh/.config/waypoint/plugins]
+2020-10-17T11:32:12.743-0700 [DEBUG] derrick.runner: plugin search path: job_id=01EMVXARPMVCPYWE4FPECZY30B path=[, .waypoint/plugins, /Users/mitchellh/.config/waypoint/plugins]
 ```
 
 ### Using the External Plugin
@@ -94,7 +94,7 @@ try again.
 The external plugin is used in the same manner as a built-in plugin.
 Continuing our example above, you can use an external plugin with a
 `use` stanza. The existence of a `use` stanza with a plugin name will
-notify Waypoint that it requires that plugin.
+notify Derrick that it requires that plugin.
 
 ```hcl
 app {
@@ -108,7 +108,7 @@ app {
 
 #### Checksumming
 
-You can also use the explicit [`plugin` stanza](/waypoint/docs/waypoint-hcl/plugin)
+You can also use the explicit [`plugin` stanza](/waypoint/docs/derrick-hcl/plugin)
 to define plugins.
 
 This stanza provides additional functionality when loading plugins.
@@ -117,9 +117,9 @@ plugin binary which helps prevent tampering with the plugin binary.
 
 ### Verify
 
-To verify the plugin works, run `waypoint init` against your project.
+To verify the plugin works, run `derrick init` against your project.
 This will find the plugin, load it, and also validate any configuration.
 
 ## Authoring a Plugin
 
-To write a plugin, see the [Extending Waypoint guide](/waypoint/docs/extending-waypoint).
+To write a plugin, see the [Extending Derrick guide](/waypoint/docs/extending-derrick).

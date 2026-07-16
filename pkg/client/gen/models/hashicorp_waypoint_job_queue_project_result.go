@@ -16,7 +16,7 @@ import (
 
 // HashicorpWaypointJobQueueProjectResult hashicorp waypoint job queue project result
 //
-// swagger:model hashicorp.waypoint.Job.QueueProjectResult
+// swagger:model nomatron.derrick.Job.QueueProjectResult
 type HashicorpWaypointJobQueueProjectResult struct {
 
 	// All applications that had jobs queued. This may be empty even if the

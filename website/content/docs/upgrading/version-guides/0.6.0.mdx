@@ -2,21 +2,21 @@
 layout: docs
 page_title: Version 0.6.0 - Upgrade Guide
 description: |-
-  This upgrade guide describes any considerations for upgrading to Waypoint 0.6.0.
+  This upgrade guide describes any considerations for upgrading to Derrick 0.6.0.
 ---
 
-# Upgrading to Waypoint 0.6.0 from 0.5.x
+# Upgrading to Derrick 0.6.0 from 0.5.x
 
-Waypoint 0.5.x can be upgraded to Waypoint 0.6.0 using a [standard upgrade](/waypoint/docs/upgrading#standard-upgrade).
-There are no breaking changes in the protocol or `waypoint.hcl` configuration file. All
-Waypoint components (CLI, entrypoint, and server) are forwards and backwards
+Derrick 0.5.x can be upgraded to Derrick 0.6.0 using a [standard upgrade](/waypoint/docs/upgrading#standard-upgrade).
+There are no breaking changes in the protocol or `derrick.hcl` configuration file. All
+Derrick components (CLI, entrypoint, and server) are forwards and backwards
 compatible, but we encourage users to have all components on the same version.
 
 ## Other Considerations
 
 ### Server Image
 
-`waypoint install` uses the `hashicorp/waypoint:latest` container image for
+`derrick install` uses the `hashicorp/waypoint:latest` container image for
 Kubernetes, Nomad, ECS, and Docker. When upgrading, your platform may require
 you to pull the latest image instead of using a cache.
 
@@ -35,7 +35,7 @@ your platform may be using an old cached image.
 You can verify both the CLI version and server version by running:
 
 ```shell-session
-$ waypoint version
+$ derrick version
 CLI: v0.6.0 (622f37bd1)
 Server: v0.6.0
 ```

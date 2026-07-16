@@ -8,11 +8,11 @@ import (
 
 	"github.com/posener/complete"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	clientpkg "github.com/hashicorp/waypoint/internal/client"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	clientpkg "github.com/nomatronio/derrick/internal/client"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 type DeploymentCreateCommand struct {
@@ -232,7 +232,7 @@ func (c *DeploymentCreateCommand) Synopsis() string {
 
 func (c *DeploymentCreateCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint deployment deploy [options]
+Usage: derrick deployment deploy [options]
 Alias: waypoint deploy
 
   Deploy an application. This will deploy the most recent successful
@@ -247,7 +247,7 @@ Alias: waypoint deploy
 
 const (
 	deployURLService = `
-The deploy was successful! A Waypoint deployment URL is shown below. This
+The deploy was successful! A Derrick deployment URL is shown below. This
 can be used internally to check your deployment and is not meant for external
 traffic. You can manage this hostname using "waypoint hostname."
 `
@@ -257,7 +257,7 @@ The deploy was successful!
 
 The release did not provide a URL and the URL service is disabled on the
 server, so no further URL information can be automatically provided. If
-this is unexpected, please ensure the Waypoint server has both the URL service
+this is unexpected, please ensure the Derrick server has both the URL service
 enabled and advertise addresses set.
 `
 

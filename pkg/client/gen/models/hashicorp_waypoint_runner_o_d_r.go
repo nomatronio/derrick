@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointRunnerODR hashicorp waypoint runner o d r
 //
-// swagger:model hashicorp.waypoint.Runner.ODR
+// swagger:model nomatron.derrick.Runner.ODR
 type HashicorpWaypointRunnerODR struct {
 
 	// profile id

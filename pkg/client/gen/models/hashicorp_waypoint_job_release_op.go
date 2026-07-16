@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointJobReleaseOp hashicorp waypoint job release op
 //
-// swagger:model hashicorp.waypoint.Job.ReleaseOp
+// swagger:model nomatron.derrick.Job.ReleaseOp
 type HashicorpWaypointJobReleaseOp struct {
 
 	// deployment

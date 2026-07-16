@@ -8,9 +8,9 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/hashicorp/waypoint/pkg/server"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	serverptypes "github.com/hashicorp/waypoint/pkg/server/ptypes"
+	"github.com/nomatronio/derrick/pkg/server"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	serverptypes "github.com/nomatronio/derrick/pkg/server/ptypes"
 )
 
 func TestServicePipeline_Basic(t *testing.T) {
@@ -1236,7 +1236,7 @@ func TestServicePipeline_Run(t *testing.T) {
 		}
 
 		// Having two embedded pipeline step references is what is causing the bug
-		// at the moment, i.e. https://github.com/hashicorp/waypoint/issues/3869
+		// at the moment, i.e. https://github.com/nomatronio/derrick/issues/3869
 		pipeline.Steps["Embed"] = &pb.Pipeline_Step{
 			Name:      "Embed",
 			DependsOn: []string{"C"},

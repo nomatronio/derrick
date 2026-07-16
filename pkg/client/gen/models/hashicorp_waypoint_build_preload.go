@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointBuildPreload hashicorp waypoint build preload
 //
-// swagger:model hashicorp.waypoint.Build.Preload
+// swagger:model nomatron.derrick.Build.Preload
 type HashicorpWaypointBuildPreload struct {
 
 	// The ref that was used in the job to run this operation. This is

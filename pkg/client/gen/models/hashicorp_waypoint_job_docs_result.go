@@ -16,7 +16,7 @@ import (
 
 // HashicorpWaypointJobDocsResult hashicorp waypoint job docs result
 //
-// swagger:model hashicorp.waypoint.Job.DocsResult
+// swagger:model nomatron.derrick.Job.DocsResult
 type HashicorpWaypointJobDocsResult struct {
 
 	// results are the list of components that were checked

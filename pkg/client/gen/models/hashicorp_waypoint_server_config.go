@@ -14,18 +14,18 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// HashicorpWaypointServerConfig ServerConfig is the configuration for the server that can be read and
+// HashicorpDerrickServerConfig ServerConfig is the configuration for the server that can be read and
 // set online. This differs from the configuration used to start the server
 // since some settings can only be set via the file vs. the API.
 //
-// swagger:model hashicorp.waypoint.ServerConfig
-type HashicorpWaypointServerConfig struct {
+// swagger:model nomatron.derrick.ServerConfig
+type HashicorpDerrickServerConfig struct {
 
 	// The addresses that are advertised for entrypoints. These define how
 	// applications reach back to the server. Currently you may only set
 	// EXACTLY ONE address. In the future, we'll support multiple advertise
 	// addrs and more controls over which are advertised when.
-	AdvertiseAddrs []*HashicorpWaypointServerConfigAdvertiseAddr `json:"advertise_addrs"`
+	AdvertiseAddrs []*HashicorpDerrickServerConfigAdvertiseAddr `json:"advertise_addrs"`
 
 	// Cookie is a unique cookie for this server. This can be sent in metadata
 	// as a semi-secret mechanism to just ensure you're talking to the correct
@@ -41,7 +41,7 @@ type HashicorpWaypointServerConfig struct {
 }
 
 // Validate validates this hashicorp waypoint server config
-func (m *HashicorpWaypointServerConfig) Validate(formats strfmt.Registry) error {
+func (m *HashicorpDerrickServerConfig) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateAdvertiseAddrs(formats); err != nil {
@@ -54,7 +54,7 @@ func (m *HashicorpWaypointServerConfig) Validate(formats strfmt.Registry) error 
 	return nil
 }
 
-func (m *HashicorpWaypointServerConfig) validateAdvertiseAddrs(formats strfmt.Registry) error {
+func (m *HashicorpDerrickServerConfig) validateAdvertiseAddrs(formats strfmt.Registry) error {
 	if swag.IsZero(m.AdvertiseAddrs) { // not required
 		return nil
 	}
@@ -81,7 +81,7 @@ func (m *HashicorpWaypointServerConfig) validateAdvertiseAddrs(formats strfmt.Re
 }
 
 // ContextValidate validate this hashicorp waypoint server config based on the context it is used
-func (m *HashicorpWaypointServerConfig) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+func (m *HashicorpDerrickServerConfig) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.contextValidateAdvertiseAddrs(ctx, formats); err != nil {
@@ -94,7 +94,7 @@ func (m *HashicorpWaypointServerConfig) ContextValidate(ctx context.Context, for
 	return nil
 }
 
-func (m *HashicorpWaypointServerConfig) contextValidateAdvertiseAddrs(ctx context.Context, formats strfmt.Registry) error {
+func (m *HashicorpDerrickServerConfig) contextValidateAdvertiseAddrs(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.AdvertiseAddrs); i++ {
 
@@ -115,7 +115,7 @@ func (m *HashicorpWaypointServerConfig) contextValidateAdvertiseAddrs(ctx contex
 }
 
 // MarshalBinary interface implementation
-func (m *HashicorpWaypointServerConfig) MarshalBinary() ([]byte, error) {
+func (m *HashicorpDerrickServerConfig) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -123,8 +123,8 @@ func (m *HashicorpWaypointServerConfig) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *HashicorpWaypointServerConfig) UnmarshalBinary(b []byte) error {
-	var res HashicorpWaypointServerConfig
+func (m *HashicorpDerrickServerConfig) UnmarshalBinary(b []byte) error {
+	var res HashicorpDerrickServerConfig
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

@@ -5,8 +5,8 @@ import (
 
 	empty "google.golang.org/protobuf/types/known/emptypb"
 
-	"github.com/hashicorp/waypoint/pkg/protocolversion"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick/pkg/protocolversion"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 func (s *Service) GetVersionInfo(

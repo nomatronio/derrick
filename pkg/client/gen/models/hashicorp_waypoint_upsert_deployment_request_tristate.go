@@ -16,7 +16,7 @@ import (
 
 // HashicorpWaypointUpsertDeploymentRequestTristate hashicorp waypoint upsert deployment request tristate
 //
-// swagger:model hashicorp.waypoint.UpsertDeploymentRequest.Tristate
+// swagger:model nomatron.derrick.UpsertDeploymentRequest.Tristate
 type HashicorpWaypointUpsertDeploymentRequestTristate string
 
 func NewHashicorpWaypointUpsertDeploymentRequestTristate(value HashicorpWaypointUpsertDeploymentRequestTristate) *HashicorpWaypointUpsertDeploymentRequestTristate {

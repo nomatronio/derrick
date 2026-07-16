@@ -7,8 +7,8 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/hashicorp/waypoint/internal/core"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick/internal/core"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 func (r *Runner) executeInitOp(
@@ -35,7 +35,7 @@ func (r *Runner) executeInitOp(
 			"unable to verify workspace (%s) exists", project.WorkspaceRef().Workspace)
 	}
 
-	// This operation upserts apps defined in the project’s waypoint.hcl
+	// This operation upserts apps defined in the project’s derrick.hcl
 	// into the server’s database. This is important for projects that use
 	// the GitOps flow without polling, as otherwise the project appears
 	// empty and a manual CLI init step is required.

@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointCompleteOIDCAuthResponse hashicorp waypoint complete o ID c auth response
 //
-// swagger:model hashicorp.waypoint.CompleteOIDCAuthResponse
+// swagger:model nomatron.derrick.CompleteOIDCAuthResponse
 type HashicorpWaypointCompleteOIDCAuthResponse struct {
 
 	// These are all the claims that were associated with this OIDC

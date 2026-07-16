@@ -6,11 +6,11 @@ import (
 
 	empty "google.golang.org/protobuf/types/known/emptypb"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	clientpkg "github.com/hashicorp/waypoint/internal/client"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	clientpkg "github.com/nomatronio/derrick/internal/client"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 type DestroyCommand struct {
@@ -89,7 +89,7 @@ func (c *DestroyCommand) Synopsis() string {
 
 func (c *DestroyCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint destroy [options]
+Usage: derrick destroy [options]
 
   Delete all resources created for all apps or project in the current workspace.
   Specify the -app to select a given app to delete resources for in a given 

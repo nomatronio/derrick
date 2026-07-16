@@ -1,5 +1,5 @@
 import { Model, belongsTo } from 'miragejs';
-import { StatusReport } from 'waypoint-pb';
+import { StatusReport } from 'derrick-pb';
 
 export default Model.extend({
   statusReport: belongsTo({ inverse: 'health' }),

@@ -16,7 +16,7 @@ import (
 
 // HashicorpWaypointToken The authenticated Token information. This is used to authenticate requests.
 //
-// swagger:model hashicorp.waypoint.Token
+// swagger:model nomatron.derrick.Token
 type HashicorpWaypointToken struct {
 
 	// Non-secret ID that is used in logs to represent this token. Internally,

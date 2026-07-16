@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointJobPipelineStepOp PipelineStepOp triggers the execution of a pipeline step.
 //
-// swagger:model hashicorp.waypoint.Job.PipelineStepOp
+// swagger:model nomatron.derrick.Job.PipelineStepOp
 type HashicorpWaypointJobPipelineStepOp struct {
 
 	// The step to execute.

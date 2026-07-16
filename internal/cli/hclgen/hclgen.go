@@ -11,12 +11,12 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
 
-	embedJson "github.com/hashicorp/waypoint/embedJson"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/plugin"
-	fmtpkg "github.com/hashicorp/waypoint/pkg/config"
+	embedJson "github.com/nomatronio/derrick/embedJson"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/plugin"
+	fmtpkg "github.com/nomatronio/derrick/pkg/config"
 )
 
 type PlugDocs struct {
@@ -49,13 +49,13 @@ type fieldInfo struct {
 
 func HclGen(ui terminal.UI) bool {
 	brackets := 0
-	hclFile, err := os.Create("waypoint.hcl")
+	hclFile, err := os.Create("derrick.hcl")
 	var hclFileByte []byte
 	if err != nil {
 		ui.Output(clierrors.Humanize(err), terminal.WithErrorStyle())
 		return false
 	}
-	ui.Output("Initial waypoint.hcl created!", terminal.WithStyle(terminal.SuccessBoldStyle))
+	ui.Output("Initial derrick.hcl created!", terminal.WithStyle(terminal.SuccessBoldStyle))
 	ui.Output("Type \"exit\" at any point to exit the generator")
 	ui.Output("Name your project", terminal.WithHeaderStyle())
 	projName, err, close := getName("project", ui)
@@ -245,18 +245,18 @@ func HclGen(ui terminal.UI) bool {
 	hclFile.Write(hclFileByte)
 	hclFile.Close()
 	ui.Output("\nAll plugin configuration complete", terminal.WithSuccessStyle())
-	ui.Output("\nwaypoint.hcl saved!", terminal.WithStyle(terminal.SuccessBoldStyle))
+	ui.Output("\nderrick.hcl saved!", terminal.WithStyle(terminal.SuccessBoldStyle))
 	ui.Output(
-		"\nIf you skipped any steps, open your waypoint.hcl file to add missing plugins or fields before continuing. (See https://www.waypointproject.io/plugins)",
+		"\nIf you skipped any steps, open your derrick.hcl file to add missing plugins or fields before continuing. (See https://www.derrick.dev/plugins)",
 	)
 	ui.Output("Otherwise, run \"waypoint init\" again to start using Waypoint!\n")
 	ui.Output("Now attempting to format the HCL file:\n")
-	out, err := fmtpkg.Format(hclFileByte, "waypoint.hcl")
+	out, err := fmtpkg.Format(hclFileByte, "derrick.hcl")
 	if err != nil {
 		ui.Output(clierrors.Humanize(err), terminal.WithErrorStyle())
 		return false
 	}
-	if err := ioutil.WriteFile("waypoint.hcl", out, 0644); err != nil {
+	if err := ioutil.WriteFile("derrick.hcl", out, 0644); err != nil {
 		ui.Output(clierrors.Humanize(err), terminal.WithErrorStyle())
 		return false
 	}
@@ -291,7 +291,7 @@ func exitSafe(file *os.File, outstanding int, ui terminal.UI, byteS []byte) erro
 	byteS = closeBrackets(byteS, outstanding, outstanding)
 	file.Write(byteS)
 	file.Close()
-	ui.Output("Generator exited. Any information you added before exiting has been included in your waypoint.hcl file. Edit this file manually before using Waypoint.")
+	ui.Output("Generator exited. Any information you added before exiting has been included in your derrick.hcl file. Edit this file manually before using Waypoint.")
 	return nil
 }
 
@@ -336,7 +336,7 @@ func populatePlugins(plug PlugDocs, ui terminal.UI) (map[string]fieldInfo, bool,
 	}
 	if plug.PlugDocs == nil || fCount == 0 {
 		ui.Output(
-			"There are no required fields for this %s plugin, but there may be optional fields you can add to your .hcl file later. See the Waypoint plugin documentation for more information.",
+			"There are no required fields for this %s plugin, but there may be optional fields you can add to your .hcl file later. See the Derrick plugin documentation for more information.",
 			plug.Type,
 		)
 	} else {
@@ -484,7 +484,7 @@ func selectPlugin(plug string, fList []string, fSystem embed.FS, ui terminal.UI)
 		}
 	}
 	sort.Strings(plugList)
-	ui.Output(fmt.Sprintf("Select a %s: learn more at https://www.waypointproject.io/plugins. To use a %s that’s not shown here hit return, then edit the .hcl file after it’s been generated.\n",
+	ui.Output(fmt.Sprintf("Select a %s: learn more at https://www.derrick.dev/plugins. To use a %s that’s not shown here hit return, then edit the .hcl file after it’s been generated.\n",
 		plug, plug))
 	jMap := make(map[string]interface{})
 	var selList []string
@@ -605,7 +605,7 @@ func selectPlugin(plug string, fList []string, fSystem embed.FS, ui terminal.UI)
 func getName(pa string, ui terminal.UI) (string, error, bool) {
 	if pa == "project" {
 		ui.Output(
-			"A project contains your app and typically maps 1:1 to a VCS repository. This name must be unique for your Waypoint server. If you're running in local mode, this must be unique to your machine.\n",
+			"A project contains your app and typically maps 1:1 to a VCS repository. This name must be unique for your Derrick server. If you're running in local mode, this must be unique to your machine.\n",
 		)
 	}
 	prompt := ""

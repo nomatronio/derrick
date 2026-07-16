@@ -7,5 +7,5 @@ package models
 
 // HashicorpWaypointRunnerRemote hashicorp waypoint runner remote
 //
-// swagger:model hashicorp.waypoint.Runner.Remote
+// swagger:model nomatron.derrick.Runner.Remote
 type HashicorpWaypointRunnerRemote interface{}

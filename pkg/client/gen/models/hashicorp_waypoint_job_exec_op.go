@@ -17,7 +17,7 @@ import (
 // there are no long running instances for a deployment and can fail if the
 // platform plugin does not provide an exec function.
 //
-// swagger:model hashicorp.waypoint.Job.ExecOp
+// swagger:model nomatron.derrick.Job.ExecOp
 type HashicorpWaypointJobExecOp struct {
 
 	// The deployment to create the exec session context. Ie, what

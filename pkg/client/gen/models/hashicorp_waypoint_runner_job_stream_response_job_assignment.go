@@ -16,7 +16,7 @@ import (
 
 // HashicorpWaypointRunnerJobStreamResponseJobAssignment hashicorp waypoint runner job stream response job assignment
 //
-// swagger:model hashicorp.waypoint.RunnerJobStreamResponse.JobAssignment
+// swagger:model nomatron.derrick.RunnerJobStreamResponse.JobAssignment
 type HashicorpWaypointRunnerJobStreamResponseJobAssignment struct {
 
 	// A list of plugin configs

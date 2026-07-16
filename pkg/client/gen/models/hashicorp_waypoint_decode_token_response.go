@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointDecodeTokenResponse hashicorp waypoint decode token response
 //
-// swagger:model hashicorp.waypoint.DecodeTokenResponse
+// swagger:model nomatron.derrick.DecodeTokenResponse
 type HashicorpWaypointDecodeTokenResponse struct {
 
 	// The decoded token.

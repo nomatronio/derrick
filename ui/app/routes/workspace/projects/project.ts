@@ -1,10 +1,10 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
-import ApiService from 'waypoint/services/api';
-import { UI, Project, Ref, Job } from 'waypoint-pb';
-import PollModelService from 'waypoint/services/poll-model';
-import { Breadcrumb } from 'waypoint/services/breadcrumbs';
-import ProjectService from 'waypoint/services/project';
+import ApiService from 'derrick/services/api';
+import { UI, Project, Ref, Job } from 'derrick-pb';
+import PollModelService from 'derrick/services/poll-model';
+import { Breadcrumb } from 'derrick/services/breadcrumbs';
+import ProjectService from 'derrick/services/project';
 
 export type Params = { project_id: string };
 export type Model = Project.AsObject & {

@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointTokenInvite hashicorp waypoint token invite
 //
-// swagger:model hashicorp.waypoint.Token.Invite
+// swagger:model nomatron.derrick.Token.Invite
 type HashicorpWaypointTokenInvite struct {
 
 	// The user that initiated the invite

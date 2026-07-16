@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointProjectPoll hashicorp waypoint project poll
 //
-// swagger:model hashicorp.waypoint.Project.Poll
+// swagger:model nomatron.derrick.Project.Poll
 type HashicorpWaypointProjectPoll struct {
 
 	// enabled must be set to true to enable polling.

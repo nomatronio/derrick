@@ -9,7 +9,7 @@ import (
 	"github.com/sebdah/goldie/v2"
 	"github.com/stretchr/testify/require"
 
-	"github.com/hashicorp/waypoint/pkg/config"
+	"github.com/nomatronio/derrick/pkg/config"
 )
 
 func TestFormat(t *testing.T) {

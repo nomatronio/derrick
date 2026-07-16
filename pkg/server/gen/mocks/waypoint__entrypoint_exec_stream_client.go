@@ -5,7 +5,7 @@ package mocks
 import (
 	context "context"
 
-	gen "github.com/hashicorp/waypoint/pkg/server/gen"
+	gen "github.com/nomatronio/derrick/pkg/server/gen"
 	metadata "google.golang.org/grpc/metadata"
 
 	mock "github.com/stretchr/testify/mock"

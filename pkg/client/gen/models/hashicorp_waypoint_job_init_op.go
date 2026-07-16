@@ -9,5 +9,5 @@ package models
 // init`). The job will fail if there is no data source configured for the
 // project. As with `waypoint init`, this operation is idempotent.
 //
-// swagger:model hashicorp.waypoint.Job.InitOp
+// swagger:model nomatron.derrick.Job.InitOp
 type HashicorpWaypointJobInitOp interface{}

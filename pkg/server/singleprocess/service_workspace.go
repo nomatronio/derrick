@@ -7,9 +7,9 @@ import (
 	"google.golang.org/grpc/status"
 
 	"github.com/hashicorp/go-hclog"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	"github.com/hashicorp/waypoint/pkg/server/hcerr"
-	"github.com/hashicorp/waypoint/pkg/server/ptypes"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	"github.com/nomatronio/derrick/pkg/server/hcerr"
+	"github.com/nomatronio/derrick/pkg/server/ptypes"
 )
 
 // TODO: test

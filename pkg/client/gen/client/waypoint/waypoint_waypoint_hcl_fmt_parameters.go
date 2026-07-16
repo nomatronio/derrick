@@ -15,56 +15,56 @@ import (
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
 
-	"github.com/hashicorp/waypoint/pkg/client/gen/models"
+	"github.com/nomatronio/derrick/pkg/client/gen/models"
 )
 
-// NewWaypointWaypointHclFmtParams creates a new WaypointWaypointHclFmtParams object,
+// NewWaypointDerrickHclFmtParams creates a new WaypointDerrickHclFmtParams object,
 // with the default timeout for this client.
 //
 // Default values are not hydrated, since defaults are normally applied by the API server side.
 //
 // To enforce default values in parameter, use SetDefaults or WithDefaults.
-func NewWaypointWaypointHclFmtParams() *WaypointWaypointHclFmtParams {
-	return &WaypointWaypointHclFmtParams{
+func NewWaypointDerrickHclFmtParams() *WaypointDerrickHclFmtParams {
+	return &WaypointDerrickHclFmtParams{
 		timeout: cr.DefaultTimeout,
 	}
 }
 
-// NewWaypointWaypointHclFmtParamsWithTimeout creates a new WaypointWaypointHclFmtParams object
+// NewWaypointDerrickHclFmtParamsWithTimeout creates a new WaypointDerrickHclFmtParams object
 // with the ability to set a timeout on a request.
-func NewWaypointWaypointHclFmtParamsWithTimeout(timeout time.Duration) *WaypointWaypointHclFmtParams {
-	return &WaypointWaypointHclFmtParams{
+func NewWaypointDerrickHclFmtParamsWithTimeout(timeout time.Duration) *WaypointDerrickHclFmtParams {
+	return &WaypointDerrickHclFmtParams{
 		timeout: timeout,
 	}
 }
 
-// NewWaypointWaypointHclFmtParamsWithContext creates a new WaypointWaypointHclFmtParams object
+// NewWaypointDerrickHclFmtParamsWithContext creates a new WaypointDerrickHclFmtParams object
 // with the ability to set a context for a request.
-func NewWaypointWaypointHclFmtParamsWithContext(ctx context.Context) *WaypointWaypointHclFmtParams {
-	return &WaypointWaypointHclFmtParams{
+func NewWaypointDerrickHclFmtParamsWithContext(ctx context.Context) *WaypointDerrickHclFmtParams {
+	return &WaypointDerrickHclFmtParams{
 		Context: ctx,
 	}
 }
 
-// NewWaypointWaypointHclFmtParamsWithHTTPClient creates a new WaypointWaypointHclFmtParams object
+// NewWaypointDerrickHclFmtParamsWithHTTPClient creates a new WaypointDerrickHclFmtParams object
 // with the ability to set a custom HTTPClient for a request.
-func NewWaypointWaypointHclFmtParamsWithHTTPClient(client *http.Client) *WaypointWaypointHclFmtParams {
-	return &WaypointWaypointHclFmtParams{
+func NewWaypointDerrickHclFmtParamsWithHTTPClient(client *http.Client) *WaypointDerrickHclFmtParams {
+	return &WaypointDerrickHclFmtParams{
 		HTTPClient: client,
 	}
 }
 
 /*
-WaypointWaypointHclFmtParams contains all the parameters to send to the API endpoint
+WaypointDerrickHclFmtParams contains all the parameters to send to the API endpoint
 
 	for the waypoint waypoint hcl fmt operation.
 
 	Typically these are written to a http.Request.
 */
-type WaypointWaypointHclFmtParams struct {
+type WaypointDerrickHclFmtParams struct {
 
 	// Body.
-	Body *models.HashicorpWaypointWaypointHclFmtRequest
+	Body *models.HashicorpWaypointDerrickHclFmtRequest
 
 	timeout    time.Duration
 	Context    context.Context
@@ -74,7 +74,7 @@ type WaypointWaypointHclFmtParams struct {
 // WithDefaults hydrates default values in the waypoint waypoint hcl fmt params (not the query body).
 //
 // All values with no default are reset to their zero value.
-func (o *WaypointWaypointHclFmtParams) WithDefaults() *WaypointWaypointHclFmtParams {
+func (o *WaypointDerrickHclFmtParams) WithDefaults() *WaypointDerrickHclFmtParams {
 	o.SetDefaults()
 	return o
 }
@@ -82,56 +82,56 @@ func (o *WaypointWaypointHclFmtParams) WithDefaults() *WaypointWaypointHclFmtPar
 // SetDefaults hydrates default values in the waypoint waypoint hcl fmt params (not the query body).
 //
 // All values with no default are reset to their zero value.
-func (o *WaypointWaypointHclFmtParams) SetDefaults() {
+func (o *WaypointDerrickHclFmtParams) SetDefaults() {
 	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the waypoint waypoint hcl fmt params
-func (o *WaypointWaypointHclFmtParams) WithTimeout(timeout time.Duration) *WaypointWaypointHclFmtParams {
+func (o *WaypointDerrickHclFmtParams) WithTimeout(timeout time.Duration) *WaypointDerrickHclFmtParams {
 	o.SetTimeout(timeout)
 	return o
 }
 
 // SetTimeout adds the timeout to the waypoint waypoint hcl fmt params
-func (o *WaypointWaypointHclFmtParams) SetTimeout(timeout time.Duration) {
+func (o *WaypointDerrickHclFmtParams) SetTimeout(timeout time.Duration) {
 	o.timeout = timeout
 }
 
 // WithContext adds the context to the waypoint waypoint hcl fmt params
-func (o *WaypointWaypointHclFmtParams) WithContext(ctx context.Context) *WaypointWaypointHclFmtParams {
+func (o *WaypointDerrickHclFmtParams) WithContext(ctx context.Context) *WaypointDerrickHclFmtParams {
 	o.SetContext(ctx)
 	return o
 }
 
 // SetContext adds the context to the waypoint waypoint hcl fmt params
-func (o *WaypointWaypointHclFmtParams) SetContext(ctx context.Context) {
+func (o *WaypointDerrickHclFmtParams) SetContext(ctx context.Context) {
 	o.Context = ctx
 }
 
 // WithHTTPClient adds the HTTPClient to the waypoint waypoint hcl fmt params
-func (o *WaypointWaypointHclFmtParams) WithHTTPClient(client *http.Client) *WaypointWaypointHclFmtParams {
+func (o *WaypointDerrickHclFmtParams) WithHTTPClient(client *http.Client) *WaypointDerrickHclFmtParams {
 	o.SetHTTPClient(client)
 	return o
 }
 
 // SetHTTPClient adds the HTTPClient to the waypoint waypoint hcl fmt params
-func (o *WaypointWaypointHclFmtParams) SetHTTPClient(client *http.Client) {
+func (o *WaypointDerrickHclFmtParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
 // WithBody adds the body to the waypoint waypoint hcl fmt params
-func (o *WaypointWaypointHclFmtParams) WithBody(body *models.HashicorpWaypointWaypointHclFmtRequest) *WaypointWaypointHclFmtParams {
+func (o *WaypointDerrickHclFmtParams) WithBody(body *models.HashicorpWaypointDerrickHclFmtRequest) *WaypointDerrickHclFmtParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the waypoint waypoint hcl fmt params
-func (o *WaypointWaypointHclFmtParams) SetBody(body *models.HashicorpWaypointWaypointHclFmtRequest) {
+func (o *WaypointDerrickHclFmtParams) SetBody(body *models.HashicorpWaypointDerrickHclFmtRequest) {
 	o.Body = body
 }
 
 // WriteToRequest writes these params to a swagger request
-func (o *WaypointWaypointHclFmtParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
+func (o *WaypointDerrickHclFmtParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
 	if err := r.SetTimeout(o.timeout); err != nil {
 		return err

@@ -16,7 +16,7 @@ import (
 
 // HashicorpWaypointRunTriggerRequest hashicorp waypoint run trigger request
 //
-// swagger:model hashicorp.waypoint.RunTriggerRequest
+// swagger:model nomatron.derrick.RunTriggerRequest
 type HashicorpWaypointRunTriggerRequest struct {
 
 	// The trigger ref to execute

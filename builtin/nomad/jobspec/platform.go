@@ -14,13 +14,13 @@ import (
 	"google.golang.org/grpc/status"
 	"google.golang.org/protobuf/types/known/timestamppb"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/component"
-	"github.com/hashicorp/waypoint-plugin-sdk/docs"
-	"github.com/hashicorp/waypoint-plugin-sdk/framework/resource"
-	sdk "github.com/hashicorp/waypoint-plugin-sdk/proto/gen"
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/builtin/docker"
-	"github.com/hashicorp/waypoint/builtin/nomad"
+	"github.com/nomatronio/derrick-plugin-sdk/component"
+	"github.com/nomatronio/derrick-plugin-sdk/docs"
+	"github.com/nomatronio/derrick-plugin-sdk/framework/resource"
+	sdk "github.com/nomatronio/derrick-plugin-sdk/proto/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/builtin/docker"
+	"github.com/nomatronio/derrick/builtin/nomad"
 )
 
 const (
@@ -300,7 +300,7 @@ func (p *Platform) resourceJobStatus(
 	s.Done()
 
 	// NOTE(briancain): Replace ui.Status with StepGroups once this bug
-	// has been fixed: https://github.com/hashicorp/waypoint/issues/1536
+	// has been fixed: https://github.com/nomatronio/derrick/issues/1536
 	st := ui.Status()
 	defer st.Close()
 
@@ -520,7 +520,7 @@ func (p *Platform) Status(
 	step.Done()
 
 	// NOTE(briancain): Replace ui.Status with StepGroups once this bug
-	// has been fixed: https://github.com/hashicorp/waypoint/issues/1536
+	// has been fixed: https://github.com/nomatronio/derrick/issues/1536
 	st := ui.Status()
 	defer st.Close()
 
@@ -567,7 +567,7 @@ variables such as ` + "`artifact.image`" + ` to dynamically configure the
 Docker image within the Nomad job specification.
 
 -> **Note:** If using [Nomad interpolation](/nomad/docs/runtime/interpolation) in your jobspec file,
-and the ` + "`templatefile`" + ` function in your waypoint.hcl file, any interpolated values must be escaped with a second 
+and the ` + "`templatefile`" + ` function in your derrick.hcl file, any interpolated values must be escaped with a second 
 ` + "`$`" + `. For example: ` + "`$${meta.metadata}`" + ` instead of ` + "`${meta.metadata}`" + `.
 
 ### Entrypoint Functionality
@@ -615,7 +615,7 @@ deploy {
 `)
 
 	doc.Example(`
-// The waypoint.hcl file
+// The derrick.hcl file
 deploy {
   use "nomad-jobspec" {
     // Templated to perhaps bring in the artifact from a previous

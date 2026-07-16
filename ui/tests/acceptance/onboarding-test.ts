@@ -2,10 +2,10 @@ import { clickable, create, text, visitable } from 'ember-cli-page-object';
 import { module, test } from 'qunit';
 
 import { currentURL } from '@ember/test-helpers';
-import { setUa } from 'waypoint/tests/helpers/set-ua';
+import { setUa } from 'derrick/tests/helpers/set-ua';
 import { setupApplicationTest } from 'ember-qunit';
 import { setupMirage } from 'ember-cli-mirage/test-support';
-import { setupSession } from 'waypoint/tests/helpers/login';
+import { setupSession } from 'derrick/tests/helpers/login';
 
 const userAgent = window.navigator.userAgent;
 

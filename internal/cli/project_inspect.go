@@ -7,10 +7,10 @@ import (
 	"github.com/posener/complete"
 	"google.golang.org/protobuf/encoding/protojson"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 type ProjectInspectCommand struct {
@@ -222,12 +222,12 @@ func (c *ProjectInspectCommand) Synopsis() string {
 
 func (c *ProjectInspectCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint project inspect [project-name]
+Usage: derrick project inspect [project-name]
 
   Inspect the details of a given project.
 
   Projects usually map to a single version control repository and contain
-  exactly one "waypoint.hcl" configuration. A project may contain multiple
+  exactly one "derrick.hcl" configuration. A project may contain multiple
   applications.
 
   A project is registered via the web UI, "waypoint project apply",

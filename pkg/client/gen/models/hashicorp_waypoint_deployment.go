@@ -16,7 +16,7 @@ import (
 
 // HashicorpWaypointDeployment hashicorp waypoint deployment
 //
-// swagger:model hashicorp.waypoint.Deployment
+// swagger:model nomatron.derrick.Deployment
 type HashicorpWaypointDeployment struct {
 
 	// application that this deployment belongs to

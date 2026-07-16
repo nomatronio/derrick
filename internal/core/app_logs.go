@@ -7,10 +7,10 @@ import (
 	"github.com/hashicorp/go-argmapper"
 	"github.com/hashicorp/hcl/v2"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/component"
-	"github.com/hashicorp/waypoint/internal/ceb/virtualceb"
-	"github.com/hashicorp/waypoint/internal/plugin"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/component"
+	"github.com/nomatronio/derrick/internal/ceb/virtualceb"
+	"github.com/nomatronio/derrick/internal/plugin"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 // Logs launches a logs plugin. Logs plugins are only used if the plugin's

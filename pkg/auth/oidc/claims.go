@@ -8,7 +8,7 @@ import (
 
 	"github.com/mitchellh/pointerstructure"
 
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 // SelectorData returns the data for go-bexpr for selector evaluation.

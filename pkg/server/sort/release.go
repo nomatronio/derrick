@@ -3,7 +3,7 @@ package sort
 import (
 	"sort"
 
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 // ReleaseBundleCompleteDesc sorts deployment bundles by completion time descending.

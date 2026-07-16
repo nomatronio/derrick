@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointRefComponent Component references a component.
 //
-// swagger:model hashicorp.waypoint.Ref.Component
+// swagger:model nomatron.derrick.Ref.Component
 type HashicorpWaypointRefComponent struct {
 
 	// name

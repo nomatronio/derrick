@@ -1,7 +1,7 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
-import { Build, GetBuildRequest, Ref } from 'waypoint-pb';
-import ApiService from 'waypoint/services/api';
+import { Build, GetBuildRequest, Ref } from 'derrick-pb';
+import ApiService from 'derrick/services/api';
 
 type Params = { build_id: string };
 type Model = Build.AsObject;

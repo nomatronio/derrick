@@ -14,55 +14,55 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// HashicorpWaypointServerFeaturesFeature - FEATURE_INLINE_KEEPALIVES: Advertises that this server is capable of receiving inline keepalive messages
+// HashicorpDerrickServerFeaturesFeature - FEATURE_INLINE_KEEPALIVES: Advertises that this server is capable of receiving inline keepalive messages
 //
-// swagger:model hashicorp.waypoint.ServerFeatures.feature
-type HashicorpWaypointServerFeaturesFeature string
+// swagger:model nomatron.derrick.ServerFeatures.feature
+type HashicorpDerrickServerFeaturesFeature string
 
-func NewHashicorpWaypointServerFeaturesFeature(value HashicorpWaypointServerFeaturesFeature) *HashicorpWaypointServerFeaturesFeature {
+func NewHashicorpDerrickServerFeaturesFeature(value HashicorpDerrickServerFeaturesFeature) *HashicorpDerrickServerFeaturesFeature {
 	return &value
 }
 
-// Pointer returns a pointer to a freshly-allocated HashicorpWaypointServerFeaturesFeature.
-func (m HashicorpWaypointServerFeaturesFeature) Pointer() *HashicorpWaypointServerFeaturesFeature {
+// Pointer returns a pointer to a freshly-allocated HashicorpDerrickServerFeaturesFeature.
+func (m HashicorpDerrickServerFeaturesFeature) Pointer() *HashicorpDerrickServerFeaturesFeature {
 	return &m
 }
 
 const (
 
-	// HashicorpWaypointServerFeaturesFeatureFEATUREUNSPECIFIED captures enum value "FEATURE_UNSPECIFIED"
-	HashicorpWaypointServerFeaturesFeatureFEATUREUNSPECIFIED HashicorpWaypointServerFeaturesFeature = "FEATURE_UNSPECIFIED"
+	// HashicorpDerrickServerFeaturesFeatureFEATUREUNSPECIFIED captures enum value "FEATURE_UNSPECIFIED"
+	HashicorpDerrickServerFeaturesFeatureFEATUREUNSPECIFIED HashicorpDerrickServerFeaturesFeature = "FEATURE_UNSPECIFIED"
 
-	// HashicorpWaypointServerFeaturesFeatureFEATUREINLINEKEEPALIVES captures enum value "FEATURE_INLINE_KEEPALIVES"
-	HashicorpWaypointServerFeaturesFeatureFEATUREINLINEKEEPALIVES HashicorpWaypointServerFeaturesFeature = "FEATURE_INLINE_KEEPALIVES"
+	// HashicorpDerrickServerFeaturesFeatureFEATUREINLINEKEEPALIVES captures enum value "FEATURE_INLINE_KEEPALIVES"
+	HashicorpDerrickServerFeaturesFeatureFEATUREINLINEKEEPALIVES HashicorpDerrickServerFeaturesFeature = "FEATURE_INLINE_KEEPALIVES"
 )
 
 // for schema
-var hashicorpWaypointServerFeaturesFeatureEnum []interface{}
+var hashicorpDerrickServerFeaturesFeatureEnum []interface{}
 
 func init() {
-	var res []HashicorpWaypointServerFeaturesFeature
+	var res []HashicorpDerrickServerFeaturesFeature
 	if err := json.Unmarshal([]byte(`["FEATURE_UNSPECIFIED","FEATURE_INLINE_KEEPALIVES"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
-		hashicorpWaypointServerFeaturesFeatureEnum = append(hashicorpWaypointServerFeaturesFeatureEnum, v)
+		hashicorpDerrickServerFeaturesFeatureEnum = append(hashicorpDerrickServerFeaturesFeatureEnum, v)
 	}
 }
 
-func (m HashicorpWaypointServerFeaturesFeature) validateHashicorpWaypointServerFeaturesFeatureEnum(path, location string, value HashicorpWaypointServerFeaturesFeature) error {
-	if err := validate.EnumCase(path, location, value, hashicorpWaypointServerFeaturesFeatureEnum, true); err != nil {
+func (m HashicorpDerrickServerFeaturesFeature) validateHashicorpDerrickServerFeaturesFeatureEnum(path, location string, value HashicorpDerrickServerFeaturesFeature) error {
+	if err := validate.EnumCase(path, location, value, hashicorpDerrickServerFeaturesFeatureEnum, true); err != nil {
 		return err
 	}
 	return nil
 }
 
 // Validate validates this hashicorp waypoint server features feature
-func (m HashicorpWaypointServerFeaturesFeature) Validate(formats strfmt.Registry) error {
+func (m HashicorpDerrickServerFeaturesFeature) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	// value enum
-	if err := m.validateHashicorpWaypointServerFeaturesFeatureEnum("", "body", m); err != nil {
+	if err := m.validateHashicorpDerrickServerFeaturesFeatureEnum("", "body", m); err != nil {
 		return err
 	}
 
@@ -73,6 +73,6 @@ func (m HashicorpWaypointServerFeaturesFeature) Validate(formats strfmt.Registry
 }
 
 // ContextValidate validates this hashicorp waypoint server features feature based on context it is used
-func (m HashicorpWaypointServerFeaturesFeature) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+func (m HashicorpDerrickServerFeaturesFeature) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }

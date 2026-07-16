@@ -2,17 +2,17 @@
 layout: docs
 page_title: Runners
 description: |-
-  Waypoint utilizes "runners" to execute Waypoint operations remotely. Runners are responsible for performing builds and deploys, polling projects for changes, and more.
+  Derrick utilizes "runners" to execute Derrick operations remotely. Runners are responsible for performing builds and deploys, polling projects for changes, and more.
 ---
 
-# Waypoint Runners
+# Derrick Runners
 
-Waypoint utilizes "runners" to execute operations. A runner is a program executing
-[`waypoint runner agent`](/waypoint/commands/runner-agent) that is configured with the details
-of the Waypoint server.
+Derrick utilizes "runners" to execute operations. A runner is a program executing
+[`derrick runner agent`](/waypoint/commands/runner-agent) that is configured with the details
+of the Derrick server.
 
-Every operation that Waypoint runs (build, deploy, release, etc) is executed by a Waypoint runner.
-The Waypoint server maintains a queue of jobs that the server hands out to connected
+Every operation that Derrick runs (build, deploy, release, etc) is executed by a Derrick runner.
+The Derrick server maintains a queue of jobs that the server hands out to connected
 runners. The server never connects directly to runners, runners always connect to the
 server. This is important because runners are designed to be run in the same
 environment that your application is deployed into because the plugins such as Deploy
@@ -23,9 +23,9 @@ In most deployments, there are two kinds of runners:
 ### Static Runner
 
 Static runners are long-lived runners that are installed into your deployment
-environment once, likely when you setup Waypoint for the first time.
+environment once, likely when you setup Derrick for the first time.
 
-The [`waypoint install`](/waypoint/commands/install) and [`waypoint runner install`](/waypoint/commands/runner-install)
+The [`derrick install`](/waypoint/commands/install) and [`derrick runner install`](/waypoint/commands/runner-install)
 commands can install these runners for you, using details about your deployment
 environment.
 
@@ -33,7 +33,7 @@ One issue with static runners is that they have fixed capacity: they can only ru
 many operations at a time. Additionally to run certain plugins like Docker, we need to have
 uniquely configured environments.
 
-For that reason, Waypoint makes heavy usage of on-demand runners:
+For that reason, Derrick makes heavy usage of on-demand runners:
 
 ### On-Demand Runners
 
@@ -41,13 +41,13 @@ While the static runner is capable of performing operations on its own, it also
 supports the ability to spawn on-demand runners for a given platform. These
 on-demand runners are ephemeral container instances that perform one operation only.
 They can perform container builds without any privileged access, offer more isolation
-between operations, and allow Waypoint to scale further.
+between operations, and allow Derrick to scale further.
 
 On-demand runners: see [on-demand runners](/waypoint/docs/runner/on-demand-runner) for more information.
 
 ### Runner Architecture
 
-This diagram shows the relationship between Waypoint and remote static and on-demand runners, on your infrastructure of choice:
+This diagram shows the relationship between Derrick and remote static and on-demand runners, on your infrastructure of choice:
 
 <ImageConfig width={400}>
 
@@ -61,7 +61,7 @@ One runner behavior is used less often, the CLI runner:
 
 ### CLI Runner
 
-When you trigger an action with the CLI, i.e. by running `waypoint deploy`, and
+When you trigger an action with the CLI, i.e. by running `derrick deploy`, and
 either specify `-local` or do not have any runners registered on the server, the CLI
 itself acts as a runner capable of performing your operation. If your deployment needs
 AWS credentials, or a valid kubectl context, it can access the credentials from the
@@ -82,35 +82,35 @@ Static runners can be installed with user-defined ID and labels.
 You can then set [runner profiles](/waypoint/docs/runner/profiles), which tell the server which static runner to target to handle operations,
 and the configurations of the short-lived on-demand runner that will execute jobs.
 Finally, specify which `runner profile` to use for an application via
-the `profile` option in the `runner` stanza of the `waypoint.hcl` file.
+the `profile` option in the `runner` stanza of the `derrick.hcl` file.
 
 ### Runner Targeting Example
 
 If you install a runner with the `runner install` or `server install` commands,
 it comes with a preset `runner profile` and adopted static runner.
 
-The following example illustrates a custom local setup of a Waypoint runner and profile.
+The following example illustrates a custom local setup of a Derrick runner and profile.
 
 ```terminal
-$ waypoint runner agent -name=test -label=org=hashicorp -label=env=dev
+$ derrick runner agent -name=test -label=org=hashicorp -label=env=dev
 ```
 
 Static runners need a valid runner token and server adoption in order to receive jobs.
 For more information on runner adoption, see [adoption workflow](/waypoint/docs/runner/adoption).
 
-With `waypoint runner list`, you can see the full list of available
+With `derrick runner list`, you can see the full list of available
 runners and their labels.
 
 ```shell-session
-$ waypoint runner list
+$ derrick runner list
     ID   |   STATE    |  KIND  |         LABELS         | LAST REGISTERED
 ---------+------------+--------+------------------------+------------------
   test   | preadopted | remote | org:hashicorp env:dev  | 6 seconds ago
 
-$ waypoint runner adopt test
+$ derrick runner adopt test
 Runner "test" adopted.
 
-$ waypoint runner list
+$ derrick runner list
     ID   |  STATE  |  KIND  |         LABELS         | LAST REGISTERED
 ---------+---------+--------+------------------------+------------------
   test   | adopted | remote | org:hashicorp env:dev  | 1 minute ago
@@ -118,11 +118,11 @@ $ waypoint runner list
 
 You can now set a runner profile to target that specific static runner by ID,
 or any static runner that has matching labels. When there is a runner profile specified
-in the `waypoint.hcl` configurations, only a matching static runner can receive jobs
+in the `derrick.hcl` configurations, only a matching static runner can receive jobs
 for that application and generate on-demand runners to execute them.
 
 ```terminal
-$ waypoint runner profile set -name=docker-hashicorp-dev -plugin-type=docker -target-runner-label=org=hashicorp -target-runner-label=env=dev
+$ derrick runner profile set -name=docker-hashicorp-dev -plugin-type=docker -target-runner-label=org=hashicorp -target-runner-label=env=dev
 ✓ Runner profile created
 ```
 
@@ -132,10 +132,10 @@ $ waypoint runner profile set -name=docker-hashicorp-dev -plugin-type=docker -ta
   docker-hashicorp-dev                  | docker      | hashicorp/waypoint-odr:latest        | labels: {"env":"dev","org":"hashicorp"} |
 ```
 
-Specify the runner profile to use with the `runner` stanza in the `waypoint.hcl` file.
+Specify the runner profile to use with the `runner` stanza in the `derrick.hcl` file.
 In this example, a user variable "org" and the built-in
 `workspace` variable are interpolated into the runner profile name.
-At the time of execution of remote operations, Waypoint uses the desired runner
+At the time of execution of remote operations, Derrick uses the desired runner
 profile based on the workspace and configuration variables.
 
 ```hcl
@@ -166,30 +166,30 @@ variable "org" {
 
 Our runner targeting is all set up! An example operation that would use this runner profile:
 
-`waypoint build -w=dev -var=org=hashicorp -local=false`.
+`derrick build -w=dev -var=org=hashicorp -local=false`.
 
 ### Runner Targeting Advantages
 
 #### Multi-Cluster, Multi-Environment, Multi-Region
 
 As shown in the example above, enabling multi-environment operations is
-the most straightforward use-case for runner targeting. Waypoint dynamically interpolates
+the most straightforward use-case for runner targeting. Derrick dynamically interpolates
 the "dev" workspace into the runner profile name at operation runtime,
 which then targets the matching static runner for the "dev" environment.
 You could create additional runners and runner profiles for the "prod" and "test" environments,
-and Waypoint would target the correct runners automagically with a simple `-workspace` flag.
+and Derrick would target the correct runners automagically with a simple `-workspace` flag.
 
 Runner targeting is also useful for workflows where you deploy to multiple clusters
 on a platform. A static runner pod in one Kubernetes cluster
 would only perform remote operations within that cluster.
 With runners in multiple Kubernetes clusters, you can easily target and deploy
-to any cluster with Waypoint remote operations.
+to any cluster with Derrick remote operations.
 
 #### High Availability and Performance
 
 In a production environment, runner targeting may be essential to achieving high availability.
 Deploying multiple runners with the same labels and a runner profile that targets
-those same labels will cause Waypoint to "round-robin" between the available
+those same labels will cause Derrick to "round-robin" between the available
 runners. This approach reduces bottleneck of one static runner handling a large job
 queue, and ensures continued availability if one of the runners goes down. As long as
 one of the static runners with matching labels remains online, remote operations on
@@ -197,7 +197,7 @@ the application continue uninterrupted.
 
 ## Disabling Runners
 
-Runners can be disabled if desired. With runners disabled, Waypoint executes
+Runners can be disabled if desired. With runners disabled, Derrick executes
 all operations via the local CLI (even when communicating with a remote
 [server](/waypoint/docs/server)).
 
@@ -220,14 +220,14 @@ functionality is not available.
 ### Disabling Runner Installation
 
 Prior to installation, runners can be disabled by specifying the
-`-runner=false` flag to the [`waypoint install`](/waypoint/commands/install) command.
+`-runner=false` flag to the [`derrick install`](/waypoint/commands/install) command.
 This will not install a runner.
 
 ### Removing a Runner
 
 If there is a runner which you'd no longer like your server to use for remote
 operations, this runner can be "invalidated" for use by the server with the
-`waypoint runner reject` command, with the ID of the runner provided.
+`derrick runner reject` command, with the ID of the runner provided.
 
 With the runner forgotten, the server will no longer send any jobs to it. To cleanup
 the resources being used by that runner though, there are two options:
@@ -236,7 +236,7 @@ To uninstall a runner that is already installed, there are two options:
 
 1. You may also manually go into your platform and delete the runner. For instance
    with kubernetes, you'd delete the StatefulSet that maintains the static runner.
-2. Uninstall and reinstall Waypoint with a
+2. Uninstall and reinstall Derrick with a
    [data snapshot and restore](/waypoint/docs/server/run/maintenance#backup-restore). This is
    a fairly substantial action and should only be undertaken if there is no other
    options.

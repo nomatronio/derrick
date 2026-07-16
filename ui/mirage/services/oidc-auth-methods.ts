@@ -1,7 +1,7 @@
 import { Response } from 'miragejs';
 import { RouteHandler } from '../types';
 
-import { ListOIDCAuthMethodsResponse } from 'waypoint-pb';
+import { ListOIDCAuthMethodsResponse } from 'derrick-pb';
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/no-explicit-any
 export function list(this: RouteHandler, schema: any): Response {

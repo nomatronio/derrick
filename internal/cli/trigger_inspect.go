@@ -10,10 +10,10 @@ import (
 	"google.golang.org/grpc/status"
 	"google.golang.org/protobuf/encoding/protojson"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 type TriggerInspectCommand struct {
@@ -193,7 +193,7 @@ func (c *TriggerInspectCommand) Synopsis() string {
 
 func (c *TriggerInspectCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint trigger inspect [options] <trigger-id>
+Usage: derrick trigger inspect [options] <trigger-id>
 
   Inspect a registered trigger URL configuration.
 

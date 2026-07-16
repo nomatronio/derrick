@@ -1,9 +1,9 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
-import ApiService from 'waypoint/services/api';
+import ApiService from 'derrick/services/api';
 import { Empty } from 'google-protobuf/google/protobuf/empty_pb';
-import { VersionInfo as info } from 'waypoint-pb';
+import { VersionInfo as info } from 'derrick-pb';
 
 type Args = Record<string, never>;
 

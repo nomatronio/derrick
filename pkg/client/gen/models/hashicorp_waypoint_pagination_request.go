@@ -15,7 +15,7 @@ import (
 // HashicorpWaypointPaginationRequest https://github.com/hashicorp/cloud-api/blob/master/hashicorp/cloud/common/pagination.proto
 // PaginationRequest are the parameters for a paginated list request.
 //
-// swagger:model hashicorp.waypoint.PaginationRequest
+// swagger:model nomatron.derrick.PaginationRequest
 type HashicorpWaypointPaginationRequest struct {
 
 	// Specifies a page token to use to retrieve the next page. Set this to the

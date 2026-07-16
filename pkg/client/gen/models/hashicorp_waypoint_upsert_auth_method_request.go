@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointUpsertAuthMethodRequest hashicorp waypoint upsert auth method request
 //
-// swagger:model hashicorp.waypoint.UpsertAuthMethodRequest
+// swagger:model nomatron.derrick.UpsertAuthMethodRequest
 type HashicorpWaypointUpsertAuthMethodRequest struct {
 
 	// AuthMethod to upsert. See the message for what fields to set.

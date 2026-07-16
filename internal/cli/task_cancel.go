@@ -4,10 +4,10 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 type TaskCancelCommand struct {
@@ -85,7 +85,7 @@ func (c *TaskCancelCommand) Synopsis() string {
 
 func (c *TaskCancelCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint task cancel [options] <task-id>
+Usage: derrick task cancel [options] <task-id>
 
   Cancel an On-Demand Runner Task and all of the jobs associated with it.
 

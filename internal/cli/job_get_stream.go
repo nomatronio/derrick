@@ -1,10 +1,10 @@
 package cli
 
 import (
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	jobstream "github.com/hashicorp/waypoint/internal/jobstream"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	jobstream "github.com/nomatronio/derrick/internal/jobstream"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
 )
 
 type JobGetStreamCommand struct {
@@ -63,7 +63,7 @@ func (c *JobGetStreamCommand) Synopsis() string {
 
 func (c *JobGetStreamCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint job get-stream [options] <job-id>
+Usage: derrick job get-stream [options] <job-id>
 
   Connects the local CLI to an active job stream.
 

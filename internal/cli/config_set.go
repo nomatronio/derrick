@@ -8,10 +8,10 @@ import (
 
 	"github.com/posener/complete"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 type ConfigSetCommand struct {
@@ -45,7 +45,7 @@ func (c *ConfigSetCommand) Run(args []string) int {
 		// we need a way to load that project name.
 		if c.flagScope == "global" || c.flagProject != "" {
 			initOpts = append(initOpts,
-				WithNoConfig(), // no waypoint.hcl
+				WithNoConfig(), // no derrick.hcl
 			)
 		}
 	}
@@ -216,7 +216,7 @@ func (c *ConfigSetCommand) Synopsis() string {
 
 func (c *ConfigSetCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint config set <name>=<value>
+Usage: derrick config set <name>=<value>
 
   Set a config variable that will be available to deployments as an
   environment variable.
@@ -224,7 +224,7 @@ Usage: waypoint config set <name>=<value>
   This will scope the variable to the entire project by default.
   Specify the "-project" flag to set a config variable for a specific project.
   The "-project" flag is not required if scope is global or there is a local
-  waypoint.hcl file.
+  derrick.hcl file.
 
   Specify the "-app" flag to set a config variable for a specific app.
 

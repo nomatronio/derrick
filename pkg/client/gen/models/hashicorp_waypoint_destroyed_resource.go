@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointDestroyedResource hashicorp waypoint destroyed resource
 //
-// swagger:model hashicorp.waypoint.DestroyedResource
+// swagger:model nomatron.derrick.DestroyedResource
 type HashicorpWaypointDestroyedResource struct {
 
 	// Unique name name for the resource. Usually derived from the platform. Required.

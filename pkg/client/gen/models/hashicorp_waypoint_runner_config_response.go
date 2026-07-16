@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointRunnerConfigResponse hashicorp waypoint runner config response
 //
-// swagger:model hashicorp.waypoint.RunnerConfigResponse
+// swagger:model nomatron.derrick.RunnerConfigResponse
 type HashicorpWaypointRunnerConfigResponse struct {
 
 	// config is any updated configuration for the runner.

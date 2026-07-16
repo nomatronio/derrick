@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointVariableVCS hashicorp waypoint variable v c s
 //
-// swagger:model hashicorp.waypoint.Variable.VCS
+// swagger:model nomatron.derrick.Variable.VCS
 type HashicorpWaypointVariableVCS struct {
 
 	// file name

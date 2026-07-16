@@ -1,20 +1,20 @@
 ---
 layout: docs
-page_title: A Complete Cloud Ecosystem built with Terraform, HCP Waypoint, HCP Vault, HCP Consul, and Nomad
+page_title: A Complete Cloud Ecosystem built with Terraform, HCP Derrick, HCP Vault, HCP Consul, and Nomad
 description: |-
-  Your enterprise application is only a 'terraform apply' and 'waypoint up' away from life on the cloud.
+  Your enterprise application is only a 'terraform apply' and 'derrick up' away from life on the cloud.
 ---
 
-# A Complete Cloud Ecosystem built with Terraform, HCP Waypoint, HCP Vault, HCP Consul, and Nomad
+# A Complete Cloud Ecosystem built with Terraform, HCP Derrick, HCP Vault, HCP Consul, and Nomad
 
 In this use case, we will spin up our entire infrastructure with `terraform apply`,
-then launch the application to an EC2 container within our secured internal network with `waypoint up`.
+then launch the application to an EC2 container within our secured internal network with `derrick up`.
 Welcome to the HashiCorp stack magic.
 
-The ingredients for this special dish are [Waypoint](https://www.waypointproject.io/),
+The ingredients for this special dish are [Derrick](https://www.derrick.dev/),
 [Terraform](https://www.terraform.io/), [Consul](https://www.consul.io/), [Nomad](https://www.nomadproject.io/), and
 [Vault](https://www.vaultproject.io/).
-We chose to use HashiCorp managed versions of Waypoint, Consul, and Vault for one convenient HCP UI and
+We chose to use HashiCorp managed versions of Derrick, Consul, and Vault for one convenient HCP UI and
 to showcase the [HashiCorp Virtual Network (HVN)](/hcp/docs/hcp/network).
 A similar experience is of course possible with self-managed versions,
 and equally possible with Terraform automation, although it may require more familiarity with Terraform modules.
@@ -37,11 +37,11 @@ export AWS_SESSION_TOKEN=<your AWS session token>
 
 As well as the following binaries installed locally:
 
-- [Waypoint CLI](/waypoint/downloads)
+- [Derrick CLI](/waypoint/downloads)
 - [Terraform CLI](/terraform/tutorials/aws-get-started/install-cli)
 
 It will help to have some familiarity with HashiCorp Configuration Language (HCL), which is the syntax used to
-write configuration files for [Terraform](/terraform/language) and [Waypoint](/waypoint/docs/waypoint-hcl/syntax).
+write configuration files for [Terraform](/terraform/language) and [Derrick](/waypoint/docs/derrick-hcl/syntax).
 
 In this use case, we will configure our infrastructure as code, which Terraform will run to provision the following:
 
@@ -50,15 +50,15 @@ In this use case, we will configure our infrastructure as code, which Terraform 
 - [HCP Vault](https://cloud.hashicorp.com/products/vault) cluster to securely store credentials
 - [HashiCorp Nomad](/nomad/tutorials/get-started/get-started-intro) cluster on AWS EC2 instance to manage application containers
 
-We will write application deployment configurations as code, which [HCP Waypoint](https://cloud.hashicorp.com/products/waypoint)
+We will write application deployment configurations as code, which [HCP Derrick](https://cloud.hashicorp.com/products/waypoint)
 will run to build the container image and deploy the application to the infrastructure we set up with Terraform.
 
 All it takes are two commands:
 
 - `terraform apply`
-- `waypoint up`
+- `derrick up`
 
-The Terraform and Waypoint configuration files and a sample application live in [this repository](https://github.com/xiaolin-ninja/2048_hcp_hashistack).
+The Terraform and Derrick configuration files and a sample application live in [this repository](https://github.com/xiaolin-ninja/2048_hcp_hashistack).
 We will deploy a custom HashiCorp version of the popular game "2048".
 Please clone the repo if you'd like to follow along the tutorial on your local machine.
 
@@ -345,19 +345,19 @@ Do you want to perform these actions?
 
 Remember to confirm the run by entering `yes`!
 
-## Set up HCP Waypoint Context
+## Set up HCP Derrick Context
 
-HCP Waypoint is currently in Beta, and a Terraform module to provision Waypoint is still under development.
+HCP Derrick is currently in Beta, and a Terraform module to provision Derrick is still under development.
 
 Head into your HCP UI and [follow this tutorial](/waypoint/tutorials/runners/hcp-runners-on-your-infra#set-up-the-environment)
 to set up your local environment.
 
-Navigate to Waypoint in the HCP dashboard:
+Navigate to Derrick in the HCP dashboard:
 ![HCP UI](/img/use-cases/hcp-hashistack-quickstart/hcp.png)
 
-Then click on "Install New Runner", which will generate terminal inputs to set up the Waypoint context and install a Runner on your chosen platform.
+Then click on "Install New Runner", which will generate terminal inputs to set up the Derrick context and install a Runner on your chosen platform.
 In this case, we choose Nomad with a host volume named "wp_runner".
-![Waypoint Install New Runner](/img/use-cases/hcp-hashistack-quickstart/waypoint-runner-install.png)
+![Derrick Install New Runner](/img/use-cases/hcp-hashistack-quickstart/waypoint-runner-install.png)
 
 You will need to export the Nomad server address, which you can find on the AWS EC2 instance:
 ![Nomad EC2 Instances](/img/use-cases/hcp-hashistack-quickstart/nomad-ec2.png)
@@ -366,12 +366,12 @@ You will need to export the Nomad server address, which you can find on the AWS 
 export NOMAD_ADDR=<nomad_private_addr>
 ```
 
-![Waypoint Install New Runner CLI](/img/use-cases/hcp-hashistack-quickstart/wp-runner-install.png)
+![Derrick Install New Runner CLI](/img/use-cases/hcp-hashistack-quickstart/wp-runner-install.png)
 
-Export the nomad address to your local environment and install the runner after installing the HCP Waypoint context,
-and you're all set to use HCP Waypoint.
+Export the nomad address to your local environment and install the runner after installing the HCP Derrick context,
+and you're all set to use HCP Derrick.
 
-The `waypoint.hcl` file defines application deployment configurations.
+The `derrick.hcl` file defines application deployment configurations.
 For this use case, we have a simple "build", "deploy", and "release" flow:
 
 ```hcl
@@ -395,24 +395,24 @@ app "nomad" {
 }
 ```
 
-You can [read more about Waypoint HCL](/waypoint/docs/waypoint-hcl) fundamentals,
+You can [read more about Derrick HCL](/waypoint/docs/derrick-hcl) fundamentals,
 or explore [advanced deployment workflows using custom pipelines](/waypoint/docs/pipelines).
 
-Now, run `waypoint init`:
+Now, run `derrick init`:
 
 ```shell
-$ waypoint init
+$ derrick init
 ✓ Configuration file appears valid
-✓ Connection to Waypoint server was successful
+✓ Connection to Derrick server was successful
 ✓ Project "2048-hashistack" and all apps are registered with the server.
 ```
 
 And the moment of magic...
 
-`waypoint up`
+`derrick up`
 
 ```shell
-$ waypoint up
+$ derrick up
 
 » Operation is queued waiting for job "01GRM4JZAFWRC4RA8M8BBR4NV8". Waiting for runner assignment...
   If you interrupt this command, the job will still run in the background.
@@ -425,19 +425,19 @@ The deploy was successful!
 
 The release did not provide a URL and the URL service is disabled on the
 server, so no further URL information can be automatically provided. If
-this is unexpected, please ensure the Waypoint server has both the URL service
+this is unexpected, please ensure the Derrick server has both the URL service
 enabled and advertise addresses set.
 ```
 
 Congratulations, your application is live!
 
-HCP Waypoint does not provide a URL service.
-You can also deploy the application by [installing self-hosted Waypoint](/waypoint/commands/install)
-and running `waypoint up` with a different context.
+HCP Derrick does not provide a URL service.
+You can also deploy the application by [installing self-hosted Derrick](/waypoint/commands/install)
+and running `derrick up` with a different context.
 
 ## Easy to Monitor Dashboards
 
-After our `terraform apply` and `waypoint up`, you should have a full HCP HashiCorp stack set up automatically and application deployed.
+After our `terraform apply` and `derrick up`, you should have a full HCP HashiCorp stack set up automatically and application deployed.
 
 ### HashiCorp Virtual Network
 
@@ -459,7 +459,7 @@ As you can see, Consul service mesh keeps track of services in our VPC.
 ### Nomad Dashboard
 
 Nomad is a workload orchestration program, so services in the HVN are reflected as jobs.
-You can see the Nomad server, client, and Waypoint runner.
+You can see the Nomad server, client, and Derrick runner.
 
 ![Nomad UI](/img/use-cases/hcp-hashistack-quickstart/nomad-ui.png)
 
@@ -473,14 +473,14 @@ You can find a persistent version of the application we deployed here: [HashiCor
 
 ## Summary
 
-Waypoint and Terraform
+Derrick and Terraform
 Cloud automation magic,
 Easy deployments!
 
 Our Engineers aren't paid to write haikus, but infrastructure automation inspires innovation.
 
 HashiCorp customers already know how easy it is to provision and manage cloud infrastructure with HashiCorp tools,
-and Waypoint expands the HashiCorp stack by enabling deployment automation with custom pipelines.
+and Derrick expands the HashiCorp stack by enabling deployment automation with custom pipelines.
 Hopefully, this use case showcases the synergy between HashiCorp products, and how easy they are to configure.
 Our mission is to help increase productivity, reduce risk and capital expenditure,
 and drive innovation within your organization.
@@ -492,12 +492,12 @@ We covered many HashiCorp tools in this use case. We focused on HCP product offe
 Provisioning is easy with the UI or Terraform, as shown in this demo.
 Of course, all our tools have Open Source versions and are available for self-management as well.
 We include below a few tutorials that dive deeper into pieces of the workflow shown in this use case,
-so you can explore this sweet HashiCorp stack synergy with self-managed Waypoint, Consul, Nomad, and Vault as well!
+so you can explore this sweet HashiCorp stack synergy with self-managed Derrick, Consul, Nomad, and Vault as well!
 
 - [HashiCorp Cloud Platform](https://cloud.hashicorp.com/)
 - [Consul Service Mesh](/consul/docs/connect)
-- [Deploy an Application to Nomad with Waypoint](/waypoint/tutorials/get-started-nomad/get-started-nomad)
+- [Deploy an Application to Nomad with Derrick](/waypoint/tutorials/get-started-nomad/get-started-nomad)
 - [Set Up a Nomad Cluster on AWS](/nomad/tutorials/cluster-setup/cluster-setup-aws)
-- [Blue-Green Deployments with Waypoint, Nomad, and Consul](/waypoint/docs/use-cases/blue-green-deployment)
+- [Blue-Green Deployments with Derrick, Nomad, and Consul](/waypoint/docs/use-cases/blue-green-deployment)
 - [Consul Deployment Guide](/consul/tutorials/production-deploy/deployment-guide)
-- [Advanced Deployment Pipelines with Waypoint](/waypoint/docs/pipelines)
+- [Advanced Deployment Pipelines with Derrick](/waypoint/docs/pipelines)

@@ -4,7 +4,7 @@ import (
 	"github.com/hashicorp/go-argmapper"
 	"github.com/hashicorp/go-hclog"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/internal-shared/protomappers"
+	"github.com/nomatronio/derrick-plugin-sdk/internal-shared/protomappers"
 )
 
 // CallDynamicFunc is a helper to call the dynamic functions that Waypoint

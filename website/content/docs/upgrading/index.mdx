@@ -2,31 +2,31 @@
 layout: docs
 page_title: Upgrading
 description: |-
-  Waypoint is designed to be flexible and resilient when upgrading from one version to the next. We've carefully thought out an upgrade process so you can predict what will be involved when upgrading Waypoint.
+  Derrick is designed to be flexible and resilient when upgrading from one version to the next. We've carefully thought out an upgrade process so you can predict what will be involved when upgrading Derrick.
 ---
 
-# Upgrading Waypoint
+# Upgrading Derrick
 
-Waypoint is designed to be flexible and resilient when upgrading from
+Derrick is designed to be flexible and resilient when upgrading from
 one version to the next. We've carefully thought out an upgrade process
-so you can predict what will be involved when upgrading Waypoint.
+so you can predict what will be involved when upgrading Derrick.
 
-Waypoint is composed of many components which each have their own upgrade
+Derrick is composed of many components which each have their own upgrade
 considerations:
 
-- **Client** (such as the CLI or UI) - Users of Waypoint are not expected
-  to exactly match the Waypoint server version. The Waypoint upgrade process
+- **Client** (such as the CLI or UI) - Users of Derrick are not expected
+  to exactly match the Derrick server version. The Derrick upgrade process
   and compatibility promise allows for clients with differing versions from
-  a Waypoint server.
+  a Derrick server.
 
 - **Entrypoint** - The [entrypoint](/waypoint/docs/entrypoint) is built and run
-  directly on the deployment artifact. Users of Waypoint cannot be expected
-  to rebuild and redeploy all applications. The Waypoint upgrade process
+  directly on the deployment artifact. Users of Derrick cannot be expected
+  to rebuild and redeploy all applications. The Derrick upgrade process
   and compatibility promise is designed so that entrypoints retain compatibility
   as long as possible.
 
-- **Server** - The server component of Waypoint must remain compatible
-  with all actively used clients and entrypoints. The Waypoint upgrade process
+- **Server** - The server component of Derrick must remain compatible
+  with all actively used clients and entrypoints. The Derrick upgrade process
   is designed for you to know when and how to safely upgrade the server.
 
 Please see our [compatibility promise](/waypoint/docs/upgrading/compatibility)
@@ -35,8 +35,8 @@ how to upgrade components in both compatible and incompatible scenarios.
 
 ### Helm Chart
 
-If you're using the [Waypoint Helm chart](https://github.com/hashicorp/waypoint-helm)
-to install Waypoint, you can upgrade using the `helm upgrade` command.
+If you're using the [Derrick Helm chart](https://github.com/hashicorp/waypoint-helm)
+to install Derrick, you can upgrade using the `helm upgrade` command.
 Please take note of any
 [version-specific upgrade notes](/waypoint/docs/upgrading/version-guides) prior
 to upgrading, which may include minimum Helm chart versions for the upgrade
@@ -44,7 +44,7 @@ or steps you should take prior or following the upgrade.
 
 ```shell-session
 $ helm repo update
-$ helm upgrade waypoint hashicorp/waypoint
+$ helm upgrade derrick hashicorp/waypoint
 ```
 
 -> Note that the "waypoint" value in `helm upgrade` refers to the
@@ -52,12 +52,12 @@ release name you chose during `helm install`. This may be different for you.
 
 ### Server Upgrade Command
 
-Waypoint provides a command for users to upgrade the
-Waypoint server in place. For each platform, Waypoint attempts to
+Derrick provides a command for users to upgrade the
+Derrick server in place. For each platform, Derrick attempts to
 update the server image in place to latest by default, or to the server image
 specified via a flag passed in to the upgrade command.
 
-When the upgrade command is executed, Waypoint does the following:
+When the upgrade command is executed, Derrick does the following:
 
 - Takes a snapshot of the current server database and saves snapshot locally. The
   snapshot file can be saved elsewhere if a new name is passed in using the flag
@@ -66,13 +66,13 @@ When the upgrade command is executed, Waypoint does the following:
   - `docker` - This platform will force pull the image requested to update the
     container in docker.
   - `kubernetes` - This platform will submit a patch request to kubernetes to
-    set the image requested on the waypoint-server pod. By default, Waypoint's
+    set the image requested on the derrick-server pod. By default, Derrick's
     StatefulSet is configured to `RollingUpdate`, so the pod will pull the
-    requested version shortly after running the Waypoint upgrade command.
-  - `nomad` - This platform will update the waypoint server job with the server
+    requested version shortly after running the Derrick upgrade command.
+  - `nomad` - This platform will update the derrick server job with the server
     image requested.
   - `ecs` - This platform will locate the existing cluster, update task definitions, and upgrade the image to the latest.
-- Verifies that waypoint CLI can still connected and speak to Waypoint server
+- Verifies that derrick CLI can still connected and speak to Derrick server
 
 If you wish to use the automated upgrade command line approach, follow the
 Standard Upgrade guide using the _Automated Upgrade_ Server Upgrade subsection.
@@ -114,23 +114,23 @@ in the future.
 1. Check any upgrade notes for the version you're upgrading to and verify
    there are no issues that will affect your upgrade.
 
-2. Check the help text from running `waypoint server upgrade -help`.
+2. Check the help text from running `derrick server upgrade -help`.
 
 3. Ensure you are in the right server context before upgrading.
-   Check current context with `waypoint context inspect`. If this is not the intended context to upgrade,
-   run `waypoint context list` and choose the right one with `waypoint context use <name>`.
-   The upgrade automatically runs `waypoint context verify`.
+   Check current context with `derrick context inspect`. If this is not the intended context to upgrade,
+   run `derrick context list` and choose the right one with `derrick context use <name>`.
+   The upgrade automatically runs `derrick context verify`.
 
 4. When ready, run the upgrade command for your given platform. For example:
 
 ```shell-session
-waypoint server upgrade -platform=kubernetes -auto-approve
+derrick server upgrade -platform=kubernetes -auto-approve
 ```
 
 This will automatically save a snapshot of the server in your current directory
 prior to upgrading.
 
-If the server was installed with a static runner, Waypoint will uninstall the existing runner and install a new one with the new version.
+If the server was installed with a static runner, Derrick will uninstall the existing runner and install a new one with the new version.
 
 ### Client Upgrade
 
@@ -176,7 +176,7 @@ becomes incompatible from one version to another.
 ## Future Upgrade Improvements
 
 We have plans in the future to introduce tooling to make it much easier to
-confidently upgrade your Waypoint installations. Some of our roadmap plans
+confidently upgrade your Derrick installations. Some of our roadmap plans
 include:
 
 - Built-in tooling to list all protocol versions currently in use.

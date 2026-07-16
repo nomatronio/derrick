@@ -1,26 +1,26 @@
 ---
 layout: docs
-page_title: Integrating Waypoint with CircleCI
+page_title: Integrating Derrick with CircleCI
 description: |-
-  How to utilize Waypoint with CircleCI as the service to run
-  Waypoint to build and deploy applications
+  How to utilize Derrick with CircleCI as the service to run
+  Derrick to build and deploy applications
 ---
 
-# Integrating Waypoint with CircleCI
+# Integrating Derrick with CircleCI
 
 We can leverage CircleCI's [orb](https://circleci.com/orbs/) concept to simplify
 configuring the deployment of applications. This example configures CircleCI to
-configure a standalone Waypoint setup temporarily, with the server and runner
+configure a standalone Derrick setup temporarily, with the server and runner
 executing within the CircleCI job itself.
 
 The example demonstrates the main steps:
 
-1. **Set-up the dependencies Waypoint might use.** This could be
+1. **Set-up the dependencies Derrick might use.** This could be
    a Kubernetes context for a more advanced application, or in the
    below example, a Docker daemon to run applications on.
-2. **Install and Initalize Waypoint with `waypoint/init`.** This command will
-   install the waypoint CLI, start up a remote docker instance and run
-   `waypoint init`.
+2. **Install and Initalize Derrick with `derrick/init`.** This command will
+   install the derrick CLI, start up a remote docker instance and run
+   `derrick init`.
 3. **Run the build, deploy, and release.** We can leverage the orb's `up`
    command to do so
 
@@ -32,7 +32,7 @@ want to interpolate the relevant Git ref for the workspace parameter, as demonst
 
 ```yaml
 steps:
-  - waypoint/up:
+  - derrick/up:
       workspace: $CIRCLE_BRANCH
 ```
 
@@ -46,11 +46,11 @@ for a full list of variables that could be utilized in this way.
 version: 2.1
 
 orbs:
-  waypoint: circleci/waypoint@1.0.0
+  derrick: circleci/waypoint@1.0.0
 
 jobs:
   build:
-    executor: waypoint/default
+    executor: derrick/default
     environment:
       WAYPOINT_SERVER_ADDR: ''
       WAYPOINT_SERVER_TOKEN: ''
@@ -58,8 +58,8 @@ jobs:
       WAYPOINT_SERVER_TLS_SKIP_VERIFY: '1'
     steps:
       - checkout
-      - waypoint/init
-      - waypoint/up
+      - derrick/init
+      - derrick/up
 ```
 
 [Orb registry page](https://circleci.com/developer/orbs/orb/circleci/waypoint)

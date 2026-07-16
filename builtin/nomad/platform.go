@@ -9,16 +9,16 @@ import (
 
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/nomad/api"
-	"github.com/hashicorp/waypoint-plugin-sdk/component"
-	"github.com/hashicorp/waypoint-plugin-sdk/docs"
-	"github.com/hashicorp/waypoint-plugin-sdk/framework/resource"
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/builtin/docker"
+	"github.com/nomatronio/derrick-plugin-sdk/component"
+	"github.com/nomatronio/derrick-plugin-sdk/docs"
+	"github.com/nomatronio/derrick-plugin-sdk/framework/resource"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/builtin/docker"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 	"google.golang.org/protobuf/types/known/timestamppb"
 
-	sdk "github.com/hashicorp/waypoint-plugin-sdk/proto/gen"
+	sdk "github.com/nomatronio/derrick-plugin-sdk/proto/gen"
 )
 
 const (
@@ -388,7 +388,7 @@ func (p *Platform) Status(
 	s.Done()
 
 	// NOTE(briancain): Replace ui.Status with StepGroups once this bug
-	// has been fixed: https://github.com/hashicorp/waypoint/issues/1536
+	// has been fixed: https://github.com/nomatronio/derrick/issues/1536
 	st := ui.Status()
 	defer st.Close()
 

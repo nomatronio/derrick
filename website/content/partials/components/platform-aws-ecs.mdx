@@ -20,7 +20,7 @@ deploy {
 
 ### Required Parameters
 
-These parameters are used in the [`use` stanza](/waypoint/docs/waypoint-hcl/use) for this plugin.
+These parameters are used in the [`use` stanza](/waypoint/docs/derrick-hcl/use) for this plugin.
 
 #### health_check (category)
 
@@ -233,7 +233,7 @@ Environment variables to expose to this container.
 
 ### Optional Parameters
 
-These parameters are used in the [`use` stanza](/waypoint/docs/waypoint-hcl/use) for this plugin.
+These parameters are used in the [`use` stanza](/waypoint/docs/derrick-hcl/use) for this plugin.
 
 #### alb (category)
 
@@ -279,7 +279,7 @@ Used when listener_arn is not set. If set, the created ALB will have a scheme of
 
 The ARN on an existing ALB to configure.
 
-When this is set, Waypoint will use this ALB instead of creating its own. A target group will still be created for each deployment, and will be added to a listener on the configured ALB port (Waypoint will the listener if it doesn't exist). This allows users to configure their ALB outside Waypoint but still have Waypoint hook the application to that ALB.
+When this is set, Derrick will use this ALB instead of creating its own. A target group will still be created for each deployment, and will be added to a listener on the configured ALB port (Derrick will the listener if it doesn't exist). This allows users to configure their ALB outside Derrick but still have Derrick hook the application to that ALB.
 
 - Type: **string**
 - **Optional**
@@ -404,7 +404,7 @@ Secret key/values to pass to the ECS container.
 
 Security Group IDs of existing security groups to use for the ECS service's network access.
 
-List of existing group IDs to use for the ECS service's network access. If none are specified, waypoint will create one. If DisableALB is false (the default), waypoint will only allow ingress from the ALB's security group.
+List of existing group IDs to use for the ECS service's network access. If none are specified, derrick will create one. If DisableALB is false (the default), derrick will only allow ingress from the ALB's security group.
 
 - Type: **list of string**
 - **Optional**
@@ -473,7 +473,7 @@ If no task role name is specified a task role with a default name will be create
 
 ### Output Attributes
 
-Output attributes can be used in your `waypoint.hcl` as [variables](/waypoint/docs/waypoint-hcl/variables) via [`artifact`](/waypoint/docs/waypoint-hcl/variables/artifact) or [`deploy`](/waypoint/docs/waypoint-hcl/variables/deploy).
+Output attributes can be used in your `derrick.hcl` as [variables](/waypoint/docs/derrick-hcl/variables) via [`artifact`](/waypoint/docs/derrick-hcl/variables/artifact) or [`deploy`](/waypoint/docs/derrick-hcl/variables/deploy).
 
 #### cluster
 

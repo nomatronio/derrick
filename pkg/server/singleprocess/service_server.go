@@ -3,14 +3,14 @@ package singleprocess
 import (
 	"context"
 	"github.com/hashicorp/go-hclog"
-	"github.com/hashicorp/waypoint/pkg/server/hcerr"
+	"github.com/nomatronio/derrick/pkg/server/hcerr"
 
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 	empty "google.golang.org/protobuf/types/known/emptypb"
 
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	serverptypes "github.com/hashicorp/waypoint/pkg/server/ptypes"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	serverptypes "github.com/nomatronio/derrick/pkg/server/ptypes"
 )
 
 func (s *Service) SetServerConfig(

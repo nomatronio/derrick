@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointPipelineStepDeploy hashicorp waypoint pipeline step deploy
 //
-// swagger:model hashicorp.waypoint.Pipeline.Step.Deploy
+// swagger:model nomatron.derrick.Pipeline.Step.Deploy
 type HashicorpWaypointPipelineStepDeploy struct {
 
 	// Whether or not to run a release immediately after the deploy. Defaults

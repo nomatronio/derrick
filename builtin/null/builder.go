@@ -3,7 +3,7 @@ package null
 import (
 	"time"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
 	"google.golang.org/protobuf/types/known/emptypb"
 )
 

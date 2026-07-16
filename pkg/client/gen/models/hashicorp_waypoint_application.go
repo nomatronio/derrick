@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointApplication hashicorp waypoint application
 //
-// swagger:model hashicorp.waypoint.Application
+// swagger:model nomatron.derrick.Application
 type HashicorpWaypointApplication struct {
 
 	// Indicates signal to be sent to the applications when its config files

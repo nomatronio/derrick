@@ -9,9 +9,9 @@ import (
 	empty "google.golang.org/protobuf/types/known/emptypb"
 	"google.golang.org/protobuf/types/known/timestamppb"
 
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	"github.com/hashicorp/waypoint/pkg/server/hcerr"
-	serverptypes "github.com/hashicorp/waypoint/pkg/server/ptypes"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	"github.com/nomatronio/derrick/pkg/server/hcerr"
+	serverptypes "github.com/nomatronio/derrick/pkg/server/ptypes"
 )
 
 func (s *Service) UpsertTrigger(
@@ -104,7 +104,7 @@ func (s *Service) ListTriggers(
 // incoming requests. Eventually, Waypoint should have a middleware func
 // for incoming requests that can handle API endpoints that can support
 // authenticated and non-authenticated requests like this one.
-// https://github.com/hashicorp/waypoint/issues/2990
+// https://github.com/nomatronio/derrick/issues/2990
 func (s *Service) NoAuthRunTrigger(
 	ctx context.Context,
 	req *pb.RunTriggerRequest,
@@ -242,7 +242,7 @@ func (s *Service) RunTrigger(
 	// to properly perform its operation. We set those here before queueing the job.
 	// Ideally, the executeXOperation would do the lookup after receiving a Ref_X rather than
 	// here when we are queueing a job.
-	// NOTE(briancain): See https://github.com/hashicorp/waypoint/issues/2884
+	// NOTE(briancain): See https://github.com/nomatronio/derrick/issues/2884
 	// for why we must attach the full PushedArtifact message for a deploy operation
 	// We have to set the full artifact message on Deployment operations
 	// This is true for other operations too like Push and Release.

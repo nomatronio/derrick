@@ -1,6 +1,6 @@
 {
   "name": "waypoint-docs",
-  "description": "Documentation website for Waypoint",
+  "description": "Documentation website for Derrick",
   "version": "1.0.0",
   "author": "HashiCorp",
   "devDependencies": {

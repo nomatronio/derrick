@@ -3,9 +3,9 @@ package cli
 import (
 	"github.com/posener/complete"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
 )
 
 type ContextDeleteCommand struct {
@@ -98,7 +98,7 @@ func (c *ContextDeleteCommand) Synopsis() string {
 
 func (c *ContextDeleteCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint context delete [options] NAME
+Usage: derrick context delete [options] NAME
 
   Deletes a context. This will succeed if the context is already deleted.
 

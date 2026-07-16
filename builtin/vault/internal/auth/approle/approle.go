@@ -9,7 +9,7 @@ import (
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/vault/api"
 
-	"github.com/hashicorp/waypoint/builtin/vault/internal/auth"
+	"github.com/nomatronio/derrick/builtin/vault/internal/auth"
 )
 
 type approleMethod struct {

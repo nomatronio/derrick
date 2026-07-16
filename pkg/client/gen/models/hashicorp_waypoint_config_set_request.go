@@ -16,7 +16,7 @@ import (
 
 // HashicorpWaypointConfigSetRequest hashicorp waypoint config set request
 //
-// swagger:model hashicorp.waypoint.ConfigSetRequest
+// swagger:model nomatron.derrick.ConfigSetRequest
 type HashicorpWaypointConfigSetRequest struct {
 
 	// The set of variables to set. Note that create vs update is determined

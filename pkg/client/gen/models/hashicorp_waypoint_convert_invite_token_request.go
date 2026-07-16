@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointConvertInviteTokenRequest Passed to ConvertInviteToken to create a new token that can be used to authenticate RPCs.
 //
-// swagger:model hashicorp.waypoint.ConvertInviteTokenRequest
+// swagger:model nomatron.derrick.ConvertInviteTokenRequest
 type HashicorpWaypointConvertInviteTokenRequest struct {
 
 	// A token previous returned by GenerateInviteToken.

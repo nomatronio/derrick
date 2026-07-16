@@ -16,7 +16,7 @@ import (
 
 // HashicorpWaypointPipelineRun hashicorp waypoint pipeline run
 //
-// swagger:model hashicorp.waypoint.PipelineRun
+// swagger:model nomatron.derrick.PipelineRun
 type HashicorpWaypointPipelineRun struct {
 
 	// id

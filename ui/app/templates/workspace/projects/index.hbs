@@ -4,7 +4,7 @@
 <div class="flash flash--success">
   <div class="flash-header">
     <FlightIcon @name="check-circle-fill" class="icon" />
-    <p>Authenticated successfully via the Waypoint CLI</p>
+    <p>Authenticated successfully via the Derrick CLI</p>
   </div>
 </div>
 {{/if}}
@@ -66,10 +66,10 @@
     <p>There are no projects to display yet. <LinkTo @route="workspace.projects.create">Create your first project here</LinkTo>.</p>
     <p>Alternatively, you can run
       <CopyableCode @ref="empty-init" @inline="true">
-        <code id="empty-init">waypoint init</code>
+        <code id="empty-init">derrick init</code>
       </CopyableCode>
       from the CLI</p>
-    <p>For more help getting started, refer to the <ExternalLink href="https://waypointproject.io/docs/getting-started">Waypoint documentation</ExternalLink></p>
+    <p>For more help getting started, refer to the <ExternalLink href="https://derrick.dev/docs/getting-started">Derrick documentation</ExternalLink></p>
   </EmptyState>
   {{/each}}
 </div>

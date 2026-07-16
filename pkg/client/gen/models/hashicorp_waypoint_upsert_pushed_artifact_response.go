@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointUpsertPushedArtifactResponse hashicorp waypoint upsert pushed artifact response
 //
-// swagger:model hashicorp.waypoint.UpsertPushedArtifactResponse
+// swagger:model nomatron.derrick.UpsertPushedArtifactResponse
 type HashicorpWaypointUpsertPushedArtifactResponse struct {
 
 	// resulting push object, you should replace this with what was sent

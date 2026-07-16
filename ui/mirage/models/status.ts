@@ -1,5 +1,5 @@
 import { Model, belongsTo } from 'ember-cli-mirage';
-import { Status } from 'waypoint-pb';
+import { Status } from 'derrick-pb';
 import { dateToTimestamp } from '../utils';
 
 export default Model.extend({

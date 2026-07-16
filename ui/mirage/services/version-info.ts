@@ -1,4 +1,4 @@
-import { VersionInfo, GetVersionInfoResponse } from 'waypoint-pb';
+import { VersionInfo, GetVersionInfoResponse } from 'derrick-pb';
 import { Response } from 'miragejs';
 import { RouteHandler } from '../types';
 

@@ -6,10 +6,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 	"github.com/posener/complete"
 )
 
@@ -75,7 +75,7 @@ func (c *GetInviteCommand) Synopsis() string {
 
 func (c *GetInviteCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint token invite [options]
+Usage: derrick token invite [options]
 
   Request a new invite token. This token can be exchanged for a normal token to login.
 ` + warnTokenDeprecated + "\n" + c.Flags().Help())
@@ -150,7 +150,7 @@ func (c *ExchangeInviteCommand) Synopsis() string {
 
 func (c *ExchangeInviteCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint token exchange [options]
+Usage: derrick token exchange [options]
 
   Exchange an invite token for a normal token for login.
 ` + warnTokenDeprecated + "\n" + c.Flags().Help())
@@ -206,7 +206,7 @@ func (c *GetTokenCommand) Synopsis() string {
 
 func (c *GetTokenCommand) Help() string {
 	helpText := `
-Usage: waypoint token new [options]
+Usage: derrick token new [options]
 
   Request a new token to log into the server.
 ` + warnTokenDeprecated + "\n" + c.Flags().Help()

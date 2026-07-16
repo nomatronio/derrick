@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package hashicorp.waypoint;
+package nomatron.derrick;
 
 option go_package = "pkg/server/gen";
 
@@ -15,7 +15,7 @@ import "any.proto";
 ********************************************************************/
 
 // The service that is implemented for the server backend.
-service Waypoint {
+service Derrick {
   //----------------------------------------------------------------------
   // Unauthenticated endpoints
   //----------------------------------------------------------------------
@@ -218,7 +218,7 @@ service Waypoint {
   // GetJob queries a job by ID.
   rpc GetJob(GetJobRequest) returns (Job);
 
-  // ListJobs will return a list of jobs known to Waypoint server. Can be filtered
+  // ListJobs will return a list of jobs known to Derrick server. Can be filtered
   // by request on values like workspace, project, application, job state, etc.
   rpc ListJobs(ListJobsRequest) returns (ListJobsResponse);
 
@@ -235,7 +235,7 @@ service Waypoint {
   // GetRunner gets information about a single runner.
   rpc GetRunner(GetRunnerRequest) returns (Runner) {}
 
-  // ListRunners lists runners that are currently registered with the waypoint server.
+  // ListRunners lists runners that are currently registered with the derrick server.
   // This list does not include previous on-demand runners that have exited.
   rpc ListRunners(ListRunnersRequest) returns (ListRunnersResponse);
 
@@ -249,10 +249,10 @@ service Waypoint {
   // re-registered.
   rpc ForgetRunner(ForgetRunnerRequest) returns (google.protobuf.Empty);
 
-  // GetServerConfig sets configuration for the Waypoint server.
+  // GetServerConfig sets configuration for the Derrick server.
   rpc GetServerConfig(google.protobuf.Empty) returns (GetServerConfigResponse);
 
-  // SetServerConfig sets configuration for the Waypoint server.
+  // SetServerConfig sets configuration for the Derrick server.
   rpc SetServerConfig(SetServerConfigRequest) returns (google.protobuf.Empty);
 
   // CreateSnapshot creates a new database snapshot.
@@ -279,7 +279,7 @@ service Waypoint {
   rpc DecodeToken(DecodeTokenRequest) returns (DecodeTokenResponse);
 
   // Generate a new invite token that users can exchange for a login token.
-  // This can be used to also invite new users to the Waypoint server.
+  // This can be used to also invite new users to the Derrick server.
   rpc GenerateInviteToken(InviteTokenRequest) returns (NewTokenResponse);
 
   // Generate a new login token that users can use to login directly.
@@ -344,9 +344,9 @@ service Waypoint {
   // they're conveniences to build tools on top of Waypoint.
   //----------------------------------------------------------------------
 
-  // WaypointHclFmt formats a waypoint.hcl file. This must be in HCL format.
+  // DerrickHclFmt formats a waypoint.hcl file. This must be in HCL format.
   // JSON formatting is not supported.
-  rpc WaypointHclFmt(WaypointHclFmtRequest) returns (WaypointHclFmtResponse);
+  rpc DerrickHclFmt(DerrickHclFmtRequest) returns (DerrickHclFmtResponse);
 
   //----------------------------------------------------------------------
   // OnDemand Runner Config functions.
@@ -461,7 +461,7 @@ service Waypoint {
   rpc ListPipelineRuns(ListPipelineRunsRequest) returns (ListPipelineRunsResponse);
 
   // ConfigSyncPipeline takes a request for a given project and syncs the current
-  // project config to the Waypoint database.
+  // project config to the Derrick database.
   rpc ConfigSyncPipeline(ConfigSyncPipelineRequest) returns (ConfigSyncPipelineResponse);
 
   //----------------------------------------------------------------------
@@ -576,7 +576,7 @@ message UI {
     //
     // This may be null under multiple circumstances: (1) the job was
     // manually triggered with local data (no datasource) or (2) the job
-    // was run in earlier versions of Waypoint before we tracked this or
+    // was run in earlier versions of Derrick before we tracked this or
     // (3) the job hasn't yet loaded the data.
     //
     // This is always pre-populated if it is exists.
@@ -781,27 +781,27 @@ message Project {
 
   // The set of applications that are known about this project. Note that
   // this may not exactly represent the project configuration if a user hasn't
-  // run `waypoint init` yet.
+  // run `derrick init` yet.
   //
   // The applications cannot be modified in any Project APIs. You must
   // use the dedicated Application APIs.
   repeated Application applications = 2;
 
-  // If true, then the `-remote` flag or the `waypoint build project/app`
+  // If true, then the `-remote` flag or the `derrick build project/app`
   // syntax can be used with a remote runner. If this is false, then
   // this is not allowed. This is typically configured using the
-  // `runner {}` block in the waypoint config.
+  // `runner {}` block in the derrick config.
   bool remote_enabled = 3;
 
   // Where data is sourced for remote operations. If this isn't set, then
   // there is no default data source and it will be an error if a job is
   // queued for this project without a data source set. This is usually
-  // set using the `runner {}` block in the waypoint config.
+  // set using the `runner {}` block in the derrick config.
   Job.DataSource data_source = 4;
 
-  // Polling settings. Polling will trigger a "waypoint up" whenever a
+  // Polling settings. Polling will trigger a "derrick up" whenever a
   // new data is detected on the data source. For now, polling is only done
-  // on the `default` workspace. A future version of Waypoint will expand
+  // on the `default` workspace. A future version of Derrick will expand
   // polling to other workspaces.
   //
   // Each polling event is tracked as a separate job. You can query the
@@ -813,9 +813,9 @@ message Project {
   // executed. When this is used, local operations can't be run any more
   // since the CLI usually determines the project based on the waypoint.hcl
   // file. The CLI may still be used for remote operations by executing
-  // i.e. waypoint up <project>
-  bytes waypoint_hcl = 5;
-  Hcl.Format waypoint_hcl_format = 6;
+  // i.e. derrick up <project>
+  bytes derrick_hcl = 5;
+  Hcl.Format derrick_hcl_format = 6;
 
   // Indicates signal to be sent to any applications when their config files
   // change.
@@ -827,7 +827,7 @@ message Project {
   // Application polling settings. Polling will trigger a "StatusFunc" for collecting a
   // report on the current status of the application.
   // For now, polling is only done on the `default` workspace. A future
-  // version of Waypoint will expand polling to other workspaces.
+  // version of Derrick will expand polling to other workspaces.
   //
   // Each polling event is tracked as a separate job. You can query the
   // poll operations and their success/failure by using the ListJobs API.
@@ -909,14 +909,14 @@ message Workspace {
   }
 }
 
-// User represents a single user identity within the Waypoint server. A
+// User represents a single user identity within the Derrick server. A
 // user account may represent multiple authentication methods (OIDC from
 // multiple sources, tokens, etc.).
 message User {
-  // Id that is unique to the Waypoint server (usually a ULID).
+  // Id that is unique to the Derrick server (usually a ULID).
   string id = 1;
 
-  // username, unique to the Waypoint server. May not be blank,
+  // username, unique to the Derrick server. May not be blank,
   // but can be changed. We allow changing so that auth methods
   // such as OIDC can generate non-user-friendly usernames and
   // the user can fix them up later.
@@ -927,7 +927,7 @@ message User {
 
   // Email, not used for login. May be blank. May not be verified.
   // Verification currently depends on the auth system. One day maybe
-  // Waypoint will handle this.
+  // Derrick will handle this.
   string email = 4;
 
   // Links is the list of account links with 3rd party
@@ -936,7 +936,7 @@ message User {
 
   // Link is a connection between an authentication provider and
   // the user identity. This is used to lookup a unique user account
-  // within Waypoint from multiple auth sources (i.e. GitHub auth,
+  // within Derrick from multiple auth sources (i.e. GitHub auth,
   // user/pass, etc.).
   message Link {
     oneof method {
@@ -1000,7 +1000,7 @@ message Ref {
 
   // Component references a component.
   message Component {
-    hashicorp.waypoint.Component.Type type = 1;
+    nomatron.derrick.Component.Type type = 1;
     string name = 2;
   }
 
@@ -1242,7 +1242,7 @@ message OperationOrder {
 // will create new generations each operation, whereas mutable models will
 // reuse a generation.
 //
-// The concept of a "Generation" was introduced in Waypoint 0.4. Operations
+// The concept of a "Generation" was introduced in Derrick 0.4. Operations
 // from earlier versions will have nil generations and callers must handle
 // that scenario.
 //
@@ -1254,7 +1254,7 @@ message OperationOrder {
 // Updates should never modify the generation.
 message Generation {
   // Id is the unique identifier for this generation. This value is opaque.
-  // Waypoint internally only requires that two different generations have
+  // Derrick internally only requires that two different generations have
   // two different IDs. The format of the value can be anything.
   string id = 1;
 
@@ -1501,9 +1501,9 @@ message DeleteUserRequest {
 * Auth Methods
 ********************************************************************/
 
-// AuthMethod is a mechanism for authenticating to the Waypoint server.
+// AuthMethod is a mechanism for authenticating to the Derrick server.
 // An AuthMethod deals with AuthN only: it provides identity and trades
-// that for a Waypoint token.
+// that for a Derrick token.
 message AuthMethod {
   // unique name for this auth method
   string name = 1;
@@ -1804,7 +1804,7 @@ message Job {
   map<string, string> labels = 5;
 
   // data_source determines where the data to operate on (such as the
-  // application source code and Waypoint configuration) comes from.
+  // application source code and Derrick configuration) comes from.
   // If this is not set then QueueJob will populate this if a default
   // data source is configured for the target project.
   //
@@ -1820,7 +1820,7 @@ message Job {
   // If this is not provided, the job will source the waypoint.hcl file
   // from the server or the data source. This can be used to override those
   // and force a specific waypoint.hcl to be used.
-  Hcl waypoint_hcl = 12;
+  Hcl derrick_hcl = 12;
 
   // variables store the key/value pairs of parsed variables; the parse
   // prior to running a job only verifies syntax correctness. Verifying type
@@ -1885,7 +1885,7 @@ message Job {
   // the value used.
   map<string, Variable.FinalValue> variable_final_values = 113;
 
-  // Config is information about the Waypoint configuration (waypoint.hcl)
+  // Config is information about the Derrick configuration (waypoint.hcl)
   // for this job. This is only available once the configuration is loaded.
   // If this is nil and the job is RUNNING, then it may not be loaded yet.
   // API users can wait on the Job event on the JobStream to listen for
@@ -1970,7 +1970,7 @@ message Job {
       SERVER = 2;
 
       // Job is when the waypoint.hcl was loaded directly from the job by
-      // being embedded in the "waypoint_hcl" field (tag 12).
+      // being embedded in the "derrick_hcl" field (tag 12).
       JOB = 3;
     }
   }
@@ -1986,7 +1986,7 @@ message Job {
       // git will check out the data from a Git repository.
       Git git = 2;
 
-      // remote means that the Waypoint server has special logic for how to
+      // remote means that the Derrick server has special logic for how to
       // fetch the data.
       Remote remote = 3;
     }
@@ -2007,7 +2007,7 @@ message Job {
   message Local {}
 
   message Remote {
-    // Description is information about how the Waypoint server
+    // Description is information about how the Derrick server
     // acquires the data.
     string description = 1;
 
@@ -2099,7 +2099,7 @@ message Job {
   // executing properly or can access data properly.
   message Noop {}
 
-  // UpOp runs the "waypoint up" logic: it does a build (with push),
+  // UpOp runs the "derrick up" logic: it does a build (with push),
   // deploy, and release all in one. The results for each child operation
   // will be set directly on the Release message (i.e. "build" will be
   // populated in addition to "up").
@@ -2403,7 +2403,7 @@ message Job {
 
   // InitOp triggers an init action for a project (the equivalent of `waypoint
   // init`). The job will fail if there is no data source configured for the
-  // project. As with `waypoint init`, this operation is idempotent.
+  // project. As with `derrick init`, this operation is idempotent.
   message InitOp {
   }
 
@@ -2731,7 +2731,7 @@ message Runner {
   repeated Component components = 3;
 
   // Labels for the runner. These are the same as labels for any other
-  // system in Waypoint (see operations such as Deployment). For runners, they
+  // system in Derrick (see operations such as Deployment). For runners, they
   // can additionally be used as a targeting mechanism.
   map<string, string> labels = 12;
 
@@ -2876,7 +2876,7 @@ message RunnerJobStreamRequest {
     // download details will not be available.
     GetJobStreamResponse.Download download = 7;
 
-    // The config_load event is sent after the Waypoint configuration
+    // The config_load event is sent after the Derrick configuration
     // (waypoint.hcl) is loaded. This includes information about the loaded
     // configuration that the frontends can use.
     //
@@ -3278,7 +3278,7 @@ message Build {
     //
     // This may be null under multiple circumstances: (1) the job was
     // manually triggered with local data (no datasource) or (2) the job
-    // was run in earlier versions of Waypoint before we tracked this or
+    // was run in earlier versions of Derrick before we tracked this or
     // (3) the job hasn't yet loaded the data.
     //
     // This is always pre-populated if it is exists.
@@ -3295,7 +3295,7 @@ message Artifact {
   opaqueany.Any artifact = 1;
 
   // This is the JSON-encoded protobuf structure of the Any field above.
-  // This is generated by the plugin and Waypoint core does not modify this
+  // This is generated by the plugin and Derrick core does not modify this
   // value or have any enforced structure. This will be different per-plugin.
   string artifact_json = 2;
 }
@@ -3474,7 +3474,7 @@ message PushedArtifact {
     //
     // This may be null under multiple circumstances: (1) the job was
     // manually triggered with local data (no datasource) or (2) the job
-    // was run in earlier versions of Waypoint before we tracked this or
+    // was run in earlier versions of Derrick before we tracked this or
     // (3) the job hasn't yet loaded the data.
     //
     // This is always pre-populated if it is exists.
@@ -3594,7 +3594,7 @@ message Deployment {
   opaqueany.Any deployment = 6;
 
   // This is the JSON-encoded protobuf structure of the Any field above.
-  // This is generated by the plugin and Waypoint core does not modify this
+  // This is generated by the plugin and Derrick core does not modify this
   // value or have any enforced structure. This will be different per-plugin.
   string deployment_json = 20;
 
@@ -3657,7 +3657,7 @@ message Deployment {
     //
     // This may be null under multiple circumstances: (1) the job was
     // manually triggered with local data (no datasource) or (2) the job
-    // was run in earlier versions of Waypoint before we tracked this or
+    // was run in earlier versions of Derrick before we tracked this or
     // (3) the job hasn't yet loaded the data.
     //
     // This is always pre-populated if it is exists.
@@ -3707,8 +3707,8 @@ message ListInstancesResponse {
 
 // An instance is a single running process for a deployment. A deployment
 // may have many instances (for example Kubernetes ReplicaSets spawn many pods).
-// An instance is only represented if you're using the Waypoint Entrypoint.
-// Otherwise, the Waypoint server will never be notified of running instances.
+// An instance is only represented if you're using the Derrick Entrypoint.
+// Otherwise, the Derrick server will never be notified of running instances.
 message Instance {
   // id of the instance. This should be globally unique to your Waypoint
   // installation but relies on the entrypoint being well behaved.
@@ -3836,7 +3836,7 @@ message Release {
   opaqueany.Any release = 4;
 
   // This is the JSON-encoded protobuf structure of the Any field above.
-  // This is generated by the plugin and Waypoint core does not modify this
+  // This is generated by the plugin and Derrick core does not modify this
   // value or have any enforced structure. This will be different per-plugin.
   string release_json = 16;
 
@@ -3897,7 +3897,7 @@ message Release {
     //
     // This may be null under multiple circumstances: (1) the job was
     // manually triggered with local data (no datasource) or (2) the job
-    // was run in earlier versions of Waypoint before we tracked this or
+    // was run in earlier versions of Derrick before we tracked this or
     // (3) the job hasn't yet loaded the data.
     //
     // This is always pre-populated if it is exists.
@@ -3922,12 +3922,12 @@ message ReleaseExpanded {
 // for invoking specific lifecycle operations on a projects applications. These
 // trigger URLs are intended to be used in a CI system for easy configuration.
 // The user is expected to configure and generate the URL ahead of time, and
-// Waypoint will generate a trigger based on the configuration here and return
+// Derrick will generate a trigger based on the configuration here and return
 // a URL to make requests with.
 message Trigger {
   reserved 58 to 99; // future operation range
 
-  // uuid generated by Waypoint on creation. Used as the identifier in the URL.
+  // uuid generated by Derrick on creation. Used as the identifier in the URL.
   string id = 1;
 
   // name can be user defined, or auto generated.
@@ -4020,7 +4020,7 @@ message RunTriggerResponse {
 
 // ListTriggerRequest can take a handful of optional filter arguments. If none
 // are set in the request, this will return all registered trigger URLs in
-// the Waypoint server.
+// the Derrick server.
 message ListTriggerRequest {
   // Defaults to all workspaces if unset.
   Ref.Workspace workspace = 1;
@@ -4131,11 +4131,11 @@ message ExpediteStatusReportResponse {
 
 // StatusReport is the report genrated when querying the overall health of
 // a deployed or released application. This report is generated after
-// an Up Operation, DeployOp or ReleaseOp. In the future Waypoint will be able
+// an Up Operation, DeployOp or ReleaseOp. In the future Derrick will be able
 // to generate these reports on demand in the UI.
 //
 // NOTE: This is not related to Status or StatusFilter messages but a message
-// used to run the StatusReport job operation for Waypoint Server. The raw SDK
+// used to run the StatusReport job operation for Derrick Server. The raw SDK
 // StatusReport message is stored as an option on this message
 message StatusReport {
   // The application that this build is part of.
@@ -4313,7 +4313,7 @@ message LogBatch {
 // are a way to inject configuration into a Waypoint-managed process.
 //
 // Note that config vars are different from input variables. Input variables
-// are a way to parameterize a Waypoint project/app. This is a different feature.
+// are a way to parameterize a Derrick project/app. This is a different feature.
 //
 // == Conflict Resolution
 //
@@ -4360,14 +4360,14 @@ message ConfigVar {
   // field being the filename.
   bool name_is_path = 9;
 
-  // unused_scope is the pre-Waypoint 0.6 fields that are set for
+  // unused_scope is the pre-Derrick 0.6 fields that are set for
   // setting the scope. This is retained for backwards compatibility
   // but should not be set. Any users of this field should switch to
   // the `target` field.
   oneof unused_scope {
     // These fields used to have docs but removed since they shouldn't be
     // used. If you're really trying to figure how to use these old fields,
-    // see a Waypoint 0.5 or earlier git checkout.
+    // see a Derrick 0.5 or earlier git checkout.
     Ref.Application application = 3;
     Ref.Project project = 4;
     Ref.Runner runner = 5;
@@ -5104,7 +5104,7 @@ message TokenTransport {
 
   // The OAuth message contains information that the client should use
   // to generate on OAuth token for authenticating with the server rather
-  // than just submitting the waypoint token directly.
+  // than just submitting the derrick token directly.
   message OAuthCredentials {
     // The url for the oauth2 provider
     string url = 1;
@@ -5350,7 +5350,7 @@ message RestoreSnapshotRequest {
   message Open {
     // If true, the server will exit after the restore is staged. This will
     // SHUT DOWN the server and some external process you created is expected
-    // to bring it back. The Waypoint server on its own WILL NOT automatically
+    // to bring it back. The Derrick server on its own WILL NOT automatically
     // restart. You should only set this if you have some operation to
     // automate restart such as running in Nomad or Kubernetes.
     bool exit = 1;
@@ -5373,7 +5373,7 @@ message Snapshot {
   // Header is _always_ the first message encoded into a snapshot. If
   // this isn't present, the entire snapshot can be considered corrupt.
   message Header {
-    // version is the version of Waypoint that generated this snapshot.
+    // version is the version of Derrick that generated this snapshot.
     VersionInfo version = 1;
 
     // format is the format of the remaining messages. This can be used
@@ -5440,12 +5440,12 @@ message Hcl {
   }
 }
 
-message WaypointHclFmtRequest {
-  bytes waypoint_hcl = 1;
+message DerrickHclFmtRequest {
+  bytes derrick_hcl = 1;
 }
 
-message WaypointHclFmtResponse {
-  bytes waypoint_hcl = 1;
+message DerrickHclFmtResponse {
+  bytes derrick_hcl = 1;
 }
 
 /********************************************************************

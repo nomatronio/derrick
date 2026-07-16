@@ -9,7 +9,7 @@ import (
 	"google.golang.org/grpc/credentials/oauth"
 
 	"github.com/hashicorp/go-hclog"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 func SetupExternalCreds(ctx context.Context, log hclog.Logger, token string) (credentials.PerRPCCredentials, error) {

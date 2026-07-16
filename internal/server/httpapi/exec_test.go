@@ -15,9 +15,9 @@ import (
 	"nhooyr.io/websocket"
 	"nhooyr.io/websocket/wspb"
 
-	"github.com/hashicorp/waypoint/pkg/protocolversion"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	"github.com/hashicorp/waypoint/pkg/server/gen/mocks"
+	"github.com/nomatronio/derrick/pkg/protocolversion"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	"github.com/nomatronio/derrick/pkg/server/gen/mocks"
 )
 
 // This code uses the magic token value 445DHu. This value is a base58 encoded
@@ -68,7 +68,7 @@ func TestHandleExec(t *testing.T) {
 	require.Equal([]string{"foo", "bar"}, startReq.Args)
 }
 
-func testServer(t *testing.T, impl pb.WaypointServer) string {
+func testServer(t *testing.T, impl pb.DerrickServer) string {
 	// Create a listener
 	ln, err := net.Listen("tcp", "127.0.0.1:")
 	require.NoError(t, err)
@@ -76,7 +76,7 @@ func testServer(t *testing.T, impl pb.WaypointServer) string {
 
 	// Register our gRPC service
 	s := grpc.NewServer()
-	pb.RegisterWaypointServer(s, impl)
+	pb.RegisterDerrickServer(s, impl)
 	t.Cleanup(s.Stop)
 	go s.Serve(ln)
 
@@ -85,8 +85,8 @@ func testServer(t *testing.T, impl pb.WaypointServer) string {
 
 type execImpl struct {
 	sync.Mutex
-	mocks.WaypointServer
-	pb.UnsafeWaypointServer
+	mocks.DerrickServer
+	pb.UnsafeDerrickServer
 
 	// Send is the list of responses to send
 	Send []*pb.ExecStreamResponse

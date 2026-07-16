@@ -2,14 +2,14 @@
 layout: docs
 page_title: Glossary
 description: |-
-  This page lists and defines technical terms used throughout Waypoint. Words such as "project", "app", etc. can be overloaded in the technical community, so this page attempts to clarify their meaning in the context of Waypoint.
+  This page lists and defines technical terms used throughout Derrick. Words such as "project", "app", etc. can be overloaded in the technical community, so this page attempts to clarify their meaning in the context of Derrick.
 ---
 
-# Waypoint Glossary
+# Derrick Glossary
 
-This page lists and defines technical terms used throughout Waypoint. Words
+This page lists and defines technical terms used throughout Derrick. Words
 such as "project", "app", etc. can be overloaded in the technical community,
-so this page attempts to clarify their meaning in the context of Waypoint.
+so this page attempts to clarify their meaning in the context of Derrick.
 
 The easiest way to navigate this page is to use the "Jump to Section"
 dropdown under the title above or use your browser's search functionality
@@ -17,17 +17,17 @@ dropdown under the title above or use your browser's search functionality
 
 ## Project
 
-A project in Waypoint is represented by a single "waypoint.hcl" file
+A project in Derrick is represented by a single "derrick.hcl" file
 and is a 1:1 mapping to a VCS repository (if one exists). A project can
 be comprised of one or more applications.
 
-The purpose of the "project" is to give Waypoint a single name to refer
+The purpose of the "project" is to give Derrick a single name to refer
 to a repository or collection of applications. Some features are used at
 the project scope, such as setting [application configuration](/waypoint/docs/app-config).
 
 ## Application (or "App")
 
-An application is defined using the `app` stanza in a "waypoint.hcl" and
+An application is defined using the `app` stanza in a "derrick.hcl" and
 represents a unit that is deployed. Multiple applications may exist in
 a single project, which may represent a project that is comprised of
 separate deployable units. For example: a backend, a frontend, a service
@@ -64,20 +64,20 @@ app "label-name" {
 
 ## Entrypoint
 
-The Waypoint Entrypoint is a special binary (named `waypoint-entrypoint`) that
+The Derrick Entrypoint is a special binary (named `derrick-entrypoint`) that
 launches your application and is used to enable a lot of
-[Waypoint functionality](/waypoint/docs/entrypoint#functionality).
+[Derrick functionality](/waypoint/docs/entrypoint#functionality).
 The entrypoint is sometimes referred to as the "CEB" which stands for
 "custom entrypoint binary."
 
 ## Client
 
-A Waypoint client is anything that interacts with the server to inspect,
+A Derrick client is anything that interacts with the server to inspect,
 create, update, or destroy projects, applications, etc. The most common
-Waypoint client is the CLI or web UI.
+Derrick client is the CLI or web UI.
 
 ## Server
 
-A Waypoint server is the running server that stores data and orchestrates
+A Derrick server is the running server that stores data and orchestrates
 operations such as builds, deploys, etc. A client interacts with a server.
-The server is deployed using `waypoint install`.
+The server is deployed using `derrick install`.

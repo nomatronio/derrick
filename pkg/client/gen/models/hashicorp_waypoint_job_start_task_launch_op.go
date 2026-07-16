@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointJobStartTaskLaunchOp hashicorp waypoint job start task launch op
 //
-// swagger:model hashicorp.waypoint.Job.StartTaskLaunchOp
+// swagger:model nomatron.derrick.Job.StartTaskLaunchOp
 type HashicorpWaypointJobStartTaskLaunchOp struct {
 
 	// The info to use to create the task

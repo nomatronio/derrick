@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointRefPipeline Pipeline references a pipeline using one or more lookup types.
 //
-// swagger:model hashicorp.waypoint.Ref.Pipeline
+// swagger:model nomatron.derrick.Ref.Pipeline
 type HashicorpWaypointRefPipeline struct {
 
 	// Reference a single pipeline by ID.

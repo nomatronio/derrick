@@ -5,9 +5,9 @@ sidebar_title: 'runner reject'
 description: 'Reject a pending runner'
 ---
 
-# Waypoint Runner reject
+# Derrick Runner reject
 
-Command: `waypoint runner reject`
+Command: `derrick runner reject`
 
 Reject a pending runner
 
@@ -15,11 +15,11 @@ Reject a pending runner
 
 ## Usage
 
-Usage: `waypoint runner reject [options] ID`
+Usage: `derrick runner reject [options] ID`
 
 Reject a pending or adopted runner with the given ID.
 
-The ID can be retrieved via the "waypoint runner list" command or
+The ID can be retrieved via the "derrick runner list" command or
 the API. This ID must be the ID of a currently registered runner. The
 runner can be in any state: new, preadopted, adopted, or rejected. This
 will move the runner to the rejected state.
@@ -31,7 +31,7 @@ and then will not receive any further jobs.
 #### Global Options
 
 - `-plain` - Plain output: no colors, no animation. The default is false.
-- `-app=<string>` (`-a`) - App to target. Certain commands require a single app target for Waypoint configurations with multiple apps. If you have a single app, then this can be ignored.
+- `-app=<string>` (`-a`) - App to target. Certain commands require a single app target for Derrick configurations with multiple apps. If you have a single app, then this can be ignored.
 - `-project=<string>` (`-p`) - Project to target.
 - `-workspace=<string>` (`-w`) - Workspace to operate in.
 

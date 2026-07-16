@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointListInstancesRequestApplication hashicorp waypoint list instances request application
 //
-// swagger:model hashicorp.waypoint.ListInstancesRequest.Application
+// swagger:model nomatron.derrick.ListInstancesRequest.Application
 type HashicorpWaypointListInstancesRequestApplication struct {
 
 	// Application to query. This must have both a project/app set.

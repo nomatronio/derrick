@@ -7,5 +7,5 @@ package models
 
 // HashicorpWaypointJobValidateResult hashicorp waypoint job validate result
 //
-// swagger:model hashicorp.waypoint.Job.ValidateResult
+// swagger:model nomatron.derrick.Job.ValidateResult
 type HashicorpWaypointJobValidateResult interface{}

@@ -19,11 +19,11 @@ import (
 	"k8s.io/apimachinery/pkg/util/intstr"
 	"k8s.io/apimachinery/pkg/util/wait"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/component"
-	"github.com/hashicorp/waypoint-plugin-sdk/docs"
-	"github.com/hashicorp/waypoint-plugin-sdk/framework/resource"
-	sdk "github.com/hashicorp/waypoint-plugin-sdk/proto/gen"
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick-plugin-sdk/component"
+	"github.com/nomatronio/derrick-plugin-sdk/docs"
+	"github.com/nomatronio/derrick-plugin-sdk/framework/resource"
+	sdk "github.com/nomatronio/derrick-plugin-sdk/proto/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
 )
 
 // DefaultPort is the port that a service will forward to the pod(s)
@@ -555,7 +555,7 @@ func (r *Releaser) resourceIngressCreate(
 		}
 
 		if r.config.IngressConfig.Host != "" {
-			// We set the requested hostname from the waypoint.hcl if defined
+			// We set the requested hostname from the derrick.hcl if defined
 			result.Url = protocol + r.config.IngressConfig.Host
 		} else {
 			// set the hostname based on the load balancer configured in k8s
@@ -865,7 +865,7 @@ func (r *Releaser) Status(
 	step.Done()
 
 	// NOTE(briancain): Replace ui.Status with StepGroups once this bug
-	// has been fixed: https://github.com/hashicorp/waypoint/issues/1536
+	// has been fixed: https://github.com/nomatronio/derrick/issues/1536
 	st := ui.Status()
 	defer st.Close()
 

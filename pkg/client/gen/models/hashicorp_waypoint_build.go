@@ -16,7 +16,7 @@ import (
 // HashicorpWaypointBuild Build represents a process of creating an artifact that can be in any state,
 // such as complete. A successful complete build produces an artifact.
 //
-// swagger:model hashicorp.waypoint.Build
+// swagger:model nomatron.derrick.Build
 type HashicorpWaypointBuild struct {
 
 	// The application that this build is part of.

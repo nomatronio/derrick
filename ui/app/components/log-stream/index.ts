@@ -1,10 +1,10 @@
-import { GetLogStreamRequest, LogBatch } from 'waypoint-pb';
+import { GetLogStreamRequest, LogBatch } from 'derrick-pb';
 
-import ApiService from 'waypoint/services/api';
+import ApiService from 'derrick/services/api';
 import Component from '@glimmer/component';
 import { Status } from 'grpc-web';
 import { Terminal } from 'xterm';
-import { createTerminal } from 'waypoint/utils/create-terminal';
+import { createTerminal } from 'derrick/utils/create-terminal';
 import { formatRFC3339 } from 'date-fns';
 import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';

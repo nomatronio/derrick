@@ -20,7 +20,7 @@ import (
 // automated jobs. Note that every on-demand runner task is wrapped with a
 // Start and Stop task, which we track here as well.
 //
-// swagger:model hashicorp.waypoint.Task
+// swagger:model nomatron.derrick.Task
 type HashicorpWaypointTask struct {
 
 	// The ID of this message. If on first upsert, the id does not need to be

@@ -16,10 +16,10 @@ import (
 	"google.golang.org/grpc/status"
 	"google.golang.org/protobuf/proto"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/component"
-	"github.com/hashicorp/waypoint/internal/config"
-	"github.com/hashicorp/waypoint/internal/plugin"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/component"
+	"github.com/nomatronio/derrick/internal/config"
+	"github.com/nomatronio/derrick/internal/plugin"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 // Deploy deploys the given artifact.
@@ -273,7 +273,7 @@ func (op *deployOperation) Labels(app *App) map[string]string {
 
 func (op *deployOperation) Upsert(
 	ctx context.Context,
-	client pb.WaypointClient,
+	client pb.DerrickClient,
 	msg proto.Message,
 ) (proto.Message, error) {
 	resp, err := client.UpsertDeployment(ctx, &pb.UpsertDeploymentRequest{

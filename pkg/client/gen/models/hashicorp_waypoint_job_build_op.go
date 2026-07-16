@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointJobBuildOp hashicorp waypoint job build op
 //
-// swagger:model hashicorp.waypoint.Job.BuildOp
+// swagger:model nomatron.derrick.Job.BuildOp
 type HashicorpWaypointJobBuildOp struct {
 
 	// Don't push the build to any configured registry.

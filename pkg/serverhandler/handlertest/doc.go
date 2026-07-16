@@ -8,7 +8,7 @@
 // into the embedding process. This is due to an issue with Go where it
 // registers test flags globally in an Init function on import.
 //
-// These tests are not invoked directly, but are used via pb.WaypointServer
+// These tests are not invoked directly, but are used via pb.DerrickServer
 // implementations, e.g. pkg/server/singleprocess
 //
 // To run these tests, run the tests for that package.

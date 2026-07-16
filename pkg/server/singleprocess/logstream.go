@@ -6,10 +6,10 @@ import (
 	"github.com/hashicorp/go-hclog"
 	"github.com/pkg/errors"
 
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	"github.com/hashicorp/waypoint/pkg/server/logbuffer"
-	"github.com/hashicorp/waypoint/pkg/server/logstream"
-	"github.com/hashicorp/waypoint/pkg/serverstate"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	"github.com/nomatronio/derrick/pkg/server/logbuffer"
+	"github.com/nomatronio/derrick/pkg/server/logstream"
+	"github.com/nomatronio/derrick/pkg/serverstate"
 )
 
 // singleProcessLogStreamProvider implements logstream.Provider

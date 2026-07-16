@@ -1,0 +1,36 @@
+---
+layout: docs
+page_title: 'API'
+description: |-
+  Using Derrick's HTTP API
+---
+
+# API
+
+Derrick comes with a full HTTP API which lets you write your own integrations
+for managing your own applications and projects. This API comes with an OpenAPI
+2.0 (Swagger) specification which can be used to generate HTTP clients in any
+language using only the specification. This API is served on the same port as
+Derrick's UI and every call is prefixed with `/v1` on self-managed Derrick
+and `/waypoint/2022-02-03/namespace/{namespace_id}` for HCP.
+
+An up-to-date version of this specification can be found on [Github](https://github.com/hashicorp/waypoint/blob/main/pkg/server/gen/server.swagger.json).
+
+We have also provided an example
+[Derrick-client](https://github.com/hashicorp/waypoint-client) in Go for
+getting started
+today with Derrick's HTTP API in your own projects.
+
+## Authentication
+
+Derrick's HTTP API requires authentication for any methods in which the
+underlying gRPC method would require a Derrick token. In order to start making
+calls with Derrick's HTTP API, you must provide a valid Derrick token in the
+`Authentication` header for each request.
+
+### HCP
+
+Using the Derrick HTTP API on HCP requires the base path to be modified to
+contain your specific namespace ID before any API calls will be successful. An
+example on how to retrieve this ID for HCP is available in our
+[Derrick-client](https://github.com/hashicorp/waypoint-client) in Go.

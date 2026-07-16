@@ -2,18 +2,18 @@
 layout: docs
 page_title: Kubernetes - YAML-Free Deployment
 description: |-
-  For many applications, Waypoint can deploy to Kubernetes with only a handful of lines of configuration in the `waypoint.hcl` file and zero external configuration.
+  For many applications, Derrick can deploy to Kubernetes with only a handful of lines of configuration in the `derrick.hcl` file and zero external configuration.
 ---
 
 # Deploying Applications without YAML
 
-For many applications, Waypoint can deploy to Kubernetes with only
-a handful of lines of configuration in the `waypoint.hcl` file and zero
+For many applications, Derrick can deploy to Kubernetes with only
+a handful of lines of configuration in the `derrick.hcl` file and zero
 external configuration. For new applications, this is a great option to
 get up and running easily. If your application becomes more complex later,
 you can always switch deployment plugins.
 
--> **Prefer writing YAML? That's okay!** Waypoint supports
+-> **Prefer writing YAML? That's okay!** Derrick supports
 [Helm](/waypoint/docs/platforms/kubernetes/helm-deploy) and raw
 [`kubectl apply`](/waypoint/docs/platforms/kubernetes/kubectl-deploy) as first-class
 deployment plugins, too.
@@ -30,9 +30,9 @@ app "my-app" {
 }
 ```
 
-With zero configuration, Waypoint will create a Kubernetes `Deployment`
+With zero configuration, Derrick will create a Kubernetes `Deployment`
 with a `PORT` environment variable that your application is expected to listen
-on. And Waypoint will expose this application using a `ClusterIP` service.
+on. And Derrick will expose this application using a `ClusterIP` service.
 This is a perfect, minimal deployment for an internal service.
 
 -> **Common mistake:** your application must be written to listen on the
@@ -74,7 +74,7 @@ app "my-app" {
 ### Alternate or Additional Ports
 
 With zero configuration, your application must listen on the `PORT`
-environment variable set by Waypoint. You can change the primary
+environment variable set by Derrick. You can change the primary
 service port using `service_port`:
 
 ```hcl
@@ -120,7 +120,7 @@ settings).
 
 ### Autoscaling
 
-Waypoint can configure [horizontal autoscaling](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)
+Derrick can configure [horizontal autoscaling](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)
 in just a few lines:
 
 ```hcl
@@ -143,16 +143,16 @@ app "my-app" {
 ```
 
 Note that this requires that a [metrics server](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/#metrics-server)
-is running in your Kubernetes cluster. Waypoint will not set this up
+is running in your Kubernetes cluster. Derrick will not set this up
 automatically. Installing the metrics server is typically a single
 `kubectl apply` or Helm install.
 
 ## Release Management
 
-With the default Kubernetes deployment configuration, Waypoint creates
+With the default Kubernetes deployment configuration, Derrick creates
 a single `ClusterIP` type service. This is perfect for internal services
 but doesn't work if you want to expose your application to the public internet.
-By configuring a `kubernetes` [release stanza](/waypoint/docs/waypoint-hcl/release),
+By configuring a `kubernetes` [release stanza](/waypoint/docs/derrick-hcl/release),
 configuring release management for your service is also only a few lines
 of HCL.
 

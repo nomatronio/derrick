@@ -1,0 +1,27 @@
+---
+layout: docs
+page_title: Extending Derrick
+description: |-
+  Derrick utilizes a server to enable collaboration with other team members, storing operation history, and enabling functionality such as logs, exec, and more.
+---
+
+# How Derrick Plugins Work
+
+Plugins in Derrick are separate binaries which communicate with the Derrick application; the plugin communicates using
+gRPC. While it is theoretically possible to build a plugin in any language supported by the gRPC framework, we
+recommend that the developers leverage the [Derrick SDK](https://github.com/hashicorp/waypoint-plugin-sdk) for Go to
+perform this task.
+
+In this section, you will find reference documentation for creating plugins, if you would like to jump straight in and
+start making a plugin; please check out the [Creating Derrick Plugins Guide](/waypoint/docs/extending-derrick/creating-plugins).
+
+## Concepts
+
+Conceptually Derrick Plugins can be defined using the following terms:
+
+- `Plugin` - A Plugin is a compiled binary containing one or more Components which are executed by the Derrick
+  application
+- `Component` - A Component handles part of the Derrick application lifecycle, i.e. Build, Deploy, etc. Components are
+  created by implementing various interfaces
+- `Interface` - An interface implements specific behavior in a Component, i.e., Configurable, ReleaseManager
+- `Output Value` - A Protocol Buffer serializable type which can be passed between components.

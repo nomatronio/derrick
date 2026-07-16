@@ -17,7 +17,7 @@ import (
 
 // HashicorpWaypointRunner hashicorp waypoint runner
 //
-// swagger:model hashicorp.waypoint.Runner
+// swagger:model nomatron.derrick.Runner
 type HashicorpWaypointRunner struct {
 
 	// The state of whether this runner is adopted or not.

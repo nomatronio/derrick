@@ -7,7 +7,7 @@ import (
 
 	"github.com/hashicorp/go-hclog"
 
-	"github.com/hashicorp/waypoint/pkg/serverstate"
+	"github.com/nomatronio/derrick/pkg/serverstate"
 )
 
 func (s *Service) runPrune(

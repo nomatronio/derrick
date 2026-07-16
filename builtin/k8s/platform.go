@@ -26,13 +26,13 @@ import (
 	"k8s.io/apimachinery/pkg/util/wait"
 	_ "k8s.io/client-go/plugin/pkg/client/auth"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/component"
-	"github.com/hashicorp/waypoint-plugin-sdk/docs"
-	"github.com/hashicorp/waypoint-plugin-sdk/framework/resource"
-	sdk "github.com/hashicorp/waypoint-plugin-sdk/proto/gen"
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/builtin/aws/utils"
-	"github.com/hashicorp/waypoint/builtin/docker"
+	"github.com/nomatronio/derrick-plugin-sdk/component"
+	"github.com/nomatronio/derrick-plugin-sdk/docs"
+	"github.com/nomatronio/derrick-plugin-sdk/framework/resource"
+	sdk "github.com/nomatronio/derrick-plugin-sdk/proto/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/builtin/aws/utils"
+	"github.com/nomatronio/derrick/builtin/docker"
 )
 
 const (
@@ -622,7 +622,7 @@ func (p *Platform) resourceDeploymentCreate(
 
 	// App container must have some kind of port
 	if len(appContainerSpec.Ports) == 0 {
-		log.Warn("No ports defined in waypoint.hcl - defaulting to http on port", "port", DefaultServicePort)
+		log.Warn("No ports defined in derrick.hcl - defaulting to http on port", "port", DefaultServicePort)
 		appContainerSpec.Ports = append(appContainerSpec.Ports, &Port{Port: DefaultServicePort, Name: "http"})
 	}
 
@@ -1321,7 +1321,7 @@ func (p *Platform) Status(
 	}
 
 	// NOTE(briancain): Replace ui.Status with StepGroups once this bug
-	// has been fixed: https://github.com/hashicorp/waypoint/issues/1536
+	// has been fixed: https://github.com/nomatronio/derrick/issues/1536
 	st := ui.Status()
 	defer st.Close()
 	st.Update("Determining overall container health...")

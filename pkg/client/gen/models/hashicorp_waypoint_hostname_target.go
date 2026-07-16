@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointHostnameTarget hashicorp waypoint hostname target
 //
-// swagger:model hashicorp.waypoint.Hostname.Target
+// swagger:model nomatron.derrick.Hostname.Target
 type HashicorpWaypointHostnameTarget struct {
 
 	// application

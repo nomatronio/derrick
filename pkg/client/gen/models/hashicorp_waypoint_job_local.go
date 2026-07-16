@@ -7,5 +7,5 @@ package models
 
 // HashicorpWaypointJobLocal hashicorp waypoint job local
 //
-// swagger:model hashicorp.waypoint.Job.Local
+// swagger:model nomatron.derrick.Job.Local
 type HashicorpWaypointJobLocal interface{}

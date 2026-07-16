@@ -13,12 +13,12 @@ import (
 	"github.com/hashicorp/hcl/v2/hclsyntax"
 	hcljson "github.com/hashicorp/hcl/v2/json"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
 
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/installutil"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/installutil"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 type RunnerProfileSetCommand struct {
@@ -377,14 +377,14 @@ func (c *RunnerProfileSetCommand) Synopsis() string {
 
 func (c *RunnerProfileSetCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint runner profile set [OPTIONS] <profile-name>
+Usage: derrick runner profile set [OPTIONS] <profile-name>
 
   Create or update a runner profile.
 
   This will register a new runner profile with the given options. If
   a runner profile with the same id already exists, this will update the
   existing runner profile using the fields that are set.
-  Waypoint will use a runner profile to spawn containers for
+  Derrick will use a runner profile to spawn containers for
   various kinds of work as needed on the platform requested during any given
   lifecycle operation.
 

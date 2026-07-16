@@ -27,10 +27,10 @@ import (
 	"google.golang.org/protobuf/proto"
 	"google.golang.org/protobuf/types/known/emptypb"
 
-	"github.com/hashicorp/waypoint/internal/clicontext"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	"github.com/hashicorp/waypoint/pkg/serverconfig"
-	"github.com/hashicorp/waypoint/pkg/tokenutil"
+	"github.com/nomatronio/derrick/internal/clicontext"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	"github.com/nomatronio/derrick/pkg/serverconfig"
+	"github.com/nomatronio/derrick/pkg/tokenutil"
 )
 
 func TestConnect(t *testing.T) {
@@ -122,7 +122,7 @@ func TestConnect(t *testing.T) {
 				return nil, fmt.Errorf("nope 2")
 			}))
 
-		pb.RegisterWaypointServer(gs, &pb.UnimplementedWaypointServer{})
+		pb.RegisterDerrickServer(gs, &pb.UnimplementedDerrickServer{})
 
 		go gs.Serve(gl)
 
@@ -139,7 +139,7 @@ func TestConnect(t *testing.T) {
 		cc, err := Connect(ctx, FromContextConfig(cfg))
 		require.NoError(t, err)
 
-		client := pb.NewWaypointClient(cc)
+		client := pb.NewDerrickClient(cc)
 
 		_, err = client.GetVersionInfo(ctx, &emptypb.Empty{})
 		require.Error(t, err)

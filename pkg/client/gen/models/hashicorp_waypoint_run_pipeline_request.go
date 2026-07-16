@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointRunPipelineRequest hashicorp waypoint run pipeline request
 //
-// swagger:model hashicorp.waypoint.RunPipelineRequest
+// swagger:model nomatron.derrick.RunPipelineRequest
 type HashicorpWaypointRunPipelineRequest struct {
 
 	// This is the job template to use for all the queued steps. This should

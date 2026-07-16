@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointUserLinkOIDC hashicorp waypoint user link o ID c
 //
-// swagger:model hashicorp.waypoint.User.Link.OIDC
+// swagger:model nomatron.derrick.User.Link.OIDC
 type HashicorpWaypointUserLinkOIDC struct {
 
 	// issuer and sub claims can be used to uniquely identify a user

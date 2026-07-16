@@ -8,9 +8,9 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/hashicorp/waypoint/pkg/server"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	serverptypes "github.com/hashicorp/waypoint/pkg/server/ptypes"
+	"github.com/nomatronio/derrick/pkg/server"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	serverptypes "github.com/nomatronio/derrick/pkg/server/ptypes"
 )
 
 func TestServiceTask_GetTask(t *testing.T) {

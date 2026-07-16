@@ -1,6 +1,6 @@
-import { ListProjectsResponse, GetProjectResponse, UpsertProjectResponse } from 'waypoint-pb';
+import { ListProjectsResponse, GetProjectResponse, UpsertProjectResponse } from 'derrick-pb';
 import { decode } from '../helpers/protobufs';
-import { UI, GetProjectRequest, UpsertProjectRequest, Job, Project } from 'waypoint-pb';
+import { UI, GetProjectRequest, UpsertProjectRequest, Job, Project } from 'derrick-pb';
 import { Request, Response } from 'miragejs';
 import { RouteHandler } from '../types';
 

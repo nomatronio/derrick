@@ -8,5 +8,5 @@ package models
 // HashicorpWaypointRefGlobal Global references the entire server. This is used in some APIs
 // as a way to read/write values that are server-global.
 //
-// swagger:model hashicorp.waypoint.Ref.Global
+// swagger:model nomatron.derrick.Ref.Global
 type HashicorpWaypointRefGlobal interface{}

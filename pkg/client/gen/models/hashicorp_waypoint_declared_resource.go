@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointDeclaredResource A platform resource that an operation (release/deployment) has created, depends on, or manages.
 //
-// swagger:model hashicorp.waypoint.DeclaredResource
+// swagger:model nomatron.derrick.DeclaredResource
 type HashicorpWaypointDeclaredResource struct {
 
 	// high level type of the resource, used for display purposes.

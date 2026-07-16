@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointUpsertApplicationRequest hashicorp waypoint upsert application request
 //
-// swagger:model hashicorp.waypoint.UpsertApplicationRequest
+// swagger:model nomatron.derrick.UpsertApplicationRequest
 type HashicorpWaypointUpsertApplicationRequest struct {
 
 	// a signal to send the application when config files change

@@ -5,7 +5,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/hashicorp/waypoint/pkg/serverconfig"
+	"github.com/nomatronio/derrick/pkg/serverconfig"
 )
 
 func TestConfigFromURL(t *testing.T) {

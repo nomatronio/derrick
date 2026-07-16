@@ -16,7 +16,7 @@ import (
 
 // HashicorpWaypointListTriggerResponse hashicorp waypoint list trigger response
 //
-// swagger:model hashicorp.waypoint.ListTriggerResponse
+// swagger:model nomatron.derrick.ListTriggerResponse
 type HashicorpWaypointListTriggerResponse struct {
 
 	// triggers

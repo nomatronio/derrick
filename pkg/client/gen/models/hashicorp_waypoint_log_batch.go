@@ -16,7 +16,7 @@ import (
 
 // HashicorpWaypointLogBatch hashicorp waypoint log batch
 //
-// swagger:model hashicorp.waypoint.LogBatch
+// swagger:model nomatron.derrick.LogBatch
 type HashicorpWaypointLogBatch struct {
 
 	// deployment id

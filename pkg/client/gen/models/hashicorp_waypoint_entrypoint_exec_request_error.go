@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointEntrypointExecRequestError hashicorp waypoint entrypoint exec request error
 //
-// swagger:model hashicorp.waypoint.EntrypointExecRequest.Error
+// swagger:model nomatron.derrick.EntrypointExecRequest.Error
 type HashicorpWaypointEntrypointExecRequestError struct {
 
 	// error

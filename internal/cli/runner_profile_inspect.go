@@ -10,10 +10,10 @@ import (
 	"google.golang.org/protobuf/encoding/protojson"
 	empty "google.golang.org/protobuf/types/known/emptypb"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 type RunnerProfileInspectCommand struct {
@@ -171,7 +171,7 @@ func (c *RunnerProfileInspectCommand) Synopsis() string {
 
 func (c *RunnerProfileInspectCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint runner profile inspect <name>
+Usage: derrick runner profile inspect <name>
 
   Show detailed information about a runner profile.
 

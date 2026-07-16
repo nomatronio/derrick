@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointCreateHostnameResponse hashicorp waypoint create hostname response
 //
-// swagger:model hashicorp.waypoint.CreateHostnameResponse
+// swagger:model nomatron.derrick.CreateHostnameResponse
 type HashicorpWaypointCreateHostnameResponse struct {
 
 	// Created hostname

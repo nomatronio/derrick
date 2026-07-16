@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointVersionInfoProtocolVersion hashicorp waypoint version info protocol version
 //
-// swagger:model hashicorp.waypoint.VersionInfo.ProtocolVersion
+// swagger:model nomatron.derrick.VersionInfo.ProtocolVersion
 type HashicorpWaypointVersionInfoProtocolVersion struct {
 
 	// current

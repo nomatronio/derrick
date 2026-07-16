@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointGetApplicationResponse hashicorp waypoint get application response
 //
-// swagger:model hashicorp.waypoint.GetApplicationResponse
+// swagger:model nomatron.derrick.GetApplicationResponse
 type HashicorpWaypointGetApplicationResponse struct {
 
 	// application

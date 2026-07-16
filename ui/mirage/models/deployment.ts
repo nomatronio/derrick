@@ -1,5 +1,5 @@
 import { Model, belongsTo } from 'ember-cli-mirage';
-import { Deployment, Operation, Job } from 'waypoint-pb';
+import { Deployment, Operation, Job } from 'derrick-pb';
 
 const { PhysicalState } = Operation;
 type StateName = keyof typeof PhysicalState;

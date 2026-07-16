@@ -21,12 +21,12 @@ import (
 	"github.com/zclconf/go-cty/cty/convert"
 	"google.golang.org/grpc/status"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/component"
-	sdkpb "github.com/hashicorp/waypoint-plugin-sdk/proto/gen"
-	"github.com/hashicorp/waypoint/internal/pkg/condctx"
-	"github.com/hashicorp/waypoint/internal/plugin"
-	"github.com/hashicorp/waypoint/pkg/config/funcs"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/component"
+	sdkpb "github.com/nomatronio/derrick-plugin-sdk/proto/gen"
+	"github.com/nomatronio/derrick/internal/pkg/condctx"
+	"github.com/nomatronio/derrick/internal/plugin"
+	"github.com/nomatronio/derrick/pkg/config/funcs"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 var (

@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointRunTriggerResponse hashicorp waypoint run trigger response
 //
-// swagger:model hashicorp.waypoint.RunTriggerResponse
+// swagger:model nomatron.derrick.RunTriggerResponse
 type HashicorpWaypointRunTriggerResponse struct {
 
 	// the job ID that was queued. This can be used with other RPC methods

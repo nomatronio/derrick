@@ -2,52 +2,52 @@
 layout: docs
 page_title: Architecture
 description: |-
-  Waypoint has many different components that interact with each other. This page documents all of these components: what they do, how they work with each other, when they're required, etc.
+  Derrick has many different components that interact with each other. This page documents all of these components: what they do, how they work with each other, when they're required, etc.
 ---
 
-# Waypoint Architecture
+# Derrick Architecture
 
-Waypoint has many different components that interact with each other.
+Derrick has many different components that interact with each other.
 This page documents all of these components: what they do, how they
 work with each other, when they're required, etc.
 
 ## High-Level Overview
 
-The diagram below shows a typical single-platform deployment of Waypoint.
+The diagram below shows a typical single-platform deployment of Derrick.
 
 ![Architecture Overview](/img/architecture.png)
 
 -> Note: some of the components are optional by sacrificing functionality.
-It is possible to operate Waypoint without entrypoints, but you'll lose
+It is possible to operate Derrick without entrypoints, but you'll lose
 all [entrypoint-required functionality](/waypoint/docs/entrypoint#functionality).
 
-The primary components of Waypoint are:
+The primary components of Derrick are:
 
-- **Server** - The Waypoint server is a long-running, central service that
-  serves the Waypoint API. This API is consumed by the CLI, entrypoint, and
-  other consumers. This is the only component in Waypoint that stores state.
+- **Server** - The Derrick server is a long-running, central service that
+  serves the Derrick API. This API is consumed by the CLI, entrypoint, and
+  other consumers. This is the only component in Derrick that stores state.
   Learn more about [servers here](/waypoint/docs/server).
 
-- **CLI** - The `waypoint` CLI acts as a client of the server API. It
+- **CLI** - The `derrick` CLI acts as a client of the server API. It
   does not store any state locally except for connection information to the
   server.
 
-- **Entrypoint** - The [Waypoint Entrypoint](/waypoint/docs/entrypoint) is built-in to
+- **Entrypoint** - The [Derrick Entrypoint](/waypoint/docs/entrypoint) is built-in to
   the deployments to enable functionality such as logs, exec, the URL
   service, and more. It creates an outbound connection to the server to
   enable this functionality.
 
-- **Runner** - A Waypoint runner executes operations such as build,
+- **Runner** - A Derrick runner executes operations such as build,
   deploy, etc. There are two kinds of runners:
 
   - **Static Runner** - A static runner is a long-lived runner that is very likely set up
-    when a team begins using Waypoint.
+    when a team begins using Derrick.
   - **On-Demand Runner** - An on-demand runner is launched per operation within a
     container platform.
 
 ## Failure Behavior
 
-The components of Waypoint are designed to be resilient to failures
+The components of Derrick are designed to be resilient to failures
 of the other components.
 
 ### Server
@@ -74,7 +74,7 @@ If the server is down:
 
 The entrypoint is designed to not affect the child process during failures.
 Any failures in the entrypoint will be logged but will not cause the
-entrypoint to exit. Errors such as failure to connect to a Waypoint server
+entrypoint to exit. Errors such as failure to connect to a Derrick server
 will retry in the background.
 
 ### Runner

@@ -8,8 +8,8 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/metadata"
 
-	"github.com/hashicorp/waypoint/pkg/protocolversion"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick/pkg/protocolversion"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 func TestVersionUnaryInterceptor(t *testing.T) {
@@ -35,7 +35,7 @@ func TestVersionUnaryInterceptor(t *testing.T) {
 		// Call
 		called := false
 		_, err := f(ctx, nil, &grpc.UnaryServerInfo{
-			FullMethod: "/hashicorp.waypoint.Waypoint/Foo",
+			FullMethod: "/nomatron.derrick.Derrick/Foo",
 		}, func(
 			ctx context.Context,
 			req interface{},
@@ -56,7 +56,7 @@ func TestVersionUnaryInterceptor(t *testing.T) {
 		// Call
 		called := false
 		_, err := f(ctx, nil, &grpc.UnaryServerInfo{
-			FullMethod: "/hashicorp.waypoint.Waypoint/GetVersionInfo",
+			FullMethod: "/nomatron.derrick.Derrick/GetVersionInfo",
 		}, func(
 			ctx context.Context,
 			req interface{},
@@ -99,7 +99,7 @@ func TestVersionUnaryInterceptor(t *testing.T) {
 		var actual context.Context
 		called := false
 		_, err := f(ctx, nil, &grpc.UnaryServerInfo{
-			FullMethod: "/hashicorp.waypoint.Waypoint/Foo",
+			FullMethod: "/nomatron.derrick.Derrick/Foo",
 		}, func(
 			ctx context.Context,
 			req interface{},
@@ -126,7 +126,7 @@ func TestVersionUnaryInterceptor(t *testing.T) {
 		// Call
 		called := false
 		_, err := f(ctx, nil, &grpc.UnaryServerInfo{
-			FullMethod: "/hashicorp.waypoint.Waypoint/Foo",
+			FullMethod: "/nomatron.derrick.Derrick/Foo",
 		}, func(
 			ctx context.Context,
 			req interface{},
@@ -151,7 +151,7 @@ func TestVersionUnaryInterceptor(t *testing.T) {
 		var actual context.Context
 		called := false
 		_, err := f(ctx, nil, &grpc.UnaryServerInfo{
-			FullMethod: "/hashicorp.waypoint.Waypoint/EntrypointFoo",
+			FullMethod: "/nomatron.derrick.Derrick/EntrypointFoo",
 		}, func(
 			ctx context.Context,
 			req interface{},
@@ -178,7 +178,7 @@ func TestVersionUnaryInterceptor(t *testing.T) {
 		// Call
 		called := false
 		_, err := f(ctx, nil, &grpc.UnaryServerInfo{
-			FullMethod: "/hashicorp.waypoint.Waypoint/EntrypointFoo",
+			FullMethod: "/nomatron.derrick.Derrick/EntrypointFoo",
 		}, func(
 			ctx context.Context,
 			req interface{},

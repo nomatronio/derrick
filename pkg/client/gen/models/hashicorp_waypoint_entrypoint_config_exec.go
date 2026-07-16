@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointEntrypointConfigExec hashicorp waypoint entrypoint config exec
 //
-// swagger:model hashicorp.waypoint.EntrypointConfig.Exec
+// swagger:model nomatron.derrick.EntrypointConfig.Exec
 type HashicorpWaypointEntrypointConfigExec struct {
 
 	// args

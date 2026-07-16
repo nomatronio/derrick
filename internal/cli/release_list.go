@@ -14,12 +14,12 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	clientpkg "github.com/hashicorp/waypoint/internal/client"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	"github.com/hashicorp/waypoint/internal/version"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	clientpkg "github.com/nomatronio/derrick/internal/client"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	"github.com/nomatronio/derrick/internal/version"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 type ReleaseListCommand struct {
@@ -264,7 +264,7 @@ func (c *ReleaseListCommand) Run(args []string) int {
 				columns = append(columns, url)
 			}
 
-			// Omit Waypoint releases that didn't actually happen on the platform
+			// Omit Derrick releases that didn't actually happen on the platform
 			if !b.Unimplemented {
 				tbl.Rich(
 					columns,
@@ -393,7 +393,7 @@ func (c *ReleaseListCommand) Synopsis() string {
 
 func (c *ReleaseListCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint release list [options]
+Usage: derrick release list [options]
 
   Lists the releases that were created if the platform includes a releaser.
 

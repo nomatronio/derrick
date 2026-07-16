@@ -15,14 +15,14 @@ import (
 	"google.golang.org/grpc/status"
 	empty "google.golang.org/protobuf/types/known/emptypb"
 
-	"github.com/hashicorp/waypoint/pkg/protocolversion"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	"github.com/hashicorp/waypoint/pkg/tokenutil"
+	"github.com/nomatronio/derrick/pkg/protocolversion"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	"github.com/nomatronio/derrick/pkg/tokenutil"
 )
 
 // TestServer starts a server and returns a gRPC client to that server.
 // We use t.Cleanup to ensure resources are automatically cleaned up.
-func TestServer(t testing.T, impl pb.WaypointServer, opts ...TestOption) pb.WaypointClient {
+func TestServer(t testing.T, impl pb.DerrickServer, opts ...TestOption) pb.DerrickClient {
 	require := require.New(t)
 
 	c := testConfig{
@@ -114,7 +114,7 @@ func TestServer(t testing.T, impl pb.WaypointServer, opts ...TestOption) pb.Wayp
 	// Connect, this should retry in the case Run is not going yet
 	conn, err := connect("")
 	require.NoError(err)
-	client := pb.NewWaypointClient(conn)
+	client := pb.NewDerrickClient(conn)
 
 	// Bootstrap
 	tokenResp, err := client.BootstrapToken(context.Background(), &empty.Empty{})
@@ -135,10 +135,10 @@ func TestServer(t testing.T, impl pb.WaypointServer, opts ...TestOption) pb.Wayp
 
 	require.NoError(err)
 	t.Cleanup(func() { conn.Close() })
-	return pb.NewWaypointClient(conn)
+	return pb.NewDerrickClient(conn)
 }
 
-func newTestServer(ctx context.Context, impl pb.WaypointServer) (*grpc.Server, error) {
+func newTestServer(ctx context.Context, impl pb.DerrickServer) (*grpc.Server, error) {
 	// Create and start a new GRPC server
 
 	// Get our server info immediately
@@ -177,7 +177,7 @@ func newTestServer(ctx context.Context, impl pb.WaypointServer) (*grpc.Server, e
 
 	server := grpc.NewServer(so...)
 
-	pb.RegisterWaypointServer(server, impl)
+	pb.RegisterDerrickServer(server, impl)
 	return server, nil
 }
 
@@ -235,7 +235,7 @@ func TestVersionInfoResponse() *pb.GetVersionInfoResponse {
 }
 
 // TestCookieContext returns a context with the cookie set.
-func TestCookieContext(ctx context.Context, t testing.T, c pb.WaypointClient) context.Context {
+func TestCookieContext(ctx context.Context, t testing.T, c pb.DerrickClient) context.Context {
 	resp, err := c.GetServerConfig(ctx, &empty.Empty{})
 	require.NoError(t, err)
 	md := metadata.New(map[string]string{"wpcookie": resp.Config.Cookie})
@@ -245,7 +245,7 @@ func TestCookieContext(ctx context.Context, t testing.T, c pb.WaypointClient) co
 // TestRunner registers a runner and returns the ID and a function to
 // deregister the runner. This uses t.Cleanup so that the runner will always
 // be deregistered on test completion.
-func TestRunner(t testing.T, client pb.WaypointClient, r *pb.Runner) (string, func()) {
+func TestRunner(t testing.T, client pb.DerrickClient, r *pb.Runner) (string, func()) {
 	require := require.New(t)
 	ctx := context.Background()
 

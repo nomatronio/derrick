@@ -9,10 +9,10 @@ import (
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/posener/complete"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 type PipelineListCommand struct {
@@ -72,7 +72,7 @@ func (c *PipelineListCommand) Run(args []string) int {
 		return 0
 	}
 
-	c.ui.Output("Waypoint Pipelines for %s", c.refProject.Project, terminal.WithHeaderStyle())
+	c.ui.Output("Derrick Pipelines for %s", c.refProject.Project, terminal.WithHeaderStyle())
 
 	tblHeaders := []string{"ID", "Name", "Owner", "Current Steps", "Last Run Started", "Last Run Completed", "State", "Total Runs"}
 	tbl := terminal.NewTable(tblHeaders...)
@@ -186,7 +186,7 @@ func (c *PipelineListCommand) Synopsis() string {
 
 func (c *PipelineListCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint pipeline list
+Usage: derrick pipeline list
 
   List all pipelines for a project.
 

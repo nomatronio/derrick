@@ -2,17 +2,17 @@
 layout: docs
 page_title: Projects
 description: |-
-  A project in Waypoint is a 1:1 mapping to a VCS repository (if one exists). A project can be comprised of one or more applications. Each application in a project represents a single thing that can be deployed.
+  A project in Derrick is a 1:1 mapping to a VCS repository (if one exists). A project can be comprised of one or more applications. Each application in a project represents a single thing that can be deployed.
 ---
 
 # Projects
 
-A project in Waypoint is a 1:1 mapping to a VCS repository (if one exists).
+A project in Derrick is a 1:1 mapping to a VCS repository (if one exists).
 A project can be comprised of one or more applications. Each application in
 a project represents a single thing that can be deployed. A project is the
-first thing you ever create after installing Waypoint.
+first thing you ever create after installing Derrick.
 
-Every project has an associated [waypoint.hcl configuration](/waypoint/docs/waypoint-hcl).
+Every project has an associated [derrick.hcl configuration](/waypoint/docs/derrick-hcl).
 This configuration can be a file that is committed alongside the project
 in version control, or it can be stored on the server and associated with
 your project by name.
@@ -26,19 +26,19 @@ mix of the aforementioned methods.
 A project can be created in multiple ways. The recommended approach is
 via the web UI. Information about each approach is documented below.
 
-In each approach, you'll have to have a [waypoint.hcl configuration](/waypoint/docs/waypoint-hcl)
-ready. The `waypoint.hcl` configuration can be stored either alongside
-your project's source or within the Waypoint server. You can find more
-details about where to place the `waypoint.hcl` [here](/waypoint/docs/waypoint-hcl#waypoint-hcl-location).
+In each approach, you'll have to have a [derrick.hcl configuration](/waypoint/docs/derrick-hcl)
+ready. The `derrick.hcl` configuration can be stored either alongside
+your project's source or within the Derrick server. You can find more
+details about where to place the `derrick.hcl` [here](/waypoint/docs/derrick-hcl#derrick-hcl-location).
 
 ### Web UI
 
 When creating a new project through the UI, you can automatically log into the
-dashboard by running `waypoint ui -authenticate` on the CLI after installing Waypoint.
+dashboard by running `derrick ui -authenticate` on the CLI after installing Derrick.
 
 ![new-install](/img/new-waypoint-install-ui.png)
 
-From here, you can click on the `New project` button to create a new Waypoint
+From here, you can click on the `New project` button to create a new Derrick
 project.
 
 ![new-project](/img/new-waypoint-project.png)
@@ -49,41 +49,41 @@ to the project.
 ![project-created](/img/waypoint-project-created.png)
 
 And there you have it! You are now ready to [deploy a project](#deploying-a-project)
-using Waypoint! Read on to learn more about how to use a project once it has been
+using Derrick! Read on to learn more about how to use a project once it has been
 created.
 
-### `waypoint init`
+### `derrick init`
 
-If you have written a [waypoint.hcl file](/waypoint/docs/waypoint-hcl), you can
-use the [`waypoint init`](/waypoint/commands/init) command to initialize the project.
+If you have written a [derrick.hcl file](/waypoint/docs/derrick-hcl), you can
+use the [`derrick init`](/waypoint/commands/init) command to initialize the project.
 
 You must run this command in the same directory or in a child directory of
-the `waypoint.hcl` file. This will create and configure the project if it is
+the `derrick.hcl` file. This will create and configure the project if it is
 not already created. If you wish to update an already-existing project,
 specify the `-update` flag.
 
 ```shell-session
-$ waypoint init
+$ derrick init
 ✓ Configuration file appears valid
-✓ Connection to Waypoint server was successful
+✓ Connection to Derrick server was successful
 ✓ Project "example-project" and all apps are registered with the server.
 ✓ Plugins loaded and configured successfully
 
 Project initialized!
 
-You may now call 'waypoint up' to deploy your project or
-commands such as 'waypoint build' to perform steps individually.
+You may now call 'derrick up' to deploy your project or
+commands such as 'derrick build' to perform steps individually.
 ```
 
-### `waypoint project apply`
+### `derrick project apply`
 
 This is the most advanced and lowest level approach to creating or modifying
-a project. The [`waypoint project apply`](/waypoint/commands/project-apply) command
+a project. The [`derrick project apply`](/waypoint/commands/project-apply) command
 is a thin layer in front of the direct project API. You can use this command
 to create or update a project:
 
 ```
-$ waypoint project apply \
+$ derrick project apply \
    -data-source=git \
    -git-auth-type=ssh \
    -git-private-key-path=$HOME/.ssh/id_ed25519 \
@@ -93,12 +93,12 @@ $ waypoint project apply \
 
 ## Deploying a Project
 
-Once a project is created and [configured](/waypoint/docs/waypoint-hcl), you
+Once a project is created and [configured](/waypoint/docs/derrick-hcl), you
 can now deploy the project.
 
-If you have the repository checked out with a `waypoint.hcl` locally,
-you can run `waypoint up` and perform a local deploy. If your project was
-configured to [automatically poll a git repository](/waypoint/docs/projects/git), Waypoint
+If you have the repository checked out with a `derrick.hcl` locally,
+you can run `derrick up` and perform a local deploy. If your project was
+configured to [automatically poll a git repository](/waypoint/docs/projects/git), Derrick
 will automatically begin the process to build and deploy your application.
 
 ## Multiple Applications
@@ -115,8 +115,8 @@ _unique_ repository, so monorepo users may create multiple projects pointing
 to the same repository.
 
 One simple example of this one-to-many pattern is the [waypoint-examples](https://github.com/hashicorp/waypoint-examples/)
-repository. The repository contains many Waypoint projects, and each project
-in a sub-dir of the `waypoint-examples` repo maps to this single repository.
+repository. The repository contains many Derrick projects, and each project
+in a sub-dir of the `derrick-examples` repo maps to this single repository.
 
 Support for this is seen in the GitOps workflow, where a user specifies
 the parent repo to map to the project and can optionally specify

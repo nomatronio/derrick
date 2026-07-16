@@ -5,9 +5,9 @@ sidebar_title: 'project inspect'
 description: 'Inspect the details of a project.'
 ---
 
-# Waypoint Project inspect
+# Derrick inspect
 
-Command: `waypoint project inspect`
+Command: `derrick project inspect`
 
 Inspect the details of a project.
 
@@ -15,21 +15,21 @@ Inspect the details of a project.
 
 ## Usage
 
-Usage: `waypoint project inspect [project-name]`
+Usage: `derrick project inspect [project-name]`
 
 Inspect the details of a given project.
 
 Projects usually map to a single version control repository and contain
-exactly one "waypoint.hcl" configuration. A project may contain multiple
+exactly one "derrick.hcl" configuration. A project may contain multiple
 applications.
 
-A project is registered via the web UI, "waypoint project apply",
-or "waypoint init".
+A project is registered via the web UI, "derrick project apply",
+or "derrick init".
 
 #### Global Options
 
 - `-plain` - Plain output: no colors, no animation. The default is false.
-- `-app=<string>` (`-a`) - App to target. Certain commands require a single app target for Waypoint configurations with multiple apps. If you have a single app, then this can be ignored.
+- `-app=<string>` (`-a`) - App to target. Certain commands require a single app target for Derrick configurations with multiple apps. If you have a single app, then this can be ignored.
 - `-project=<string>` (`-p`) - Project to target.
 - `-workspace=<string>` (`-w`) - Workspace to operate in.
 

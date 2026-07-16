@@ -12,12 +12,12 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	configpkg "github.com/hashicorp/waypoint/internal/config"
-	"github.com/hashicorp/waypoint/internal/datasource"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	configpkg "github.com/nomatronio/derrick/internal/config"
+	"github.com/nomatronio/derrick/internal/datasource"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 type ProjectApplyCommand struct {
@@ -33,8 +33,8 @@ type ProjectApplyCommand struct {
 	flagGitKeyPath            string
 	flagGitKeyPassword        string
 	flagGitRecurseSubmodules  int
-	flagFromWaypointHcl       string
-	flagWaypointHcl           string
+	flagFromDerrickHcl       string
+	flagDerrickHcl           string
 	flagPoll                  *bool
 	flagPollInterval          string
 	flagAppStatusPoll         *bool
@@ -100,8 +100,8 @@ func (c *ProjectApplyCommand) Run(args []string) int {
 	}
 
 	// If we were specified a file then we're going to load that up.
-	if c.flagFromWaypointHcl != "" {
-		path, err := filepath.Abs(c.flagFromWaypointHcl)
+	if c.flagFromDerrickHcl != "" {
+		path, err := filepath.Abs(c.flagFromDerrickHcl)
 		if err != nil {
 			c.ui.Output(
 				"Error loading HCL file specified with the -from-waypoint-hcl flag: %s", clierrors.Humanize(err),
@@ -317,8 +317,8 @@ func (c *ProjectApplyCommand) Run(args []string) int {
 		)
 	}
 
-	// Setup our default waypoint.hcl if it was given
-	if v := c.flagWaypointHcl; v != "" {
+	// Setup our default derrick.hcl if it was given
+	if v := c.flagDerrickHcl; v != "" {
 		bs, err := ioutil.ReadFile(v)
 		if err != nil {
 			c.ui.Output(
@@ -367,8 +367,8 @@ func (c *ProjectApplyCommand) Run(args []string) int {
 			return 1
 		}
 
-		proj.WaypointHcl = bs
-		proj.WaypointHclFormat = format
+		proj.DerrickHcl = bs
+		proj.DerrickHclFormat = format
 	}
 
 	// Upsert
@@ -399,9 +399,9 @@ func (c *ProjectApplyCommand) Flags() *flag.Sets {
 
 		f.StringVar(&flag.StringVar{
 			Name:    "from-waypoint-hcl",
-			Target:  &c.flagFromWaypointHcl,
+			Target:  &c.flagFromDerrickHcl,
 			Default: "",
-			Usage: "waypoint.hcl formatted file to load settings from. This can be used " +
+			Usage: "derrick.hcl formatted file to load settings from. This can be used " +
 				"to read settings from a file. Additional flags will override values found " +
 				"in the file. Note that any settings in the file will NOT be merged with " +
 				"what is already in the server; they will overwrite the server.",
@@ -409,14 +409,14 @@ func (c *ProjectApplyCommand) Flags() *flag.Sets {
 
 		f.StringVar(&flag.StringVar{
 			Name:    "waypoint-hcl",
-			Target:  &c.flagWaypointHcl,
+			Target:  &c.flagDerrickHcl,
 			Default: "",
-			Usage: "Path to a waypoint.hcl file to associate with this project. This " +
-				"is only necessary if a waypoint.hcl is not committed alongside the project " +
-				"source code. If a waypoint.hcl file does not exist in the project source " +
-				"then this waypoint.hcl file will be used. This file will not be validated " +
+			Usage: "Path to a derrick.hcl file to associate with this project. This " +
+				"is only necessary if a derrick.hcl is not committed alongside the project " +
+				"source code. If a derrick.hcl file does not exist in the project source " +
+				"then this derrick.hcl file will be used. This file will not be validated " +
 				"until an operation is run against the project; this is done on purpose since " +
-				"the waypoint.hcl file may depend on files in the source repository.",
+				"the derrick.hcl file may depend on files in the source repository.",
 		})
 
 		f.StringVar(&flag.StringVar{
@@ -543,7 +543,7 @@ func (c *ProjectApplyCommand) Synopsis() string {
 
 func (c *ProjectApplyCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint project apply [options] NAME
+Usage: derrick project apply [options] NAME
 
   Create or update a project.
 
@@ -552,10 +552,10 @@ Usage: waypoint project apply [options] NAME
   the fields that are set.
 
   This command should be used to create a new project pointing to a VCS
-  repo. If you have a "waypoint.hcl" file and a local repository, you can
+  repo. If you have a "derrick.hcl" file and a local repository, you can
   also use "waypoint init" in the directory of the project.
 
-  You may create a project from a waypoint.hcl file and optionally overwrite
+  You may create a project from a derrick.hcl file and optionally overwrite
   some fields using flags by specifying the -waypoint-hcl flag.
 
 ` + c.Flags().Help())

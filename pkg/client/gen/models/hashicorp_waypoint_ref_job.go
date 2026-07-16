@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointRefJob Job references a Job message value by job id.
 //
-// swagger:model hashicorp.waypoint.Ref.Job
+// swagger:model nomatron.derrick.Ref.Job
 type HashicorpWaypointRefJob struct {
 
 	// id

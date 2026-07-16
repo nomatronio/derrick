@@ -8,7 +8,7 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/hashicorp/waypoint/pkg/server/logbuffer"
+	"github.com/nomatronio/derrick/pkg/server/logbuffer"
 )
 
 const (

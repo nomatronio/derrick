@@ -296,7 +296,7 @@ type ClientService interface {
 
 	WaypointValidateJob(params *WaypointValidateJobParams, opts ...ClientOption) (*WaypointValidateJobOK, error)
 
-	WaypointWaypointHclFmt(params *WaypointWaypointHclFmtParams, opts ...ClientOption) (*WaypointWaypointHclFmtOK, error)
+	WaypointDerrickHclFmt(params *WaypointDerrickHclFmtParams, opts ...ClientOption) (*WaypointDerrickHclFmtOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -5278,22 +5278,22 @@ func (a *Client) WaypointValidateJob(params *WaypointValidateJobParams, opts ...
 }
 
 /*
-WaypointWaypointHclFmt waypoints hcl fmt formats a waypoint hcl file this must be in h c l format JSON formatting is not supported
+WaypointDerrickHclFmt waypoints hcl fmt formats a waypoint hcl file this must be in h c l format JSON formatting is not supported
 */
-func (a *Client) WaypointWaypointHclFmt(params *WaypointWaypointHclFmtParams, opts ...ClientOption) (*WaypointWaypointHclFmtOK, error) {
+func (a *Client) WaypointDerrickHclFmt(params *WaypointDerrickHclFmtParams, opts ...ClientOption) (*WaypointDerrickHclFmtOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewWaypointWaypointHclFmtParams()
+		params = NewWaypointDerrickHclFmtParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "Waypoint_WaypointHclFmt",
+		ID:                 "Waypoint_DerrickHclFmt",
 		Method:             "POST",
 		PathPattern:        "/hcl/format",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &WaypointWaypointHclFmtReader{formats: a.formats},
+		Reader:             &WaypointDerrickHclFmtReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -5305,12 +5305,12 @@ func (a *Client) WaypointWaypointHclFmt(params *WaypointWaypointHclFmtParams, op
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*WaypointWaypointHclFmtOK)
+	success, ok := result.(*WaypointDerrickHclFmtOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
-	unexpectedSuccess := result.(*WaypointWaypointHclFmtDefault)
+	unexpectedSuccess := result.(*WaypointDerrickHclFmtDefault)
 	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 

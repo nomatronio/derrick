@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointJobDeployResult hashicorp waypoint job deploy result
 //
-// swagger:model hashicorp.waypoint.Job.DeployResult
+// swagger:model nomatron.derrick.Job.DeployResult
 type HashicorpWaypointJobDeployResult struct {
 
 	// deployment

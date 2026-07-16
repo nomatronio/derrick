@@ -16,7 +16,7 @@ import (
 
 // HashicorpWaypointGetJobStreamResponseTerminalEventTable hashicorp waypoint get job stream response terminal event table
 //
-// swagger:model hashicorp.waypoint.GetJobStreamResponse.Terminal.Event.Table
+// swagger:model nomatron.derrick.GetJobStreamResponse.Terminal.Event.Table
 type HashicorpWaypointGetJobStreamResponseTerminalEventTable struct {
 
 	// headers

@@ -16,7 +16,7 @@ import (
 // HashicorpWaypointOperationOrder OperationOrder is a shared message type used for controlling the order
 // of results in queries for app operations such as build, deploys, etc.
 //
-// swagger:model hashicorp.waypoint.OperationOrder
+// swagger:model nomatron.derrick.OperationOrder
 type HashicorpWaypointOperationOrder struct {
 
 	// desc

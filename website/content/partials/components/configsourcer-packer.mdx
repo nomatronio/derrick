@@ -5,7 +5,7 @@ Retrieve the image ID of an image whose metadata is pushed to an HCP Packer regi
 ### Examples
 
 ```hcl
-// The waypoint.hcl file
+// The derrick.hcl file
 project = "example-reactjs-project"
 
 variable "image" {
@@ -54,7 +54,7 @@ CMD ["nginx", "-g", "daemon off;"]
 
 ### Required Parameters
 
-These parameters are used in `dynamic` for sourcing [configuration values](/waypoint/docs/app-config/dynamic) or [input variable values](/waypoint/docs/waypoint-hcl/variables/dynamic).
+These parameters are used in `dynamic` for sourcing [configuration values](/waypoint/docs/app-config/dynamic) or [input variable values](/waypoint/docs/derrick-hcl/variables/dynamic).
 
 #### bucket
 
@@ -86,7 +86,7 @@ This plugin has no optional parameters.
 
 ### Source Parameters
 
-The parameters below are used with `waypoint config source-set` to configure
+The parameters below are used with `derrick config source-set` to configure
 the behavior this plugin. These are _not_ used in `dynamic` calls. The
 parameters used for `dynamic` are in the previous section.
 

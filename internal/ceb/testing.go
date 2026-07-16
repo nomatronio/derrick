@@ -8,7 +8,7 @@ import (
 	"github.com/mitchellh/go-testing-interface"
 	"github.com/stretchr/testify/require"
 
-	"github.com/hashicorp/waypoint/pkg/server/singleprocess"
+	"github.com/nomatronio/derrick/pkg/server/singleprocess"
 )
 
 // TestCEB runs a CEB for test purposes. This will start an in-memory

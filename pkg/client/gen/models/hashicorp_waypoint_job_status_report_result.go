@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointJobStatusReportResult hashicorp waypoint job status report result
 //
-// swagger:model hashicorp.waypoint.Job.StatusReportResult
+// swagger:model nomatron.derrick.Job.StatusReportResult
 type HashicorpWaypointJobStatusReportResult struct {
 
 	// The status report that was just created

@@ -14,9 +14,9 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/hashicorp/waypoint/internal/appconfig"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick/internal/appconfig"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 // appConfigRefreshPeriod is the interval between checking for new
@@ -152,7 +152,7 @@ func (r *Runner) watchConfig(
 			}
 
 			// Process it for any keys that we handle differently (such as
-			// WAYPOINT_LOG_LEVEL)
+			// DERRICK_LOG_LEVEL)
 			r.processAppEnv(log, appCfg.EnvVars)
 
 			// Set our env vars
@@ -228,7 +228,7 @@ func (r *Runner) setEnv(log hclog.Logger, appCfg *appconfig.UpdatedConfig) error
 }
 
 // processAppEnv takes a list of env vars meant for the app and handles
-// certain special cases (such as WAYPOINT_LOG_LEVEL) that also affect the
+// certain special cases (such as DERRICK_LOG_LEVEL) that also affect the
 // runner.
 func (r *Runner) processAppEnv(log hclog.Logger, env []string) {
 	// Check if we changed our log level. We change this on the

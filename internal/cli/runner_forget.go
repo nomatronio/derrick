@@ -3,10 +3,10 @@ package cli
 import (
 	"github.com/posener/complete"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 type RunnerForgetCommand struct {
@@ -65,13 +65,13 @@ func (c *RunnerForgetCommand) Synopsis() string {
 
 func (c *RunnerForgetCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint runner forget [options] ID
+Usage: derrick runner forget [options] ID
 
   Forget a previously registered runner.
 
   This will delete any records of a previously registered runner. If the
   runner is currently running, it will begin to error on the next job request.
-  On subsequent registrations, the Waypoint server behaves as if it has never
+  On subsequent registrations, the Derrick server behaves as if it has never
   seen this runner before and triggers the full adoption process again.
 
 ` + c.Flags().Help())

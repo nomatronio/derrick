@@ -1,5 +1,5 @@
 import { Model, hasMany } from 'miragejs';
-import { Generation } from 'waypoint-pb';
+import { Generation } from 'derrick-pb';
 
 export default Model.extend({
   deployment: hasMany(),

@@ -1,8 +1,8 @@
 package cli
 
 import (
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
 )
 
 // Option is used to configure Init on baseCommand.
@@ -23,7 +23,7 @@ func WithFlags(f *flag.Sets) Option {
 }
 
 // WithProjectTarget configures the CLI to expect a configuration
-// with a project specified, either through a waypoint.hcl file or
+// with a project specified, either through a derrick.hcl file or
 // the -project flag
 func WithProjectTarget() Option {
 	return func(c *baseConfig) {

@@ -1,5 +1,5 @@
 import { Model, belongsTo } from 'ember-cli-mirage';
-import { Component } from 'waypoint-pb';
+import { Component } from 'derrick-pb';
 
 // eslint-disable-next-line ember/require-tagless-components
 export default Model.extend({

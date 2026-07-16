@@ -1,5 +1,5 @@
 import Controller from '@ember/controller';
-import { Model } from 'waypoint/routes/workspace/projects/project/app/release';
+import { Model } from 'derrick/routes/workspace/projects/project/app/release';
 import { tracked } from '@glimmer/tracking';
 
 export default class extends Controller {

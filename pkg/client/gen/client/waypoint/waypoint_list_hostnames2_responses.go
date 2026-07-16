@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 
-	"github.com/hashicorp/waypoint/pkg/client/gen/models"
+	"github.com/nomatronio/derrick/pkg/client/gen/models"
 )
 
 // WaypointListHostnames2Reader is a Reader for the WaypointListHostnames2 structure.

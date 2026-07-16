@@ -10,7 +10,7 @@ import (
 	httptransport "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
 
-	"github.com/hashicorp/waypoint/pkg/client/gen/client/waypoint"
+	"github.com/nomatronio/derrick/pkg/client/gen/client/waypoint"
 )
 
 // Default pkg server proto server proto HTTP client.

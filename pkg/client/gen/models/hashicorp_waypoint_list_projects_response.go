@@ -16,7 +16,7 @@ import (
 
 // HashicorpWaypointListProjectsResponse hashicorp waypoint list projects response
 //
-// swagger:model hashicorp.waypoint.ListProjectsResponse
+// swagger:model nomatron.derrick.ListProjectsResponse
 type HashicorpWaypointListProjectsResponse struct {
 
 	// pagination

@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointCreateSnapshotResponse hashicorp waypoint create snapshot response
 //
-// swagger:model hashicorp.waypoint.CreateSnapshotResponse
+// swagger:model nomatron.derrick.CreateSnapshotResponse
 type HashicorpWaypointCreateSnapshotResponse struct {
 
 	// Chunk is a next chunk of data. You should continue to expect

@@ -15,12 +15,12 @@ import (
 	"google.golang.org/grpc/status"
 	empty "google.golang.org/protobuf/types/known/emptypb"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
 
-	"github.com/hashicorp/waypoint/internal/clicontext"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	"github.com/hashicorp/waypoint/pkg/serverclient"
-	"github.com/hashicorp/waypoint/pkg/serverconfig"
+	"github.com/nomatronio/derrick/internal/clicontext"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	"github.com/nomatronio/derrick/pkg/serverclient"
+	"github.com/nomatronio/derrick/pkg/serverconfig"
 )
 
 // Message is the message we return to the requester when streaming job output
@@ -79,7 +79,7 @@ func HandleTrigger(addr string, tls bool) http.HandlerFunc {
 		defer grpcConn.Close()
 
 		// Our API client
-		client := pb.NewWaypointClient(grpcConn)
+		client := pb.NewDerrickClient(grpcConn)
 
 		requestVars := mux.Vars(r)
 		runTriggerId := requestVars["id"]

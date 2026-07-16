@@ -646,14 +646,14 @@ type Job_Config_Source int32
 const (
 	// Unknown should never be set, but represents a zero value.
 	Job_Config_UNKNOWN Job_Config_Source = 0
-	// File is when the waypoint.hcl was loaded from a file either
+	// File is when the derrick.hcl was loaded from a file either
 	// on disk (local actions) or the attached repository (GitOps).
 	Job_Config_FILE Job_Config_Source = 1
-	// Server is when the waypoint.hcl was loaded from the server
+	// Server is when the derrick.hcl was loaded from the server
 	// from being written directly in the project settings.
 	Job_Config_SERVER Job_Config_Source = 2
-	// Job is when the waypoint.hcl was loaded directly from the job by
-	// being embedded in the "waypoint_hcl" field (tag 12).
+	// Job is when the derrick.hcl was loaded directly from the job by
+	// being embedded in the "derrick_hcl" field (tag 12).
 	Job_Config_JOB Job_Config_Source = 3
 )
 
@@ -1492,7 +1492,7 @@ type ServerFeatures struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Features []ServerFeaturesFeature `protobuf:"varint,1,rep,packed,name=features,proto3,enum=hashicorp.waypoint.ServerFeaturesFeature" json:"features,omitempty"`
+	Features []ServerFeaturesFeature `protobuf:"varint,1,rep,packed,name=features,proto3,enum=nomatron.derrick.ServerFeaturesFeature" json:"features,omitempty"`
 }
 
 func (x *ServerFeatures) Reset() {
@@ -1950,14 +1950,14 @@ type Project struct {
 	// Each polling event is tracked as a separate job. You can query the
 	// poll operations and their success/failure by using the ListJobs API.
 	DataSourcePoll *Project_Poll `protobuf:"bytes,7,opt,name=data_source_poll,json=dataSourcePoll,proto3" json:"data_source_poll,omitempty"`
-	// The contents of a default waypoint.hcl file. This will be used ONLY IF
-	// this project does not have a waypoint.hcl file when an operation is
+	// The contents of a default derrick.hcl file. This will be used ONLY IF
+	// this project does not have a derrick.hcl file when an operation is
 	// executed. When this is used, local operations can't be run any more
-	// since the CLI usually determines the project based on the waypoint.hcl
+	// since the CLI usually determines the project based on the derrick.hcl
 	// file. The CLI may still be used for remote operations by executing
 	// i.e. waypoint up <project>
-	WaypointHcl       []byte     `protobuf:"bytes,5,opt,name=waypoint_hcl,json=waypointHcl,proto3" json:"waypoint_hcl,omitempty"`
-	WaypointHclFormat Hcl_Format `protobuf:"varint,6,opt,name=waypoint_hcl_format,json=waypointHclFormat,proto3,enum=hashicorp.waypoint.Hcl_Format" json:"waypoint_hcl_format,omitempty"`
+	DerrickHcl       []byte     `protobuf:"bytes,5,opt,name=derrick_hcl,json=waypointHcl,proto3" json:"derrick_hcl,omitempty"`
+	DerrickHclFormat Hcl_Format `protobuf:"varint,6,opt,name=derrick_hcl_format,json=waypointHclFormat,proto3,enum=nomatron.derrick.Hcl_Format" json:"derrick_hcl_format,omitempty"`
 	// Indicates signal to be sent to any applications when their config files
 	// change.
 	FileChangeSignal string `protobuf:"bytes,8,opt,name=file_change_signal,json=fileChangeSignal,proto3" json:"file_change_signal,omitempty"`
@@ -1971,7 +1971,7 @@ type Project struct {
 	// Each polling event is tracked as a separate job. You can query the
 	// poll operations and their success/failure by using the ListJobs API.
 	StatusReportPoll *Project_AppStatusPoll `protobuf:"bytes,10,opt,name=status_report_poll,json=statusReportPoll,proto3" json:"status_report_poll,omitempty"`
-	State            Project_ProjectState   `protobuf:"varint,11,opt,name=state,proto3,enum=hashicorp.waypoint.Project_ProjectState" json:"state,omitempty"`
+	State            Project_ProjectState   `protobuf:"varint,11,opt,name=state,proto3,enum=nomatron.derrick.Project_ProjectState" json:"state,omitempty"`
 }
 
 func (x *Project) Reset() {
@@ -2041,16 +2041,16 @@ func (x *Project) GetDataSourcePoll() *Project_Poll {
 	return nil
 }
 
-func (x *Project) GetWaypointHcl() []byte {
+func (x *Project) GetDerrickHcl() []byte {
 	if x != nil {
-		return x.WaypointHcl
+		return x.DerrickHcl
 	}
 	return nil
 }
 
-func (x *Project) GetWaypointHclFormat() Hcl_Format {
+func (x *Project) GetDerrickHclFormat() Hcl_Format {
 	if x != nil {
-		return x.WaypointHclFormat
+		return x.DerrickHclFormat
 	}
 	return Hcl_HCL
 }
@@ -2291,7 +2291,7 @@ type Component struct {
 	unknownFields protoimpl.UnknownFields
 
 	// type of the component
-	Type Component_Type `protobuf:"varint,1,opt,name=type,proto3,enum=hashicorp.waypoint.Component_Type" json:"type,omitempty"`
+	Type Component_Type `protobuf:"varint,1,opt,name=type,proto3,enum=nomatron.derrick.Component_Type" json:"type,omitempty"`
 	// name of the component
 	Name string `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 }
@@ -2349,7 +2349,7 @@ type Status struct {
 	unknownFields protoimpl.UnknownFields
 
 	// state is the state of this operation.
-	State Status_State `protobuf:"varint,1,opt,name=state,proto3,enum=hashicorp.waypoint.Status_State" json:"state,omitempty"`
+	State Status_State `protobuf:"varint,1,opt,name=state,proto3,enum=nomatron.derrick.Status_State" json:"state,omitempty"`
 	// details may be non-empty to provide human-friendly information
 	// about the current status. This may change between status updates
 	// for the same state to provide updated details about the state.
@@ -2527,7 +2527,7 @@ type OperationOrder struct {
 	unknownFields protoimpl.UnknownFields
 
 	// Order for the results.
-	Order OperationOrder_Order `protobuf:"varint,2,opt,name=order,proto3,enum=hashicorp.waypoint.OperationOrder_Order" json:"order,omitempty"`
+	Order OperationOrder_Order `protobuf:"varint,2,opt,name=order,proto3,enum=nomatron.derrick.OperationOrder_Order" json:"order,omitempty"`
 	Desc  bool                 `protobuf:"varint,3,opt,name=desc,proto3" json:"desc,omitempty"`
 	// Limit the number of results
 	Limit uint32 `protobuf:"varint,4,opt,name=limit,proto3" json:"limit,omitempty"`
@@ -2688,7 +2688,7 @@ type DeclaredResource struct {
 	// EX: Availability zones on a load balancer, concurrency limit on a lambda function, etc.
 	StateJson string `protobuf:"bytes,4,opt,name=state_json,json=stateJson,proto3" json:"state_json,omitempty"`
 	// high level type of the resource, used for display purposes.
-	CategoryDisplayHint ResourceCategoryDisplayHint `protobuf:"varint,5,opt,name=category_display_hint,json=categoryDisplayHint,proto3,enum=hashicorp.waypoint.ResourceCategoryDisplayHint" json:"category_display_hint,omitempty"`
+	CategoryDisplayHint ResourceCategoryDisplayHint `protobuf:"varint,5,opt,name=category_display_hint,json=categoryDisplayHint,proto3,enum=nomatron.derrick.ResourceCategoryDisplayHint" json:"category_display_hint,omitempty"`
 }
 
 func (x *DeclaredResource) Reset() {
@@ -2967,7 +2967,7 @@ type Task struct {
 	// The overall state of the Task triple. See the enum def for details for
 	// each possible Task state. This will be computed for each GetTaskResponse
 	// based on the Task job ids received from the database.
-	JobState Task_State `protobuf:"varint,7,opt,name=job_state,json=jobState,proto3,enum=hashicorp.waypoint.Task_State" json:"job_state,omitempty"`
+	JobState Task_State `protobuf:"varint,7,opt,name=job_state,json=jobState,proto3,enum=nomatron.derrick.Task_State" json:"job_state,omitempty"`
 	// The resource that gets created to run the task job for this Task
 	// TODO(briancain): This field has not been implemented yet. See
 	// "internal/runner/operation_task.go" for more info.
@@ -3350,7 +3350,7 @@ type ListTaskRequest struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	TaskState []Task_State `protobuf:"varint,1,rep,packed,name=taskState,proto3,enum=hashicorp.waypoint.Task_State" json:"taskState,omitempty"`
+	TaskState []Task_State `protobuf:"varint,1,rep,packed,name=taskState,proto3,enum=nomatron.derrick.Task_State" json:"taskState,omitempty"`
 }
 
 func (x *ListTaskRequest) Reset() {
@@ -3962,7 +3962,7 @@ type OIDCAuthMethod struct {
 	DisplayName string `protobuf:"bytes,2,opt,name=display_name,json=displayName,proto3" json:"display_name,omitempty"`
 	// kind is a well known kind of OIDC provider. This is sniffed by
 	// the server heuristically and is only here to assist in the UI.
-	Kind OIDCAuthMethod_Kind `protobuf:"varint,3,opt,name=kind,proto3,enum=hashicorp.waypoint.OIDCAuthMethod_Kind" json:"kind,omitempty"`
+	Kind OIDCAuthMethod_Kind `protobuf:"varint,3,opt,name=kind,proto3,enum=nomatron.derrick.OIDCAuthMethod_Kind" json:"kind,omitempty"`
 }
 
 func (x *OIDCAuthMethod) Reset() {
@@ -4991,10 +4991,10 @@ type Job struct {
 	DataSource          *Job_DataSource   `protobuf:"bytes,6,opt,name=data_source,json=dataSource,proto3" json:"data_source,omitempty"`
 	DataSourceOverrides map[string]string `protobuf:"bytes,7,rep,name=data_source_overrides,json=dataSourceOverrides,proto3" json:"data_source_overrides,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 	// Waypoint.hcl file contents. This is OPTIONAL and not typically supplied.
-	// If this is not provided, the job will source the waypoint.hcl file
+	// If this is not provided, the job will source the derrick.hcl file
 	// from the server or the data source. This can be used to override those
-	// and force a specific waypoint.hcl to be used.
-	WaypointHcl *Hcl `protobuf:"bytes,12,opt,name=waypoint_hcl,json=waypointHcl,proto3" json:"waypoint_hcl,omitempty"`
+	// and force a specific derrick.hcl to be used.
+	DerrickHcl *Hcl `protobuf:"bytes,12,opt,name=derrick_hcl,json=waypointHcl,proto3" json:"derrick_hcl,omitempty"`
 	// variables store the key/value pairs of parsed variables; the parse
 	// prior to running a job only verifies syntax correctness. Verifying type
 	// checks and the presence of required values will both need to be done
@@ -5029,7 +5029,7 @@ type Job struct {
 	//	*Job_DestroyProject
 	Operation isJob_Operation `protobuf_oneof:"operation"`
 	// state of the job
-	State Job_State `protobuf:"varint,100,opt,name=state,proto3,enum=hashicorp.waypoint.Job_State" json:"state,omitempty"`
+	State Job_State `protobuf:"varint,100,opt,name=state,proto3,enum=nomatron.derrick.Job_State" json:"state,omitempty"`
 	// The runner that was assigned to execute this job. Note that the
 	// runner may have been ephemeral and may no longer exist.
 	AssignedRunner *Ref_RunnerId `protobuf:"bytes,101,opt,name=assigned_runner,json=assignedRunner,proto3" json:"assigned_runner,omitempty"`
@@ -5044,11 +5044,11 @@ type Job struct {
 	// exposed via the data_source parameter itself.
 	DataSourceRef *Job_DataSource_Ref `protobuf:"bytes,110,opt,name=data_source_ref,json=dataSourceRef,proto3" json:"data_source_ref,omitempty"`
 	// Variable refs store the final value used on the operation for each variable
-	// defined in the waypoint.hcl. Any variables with `sensitive` set in the
-	// waypoint.hcl will have a value hashed with SHA256 so the user can verify
+	// defined in the derrick.hcl. Any variables with `sensitive` set in the
+	// derrick.hcl will have a value hashed with SHA256 so the user can verify
 	// the value used.
 	VariableFinalValues map[string]*Variable_FinalValue `protobuf:"bytes,113,rep,name=variable_final_values,json=variableFinalValues,proto3" json:"variable_final_values,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
-	// Config is information about the Waypoint configuration (waypoint.hcl)
+	// Config is information about the Waypoint configuration (derrick.hcl)
 	// for this job. This is only available once the configuration is loaded.
 	// If this is nil and the job is RUNNING, then it may not be loaded yet.
 	// API users can wait on the Job event on the JobStream to listen for
@@ -5196,9 +5196,9 @@ func (x *Job) GetDataSourceOverrides() map[string]string {
 	return nil
 }
 
-func (x *Job) GetWaypointHcl() *Hcl {
+func (x *Job) GetDerrickHcl() *Hcl {
 	if x != nil {
-		return x.WaypointHcl
+		return x.DerrickHcl
 	}
 	return nil
 }
@@ -5757,7 +5757,7 @@ type ListJobsRequest struct {
 	Application  *Ref_Application   `protobuf:"bytes,3,opt,name=application,proto3" json:"application,omitempty"`
 	TargetRunner *Ref_Runner        `protobuf:"bytes,4,opt,name=targetRunner,proto3" json:"targetRunner,omitempty"`
 	Pipeline     *Ref_PipelineStep  `protobuf:"bytes,5,opt,name=pipeline,proto3" json:"pipeline,omitempty"`
-	JobState     []Job_State        `protobuf:"varint,6,rep,packed,name=jobState,proto3,enum=hashicorp.waypoint.Job_State" json:"jobState,omitempty"`
+	JobState     []Job_State        `protobuf:"varint,6,rep,packed,name=jobState,proto3,enum=nomatron.derrick.Job_State" json:"jobState,omitempty"`
 	Pagination   *PaginationRequest `protobuf:"bytes,7,opt,name=pagination,proto3" json:"pagination,omitempty"`
 }
 
@@ -6167,7 +6167,7 @@ type Runner struct {
 	FirstSeen *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=first_seen,json=firstSeen,proto3" json:"first_seen,omitempty"`
 	LastSeen  *timestamppb.Timestamp `protobuf:"bytes,10,opt,name=last_seen,json=lastSeen,proto3" json:"last_seen,omitempty"`
 	// The state of whether this runner is adopted or not.
-	AdoptionState Runner_AdoptionState `protobuf:"varint,8,opt,name=adoption_state,json=adoptionState,proto3,enum=hashicorp.waypoint.Runner_AdoptionState" json:"adoption_state,omitempty"`
+	AdoptionState Runner_AdoptionState `protobuf:"varint,8,opt,name=adoption_state,json=adoptionState,proto3,enum=nomatron.derrick.Runner_AdoptionState" json:"adoption_state,omitempty"`
 }
 
 func (x *Runner) Reset() {
@@ -6785,7 +6785,7 @@ type RunnerJobStreamRequest_Download struct {
 
 type RunnerJobStreamRequest_ConfigLoad_ struct {
 	// The config_load event is sent after the Waypoint configuration
-	// (waypoint.hcl) is loaded. This includes information about the loaded
+	// (derrick.hcl) is loaded. This includes information about the loaded
 	// configuration that the frontends can use.
 	//
 	// This can be sent multiple times to update the configuration information
@@ -9188,7 +9188,7 @@ type OnDemandRunnerConfig struct {
 	// specific.
 	PluginConfig []byte `protobuf:"bytes,5,opt,name=plugin_config,json=pluginConfig,proto3" json:"plugin_config,omitempty"`
 	// config format specifies the format of plugin_config
-	ConfigFormat Hcl_Format `protobuf:"varint,6,opt,name=config_format,json=configFormat,proto3,enum=hashicorp.waypoint.Hcl_Format" json:"config_format,omitempty"`
+	ConfigFormat Hcl_Format `protobuf:"varint,6,opt,name=config_format,json=configFormat,proto3,enum=nomatron.derrick.Hcl_Format" json:"config_format,omitempty"`
 	// Indicates if this entry is the default for any new projects.
 	Default bool `protobuf:"varint,7,opt,name=default,proto3" json:"default,omitempty"`
 }
@@ -10127,7 +10127,7 @@ type GetDeploymentRequest struct {
 	Ref *Ref_Operation `protobuf:"bytes,1,opt,name=ref,proto3" json:"ref,omitempty"`
 	// Indicate if the fetched deployments should include additional information
 	// about each deployment.
-	LoadDetails Deployment_LoadDetails `protobuf:"varint,2,opt,name=load_details,json=loadDetails,proto3,enum=hashicorp.waypoint.Deployment_LoadDetails" json:"load_details,omitempty"`
+	LoadDetails Deployment_LoadDetails `protobuf:"varint,2,opt,name=load_details,json=loadDetails,proto3,enum=nomatron.derrick.Deployment_LoadDetails" json:"load_details,omitempty"`
 }
 
 func (x *GetDeploymentRequest) Reset() {
@@ -10191,7 +10191,7 @@ type UpsertDeploymentRequest struct {
 	//
 	// This is a "tri-state" boolean because if this is unset then we use
 	// the configured defaults for the server configuration.
-	AutoHostname UpsertDeploymentRequest_Tristate `protobuf:"varint,2,opt,name=auto_hostname,json=autoHostname,proto3,enum=hashicorp.waypoint.UpsertDeploymentRequest_Tristate" json:"auto_hostname,omitempty"`
+	AutoHostname UpsertDeploymentRequest_Tristate `protobuf:"varint,2,opt,name=auto_hostname,json=autoHostname,proto3,enum=nomatron.derrick.UpsertDeploymentRequest_Tristate" json:"auto_hostname,omitempty"`
 }
 
 func (x *UpsertDeploymentRequest) Reset() {
@@ -10305,13 +10305,13 @@ type ListDeploymentsRequest struct {
 	Status []*StatusFilter `protobuf:"bytes,1,rep,name=status,proto3" json:"status,omitempty"`
 	// The physical state to filter for. If this is zero or unset then no
 	// filtering on physical state will be done.
-	PhysicalState Operation_PhysicalState `protobuf:"varint,5,opt,name=physical_state,json=physicalState,proto3,enum=hashicorp.waypoint.Operation_PhysicalState" json:"physical_state,omitempty"`
+	PhysicalState Operation_PhysicalState `protobuf:"varint,5,opt,name=physical_state,json=physicalState,proto3,enum=nomatron.derrick.Operation_PhysicalState" json:"physical_state,omitempty"`
 	// Specifies the order of results. If this isn't specified, the results
 	// are in an undefined order.
 	Order *OperationOrder `protobuf:"bytes,2,opt,name=order,proto3" json:"order,omitempty"`
 	// Inidicate of the fetched deployments should include additional information
 	// about each deployment.
-	LoadDetails Deployment_LoadDetails `protobuf:"varint,6,opt,name=load_details,json=loadDetails,proto3,enum=hashicorp.waypoint.Deployment_LoadDetails" json:"load_details,omitempty"`
+	LoadDetails Deployment_LoadDetails `protobuf:"varint,6,opt,name=load_details,json=loadDetails,proto3,enum=nomatron.derrick.Deployment_LoadDetails" json:"load_details,omitempty"`
 }
 
 func (x *ListDeploymentsRequest) Reset() {
@@ -10457,7 +10457,7 @@ type Deployment struct {
 	// See the docs for Generation.
 	Generation *Generation `protobuf:"bytes,17,opt,name=generation,proto3" json:"generation,omitempty"`
 	// state is the state of this deployment.
-	State Operation_PhysicalState `protobuf:"varint,2,opt,name=state,proto3,enum=hashicorp.waypoint.Operation_PhysicalState" json:"state,omitempty"`
+	State Operation_PhysicalState `protobuf:"varint,2,opt,name=state,proto3,enum=nomatron.derrick.Operation_PhysicalState" json:"state,omitempty"`
 	// status tracks the status of the most recent operation (creation,
 	// destroy, etc. NOTE(mitchellh): I want to separate these out so that
 	// you can keep history of the status of multiple operations.
@@ -10896,7 +10896,7 @@ type Instance struct {
 	// The workspace that this exists in
 	Workspace *Ref_Workspace `protobuf:"bytes,4,opt,name=workspace,proto3" json:"workspace,omitempty"`
 	// Which type of instance this is
-	Type Instance_Type `protobuf:"varint,5,opt,name=type,proto3,enum=hashicorp.waypoint.Instance_Type" json:"type,omitempty"`
+	Type Instance_Type `protobuf:"varint,5,opt,name=type,proto3,enum=nomatron.derrick.Instance_Type" json:"type,omitempty"`
 }
 
 func (x *Instance) Reset() {
@@ -11077,7 +11077,7 @@ type GetLatestReleaseRequest struct {
 	Workspace *Ref_Workspace `protobuf:"bytes,2,opt,name=workspace,proto3" json:"workspace,omitempty"`
 	// Load additional details about the release. These will become available
 	// in the Preload section.
-	LoadDetails Release_LoadDetails `protobuf:"varint,3,opt,name=load_details,json=loadDetails,proto3,enum=hashicorp.waypoint.Release_LoadDetails" json:"load_details,omitempty"`
+	LoadDetails Release_LoadDetails `protobuf:"varint,3,opt,name=load_details,json=loadDetails,proto3,enum=nomatron.derrick.Release_LoadDetails" json:"load_details,omitempty"`
 }
 
 func (x *GetLatestReleaseRequest) Reset() {
@@ -11148,13 +11148,13 @@ type ListReleasesRequest struct {
 	Status []*StatusFilter `protobuf:"bytes,1,rep,name=status,proto3" json:"status,omitempty"`
 	// The physical state to filter for. If this is zero or unset then no
 	// filtering on physical state will be done.
-	PhysicalState Operation_PhysicalState `protobuf:"varint,5,opt,name=physical_state,json=physicalState,proto3,enum=hashicorp.waypoint.Operation_PhysicalState" json:"physical_state,omitempty"`
+	PhysicalState Operation_PhysicalState `protobuf:"varint,5,opt,name=physical_state,json=physicalState,proto3,enum=nomatron.derrick.Operation_PhysicalState" json:"physical_state,omitempty"`
 	// Specifies the order of results. If this isn't specified, the results
 	// are in an undefined order.
 	Order *OperationOrder `protobuf:"bytes,2,opt,name=order,proto3" json:"order,omitempty"`
 	// Load additional details about the release. These will become available
 	// in the Preload section.
-	LoadDetails Release_LoadDetails `protobuf:"varint,6,opt,name=load_details,json=loadDetails,proto3,enum=hashicorp.waypoint.Release_LoadDetails" json:"load_details,omitempty"`
+	LoadDetails Release_LoadDetails `protobuf:"varint,6,opt,name=load_details,json=loadDetails,proto3,enum=nomatron.derrick.Release_LoadDetails" json:"load_details,omitempty"`
 }
 
 func (x *ListReleasesRequest) Reset() {
@@ -11286,7 +11286,7 @@ type GetReleaseRequest struct {
 	Ref *Ref_Operation `protobuf:"bytes,1,opt,name=ref,proto3" json:"ref,omitempty"`
 	// Load additional details about the release. These will become available
 	// in the Preload section.
-	LoadDetails Release_LoadDetails `protobuf:"varint,2,opt,name=load_details,json=loadDetails,proto3,enum=hashicorp.waypoint.Release_LoadDetails" json:"load_details,omitempty"`
+	LoadDetails Release_LoadDetails `protobuf:"varint,2,opt,name=load_details,json=loadDetails,proto3,enum=nomatron.derrick.Release_LoadDetails" json:"load_details,omitempty"`
 }
 
 func (x *GetReleaseRequest) Reset() {
@@ -11351,7 +11351,7 @@ type Release struct {
 	// status of the release operation.
 	Status *Status `protobuf:"bytes,2,opt,name=status,proto3" json:"status,omitempty"`
 	// The physical state of the release resources.
-	State Operation_PhysicalState `protobuf:"varint,11,opt,name=state,proto3,enum=hashicorp.waypoint.Operation_PhysicalState" json:"state,omitempty"`
+	State Operation_PhysicalState `protobuf:"varint,11,opt,name=state,proto3,enum=nomatron.derrick.Operation_PhysicalState" json:"state,omitempty"`
 	// component managing the release process.
 	Component *Component `protobuf:"bytes,3,opt,name=component,proto3" json:"component,omitempty"`
 	// release is the raw release object encoded directly from the plugin.
@@ -14545,7 +14545,7 @@ type EntrypointConfigRequest struct {
 	InstanceId string `protobuf:"bytes,2,opt,name=instance_id,json=instanceId,proto3" json:"instance_id,omitempty"`
 	// The type of instance that is making the config request. This type will be
 	// recorded by the server to alter how the server interacts with the instance.
-	Type Instance_Type `protobuf:"varint,3,opt,name=type,proto3,enum=hashicorp.waypoint.Instance_Type" json:"type,omitempty"`
+	Type Instance_Type `protobuf:"varint,3,opt,name=type,proto3,enum=nomatron.derrick.Instance_Type" json:"type,omitempty"`
 	// If this is true, then this instance will never be assigned any exec
 	// sessions. If no instances support exec, an error will be shown to the
 	// user.
@@ -15082,7 +15082,7 @@ type Pipeline struct {
 	// the root step, mermaid-formatted graph output, and more.
 	//
 	// These requirements are usually hidden from users through nicer user
-	// experiences for editing: waypoint.hcl syntax (which implicitly creates
+	// experiences for editing: derrick.hcl syntax (which implicitly creates
 	// ordering and root steps), UIs, etc. All these requirements are noted for
 	// _internal_ users who are modifying pipelines via the API. For those
 	// internal users, they must manage the tedium of adhering to these requirements.
@@ -15161,7 +15161,7 @@ type isPipeline_Owner interface {
 }
 
 type Pipeline_Project struct {
-	// This pipeline is created from a waypoint.hcl file that is synced via VCS.
+	// This pipeline is created from a derrick.hcl file that is synced via VCS.
 	Project *Ref_Project `protobuf:"bytes,3,opt,name=project,proto3,oneof"`
 }
 
@@ -15180,7 +15180,7 @@ type PipelineRun struct {
 	// The full list of jobs that are associated with this run.
 	Jobs []*Ref_Job `protobuf:"bytes,4,rep,name=jobs,proto3" json:"jobs,omitempty"`
 	// The current state of this pipeline run,
-	State PipelineRun_State `protobuf:"varint,5,opt,name=state,proto3,enum=hashicorp.waypoint.PipelineRun_State" json:"state,omitempty"`
+	State PipelineRun_State `protobuf:"varint,5,opt,name=state,proto3,enum=nomatron.derrick.PipelineRun_State" json:"state,omitempty"`
 }
 
 func (x *PipelineRun) Reset() {
@@ -17015,7 +17015,7 @@ type Hcl struct {
 	// Raw contents of the HCL file.
 	Contents []byte `protobuf:"bytes,1,opt,name=contents,proto3" json:"contents,omitempty"`
 	// Format of HCL contents
-	Format Hcl_Format `protobuf:"varint,2,opt,name=format,proto3,enum=hashicorp.waypoint.Hcl_Format" json:"format,omitempty"`
+	Format Hcl_Format `protobuf:"varint,2,opt,name=format,proto3,enum=nomatron.derrick.Hcl_Format" json:"format,omitempty"`
 }
 
 func (x *Hcl) Reset() {
@@ -17064,16 +17064,16 @@ func (x *Hcl) GetFormat() Hcl_Format {
 	return Hcl_HCL
 }
 
-type WaypointHclFmtRequest struct {
+type DerrickHclFmtRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	WaypointHcl []byte `protobuf:"bytes,1,opt,name=waypoint_hcl,json=waypointHcl,proto3" json:"waypoint_hcl,omitempty"`
+	DerrickHcl []byte `protobuf:"bytes,1,opt,name=derrick_hcl,json=waypointHcl,proto3" json:"derrick_hcl,omitempty"`
 }
 
-func (x *WaypointHclFmtRequest) Reset() {
-	*x = WaypointHclFmtRequest{}
+func (x *DerrickHclFmtRequest) Reset() {
+	*x = DerrickHclFmtRequest{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_pkg_server_proto_server_proto_msgTypes[213]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -17081,13 +17081,13 @@ func (x *WaypointHclFmtRequest) Reset() {
 	}
 }
 
-func (x *WaypointHclFmtRequest) String() string {
+func (x *DerrickHclFmtRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*WaypointHclFmtRequest) ProtoMessage() {}
+func (*DerrickHclFmtRequest) ProtoMessage() {}
 
-func (x *WaypointHclFmtRequest) ProtoReflect() protoreflect.Message {
+func (x *DerrickHclFmtRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_pkg_server_proto_server_proto_msgTypes[213]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -17099,28 +17099,28 @@ func (x *WaypointHclFmtRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use WaypointHclFmtRequest.ProtoReflect.Descriptor instead.
-func (*WaypointHclFmtRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use DerrickHclFmtRequest.ProtoReflect.Descriptor instead.
+func (*DerrickHclFmtRequest) Descriptor() ([]byte, []int) {
 	return file_pkg_server_proto_server_proto_rawDescGZIP(), []int{213}
 }
 
-func (x *WaypointHclFmtRequest) GetWaypointHcl() []byte {
+func (x *DerrickHclFmtRequest) GetDerrickHcl() []byte {
 	if x != nil {
-		return x.WaypointHcl
+		return x.DerrickHcl
 	}
 	return nil
 }
 
-type WaypointHclFmtResponse struct {
+type DerrickHclFmtResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	WaypointHcl []byte `protobuf:"bytes,1,opt,name=waypoint_hcl,json=waypointHcl,proto3" json:"waypoint_hcl,omitempty"`
+	DerrickHcl []byte `protobuf:"bytes,1,opt,name=derrick_hcl,json=waypointHcl,proto3" json:"derrick_hcl,omitempty"`
 }
 
-func (x *WaypointHclFmtResponse) Reset() {
-	*x = WaypointHclFmtResponse{}
+func (x *DerrickHclFmtResponse) Reset() {
+	*x = DerrickHclFmtResponse{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_pkg_server_proto_server_proto_msgTypes[214]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -17128,13 +17128,13 @@ func (x *WaypointHclFmtResponse) Reset() {
 	}
 }
 
-func (x *WaypointHclFmtResponse) String() string {
+func (x *DerrickHclFmtResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*WaypointHclFmtResponse) ProtoMessage() {}
+func (*DerrickHclFmtResponse) ProtoMessage() {}
 
-func (x *WaypointHclFmtResponse) ProtoReflect() protoreflect.Message {
+func (x *DerrickHclFmtResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_pkg_server_proto_server_proto_msgTypes[214]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -17146,14 +17146,14 @@ func (x *WaypointHclFmtResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use WaypointHclFmtResponse.ProtoReflect.Descriptor instead.
-func (*WaypointHclFmtResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use DerrickHclFmtResponse.ProtoReflect.Descriptor instead.
+func (*DerrickHclFmtResponse) Descriptor() ([]byte, []int) {
 	return file_pkg_server_proto_server_proto_rawDescGZIP(), []int{214}
 }
 
-func (x *WaypointHclFmtResponse) GetWaypointHcl() []byte {
+func (x *DerrickHclFmtResponse) GetDerrickHcl() []byte {
 	if x != nil {
-		return x.WaypointHcl
+		return x.DerrickHcl
 	}
 	return nil
 }
@@ -17629,7 +17629,7 @@ type UI_ListDeploymentsRequest struct {
 	Status []*StatusFilter `protobuf:"bytes,4,rep,name=status,proto3" json:"status,omitempty"`
 	// The physical state to filter for. If this is zero or unset then no
 	// filtering on physical state will be done.
-	PhysicalState Operation_PhysicalState `protobuf:"varint,5,opt,name=physical_state,json=physicalState,proto3,enum=hashicorp.waypoint.Operation_PhysicalState" json:"physical_state,omitempty"`
+	PhysicalState Operation_PhysicalState `protobuf:"varint,5,opt,name=physical_state,json=physicalState,proto3,enum=nomatron.derrick.Operation_PhysicalState" json:"physical_state,omitempty"`
 }
 
 func (x *UI_ListDeploymentsRequest) Reset() {
@@ -17755,7 +17755,7 @@ type UI_GetDeploymentRequest struct {
 	Ref *Ref_Operation `protobuf:"bytes,1,opt,name=ref,proto3" json:"ref,omitempty"`
 	// Indicate if the fetched deployments should include additional information
 	// about each deployment.
-	LoadDetails Deployment_LoadDetails `protobuf:"varint,2,opt,name=load_details,json=loadDetails,proto3,enum=hashicorp.waypoint.Deployment_LoadDetails" json:"load_details,omitempty"`
+	LoadDetails Deployment_LoadDetails `protobuf:"varint,2,opt,name=load_details,json=loadDetails,proto3,enum=nomatron.derrick.Deployment_LoadDetails" json:"load_details,omitempty"`
 }
 
 func (x *UI_GetDeploymentRequest) Reset() {
@@ -17974,7 +17974,7 @@ type UI_ListReleasesRequest struct {
 	Status []*StatusFilter `protobuf:"bytes,4,rep,name=status,proto3" json:"status,omitempty"`
 	// The physical state to filter for. If this is zero or unset then no
 	// filtering on physical state will be done.
-	PhysicalState Operation_PhysicalState `protobuf:"varint,5,opt,name=physical_state,json=physicalState,proto3,enum=hashicorp.waypoint.Operation_PhysicalState" json:"physical_state,omitempty"`
+	PhysicalState Operation_PhysicalState `protobuf:"varint,5,opt,name=physical_state,json=physicalState,proto3,enum=nomatron.derrick.Operation_PhysicalState" json:"physical_state,omitempty"`
 }
 
 func (x *UI_ListReleasesRequest) Reset() {
@@ -18458,7 +18458,7 @@ type Variable_FinalValue struct {
 	//	*Variable_FinalValue_Num
 	//	*Variable_FinalValue_Hcl
 	Value  isVariable_FinalValue_Value `protobuf_oneof:"value"`
-	Source Variable_FinalValue_Source  `protobuf:"varint,6,opt,name=source,proto3,enum=hashicorp.waypoint.Variable_FinalValue_Source" json:"source,omitempty"`
+	Source Variable_FinalValue_Source  `protobuf:"varint,6,opt,name=source,proto3,enum=nomatron.derrick.Variable_FinalValue_Source" json:"source,omitempty"`
 }
 
 func (x *Variable_FinalValue) Reset() {
@@ -19336,7 +19336,7 @@ type Ref_Component struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Type Component_Type `protobuf:"varint,1,opt,name=type,proto3,enum=hashicorp.waypoint.Component_Type" json:"type,omitempty"`
+	Type Component_Type `protobuf:"varint,1,opt,name=type,proto3,enum=nomatron.derrick.Component_Type" json:"type,omitempty"`
 	Name string         `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 }
 
@@ -20557,7 +20557,7 @@ type isStatusFilter_Filter_Filter interface {
 
 type StatusFilter_Filter_State struct {
 	// state will match any status that has the given state.
-	State Status_State `protobuf:"varint,2,opt,name=state,proto3,enum=hashicorp.waypoint.Status_State,oneof"`
+	State Status_State `protobuf:"varint,2,opt,name=state,proto3,enum=nomatron.derrick.Status_State,oneof"`
 }
 
 func (*StatusFilter_Filter_State) isStatusFilter_Filter_Filter() {}
@@ -20953,7 +20953,7 @@ type Job_Config struct {
 	unknownFields protoimpl.UnknownFields
 
 	// Source is the location where the configuration was loaded from.
-	Source Job_Config_Source `protobuf:"varint,1,opt,name=source,proto3,enum=hashicorp.waypoint.Job_Config_Source" json:"source,omitempty"`
+	Source Job_Config_Source `protobuf:"varint,1,opt,name=source,proto3,enum=nomatron.derrick.Job_Config_Source" json:"source,omitempty"`
 }
 
 func (x *Job_Config) Reset() {
@@ -22409,7 +22409,7 @@ type Job_TaskPluginParams struct {
 	// decoded to figure out the task plugin and then provide that
 	// task plugin with configuration
 	HclConfig []byte     `protobuf:"bytes,3,opt,name=hcl_config,json=hclConfig,proto3" json:"hcl_config,omitempty"`
-	HclFormat Hcl_Format `protobuf:"varint,4,opt,name=hcl_format,json=hclFormat,proto3,enum=hashicorp.waypoint.Hcl_Format" json:"hcl_format,omitempty"`
+	HclFormat Hcl_Format `protobuf:"varint,4,opt,name=hcl_format,json=hclFormat,proto3,enum=nomatron.derrick.Hcl_Format" json:"hcl_format,omitempty"`
 }
 
 func (x *Job_TaskPluginParams) Reset() {
@@ -24300,8 +24300,8 @@ type GetJobStreamResponse_State struct {
 	unknownFields protoimpl.UnknownFields
 
 	// previous and current are the previous and current states, respectively.
-	Previous Job_State `protobuf:"varint,1,opt,name=previous,proto3,enum=hashicorp.waypoint.Job_State" json:"previous,omitempty"`
-	Current  Job_State `protobuf:"varint,2,opt,name=current,proto3,enum=hashicorp.waypoint.Job_State" json:"current,omitempty"`
+	Previous Job_State `protobuf:"varint,1,opt,name=previous,proto3,enum=nomatron.derrick.Job_State" json:"previous,omitempty"`
+	Current  Job_State `protobuf:"varint,2,opt,name=current,proto3,enum=nomatron.derrick.Job_State" json:"current,omitempty"`
 	// The full updated job is also sent because additional fields may be
 	// set depending on the state (such as the assigned runner, assignment
 	// times, etc.)
@@ -26512,13 +26512,13 @@ type StatusReport_Resource struct {
 	// A link directly to the resource in the platform, if applicable.
 	PlatformUrl string `protobuf:"bytes,7,opt,name=platform_url,json=platformUrl,proto3" json:"platform_url,omitempty"`
 	// The high level category of the resource, used as a hint to the UI on how to display the resource.
-	CategoryDisplayHint ResourceCategoryDisplayHint `protobuf:"varint,8,opt,name=category_display_hint,json=categoryDisplayHint,proto3,enum=hashicorp.waypoint.ResourceCategoryDisplayHint" json:"category_display_hint,omitempty"`
+	CategoryDisplayHint ResourceCategoryDisplayHint `protobuf:"varint,8,opt,name=category_display_hint,json=categoryDisplayHint,proto3,enum=nomatron.derrick.ResourceCategoryDisplayHint" json:"category_display_hint,omitempty"`
 	// platform-reported time of resource creation
 	CreatedTime *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=created_time,json=createdTime,proto3" json:"created_time,omitempty"`
 	// any additional metadata about the resource, encoded as JSON
 	StateJson string `protobuf:"bytes,10,opt,name=state_json,json=stateJson,proto3" json:"state_json,omitempty"`
 	// the current health state for a single resource
-	Health StatusReport_Resource_Health `protobuf:"varint,13,opt,name=health,proto3,enum=hashicorp.waypoint.StatusReport_Resource_Health" json:"health,omitempty"`
+	Health StatusReport_Resource_Health `protobuf:"varint,13,opt,name=health,proto3,enum=nomatron.derrick.StatusReport_Resource_Health" json:"health,omitempty"`
 	// a simple human readable message detailing the Health state
 	HealthMessage string `protobuf:"bytes,12,opt,name=health_message,json=healthMessage,proto3" json:"health_message,omitempty"`
 	// deprecated in favor of the Health enum and message to match the plugin protos. Was never used.
@@ -26781,7 +26781,7 @@ type LogBatch_Entry struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Source    LogBatch_Entry_Source  `protobuf:"varint,3,opt,name=source,proto3,enum=hashicorp.waypoint.LogBatch_Entry_Source" json:"source,omitempty"`
+	Source    LogBatch_Entry_Source  `protobuf:"varint,3,opt,name=source,proto3,enum=nomatron.derrick.LogBatch_Entry_Source" json:"source,omitempty"`
 	Timestamp *timestamppb.Timestamp `protobuf:"bytes,1,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
 	Line      string                 `protobuf:"bytes,2,opt,name=line,proto3" json:"line,omitempty"`
 }
@@ -27421,7 +27421,7 @@ type ExecStreamResponse_Output struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Channel ExecStreamResponse_Output_Channel `protobuf:"varint,1,opt,name=channel,proto3,enum=hashicorp.waypoint.ExecStreamResponse_Output_Channel" json:"channel,omitempty"`
+	Channel ExecStreamResponse_Output_Channel `protobuf:"varint,1,opt,name=channel,proto3,enum=nomatron.derrick.ExecStreamResponse_Output_Channel" json:"channel,omitempty"`
 	Data    []byte                            `protobuf:"bytes,2,opt,name=data,proto3" json:"data,omitempty"`
 }
 
@@ -27763,7 +27763,7 @@ type EntrypointExecRequest_Output struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Channel EntrypointExecRequest_Output_Channel `protobuf:"varint,1,opt,name=channel,proto3,enum=hashicorp.waypoint.EntrypointExecRequest_Output_Channel" json:"channel,omitempty"`
+	Channel EntrypointExecRequest_Output_Channel `protobuf:"varint,1,opt,name=channel,proto3,enum=nomatron.derrick.EntrypointExecRequest_Output_Channel" json:"channel,omitempty"`
 	Data    []byte                               `protobuf:"bytes,2,opt,name=data,proto3" json:"data,omitempty"`
 }
 
@@ -28411,7 +28411,7 @@ type GetPipelineResponse_Graph struct {
 	unknownFields protoimpl.UnknownFields
 
 	Content []byte                           `protobuf:"bytes,1,opt,name=content,proto3" json:"content,omitempty"`
-	Format  GetPipelineResponse_Graph_Format `protobuf:"varint,2,opt,name=format,proto3,enum=hashicorp.waypoint.GetPipelineResponse_Graph_Format" json:"format,omitempty"`
+	Format  GetPipelineResponse_Graph_Format `protobuf:"varint,2,opt,name=format,proto3,enum=nomatron.derrick.GetPipelineResponse_Graph_Format" json:"format,omitempty"`
 }
 
 func (x *GetPipelineResponse_Graph) Reset() {
@@ -28973,7 +28973,7 @@ type Snapshot_Header struct {
 	Version *VersionInfo `protobuf:"bytes,1,opt,name=version,proto3" json:"version,omitempty"`
 	// format is the format of the remaining messages. This can be used
 	// to determine what messages to expect following the header.
-	Format Snapshot_Header_Format `protobuf:"varint,2,opt,name=format,proto3,enum=hashicorp.waypoint.Snapshot_Header_Format" json:"format,omitempty"`
+	Format Snapshot_Header_Format `protobuf:"varint,2,opt,name=format,proto3,enum=nomatron.derrick.Snapshot_Header_Format" json:"format,omitempty"`
 }
 
 func (x *Snapshot_Header) Reset() {
@@ -33907,1331 +33907,1331 @@ func file_pkg_server_proto_server_proto_rawDescGZIP() []byte {
 var file_pkg_server_proto_server_proto_enumTypes = make([]protoimpl.EnumInfo, 25)
 var file_pkg_server_proto_server_proto_msgTypes = make([]protoimpl.MessageInfo, 434)
 var file_pkg_server_proto_server_proto_goTypes = []interface{}{
-	(ResourceCategoryDisplayHint)(0),           // 0: hashicorp.waypoint.ResourceCategoryDisplayHint
-	(ServerFeaturesFeature)(0),                 // 1: hashicorp.waypoint.ServerFeatures.feature
-	(Variable_FinalValue_Source)(0),            // 2: hashicorp.waypoint.Variable.FinalValue.Source
-	(Project_ProjectState)(0),                  // 3: hashicorp.waypoint.Project.ProjectState
-	(Component_Type)(0),                        // 4: hashicorp.waypoint.Component.Type
-	(Status_State)(0),                          // 5: hashicorp.waypoint.Status.State
-	(Operation_PhysicalState)(0),               // 6: hashicorp.waypoint.Operation.PhysicalState
-	(OperationOrder_Order)(0),                  // 7: hashicorp.waypoint.OperationOrder.Order
-	(Task_State)(0),                            // 8: hashicorp.waypoint.Task.State
-	(OIDCAuthMethod_Kind)(0),                   // 9: hashicorp.waypoint.OIDCAuthMethod.Kind
-	(Job_State)(0),                             // 10: hashicorp.waypoint.Job.State
-	(Job_Config_Source)(0),                     // 11: hashicorp.waypoint.Job.Config.Source
-	(Runner_AdoptionState)(0),                  // 12: hashicorp.waypoint.Runner.AdoptionState
-	(UpsertDeploymentRequest_Tristate)(0),      // 13: hashicorp.waypoint.UpsertDeploymentRequest.Tristate
-	(Deployment_LoadDetails)(0),                // 14: hashicorp.waypoint.Deployment.LoadDetails
-	(Instance_Type)(0),                         // 15: hashicorp.waypoint.Instance.Type
-	(Release_LoadDetails)(0),                   // 16: hashicorp.waypoint.Release.LoadDetails
-	(StatusReport_Resource_Health)(0),          // 17: hashicorp.waypoint.StatusReport.Resource.Health
-	(LogBatch_Entry_Source)(0),                 // 18: hashicorp.waypoint.LogBatch.Entry.Source
-	(ExecStreamResponse_Output_Channel)(0),     // 19: hashicorp.waypoint.ExecStreamResponse.Output.Channel
-	(EntrypointExecRequest_Output_Channel)(0),  // 20: hashicorp.waypoint.EntrypointExecRequest.Output.Channel
-	(PipelineRun_State)(0),                     // 21: hashicorp.waypoint.PipelineRun.State
-	(GetPipelineResponse_Graph_Format)(0),      // 22: hashicorp.waypoint.GetPipelineResponse.Graph.Format
-	(Snapshot_Header_Format)(0),                // 23: hashicorp.waypoint.Snapshot.Header.Format
-	(Hcl_Format)(0),                            // 24: hashicorp.waypoint.Hcl.Format
-	(*UI)(nil),                                 // 25: hashicorp.waypoint.UI
-	(*GetVersionInfoResponse)(nil),             // 26: hashicorp.waypoint.GetVersionInfoResponse
-	(*ServerFeatures)(nil),                     // 27: hashicorp.waypoint.ServerFeatures
-	(*VersionInfo)(nil),                        // 28: hashicorp.waypoint.VersionInfo
-	(*Application)(nil),                        // 29: hashicorp.waypoint.Application
-	(*Variable)(nil),                           // 30: hashicorp.waypoint.Variable
-	(*Project)(nil),                            // 31: hashicorp.waypoint.Project
-	(*Workspace)(nil),                          // 32: hashicorp.waypoint.Workspace
-	(*User)(nil),                               // 33: hashicorp.waypoint.User
-	(*Ref)(nil),                                // 34: hashicorp.waypoint.Ref
-	(*Component)(nil),                          // 35: hashicorp.waypoint.Component
-	(*Status)(nil),                             // 36: hashicorp.waypoint.Status
-	(*StatusFilter)(nil),                       // 37: hashicorp.waypoint.StatusFilter
-	(*Operation)(nil),                          // 38: hashicorp.waypoint.Operation
-	(*OperationOrder)(nil),                     // 39: hashicorp.waypoint.OperationOrder
-	(*Generation)(nil),                         // 40: hashicorp.waypoint.Generation
-	(*DeclaredResource)(nil),                   // 41: hashicorp.waypoint.DeclaredResource
-	(*DestroyedResource)(nil),                  // 42: hashicorp.waypoint.DestroyedResource
-	(*TaskLaunchInfo)(nil),                     // 43: hashicorp.waypoint.TaskLaunchInfo
-	(*Task)(nil),                               // 44: hashicorp.waypoint.Task
-	(*UpsertTaskRequest)(nil),                  // 45: hashicorp.waypoint.UpsertTaskRequest
-	(*UpsertTaskResponse)(nil),                 // 46: hashicorp.waypoint.UpsertTaskResponse
-	(*GetTaskRequest)(nil),                     // 47: hashicorp.waypoint.GetTaskRequest
-	(*GetTaskResponse)(nil),                    // 48: hashicorp.waypoint.GetTaskResponse
-	(*DeleteTaskRequest)(nil),                  // 49: hashicorp.waypoint.DeleteTaskRequest
-	(*ListTaskRequest)(nil),                    // 50: hashicorp.waypoint.ListTaskRequest
-	(*ListTaskResponse)(nil),                   // 51: hashicorp.waypoint.ListTaskResponse
-	(*CancelTaskRequest)(nil),                  // 52: hashicorp.waypoint.CancelTaskRequest
-	(*ErrorDetail)(nil),                        // 53: hashicorp.waypoint.ErrorDetail
-	(*GetUserRequest)(nil),                     // 54: hashicorp.waypoint.GetUserRequest
-	(*GetUserResponse)(nil),                    // 55: hashicorp.waypoint.GetUserResponse
-	(*ListUsersResponse)(nil),                  // 56: hashicorp.waypoint.ListUsersResponse
-	(*UpdateUserRequest)(nil),                  // 57: hashicorp.waypoint.UpdateUserRequest
-	(*UpdateUserResponse)(nil),                 // 58: hashicorp.waypoint.UpdateUserResponse
-	(*DeleteUserRequest)(nil),                  // 59: hashicorp.waypoint.DeleteUserRequest
-	(*AuthMethod)(nil),                         // 60: hashicorp.waypoint.AuthMethod
-	(*OIDCAuthMethod)(nil),                     // 61: hashicorp.waypoint.OIDCAuthMethod
-	(*UpsertAuthMethodRequest)(nil),            // 62: hashicorp.waypoint.UpsertAuthMethodRequest
-	(*UpsertAuthMethodResponse)(nil),           // 63: hashicorp.waypoint.UpsertAuthMethodResponse
-	(*GetAuthMethodRequest)(nil),               // 64: hashicorp.waypoint.GetAuthMethodRequest
-	(*GetAuthMethodResponse)(nil),              // 65: hashicorp.waypoint.GetAuthMethodResponse
-	(*DeleteAuthMethodRequest)(nil),            // 66: hashicorp.waypoint.DeleteAuthMethodRequest
-	(*ListAuthMethodsResponse)(nil),            // 67: hashicorp.waypoint.ListAuthMethodsResponse
-	(*ListOIDCAuthMethodsResponse)(nil),        // 68: hashicorp.waypoint.ListOIDCAuthMethodsResponse
-	(*GetOIDCAuthURLRequest)(nil),              // 69: hashicorp.waypoint.GetOIDCAuthURLRequest
-	(*GetOIDCAuthURLResponse)(nil),             // 70: hashicorp.waypoint.GetOIDCAuthURLResponse
-	(*CompleteOIDCAuthRequest)(nil),            // 71: hashicorp.waypoint.CompleteOIDCAuthRequest
-	(*CompleteOIDCAuthResponse)(nil),           // 72: hashicorp.waypoint.CompleteOIDCAuthResponse
-	(*QueueJobRequest)(nil),                    // 73: hashicorp.waypoint.QueueJobRequest
-	(*QueueJobResponse)(nil),                   // 74: hashicorp.waypoint.QueueJobResponse
-	(*CancelJobRequest)(nil),                   // 75: hashicorp.waypoint.CancelJobRequest
-	(*ValidateJobRequest)(nil),                 // 76: hashicorp.waypoint.ValidateJobRequest
-	(*ValidateJobResponse)(nil),                // 77: hashicorp.waypoint.ValidateJobResponse
-	(*Job)(nil),                                // 78: hashicorp.waypoint.Job
-	(*Documentation)(nil),                      // 79: hashicorp.waypoint.Documentation
-	(*GetJobRequest)(nil),                      // 80: hashicorp.waypoint.GetJobRequest
-	(*ListJobsRequest)(nil),                    // 81: hashicorp.waypoint.ListJobsRequest
-	(*ListJobsResponse)(nil),                   // 82: hashicorp.waypoint.ListJobsResponse
-	(*GetJobStreamRequest)(nil),                // 83: hashicorp.waypoint.GetJobStreamRequest
-	(*GetJobStreamResponse)(nil),               // 84: hashicorp.waypoint.GetJobStreamResponse
-	(*Runner)(nil),                             // 85: hashicorp.waypoint.Runner
-	(*RunnerTokenRequest)(nil),                 // 86: hashicorp.waypoint.RunnerTokenRequest
-	(*RunnerTokenResponse)(nil),                // 87: hashicorp.waypoint.RunnerTokenResponse
-	(*RunnerConfigRequest)(nil),                // 88: hashicorp.waypoint.RunnerConfigRequest
-	(*RunnerConfigResponse)(nil),               // 89: hashicorp.waypoint.RunnerConfigResponse
-	(*RunnerConfig)(nil),                       // 90: hashicorp.waypoint.RunnerConfig
-	(*RunnerJobStreamRequest)(nil),             // 91: hashicorp.waypoint.RunnerJobStreamRequest
-	(*RunnerJobStreamResponse)(nil),            // 92: hashicorp.waypoint.RunnerJobStreamResponse
-	(*RunnerGetDeploymentConfigRequest)(nil),   // 93: hashicorp.waypoint.RunnerGetDeploymentConfigRequest
-	(*RunnerGetDeploymentConfigResponse)(nil),  // 94: hashicorp.waypoint.RunnerGetDeploymentConfigResponse
-	(*GetRunnerRequest)(nil),                   // 95: hashicorp.waypoint.GetRunnerRequest
-	(*ListRunnersRequest)(nil),                 // 96: hashicorp.waypoint.ListRunnersRequest
-	(*ListRunnersResponse)(nil),                // 97: hashicorp.waypoint.ListRunnersResponse
-	(*AdoptRunnerRequest)(nil),                 // 98: hashicorp.waypoint.AdoptRunnerRequest
-	(*ForgetRunnerRequest)(nil),                // 99: hashicorp.waypoint.ForgetRunnerRequest
-	(*SetServerConfigRequest)(nil),             // 100: hashicorp.waypoint.SetServerConfigRequest
-	(*GetServerConfigResponse)(nil),            // 101: hashicorp.waypoint.GetServerConfigResponse
-	(*ServerConfig)(nil),                       // 102: hashicorp.waypoint.ServerConfig
-	(*CreateHostnameRequest)(nil),              // 103: hashicorp.waypoint.CreateHostnameRequest
-	(*CreateHostnameResponse)(nil),             // 104: hashicorp.waypoint.CreateHostnameResponse
-	(*ListHostnamesRequest)(nil),               // 105: hashicorp.waypoint.ListHostnamesRequest
-	(*ListHostnamesResponse)(nil),              // 106: hashicorp.waypoint.ListHostnamesResponse
-	(*DeleteHostnameRequest)(nil),              // 107: hashicorp.waypoint.DeleteHostnameRequest
-	(*Hostname)(nil),                           // 108: hashicorp.waypoint.Hostname
-	(*ListWorkspacesRequest)(nil),              // 109: hashicorp.waypoint.ListWorkspacesRequest
-	(*ListWorkspacesResponse)(nil),             // 110: hashicorp.waypoint.ListWorkspacesResponse
-	(*GetWorkspaceRequest)(nil),                // 111: hashicorp.waypoint.GetWorkspaceRequest
-	(*GetWorkspaceResponse)(nil),               // 112: hashicorp.waypoint.GetWorkspaceResponse
-	(*UpsertWorkspaceRequest)(nil),             // 113: hashicorp.waypoint.UpsertWorkspaceRequest
-	(*UpsertWorkspaceResponse)(nil),            // 114: hashicorp.waypoint.UpsertWorkspaceResponse
-	(*UpsertProjectRequest)(nil),               // 115: hashicorp.waypoint.UpsertProjectRequest
-	(*UpsertProjectResponse)(nil),              // 116: hashicorp.waypoint.UpsertProjectResponse
-	(*GetProjectRequest)(nil),                  // 117: hashicorp.waypoint.GetProjectRequest
-	(*GetProjectResponse)(nil),                 // 118: hashicorp.waypoint.GetProjectResponse
-	(*ListProjectsRequest)(nil),                // 119: hashicorp.waypoint.ListProjectsRequest
-	(*ListProjectsResponse)(nil),               // 120: hashicorp.waypoint.ListProjectsResponse
-	(*DestroyProjectRequest)(nil),              // 121: hashicorp.waypoint.DestroyProjectRequest
-	(*GetApplicationRequest)(nil),              // 122: hashicorp.waypoint.GetApplicationRequest
-	(*GetApplicationResponse)(nil),             // 123: hashicorp.waypoint.GetApplicationResponse
-	(*UpsertApplicationRequest)(nil),           // 124: hashicorp.waypoint.UpsertApplicationRequest
-	(*UpsertApplicationResponse)(nil),          // 125: hashicorp.waypoint.UpsertApplicationResponse
-	(*UpsertBuildRequest)(nil),                 // 126: hashicorp.waypoint.UpsertBuildRequest
-	(*UpsertBuildResponse)(nil),                // 127: hashicorp.waypoint.UpsertBuildResponse
-	(*ListBuildsRequest)(nil),                  // 128: hashicorp.waypoint.ListBuildsRequest
-	(*ListBuildsResponse)(nil),                 // 129: hashicorp.waypoint.ListBuildsResponse
-	(*GetLatestBuildRequest)(nil),              // 130: hashicorp.waypoint.GetLatestBuildRequest
-	(*GetBuildRequest)(nil),                    // 131: hashicorp.waypoint.GetBuildRequest
-	(*Build)(nil),                              // 132: hashicorp.waypoint.Build
-	(*Artifact)(nil),                           // 133: hashicorp.waypoint.Artifact
-	(*OnDemandRunnerConfig)(nil),               // 134: hashicorp.waypoint.OnDemandRunnerConfig
-	(*UpsertOnDemandRunnerConfigRequest)(nil),  // 135: hashicorp.waypoint.UpsertOnDemandRunnerConfigRequest
-	(*UpsertOnDemandRunnerConfigResponse)(nil), // 136: hashicorp.waypoint.UpsertOnDemandRunnerConfigResponse
-	(*GetOnDemandRunnerConfigRequest)(nil),     // 137: hashicorp.waypoint.GetOnDemandRunnerConfigRequest
-	(*GetOnDemandRunnerConfigResponse)(nil),    // 138: hashicorp.waypoint.GetOnDemandRunnerConfigResponse
-	(*DeleteOnDemandRunnerConfigRequest)(nil),  // 139: hashicorp.waypoint.DeleteOnDemandRunnerConfigRequest
-	(*DeleteOnDemandRunnerConfigResponse)(nil), // 140: hashicorp.waypoint.DeleteOnDemandRunnerConfigResponse
-	(*ListOnDemandRunnerConfigsResponse)(nil),  // 141: hashicorp.waypoint.ListOnDemandRunnerConfigsResponse
-	(*UpsertPushedArtifactRequest)(nil),        // 142: hashicorp.waypoint.UpsertPushedArtifactRequest
-	(*UpsertPushedArtifactResponse)(nil),       // 143: hashicorp.waypoint.UpsertPushedArtifactResponse
-	(*GetLatestPushedArtifactRequest)(nil),     // 144: hashicorp.waypoint.GetLatestPushedArtifactRequest
-	(*GetPushedArtifactRequest)(nil),           // 145: hashicorp.waypoint.GetPushedArtifactRequest
-	(*ListPushedArtifactsRequest)(nil),         // 146: hashicorp.waypoint.ListPushedArtifactsRequest
-	(*ListPushedArtifactsResponse)(nil),        // 147: hashicorp.waypoint.ListPushedArtifactsResponse
-	(*PushedArtifact)(nil),                     // 148: hashicorp.waypoint.PushedArtifact
-	(*GetDeploymentRequest)(nil),               // 149: hashicorp.waypoint.GetDeploymentRequest
-	(*UpsertDeploymentRequest)(nil),            // 150: hashicorp.waypoint.UpsertDeploymentRequest
-	(*UpsertDeploymentResponse)(nil),           // 151: hashicorp.waypoint.UpsertDeploymentResponse
-	(*ListDeploymentsRequest)(nil),             // 152: hashicorp.waypoint.ListDeploymentsRequest
-	(*ListDeploymentsResponse)(nil),            // 153: hashicorp.waypoint.ListDeploymentsResponse
-	(*Deployment)(nil),                         // 154: hashicorp.waypoint.Deployment
-	(*DeploymentExpanded)(nil),                 // 155: hashicorp.waypoint.DeploymentExpanded
-	(*ListInstancesRequest)(nil),               // 156: hashicorp.waypoint.ListInstancesRequest
-	(*ListInstancesResponse)(nil),              // 157: hashicorp.waypoint.ListInstancesResponse
-	(*Instance)(nil),                           // 158: hashicorp.waypoint.Instance
-	(*UpsertReleaseRequest)(nil),               // 159: hashicorp.waypoint.UpsertReleaseRequest
-	(*UpsertReleaseResponse)(nil),              // 160: hashicorp.waypoint.UpsertReleaseResponse
-	(*GetLatestReleaseRequest)(nil),            // 161: hashicorp.waypoint.GetLatestReleaseRequest
-	(*ListReleasesRequest)(nil),                // 162: hashicorp.waypoint.ListReleasesRequest
-	(*ListReleasesResponse)(nil),               // 163: hashicorp.waypoint.ListReleasesResponse
-	(*GetReleaseRequest)(nil),                  // 164: hashicorp.waypoint.GetReleaseRequest
-	(*Release)(nil),                            // 165: hashicorp.waypoint.Release
-	(*ReleaseExpanded)(nil),                    // 166: hashicorp.waypoint.ReleaseExpanded
-	(*Trigger)(nil),                            // 167: hashicorp.waypoint.Trigger
-	(*UpsertTriggerRequest)(nil),               // 168: hashicorp.waypoint.UpsertTriggerRequest
-	(*UpsertTriggerResponse)(nil),              // 169: hashicorp.waypoint.UpsertTriggerResponse
-	(*GetTriggerRequest)(nil),                  // 170: hashicorp.waypoint.GetTriggerRequest
-	(*GetTriggerResponse)(nil),                 // 171: hashicorp.waypoint.GetTriggerResponse
-	(*DeleteTriggerRequest)(nil),               // 172: hashicorp.waypoint.DeleteTriggerRequest
-	(*RunTriggerRequest)(nil),                  // 173: hashicorp.waypoint.RunTriggerRequest
-	(*RunTriggerResponse)(nil),                 // 174: hashicorp.waypoint.RunTriggerResponse
-	(*ListTriggerRequest)(nil),                 // 175: hashicorp.waypoint.ListTriggerRequest
-	(*ListTriggerResponse)(nil),                // 176: hashicorp.waypoint.ListTriggerResponse
-	(*UpsertStatusReportRequest)(nil),          // 177: hashicorp.waypoint.UpsertStatusReportRequest
-	(*UpsertStatusReportResponse)(nil),         // 178: hashicorp.waypoint.UpsertStatusReportResponse
-	(*GetLatestStatusReportRequest)(nil),       // 179: hashicorp.waypoint.GetLatestStatusReportRequest
-	(*ListStatusReportsRequest)(nil),           // 180: hashicorp.waypoint.ListStatusReportsRequest
-	(*ListStatusReportsResponse)(nil),          // 181: hashicorp.waypoint.ListStatusReportsResponse
-	(*GetStatusReportRequest)(nil),             // 182: hashicorp.waypoint.GetStatusReportRequest
-	(*ExpediteStatusReportRequest)(nil),        // 183: hashicorp.waypoint.ExpediteStatusReportRequest
-	(*ExpediteStatusReportResponse)(nil),       // 184: hashicorp.waypoint.ExpediteStatusReportResponse
-	(*StatusReport)(nil),                       // 185: hashicorp.waypoint.StatusReport
-	(*GetLogStreamRequest)(nil),                // 186: hashicorp.waypoint.GetLogStreamRequest
-	(*LogBatch)(nil),                           // 187: hashicorp.waypoint.LogBatch
-	(*ConfigVar)(nil),                          // 188: hashicorp.waypoint.ConfigVar
-	(*ConfigSetRequest)(nil),                   // 189: hashicorp.waypoint.ConfigSetRequest
-	(*ConfigSetResponse)(nil),                  // 190: hashicorp.waypoint.ConfigSetResponse
-	(*ConfigDeleteRequest)(nil),                // 191: hashicorp.waypoint.ConfigDeleteRequest
-	(*ConfigDeleteResponse)(nil),               // 192: hashicorp.waypoint.ConfigDeleteResponse
-	(*ConfigGetRequest)(nil),                   // 193: hashicorp.waypoint.ConfigGetRequest
-	(*ConfigGetResponse)(nil),                  // 194: hashicorp.waypoint.ConfigGetResponse
-	(*ConfigSource)(nil),                       // 195: hashicorp.waypoint.ConfigSource
-	(*SetConfigSourceRequest)(nil),             // 196: hashicorp.waypoint.SetConfigSourceRequest
-	(*DeleteConfigSourceRequest)(nil),          // 197: hashicorp.waypoint.DeleteConfigSourceRequest
-	(*GetConfigSourceRequest)(nil),             // 198: hashicorp.waypoint.GetConfigSourceRequest
-	(*GetConfigSourceResponse)(nil),            // 199: hashicorp.waypoint.GetConfigSourceResponse
-	(*ExecStreamRequest)(nil),                  // 200: hashicorp.waypoint.ExecStreamRequest
-	(*ExecStreamResponse)(nil),                 // 201: hashicorp.waypoint.ExecStreamResponse
-	(*EntrypointConfigRequest)(nil),            // 202: hashicorp.waypoint.EntrypointConfigRequest
-	(*EntrypointConfigResponse)(nil),           // 203: hashicorp.waypoint.EntrypointConfigResponse
-	(*EntrypointConfig)(nil),                   // 204: hashicorp.waypoint.EntrypointConfig
-	(*EntrypointLogBatch)(nil),                 // 205: hashicorp.waypoint.EntrypointLogBatch
-	(*EntrypointExecRequest)(nil),              // 206: hashicorp.waypoint.EntrypointExecRequest
-	(*EntrypointExecResponse)(nil),             // 207: hashicorp.waypoint.EntrypointExecResponse
-	(*Pipeline)(nil),                           // 208: hashicorp.waypoint.Pipeline
-	(*PipelineRun)(nil),                        // 209: hashicorp.waypoint.PipelineRun
-	(*UpsertPipelineRequest)(nil),              // 210: hashicorp.waypoint.UpsertPipelineRequest
-	(*UpsertPipelineResponse)(nil),             // 211: hashicorp.waypoint.UpsertPipelineResponse
-	(*GetPipelineRequest)(nil),                 // 212: hashicorp.waypoint.GetPipelineRequest
-	(*GetPipelineResponse)(nil),                // 213: hashicorp.waypoint.GetPipelineResponse
-	(*RunPipelineRequest)(nil),                 // 214: hashicorp.waypoint.RunPipelineRequest
-	(*RunPipelineResponse)(nil),                // 215: hashicorp.waypoint.RunPipelineResponse
-	(*ListPipelinesRequest)(nil),               // 216: hashicorp.waypoint.ListPipelinesRequest
-	(*ListPipelinesResponse)(nil),              // 217: hashicorp.waypoint.ListPipelinesResponse
-	(*ListPipelineRunsRequest)(nil),            // 218: hashicorp.waypoint.ListPipelineRunsRequest
-	(*ListPipelineRunsResponse)(nil),           // 219: hashicorp.waypoint.ListPipelineRunsResponse
-	(*GetPipelineRunRequest)(nil),              // 220: hashicorp.waypoint.GetPipelineRunRequest
-	(*GetPipelineRunResponse)(nil),             // 221: hashicorp.waypoint.GetPipelineRunResponse
-	(*ConfigSyncPipelineRequest)(nil),          // 222: hashicorp.waypoint.ConfigSyncPipelineRequest
-	(*ConfigSyncPipelineResponse)(nil),         // 223: hashicorp.waypoint.ConfigSyncPipelineResponse
-	(*TokenTransport)(nil),                     // 224: hashicorp.waypoint.TokenTransport
-	(*Token)(nil),                              // 225: hashicorp.waypoint.Token
-	(*HMACKey)(nil),                            // 226: hashicorp.waypoint.HMACKey
-	(*DecodeTokenRequest)(nil),                 // 227: hashicorp.waypoint.DecodeTokenRequest
-	(*DecodeTokenResponse)(nil),                // 228: hashicorp.waypoint.DecodeTokenResponse
-	(*LoginTokenRequest)(nil),                  // 229: hashicorp.waypoint.LoginTokenRequest
-	(*GenerateRunnerTokenRequest)(nil),         // 230: hashicorp.waypoint.GenerateRunnerTokenRequest
-	(*InviteTokenRequest)(nil),                 // 231: hashicorp.waypoint.InviteTokenRequest
-	(*NewTokenResponse)(nil),                   // 232: hashicorp.waypoint.NewTokenResponse
-	(*ConvertInviteTokenRequest)(nil),          // 233: hashicorp.waypoint.ConvertInviteTokenRequest
-	(*CreateSnapshotResponse)(nil),             // 234: hashicorp.waypoint.CreateSnapshotResponse
-	(*RestoreSnapshotRequest)(nil),             // 235: hashicorp.waypoint.RestoreSnapshotRequest
-	(*Snapshot)(nil),                           // 236: hashicorp.waypoint.Snapshot
-	(*Hcl)(nil),                                // 237: hashicorp.waypoint.Hcl
-	(*WaypointHclFmtRequest)(nil),              // 238: hashicorp.waypoint.WaypointHclFmtRequest
-	(*WaypointHclFmtResponse)(nil),             // 239: hashicorp.waypoint.WaypointHclFmtResponse
-	(*InlineKeepalive)(nil),                    // 240: hashicorp.waypoint.InlineKeepalive
-	(*PaginationRequest)(nil),                  // 241: hashicorp.waypoint.PaginationRequest
-	(*PaginationResponse)(nil),                 // 242: hashicorp.waypoint.PaginationResponse
-	(*UI_ListProjectsRequest)(nil),             // 243: hashicorp.waypoint.UI.ListProjectsRequest
-	(*UI_ListProjectsResponse)(nil),            // 244: hashicorp.waypoint.UI.ListProjectsResponse
-	(*UI_ProjectBundle)(nil),                   // 245: hashicorp.waypoint.UI.ProjectBundle
-	(*UI_GetProjectRequest)(nil),               // 246: hashicorp.waypoint.UI.GetProjectRequest
-	(*UI_GetProjectResponse)(nil),              // 247: hashicorp.waypoint.UI.GetProjectResponse
-	(*UI_ListDeploymentsRequest)(nil),          // 248: hashicorp.waypoint.UI.ListDeploymentsRequest
-	(*UI_ListDeploymentsResponse)(nil),         // 249: hashicorp.waypoint.UI.ListDeploymentsResponse
-	(*UI_GetDeploymentRequest)(nil),            // 250: hashicorp.waypoint.UI.GetDeploymentRequest
-	(*UI_GetDeploymentResponse)(nil),           // 251: hashicorp.waypoint.UI.GetDeploymentResponse
-	(*UI_DeploymentBundle)(nil),                // 252: hashicorp.waypoint.UI.DeploymentBundle
-	(*UI_ListReleasesRequest)(nil),             // 253: hashicorp.waypoint.UI.ListReleasesRequest
-	(*UI_ListReleasesResponse)(nil),            // 254: hashicorp.waypoint.UI.ListReleasesResponse
-	(*UI_ReleaseBundle)(nil),                   // 255: hashicorp.waypoint.UI.ReleaseBundle
-	(*VersionInfo_ProtocolVersion)(nil),        // 256: hashicorp.waypoint.VersionInfo.ProtocolVersion
-	(*Variable_File)(nil),                      // 257: hashicorp.waypoint.Variable.File
-	(*Variable_VCS)(nil),                       // 258: hashicorp.waypoint.Variable.VCS
-	(*Variable_HclPos)(nil),                    // 259: hashicorp.waypoint.Variable.HclPos
-	(*Variable_HclRange)(nil),                  // 260: hashicorp.waypoint.Variable.HclRange
-	(*Variable_FinalValue)(nil),                // 261: hashicorp.waypoint.Variable.FinalValue
-	(*Project_Poll)(nil),                       // 262: hashicorp.waypoint.Project.Poll
-	(*Project_AppStatusPoll)(nil),              // 263: hashicorp.waypoint.Project.AppStatusPoll
-	(*Workspace_Project)(nil),                  // 264: hashicorp.waypoint.Workspace.Project
-	(*Workspace_Application)(nil),              // 265: hashicorp.waypoint.Workspace.Application
-	(*User_Link)(nil),                          // 266: hashicorp.waypoint.User.Link
-	(*User_Link_OIDC)(nil),                     // 267: hashicorp.waypoint.User.Link.OIDC
-	(*Ref_Global)(nil),                         // 268: hashicorp.waypoint.Ref.Global
-	(*Ref_Application)(nil),                    // 269: hashicorp.waypoint.Ref.Application
-	(*Ref_Project)(nil),                        // 270: hashicorp.waypoint.Ref.Project
-	(*Ref_Workspace)(nil),                      // 271: hashicorp.waypoint.Ref.Workspace
-	(*Ref_Deployment)(nil),                     // 272: hashicorp.waypoint.Ref.Deployment
-	(*Ref_Artifact)(nil),                       // 273: hashicorp.waypoint.Ref.Artifact
-	(*Ref_Component)(nil),                      // 274: hashicorp.waypoint.Ref.Component
-	(*Ref_Operation)(nil),                      // 275: hashicorp.waypoint.Ref.Operation
-	(*Ref_OperationSeq)(nil),                   // 276: hashicorp.waypoint.Ref.OperationSeq
-	(*Ref_Runner)(nil),                         // 277: hashicorp.waypoint.Ref.Runner
-	(*Ref_RunnerAny)(nil),                      // 278: hashicorp.waypoint.Ref.RunnerAny
-	(*Ref_RunnerId)(nil),                       // 279: hashicorp.waypoint.Ref.RunnerId
-	(*Ref_RunnerLabels)(nil),                   // 280: hashicorp.waypoint.Ref.RunnerLabels
-	(*Ref_User)(nil),                           // 281: hashicorp.waypoint.Ref.User
-	(*Ref_UserId)(nil),                         // 282: hashicorp.waypoint.Ref.UserId
-	(*Ref_UserUsername)(nil),                   // 283: hashicorp.waypoint.Ref.UserUsername
-	(*Ref_AuthMethod)(nil),                     // 284: hashicorp.waypoint.Ref.AuthMethod
-	(*Ref_DeclaredResource)(nil),               // 285: hashicorp.waypoint.Ref.DeclaredResource
-	(*Ref_OnDemandRunnerConfig)(nil),           // 286: hashicorp.waypoint.Ref.OnDemandRunnerConfig
-	(*Ref_Trigger)(nil),                        // 287: hashicorp.waypoint.Ref.Trigger
-	(*Ref_Job)(nil),                            // 288: hashicorp.waypoint.Ref.Job
-	(*Ref_Task)(nil),                           // 289: hashicorp.waypoint.Ref.Task
-	(*Ref_Pipeline)(nil),                       // 290: hashicorp.waypoint.Ref.Pipeline
-	(*Ref_PipelineOwner)(nil),                  // 291: hashicorp.waypoint.Ref.PipelineOwner
-	(*Ref_PipelineStep)(nil),                   // 292: hashicorp.waypoint.Ref.PipelineStep
-	nil,                                        // 293: hashicorp.waypoint.Ref.RunnerLabels.LabelsEntry
-	(*StatusFilter_Filter)(nil),                // 294: hashicorp.waypoint.StatusFilter.Filter
-	nil,                                        // 295: hashicorp.waypoint.TaskLaunchInfo.EnvironmentVariablesEntry
-	(*AuthMethod_OIDC)(nil),                    // 296: hashicorp.waypoint.AuthMethod.OIDC
-	nil,                                        // 297: hashicorp.waypoint.AuthMethod.OIDC.ClaimMappingsEntry
-	nil,                                        // 298: hashicorp.waypoint.AuthMethod.OIDC.ListClaimMappingsEntry
-	(*Job_TaskOverride)(nil),                   // 299: hashicorp.waypoint.Job.TaskOverride
-	nil,                                        // 300: hashicorp.waypoint.Job.LabelsEntry
-	nil,                                        // 301: hashicorp.waypoint.Job.DataSourceOverridesEntry
-	nil,                                        // 302: hashicorp.waypoint.Job.VariableFinalValuesEntry
-	(*Job_Result)(nil),                         // 303: hashicorp.waypoint.Job.Result
-	(*Job_Config)(nil),                         // 304: hashicorp.waypoint.Job.Config
-	(*Job_DataSource)(nil),                     // 305: hashicorp.waypoint.Job.DataSource
-	(*Job_Local)(nil),                          // 306: hashicorp.waypoint.Job.Local
-	(*Job_Remote)(nil),                         // 307: hashicorp.waypoint.Job.Remote
-	(*Job_Git)(nil),                            // 308: hashicorp.waypoint.Job.Git
-	(*Job_Noop)(nil),                           // 309: hashicorp.waypoint.Job.Noop
-	(*Job_UpOp)(nil),                           // 310: hashicorp.waypoint.Job.UpOp
-	(*Job_UpResult)(nil),                       // 311: hashicorp.waypoint.Job.UpResult
-	(*Job_ValidateOp)(nil),                     // 312: hashicorp.waypoint.Job.ValidateOp
-	(*Job_ValidateResult)(nil),                 // 313: hashicorp.waypoint.Job.ValidateResult
-	(*Job_AuthOp)(nil),                         // 314: hashicorp.waypoint.Job.AuthOp
-	(*Job_AuthResult)(nil),                     // 315: hashicorp.waypoint.Job.AuthResult
-	(*Job_BuildOp)(nil),                        // 316: hashicorp.waypoint.Job.BuildOp
-	(*Job_BuildResult)(nil),                    // 317: hashicorp.waypoint.Job.BuildResult
-	(*Job_PushOp)(nil),                         // 318: hashicorp.waypoint.Job.PushOp
-	(*Job_PushResult)(nil),                     // 319: hashicorp.waypoint.Job.PushResult
-	(*Job_DeployOp)(nil),                       // 320: hashicorp.waypoint.Job.DeployOp
-	(*Job_DeployResult)(nil),                   // 321: hashicorp.waypoint.Job.DeployResult
-	(*Job_ExecOp)(nil),                         // 322: hashicorp.waypoint.Job.ExecOp
-	(*Job_ExecResult)(nil),                     // 323: hashicorp.waypoint.Job.ExecResult
-	(*Job_LogsOp)(nil),                         // 324: hashicorp.waypoint.Job.LogsOp
-	(*Job_DestroyOp)(nil),                      // 325: hashicorp.waypoint.Job.DestroyOp
-	(*Job_ReleaseOp)(nil),                      // 326: hashicorp.waypoint.Job.ReleaseOp
-	(*Job_ReleaseResult)(nil),                  // 327: hashicorp.waypoint.Job.ReleaseResult
-	(*Job_TaskPluginParams)(nil),               // 328: hashicorp.waypoint.Job.TaskPluginParams
-	(*Job_StartTaskLaunchOp)(nil),              // 329: hashicorp.waypoint.Job.StartTaskLaunchOp
-	(*Job_StartTaskResult)(nil),                // 330: hashicorp.waypoint.Job.StartTaskResult
-	(*Job_StopTaskLaunchOp)(nil),               // 331: hashicorp.waypoint.Job.StopTaskLaunchOp
-	(*Job_WatchTaskOp)(nil),                    // 332: hashicorp.waypoint.Job.WatchTaskOp
-	(*Job_WatchTaskResult)(nil),                // 333: hashicorp.waypoint.Job.WatchTaskResult
-	(*Job_StatusReportOp)(nil),                 // 334: hashicorp.waypoint.Job.StatusReportOp
-	(*Job_StatusReportResult)(nil),             // 335: hashicorp.waypoint.Job.StatusReportResult
-	(*Job_DocsOp)(nil),                         // 336: hashicorp.waypoint.Job.DocsOp
-	(*Job_DocsResult)(nil),                     // 337: hashicorp.waypoint.Job.DocsResult
-	(*Job_ConfigSyncOp)(nil),                   // 338: hashicorp.waypoint.Job.ConfigSyncOp
-	(*Job_ConfigSyncResult)(nil),               // 339: hashicorp.waypoint.Job.ConfigSyncResult
-	(*Job_PipelineConfigSyncResult)(nil),       // 340: hashicorp.waypoint.Job.PipelineConfigSyncResult
-	(*Job_ProjectDestroyResult)(nil),           // 341: hashicorp.waypoint.Job.ProjectDestroyResult
-	(*Job_PollOp)(nil),                         // 342: hashicorp.waypoint.Job.PollOp
-	(*Job_PollResult)(nil),                     // 343: hashicorp.waypoint.Job.PollResult
-	(*Job_InitOp)(nil),                         // 344: hashicorp.waypoint.Job.InitOp
-	(*Job_InitResult)(nil),                     // 345: hashicorp.waypoint.Job.InitResult
-	(*Job_PipelineStepOp)(nil),                 // 346: hashicorp.waypoint.Job.PipelineStepOp
-	(*Job_DestroyProjectOp)(nil),               // 347: hashicorp.waypoint.Job.DestroyProjectOp
-	(*Job_PipelineStepResult)(nil),             // 348: hashicorp.waypoint.Job.PipelineStepResult
-	(*Job_QueueProjectOp)(nil),                 // 349: hashicorp.waypoint.Job.QueueProjectOp
-	(*Job_QueueProjectResult)(nil),             // 350: hashicorp.waypoint.Job.QueueProjectResult
-	(*Job_DataSource_Ref)(nil),                 // 351: hashicorp.waypoint.Job.DataSource.Ref
-	(*Job_Git_Basic)(nil),                      // 352: hashicorp.waypoint.Job.Git.Basic
-	(*Job_Git_SSH)(nil),                        // 353: hashicorp.waypoint.Job.Git.SSH
-	(*Job_Git_Ref)(nil),                        // 354: hashicorp.waypoint.Job.Git.Ref
-	(*Job_AuthResult_Result)(nil),              // 355: hashicorp.waypoint.Job.AuthResult.Result
-	(*Job_DocsResult_Result)(nil),              // 356: hashicorp.waypoint.Job.DocsResult.Result
-	nil,                                        // 357: hashicorp.waypoint.Job.PipelineConfigSyncResult.SyncedPipelinesEntry
-	(*Job_QueueProjectResult_Application)(nil), // 358: hashicorp.waypoint.Job.QueueProjectResult.Application
-	nil,                                                     // 359: hashicorp.waypoint.Documentation.FieldsEntry
-	(*Documentation_Field)(nil),                             // 360: hashicorp.waypoint.Documentation.Field
-	(*Documentation_Mapper)(nil),                            // 361: hashicorp.waypoint.Documentation.Mapper
-	(*GetJobStreamResponse_Open)(nil),                       // 362: hashicorp.waypoint.GetJobStreamResponse.Open
-	(*GetJobStreamResponse_State)(nil),                      // 363: hashicorp.waypoint.GetJobStreamResponse.State
-	(*GetJobStreamResponse_JobChange)(nil),                  // 364: hashicorp.waypoint.GetJobStreamResponse.JobChange
-	(*GetJobStreamResponse_Download)(nil),                   // 365: hashicorp.waypoint.GetJobStreamResponse.Download
-	(*GetJobStreamResponse_Terminal)(nil),                   // 366: hashicorp.waypoint.GetJobStreamResponse.Terminal
-	(*GetJobStreamResponse_Error)(nil),                      // 367: hashicorp.waypoint.GetJobStreamResponse.Error
-	(*GetJobStreamResponse_Complete)(nil),                   // 368: hashicorp.waypoint.GetJobStreamResponse.Complete
-	(*GetJobStreamResponse_Terminal_Event)(nil),             // 369: hashicorp.waypoint.GetJobStreamResponse.Terminal.Event
-	(*GetJobStreamResponse_Terminal_Event_Status)(nil),      // 370: hashicorp.waypoint.GetJobStreamResponse.Terminal.Event.Status
-	(*GetJobStreamResponse_Terminal_Event_Line)(nil),        // 371: hashicorp.waypoint.GetJobStreamResponse.Terminal.Event.Line
-	(*GetJobStreamResponse_Terminal_Event_Raw)(nil),         // 372: hashicorp.waypoint.GetJobStreamResponse.Terminal.Event.Raw
-	(*GetJobStreamResponse_Terminal_Event_NamedValue)(nil),  // 373: hashicorp.waypoint.GetJobStreamResponse.Terminal.Event.NamedValue
-	(*GetJobStreamResponse_Terminal_Event_NamedValues)(nil), // 374: hashicorp.waypoint.GetJobStreamResponse.Terminal.Event.NamedValues
-	(*GetJobStreamResponse_Terminal_Event_TableEntry)(nil),  // 375: hashicorp.waypoint.GetJobStreamResponse.Terminal.Event.TableEntry
-	(*GetJobStreamResponse_Terminal_Event_TableRow)(nil),    // 376: hashicorp.waypoint.GetJobStreamResponse.Terminal.Event.TableRow
-	(*GetJobStreamResponse_Terminal_Event_Table)(nil),       // 377: hashicorp.waypoint.GetJobStreamResponse.Terminal.Event.Table
-	(*GetJobStreamResponse_Terminal_Event_StepGroup)(nil),   // 378: hashicorp.waypoint.GetJobStreamResponse.Terminal.Event.StepGroup
-	(*GetJobStreamResponse_Terminal_Event_Step)(nil),        // 379: hashicorp.waypoint.GetJobStreamResponse.Terminal.Event.Step
-	nil,                                              // 380: hashicorp.waypoint.Runner.LabelsEntry
-	(*Runner_ODR)(nil),                               // 381: hashicorp.waypoint.Runner.ODR
-	(*Runner_Local)(nil),                             // 382: hashicorp.waypoint.Runner.Local
-	(*Runner_Remote)(nil),                            // 383: hashicorp.waypoint.Runner.Remote
-	(*RunnerConfigRequest_Open)(nil),                 // 384: hashicorp.waypoint.RunnerConfigRequest.Open
-	(*RunnerJobStreamRequest_Request)(nil),           // 385: hashicorp.waypoint.RunnerJobStreamRequest.Request
-	(*RunnerJobStreamRequest_Ack)(nil),               // 386: hashicorp.waypoint.RunnerJobStreamRequest.Ack
-	(*RunnerJobStreamRequest_Complete)(nil),          // 387: hashicorp.waypoint.RunnerJobStreamRequest.Complete
-	(*RunnerJobStreamRequest_Error)(nil),             // 388: hashicorp.waypoint.RunnerJobStreamRequest.Error
-	(*RunnerJobStreamRequest_Heartbeat)(nil),         // 389: hashicorp.waypoint.RunnerJobStreamRequest.Heartbeat
-	(*RunnerJobStreamRequest_ConfigLoad)(nil),        // 390: hashicorp.waypoint.RunnerJobStreamRequest.ConfigLoad
-	(*RunnerJobStreamRequest_VariableValuesSet)(nil), // 391: hashicorp.waypoint.RunnerJobStreamRequest.VariableValuesSet
-	nil, // 392: hashicorp.waypoint.RunnerJobStreamRequest.VariableValuesSet.FinalValuesEntry
-	(*RunnerJobStreamResponse_JobAssignment)(nil), // 393: hashicorp.waypoint.RunnerJobStreamResponse.JobAssignment
-	(*RunnerJobStreamResponse_JobCancel)(nil),     // 394: hashicorp.waypoint.RunnerJobStreamResponse.JobCancel
-	(*ServerConfig_AdvertiseAddr)(nil),            // 395: hashicorp.waypoint.ServerConfig.AdvertiseAddr
-	nil,                                           // 396: hashicorp.waypoint.Hostname.TargetLabelsEntry
-	(*Hostname_Target)(nil),                       // 397: hashicorp.waypoint.Hostname.Target
-	(*Hostname_TargetApp)(nil),                    // 398: hashicorp.waypoint.Hostname.TargetApp
-	nil,                                           // 399: hashicorp.waypoint.Build.LabelsEntry
-	(*Build_Preload)(nil),                         // 400: hashicorp.waypoint.Build.Preload
-	nil,                                           // 401: hashicorp.waypoint.OnDemandRunnerConfig.EnvironmentVariablesEntry
-	nil,                                           // 402: hashicorp.waypoint.PushedArtifact.LabelsEntry
-	(*PushedArtifact_Preload)(nil),                // 403: hashicorp.waypoint.PushedArtifact.Preload
-	nil,                                           // 404: hashicorp.waypoint.Deployment.LabelsEntry
-	(*Deployment_Preload)(nil),                    // 405: hashicorp.waypoint.Deployment.Preload
-	(*ListInstancesRequest_Application)(nil),      // 406: hashicorp.waypoint.ListInstancesRequest.Application
-	nil,                                           // 407: hashicorp.waypoint.Release.LabelsEntry
-	(*Release_Preload)(nil),                       // 408: hashicorp.waypoint.Release.Preload
-	(*StatusReport_Resource)(nil),                 // 409: hashicorp.waypoint.StatusReport.Resource
-	(*StatusReport_Health)(nil),                   // 410: hashicorp.waypoint.StatusReport.Health
-	(*GetLogStreamRequest_Application)(nil),       // 411: hashicorp.waypoint.GetLogStreamRequest.Application
-	(*LogBatch_Entry)(nil),                        // 412: hashicorp.waypoint.LogBatch.Entry
-	(*ConfigVar_DynamicVal)(nil),                  // 413: hashicorp.waypoint.ConfigVar.DynamicVal
-	(*ConfigVar_Target)(nil),                      // 414: hashicorp.waypoint.ConfigVar.Target
-	nil,                                           // 415: hashicorp.waypoint.ConfigVar.DynamicVal.ConfigEntry
-	nil,                                           // 416: hashicorp.waypoint.ConfigGetRequest.LabelsEntry
-	nil,                                           // 417: hashicorp.waypoint.ConfigSource.ConfigEntry
-	(*ExecStreamRequest_Start)(nil),               // 418: hashicorp.waypoint.ExecStreamRequest.Start
-	(*ExecStreamRequest_Input)(nil),               // 419: hashicorp.waypoint.ExecStreamRequest.Input
-	(*ExecStreamRequest_PTY)(nil),                 // 420: hashicorp.waypoint.ExecStreamRequest.PTY
-	(*ExecStreamRequest_WindowSize)(nil),          // 421: hashicorp.waypoint.ExecStreamRequest.WindowSize
-	(*ExecStreamResponse_Open)(nil),               // 422: hashicorp.waypoint.ExecStreamResponse.Open
-	(*ExecStreamResponse_Exit)(nil),               // 423: hashicorp.waypoint.ExecStreamResponse.Exit
-	(*ExecStreamResponse_Output)(nil),             // 424: hashicorp.waypoint.ExecStreamResponse.Output
-	(*EntrypointConfig_Exec)(nil),                 // 425: hashicorp.waypoint.EntrypointConfig.Exec
-	(*EntrypointConfig_URLService)(nil),           // 426: hashicorp.waypoint.EntrypointConfig.URLService
-	(*EntrypointConfig_DeploymentInfo)(nil),       // 427: hashicorp.waypoint.EntrypointConfig.DeploymentInfo
-	nil,                                           // 428: hashicorp.waypoint.EntrypointConfig.DeploymentInfo.LabelsEntry
-	(*EntrypointExecRequest_Open)(nil),            // 429: hashicorp.waypoint.EntrypointExecRequest.Open
-	(*EntrypointExecRequest_Exit)(nil),            // 430: hashicorp.waypoint.EntrypointExecRequest.Exit
-	(*EntrypointExecRequest_Output)(nil),          // 431: hashicorp.waypoint.EntrypointExecRequest.Output
-	(*EntrypointExecRequest_Error)(nil),           // 432: hashicorp.waypoint.EntrypointExecRequest.Error
-	nil,                                           // 433: hashicorp.waypoint.Pipeline.StepsEntry
-	(*Pipeline_Step)(nil),                         // 434: hashicorp.waypoint.Pipeline.Step
-	(*Pipeline_Step_Exec)(nil),                    // 435: hashicorp.waypoint.Pipeline.Step.Exec
-	(*Pipeline_Step_Build)(nil),                   // 436: hashicorp.waypoint.Pipeline.Step.Build
-	(*Pipeline_Step_Deploy)(nil),                  // 437: hashicorp.waypoint.Pipeline.Step.Deploy
-	(*Pipeline_Step_Release)(nil),                 // 438: hashicorp.waypoint.Pipeline.Step.Release
-	(*Pipeline_Step_Up)(nil),                      // 439: hashicorp.waypoint.Pipeline.Step.Up
-	(*Pipeline_Step_Pipeline)(nil),                // 440: hashicorp.waypoint.Pipeline.Step.Pipeline
-	(*GetPipelineResponse_Graph)(nil),             // 441: hashicorp.waypoint.GetPipelineResponse.Graph
-	nil,                                           // 442: hashicorp.waypoint.RunPipelineResponse.JobMapEntry
-	nil,                                           // 443: hashicorp.waypoint.ConfigSyncPipelineResponse.SyncedPipelinesEntry
-	nil,                                           // 444: hashicorp.waypoint.TokenTransport.MetadataEntry
-	(*TokenTransport_OAuthCredentials)(nil),       // 445: hashicorp.waypoint.TokenTransport.OAuthCredentials
-	(*Token_Login)(nil),                           // 446: hashicorp.waypoint.Token.Login
-	(*Token_Runner)(nil),                          // 447: hashicorp.waypoint.Token.Runner
-	(*Token_Invite)(nil),                          // 448: hashicorp.waypoint.Token.Invite
-	(*Token_Entrypoint)(nil),                      // 449: hashicorp.waypoint.Token.Entrypoint
-	(*Token_Trigger)(nil),                         // 450: hashicorp.waypoint.Token.Trigger
-	(*Token_Invite_Signup)(nil),                   // 451: hashicorp.waypoint.Token.Invite.Signup
-	nil,                                           // 452: hashicorp.waypoint.GenerateRunnerTokenRequest.LabelsEntry
-	(*CreateSnapshotResponse_Open)(nil),           // 453: hashicorp.waypoint.CreateSnapshotResponse.Open
-	(*RestoreSnapshotRequest_Open)(nil),           // 454: hashicorp.waypoint.RestoreSnapshotRequest.Open
-	(*Snapshot_Header)(nil),                       // 455: hashicorp.waypoint.Snapshot.Header
-	(*Snapshot_Trailer)(nil),                      // 456: hashicorp.waypoint.Snapshot.Trailer
-	(*Snapshot_BoltChunk)(nil),                    // 457: hashicorp.waypoint.Snapshot.BoltChunk
-	nil,                                           // 458: hashicorp.waypoint.Snapshot.BoltChunk.ItemsEntry
+	(ResourceCategoryDisplayHint)(0),           // 0: nomatron.derrick.ResourceCategoryDisplayHint
+	(ServerFeaturesFeature)(0),                 // 1: nomatron.derrick.ServerFeatures.feature
+	(Variable_FinalValue_Source)(0),            // 2: nomatron.derrick.Variable.FinalValue.Source
+	(Project_ProjectState)(0),                  // 3: nomatron.derrick.Project.ProjectState
+	(Component_Type)(0),                        // 4: nomatron.derrick.Component.Type
+	(Status_State)(0),                          // 5: nomatron.derrick.Status.State
+	(Operation_PhysicalState)(0),               // 6: nomatron.derrick.Operation.PhysicalState
+	(OperationOrder_Order)(0),                  // 7: nomatron.derrick.OperationOrder.Order
+	(Task_State)(0),                            // 8: nomatron.derrick.Task.State
+	(OIDCAuthMethod_Kind)(0),                   // 9: nomatron.derrick.OIDCAuthMethod.Kind
+	(Job_State)(0),                             // 10: nomatron.derrick.Job.State
+	(Job_Config_Source)(0),                     // 11: nomatron.derrick.Job.Config.Source
+	(Runner_AdoptionState)(0),                  // 12: nomatron.derrick.Runner.AdoptionState
+	(UpsertDeploymentRequest_Tristate)(0),      // 13: nomatron.derrick.UpsertDeploymentRequest.Tristate
+	(Deployment_LoadDetails)(0),                // 14: nomatron.derrick.Deployment.LoadDetails
+	(Instance_Type)(0),                         // 15: nomatron.derrick.Instance.Type
+	(Release_LoadDetails)(0),                   // 16: nomatron.derrick.Release.LoadDetails
+	(StatusReport_Resource_Health)(0),          // 17: nomatron.derrick.StatusReport.Resource.Health
+	(LogBatch_Entry_Source)(0),                 // 18: nomatron.derrick.LogBatch.Entry.Source
+	(ExecStreamResponse_Output_Channel)(0),     // 19: nomatron.derrick.ExecStreamResponse.Output.Channel
+	(EntrypointExecRequest_Output_Channel)(0),  // 20: nomatron.derrick.EntrypointExecRequest.Output.Channel
+	(PipelineRun_State)(0),                     // 21: nomatron.derrick.PipelineRun.State
+	(GetPipelineResponse_Graph_Format)(0),      // 22: nomatron.derrick.GetPipelineResponse.Graph.Format
+	(Snapshot_Header_Format)(0),                // 23: nomatron.derrick.Snapshot.Header.Format
+	(Hcl_Format)(0),                            // 24: nomatron.derrick.Hcl.Format
+	(*UI)(nil),                                 // 25: nomatron.derrick.UI
+	(*GetVersionInfoResponse)(nil),             // 26: nomatron.derrick.GetVersionInfoResponse
+	(*ServerFeatures)(nil),                     // 27: nomatron.derrick.ServerFeatures
+	(*VersionInfo)(nil),                        // 28: nomatron.derrick.VersionInfo
+	(*Application)(nil),                        // 29: nomatron.derrick.Application
+	(*Variable)(nil),                           // 30: nomatron.derrick.Variable
+	(*Project)(nil),                            // 31: nomatron.derrick.Project
+	(*Workspace)(nil),                          // 32: nomatron.derrick.Workspace
+	(*User)(nil),                               // 33: nomatron.derrick.User
+	(*Ref)(nil),                                // 34: nomatron.derrick.Ref
+	(*Component)(nil),                          // 35: nomatron.derrick.Component
+	(*Status)(nil),                             // 36: nomatron.derrick.Status
+	(*StatusFilter)(nil),                       // 37: nomatron.derrick.StatusFilter
+	(*Operation)(nil),                          // 38: nomatron.derrick.Operation
+	(*OperationOrder)(nil),                     // 39: nomatron.derrick.OperationOrder
+	(*Generation)(nil),                         // 40: nomatron.derrick.Generation
+	(*DeclaredResource)(nil),                   // 41: nomatron.derrick.DeclaredResource
+	(*DestroyedResource)(nil),                  // 42: nomatron.derrick.DestroyedResource
+	(*TaskLaunchInfo)(nil),                     // 43: nomatron.derrick.TaskLaunchInfo
+	(*Task)(nil),                               // 44: nomatron.derrick.Task
+	(*UpsertTaskRequest)(nil),                  // 45: nomatron.derrick.UpsertTaskRequest
+	(*UpsertTaskResponse)(nil),                 // 46: nomatron.derrick.UpsertTaskResponse
+	(*GetTaskRequest)(nil),                     // 47: nomatron.derrick.GetTaskRequest
+	(*GetTaskResponse)(nil),                    // 48: nomatron.derrick.GetTaskResponse
+	(*DeleteTaskRequest)(nil),                  // 49: nomatron.derrick.DeleteTaskRequest
+	(*ListTaskRequest)(nil),                    // 50: nomatron.derrick.ListTaskRequest
+	(*ListTaskResponse)(nil),                   // 51: nomatron.derrick.ListTaskResponse
+	(*CancelTaskRequest)(nil),                  // 52: nomatron.derrick.CancelTaskRequest
+	(*ErrorDetail)(nil),                        // 53: nomatron.derrick.ErrorDetail
+	(*GetUserRequest)(nil),                     // 54: nomatron.derrick.GetUserRequest
+	(*GetUserResponse)(nil),                    // 55: nomatron.derrick.GetUserResponse
+	(*ListUsersResponse)(nil),                  // 56: nomatron.derrick.ListUsersResponse
+	(*UpdateUserRequest)(nil),                  // 57: nomatron.derrick.UpdateUserRequest
+	(*UpdateUserResponse)(nil),                 // 58: nomatron.derrick.UpdateUserResponse
+	(*DeleteUserRequest)(nil),                  // 59: nomatron.derrick.DeleteUserRequest
+	(*AuthMethod)(nil),                         // 60: nomatron.derrick.AuthMethod
+	(*OIDCAuthMethod)(nil),                     // 61: nomatron.derrick.OIDCAuthMethod
+	(*UpsertAuthMethodRequest)(nil),            // 62: nomatron.derrick.UpsertAuthMethodRequest
+	(*UpsertAuthMethodResponse)(nil),           // 63: nomatron.derrick.UpsertAuthMethodResponse
+	(*GetAuthMethodRequest)(nil),               // 64: nomatron.derrick.GetAuthMethodRequest
+	(*GetAuthMethodResponse)(nil),              // 65: nomatron.derrick.GetAuthMethodResponse
+	(*DeleteAuthMethodRequest)(nil),            // 66: nomatron.derrick.DeleteAuthMethodRequest
+	(*ListAuthMethodsResponse)(nil),            // 67: nomatron.derrick.ListAuthMethodsResponse
+	(*ListOIDCAuthMethodsResponse)(nil),        // 68: nomatron.derrick.ListOIDCAuthMethodsResponse
+	(*GetOIDCAuthURLRequest)(nil),              // 69: nomatron.derrick.GetOIDCAuthURLRequest
+	(*GetOIDCAuthURLResponse)(nil),             // 70: nomatron.derrick.GetOIDCAuthURLResponse
+	(*CompleteOIDCAuthRequest)(nil),            // 71: nomatron.derrick.CompleteOIDCAuthRequest
+	(*CompleteOIDCAuthResponse)(nil),           // 72: nomatron.derrick.CompleteOIDCAuthResponse
+	(*QueueJobRequest)(nil),                    // 73: nomatron.derrick.QueueJobRequest
+	(*QueueJobResponse)(nil),                   // 74: nomatron.derrick.QueueJobResponse
+	(*CancelJobRequest)(nil),                   // 75: nomatron.derrick.CancelJobRequest
+	(*ValidateJobRequest)(nil),                 // 76: nomatron.derrick.ValidateJobRequest
+	(*ValidateJobResponse)(nil),                // 77: nomatron.derrick.ValidateJobResponse
+	(*Job)(nil),                                // 78: nomatron.derrick.Job
+	(*Documentation)(nil),                      // 79: nomatron.derrick.Documentation
+	(*GetJobRequest)(nil),                      // 80: nomatron.derrick.GetJobRequest
+	(*ListJobsRequest)(nil),                    // 81: nomatron.derrick.ListJobsRequest
+	(*ListJobsResponse)(nil),                   // 82: nomatron.derrick.ListJobsResponse
+	(*GetJobStreamRequest)(nil),                // 83: nomatron.derrick.GetJobStreamRequest
+	(*GetJobStreamResponse)(nil),               // 84: nomatron.derrick.GetJobStreamResponse
+	(*Runner)(nil),                             // 85: nomatron.derrick.Runner
+	(*RunnerTokenRequest)(nil),                 // 86: nomatron.derrick.RunnerTokenRequest
+	(*RunnerTokenResponse)(nil),                // 87: nomatron.derrick.RunnerTokenResponse
+	(*RunnerConfigRequest)(nil),                // 88: nomatron.derrick.RunnerConfigRequest
+	(*RunnerConfigResponse)(nil),               // 89: nomatron.derrick.RunnerConfigResponse
+	(*RunnerConfig)(nil),                       // 90: nomatron.derrick.RunnerConfig
+	(*RunnerJobStreamRequest)(nil),             // 91: nomatron.derrick.RunnerJobStreamRequest
+	(*RunnerJobStreamResponse)(nil),            // 92: nomatron.derrick.RunnerJobStreamResponse
+	(*RunnerGetDeploymentConfigRequest)(nil),   // 93: nomatron.derrick.RunnerGetDeploymentConfigRequest
+	(*RunnerGetDeploymentConfigResponse)(nil),  // 94: nomatron.derrick.RunnerGetDeploymentConfigResponse
+	(*GetRunnerRequest)(nil),                   // 95: nomatron.derrick.GetRunnerRequest
+	(*ListRunnersRequest)(nil),                 // 96: nomatron.derrick.ListRunnersRequest
+	(*ListRunnersResponse)(nil),                // 97: nomatron.derrick.ListRunnersResponse
+	(*AdoptRunnerRequest)(nil),                 // 98: nomatron.derrick.AdoptRunnerRequest
+	(*ForgetRunnerRequest)(nil),                // 99: nomatron.derrick.ForgetRunnerRequest
+	(*SetServerConfigRequest)(nil),             // 100: nomatron.derrick.SetServerConfigRequest
+	(*GetServerConfigResponse)(nil),            // 101: nomatron.derrick.GetServerConfigResponse
+	(*ServerConfig)(nil),                       // 102: nomatron.derrick.ServerConfig
+	(*CreateHostnameRequest)(nil),              // 103: nomatron.derrick.CreateHostnameRequest
+	(*CreateHostnameResponse)(nil),             // 104: nomatron.derrick.CreateHostnameResponse
+	(*ListHostnamesRequest)(nil),               // 105: nomatron.derrick.ListHostnamesRequest
+	(*ListHostnamesResponse)(nil),              // 106: nomatron.derrick.ListHostnamesResponse
+	(*DeleteHostnameRequest)(nil),              // 107: nomatron.derrick.DeleteHostnameRequest
+	(*Hostname)(nil),                           // 108: nomatron.derrick.Hostname
+	(*ListWorkspacesRequest)(nil),              // 109: nomatron.derrick.ListWorkspacesRequest
+	(*ListWorkspacesResponse)(nil),             // 110: nomatron.derrick.ListWorkspacesResponse
+	(*GetWorkspaceRequest)(nil),                // 111: nomatron.derrick.GetWorkspaceRequest
+	(*GetWorkspaceResponse)(nil),               // 112: nomatron.derrick.GetWorkspaceResponse
+	(*UpsertWorkspaceRequest)(nil),             // 113: nomatron.derrick.UpsertWorkspaceRequest
+	(*UpsertWorkspaceResponse)(nil),            // 114: nomatron.derrick.UpsertWorkspaceResponse
+	(*UpsertProjectRequest)(nil),               // 115: nomatron.derrick.UpsertProjectRequest
+	(*UpsertProjectResponse)(nil),              // 116: nomatron.derrick.UpsertProjectResponse
+	(*GetProjectRequest)(nil),                  // 117: nomatron.derrick.GetProjectRequest
+	(*GetProjectResponse)(nil),                 // 118: nomatron.derrick.GetProjectResponse
+	(*ListProjectsRequest)(nil),                // 119: nomatron.derrick.ListProjectsRequest
+	(*ListProjectsResponse)(nil),               // 120: nomatron.derrick.ListProjectsResponse
+	(*DestroyProjectRequest)(nil),              // 121: nomatron.derrick.DestroyProjectRequest
+	(*GetApplicationRequest)(nil),              // 122: nomatron.derrick.GetApplicationRequest
+	(*GetApplicationResponse)(nil),             // 123: nomatron.derrick.GetApplicationResponse
+	(*UpsertApplicationRequest)(nil),           // 124: nomatron.derrick.UpsertApplicationRequest
+	(*UpsertApplicationResponse)(nil),          // 125: nomatron.derrick.UpsertApplicationResponse
+	(*UpsertBuildRequest)(nil),                 // 126: nomatron.derrick.UpsertBuildRequest
+	(*UpsertBuildResponse)(nil),                // 127: nomatron.derrick.UpsertBuildResponse
+	(*ListBuildsRequest)(nil),                  // 128: nomatron.derrick.ListBuildsRequest
+	(*ListBuildsResponse)(nil),                 // 129: nomatron.derrick.ListBuildsResponse
+	(*GetLatestBuildRequest)(nil),              // 130: nomatron.derrick.GetLatestBuildRequest
+	(*GetBuildRequest)(nil),                    // 131: nomatron.derrick.GetBuildRequest
+	(*Build)(nil),                              // 132: nomatron.derrick.Build
+	(*Artifact)(nil),                           // 133: nomatron.derrick.Artifact
+	(*OnDemandRunnerConfig)(nil),               // 134: nomatron.derrick.OnDemandRunnerConfig
+	(*UpsertOnDemandRunnerConfigRequest)(nil),  // 135: nomatron.derrick.UpsertOnDemandRunnerConfigRequest
+	(*UpsertOnDemandRunnerConfigResponse)(nil), // 136: nomatron.derrick.UpsertOnDemandRunnerConfigResponse
+	(*GetOnDemandRunnerConfigRequest)(nil),     // 137: nomatron.derrick.GetOnDemandRunnerConfigRequest
+	(*GetOnDemandRunnerConfigResponse)(nil),    // 138: nomatron.derrick.GetOnDemandRunnerConfigResponse
+	(*DeleteOnDemandRunnerConfigRequest)(nil),  // 139: nomatron.derrick.DeleteOnDemandRunnerConfigRequest
+	(*DeleteOnDemandRunnerConfigResponse)(nil), // 140: nomatron.derrick.DeleteOnDemandRunnerConfigResponse
+	(*ListOnDemandRunnerConfigsResponse)(nil),  // 141: nomatron.derrick.ListOnDemandRunnerConfigsResponse
+	(*UpsertPushedArtifactRequest)(nil),        // 142: nomatron.derrick.UpsertPushedArtifactRequest
+	(*UpsertPushedArtifactResponse)(nil),       // 143: nomatron.derrick.UpsertPushedArtifactResponse
+	(*GetLatestPushedArtifactRequest)(nil),     // 144: nomatron.derrick.GetLatestPushedArtifactRequest
+	(*GetPushedArtifactRequest)(nil),           // 145: nomatron.derrick.GetPushedArtifactRequest
+	(*ListPushedArtifactsRequest)(nil),         // 146: nomatron.derrick.ListPushedArtifactsRequest
+	(*ListPushedArtifactsResponse)(nil),        // 147: nomatron.derrick.ListPushedArtifactsResponse
+	(*PushedArtifact)(nil),                     // 148: nomatron.derrick.PushedArtifact
+	(*GetDeploymentRequest)(nil),               // 149: nomatron.derrick.GetDeploymentRequest
+	(*UpsertDeploymentRequest)(nil),            // 150: nomatron.derrick.UpsertDeploymentRequest
+	(*UpsertDeploymentResponse)(nil),           // 151: nomatron.derrick.UpsertDeploymentResponse
+	(*ListDeploymentsRequest)(nil),             // 152: nomatron.derrick.ListDeploymentsRequest
+	(*ListDeploymentsResponse)(nil),            // 153: nomatron.derrick.ListDeploymentsResponse
+	(*Deployment)(nil),                         // 154: nomatron.derrick.Deployment
+	(*DeploymentExpanded)(nil),                 // 155: nomatron.derrick.DeploymentExpanded
+	(*ListInstancesRequest)(nil),               // 156: nomatron.derrick.ListInstancesRequest
+	(*ListInstancesResponse)(nil),              // 157: nomatron.derrick.ListInstancesResponse
+	(*Instance)(nil),                           // 158: nomatron.derrick.Instance
+	(*UpsertReleaseRequest)(nil),               // 159: nomatron.derrick.UpsertReleaseRequest
+	(*UpsertReleaseResponse)(nil),              // 160: nomatron.derrick.UpsertReleaseResponse
+	(*GetLatestReleaseRequest)(nil),            // 161: nomatron.derrick.GetLatestReleaseRequest
+	(*ListReleasesRequest)(nil),                // 162: nomatron.derrick.ListReleasesRequest
+	(*ListReleasesResponse)(nil),               // 163: nomatron.derrick.ListReleasesResponse
+	(*GetReleaseRequest)(nil),                  // 164: nomatron.derrick.GetReleaseRequest
+	(*Release)(nil),                            // 165: nomatron.derrick.Release
+	(*ReleaseExpanded)(nil),                    // 166: nomatron.derrick.ReleaseExpanded
+	(*Trigger)(nil),                            // 167: nomatron.derrick.Trigger
+	(*UpsertTriggerRequest)(nil),               // 168: nomatron.derrick.UpsertTriggerRequest
+	(*UpsertTriggerResponse)(nil),              // 169: nomatron.derrick.UpsertTriggerResponse
+	(*GetTriggerRequest)(nil),                  // 170: nomatron.derrick.GetTriggerRequest
+	(*GetTriggerResponse)(nil),                 // 171: nomatron.derrick.GetTriggerResponse
+	(*DeleteTriggerRequest)(nil),               // 172: nomatron.derrick.DeleteTriggerRequest
+	(*RunTriggerRequest)(nil),                  // 173: nomatron.derrick.RunTriggerRequest
+	(*RunTriggerResponse)(nil),                 // 174: nomatron.derrick.RunTriggerResponse
+	(*ListTriggerRequest)(nil),                 // 175: nomatron.derrick.ListTriggerRequest
+	(*ListTriggerResponse)(nil),                // 176: nomatron.derrick.ListTriggerResponse
+	(*UpsertStatusReportRequest)(nil),          // 177: nomatron.derrick.UpsertStatusReportRequest
+	(*UpsertStatusReportResponse)(nil),         // 178: nomatron.derrick.UpsertStatusReportResponse
+	(*GetLatestStatusReportRequest)(nil),       // 179: nomatron.derrick.GetLatestStatusReportRequest
+	(*ListStatusReportsRequest)(nil),           // 180: nomatron.derrick.ListStatusReportsRequest
+	(*ListStatusReportsResponse)(nil),          // 181: nomatron.derrick.ListStatusReportsResponse
+	(*GetStatusReportRequest)(nil),             // 182: nomatron.derrick.GetStatusReportRequest
+	(*ExpediteStatusReportRequest)(nil),        // 183: nomatron.derrick.ExpediteStatusReportRequest
+	(*ExpediteStatusReportResponse)(nil),       // 184: nomatron.derrick.ExpediteStatusReportResponse
+	(*StatusReport)(nil),                       // 185: nomatron.derrick.StatusReport
+	(*GetLogStreamRequest)(nil),                // 186: nomatron.derrick.GetLogStreamRequest
+	(*LogBatch)(nil),                           // 187: nomatron.derrick.LogBatch
+	(*ConfigVar)(nil),                          // 188: nomatron.derrick.ConfigVar
+	(*ConfigSetRequest)(nil),                   // 189: nomatron.derrick.ConfigSetRequest
+	(*ConfigSetResponse)(nil),                  // 190: nomatron.derrick.ConfigSetResponse
+	(*ConfigDeleteRequest)(nil),                // 191: nomatron.derrick.ConfigDeleteRequest
+	(*ConfigDeleteResponse)(nil),               // 192: nomatron.derrick.ConfigDeleteResponse
+	(*ConfigGetRequest)(nil),                   // 193: nomatron.derrick.ConfigGetRequest
+	(*ConfigGetResponse)(nil),                  // 194: nomatron.derrick.ConfigGetResponse
+	(*ConfigSource)(nil),                       // 195: nomatron.derrick.ConfigSource
+	(*SetConfigSourceRequest)(nil),             // 196: nomatron.derrick.SetConfigSourceRequest
+	(*DeleteConfigSourceRequest)(nil),          // 197: nomatron.derrick.DeleteConfigSourceRequest
+	(*GetConfigSourceRequest)(nil),             // 198: nomatron.derrick.GetConfigSourceRequest
+	(*GetConfigSourceResponse)(nil),            // 199: nomatron.derrick.GetConfigSourceResponse
+	(*ExecStreamRequest)(nil),                  // 200: nomatron.derrick.ExecStreamRequest
+	(*ExecStreamResponse)(nil),                 // 201: nomatron.derrick.ExecStreamResponse
+	(*EntrypointConfigRequest)(nil),            // 202: nomatron.derrick.EntrypointConfigRequest
+	(*EntrypointConfigResponse)(nil),           // 203: nomatron.derrick.EntrypointConfigResponse
+	(*EntrypointConfig)(nil),                   // 204: nomatron.derrick.EntrypointConfig
+	(*EntrypointLogBatch)(nil),                 // 205: nomatron.derrick.EntrypointLogBatch
+	(*EntrypointExecRequest)(nil),              // 206: nomatron.derrick.EntrypointExecRequest
+	(*EntrypointExecResponse)(nil),             // 207: nomatron.derrick.EntrypointExecResponse
+	(*Pipeline)(nil),                           // 208: nomatron.derrick.Pipeline
+	(*PipelineRun)(nil),                        // 209: nomatron.derrick.PipelineRun
+	(*UpsertPipelineRequest)(nil),              // 210: nomatron.derrick.UpsertPipelineRequest
+	(*UpsertPipelineResponse)(nil),             // 211: nomatron.derrick.UpsertPipelineResponse
+	(*GetPipelineRequest)(nil),                 // 212: nomatron.derrick.GetPipelineRequest
+	(*GetPipelineResponse)(nil),                // 213: nomatron.derrick.GetPipelineResponse
+	(*RunPipelineRequest)(nil),                 // 214: nomatron.derrick.RunPipelineRequest
+	(*RunPipelineResponse)(nil),                // 215: nomatron.derrick.RunPipelineResponse
+	(*ListPipelinesRequest)(nil),               // 216: nomatron.derrick.ListPipelinesRequest
+	(*ListPipelinesResponse)(nil),              // 217: nomatron.derrick.ListPipelinesResponse
+	(*ListPipelineRunsRequest)(nil),            // 218: nomatron.derrick.ListPipelineRunsRequest
+	(*ListPipelineRunsResponse)(nil),           // 219: nomatron.derrick.ListPipelineRunsResponse
+	(*GetPipelineRunRequest)(nil),              // 220: nomatron.derrick.GetPipelineRunRequest
+	(*GetPipelineRunResponse)(nil),             // 221: nomatron.derrick.GetPipelineRunResponse
+	(*ConfigSyncPipelineRequest)(nil),          // 222: nomatron.derrick.ConfigSyncPipelineRequest
+	(*ConfigSyncPipelineResponse)(nil),         // 223: nomatron.derrick.ConfigSyncPipelineResponse
+	(*TokenTransport)(nil),                     // 224: nomatron.derrick.TokenTransport
+	(*Token)(nil),                              // 225: nomatron.derrick.Token
+	(*HMACKey)(nil),                            // 226: nomatron.derrick.HMACKey
+	(*DecodeTokenRequest)(nil),                 // 227: nomatron.derrick.DecodeTokenRequest
+	(*DecodeTokenResponse)(nil),                // 228: nomatron.derrick.DecodeTokenResponse
+	(*LoginTokenRequest)(nil),                  // 229: nomatron.derrick.LoginTokenRequest
+	(*GenerateRunnerTokenRequest)(nil),         // 230: nomatron.derrick.GenerateRunnerTokenRequest
+	(*InviteTokenRequest)(nil),                 // 231: nomatron.derrick.InviteTokenRequest
+	(*NewTokenResponse)(nil),                   // 232: nomatron.derrick.NewTokenResponse
+	(*ConvertInviteTokenRequest)(nil),          // 233: nomatron.derrick.ConvertInviteTokenRequest
+	(*CreateSnapshotResponse)(nil),             // 234: nomatron.derrick.CreateSnapshotResponse
+	(*RestoreSnapshotRequest)(nil),             // 235: nomatron.derrick.RestoreSnapshotRequest
+	(*Snapshot)(nil),                           // 236: nomatron.derrick.Snapshot
+	(*Hcl)(nil),                                // 237: nomatron.derrick.Hcl
+	(*DerrickHclFmtRequest)(nil),              // 238: nomatron.derrick.DerrickHclFmtRequest
+	(*DerrickHclFmtResponse)(nil),             // 239: nomatron.derrick.DerrickHclFmtResponse
+	(*InlineKeepalive)(nil),                    // 240: nomatron.derrick.InlineKeepalive
+	(*PaginationRequest)(nil),                  // 241: nomatron.derrick.PaginationRequest
+	(*PaginationResponse)(nil),                 // 242: nomatron.derrick.PaginationResponse
+	(*UI_ListProjectsRequest)(nil),             // 243: nomatron.derrick.UI.ListProjectsRequest
+	(*UI_ListProjectsResponse)(nil),            // 244: nomatron.derrick.UI.ListProjectsResponse
+	(*UI_ProjectBundle)(nil),                   // 245: nomatron.derrick.UI.ProjectBundle
+	(*UI_GetProjectRequest)(nil),               // 246: nomatron.derrick.UI.GetProjectRequest
+	(*UI_GetProjectResponse)(nil),              // 247: nomatron.derrick.UI.GetProjectResponse
+	(*UI_ListDeploymentsRequest)(nil),          // 248: nomatron.derrick.UI.ListDeploymentsRequest
+	(*UI_ListDeploymentsResponse)(nil),         // 249: nomatron.derrick.UI.ListDeploymentsResponse
+	(*UI_GetDeploymentRequest)(nil),            // 250: nomatron.derrick.UI.GetDeploymentRequest
+	(*UI_GetDeploymentResponse)(nil),           // 251: nomatron.derrick.UI.GetDeploymentResponse
+	(*UI_DeploymentBundle)(nil),                // 252: nomatron.derrick.UI.DeploymentBundle
+	(*UI_ListReleasesRequest)(nil),             // 253: nomatron.derrick.UI.ListReleasesRequest
+	(*UI_ListReleasesResponse)(nil),            // 254: nomatron.derrick.UI.ListReleasesResponse
+	(*UI_ReleaseBundle)(nil),                   // 255: nomatron.derrick.UI.ReleaseBundle
+	(*VersionInfo_ProtocolVersion)(nil),        // 256: nomatron.derrick.VersionInfo.ProtocolVersion
+	(*Variable_File)(nil),                      // 257: nomatron.derrick.Variable.File
+	(*Variable_VCS)(nil),                       // 258: nomatron.derrick.Variable.VCS
+	(*Variable_HclPos)(nil),                    // 259: nomatron.derrick.Variable.HclPos
+	(*Variable_HclRange)(nil),                  // 260: nomatron.derrick.Variable.HclRange
+	(*Variable_FinalValue)(nil),                // 261: nomatron.derrick.Variable.FinalValue
+	(*Project_Poll)(nil),                       // 262: nomatron.derrick.Project.Poll
+	(*Project_AppStatusPoll)(nil),              // 263: nomatron.derrick.Project.AppStatusPoll
+	(*Workspace_Project)(nil),                  // 264: nomatron.derrick.Workspace.Project
+	(*Workspace_Application)(nil),              // 265: nomatron.derrick.Workspace.Application
+	(*User_Link)(nil),                          // 266: nomatron.derrick.User.Link
+	(*User_Link_OIDC)(nil),                     // 267: nomatron.derrick.User.Link.OIDC
+	(*Ref_Global)(nil),                         // 268: nomatron.derrick.Ref.Global
+	(*Ref_Application)(nil),                    // 269: nomatron.derrick.Ref.Application
+	(*Ref_Project)(nil),                        // 270: nomatron.derrick.Ref.Project
+	(*Ref_Workspace)(nil),                      // 271: nomatron.derrick.Ref.Workspace
+	(*Ref_Deployment)(nil),                     // 272: nomatron.derrick.Ref.Deployment
+	(*Ref_Artifact)(nil),                       // 273: nomatron.derrick.Ref.Artifact
+	(*Ref_Component)(nil),                      // 274: nomatron.derrick.Ref.Component
+	(*Ref_Operation)(nil),                      // 275: nomatron.derrick.Ref.Operation
+	(*Ref_OperationSeq)(nil),                   // 276: nomatron.derrick.Ref.OperationSeq
+	(*Ref_Runner)(nil),                         // 277: nomatron.derrick.Ref.Runner
+	(*Ref_RunnerAny)(nil),                      // 278: nomatron.derrick.Ref.RunnerAny
+	(*Ref_RunnerId)(nil),                       // 279: nomatron.derrick.Ref.RunnerId
+	(*Ref_RunnerLabels)(nil),                   // 280: nomatron.derrick.Ref.RunnerLabels
+	(*Ref_User)(nil),                           // 281: nomatron.derrick.Ref.User
+	(*Ref_UserId)(nil),                         // 282: nomatron.derrick.Ref.UserId
+	(*Ref_UserUsername)(nil),                   // 283: nomatron.derrick.Ref.UserUsername
+	(*Ref_AuthMethod)(nil),                     // 284: nomatron.derrick.Ref.AuthMethod
+	(*Ref_DeclaredResource)(nil),               // 285: nomatron.derrick.Ref.DeclaredResource
+	(*Ref_OnDemandRunnerConfig)(nil),           // 286: nomatron.derrick.Ref.OnDemandRunnerConfig
+	(*Ref_Trigger)(nil),                        // 287: nomatron.derrick.Ref.Trigger
+	(*Ref_Job)(nil),                            // 288: nomatron.derrick.Ref.Job
+	(*Ref_Task)(nil),                           // 289: nomatron.derrick.Ref.Task
+	(*Ref_Pipeline)(nil),                       // 290: nomatron.derrick.Ref.Pipeline
+	(*Ref_PipelineOwner)(nil),                  // 291: nomatron.derrick.Ref.PipelineOwner
+	(*Ref_PipelineStep)(nil),                   // 292: nomatron.derrick.Ref.PipelineStep
+	nil,                                        // 293: nomatron.derrick.Ref.RunnerLabels.LabelsEntry
+	(*StatusFilter_Filter)(nil),                // 294: nomatron.derrick.StatusFilter.Filter
+	nil,                                        // 295: nomatron.derrick.TaskLaunchInfo.EnvironmentVariablesEntry
+	(*AuthMethod_OIDC)(nil),                    // 296: nomatron.derrick.AuthMethod.OIDC
+	nil,                                        // 297: nomatron.derrick.AuthMethod.OIDC.ClaimMappingsEntry
+	nil,                                        // 298: nomatron.derrick.AuthMethod.OIDC.ListClaimMappingsEntry
+	(*Job_TaskOverride)(nil),                   // 299: nomatron.derrick.Job.TaskOverride
+	nil,                                        // 300: nomatron.derrick.Job.LabelsEntry
+	nil,                                        // 301: nomatron.derrick.Job.DataSourceOverridesEntry
+	nil,                                        // 302: nomatron.derrick.Job.VariableFinalValuesEntry
+	(*Job_Result)(nil),                         // 303: nomatron.derrick.Job.Result
+	(*Job_Config)(nil),                         // 304: nomatron.derrick.Job.Config
+	(*Job_DataSource)(nil),                     // 305: nomatron.derrick.Job.DataSource
+	(*Job_Local)(nil),                          // 306: nomatron.derrick.Job.Local
+	(*Job_Remote)(nil),                         // 307: nomatron.derrick.Job.Remote
+	(*Job_Git)(nil),                            // 308: nomatron.derrick.Job.Git
+	(*Job_Noop)(nil),                           // 309: nomatron.derrick.Job.Noop
+	(*Job_UpOp)(nil),                           // 310: nomatron.derrick.Job.UpOp
+	(*Job_UpResult)(nil),                       // 311: nomatron.derrick.Job.UpResult
+	(*Job_ValidateOp)(nil),                     // 312: nomatron.derrick.Job.ValidateOp
+	(*Job_ValidateResult)(nil),                 // 313: nomatron.derrick.Job.ValidateResult
+	(*Job_AuthOp)(nil),                         // 314: nomatron.derrick.Job.AuthOp
+	(*Job_AuthResult)(nil),                     // 315: nomatron.derrick.Job.AuthResult
+	(*Job_BuildOp)(nil),                        // 316: nomatron.derrick.Job.BuildOp
+	(*Job_BuildResult)(nil),                    // 317: nomatron.derrick.Job.BuildResult
+	(*Job_PushOp)(nil),                         // 318: nomatron.derrick.Job.PushOp
+	(*Job_PushResult)(nil),                     // 319: nomatron.derrick.Job.PushResult
+	(*Job_DeployOp)(nil),                       // 320: nomatron.derrick.Job.DeployOp
+	(*Job_DeployResult)(nil),                   // 321: nomatron.derrick.Job.DeployResult
+	(*Job_ExecOp)(nil),                         // 322: nomatron.derrick.Job.ExecOp
+	(*Job_ExecResult)(nil),                     // 323: nomatron.derrick.Job.ExecResult
+	(*Job_LogsOp)(nil),                         // 324: nomatron.derrick.Job.LogsOp
+	(*Job_DestroyOp)(nil),                      // 325: nomatron.derrick.Job.DestroyOp
+	(*Job_ReleaseOp)(nil),                      // 326: nomatron.derrick.Job.ReleaseOp
+	(*Job_ReleaseResult)(nil),                  // 327: nomatron.derrick.Job.ReleaseResult
+	(*Job_TaskPluginParams)(nil),               // 328: nomatron.derrick.Job.TaskPluginParams
+	(*Job_StartTaskLaunchOp)(nil),              // 329: nomatron.derrick.Job.StartTaskLaunchOp
+	(*Job_StartTaskResult)(nil),                // 330: nomatron.derrick.Job.StartTaskResult
+	(*Job_StopTaskLaunchOp)(nil),               // 331: nomatron.derrick.Job.StopTaskLaunchOp
+	(*Job_WatchTaskOp)(nil),                    // 332: nomatron.derrick.Job.WatchTaskOp
+	(*Job_WatchTaskResult)(nil),                // 333: nomatron.derrick.Job.WatchTaskResult
+	(*Job_StatusReportOp)(nil),                 // 334: nomatron.derrick.Job.StatusReportOp
+	(*Job_StatusReportResult)(nil),             // 335: nomatron.derrick.Job.StatusReportResult
+	(*Job_DocsOp)(nil),                         // 336: nomatron.derrick.Job.DocsOp
+	(*Job_DocsResult)(nil),                     // 337: nomatron.derrick.Job.DocsResult
+	(*Job_ConfigSyncOp)(nil),                   // 338: nomatron.derrick.Job.ConfigSyncOp
+	(*Job_ConfigSyncResult)(nil),               // 339: nomatron.derrick.Job.ConfigSyncResult
+	(*Job_PipelineConfigSyncResult)(nil),       // 340: nomatron.derrick.Job.PipelineConfigSyncResult
+	(*Job_ProjectDestroyResult)(nil),           // 341: nomatron.derrick.Job.ProjectDestroyResult
+	(*Job_PollOp)(nil),                         // 342: nomatron.derrick.Job.PollOp
+	(*Job_PollResult)(nil),                     // 343: nomatron.derrick.Job.PollResult
+	(*Job_InitOp)(nil),                         // 344: nomatron.derrick.Job.InitOp
+	(*Job_InitResult)(nil),                     // 345: nomatron.derrick.Job.InitResult
+	(*Job_PipelineStepOp)(nil),                 // 346: nomatron.derrick.Job.PipelineStepOp
+	(*Job_DestroyProjectOp)(nil),               // 347: nomatron.derrick.Job.DestroyProjectOp
+	(*Job_PipelineStepResult)(nil),             // 348: nomatron.derrick.Job.PipelineStepResult
+	(*Job_QueueProjectOp)(nil),                 // 349: nomatron.derrick.Job.QueueProjectOp
+	(*Job_QueueProjectResult)(nil),             // 350: nomatron.derrick.Job.QueueProjectResult
+	(*Job_DataSource_Ref)(nil),                 // 351: nomatron.derrick.Job.DataSource.Ref
+	(*Job_Git_Basic)(nil),                      // 352: nomatron.derrick.Job.Git.Basic
+	(*Job_Git_SSH)(nil),                        // 353: nomatron.derrick.Job.Git.SSH
+	(*Job_Git_Ref)(nil),                        // 354: nomatron.derrick.Job.Git.Ref
+	(*Job_AuthResult_Result)(nil),              // 355: nomatron.derrick.Job.AuthResult.Result
+	(*Job_DocsResult_Result)(nil),              // 356: nomatron.derrick.Job.DocsResult.Result
+	nil,                                        // 357: nomatron.derrick.Job.PipelineConfigSyncResult.SyncedPipelinesEntry
+	(*Job_QueueProjectResult_Application)(nil), // 358: nomatron.derrick.Job.QueueProjectResult.Application
+	nil,                                                     // 359: nomatron.derrick.Documentation.FieldsEntry
+	(*Documentation_Field)(nil),                             // 360: nomatron.derrick.Documentation.Field
+	(*Documentation_Mapper)(nil),                            // 361: nomatron.derrick.Documentation.Mapper
+	(*GetJobStreamResponse_Open)(nil),                       // 362: nomatron.derrick.GetJobStreamResponse.Open
+	(*GetJobStreamResponse_State)(nil),                      // 363: nomatron.derrick.GetJobStreamResponse.State
+	(*GetJobStreamResponse_JobChange)(nil),                  // 364: nomatron.derrick.GetJobStreamResponse.JobChange
+	(*GetJobStreamResponse_Download)(nil),                   // 365: nomatron.derrick.GetJobStreamResponse.Download
+	(*GetJobStreamResponse_Terminal)(nil),                   // 366: nomatron.derrick.GetJobStreamResponse.Terminal
+	(*GetJobStreamResponse_Error)(nil),                      // 367: nomatron.derrick.GetJobStreamResponse.Error
+	(*GetJobStreamResponse_Complete)(nil),                   // 368: nomatron.derrick.GetJobStreamResponse.Complete
+	(*GetJobStreamResponse_Terminal_Event)(nil),             // 369: nomatron.derrick.GetJobStreamResponse.Terminal.Event
+	(*GetJobStreamResponse_Terminal_Event_Status)(nil),      // 370: nomatron.derrick.GetJobStreamResponse.Terminal.Event.Status
+	(*GetJobStreamResponse_Terminal_Event_Line)(nil),        // 371: nomatron.derrick.GetJobStreamResponse.Terminal.Event.Line
+	(*GetJobStreamResponse_Terminal_Event_Raw)(nil),         // 372: nomatron.derrick.GetJobStreamResponse.Terminal.Event.Raw
+	(*GetJobStreamResponse_Terminal_Event_NamedValue)(nil),  // 373: nomatron.derrick.GetJobStreamResponse.Terminal.Event.NamedValue
+	(*GetJobStreamResponse_Terminal_Event_NamedValues)(nil), // 374: nomatron.derrick.GetJobStreamResponse.Terminal.Event.NamedValues
+	(*GetJobStreamResponse_Terminal_Event_TableEntry)(nil),  // 375: nomatron.derrick.GetJobStreamResponse.Terminal.Event.TableEntry
+	(*GetJobStreamResponse_Terminal_Event_TableRow)(nil),    // 376: nomatron.derrick.GetJobStreamResponse.Terminal.Event.TableRow
+	(*GetJobStreamResponse_Terminal_Event_Table)(nil),       // 377: nomatron.derrick.GetJobStreamResponse.Terminal.Event.Table
+	(*GetJobStreamResponse_Terminal_Event_StepGroup)(nil),   // 378: nomatron.derrick.GetJobStreamResponse.Terminal.Event.StepGroup
+	(*GetJobStreamResponse_Terminal_Event_Step)(nil),        // 379: nomatron.derrick.GetJobStreamResponse.Terminal.Event.Step
+	nil,                                              // 380: nomatron.derrick.Runner.LabelsEntry
+	(*Runner_ODR)(nil),                               // 381: nomatron.derrick.Runner.ODR
+	(*Runner_Local)(nil),                             // 382: nomatron.derrick.Runner.Local
+	(*Runner_Remote)(nil),                            // 383: nomatron.derrick.Runner.Remote
+	(*RunnerConfigRequest_Open)(nil),                 // 384: nomatron.derrick.RunnerConfigRequest.Open
+	(*RunnerJobStreamRequest_Request)(nil),           // 385: nomatron.derrick.RunnerJobStreamRequest.Request
+	(*RunnerJobStreamRequest_Ack)(nil),               // 386: nomatron.derrick.RunnerJobStreamRequest.Ack
+	(*RunnerJobStreamRequest_Complete)(nil),          // 387: nomatron.derrick.RunnerJobStreamRequest.Complete
+	(*RunnerJobStreamRequest_Error)(nil),             // 388: nomatron.derrick.RunnerJobStreamRequest.Error
+	(*RunnerJobStreamRequest_Heartbeat)(nil),         // 389: nomatron.derrick.RunnerJobStreamRequest.Heartbeat
+	(*RunnerJobStreamRequest_ConfigLoad)(nil),        // 390: nomatron.derrick.RunnerJobStreamRequest.ConfigLoad
+	(*RunnerJobStreamRequest_VariableValuesSet)(nil), // 391: nomatron.derrick.RunnerJobStreamRequest.VariableValuesSet
+	nil, // 392: nomatron.derrick.RunnerJobStreamRequest.VariableValuesSet.FinalValuesEntry
+	(*RunnerJobStreamResponse_JobAssignment)(nil), // 393: nomatron.derrick.RunnerJobStreamResponse.JobAssignment
+	(*RunnerJobStreamResponse_JobCancel)(nil),     // 394: nomatron.derrick.RunnerJobStreamResponse.JobCancel
+	(*ServerConfig_AdvertiseAddr)(nil),            // 395: nomatron.derrick.ServerConfig.AdvertiseAddr
+	nil,                                           // 396: nomatron.derrick.Hostname.TargetLabelsEntry
+	(*Hostname_Target)(nil),                       // 397: nomatron.derrick.Hostname.Target
+	(*Hostname_TargetApp)(nil),                    // 398: nomatron.derrick.Hostname.TargetApp
+	nil,                                           // 399: nomatron.derrick.Build.LabelsEntry
+	(*Build_Preload)(nil),                         // 400: nomatron.derrick.Build.Preload
+	nil,                                           // 401: nomatron.derrick.OnDemandRunnerConfig.EnvironmentVariablesEntry
+	nil,                                           // 402: nomatron.derrick.PushedArtifact.LabelsEntry
+	(*PushedArtifact_Preload)(nil),                // 403: nomatron.derrick.PushedArtifact.Preload
+	nil,                                           // 404: nomatron.derrick.Deployment.LabelsEntry
+	(*Deployment_Preload)(nil),                    // 405: nomatron.derrick.Deployment.Preload
+	(*ListInstancesRequest_Application)(nil),      // 406: nomatron.derrick.ListInstancesRequest.Application
+	nil,                                           // 407: nomatron.derrick.Release.LabelsEntry
+	(*Release_Preload)(nil),                       // 408: nomatron.derrick.Release.Preload
+	(*StatusReport_Resource)(nil),                 // 409: nomatron.derrick.StatusReport.Resource
+	(*StatusReport_Health)(nil),                   // 410: nomatron.derrick.StatusReport.Health
+	(*GetLogStreamRequest_Application)(nil),       // 411: nomatron.derrick.GetLogStreamRequest.Application
+	(*LogBatch_Entry)(nil),                        // 412: nomatron.derrick.LogBatch.Entry
+	(*ConfigVar_DynamicVal)(nil),                  // 413: nomatron.derrick.ConfigVar.DynamicVal
+	(*ConfigVar_Target)(nil),                      // 414: nomatron.derrick.ConfigVar.Target
+	nil,                                           // 415: nomatron.derrick.ConfigVar.DynamicVal.ConfigEntry
+	nil,                                           // 416: nomatron.derrick.ConfigGetRequest.LabelsEntry
+	nil,                                           // 417: nomatron.derrick.ConfigSource.ConfigEntry
+	(*ExecStreamRequest_Start)(nil),               // 418: nomatron.derrick.ExecStreamRequest.Start
+	(*ExecStreamRequest_Input)(nil),               // 419: nomatron.derrick.ExecStreamRequest.Input
+	(*ExecStreamRequest_PTY)(nil),                 // 420: nomatron.derrick.ExecStreamRequest.PTY
+	(*ExecStreamRequest_WindowSize)(nil),          // 421: nomatron.derrick.ExecStreamRequest.WindowSize
+	(*ExecStreamResponse_Open)(nil),               // 422: nomatron.derrick.ExecStreamResponse.Open
+	(*ExecStreamResponse_Exit)(nil),               // 423: nomatron.derrick.ExecStreamResponse.Exit
+	(*ExecStreamResponse_Output)(nil),             // 424: nomatron.derrick.ExecStreamResponse.Output
+	(*EntrypointConfig_Exec)(nil),                 // 425: nomatron.derrick.EntrypointConfig.Exec
+	(*EntrypointConfig_URLService)(nil),           // 426: nomatron.derrick.EntrypointConfig.URLService
+	(*EntrypointConfig_DeploymentInfo)(nil),       // 427: nomatron.derrick.EntrypointConfig.DeploymentInfo
+	nil,                                           // 428: nomatron.derrick.EntrypointConfig.DeploymentInfo.LabelsEntry
+	(*EntrypointExecRequest_Open)(nil),            // 429: nomatron.derrick.EntrypointExecRequest.Open
+	(*EntrypointExecRequest_Exit)(nil),            // 430: nomatron.derrick.EntrypointExecRequest.Exit
+	(*EntrypointExecRequest_Output)(nil),          // 431: nomatron.derrick.EntrypointExecRequest.Output
+	(*EntrypointExecRequest_Error)(nil),           // 432: nomatron.derrick.EntrypointExecRequest.Error
+	nil,                                           // 433: nomatron.derrick.Pipeline.StepsEntry
+	(*Pipeline_Step)(nil),                         // 434: nomatron.derrick.Pipeline.Step
+	(*Pipeline_Step_Exec)(nil),                    // 435: nomatron.derrick.Pipeline.Step.Exec
+	(*Pipeline_Step_Build)(nil),                   // 436: nomatron.derrick.Pipeline.Step.Build
+	(*Pipeline_Step_Deploy)(nil),                  // 437: nomatron.derrick.Pipeline.Step.Deploy
+	(*Pipeline_Step_Release)(nil),                 // 438: nomatron.derrick.Pipeline.Step.Release
+	(*Pipeline_Step_Up)(nil),                      // 439: nomatron.derrick.Pipeline.Step.Up
+	(*Pipeline_Step_Pipeline)(nil),                // 440: nomatron.derrick.Pipeline.Step.Pipeline
+	(*GetPipelineResponse_Graph)(nil),             // 441: nomatron.derrick.GetPipelineResponse.Graph
+	nil,                                           // 442: nomatron.derrick.RunPipelineResponse.JobMapEntry
+	nil,                                           // 443: nomatron.derrick.ConfigSyncPipelineResponse.SyncedPipelinesEntry
+	nil,                                           // 444: nomatron.derrick.TokenTransport.MetadataEntry
+	(*TokenTransport_OAuthCredentials)(nil),       // 445: nomatron.derrick.TokenTransport.OAuthCredentials
+	(*Token_Login)(nil),                           // 446: nomatron.derrick.Token.Login
+	(*Token_Runner)(nil),                          // 447: nomatron.derrick.Token.Runner
+	(*Token_Invite)(nil),                          // 448: nomatron.derrick.Token.Invite
+	(*Token_Entrypoint)(nil),                      // 449: nomatron.derrick.Token.Entrypoint
+	(*Token_Trigger)(nil),                         // 450: nomatron.derrick.Token.Trigger
+	(*Token_Invite_Signup)(nil),                   // 451: nomatron.derrick.Token.Invite.Signup
+	nil,                                           // 452: nomatron.derrick.GenerateRunnerTokenRequest.LabelsEntry
+	(*CreateSnapshotResponse_Open)(nil),           // 453: nomatron.derrick.CreateSnapshotResponse.Open
+	(*RestoreSnapshotRequest_Open)(nil),           // 454: nomatron.derrick.RestoreSnapshotRequest.Open
+	(*Snapshot_Header)(nil),                       // 455: nomatron.derrick.Snapshot.Header
+	(*Snapshot_Trailer)(nil),                      // 456: nomatron.derrick.Snapshot.Trailer
+	(*Snapshot_BoltChunk)(nil),                    // 457: nomatron.derrick.Snapshot.BoltChunk
+	nil,                                           // 458: nomatron.derrick.Snapshot.BoltChunk.ItemsEntry
 	(*emptypb.Empty)(nil),                         // 459: google.protobuf.Empty
 	(*timestamppb.Timestamp)(nil),                 // 460: google.protobuf.Timestamp
 	(*status.Status)(nil),                         // 461: google.rpc.Status
 	(*opaqueany.Any)(nil),                         // 462: opaqueany.Any
 }
 var file_pkg_server_proto_server_proto_depIdxs = []int32{
-	28,  // 0: hashicorp.waypoint.GetVersionInfoResponse.info:type_name -> hashicorp.waypoint.VersionInfo
-	27,  // 1: hashicorp.waypoint.GetVersionInfoResponse.server_features:type_name -> hashicorp.waypoint.ServerFeatures
-	1,   // 2: hashicorp.waypoint.ServerFeatures.features:type_name -> hashicorp.waypoint.ServerFeatures.feature
-	256, // 3: hashicorp.waypoint.VersionInfo.api:type_name -> hashicorp.waypoint.VersionInfo.ProtocolVersion
-	256, // 4: hashicorp.waypoint.VersionInfo.entrypoint:type_name -> hashicorp.waypoint.VersionInfo.ProtocolVersion
-	270, // 5: hashicorp.waypoint.Application.project:type_name -> hashicorp.waypoint.Ref.Project
-	459, // 6: hashicorp.waypoint.Variable.cli:type_name -> google.protobuf.Empty
-	257, // 7: hashicorp.waypoint.Variable.file:type_name -> hashicorp.waypoint.Variable.File
-	459, // 8: hashicorp.waypoint.Variable.env:type_name -> google.protobuf.Empty
-	258, // 9: hashicorp.waypoint.Variable.vcs:type_name -> hashicorp.waypoint.Variable.VCS
-	459, // 10: hashicorp.waypoint.Variable.server:type_name -> google.protobuf.Empty
-	459, // 11: hashicorp.waypoint.Variable.dynamic:type_name -> google.protobuf.Empty
-	261, // 12: hashicorp.waypoint.Variable.final_value:type_name -> hashicorp.waypoint.Variable.FinalValue
-	29,  // 13: hashicorp.waypoint.Project.applications:type_name -> hashicorp.waypoint.Application
-	305, // 14: hashicorp.waypoint.Project.data_source:type_name -> hashicorp.waypoint.Job.DataSource
-	262, // 15: hashicorp.waypoint.Project.data_source_poll:type_name -> hashicorp.waypoint.Project.Poll
-	24,  // 16: hashicorp.waypoint.Project.waypoint_hcl_format:type_name -> hashicorp.waypoint.Hcl.Format
-	30,  // 17: hashicorp.waypoint.Project.variables:type_name -> hashicorp.waypoint.Variable
-	263, // 18: hashicorp.waypoint.Project.status_report_poll:type_name -> hashicorp.waypoint.Project.AppStatusPoll
-	3,   // 19: hashicorp.waypoint.Project.state:type_name -> hashicorp.waypoint.Project.ProjectState
-	264, // 20: hashicorp.waypoint.Workspace.projects:type_name -> hashicorp.waypoint.Workspace.Project
-	460, // 21: hashicorp.waypoint.Workspace.active_time:type_name -> google.protobuf.Timestamp
-	266, // 22: hashicorp.waypoint.User.links:type_name -> hashicorp.waypoint.User.Link
-	4,   // 23: hashicorp.waypoint.Component.type:type_name -> hashicorp.waypoint.Component.Type
-	5,   // 24: hashicorp.waypoint.Status.state:type_name -> hashicorp.waypoint.Status.State
-	461, // 25: hashicorp.waypoint.Status.error:type_name -> google.rpc.Status
-	460, // 26: hashicorp.waypoint.Status.start_time:type_name -> google.protobuf.Timestamp
-	460, // 27: hashicorp.waypoint.Status.complete_time:type_name -> google.protobuf.Timestamp
-	294, // 28: hashicorp.waypoint.StatusFilter.filters:type_name -> hashicorp.waypoint.StatusFilter.Filter
-	7,   // 29: hashicorp.waypoint.OperationOrder.order:type_name -> hashicorp.waypoint.OperationOrder.Order
-	462, // 30: hashicorp.waypoint.DeclaredResource.state:type_name -> opaqueany.Any
-	0,   // 31: hashicorp.waypoint.DeclaredResource.category_display_hint:type_name -> hashicorp.waypoint.ResourceCategoryDisplayHint
-	462, // 32: hashicorp.waypoint.DestroyedResource.state:type_name -> opaqueany.Any
-	295, // 33: hashicorp.waypoint.TaskLaunchInfo.environment_variables:type_name -> hashicorp.waypoint.TaskLaunchInfo.EnvironmentVariablesEntry
-	288, // 34: hashicorp.waypoint.Task.task_job:type_name -> hashicorp.waypoint.Ref.Job
-	288, // 35: hashicorp.waypoint.Task.watch_job:type_name -> hashicorp.waypoint.Ref.Job
-	288, // 36: hashicorp.waypoint.Task.start_job:type_name -> hashicorp.waypoint.Ref.Job
-	288, // 37: hashicorp.waypoint.Task.stop_job:type_name -> hashicorp.waypoint.Ref.Job
-	462, // 38: hashicorp.waypoint.Task.state:type_name -> opaqueany.Any
-	8,   // 39: hashicorp.waypoint.Task.job_state:type_name -> hashicorp.waypoint.Task.State
-	44,  // 40: hashicorp.waypoint.UpsertTaskRequest.task:type_name -> hashicorp.waypoint.Task
-	44,  // 41: hashicorp.waypoint.UpsertTaskResponse.task:type_name -> hashicorp.waypoint.Task
-	289, // 42: hashicorp.waypoint.GetTaskRequest.ref:type_name -> hashicorp.waypoint.Ref.Task
-	44,  // 43: hashicorp.waypoint.GetTaskResponse.task:type_name -> hashicorp.waypoint.Task
-	78,  // 44: hashicorp.waypoint.GetTaskResponse.task_job:type_name -> hashicorp.waypoint.Job
-	78,  // 45: hashicorp.waypoint.GetTaskResponse.start_job:type_name -> hashicorp.waypoint.Job
-	78,  // 46: hashicorp.waypoint.GetTaskResponse.stop_job:type_name -> hashicorp.waypoint.Job
-	78,  // 47: hashicorp.waypoint.GetTaskResponse.watch_job:type_name -> hashicorp.waypoint.Job
-	289, // 48: hashicorp.waypoint.DeleteTaskRequest.ref:type_name -> hashicorp.waypoint.Ref.Task
-	8,   // 49: hashicorp.waypoint.ListTaskRequest.taskState:type_name -> hashicorp.waypoint.Task.State
-	48,  // 50: hashicorp.waypoint.ListTaskResponse.tasks:type_name -> hashicorp.waypoint.GetTaskResponse
-	289, // 51: hashicorp.waypoint.CancelTaskRequest.ref:type_name -> hashicorp.waypoint.Ref.Task
-	281, // 52: hashicorp.waypoint.GetUserRequest.user:type_name -> hashicorp.waypoint.Ref.User
-	33,  // 53: hashicorp.waypoint.GetUserResponse.user:type_name -> hashicorp.waypoint.User
-	33,  // 54: hashicorp.waypoint.ListUsersResponse.users:type_name -> hashicorp.waypoint.User
-	33,  // 55: hashicorp.waypoint.UpdateUserRequest.user:type_name -> hashicorp.waypoint.User
-	33,  // 56: hashicorp.waypoint.UpdateUserResponse.user:type_name -> hashicorp.waypoint.User
-	281, // 57: hashicorp.waypoint.DeleteUserRequest.user:type_name -> hashicorp.waypoint.Ref.User
-	296, // 58: hashicorp.waypoint.AuthMethod.oidc:type_name -> hashicorp.waypoint.AuthMethod.OIDC
-	9,   // 59: hashicorp.waypoint.OIDCAuthMethod.kind:type_name -> hashicorp.waypoint.OIDCAuthMethod.Kind
-	60,  // 60: hashicorp.waypoint.UpsertAuthMethodRequest.auth_method:type_name -> hashicorp.waypoint.AuthMethod
-	60,  // 61: hashicorp.waypoint.UpsertAuthMethodResponse.auth_method:type_name -> hashicorp.waypoint.AuthMethod
-	284, // 62: hashicorp.waypoint.GetAuthMethodRequest.auth_method:type_name -> hashicorp.waypoint.Ref.AuthMethod
-	60,  // 63: hashicorp.waypoint.GetAuthMethodResponse.auth_method:type_name -> hashicorp.waypoint.AuthMethod
-	284, // 64: hashicorp.waypoint.DeleteAuthMethodRequest.auth_method:type_name -> hashicorp.waypoint.Ref.AuthMethod
-	60,  // 65: hashicorp.waypoint.ListAuthMethodsResponse.auth_methods:type_name -> hashicorp.waypoint.AuthMethod
-	61,  // 66: hashicorp.waypoint.ListOIDCAuthMethodsResponse.auth_methods:type_name -> hashicorp.waypoint.OIDCAuthMethod
-	284, // 67: hashicorp.waypoint.GetOIDCAuthURLRequest.auth_method:type_name -> hashicorp.waypoint.Ref.AuthMethod
-	284, // 68: hashicorp.waypoint.CompleteOIDCAuthRequest.auth_method:type_name -> hashicorp.waypoint.Ref.AuthMethod
-	33,  // 69: hashicorp.waypoint.CompleteOIDCAuthResponse.user:type_name -> hashicorp.waypoint.User
-	78,  // 70: hashicorp.waypoint.QueueJobRequest.job:type_name -> hashicorp.waypoint.Job
-	78,  // 71: hashicorp.waypoint.ValidateJobRequest.job:type_name -> hashicorp.waypoint.Job
-	461, // 72: hashicorp.waypoint.ValidateJobResponse.validation_error:type_name -> google.rpc.Status
-	269, // 73: hashicorp.waypoint.Job.application:type_name -> hashicorp.waypoint.Ref.Application
-	271, // 74: hashicorp.waypoint.Job.workspace:type_name -> hashicorp.waypoint.Ref.Workspace
-	277, // 75: hashicorp.waypoint.Job.target_runner:type_name -> hashicorp.waypoint.Ref.Runner
-	286, // 76: hashicorp.waypoint.Job.ondemand_runner:type_name -> hashicorp.waypoint.Ref.OnDemandRunnerConfig
-	299, // 77: hashicorp.waypoint.Job.ondemand_runner_task:type_name -> hashicorp.waypoint.Job.TaskOverride
-	300, // 78: hashicorp.waypoint.Job.labels:type_name -> hashicorp.waypoint.Job.LabelsEntry
-	305, // 79: hashicorp.waypoint.Job.data_source:type_name -> hashicorp.waypoint.Job.DataSource
-	301, // 80: hashicorp.waypoint.Job.data_source_overrides:type_name -> hashicorp.waypoint.Job.DataSourceOverridesEntry
-	237, // 81: hashicorp.waypoint.Job.waypoint_hcl:type_name -> hashicorp.waypoint.Hcl
-	30,  // 82: hashicorp.waypoint.Job.variables:type_name -> hashicorp.waypoint.Variable
-	309, // 83: hashicorp.waypoint.Job.noop:type_name -> hashicorp.waypoint.Job.Noop
-	316, // 84: hashicorp.waypoint.Job.build:type_name -> hashicorp.waypoint.Job.BuildOp
-	318, // 85: hashicorp.waypoint.Job.push:type_name -> hashicorp.waypoint.Job.PushOp
-	320, // 86: hashicorp.waypoint.Job.deploy:type_name -> hashicorp.waypoint.Job.DeployOp
-	325, // 87: hashicorp.waypoint.Job.destroy:type_name -> hashicorp.waypoint.Job.DestroyOp
-	326, // 88: hashicorp.waypoint.Job.release:type_name -> hashicorp.waypoint.Job.ReleaseOp
-	312, // 89: hashicorp.waypoint.Job.validate:type_name -> hashicorp.waypoint.Job.ValidateOp
-	314, // 90: hashicorp.waypoint.Job.auth:type_name -> hashicorp.waypoint.Job.AuthOp
-	336, // 91: hashicorp.waypoint.Job.docs:type_name -> hashicorp.waypoint.Job.DocsOp
-	338, // 92: hashicorp.waypoint.Job.config_sync:type_name -> hashicorp.waypoint.Job.ConfigSyncOp
-	322, // 93: hashicorp.waypoint.Job.exec:type_name -> hashicorp.waypoint.Job.ExecOp
-	310, // 94: hashicorp.waypoint.Job.up:type_name -> hashicorp.waypoint.Job.UpOp
-	324, // 95: hashicorp.waypoint.Job.logs:type_name -> hashicorp.waypoint.Job.LogsOp
-	349, // 96: hashicorp.waypoint.Job.queue_project:type_name -> hashicorp.waypoint.Job.QueueProjectOp
-	342, // 97: hashicorp.waypoint.Job.poll:type_name -> hashicorp.waypoint.Job.PollOp
-	334, // 98: hashicorp.waypoint.Job.status_report:type_name -> hashicorp.waypoint.Job.StatusReportOp
-	329, // 99: hashicorp.waypoint.Job.start_task:type_name -> hashicorp.waypoint.Job.StartTaskLaunchOp
-	331, // 100: hashicorp.waypoint.Job.stop_task:type_name -> hashicorp.waypoint.Job.StopTaskLaunchOp
-	344, // 101: hashicorp.waypoint.Job.init:type_name -> hashicorp.waypoint.Job.InitOp
-	332, // 102: hashicorp.waypoint.Job.watch_task:type_name -> hashicorp.waypoint.Job.WatchTaskOp
-	346, // 103: hashicorp.waypoint.Job.pipeline_step:type_name -> hashicorp.waypoint.Job.PipelineStepOp
-	347, // 104: hashicorp.waypoint.Job.destroy_project:type_name -> hashicorp.waypoint.Job.DestroyProjectOp
-	10,  // 105: hashicorp.waypoint.Job.state:type_name -> hashicorp.waypoint.Job.State
-	279, // 106: hashicorp.waypoint.Job.assigned_runner:type_name -> hashicorp.waypoint.Ref.RunnerId
-	460, // 107: hashicorp.waypoint.Job.queue_time:type_name -> google.protobuf.Timestamp
-	460, // 108: hashicorp.waypoint.Job.assign_time:type_name -> google.protobuf.Timestamp
-	460, // 109: hashicorp.waypoint.Job.ack_time:type_name -> google.protobuf.Timestamp
-	460, // 110: hashicorp.waypoint.Job.complete_time:type_name -> google.protobuf.Timestamp
-	351, // 111: hashicorp.waypoint.Job.data_source_ref:type_name -> hashicorp.waypoint.Job.DataSource.Ref
-	302, // 112: hashicorp.waypoint.Job.variable_final_values:type_name -> hashicorp.waypoint.Job.VariableFinalValuesEntry
-	304, // 113: hashicorp.waypoint.Job.config:type_name -> hashicorp.waypoint.Job.Config
-	461, // 114: hashicorp.waypoint.Job.error:type_name -> google.rpc.Status
-	303, // 115: hashicorp.waypoint.Job.result:type_name -> hashicorp.waypoint.Job.Result
-	460, // 116: hashicorp.waypoint.Job.cancel_time:type_name -> google.protobuf.Timestamp
-	460, // 117: hashicorp.waypoint.Job.expire_time:type_name -> google.protobuf.Timestamp
-	289, // 118: hashicorp.waypoint.Job.task:type_name -> hashicorp.waypoint.Ref.Task
-	292, // 119: hashicorp.waypoint.Job.pipeline:type_name -> hashicorp.waypoint.Ref.PipelineStep
-	359, // 120: hashicorp.waypoint.Documentation.fields:type_name -> hashicorp.waypoint.Documentation.FieldsEntry
-	361, // 121: hashicorp.waypoint.Documentation.mappers:type_name -> hashicorp.waypoint.Documentation.Mapper
-	271, // 122: hashicorp.waypoint.ListJobsRequest.workspace:type_name -> hashicorp.waypoint.Ref.Workspace
-	270, // 123: hashicorp.waypoint.ListJobsRequest.project:type_name -> hashicorp.waypoint.Ref.Project
-	269, // 124: hashicorp.waypoint.ListJobsRequest.application:type_name -> hashicorp.waypoint.Ref.Application
-	277, // 125: hashicorp.waypoint.ListJobsRequest.targetRunner:type_name -> hashicorp.waypoint.Ref.Runner
-	292, // 126: hashicorp.waypoint.ListJobsRequest.pipeline:type_name -> hashicorp.waypoint.Ref.PipelineStep
-	10,  // 127: hashicorp.waypoint.ListJobsRequest.jobState:type_name -> hashicorp.waypoint.Job.State
-	241, // 128: hashicorp.waypoint.ListJobsRequest.pagination:type_name -> hashicorp.waypoint.PaginationRequest
-	78,  // 129: hashicorp.waypoint.ListJobsResponse.jobs:type_name -> hashicorp.waypoint.Job
-	242, // 130: hashicorp.waypoint.ListJobsResponse.pagination:type_name -> hashicorp.waypoint.PaginationResponse
-	362, // 131: hashicorp.waypoint.GetJobStreamResponse.open:type_name -> hashicorp.waypoint.GetJobStreamResponse.Open
-	363, // 132: hashicorp.waypoint.GetJobStreamResponse.state:type_name -> hashicorp.waypoint.GetJobStreamResponse.State
-	364, // 133: hashicorp.waypoint.GetJobStreamResponse.job:type_name -> hashicorp.waypoint.GetJobStreamResponse.JobChange
-	366, // 134: hashicorp.waypoint.GetJobStreamResponse.terminal:type_name -> hashicorp.waypoint.GetJobStreamResponse.Terminal
-	365, // 135: hashicorp.waypoint.GetJobStreamResponse.download:type_name -> hashicorp.waypoint.GetJobStreamResponse.Download
-	367, // 136: hashicorp.waypoint.GetJobStreamResponse.error:type_name -> hashicorp.waypoint.GetJobStreamResponse.Error
-	368, // 137: hashicorp.waypoint.GetJobStreamResponse.complete:type_name -> hashicorp.waypoint.GetJobStreamResponse.Complete
-	381, // 138: hashicorp.waypoint.Runner.odr:type_name -> hashicorp.waypoint.Runner.ODR
-	382, // 139: hashicorp.waypoint.Runner.local:type_name -> hashicorp.waypoint.Runner.Local
-	383, // 140: hashicorp.waypoint.Runner.remote:type_name -> hashicorp.waypoint.Runner.Remote
-	35,  // 141: hashicorp.waypoint.Runner.components:type_name -> hashicorp.waypoint.Component
-	380, // 142: hashicorp.waypoint.Runner.labels:type_name -> hashicorp.waypoint.Runner.LabelsEntry
-	460, // 143: hashicorp.waypoint.Runner.first_seen:type_name -> google.protobuf.Timestamp
-	460, // 144: hashicorp.waypoint.Runner.last_seen:type_name -> google.protobuf.Timestamp
-	12,  // 145: hashicorp.waypoint.Runner.adoption_state:type_name -> hashicorp.waypoint.Runner.AdoptionState
-	85,  // 146: hashicorp.waypoint.RunnerTokenRequest.runner:type_name -> hashicorp.waypoint.Runner
-	384, // 147: hashicorp.waypoint.RunnerConfigRequest.open:type_name -> hashicorp.waypoint.RunnerConfigRequest.Open
-	90,  // 148: hashicorp.waypoint.RunnerConfigResponse.config:type_name -> hashicorp.waypoint.RunnerConfig
-	188, // 149: hashicorp.waypoint.RunnerConfig.config_vars:type_name -> hashicorp.waypoint.ConfigVar
-	195, // 150: hashicorp.waypoint.RunnerConfig.config_sources:type_name -> hashicorp.waypoint.ConfigSource
-	385, // 151: hashicorp.waypoint.RunnerJobStreamRequest.request:type_name -> hashicorp.waypoint.RunnerJobStreamRequest.Request
-	386, // 152: hashicorp.waypoint.RunnerJobStreamRequest.ack:type_name -> hashicorp.waypoint.RunnerJobStreamRequest.Ack
-	387, // 153: hashicorp.waypoint.RunnerJobStreamRequest.complete:type_name -> hashicorp.waypoint.RunnerJobStreamRequest.Complete
-	388, // 154: hashicorp.waypoint.RunnerJobStreamRequest.error:type_name -> hashicorp.waypoint.RunnerJobStreamRequest.Error
-	366, // 155: hashicorp.waypoint.RunnerJobStreamRequest.terminal:type_name -> hashicorp.waypoint.GetJobStreamResponse.Terminal
-	365, // 156: hashicorp.waypoint.RunnerJobStreamRequest.download:type_name -> hashicorp.waypoint.GetJobStreamResponse.Download
-	390, // 157: hashicorp.waypoint.RunnerJobStreamRequest.config_load:type_name -> hashicorp.waypoint.RunnerJobStreamRequest.ConfigLoad
-	391, // 158: hashicorp.waypoint.RunnerJobStreamRequest.variable_values_set:type_name -> hashicorp.waypoint.RunnerJobStreamRequest.VariableValuesSet
-	389, // 159: hashicorp.waypoint.RunnerJobStreamRequest.heartbeat:type_name -> hashicorp.waypoint.RunnerJobStreamRequest.Heartbeat
-	393, // 160: hashicorp.waypoint.RunnerJobStreamResponse.assignment:type_name -> hashicorp.waypoint.RunnerJobStreamResponse.JobAssignment
-	394, // 161: hashicorp.waypoint.RunnerJobStreamResponse.cancel:type_name -> hashicorp.waypoint.RunnerJobStreamResponse.JobCancel
-	85,  // 162: hashicorp.waypoint.ListRunnersResponse.runners:type_name -> hashicorp.waypoint.Runner
-	102, // 163: hashicorp.waypoint.SetServerConfigRequest.config:type_name -> hashicorp.waypoint.ServerConfig
-	102, // 164: hashicorp.waypoint.GetServerConfigResponse.config:type_name -> hashicorp.waypoint.ServerConfig
-	395, // 165: hashicorp.waypoint.ServerConfig.advertise_addrs:type_name -> hashicorp.waypoint.ServerConfig.AdvertiseAddr
-	397, // 166: hashicorp.waypoint.CreateHostnameRequest.target:type_name -> hashicorp.waypoint.Hostname.Target
-	108, // 167: hashicorp.waypoint.CreateHostnameResponse.hostname:type_name -> hashicorp.waypoint.Hostname
-	397, // 168: hashicorp.waypoint.ListHostnamesRequest.target:type_name -> hashicorp.waypoint.Hostname.Target
-	108, // 169: hashicorp.waypoint.ListHostnamesResponse.hostnames:type_name -> hashicorp.waypoint.Hostname
-	396, // 170: hashicorp.waypoint.Hostname.target_labels:type_name -> hashicorp.waypoint.Hostname.TargetLabelsEntry
-	459, // 171: hashicorp.waypoint.ListWorkspacesRequest.global:type_name -> google.protobuf.Empty
-	270, // 172: hashicorp.waypoint.ListWorkspacesRequest.project:type_name -> hashicorp.waypoint.Ref.Project
-	269, // 173: hashicorp.waypoint.ListWorkspacesRequest.application:type_name -> hashicorp.waypoint.Ref.Application
-	32,  // 174: hashicorp.waypoint.ListWorkspacesResponse.workspaces:type_name -> hashicorp.waypoint.Workspace
-	271, // 175: hashicorp.waypoint.GetWorkspaceRequest.workspace:type_name -> hashicorp.waypoint.Ref.Workspace
-	32,  // 176: hashicorp.waypoint.GetWorkspaceResponse.workspace:type_name -> hashicorp.waypoint.Workspace
-	32,  // 177: hashicorp.waypoint.UpsertWorkspaceRequest.workspace:type_name -> hashicorp.waypoint.Workspace
-	32,  // 178: hashicorp.waypoint.UpsertWorkspaceResponse.workspace:type_name -> hashicorp.waypoint.Workspace
-	31,  // 179: hashicorp.waypoint.UpsertProjectRequest.project:type_name -> hashicorp.waypoint.Project
-	31,  // 180: hashicorp.waypoint.UpsertProjectResponse.project:type_name -> hashicorp.waypoint.Project
-	270, // 181: hashicorp.waypoint.GetProjectRequest.project:type_name -> hashicorp.waypoint.Ref.Project
-	31,  // 182: hashicorp.waypoint.GetProjectResponse.project:type_name -> hashicorp.waypoint.Project
-	264, // 183: hashicorp.waypoint.GetProjectResponse.workspaces:type_name -> hashicorp.waypoint.Workspace.Project
-	241, // 184: hashicorp.waypoint.ListProjectsRequest.pagination:type_name -> hashicorp.waypoint.PaginationRequest
-	270, // 185: hashicorp.waypoint.ListProjectsResponse.projects:type_name -> hashicorp.waypoint.Ref.Project
-	242, // 186: hashicorp.waypoint.ListProjectsResponse.pagination:type_name -> hashicorp.waypoint.PaginationResponse
-	270, // 187: hashicorp.waypoint.DestroyProjectRequest.project:type_name -> hashicorp.waypoint.Ref.Project
-	269, // 188: hashicorp.waypoint.GetApplicationRequest.application:type_name -> hashicorp.waypoint.Ref.Application
-	29,  // 189: hashicorp.waypoint.GetApplicationResponse.application:type_name -> hashicorp.waypoint.Application
-	270, // 190: hashicorp.waypoint.UpsertApplicationRequest.project:type_name -> hashicorp.waypoint.Ref.Project
-	29,  // 191: hashicorp.waypoint.UpsertApplicationResponse.application:type_name -> hashicorp.waypoint.Application
-	132, // 192: hashicorp.waypoint.UpsertBuildRequest.build:type_name -> hashicorp.waypoint.Build
-	132, // 193: hashicorp.waypoint.UpsertBuildResponse.build:type_name -> hashicorp.waypoint.Build
-	269, // 194: hashicorp.waypoint.ListBuildsRequest.application:type_name -> hashicorp.waypoint.Ref.Application
-	271, // 195: hashicorp.waypoint.ListBuildsRequest.workspace:type_name -> hashicorp.waypoint.Ref.Workspace
-	39,  // 196: hashicorp.waypoint.ListBuildsRequest.order:type_name -> hashicorp.waypoint.OperationOrder
-	132, // 197: hashicorp.waypoint.ListBuildsResponse.builds:type_name -> hashicorp.waypoint.Build
-	269, // 198: hashicorp.waypoint.GetLatestBuildRequest.application:type_name -> hashicorp.waypoint.Ref.Application
-	271, // 199: hashicorp.waypoint.GetLatestBuildRequest.workspace:type_name -> hashicorp.waypoint.Ref.Workspace
-	275, // 200: hashicorp.waypoint.GetBuildRequest.ref:type_name -> hashicorp.waypoint.Ref.Operation
-	269, // 201: hashicorp.waypoint.Build.application:type_name -> hashicorp.waypoint.Ref.Application
-	271, // 202: hashicorp.waypoint.Build.workspace:type_name -> hashicorp.waypoint.Ref.Workspace
-	36,  // 203: hashicorp.waypoint.Build.status:type_name -> hashicorp.waypoint.Status
-	35,  // 204: hashicorp.waypoint.Build.component:type_name -> hashicorp.waypoint.Component
-	133, // 205: hashicorp.waypoint.Build.artifact:type_name -> hashicorp.waypoint.Artifact
-	399, // 206: hashicorp.waypoint.Build.labels:type_name -> hashicorp.waypoint.Build.LabelsEntry
-	400, // 207: hashicorp.waypoint.Build.preload:type_name -> hashicorp.waypoint.Build.Preload
-	462, // 208: hashicorp.waypoint.Artifact.artifact:type_name -> opaqueany.Any
-	277, // 209: hashicorp.waypoint.OnDemandRunnerConfig.target_runner:type_name -> hashicorp.waypoint.Ref.Runner
-	401, // 210: hashicorp.waypoint.OnDemandRunnerConfig.environment_variables:type_name -> hashicorp.waypoint.OnDemandRunnerConfig.EnvironmentVariablesEntry
-	24,  // 211: hashicorp.waypoint.OnDemandRunnerConfig.config_format:type_name -> hashicorp.waypoint.Hcl.Format
-	134, // 212: hashicorp.waypoint.UpsertOnDemandRunnerConfigRequest.config:type_name -> hashicorp.waypoint.OnDemandRunnerConfig
-	134, // 213: hashicorp.waypoint.UpsertOnDemandRunnerConfigResponse.config:type_name -> hashicorp.waypoint.OnDemandRunnerConfig
-	286, // 214: hashicorp.waypoint.GetOnDemandRunnerConfigRequest.config:type_name -> hashicorp.waypoint.Ref.OnDemandRunnerConfig
-	134, // 215: hashicorp.waypoint.GetOnDemandRunnerConfigResponse.config:type_name -> hashicorp.waypoint.OnDemandRunnerConfig
-	286, // 216: hashicorp.waypoint.DeleteOnDemandRunnerConfigRequest.config:type_name -> hashicorp.waypoint.Ref.OnDemandRunnerConfig
-	134, // 217: hashicorp.waypoint.DeleteOnDemandRunnerConfigResponse.config:type_name -> hashicorp.waypoint.OnDemandRunnerConfig
-	134, // 218: hashicorp.waypoint.ListOnDemandRunnerConfigsResponse.configs:type_name -> hashicorp.waypoint.OnDemandRunnerConfig
-	148, // 219: hashicorp.waypoint.UpsertPushedArtifactRequest.artifact:type_name -> hashicorp.waypoint.PushedArtifact
-	148, // 220: hashicorp.waypoint.UpsertPushedArtifactResponse.artifact:type_name -> hashicorp.waypoint.PushedArtifact
-	269, // 221: hashicorp.waypoint.GetLatestPushedArtifactRequest.application:type_name -> hashicorp.waypoint.Ref.Application
-	271, // 222: hashicorp.waypoint.GetLatestPushedArtifactRequest.workspace:type_name -> hashicorp.waypoint.Ref.Workspace
-	275, // 223: hashicorp.waypoint.GetPushedArtifactRequest.ref:type_name -> hashicorp.waypoint.Ref.Operation
-	269, // 224: hashicorp.waypoint.ListPushedArtifactsRequest.application:type_name -> hashicorp.waypoint.Ref.Application
-	271, // 225: hashicorp.waypoint.ListPushedArtifactsRequest.workspace:type_name -> hashicorp.waypoint.Ref.Workspace
-	37,  // 226: hashicorp.waypoint.ListPushedArtifactsRequest.status:type_name -> hashicorp.waypoint.StatusFilter
-	39,  // 227: hashicorp.waypoint.ListPushedArtifactsRequest.order:type_name -> hashicorp.waypoint.OperationOrder
-	148, // 228: hashicorp.waypoint.ListPushedArtifactsResponse.artifacts:type_name -> hashicorp.waypoint.PushedArtifact
-	269, // 229: hashicorp.waypoint.PushedArtifact.application:type_name -> hashicorp.waypoint.Ref.Application
-	271, // 230: hashicorp.waypoint.PushedArtifact.workspace:type_name -> hashicorp.waypoint.Ref.Workspace
-	36,  // 231: hashicorp.waypoint.PushedArtifact.status:type_name -> hashicorp.waypoint.Status
-	35,  // 232: hashicorp.waypoint.PushedArtifact.component:type_name -> hashicorp.waypoint.Component
-	133, // 233: hashicorp.waypoint.PushedArtifact.artifact:type_name -> hashicorp.waypoint.Artifact
-	402, // 234: hashicorp.waypoint.PushedArtifact.labels:type_name -> hashicorp.waypoint.PushedArtifact.LabelsEntry
-	132, // 235: hashicorp.waypoint.PushedArtifact.build:type_name -> hashicorp.waypoint.Build
-	403, // 236: hashicorp.waypoint.PushedArtifact.preload:type_name -> hashicorp.waypoint.PushedArtifact.Preload
-	275, // 237: hashicorp.waypoint.GetDeploymentRequest.ref:type_name -> hashicorp.waypoint.Ref.Operation
-	14,  // 238: hashicorp.waypoint.GetDeploymentRequest.load_details:type_name -> hashicorp.waypoint.Deployment.LoadDetails
-	154, // 239: hashicorp.waypoint.UpsertDeploymentRequest.deployment:type_name -> hashicorp.waypoint.Deployment
-	13,  // 240: hashicorp.waypoint.UpsertDeploymentRequest.auto_hostname:type_name -> hashicorp.waypoint.UpsertDeploymentRequest.Tristate
-	154, // 241: hashicorp.waypoint.UpsertDeploymentResponse.deployment:type_name -> hashicorp.waypoint.Deployment
-	269, // 242: hashicorp.waypoint.ListDeploymentsRequest.application:type_name -> hashicorp.waypoint.Ref.Application
-	271, // 243: hashicorp.waypoint.ListDeploymentsRequest.workspace:type_name -> hashicorp.waypoint.Ref.Workspace
-	37,  // 244: hashicorp.waypoint.ListDeploymentsRequest.status:type_name -> hashicorp.waypoint.StatusFilter
-	6,   // 245: hashicorp.waypoint.ListDeploymentsRequest.physical_state:type_name -> hashicorp.waypoint.Operation.PhysicalState
-	39,  // 246: hashicorp.waypoint.ListDeploymentsRequest.order:type_name -> hashicorp.waypoint.OperationOrder
-	14,  // 247: hashicorp.waypoint.ListDeploymentsRequest.load_details:type_name -> hashicorp.waypoint.Deployment.LoadDetails
-	154, // 248: hashicorp.waypoint.ListDeploymentsResponse.deployments:type_name -> hashicorp.waypoint.Deployment
-	269, // 249: hashicorp.waypoint.Deployment.application:type_name -> hashicorp.waypoint.Ref.Application
-	271, // 250: hashicorp.waypoint.Deployment.workspace:type_name -> hashicorp.waypoint.Ref.Workspace
-	40,  // 251: hashicorp.waypoint.Deployment.generation:type_name -> hashicorp.waypoint.Generation
-	6,   // 252: hashicorp.waypoint.Deployment.state:type_name -> hashicorp.waypoint.Operation.PhysicalState
-	36,  // 253: hashicorp.waypoint.Deployment.status:type_name -> hashicorp.waypoint.Status
-	35,  // 254: hashicorp.waypoint.Deployment.component:type_name -> hashicorp.waypoint.Component
-	462, // 255: hashicorp.waypoint.Deployment.deployment:type_name -> opaqueany.Any
-	404, // 256: hashicorp.waypoint.Deployment.labels:type_name -> hashicorp.waypoint.Deployment.LabelsEntry
-	41,  // 257: hashicorp.waypoint.Deployment.declared_resources:type_name -> hashicorp.waypoint.DeclaredResource
-	42,  // 258: hashicorp.waypoint.Deployment.destroyed_resources:type_name -> hashicorp.waypoint.DestroyedResource
-	405, // 259: hashicorp.waypoint.Deployment.preload:type_name -> hashicorp.waypoint.Deployment.Preload
-	154, // 260: hashicorp.waypoint.DeploymentExpanded.deployment:type_name -> hashicorp.waypoint.Deployment
-	185, // 261: hashicorp.waypoint.DeploymentExpanded.latest_status_report:type_name -> hashicorp.waypoint.StatusReport
-	406, // 262: hashicorp.waypoint.ListInstancesRequest.application:type_name -> hashicorp.waypoint.ListInstancesRequest.Application
-	158, // 263: hashicorp.waypoint.ListInstancesResponse.instances:type_name -> hashicorp.waypoint.Instance
-	269, // 264: hashicorp.waypoint.Instance.application:type_name -> hashicorp.waypoint.Ref.Application
-	271, // 265: hashicorp.waypoint.Instance.workspace:type_name -> hashicorp.waypoint.Ref.Workspace
-	15,  // 266: hashicorp.waypoint.Instance.type:type_name -> hashicorp.waypoint.Instance.Type
-	165, // 267: hashicorp.waypoint.UpsertReleaseRequest.release:type_name -> hashicorp.waypoint.Release
-	165, // 268: hashicorp.waypoint.UpsertReleaseResponse.release:type_name -> hashicorp.waypoint.Release
-	269, // 269: hashicorp.waypoint.GetLatestReleaseRequest.application:type_name -> hashicorp.waypoint.Ref.Application
-	271, // 270: hashicorp.waypoint.GetLatestReleaseRequest.workspace:type_name -> hashicorp.waypoint.Ref.Workspace
-	16,  // 271: hashicorp.waypoint.GetLatestReleaseRequest.load_details:type_name -> hashicorp.waypoint.Release.LoadDetails
-	269, // 272: hashicorp.waypoint.ListReleasesRequest.application:type_name -> hashicorp.waypoint.Ref.Application
-	271, // 273: hashicorp.waypoint.ListReleasesRequest.workspace:type_name -> hashicorp.waypoint.Ref.Workspace
-	37,  // 274: hashicorp.waypoint.ListReleasesRequest.status:type_name -> hashicorp.waypoint.StatusFilter
-	6,   // 275: hashicorp.waypoint.ListReleasesRequest.physical_state:type_name -> hashicorp.waypoint.Operation.PhysicalState
-	39,  // 276: hashicorp.waypoint.ListReleasesRequest.order:type_name -> hashicorp.waypoint.OperationOrder
-	16,  // 277: hashicorp.waypoint.ListReleasesRequest.load_details:type_name -> hashicorp.waypoint.Release.LoadDetails
-	165, // 278: hashicorp.waypoint.ListReleasesResponse.releases:type_name -> hashicorp.waypoint.Release
-	275, // 279: hashicorp.waypoint.GetReleaseRequest.ref:type_name -> hashicorp.waypoint.Ref.Operation
-	16,  // 280: hashicorp.waypoint.GetReleaseRequest.load_details:type_name -> hashicorp.waypoint.Release.LoadDetails
-	269, // 281: hashicorp.waypoint.Release.application:type_name -> hashicorp.waypoint.Ref.Application
-	271, // 282: hashicorp.waypoint.Release.workspace:type_name -> hashicorp.waypoint.Ref.Workspace
-	36,  // 283: hashicorp.waypoint.Release.status:type_name -> hashicorp.waypoint.Status
-	6,   // 284: hashicorp.waypoint.Release.state:type_name -> hashicorp.waypoint.Operation.PhysicalState
-	35,  // 285: hashicorp.waypoint.Release.component:type_name -> hashicorp.waypoint.Component
-	462, // 286: hashicorp.waypoint.Release.release:type_name -> opaqueany.Any
-	407, // 287: hashicorp.waypoint.Release.labels:type_name -> hashicorp.waypoint.Release.LabelsEntry
-	41,  // 288: hashicorp.waypoint.Release.declared_resources:type_name -> hashicorp.waypoint.DeclaredResource
-	42,  // 289: hashicorp.waypoint.Release.destroyed_resources:type_name -> hashicorp.waypoint.DestroyedResource
-	408, // 290: hashicorp.waypoint.Release.preload:type_name -> hashicorp.waypoint.Release.Preload
-	165, // 291: hashicorp.waypoint.ReleaseExpanded.release:type_name -> hashicorp.waypoint.Release
-	185, // 292: hashicorp.waypoint.ReleaseExpanded.latest_status_report:type_name -> hashicorp.waypoint.StatusReport
-	460, // 293: hashicorp.waypoint.Trigger.active_time:type_name -> google.protobuf.Timestamp
-	316, // 294: hashicorp.waypoint.Trigger.build:type_name -> hashicorp.waypoint.Job.BuildOp
-	318, // 295: hashicorp.waypoint.Trigger.push:type_name -> hashicorp.waypoint.Job.PushOp
-	320, // 296: hashicorp.waypoint.Trigger.deploy:type_name -> hashicorp.waypoint.Job.DeployOp
-	325, // 297: hashicorp.waypoint.Trigger.destroy:type_name -> hashicorp.waypoint.Job.DestroyOp
-	326, // 298: hashicorp.waypoint.Trigger.release:type_name -> hashicorp.waypoint.Job.ReleaseOp
-	310, // 299: hashicorp.waypoint.Trigger.up:type_name -> hashicorp.waypoint.Job.UpOp
-	344, // 300: hashicorp.waypoint.Trigger.init:type_name -> hashicorp.waypoint.Job.InitOp
-	334, // 301: hashicorp.waypoint.Trigger.status_report:type_name -> hashicorp.waypoint.Job.StatusReportOp
-	271, // 302: hashicorp.waypoint.Trigger.workspace:type_name -> hashicorp.waypoint.Ref.Workspace
-	270, // 303: hashicorp.waypoint.Trigger.project:type_name -> hashicorp.waypoint.Ref.Project
-	269, // 304: hashicorp.waypoint.Trigger.application:type_name -> hashicorp.waypoint.Ref.Application
-	167, // 305: hashicorp.waypoint.UpsertTriggerRequest.trigger:type_name -> hashicorp.waypoint.Trigger
-	167, // 306: hashicorp.waypoint.UpsertTriggerResponse.trigger:type_name -> hashicorp.waypoint.Trigger
-	287, // 307: hashicorp.waypoint.GetTriggerRequest.ref:type_name -> hashicorp.waypoint.Ref.Trigger
-	167, // 308: hashicorp.waypoint.GetTriggerResponse.trigger:type_name -> hashicorp.waypoint.Trigger
-	287, // 309: hashicorp.waypoint.DeleteTriggerRequest.ref:type_name -> hashicorp.waypoint.Ref.Trigger
-	287, // 310: hashicorp.waypoint.RunTriggerRequest.ref:type_name -> hashicorp.waypoint.Ref.Trigger
-	30,  // 311: hashicorp.waypoint.RunTriggerRequest.variable_overrides:type_name -> hashicorp.waypoint.Variable
-	271, // 312: hashicorp.waypoint.ListTriggerRequest.workspace:type_name -> hashicorp.waypoint.Ref.Workspace
-	270, // 313: hashicorp.waypoint.ListTriggerRequest.project:type_name -> hashicorp.waypoint.Ref.Project
-	269, // 314: hashicorp.waypoint.ListTriggerRequest.application:type_name -> hashicorp.waypoint.Ref.Application
-	167, // 315: hashicorp.waypoint.ListTriggerResponse.triggers:type_name -> hashicorp.waypoint.Trigger
-	185, // 316: hashicorp.waypoint.UpsertStatusReportRequest.status_report:type_name -> hashicorp.waypoint.StatusReport
-	185, // 317: hashicorp.waypoint.UpsertStatusReportResponse.status_report:type_name -> hashicorp.waypoint.StatusReport
-	269, // 318: hashicorp.waypoint.GetLatestStatusReportRequest.application:type_name -> hashicorp.waypoint.Ref.Application
-	271, // 319: hashicorp.waypoint.GetLatestStatusReportRequest.workspace:type_name -> hashicorp.waypoint.Ref.Workspace
-	459, // 320: hashicorp.waypoint.GetLatestStatusReportRequest.any:type_name -> google.protobuf.Empty
-	459, // 321: hashicorp.waypoint.GetLatestStatusReportRequest.deployment_any:type_name -> google.protobuf.Empty
-	459, // 322: hashicorp.waypoint.GetLatestStatusReportRequest.release_any:type_name -> google.protobuf.Empty
-	37,  // 323: hashicorp.waypoint.ListStatusReportsRequest.status:type_name -> hashicorp.waypoint.StatusFilter
-	39,  // 324: hashicorp.waypoint.ListStatusReportsRequest.order:type_name -> hashicorp.waypoint.OperationOrder
-	269, // 325: hashicorp.waypoint.ListStatusReportsRequest.application:type_name -> hashicorp.waypoint.Ref.Application
-	271, // 326: hashicorp.waypoint.ListStatusReportsRequest.workspace:type_name -> hashicorp.waypoint.Ref.Workspace
-	275, // 327: hashicorp.waypoint.ListStatusReportsRequest.deployment:type_name -> hashicorp.waypoint.Ref.Operation
-	275, // 328: hashicorp.waypoint.ListStatusReportsRequest.release:type_name -> hashicorp.waypoint.Ref.Operation
-	185, // 329: hashicorp.waypoint.ListStatusReportsResponse.status_reports:type_name -> hashicorp.waypoint.StatusReport
-	275, // 330: hashicorp.waypoint.GetStatusReportRequest.ref:type_name -> hashicorp.waypoint.Ref.Operation
-	271, // 331: hashicorp.waypoint.ExpediteStatusReportRequest.workspace:type_name -> hashicorp.waypoint.Ref.Workspace
-	275, // 332: hashicorp.waypoint.ExpediteStatusReportRequest.deployment:type_name -> hashicorp.waypoint.Ref.Operation
-	275, // 333: hashicorp.waypoint.ExpediteStatusReportRequest.release:type_name -> hashicorp.waypoint.Ref.Operation
-	269, // 334: hashicorp.waypoint.StatusReport.application:type_name -> hashicorp.waypoint.Ref.Application
-	271, // 335: hashicorp.waypoint.StatusReport.workspace:type_name -> hashicorp.waypoint.Ref.Workspace
-	36,  // 336: hashicorp.waypoint.StatusReport.status:type_name -> hashicorp.waypoint.Status
-	462, // 337: hashicorp.waypoint.StatusReport.status_report:type_name -> opaqueany.Any
-	410, // 338: hashicorp.waypoint.StatusReport.health:type_name -> hashicorp.waypoint.StatusReport.Health
-	460, // 339: hashicorp.waypoint.StatusReport.generated_time:type_name -> google.protobuf.Timestamp
-	409, // 340: hashicorp.waypoint.StatusReport.resources:type_name -> hashicorp.waypoint.StatusReport.Resource
-	410, // 341: hashicorp.waypoint.StatusReport.deprecated_resources_health:type_name -> hashicorp.waypoint.StatusReport.Health
-	411, // 342: hashicorp.waypoint.GetLogStreamRequest.application:type_name -> hashicorp.waypoint.GetLogStreamRequest.Application
-	412, // 343: hashicorp.waypoint.LogBatch.lines:type_name -> hashicorp.waypoint.LogBatch.Entry
-	414, // 344: hashicorp.waypoint.ConfigVar.target:type_name -> hashicorp.waypoint.ConfigVar.Target
-	459, // 345: hashicorp.waypoint.ConfigVar.unset:type_name -> google.protobuf.Empty
-	413, // 346: hashicorp.waypoint.ConfigVar.dynamic:type_name -> hashicorp.waypoint.ConfigVar.DynamicVal
-	269, // 347: hashicorp.waypoint.ConfigVar.application:type_name -> hashicorp.waypoint.Ref.Application
-	270, // 348: hashicorp.waypoint.ConfigVar.project:type_name -> hashicorp.waypoint.Ref.Project
-	277, // 349: hashicorp.waypoint.ConfigVar.runner:type_name -> hashicorp.waypoint.Ref.Runner
-	188, // 350: hashicorp.waypoint.ConfigSetRequest.variables:type_name -> hashicorp.waypoint.ConfigVar
-	188, // 351: hashicorp.waypoint.ConfigDeleteRequest.variables:type_name -> hashicorp.waypoint.ConfigVar
-	269, // 352: hashicorp.waypoint.ConfigGetRequest.application:type_name -> hashicorp.waypoint.Ref.Application
-	270, // 353: hashicorp.waypoint.ConfigGetRequest.project:type_name -> hashicorp.waypoint.Ref.Project
-	279, // 354: hashicorp.waypoint.ConfigGetRequest.runner:type_name -> hashicorp.waypoint.Ref.RunnerId
-	271, // 355: hashicorp.waypoint.ConfigGetRequest.workspace:type_name -> hashicorp.waypoint.Ref.Workspace
-	416, // 356: hashicorp.waypoint.ConfigGetRequest.labels:type_name -> hashicorp.waypoint.ConfigGetRequest.LabelsEntry
-	188, // 357: hashicorp.waypoint.ConfigGetResponse.variables:type_name -> hashicorp.waypoint.ConfigVar
-	268, // 358: hashicorp.waypoint.ConfigSource.global:type_name -> hashicorp.waypoint.Ref.Global
-	270, // 359: hashicorp.waypoint.ConfigSource.project:type_name -> hashicorp.waypoint.Ref.Project
-	269, // 360: hashicorp.waypoint.ConfigSource.application:type_name -> hashicorp.waypoint.Ref.Application
-	271, // 361: hashicorp.waypoint.ConfigSource.workspace:type_name -> hashicorp.waypoint.Ref.Workspace
-	417, // 362: hashicorp.waypoint.ConfigSource.config:type_name -> hashicorp.waypoint.ConfigSource.ConfigEntry
-	195, // 363: hashicorp.waypoint.SetConfigSourceRequest.config_source:type_name -> hashicorp.waypoint.ConfigSource
-	195, // 364: hashicorp.waypoint.DeleteConfigSourceRequest.config_source:type_name -> hashicorp.waypoint.ConfigSource
-	268, // 365: hashicorp.waypoint.GetConfigSourceRequest.global:type_name -> hashicorp.waypoint.Ref.Global
-	270, // 366: hashicorp.waypoint.GetConfigSourceRequest.project:type_name -> hashicorp.waypoint.Ref.Project
-	269, // 367: hashicorp.waypoint.GetConfigSourceRequest.application:type_name -> hashicorp.waypoint.Ref.Application
-	271, // 368: hashicorp.waypoint.GetConfigSourceRequest.workspace:type_name -> hashicorp.waypoint.Ref.Workspace
-	195, // 369: hashicorp.waypoint.GetConfigSourceResponse.config_sources:type_name -> hashicorp.waypoint.ConfigSource
-	418, // 370: hashicorp.waypoint.ExecStreamRequest.start:type_name -> hashicorp.waypoint.ExecStreamRequest.Start
-	419, // 371: hashicorp.waypoint.ExecStreamRequest.input:type_name -> hashicorp.waypoint.ExecStreamRequest.Input
-	421, // 372: hashicorp.waypoint.ExecStreamRequest.winch:type_name -> hashicorp.waypoint.ExecStreamRequest.WindowSize
-	459, // 373: hashicorp.waypoint.ExecStreamRequest.input_eof:type_name -> google.protobuf.Empty
-	422, // 374: hashicorp.waypoint.ExecStreamResponse.open:type_name -> hashicorp.waypoint.ExecStreamResponse.Open
-	424, // 375: hashicorp.waypoint.ExecStreamResponse.output:type_name -> hashicorp.waypoint.ExecStreamResponse.Output
-	423, // 376: hashicorp.waypoint.ExecStreamResponse.exit:type_name -> hashicorp.waypoint.ExecStreamResponse.Exit
-	15,  // 377: hashicorp.waypoint.EntrypointConfigRequest.type:type_name -> hashicorp.waypoint.Instance.Type
-	204, // 378: hashicorp.waypoint.EntrypointConfigResponse.config:type_name -> hashicorp.waypoint.EntrypointConfig
-	425, // 379: hashicorp.waypoint.EntrypointConfig.exec:type_name -> hashicorp.waypoint.EntrypointConfig.Exec
-	188, // 380: hashicorp.waypoint.EntrypointConfig.env_vars:type_name -> hashicorp.waypoint.ConfigVar
-	195, // 381: hashicorp.waypoint.EntrypointConfig.config_sources:type_name -> hashicorp.waypoint.ConfigSource
-	426, // 382: hashicorp.waypoint.EntrypointConfig.url_service:type_name -> hashicorp.waypoint.EntrypointConfig.URLService
-	427, // 383: hashicorp.waypoint.EntrypointConfig.deployment:type_name -> hashicorp.waypoint.EntrypointConfig.DeploymentInfo
-	412, // 384: hashicorp.waypoint.EntrypointLogBatch.lines:type_name -> hashicorp.waypoint.LogBatch.Entry
-	429, // 385: hashicorp.waypoint.EntrypointExecRequest.open:type_name -> hashicorp.waypoint.EntrypointExecRequest.Open
-	430, // 386: hashicorp.waypoint.EntrypointExecRequest.exit:type_name -> hashicorp.waypoint.EntrypointExecRequest.Exit
-	431, // 387: hashicorp.waypoint.EntrypointExecRequest.output:type_name -> hashicorp.waypoint.EntrypointExecRequest.Output
-	432, // 388: hashicorp.waypoint.EntrypointExecRequest.error:type_name -> hashicorp.waypoint.EntrypointExecRequest.Error
-	459, // 389: hashicorp.waypoint.EntrypointExecResponse.input_eof:type_name -> google.protobuf.Empty
-	421, // 390: hashicorp.waypoint.EntrypointExecResponse.winch:type_name -> hashicorp.waypoint.ExecStreamRequest.WindowSize
-	270, // 391: hashicorp.waypoint.Pipeline.project:type_name -> hashicorp.waypoint.Ref.Project
-	433, // 392: hashicorp.waypoint.Pipeline.steps:type_name -> hashicorp.waypoint.Pipeline.StepsEntry
-	290, // 393: hashicorp.waypoint.PipelineRun.pipeline:type_name -> hashicorp.waypoint.Ref.Pipeline
-	288, // 394: hashicorp.waypoint.PipelineRun.jobs:type_name -> hashicorp.waypoint.Ref.Job
-	21,  // 395: hashicorp.waypoint.PipelineRun.state:type_name -> hashicorp.waypoint.PipelineRun.State
-	208, // 396: hashicorp.waypoint.UpsertPipelineRequest.pipeline:type_name -> hashicorp.waypoint.Pipeline
-	208, // 397: hashicorp.waypoint.UpsertPipelineResponse.pipeline:type_name -> hashicorp.waypoint.Pipeline
-	290, // 398: hashicorp.waypoint.GetPipelineRequest.pipeline:type_name -> hashicorp.waypoint.Ref.Pipeline
-	208, // 399: hashicorp.waypoint.GetPipelineResponse.pipeline:type_name -> hashicorp.waypoint.Pipeline
-	441, // 400: hashicorp.waypoint.GetPipelineResponse.graph:type_name -> hashicorp.waypoint.GetPipelineResponse.Graph
-	290, // 401: hashicorp.waypoint.RunPipelineRequest.pipeline:type_name -> hashicorp.waypoint.Ref.Pipeline
-	78,  // 402: hashicorp.waypoint.RunPipelineRequest.job_template:type_name -> hashicorp.waypoint.Job
-	442, // 403: hashicorp.waypoint.RunPipelineResponse.job_map:type_name -> hashicorp.waypoint.RunPipelineResponse.JobMapEntry
-	270, // 404: hashicorp.waypoint.ListPipelinesRequest.project:type_name -> hashicorp.waypoint.Ref.Project
-	208, // 405: hashicorp.waypoint.ListPipelinesResponse.pipelines:type_name -> hashicorp.waypoint.Pipeline
-	290, // 406: hashicorp.waypoint.ListPipelineRunsRequest.pipeline:type_name -> hashicorp.waypoint.Ref.Pipeline
-	209, // 407: hashicorp.waypoint.ListPipelineRunsResponse.pipeline_runs:type_name -> hashicorp.waypoint.PipelineRun
-	290, // 408: hashicorp.waypoint.GetPipelineRunRequest.pipeline:type_name -> hashicorp.waypoint.Ref.Pipeline
-	209, // 409: hashicorp.waypoint.GetPipelineRunResponse.pipeline_run:type_name -> hashicorp.waypoint.PipelineRun
-	270, // 410: hashicorp.waypoint.ConfigSyncPipelineRequest.project:type_name -> hashicorp.waypoint.Ref.Project
-	443, // 411: hashicorp.waypoint.ConfigSyncPipelineResponse.synced_pipelines:type_name -> hashicorp.waypoint.ConfigSyncPipelineResponse.SyncedPipelinesEntry
-	444, // 412: hashicorp.waypoint.TokenTransport.metadata:type_name -> hashicorp.waypoint.TokenTransport.MetadataEntry
-	445, // 413: hashicorp.waypoint.TokenTransport.oauth_creds:type_name -> hashicorp.waypoint.TokenTransport.OAuthCredentials
-	460, // 414: hashicorp.waypoint.Token.valid_until:type_name -> google.protobuf.Timestamp
-	460, // 415: hashicorp.waypoint.Token.issued_time:type_name -> google.protobuf.Timestamp
-	446, // 416: hashicorp.waypoint.Token.login:type_name -> hashicorp.waypoint.Token.Login
-	447, // 417: hashicorp.waypoint.Token.runner:type_name -> hashicorp.waypoint.Token.Runner
-	448, // 418: hashicorp.waypoint.Token.invite:type_name -> hashicorp.waypoint.Token.Invite
-	450, // 419: hashicorp.waypoint.Token.trigger:type_name -> hashicorp.waypoint.Token.Trigger
-	449, // 420: hashicorp.waypoint.Token.unused_entrypoint:type_name -> hashicorp.waypoint.Token.Entrypoint
-	225, // 421: hashicorp.waypoint.DecodeTokenResponse.token:type_name -> hashicorp.waypoint.Token
-	224, // 422: hashicorp.waypoint.DecodeTokenResponse.transport:type_name -> hashicorp.waypoint.TokenTransport
-	281, // 423: hashicorp.waypoint.LoginTokenRequest.user:type_name -> hashicorp.waypoint.Ref.User
-	452, // 424: hashicorp.waypoint.GenerateRunnerTokenRequest.labels:type_name -> hashicorp.waypoint.GenerateRunnerTokenRequest.LabelsEntry
-	446, // 425: hashicorp.waypoint.InviteTokenRequest.login:type_name -> hashicorp.waypoint.Token.Login
-	451, // 426: hashicorp.waypoint.InviteTokenRequest.signup:type_name -> hashicorp.waypoint.Token.Invite.Signup
-	449, // 427: hashicorp.waypoint.InviteTokenRequest.unused_entrypoint:type_name -> hashicorp.waypoint.Token.Entrypoint
-	453, // 428: hashicorp.waypoint.CreateSnapshotResponse.open:type_name -> hashicorp.waypoint.CreateSnapshotResponse.Open
-	454, // 429: hashicorp.waypoint.RestoreSnapshotRequest.open:type_name -> hashicorp.waypoint.RestoreSnapshotRequest.Open
-	24,  // 430: hashicorp.waypoint.Hcl.format:type_name -> hashicorp.waypoint.Hcl.Format
-	241, // 431: hashicorp.waypoint.UI.ListProjectsRequest.pagination:type_name -> hashicorp.waypoint.PaginationRequest
-	245, // 432: hashicorp.waypoint.UI.ListProjectsResponse.project_bundles:type_name -> hashicorp.waypoint.UI.ProjectBundle
-	242, // 433: hashicorp.waypoint.UI.ListProjectsResponse.pagination:type_name -> hashicorp.waypoint.PaginationResponse
-	31,  // 434: hashicorp.waypoint.UI.ProjectBundle.project:type_name -> hashicorp.waypoint.Project
-	270, // 435: hashicorp.waypoint.UI.GetProjectRequest.project:type_name -> hashicorp.waypoint.Ref.Project
-	31,  // 436: hashicorp.waypoint.UI.GetProjectResponse.project:type_name -> hashicorp.waypoint.Project
-	78,  // 437: hashicorp.waypoint.UI.GetProjectResponse.latest_init_job:type_name -> hashicorp.waypoint.Job
-	269, // 438: hashicorp.waypoint.UI.ListDeploymentsRequest.application:type_name -> hashicorp.waypoint.Ref.Application
-	271, // 439: hashicorp.waypoint.UI.ListDeploymentsRequest.workspace:type_name -> hashicorp.waypoint.Ref.Workspace
-	39,  // 440: hashicorp.waypoint.UI.ListDeploymentsRequest.order:type_name -> hashicorp.waypoint.OperationOrder
-	37,  // 441: hashicorp.waypoint.UI.ListDeploymentsRequest.status:type_name -> hashicorp.waypoint.StatusFilter
-	6,   // 442: hashicorp.waypoint.UI.ListDeploymentsRequest.physical_state:type_name -> hashicorp.waypoint.Operation.PhysicalState
-	252, // 443: hashicorp.waypoint.UI.ListDeploymentsResponse.deployments:type_name -> hashicorp.waypoint.UI.DeploymentBundle
-	275, // 444: hashicorp.waypoint.UI.GetDeploymentRequest.ref:type_name -> hashicorp.waypoint.Ref.Operation
-	14,  // 445: hashicorp.waypoint.UI.GetDeploymentRequest.load_details:type_name -> hashicorp.waypoint.Deployment.LoadDetails
-	252, // 446: hashicorp.waypoint.UI.GetDeploymentResponse.deployment:type_name -> hashicorp.waypoint.UI.DeploymentBundle
-	154, // 447: hashicorp.waypoint.UI.DeploymentBundle.deployment:type_name -> hashicorp.waypoint.Deployment
-	148, // 448: hashicorp.waypoint.UI.DeploymentBundle.artifact:type_name -> hashicorp.waypoint.PushedArtifact
-	132, // 449: hashicorp.waypoint.UI.DeploymentBundle.build:type_name -> hashicorp.waypoint.Build
-	351, // 450: hashicorp.waypoint.UI.DeploymentBundle.job_data_source_ref:type_name -> hashicorp.waypoint.Job.DataSource.Ref
-	185, // 451: hashicorp.waypoint.UI.DeploymentBundle.latest_status_report:type_name -> hashicorp.waypoint.StatusReport
-	269, // 452: hashicorp.waypoint.UI.ListReleasesRequest.application:type_name -> hashicorp.waypoint.Ref.Application
-	271, // 453: hashicorp.waypoint.UI.ListReleasesRequest.workspace:type_name -> hashicorp.waypoint.Ref.Workspace
-	39,  // 454: hashicorp.waypoint.UI.ListReleasesRequest.order:type_name -> hashicorp.waypoint.OperationOrder
-	37,  // 455: hashicorp.waypoint.UI.ListReleasesRequest.status:type_name -> hashicorp.waypoint.StatusFilter
-	6,   // 456: hashicorp.waypoint.UI.ListReleasesRequest.physical_state:type_name -> hashicorp.waypoint.Operation.PhysicalState
-	255, // 457: hashicorp.waypoint.UI.ListReleasesResponse.releases:type_name -> hashicorp.waypoint.UI.ReleaseBundle
-	165, // 458: hashicorp.waypoint.UI.ReleaseBundle.release:type_name -> hashicorp.waypoint.Release
-	185, // 459: hashicorp.waypoint.UI.ReleaseBundle.latest_status_report:type_name -> hashicorp.waypoint.StatusReport
-	260, // 460: hashicorp.waypoint.Variable.File.hcl_range:type_name -> hashicorp.waypoint.Variable.HclRange
-	260, // 461: hashicorp.waypoint.Variable.VCS.hcl_range:type_name -> hashicorp.waypoint.Variable.HclRange
-	259, // 462: hashicorp.waypoint.Variable.HclRange.start:type_name -> hashicorp.waypoint.Variable.HclPos
-	259, // 463: hashicorp.waypoint.Variable.HclRange.end:type_name -> hashicorp.waypoint.Variable.HclPos
-	2,   // 464: hashicorp.waypoint.Variable.FinalValue.source:type_name -> hashicorp.waypoint.Variable.FinalValue.Source
-	270, // 465: hashicorp.waypoint.Workspace.Project.project:type_name -> hashicorp.waypoint.Ref.Project
-	271, // 466: hashicorp.waypoint.Workspace.Project.workspace:type_name -> hashicorp.waypoint.Ref.Workspace
-	351, // 467: hashicorp.waypoint.Workspace.Project.data_source_ref:type_name -> hashicorp.waypoint.Job.DataSource.Ref
-	460, // 468: hashicorp.waypoint.Workspace.Project.active_time:type_name -> google.protobuf.Timestamp
-	265, // 469: hashicorp.waypoint.Workspace.Project.applications:type_name -> hashicorp.waypoint.Workspace.Application
-	269, // 470: hashicorp.waypoint.Workspace.Application.application:type_name -> hashicorp.waypoint.Ref.Application
-	460, // 471: hashicorp.waypoint.Workspace.Application.active_time:type_name -> google.protobuf.Timestamp
-	267, // 472: hashicorp.waypoint.User.Link.oidc:type_name -> hashicorp.waypoint.User.Link.OIDC
-	4,   // 473: hashicorp.waypoint.Ref.Component.type:type_name -> hashicorp.waypoint.Component.Type
-	276, // 474: hashicorp.waypoint.Ref.Operation.sequence:type_name -> hashicorp.waypoint.Ref.OperationSeq
-	269, // 475: hashicorp.waypoint.Ref.OperationSeq.application:type_name -> hashicorp.waypoint.Ref.Application
-	278, // 476: hashicorp.waypoint.Ref.Runner.any:type_name -> hashicorp.waypoint.Ref.RunnerAny
-	279, // 477: hashicorp.waypoint.Ref.Runner.id:type_name -> hashicorp.waypoint.Ref.RunnerId
-	280, // 478: hashicorp.waypoint.Ref.Runner.labels:type_name -> hashicorp.waypoint.Ref.RunnerLabels
-	293, // 479: hashicorp.waypoint.Ref.RunnerLabels.labels:type_name -> hashicorp.waypoint.Ref.RunnerLabels.LabelsEntry
-	282, // 480: hashicorp.waypoint.Ref.User.id:type_name -> hashicorp.waypoint.Ref.UserId
-	283, // 481: hashicorp.waypoint.Ref.User.username:type_name -> hashicorp.waypoint.Ref.UserUsername
-	291, // 482: hashicorp.waypoint.Ref.Pipeline.owner:type_name -> hashicorp.waypoint.Ref.PipelineOwner
-	270, // 483: hashicorp.waypoint.Ref.PipelineOwner.project:type_name -> hashicorp.waypoint.Ref.Project
-	5,   // 484: hashicorp.waypoint.StatusFilter.Filter.state:type_name -> hashicorp.waypoint.Status.State
-	297, // 485: hashicorp.waypoint.AuthMethod.OIDC.claim_mappings:type_name -> hashicorp.waypoint.AuthMethod.OIDC.ClaimMappingsEntry
-	298, // 486: hashicorp.waypoint.AuthMethod.OIDC.list_claim_mappings:type_name -> hashicorp.waypoint.AuthMethod.OIDC.ListClaimMappingsEntry
-	43,  // 487: hashicorp.waypoint.Job.TaskOverride.launch_info:type_name -> hashicorp.waypoint.TaskLaunchInfo
-	261, // 488: hashicorp.waypoint.Job.VariableFinalValuesEntry.value:type_name -> hashicorp.waypoint.Variable.FinalValue
-	317, // 489: hashicorp.waypoint.Job.Result.build:type_name -> hashicorp.waypoint.Job.BuildResult
-	319, // 490: hashicorp.waypoint.Job.Result.push:type_name -> hashicorp.waypoint.Job.PushResult
-	321, // 491: hashicorp.waypoint.Job.Result.deploy:type_name -> hashicorp.waypoint.Job.DeployResult
-	327, // 492: hashicorp.waypoint.Job.Result.release:type_name -> hashicorp.waypoint.Job.ReleaseResult
-	313, // 493: hashicorp.waypoint.Job.Result.validate:type_name -> hashicorp.waypoint.Job.ValidateResult
-	315, // 494: hashicorp.waypoint.Job.Result.auth:type_name -> hashicorp.waypoint.Job.AuthResult
-	337, // 495: hashicorp.waypoint.Job.Result.docs:type_name -> hashicorp.waypoint.Job.DocsResult
-	339, // 496: hashicorp.waypoint.Job.Result.config_sync:type_name -> hashicorp.waypoint.Job.ConfigSyncResult
-	311, // 497: hashicorp.waypoint.Job.Result.up:type_name -> hashicorp.waypoint.Job.UpResult
-	350, // 498: hashicorp.waypoint.Job.Result.queue_project:type_name -> hashicorp.waypoint.Job.QueueProjectResult
-	343, // 499: hashicorp.waypoint.Job.Result.poll:type_name -> hashicorp.waypoint.Job.PollResult
-	335, // 500: hashicorp.waypoint.Job.Result.status_report:type_name -> hashicorp.waypoint.Job.StatusReportResult
-	330, // 501: hashicorp.waypoint.Job.Result.start_task:type_name -> hashicorp.waypoint.Job.StartTaskResult
-	345, // 502: hashicorp.waypoint.Job.Result.init:type_name -> hashicorp.waypoint.Job.InitResult
-	333, // 503: hashicorp.waypoint.Job.Result.watch_task:type_name -> hashicorp.waypoint.Job.WatchTaskResult
-	348, // 504: hashicorp.waypoint.Job.Result.pipeline_step:type_name -> hashicorp.waypoint.Job.PipelineStepResult
-	340, // 505: hashicorp.waypoint.Job.Result.pipeline_config_sync:type_name -> hashicorp.waypoint.Job.PipelineConfigSyncResult
-	341, // 506: hashicorp.waypoint.Job.Result.project_destroy:type_name -> hashicorp.waypoint.Job.ProjectDestroyResult
-	11,  // 507: hashicorp.waypoint.Job.Config.source:type_name -> hashicorp.waypoint.Job.Config.Source
-	306, // 508: hashicorp.waypoint.Job.DataSource.local:type_name -> hashicorp.waypoint.Job.Local
-	308, // 509: hashicorp.waypoint.Job.DataSource.git:type_name -> hashicorp.waypoint.Job.Git
-	307, // 510: hashicorp.waypoint.Job.DataSource.remote:type_name -> hashicorp.waypoint.Job.Remote
-	308, // 511: hashicorp.waypoint.Job.Remote.git_remote:type_name -> hashicorp.waypoint.Job.Git
-	352, // 512: hashicorp.waypoint.Job.Git.basic:type_name -> hashicorp.waypoint.Job.Git.Basic
-	353, // 513: hashicorp.waypoint.Job.Git.ssh:type_name -> hashicorp.waypoint.Job.Git.SSH
-	326, // 514: hashicorp.waypoint.Job.UpOp.release:type_name -> hashicorp.waypoint.Job.ReleaseOp
-	274, // 515: hashicorp.waypoint.Job.AuthOp.component:type_name -> hashicorp.waypoint.Ref.Component
-	355, // 516: hashicorp.waypoint.Job.AuthResult.results:type_name -> hashicorp.waypoint.Job.AuthResult.Result
-	132, // 517: hashicorp.waypoint.Job.BuildResult.build:type_name -> hashicorp.waypoint.Build
-	148, // 518: hashicorp.waypoint.Job.BuildResult.push:type_name -> hashicorp.waypoint.PushedArtifact
-	132, // 519: hashicorp.waypoint.Job.PushOp.build:type_name -> hashicorp.waypoint.Build
-	148, // 520: hashicorp.waypoint.Job.PushResult.artifact:type_name -> hashicorp.waypoint.PushedArtifact
-	148, // 521: hashicorp.waypoint.Job.DeployOp.artifact:type_name -> hashicorp.waypoint.PushedArtifact
-	154, // 522: hashicorp.waypoint.Job.DeployResult.deployment:type_name -> hashicorp.waypoint.Deployment
-	154, // 523: hashicorp.waypoint.Job.ExecOp.deployment:type_name -> hashicorp.waypoint.Deployment
-	154, // 524: hashicorp.waypoint.Job.LogsOp.deployment:type_name -> hashicorp.waypoint.Deployment
-	460, // 525: hashicorp.waypoint.Job.LogsOp.start_time:type_name -> google.protobuf.Timestamp
-	459, // 526: hashicorp.waypoint.Job.DestroyOp.workspace:type_name -> google.protobuf.Empty
-	154, // 527: hashicorp.waypoint.Job.DestroyOp.deployment:type_name -> hashicorp.waypoint.Deployment
-	154, // 528: hashicorp.waypoint.Job.ReleaseOp.deployment:type_name -> hashicorp.waypoint.Deployment
-	165, // 529: hashicorp.waypoint.Job.ReleaseResult.release:type_name -> hashicorp.waypoint.Release
-	24,  // 530: hashicorp.waypoint.Job.TaskPluginParams.hcl_format:type_name -> hashicorp.waypoint.Hcl.Format
-	43,  // 531: hashicorp.waypoint.Job.StartTaskLaunchOp.info:type_name -> hashicorp.waypoint.TaskLaunchInfo
-	328, // 532: hashicorp.waypoint.Job.StartTaskLaunchOp.params:type_name -> hashicorp.waypoint.Job.TaskPluginParams
-	462, // 533: hashicorp.waypoint.Job.StartTaskResult.state:type_name -> opaqueany.Any
-	328, // 534: hashicorp.waypoint.Job.StopTaskLaunchOp.params:type_name -> hashicorp.waypoint.Job.TaskPluginParams
-	462, // 535: hashicorp.waypoint.Job.StopTaskLaunchOp.direct:type_name -> opaqueany.Any
-	288, // 536: hashicorp.waypoint.Job.WatchTaskOp.start_job:type_name -> hashicorp.waypoint.Ref.Job
-	154, // 537: hashicorp.waypoint.Job.StatusReportOp.deployment:type_name -> hashicorp.waypoint.Deployment
-	165, // 538: hashicorp.waypoint.Job.StatusReportOp.release:type_name -> hashicorp.waypoint.Release
-	185, // 539: hashicorp.waypoint.Job.StatusReportResult.status_report:type_name -> hashicorp.waypoint.StatusReport
-	356, // 540: hashicorp.waypoint.Job.DocsResult.results:type_name -> hashicorp.waypoint.Job.DocsResult.Result
-	357, // 541: hashicorp.waypoint.Job.PipelineConfigSyncResult.synced_pipelines:type_name -> hashicorp.waypoint.Job.PipelineConfigSyncResult.SyncedPipelinesEntry
-	351, // 542: hashicorp.waypoint.Job.PollResult.old_ref:type_name -> hashicorp.waypoint.Job.DataSource.Ref
-	351, // 543: hashicorp.waypoint.Job.PollResult.new_ref:type_name -> hashicorp.waypoint.Job.DataSource.Ref
-	434, // 544: hashicorp.waypoint.Job.PipelineStepOp.step:type_name -> hashicorp.waypoint.Pipeline.Step
-	270, // 545: hashicorp.waypoint.Job.DestroyProjectOp.project:type_name -> hashicorp.waypoint.Ref.Project
-	461, // 546: hashicorp.waypoint.Job.PipelineStepResult.result:type_name -> google.rpc.Status
-	78,  // 547: hashicorp.waypoint.Job.QueueProjectOp.job_template:type_name -> hashicorp.waypoint.Job
-	358, // 548: hashicorp.waypoint.Job.QueueProjectResult.applications:type_name -> hashicorp.waypoint.Job.QueueProjectResult.Application
-	459, // 549: hashicorp.waypoint.Job.DataSource.Ref.unknown:type_name -> google.protobuf.Empty
-	354, // 550: hashicorp.waypoint.Job.DataSource.Ref.git:type_name -> hashicorp.waypoint.Job.Git.Ref
-	460, // 551: hashicorp.waypoint.Job.Git.Ref.timestamp:type_name -> google.protobuf.Timestamp
-	35,  // 552: hashicorp.waypoint.Job.AuthResult.Result.component:type_name -> hashicorp.waypoint.Component
-	461, // 553: hashicorp.waypoint.Job.AuthResult.Result.check_error:type_name -> google.rpc.Status
-	461, // 554: hashicorp.waypoint.Job.AuthResult.Result.auth_error:type_name -> google.rpc.Status
-	35,  // 555: hashicorp.waypoint.Job.DocsResult.Result.component:type_name -> hashicorp.waypoint.Component
-	79,  // 556: hashicorp.waypoint.Job.DocsResult.Result.docs:type_name -> hashicorp.waypoint.Documentation
-	290, // 557: hashicorp.waypoint.Job.PipelineConfigSyncResult.SyncedPipelinesEntry.value:type_name -> hashicorp.waypoint.Ref.Pipeline
-	269, // 558: hashicorp.waypoint.Job.QueueProjectResult.Application.application:type_name -> hashicorp.waypoint.Ref.Application
-	360, // 559: hashicorp.waypoint.Documentation.FieldsEntry.value:type_name -> hashicorp.waypoint.Documentation.Field
-	10,  // 560: hashicorp.waypoint.GetJobStreamResponse.State.previous:type_name -> hashicorp.waypoint.Job.State
-	10,  // 561: hashicorp.waypoint.GetJobStreamResponse.State.current:type_name -> hashicorp.waypoint.Job.State
-	78,  // 562: hashicorp.waypoint.GetJobStreamResponse.State.job:type_name -> hashicorp.waypoint.Job
-	78,  // 563: hashicorp.waypoint.GetJobStreamResponse.JobChange.job:type_name -> hashicorp.waypoint.Job
-	351, // 564: hashicorp.waypoint.GetJobStreamResponse.Download.data_source_ref:type_name -> hashicorp.waypoint.Job.DataSource.Ref
-	369, // 565: hashicorp.waypoint.GetJobStreamResponse.Terminal.events:type_name -> hashicorp.waypoint.GetJobStreamResponse.Terminal.Event
-	461, // 566: hashicorp.waypoint.GetJobStreamResponse.Error.error:type_name -> google.rpc.Status
-	461, // 567: hashicorp.waypoint.GetJobStreamResponse.Complete.error:type_name -> google.rpc.Status
-	303, // 568: hashicorp.waypoint.GetJobStreamResponse.Complete.result:type_name -> hashicorp.waypoint.Job.Result
-	460, // 569: hashicorp.waypoint.GetJobStreamResponse.Terminal.Event.timestamp:type_name -> google.protobuf.Timestamp
-	371, // 570: hashicorp.waypoint.GetJobStreamResponse.Terminal.Event.line:type_name -> hashicorp.waypoint.GetJobStreamResponse.Terminal.Event.Line
-	370, // 571: hashicorp.waypoint.GetJobStreamResponse.Terminal.Event.status:type_name -> hashicorp.waypoint.GetJobStreamResponse.Terminal.Event.Status
-	374, // 572: hashicorp.waypoint.GetJobStreamResponse.Terminal.Event.named_values:type_name -> hashicorp.waypoint.GetJobStreamResponse.Terminal.Event.NamedValues
-	372, // 573: hashicorp.waypoint.GetJobStreamResponse.Terminal.Event.raw:type_name -> hashicorp.waypoint.GetJobStreamResponse.Terminal.Event.Raw
-	377, // 574: hashicorp.waypoint.GetJobStreamResponse.Terminal.Event.table:type_name -> hashicorp.waypoint.GetJobStreamResponse.Terminal.Event.Table
-	378, // 575: hashicorp.waypoint.GetJobStreamResponse.Terminal.Event.step_group:type_name -> hashicorp.waypoint.GetJobStreamResponse.Terminal.Event.StepGroup
-	379, // 576: hashicorp.waypoint.GetJobStreamResponse.Terminal.Event.step:type_name -> hashicorp.waypoint.GetJobStreamResponse.Terminal.Event.Step
-	373, // 577: hashicorp.waypoint.GetJobStreamResponse.Terminal.Event.NamedValues.values:type_name -> hashicorp.waypoint.GetJobStreamResponse.Terminal.Event.NamedValue
-	375, // 578: hashicorp.waypoint.GetJobStreamResponse.Terminal.Event.TableRow.entries:type_name -> hashicorp.waypoint.GetJobStreamResponse.Terminal.Event.TableEntry
-	376, // 579: hashicorp.waypoint.GetJobStreamResponse.Terminal.Event.Table.rows:type_name -> hashicorp.waypoint.GetJobStreamResponse.Terminal.Event.TableRow
-	85,  // 580: hashicorp.waypoint.RunnerConfigRequest.Open.runner:type_name -> hashicorp.waypoint.Runner
-	303, // 581: hashicorp.waypoint.RunnerJobStreamRequest.Complete.result:type_name -> hashicorp.waypoint.Job.Result
-	461, // 582: hashicorp.waypoint.RunnerJobStreamRequest.Error.error:type_name -> google.rpc.Status
-	304, // 583: hashicorp.waypoint.RunnerJobStreamRequest.ConfigLoad.config:type_name -> hashicorp.waypoint.Job.Config
-	392, // 584: hashicorp.waypoint.RunnerJobStreamRequest.VariableValuesSet.final_values:type_name -> hashicorp.waypoint.RunnerJobStreamRequest.VariableValuesSet.FinalValuesEntry
-	261, // 585: hashicorp.waypoint.RunnerJobStreamRequest.VariableValuesSet.FinalValuesEntry.value:type_name -> hashicorp.waypoint.Variable.FinalValue
-	78,  // 586: hashicorp.waypoint.RunnerJobStreamResponse.JobAssignment.job:type_name -> hashicorp.waypoint.Job
-	195, // 587: hashicorp.waypoint.RunnerJobStreamResponse.JobAssignment.config_sources:type_name -> hashicorp.waypoint.ConfigSource
-	398, // 588: hashicorp.waypoint.Hostname.Target.application:type_name -> hashicorp.waypoint.Hostname.TargetApp
-	269, // 589: hashicorp.waypoint.Hostname.TargetApp.application:type_name -> hashicorp.waypoint.Ref.Application
-	271, // 590: hashicorp.waypoint.Hostname.TargetApp.workspace:type_name -> hashicorp.waypoint.Ref.Workspace
-	351, // 591: hashicorp.waypoint.Build.Preload.job_data_source_ref:type_name -> hashicorp.waypoint.Job.DataSource.Ref
-	351, // 592: hashicorp.waypoint.PushedArtifact.Preload.job_data_source_ref:type_name -> hashicorp.waypoint.Job.DataSource.Ref
-	148, // 593: hashicorp.waypoint.Deployment.Preload.artifact:type_name -> hashicorp.waypoint.PushedArtifact
-	132, // 594: hashicorp.waypoint.Deployment.Preload.build:type_name -> hashicorp.waypoint.Build
-	351, // 595: hashicorp.waypoint.Deployment.Preload.job_data_source_ref:type_name -> hashicorp.waypoint.Job.DataSource.Ref
-	269, // 596: hashicorp.waypoint.ListInstancesRequest.Application.application:type_name -> hashicorp.waypoint.Ref.Application
-	271, // 597: hashicorp.waypoint.ListInstancesRequest.Application.workspace:type_name -> hashicorp.waypoint.Ref.Workspace
-	154, // 598: hashicorp.waypoint.Release.Preload.deployment:type_name -> hashicorp.waypoint.Deployment
-	148, // 599: hashicorp.waypoint.Release.Preload.artifact:type_name -> hashicorp.waypoint.PushedArtifact
-	132, // 600: hashicorp.waypoint.Release.Preload.build:type_name -> hashicorp.waypoint.Build
-	351, // 601: hashicorp.waypoint.Release.Preload.job_data_source_ref:type_name -> hashicorp.waypoint.Job.DataSource.Ref
-	285, // 602: hashicorp.waypoint.StatusReport.Resource.declared_resource:type_name -> hashicorp.waypoint.Ref.DeclaredResource
-	0,   // 603: hashicorp.waypoint.StatusReport.Resource.category_display_hint:type_name -> hashicorp.waypoint.ResourceCategoryDisplayHint
-	460, // 604: hashicorp.waypoint.StatusReport.Resource.created_time:type_name -> google.protobuf.Timestamp
-	17,  // 605: hashicorp.waypoint.StatusReport.Resource.health:type_name -> hashicorp.waypoint.StatusReport.Resource.Health
-	410, // 606: hashicorp.waypoint.StatusReport.Resource.deprecated_health:type_name -> hashicorp.waypoint.StatusReport.Health
-	269, // 607: hashicorp.waypoint.GetLogStreamRequest.Application.application:type_name -> hashicorp.waypoint.Ref.Application
-	271, // 608: hashicorp.waypoint.GetLogStreamRequest.Application.workspace:type_name -> hashicorp.waypoint.Ref.Workspace
-	18,  // 609: hashicorp.waypoint.LogBatch.Entry.source:type_name -> hashicorp.waypoint.LogBatch.Entry.Source
-	460, // 610: hashicorp.waypoint.LogBatch.Entry.timestamp:type_name -> google.protobuf.Timestamp
-	415, // 611: hashicorp.waypoint.ConfigVar.DynamicVal.config:type_name -> hashicorp.waypoint.ConfigVar.DynamicVal.ConfigEntry
-	268, // 612: hashicorp.waypoint.ConfigVar.Target.global:type_name -> hashicorp.waypoint.Ref.Global
-	270, // 613: hashicorp.waypoint.ConfigVar.Target.project:type_name -> hashicorp.waypoint.Ref.Project
-	269, // 614: hashicorp.waypoint.ConfigVar.Target.application:type_name -> hashicorp.waypoint.Ref.Application
-	271, // 615: hashicorp.waypoint.ConfigVar.Target.workspace:type_name -> hashicorp.waypoint.Ref.Workspace
-	277, // 616: hashicorp.waypoint.ConfigVar.Target.runner:type_name -> hashicorp.waypoint.Ref.Runner
-	420, // 617: hashicorp.waypoint.ExecStreamRequest.Start.pty:type_name -> hashicorp.waypoint.ExecStreamRequest.PTY
-	421, // 618: hashicorp.waypoint.ExecStreamRequest.PTY.window_size:type_name -> hashicorp.waypoint.ExecStreamRequest.WindowSize
-	19,  // 619: hashicorp.waypoint.ExecStreamResponse.Output.channel:type_name -> hashicorp.waypoint.ExecStreamResponse.Output.Channel
-	420, // 620: hashicorp.waypoint.EntrypointConfig.Exec.pty:type_name -> hashicorp.waypoint.ExecStreamRequest.PTY
-	35,  // 621: hashicorp.waypoint.EntrypointConfig.DeploymentInfo.component:type_name -> hashicorp.waypoint.Component
-	428, // 622: hashicorp.waypoint.EntrypointConfig.DeploymentInfo.labels:type_name -> hashicorp.waypoint.EntrypointConfig.DeploymentInfo.LabelsEntry
-	20,  // 623: hashicorp.waypoint.EntrypointExecRequest.Output.channel:type_name -> hashicorp.waypoint.EntrypointExecRequest.Output.Channel
-	461, // 624: hashicorp.waypoint.EntrypointExecRequest.Error.error:type_name -> google.rpc.Status
-	434, // 625: hashicorp.waypoint.Pipeline.StepsEntry.value:type_name -> hashicorp.waypoint.Pipeline.Step
-	435, // 626: hashicorp.waypoint.Pipeline.Step.exec:type_name -> hashicorp.waypoint.Pipeline.Step.Exec
-	436, // 627: hashicorp.waypoint.Pipeline.Step.build:type_name -> hashicorp.waypoint.Pipeline.Step.Build
-	437, // 628: hashicorp.waypoint.Pipeline.Step.deploy:type_name -> hashicorp.waypoint.Pipeline.Step.Deploy
-	438, // 629: hashicorp.waypoint.Pipeline.Step.release:type_name -> hashicorp.waypoint.Pipeline.Step.Release
-	439, // 630: hashicorp.waypoint.Pipeline.Step.up:type_name -> hashicorp.waypoint.Pipeline.Step.Up
-	440, // 631: hashicorp.waypoint.Pipeline.Step.pipeline:type_name -> hashicorp.waypoint.Pipeline.Step.Pipeline
-	271, // 632: hashicorp.waypoint.Pipeline.Step.workspace:type_name -> hashicorp.waypoint.Ref.Workspace
-	272, // 633: hashicorp.waypoint.Pipeline.Step.Release.deployment:type_name -> hashicorp.waypoint.Ref.Deployment
-	290, // 634: hashicorp.waypoint.Pipeline.Step.Pipeline.ref:type_name -> hashicorp.waypoint.Ref.Pipeline
-	22,  // 635: hashicorp.waypoint.GetPipelineResponse.Graph.format:type_name -> hashicorp.waypoint.GetPipelineResponse.Graph.Format
-	292, // 636: hashicorp.waypoint.RunPipelineResponse.JobMapEntry.value:type_name -> hashicorp.waypoint.Ref.PipelineStep
-	290, // 637: hashicorp.waypoint.ConfigSyncPipelineResponse.SyncedPipelinesEntry.value:type_name -> hashicorp.waypoint.Ref.Pipeline
-	449, // 638: hashicorp.waypoint.Token.Login.entrypoint:type_name -> hashicorp.waypoint.Token.Entrypoint
-	446, // 639: hashicorp.waypoint.Token.Invite.login:type_name -> hashicorp.waypoint.Token.Login
-	451, // 640: hashicorp.waypoint.Token.Invite.signup:type_name -> hashicorp.waypoint.Token.Invite.Signup
-	28,  // 641: hashicorp.waypoint.Snapshot.Header.version:type_name -> hashicorp.waypoint.VersionInfo
-	23,  // 642: hashicorp.waypoint.Snapshot.Header.format:type_name -> hashicorp.waypoint.Snapshot.Header.Format
-	458, // 643: hashicorp.waypoint.Snapshot.BoltChunk.items:type_name -> hashicorp.waypoint.Snapshot.BoltChunk.ItemsEntry
-	459, // 644: hashicorp.waypoint.Waypoint.GetVersionInfo:input_type -> google.protobuf.Empty
-	459, // 645: hashicorp.waypoint.Waypoint.ListOIDCAuthMethods:input_type -> google.protobuf.Empty
-	69,  // 646: hashicorp.waypoint.Waypoint.GetOIDCAuthURL:input_type -> hashicorp.waypoint.GetOIDCAuthURLRequest
-	71,  // 647: hashicorp.waypoint.Waypoint.CompleteOIDCAuth:input_type -> hashicorp.waypoint.CompleteOIDCAuthRequest
-	173, // 648: hashicorp.waypoint.Waypoint.NoAuthRunTrigger:input_type -> hashicorp.waypoint.RunTriggerRequest
-	54,  // 649: hashicorp.waypoint.Waypoint.GetUser:input_type -> hashicorp.waypoint.GetUserRequest
-	459, // 650: hashicorp.waypoint.Waypoint.ListUsers:input_type -> google.protobuf.Empty
-	57,  // 651: hashicorp.waypoint.Waypoint.UpdateUser:input_type -> hashicorp.waypoint.UpdateUserRequest
-	59,  // 652: hashicorp.waypoint.Waypoint.DeleteUser:input_type -> hashicorp.waypoint.DeleteUserRequest
-	62,  // 653: hashicorp.waypoint.Waypoint.UpsertAuthMethod:input_type -> hashicorp.waypoint.UpsertAuthMethodRequest
-	64,  // 654: hashicorp.waypoint.Waypoint.GetAuthMethod:input_type -> hashicorp.waypoint.GetAuthMethodRequest
-	459, // 655: hashicorp.waypoint.Waypoint.ListAuthMethods:input_type -> google.protobuf.Empty
-	66,  // 656: hashicorp.waypoint.Waypoint.DeleteAuthMethod:input_type -> hashicorp.waypoint.DeleteAuthMethodRequest
-	109, // 657: hashicorp.waypoint.Waypoint.ListWorkspaces:input_type -> hashicorp.waypoint.ListWorkspacesRequest
-	111, // 658: hashicorp.waypoint.Waypoint.GetWorkspace:input_type -> hashicorp.waypoint.GetWorkspaceRequest
-	113, // 659: hashicorp.waypoint.Waypoint.UpsertWorkspace:input_type -> hashicorp.waypoint.UpsertWorkspaceRequest
-	115, // 660: hashicorp.waypoint.Waypoint.UpsertProject:input_type -> hashicorp.waypoint.UpsertProjectRequest
-	117, // 661: hashicorp.waypoint.Waypoint.GetProject:input_type -> hashicorp.waypoint.GetProjectRequest
-	119, // 662: hashicorp.waypoint.Waypoint.ListProjects:input_type -> hashicorp.waypoint.ListProjectsRequest
-	121, // 663: hashicorp.waypoint.Waypoint.DestroyProject:input_type -> hashicorp.waypoint.DestroyProjectRequest
-	122, // 664: hashicorp.waypoint.Waypoint.GetApplication:input_type -> hashicorp.waypoint.GetApplicationRequest
-	124, // 665: hashicorp.waypoint.Waypoint.UpsertApplication:input_type -> hashicorp.waypoint.UpsertApplicationRequest
-	128, // 666: hashicorp.waypoint.Waypoint.ListBuilds:input_type -> hashicorp.waypoint.ListBuildsRequest
-	131, // 667: hashicorp.waypoint.Waypoint.GetBuild:input_type -> hashicorp.waypoint.GetBuildRequest
-	130, // 668: hashicorp.waypoint.Waypoint.GetLatestBuild:input_type -> hashicorp.waypoint.GetLatestBuildRequest
-	146, // 669: hashicorp.waypoint.Waypoint.ListPushedArtifacts:input_type -> hashicorp.waypoint.ListPushedArtifactsRequest
-	145, // 670: hashicorp.waypoint.Waypoint.GetPushedArtifact:input_type -> hashicorp.waypoint.GetPushedArtifactRequest
-	144, // 671: hashicorp.waypoint.Waypoint.GetLatestPushedArtifact:input_type -> hashicorp.waypoint.GetLatestPushedArtifactRequest
-	152, // 672: hashicorp.waypoint.Waypoint.ListDeployments:input_type -> hashicorp.waypoint.ListDeploymentsRequest
-	149, // 673: hashicorp.waypoint.Waypoint.GetDeployment:input_type -> hashicorp.waypoint.GetDeploymentRequest
-	156, // 674: hashicorp.waypoint.Waypoint.ListInstances:input_type -> hashicorp.waypoint.ListInstancesRequest
-	162, // 675: hashicorp.waypoint.Waypoint.ListReleases:input_type -> hashicorp.waypoint.ListReleasesRequest
-	164, // 676: hashicorp.waypoint.Waypoint.GetRelease:input_type -> hashicorp.waypoint.GetReleaseRequest
-	161, // 677: hashicorp.waypoint.Waypoint.GetLatestRelease:input_type -> hashicorp.waypoint.GetLatestReleaseRequest
-	182, // 678: hashicorp.waypoint.Waypoint.GetStatusReport:input_type -> hashicorp.waypoint.GetStatusReportRequest
-	179, // 679: hashicorp.waypoint.Waypoint.GetLatestStatusReport:input_type -> hashicorp.waypoint.GetLatestStatusReportRequest
-	180, // 680: hashicorp.waypoint.Waypoint.ListStatusReports:input_type -> hashicorp.waypoint.ListStatusReportsRequest
-	183, // 681: hashicorp.waypoint.Waypoint.ExpediteStatusReport:input_type -> hashicorp.waypoint.ExpediteStatusReportRequest
-	186, // 682: hashicorp.waypoint.Waypoint.GetLogStream:input_type -> hashicorp.waypoint.GetLogStreamRequest
-	200, // 683: hashicorp.waypoint.Waypoint.StartExecStream:input_type -> hashicorp.waypoint.ExecStreamRequest
-	189, // 684: hashicorp.waypoint.Waypoint.SetConfig:input_type -> hashicorp.waypoint.ConfigSetRequest
-	191, // 685: hashicorp.waypoint.Waypoint.DeleteConfig:input_type -> hashicorp.waypoint.ConfigDeleteRequest
-	193, // 686: hashicorp.waypoint.Waypoint.GetConfig:input_type -> hashicorp.waypoint.ConfigGetRequest
-	196, // 687: hashicorp.waypoint.Waypoint.SetConfigSource:input_type -> hashicorp.waypoint.SetConfigSourceRequest
-	197, // 688: hashicorp.waypoint.Waypoint.DeleteConfigSource:input_type -> hashicorp.waypoint.DeleteConfigSourceRequest
-	198, // 689: hashicorp.waypoint.Waypoint.GetConfigSource:input_type -> hashicorp.waypoint.GetConfigSourceRequest
-	103, // 690: hashicorp.waypoint.Waypoint.CreateHostname:input_type -> hashicorp.waypoint.CreateHostnameRequest
-	107, // 691: hashicorp.waypoint.Waypoint.DeleteHostname:input_type -> hashicorp.waypoint.DeleteHostnameRequest
-	105, // 692: hashicorp.waypoint.Waypoint.ListHostnames:input_type -> hashicorp.waypoint.ListHostnamesRequest
-	73,  // 693: hashicorp.waypoint.Waypoint.QueueJob:input_type -> hashicorp.waypoint.QueueJobRequest
-	75,  // 694: hashicorp.waypoint.Waypoint.CancelJob:input_type -> hashicorp.waypoint.CancelJobRequest
-	80,  // 695: hashicorp.waypoint.Waypoint.GetJob:input_type -> hashicorp.waypoint.GetJobRequest
-	81,  // 696: hashicorp.waypoint.Waypoint.ListJobs:input_type -> hashicorp.waypoint.ListJobsRequest
-	76,  // 697: hashicorp.waypoint.Waypoint.ValidateJob:input_type -> hashicorp.waypoint.ValidateJobRequest
-	83,  // 698: hashicorp.waypoint.Waypoint.GetJobStream:input_type -> hashicorp.waypoint.GetJobStreamRequest
-	95,  // 699: hashicorp.waypoint.Waypoint.GetRunner:input_type -> hashicorp.waypoint.GetRunnerRequest
-	96,  // 700: hashicorp.waypoint.Waypoint.ListRunners:input_type -> hashicorp.waypoint.ListRunnersRequest
-	98,  // 701: hashicorp.waypoint.Waypoint.AdoptRunner:input_type -> hashicorp.waypoint.AdoptRunnerRequest
-	99,  // 702: hashicorp.waypoint.Waypoint.ForgetRunner:input_type -> hashicorp.waypoint.ForgetRunnerRequest
-	459, // 703: hashicorp.waypoint.Waypoint.GetServerConfig:input_type -> google.protobuf.Empty
-	100, // 704: hashicorp.waypoint.Waypoint.SetServerConfig:input_type -> hashicorp.waypoint.SetServerConfigRequest
-	459, // 705: hashicorp.waypoint.Waypoint.CreateSnapshot:input_type -> google.protobuf.Empty
-	235, // 706: hashicorp.waypoint.Waypoint.RestoreSnapshot:input_type -> hashicorp.waypoint.RestoreSnapshotRequest
-	459, // 707: hashicorp.waypoint.Waypoint.BootstrapToken:input_type -> google.protobuf.Empty
-	227, // 708: hashicorp.waypoint.Waypoint.DecodeToken:input_type -> hashicorp.waypoint.DecodeTokenRequest
-	231, // 709: hashicorp.waypoint.Waypoint.GenerateInviteToken:input_type -> hashicorp.waypoint.InviteTokenRequest
-	229, // 710: hashicorp.waypoint.Waypoint.GenerateLoginToken:input_type -> hashicorp.waypoint.LoginTokenRequest
-	230, // 711: hashicorp.waypoint.Waypoint.GenerateRunnerToken:input_type -> hashicorp.waypoint.GenerateRunnerTokenRequest
-	233, // 712: hashicorp.waypoint.Waypoint.ConvertInviteToken:input_type -> hashicorp.waypoint.ConvertInviteTokenRequest
-	86,  // 713: hashicorp.waypoint.Waypoint.RunnerToken:input_type -> hashicorp.waypoint.RunnerTokenRequest
-	88,  // 714: hashicorp.waypoint.Waypoint.RunnerConfig:input_type -> hashicorp.waypoint.RunnerConfigRequest
-	91,  // 715: hashicorp.waypoint.Waypoint.RunnerJobStream:input_type -> hashicorp.waypoint.RunnerJobStreamRequest
-	93,  // 716: hashicorp.waypoint.Waypoint.RunnerGetDeploymentConfig:input_type -> hashicorp.waypoint.RunnerGetDeploymentConfigRequest
-	202, // 717: hashicorp.waypoint.Waypoint.EntrypointConfig:input_type -> hashicorp.waypoint.EntrypointConfigRequest
-	205, // 718: hashicorp.waypoint.Waypoint.EntrypointLogStream:input_type -> hashicorp.waypoint.EntrypointLogBatch
-	206, // 719: hashicorp.waypoint.Waypoint.EntrypointExecStream:input_type -> hashicorp.waypoint.EntrypointExecRequest
-	238, // 720: hashicorp.waypoint.Waypoint.WaypointHclFmt:input_type -> hashicorp.waypoint.WaypointHclFmtRequest
-	135, // 721: hashicorp.waypoint.Waypoint.UpsertOnDemandRunnerConfig:input_type -> hashicorp.waypoint.UpsertOnDemandRunnerConfigRequest
-	137, // 722: hashicorp.waypoint.Waypoint.GetOnDemandRunnerConfig:input_type -> hashicorp.waypoint.GetOnDemandRunnerConfigRequest
-	459, // 723: hashicorp.waypoint.Waypoint.GetDefaultOnDemandRunnerConfig:input_type -> google.protobuf.Empty
-	139, // 724: hashicorp.waypoint.Waypoint.DeleteOnDemandRunnerConfig:input_type -> hashicorp.waypoint.DeleteOnDemandRunnerConfigRequest
-	459, // 725: hashicorp.waypoint.Waypoint.ListOnDemandRunnerConfigs:input_type -> google.protobuf.Empty
-	126, // 726: hashicorp.waypoint.Waypoint.UpsertBuild:input_type -> hashicorp.waypoint.UpsertBuildRequest
-	142, // 727: hashicorp.waypoint.Waypoint.UpsertPushedArtifact:input_type -> hashicorp.waypoint.UpsertPushedArtifactRequest
-	150, // 728: hashicorp.waypoint.Waypoint.UpsertDeployment:input_type -> hashicorp.waypoint.UpsertDeploymentRequest
-	159, // 729: hashicorp.waypoint.Waypoint.UpsertRelease:input_type -> hashicorp.waypoint.UpsertReleaseRequest
-	177, // 730: hashicorp.waypoint.Waypoint.UpsertStatusReport:input_type -> hashicorp.waypoint.UpsertStatusReportRequest
-	47,  // 731: hashicorp.waypoint.Waypoint.GetTask:input_type -> hashicorp.waypoint.GetTaskRequest
-	50,  // 732: hashicorp.waypoint.Waypoint.ListTask:input_type -> hashicorp.waypoint.ListTaskRequest
-	52,  // 733: hashicorp.waypoint.Waypoint.CancelTask:input_type -> hashicorp.waypoint.CancelTaskRequest
-	168, // 734: hashicorp.waypoint.Waypoint.UpsertTrigger:input_type -> hashicorp.waypoint.UpsertTriggerRequest
-	170, // 735: hashicorp.waypoint.Waypoint.GetTrigger:input_type -> hashicorp.waypoint.GetTriggerRequest
-	172, // 736: hashicorp.waypoint.Waypoint.DeleteTrigger:input_type -> hashicorp.waypoint.DeleteTriggerRequest
-	175, // 737: hashicorp.waypoint.Waypoint.ListTriggers:input_type -> hashicorp.waypoint.ListTriggerRequest
-	173, // 738: hashicorp.waypoint.Waypoint.RunTrigger:input_type -> hashicorp.waypoint.RunTriggerRequest
-	210, // 739: hashicorp.waypoint.Waypoint.UpsertPipeline:input_type -> hashicorp.waypoint.UpsertPipelineRequest
-	214, // 740: hashicorp.waypoint.Waypoint.RunPipeline:input_type -> hashicorp.waypoint.RunPipelineRequest
-	212, // 741: hashicorp.waypoint.Waypoint.GetPipeline:input_type -> hashicorp.waypoint.GetPipelineRequest
-	220, // 742: hashicorp.waypoint.Waypoint.GetPipelineRun:input_type -> hashicorp.waypoint.GetPipelineRunRequest
-	212, // 743: hashicorp.waypoint.Waypoint.GetLatestPipelineRun:input_type -> hashicorp.waypoint.GetPipelineRequest
-	216, // 744: hashicorp.waypoint.Waypoint.ListPipelines:input_type -> hashicorp.waypoint.ListPipelinesRequest
-	218, // 745: hashicorp.waypoint.Waypoint.ListPipelineRuns:input_type -> hashicorp.waypoint.ListPipelineRunsRequest
-	222, // 746: hashicorp.waypoint.Waypoint.ConfigSyncPipeline:input_type -> hashicorp.waypoint.ConfigSyncPipelineRequest
-	243, // 747: hashicorp.waypoint.Waypoint.UI_ListProjects:input_type -> hashicorp.waypoint.UI.ListProjectsRequest
-	246, // 748: hashicorp.waypoint.Waypoint.UI_GetProject:input_type -> hashicorp.waypoint.UI.GetProjectRequest
-	248, // 749: hashicorp.waypoint.Waypoint.UI_ListDeployments:input_type -> hashicorp.waypoint.UI.ListDeploymentsRequest
-	250, // 750: hashicorp.waypoint.Waypoint.UI_GetDeployment:input_type -> hashicorp.waypoint.UI.GetDeploymentRequest
-	253, // 751: hashicorp.waypoint.Waypoint.UI_ListReleases:input_type -> hashicorp.waypoint.UI.ListReleasesRequest
-	26,  // 752: hashicorp.waypoint.Waypoint.GetVersionInfo:output_type -> hashicorp.waypoint.GetVersionInfoResponse
-	68,  // 753: hashicorp.waypoint.Waypoint.ListOIDCAuthMethods:output_type -> hashicorp.waypoint.ListOIDCAuthMethodsResponse
-	70,  // 754: hashicorp.waypoint.Waypoint.GetOIDCAuthURL:output_type -> hashicorp.waypoint.GetOIDCAuthURLResponse
-	72,  // 755: hashicorp.waypoint.Waypoint.CompleteOIDCAuth:output_type -> hashicorp.waypoint.CompleteOIDCAuthResponse
-	174, // 756: hashicorp.waypoint.Waypoint.NoAuthRunTrigger:output_type -> hashicorp.waypoint.RunTriggerResponse
-	55,  // 757: hashicorp.waypoint.Waypoint.GetUser:output_type -> hashicorp.waypoint.GetUserResponse
-	56,  // 758: hashicorp.waypoint.Waypoint.ListUsers:output_type -> hashicorp.waypoint.ListUsersResponse
-	58,  // 759: hashicorp.waypoint.Waypoint.UpdateUser:output_type -> hashicorp.waypoint.UpdateUserResponse
-	459, // 760: hashicorp.waypoint.Waypoint.DeleteUser:output_type -> google.protobuf.Empty
-	63,  // 761: hashicorp.waypoint.Waypoint.UpsertAuthMethod:output_type -> hashicorp.waypoint.UpsertAuthMethodResponse
-	65,  // 762: hashicorp.waypoint.Waypoint.GetAuthMethod:output_type -> hashicorp.waypoint.GetAuthMethodResponse
-	67,  // 763: hashicorp.waypoint.Waypoint.ListAuthMethods:output_type -> hashicorp.waypoint.ListAuthMethodsResponse
-	459, // 764: hashicorp.waypoint.Waypoint.DeleteAuthMethod:output_type -> google.protobuf.Empty
-	110, // 765: hashicorp.waypoint.Waypoint.ListWorkspaces:output_type -> hashicorp.waypoint.ListWorkspacesResponse
-	112, // 766: hashicorp.waypoint.Waypoint.GetWorkspace:output_type -> hashicorp.waypoint.GetWorkspaceResponse
-	114, // 767: hashicorp.waypoint.Waypoint.UpsertWorkspace:output_type -> hashicorp.waypoint.UpsertWorkspaceResponse
-	116, // 768: hashicorp.waypoint.Waypoint.UpsertProject:output_type -> hashicorp.waypoint.UpsertProjectResponse
-	118, // 769: hashicorp.waypoint.Waypoint.GetProject:output_type -> hashicorp.waypoint.GetProjectResponse
-	120, // 770: hashicorp.waypoint.Waypoint.ListProjects:output_type -> hashicorp.waypoint.ListProjectsResponse
-	459, // 771: hashicorp.waypoint.Waypoint.DestroyProject:output_type -> google.protobuf.Empty
-	123, // 772: hashicorp.waypoint.Waypoint.GetApplication:output_type -> hashicorp.waypoint.GetApplicationResponse
-	125, // 773: hashicorp.waypoint.Waypoint.UpsertApplication:output_type -> hashicorp.waypoint.UpsertApplicationResponse
-	129, // 774: hashicorp.waypoint.Waypoint.ListBuilds:output_type -> hashicorp.waypoint.ListBuildsResponse
-	132, // 775: hashicorp.waypoint.Waypoint.GetBuild:output_type -> hashicorp.waypoint.Build
-	132, // 776: hashicorp.waypoint.Waypoint.GetLatestBuild:output_type -> hashicorp.waypoint.Build
-	147, // 777: hashicorp.waypoint.Waypoint.ListPushedArtifacts:output_type -> hashicorp.waypoint.ListPushedArtifactsResponse
-	148, // 778: hashicorp.waypoint.Waypoint.GetPushedArtifact:output_type -> hashicorp.waypoint.PushedArtifact
-	148, // 779: hashicorp.waypoint.Waypoint.GetLatestPushedArtifact:output_type -> hashicorp.waypoint.PushedArtifact
-	153, // 780: hashicorp.waypoint.Waypoint.ListDeployments:output_type -> hashicorp.waypoint.ListDeploymentsResponse
-	154, // 781: hashicorp.waypoint.Waypoint.GetDeployment:output_type -> hashicorp.waypoint.Deployment
-	157, // 782: hashicorp.waypoint.Waypoint.ListInstances:output_type -> hashicorp.waypoint.ListInstancesResponse
-	163, // 783: hashicorp.waypoint.Waypoint.ListReleases:output_type -> hashicorp.waypoint.ListReleasesResponse
-	165, // 784: hashicorp.waypoint.Waypoint.GetRelease:output_type -> hashicorp.waypoint.Release
-	165, // 785: hashicorp.waypoint.Waypoint.GetLatestRelease:output_type -> hashicorp.waypoint.Release
-	185, // 786: hashicorp.waypoint.Waypoint.GetStatusReport:output_type -> hashicorp.waypoint.StatusReport
-	185, // 787: hashicorp.waypoint.Waypoint.GetLatestStatusReport:output_type -> hashicorp.waypoint.StatusReport
-	181, // 788: hashicorp.waypoint.Waypoint.ListStatusReports:output_type -> hashicorp.waypoint.ListStatusReportsResponse
-	184, // 789: hashicorp.waypoint.Waypoint.ExpediteStatusReport:output_type -> hashicorp.waypoint.ExpediteStatusReportResponse
-	187, // 790: hashicorp.waypoint.Waypoint.GetLogStream:output_type -> hashicorp.waypoint.LogBatch
-	201, // 791: hashicorp.waypoint.Waypoint.StartExecStream:output_type -> hashicorp.waypoint.ExecStreamResponse
-	190, // 792: hashicorp.waypoint.Waypoint.SetConfig:output_type -> hashicorp.waypoint.ConfigSetResponse
-	192, // 793: hashicorp.waypoint.Waypoint.DeleteConfig:output_type -> hashicorp.waypoint.ConfigDeleteResponse
-	194, // 794: hashicorp.waypoint.Waypoint.GetConfig:output_type -> hashicorp.waypoint.ConfigGetResponse
-	459, // 795: hashicorp.waypoint.Waypoint.SetConfigSource:output_type -> google.protobuf.Empty
-	459, // 796: hashicorp.waypoint.Waypoint.DeleteConfigSource:output_type -> google.protobuf.Empty
-	199, // 797: hashicorp.waypoint.Waypoint.GetConfigSource:output_type -> hashicorp.waypoint.GetConfigSourceResponse
-	104, // 798: hashicorp.waypoint.Waypoint.CreateHostname:output_type -> hashicorp.waypoint.CreateHostnameResponse
-	459, // 799: hashicorp.waypoint.Waypoint.DeleteHostname:output_type -> google.protobuf.Empty
-	106, // 800: hashicorp.waypoint.Waypoint.ListHostnames:output_type -> hashicorp.waypoint.ListHostnamesResponse
-	74,  // 801: hashicorp.waypoint.Waypoint.QueueJob:output_type -> hashicorp.waypoint.QueueJobResponse
-	459, // 802: hashicorp.waypoint.Waypoint.CancelJob:output_type -> google.protobuf.Empty
-	78,  // 803: hashicorp.waypoint.Waypoint.GetJob:output_type -> hashicorp.waypoint.Job
-	82,  // 804: hashicorp.waypoint.Waypoint.ListJobs:output_type -> hashicorp.waypoint.ListJobsResponse
-	77,  // 805: hashicorp.waypoint.Waypoint.ValidateJob:output_type -> hashicorp.waypoint.ValidateJobResponse
-	84,  // 806: hashicorp.waypoint.Waypoint.GetJobStream:output_type -> hashicorp.waypoint.GetJobStreamResponse
-	85,  // 807: hashicorp.waypoint.Waypoint.GetRunner:output_type -> hashicorp.waypoint.Runner
-	97,  // 808: hashicorp.waypoint.Waypoint.ListRunners:output_type -> hashicorp.waypoint.ListRunnersResponse
-	459, // 809: hashicorp.waypoint.Waypoint.AdoptRunner:output_type -> google.protobuf.Empty
-	459, // 810: hashicorp.waypoint.Waypoint.ForgetRunner:output_type -> google.protobuf.Empty
-	101, // 811: hashicorp.waypoint.Waypoint.GetServerConfig:output_type -> hashicorp.waypoint.GetServerConfigResponse
-	459, // 812: hashicorp.waypoint.Waypoint.SetServerConfig:output_type -> google.protobuf.Empty
-	234, // 813: hashicorp.waypoint.Waypoint.CreateSnapshot:output_type -> hashicorp.waypoint.CreateSnapshotResponse
-	459, // 814: hashicorp.waypoint.Waypoint.RestoreSnapshot:output_type -> google.protobuf.Empty
-	232, // 815: hashicorp.waypoint.Waypoint.BootstrapToken:output_type -> hashicorp.waypoint.NewTokenResponse
-	228, // 816: hashicorp.waypoint.Waypoint.DecodeToken:output_type -> hashicorp.waypoint.DecodeTokenResponse
-	232, // 817: hashicorp.waypoint.Waypoint.GenerateInviteToken:output_type -> hashicorp.waypoint.NewTokenResponse
-	232, // 818: hashicorp.waypoint.Waypoint.GenerateLoginToken:output_type -> hashicorp.waypoint.NewTokenResponse
-	232, // 819: hashicorp.waypoint.Waypoint.GenerateRunnerToken:output_type -> hashicorp.waypoint.NewTokenResponse
-	232, // 820: hashicorp.waypoint.Waypoint.ConvertInviteToken:output_type -> hashicorp.waypoint.NewTokenResponse
-	87,  // 821: hashicorp.waypoint.Waypoint.RunnerToken:output_type -> hashicorp.waypoint.RunnerTokenResponse
-	89,  // 822: hashicorp.waypoint.Waypoint.RunnerConfig:output_type -> hashicorp.waypoint.RunnerConfigResponse
-	92,  // 823: hashicorp.waypoint.Waypoint.RunnerJobStream:output_type -> hashicorp.waypoint.RunnerJobStreamResponse
-	94,  // 824: hashicorp.waypoint.Waypoint.RunnerGetDeploymentConfig:output_type -> hashicorp.waypoint.RunnerGetDeploymentConfigResponse
-	203, // 825: hashicorp.waypoint.Waypoint.EntrypointConfig:output_type -> hashicorp.waypoint.EntrypointConfigResponse
-	459, // 826: hashicorp.waypoint.Waypoint.EntrypointLogStream:output_type -> google.protobuf.Empty
-	207, // 827: hashicorp.waypoint.Waypoint.EntrypointExecStream:output_type -> hashicorp.waypoint.EntrypointExecResponse
-	239, // 828: hashicorp.waypoint.Waypoint.WaypointHclFmt:output_type -> hashicorp.waypoint.WaypointHclFmtResponse
-	136, // 829: hashicorp.waypoint.Waypoint.UpsertOnDemandRunnerConfig:output_type -> hashicorp.waypoint.UpsertOnDemandRunnerConfigResponse
-	138, // 830: hashicorp.waypoint.Waypoint.GetOnDemandRunnerConfig:output_type -> hashicorp.waypoint.GetOnDemandRunnerConfigResponse
-	138, // 831: hashicorp.waypoint.Waypoint.GetDefaultOnDemandRunnerConfig:output_type -> hashicorp.waypoint.GetOnDemandRunnerConfigResponse
-	140, // 832: hashicorp.waypoint.Waypoint.DeleteOnDemandRunnerConfig:output_type -> hashicorp.waypoint.DeleteOnDemandRunnerConfigResponse
-	141, // 833: hashicorp.waypoint.Waypoint.ListOnDemandRunnerConfigs:output_type -> hashicorp.waypoint.ListOnDemandRunnerConfigsResponse
-	127, // 834: hashicorp.waypoint.Waypoint.UpsertBuild:output_type -> hashicorp.waypoint.UpsertBuildResponse
-	143, // 835: hashicorp.waypoint.Waypoint.UpsertPushedArtifact:output_type -> hashicorp.waypoint.UpsertPushedArtifactResponse
-	151, // 836: hashicorp.waypoint.Waypoint.UpsertDeployment:output_type -> hashicorp.waypoint.UpsertDeploymentResponse
-	160, // 837: hashicorp.waypoint.Waypoint.UpsertRelease:output_type -> hashicorp.waypoint.UpsertReleaseResponse
-	178, // 838: hashicorp.waypoint.Waypoint.UpsertStatusReport:output_type -> hashicorp.waypoint.UpsertStatusReportResponse
-	48,  // 839: hashicorp.waypoint.Waypoint.GetTask:output_type -> hashicorp.waypoint.GetTaskResponse
-	51,  // 840: hashicorp.waypoint.Waypoint.ListTask:output_type -> hashicorp.waypoint.ListTaskResponse
-	459, // 841: hashicorp.waypoint.Waypoint.CancelTask:output_type -> google.protobuf.Empty
-	169, // 842: hashicorp.waypoint.Waypoint.UpsertTrigger:output_type -> hashicorp.waypoint.UpsertTriggerResponse
-	171, // 843: hashicorp.waypoint.Waypoint.GetTrigger:output_type -> hashicorp.waypoint.GetTriggerResponse
-	459, // 844: hashicorp.waypoint.Waypoint.DeleteTrigger:output_type -> google.protobuf.Empty
-	176, // 845: hashicorp.waypoint.Waypoint.ListTriggers:output_type -> hashicorp.waypoint.ListTriggerResponse
-	174, // 846: hashicorp.waypoint.Waypoint.RunTrigger:output_type -> hashicorp.waypoint.RunTriggerResponse
-	211, // 847: hashicorp.waypoint.Waypoint.UpsertPipeline:output_type -> hashicorp.waypoint.UpsertPipelineResponse
-	215, // 848: hashicorp.waypoint.Waypoint.RunPipeline:output_type -> hashicorp.waypoint.RunPipelineResponse
-	213, // 849: hashicorp.waypoint.Waypoint.GetPipeline:output_type -> hashicorp.waypoint.GetPipelineResponse
-	221, // 850: hashicorp.waypoint.Waypoint.GetPipelineRun:output_type -> hashicorp.waypoint.GetPipelineRunResponse
-	221, // 851: hashicorp.waypoint.Waypoint.GetLatestPipelineRun:output_type -> hashicorp.waypoint.GetPipelineRunResponse
-	217, // 852: hashicorp.waypoint.Waypoint.ListPipelines:output_type -> hashicorp.waypoint.ListPipelinesResponse
-	219, // 853: hashicorp.waypoint.Waypoint.ListPipelineRuns:output_type -> hashicorp.waypoint.ListPipelineRunsResponse
-	223, // 854: hashicorp.waypoint.Waypoint.ConfigSyncPipeline:output_type -> hashicorp.waypoint.ConfigSyncPipelineResponse
-	244, // 855: hashicorp.waypoint.Waypoint.UI_ListProjects:output_type -> hashicorp.waypoint.UI.ListProjectsResponse
-	247, // 856: hashicorp.waypoint.Waypoint.UI_GetProject:output_type -> hashicorp.waypoint.UI.GetProjectResponse
-	249, // 857: hashicorp.waypoint.Waypoint.UI_ListDeployments:output_type -> hashicorp.waypoint.UI.ListDeploymentsResponse
-	251, // 858: hashicorp.waypoint.Waypoint.UI_GetDeployment:output_type -> hashicorp.waypoint.UI.GetDeploymentResponse
-	254, // 859: hashicorp.waypoint.Waypoint.UI_ListReleases:output_type -> hashicorp.waypoint.UI.ListReleasesResponse
+	28,  // 0: nomatron.derrick.GetVersionInfoResponse.info:type_name -> nomatron.derrick.VersionInfo
+	27,  // 1: nomatron.derrick.GetVersionInfoResponse.server_features:type_name -> nomatron.derrick.ServerFeatures
+	1,   // 2: nomatron.derrick.ServerFeatures.features:type_name -> nomatron.derrick.ServerFeatures.feature
+	256, // 3: nomatron.derrick.VersionInfo.api:type_name -> nomatron.derrick.VersionInfo.ProtocolVersion
+	256, // 4: nomatron.derrick.VersionInfo.entrypoint:type_name -> nomatron.derrick.VersionInfo.ProtocolVersion
+	270, // 5: nomatron.derrick.Application.project:type_name -> nomatron.derrick.Ref.Project
+	459, // 6: nomatron.derrick.Variable.cli:type_name -> google.protobuf.Empty
+	257, // 7: nomatron.derrick.Variable.file:type_name -> nomatron.derrick.Variable.File
+	459, // 8: nomatron.derrick.Variable.env:type_name -> google.protobuf.Empty
+	258, // 9: nomatron.derrick.Variable.vcs:type_name -> nomatron.derrick.Variable.VCS
+	459, // 10: nomatron.derrick.Variable.server:type_name -> google.protobuf.Empty
+	459, // 11: nomatron.derrick.Variable.dynamic:type_name -> google.protobuf.Empty
+	261, // 12: nomatron.derrick.Variable.final_value:type_name -> nomatron.derrick.Variable.FinalValue
+	29,  // 13: nomatron.derrick.Project.applications:type_name -> nomatron.derrick.Application
+	305, // 14: nomatron.derrick.Project.data_source:type_name -> nomatron.derrick.Job.DataSource
+	262, // 15: nomatron.derrick.Project.data_source_poll:type_name -> nomatron.derrick.Project.Poll
+	24,  // 16: nomatron.derrick.Project.derrick_hcl_format:type_name -> nomatron.derrick.Hcl.Format
+	30,  // 17: nomatron.derrick.Project.variables:type_name -> nomatron.derrick.Variable
+	263, // 18: nomatron.derrick.Project.status_report_poll:type_name -> nomatron.derrick.Project.AppStatusPoll
+	3,   // 19: nomatron.derrick.Project.state:type_name -> nomatron.derrick.Project.ProjectState
+	264, // 20: nomatron.derrick.Workspace.projects:type_name -> nomatron.derrick.Workspace.Project
+	460, // 21: nomatron.derrick.Workspace.active_time:type_name -> google.protobuf.Timestamp
+	266, // 22: nomatron.derrick.User.links:type_name -> nomatron.derrick.User.Link
+	4,   // 23: nomatron.derrick.Component.type:type_name -> nomatron.derrick.Component.Type
+	5,   // 24: nomatron.derrick.Status.state:type_name -> nomatron.derrick.Status.State
+	461, // 25: nomatron.derrick.Status.error:type_name -> google.rpc.Status
+	460, // 26: nomatron.derrick.Status.start_time:type_name -> google.protobuf.Timestamp
+	460, // 27: nomatron.derrick.Status.complete_time:type_name -> google.protobuf.Timestamp
+	294, // 28: nomatron.derrick.StatusFilter.filters:type_name -> nomatron.derrick.StatusFilter.Filter
+	7,   // 29: nomatron.derrick.OperationOrder.order:type_name -> nomatron.derrick.OperationOrder.Order
+	462, // 30: nomatron.derrick.DeclaredResource.state:type_name -> opaqueany.Any
+	0,   // 31: nomatron.derrick.DeclaredResource.category_display_hint:type_name -> nomatron.derrick.ResourceCategoryDisplayHint
+	462, // 32: nomatron.derrick.DestroyedResource.state:type_name -> opaqueany.Any
+	295, // 33: nomatron.derrick.TaskLaunchInfo.environment_variables:type_name -> nomatron.derrick.TaskLaunchInfo.EnvironmentVariablesEntry
+	288, // 34: nomatron.derrick.Task.task_job:type_name -> nomatron.derrick.Ref.Job
+	288, // 35: nomatron.derrick.Task.watch_job:type_name -> nomatron.derrick.Ref.Job
+	288, // 36: nomatron.derrick.Task.start_job:type_name -> nomatron.derrick.Ref.Job
+	288, // 37: nomatron.derrick.Task.stop_job:type_name -> nomatron.derrick.Ref.Job
+	462, // 38: nomatron.derrick.Task.state:type_name -> opaqueany.Any
+	8,   // 39: nomatron.derrick.Task.job_state:type_name -> nomatron.derrick.Task.State
+	44,  // 40: nomatron.derrick.UpsertTaskRequest.task:type_name -> nomatron.derrick.Task
+	44,  // 41: nomatron.derrick.UpsertTaskResponse.task:type_name -> nomatron.derrick.Task
+	289, // 42: nomatron.derrick.GetTaskRequest.ref:type_name -> nomatron.derrick.Ref.Task
+	44,  // 43: nomatron.derrick.GetTaskResponse.task:type_name -> nomatron.derrick.Task
+	78,  // 44: nomatron.derrick.GetTaskResponse.task_job:type_name -> nomatron.derrick.Job
+	78,  // 45: nomatron.derrick.GetTaskResponse.start_job:type_name -> nomatron.derrick.Job
+	78,  // 46: nomatron.derrick.GetTaskResponse.stop_job:type_name -> nomatron.derrick.Job
+	78,  // 47: nomatron.derrick.GetTaskResponse.watch_job:type_name -> nomatron.derrick.Job
+	289, // 48: nomatron.derrick.DeleteTaskRequest.ref:type_name -> nomatron.derrick.Ref.Task
+	8,   // 49: nomatron.derrick.ListTaskRequest.taskState:type_name -> nomatron.derrick.Task.State
+	48,  // 50: nomatron.derrick.ListTaskResponse.tasks:type_name -> nomatron.derrick.GetTaskResponse
+	289, // 51: nomatron.derrick.CancelTaskRequest.ref:type_name -> nomatron.derrick.Ref.Task
+	281, // 52: nomatron.derrick.GetUserRequest.user:type_name -> nomatron.derrick.Ref.User
+	33,  // 53: nomatron.derrick.GetUserResponse.user:type_name -> nomatron.derrick.User
+	33,  // 54: nomatron.derrick.ListUsersResponse.users:type_name -> nomatron.derrick.User
+	33,  // 55: nomatron.derrick.UpdateUserRequest.user:type_name -> nomatron.derrick.User
+	33,  // 56: nomatron.derrick.UpdateUserResponse.user:type_name -> nomatron.derrick.User
+	281, // 57: nomatron.derrick.DeleteUserRequest.user:type_name -> nomatron.derrick.Ref.User
+	296, // 58: nomatron.derrick.AuthMethod.oidc:type_name -> nomatron.derrick.AuthMethod.OIDC
+	9,   // 59: nomatron.derrick.OIDCAuthMethod.kind:type_name -> nomatron.derrick.OIDCAuthMethod.Kind
+	60,  // 60: nomatron.derrick.UpsertAuthMethodRequest.auth_method:type_name -> nomatron.derrick.AuthMethod
+	60,  // 61: nomatron.derrick.UpsertAuthMethodResponse.auth_method:type_name -> nomatron.derrick.AuthMethod
+	284, // 62: nomatron.derrick.GetAuthMethodRequest.auth_method:type_name -> nomatron.derrick.Ref.AuthMethod
+	60,  // 63: nomatron.derrick.GetAuthMethodResponse.auth_method:type_name -> nomatron.derrick.AuthMethod
+	284, // 64: nomatron.derrick.DeleteAuthMethodRequest.auth_method:type_name -> nomatron.derrick.Ref.AuthMethod
+	60,  // 65: nomatron.derrick.ListAuthMethodsResponse.auth_methods:type_name -> nomatron.derrick.AuthMethod
+	61,  // 66: nomatron.derrick.ListOIDCAuthMethodsResponse.auth_methods:type_name -> nomatron.derrick.OIDCAuthMethod
+	284, // 67: nomatron.derrick.GetOIDCAuthURLRequest.auth_method:type_name -> nomatron.derrick.Ref.AuthMethod
+	284, // 68: nomatron.derrick.CompleteOIDCAuthRequest.auth_method:type_name -> nomatron.derrick.Ref.AuthMethod
+	33,  // 69: nomatron.derrick.CompleteOIDCAuthResponse.user:type_name -> nomatron.derrick.User
+	78,  // 70: nomatron.derrick.QueueJobRequest.job:type_name -> nomatron.derrick.Job
+	78,  // 71: nomatron.derrick.ValidateJobRequest.job:type_name -> nomatron.derrick.Job
+	461, // 72: nomatron.derrick.ValidateJobResponse.validation_error:type_name -> google.rpc.Status
+	269, // 73: nomatron.derrick.Job.application:type_name -> nomatron.derrick.Ref.Application
+	271, // 74: nomatron.derrick.Job.workspace:type_name -> nomatron.derrick.Ref.Workspace
+	277, // 75: nomatron.derrick.Job.target_runner:type_name -> nomatron.derrick.Ref.Runner
+	286, // 76: nomatron.derrick.Job.ondemand_runner:type_name -> nomatron.derrick.Ref.OnDemandRunnerConfig
+	299, // 77: nomatron.derrick.Job.ondemand_runner_task:type_name -> nomatron.derrick.Job.TaskOverride
+	300, // 78: nomatron.derrick.Job.labels:type_name -> nomatron.derrick.Job.LabelsEntry
+	305, // 79: nomatron.derrick.Job.data_source:type_name -> nomatron.derrick.Job.DataSource
+	301, // 80: nomatron.derrick.Job.data_source_overrides:type_name -> nomatron.derrick.Job.DataSourceOverridesEntry
+	237, // 81: nomatron.derrick.Job.derrick_hcl:type_name -> nomatron.derrick.Hcl
+	30,  // 82: nomatron.derrick.Job.variables:type_name -> nomatron.derrick.Variable
+	309, // 83: nomatron.derrick.Job.noop:type_name -> nomatron.derrick.Job.Noop
+	316, // 84: nomatron.derrick.Job.build:type_name -> nomatron.derrick.Job.BuildOp
+	318, // 85: nomatron.derrick.Job.push:type_name -> nomatron.derrick.Job.PushOp
+	320, // 86: nomatron.derrick.Job.deploy:type_name -> nomatron.derrick.Job.DeployOp
+	325, // 87: nomatron.derrick.Job.destroy:type_name -> nomatron.derrick.Job.DestroyOp
+	326, // 88: nomatron.derrick.Job.release:type_name -> nomatron.derrick.Job.ReleaseOp
+	312, // 89: nomatron.derrick.Job.validate:type_name -> nomatron.derrick.Job.ValidateOp
+	314, // 90: nomatron.derrick.Job.auth:type_name -> nomatron.derrick.Job.AuthOp
+	336, // 91: nomatron.derrick.Job.docs:type_name -> nomatron.derrick.Job.DocsOp
+	338, // 92: nomatron.derrick.Job.config_sync:type_name -> nomatron.derrick.Job.ConfigSyncOp
+	322, // 93: nomatron.derrick.Job.exec:type_name -> nomatron.derrick.Job.ExecOp
+	310, // 94: nomatron.derrick.Job.up:type_name -> nomatron.derrick.Job.UpOp
+	324, // 95: nomatron.derrick.Job.logs:type_name -> nomatron.derrick.Job.LogsOp
+	349, // 96: nomatron.derrick.Job.queue_project:type_name -> nomatron.derrick.Job.QueueProjectOp
+	342, // 97: nomatron.derrick.Job.poll:type_name -> nomatron.derrick.Job.PollOp
+	334, // 98: nomatron.derrick.Job.status_report:type_name -> nomatron.derrick.Job.StatusReportOp
+	329, // 99: nomatron.derrick.Job.start_task:type_name -> nomatron.derrick.Job.StartTaskLaunchOp
+	331, // 100: nomatron.derrick.Job.stop_task:type_name -> nomatron.derrick.Job.StopTaskLaunchOp
+	344, // 101: nomatron.derrick.Job.init:type_name -> nomatron.derrick.Job.InitOp
+	332, // 102: nomatron.derrick.Job.watch_task:type_name -> nomatron.derrick.Job.WatchTaskOp
+	346, // 103: nomatron.derrick.Job.pipeline_step:type_name -> nomatron.derrick.Job.PipelineStepOp
+	347, // 104: nomatron.derrick.Job.destroy_project:type_name -> nomatron.derrick.Job.DestroyProjectOp
+	10,  // 105: nomatron.derrick.Job.state:type_name -> nomatron.derrick.Job.State
+	279, // 106: nomatron.derrick.Job.assigned_runner:type_name -> nomatron.derrick.Ref.RunnerId
+	460, // 107: nomatron.derrick.Job.queue_time:type_name -> google.protobuf.Timestamp
+	460, // 108: nomatron.derrick.Job.assign_time:type_name -> google.protobuf.Timestamp
+	460, // 109: nomatron.derrick.Job.ack_time:type_name -> google.protobuf.Timestamp
+	460, // 110: nomatron.derrick.Job.complete_time:type_name -> google.protobuf.Timestamp
+	351, // 111: nomatron.derrick.Job.data_source_ref:type_name -> nomatron.derrick.Job.DataSource.Ref
+	302, // 112: nomatron.derrick.Job.variable_final_values:type_name -> nomatron.derrick.Job.VariableFinalValuesEntry
+	304, // 113: nomatron.derrick.Job.config:type_name -> nomatron.derrick.Job.Config
+	461, // 114: nomatron.derrick.Job.error:type_name -> google.rpc.Status
+	303, // 115: nomatron.derrick.Job.result:type_name -> nomatron.derrick.Job.Result
+	460, // 116: nomatron.derrick.Job.cancel_time:type_name -> google.protobuf.Timestamp
+	460, // 117: nomatron.derrick.Job.expire_time:type_name -> google.protobuf.Timestamp
+	289, // 118: nomatron.derrick.Job.task:type_name -> nomatron.derrick.Ref.Task
+	292, // 119: nomatron.derrick.Job.pipeline:type_name -> nomatron.derrick.Ref.PipelineStep
+	359, // 120: nomatron.derrick.Documentation.fields:type_name -> nomatron.derrick.Documentation.FieldsEntry
+	361, // 121: nomatron.derrick.Documentation.mappers:type_name -> nomatron.derrick.Documentation.Mapper
+	271, // 122: nomatron.derrick.ListJobsRequest.workspace:type_name -> nomatron.derrick.Ref.Workspace
+	270, // 123: nomatron.derrick.ListJobsRequest.project:type_name -> nomatron.derrick.Ref.Project
+	269, // 124: nomatron.derrick.ListJobsRequest.application:type_name -> nomatron.derrick.Ref.Application
+	277, // 125: nomatron.derrick.ListJobsRequest.targetRunner:type_name -> nomatron.derrick.Ref.Runner
+	292, // 126: nomatron.derrick.ListJobsRequest.pipeline:type_name -> nomatron.derrick.Ref.PipelineStep
+	10,  // 127: nomatron.derrick.ListJobsRequest.jobState:type_name -> nomatron.derrick.Job.State
+	241, // 128: nomatron.derrick.ListJobsRequest.pagination:type_name -> nomatron.derrick.PaginationRequest
+	78,  // 129: nomatron.derrick.ListJobsResponse.jobs:type_name -> nomatron.derrick.Job
+	242, // 130: nomatron.derrick.ListJobsResponse.pagination:type_name -> nomatron.derrick.PaginationResponse
+	362, // 131: nomatron.derrick.GetJobStreamResponse.open:type_name -> nomatron.derrick.GetJobStreamResponse.Open
+	363, // 132: nomatron.derrick.GetJobStreamResponse.state:type_name -> nomatron.derrick.GetJobStreamResponse.State
+	364, // 133: nomatron.derrick.GetJobStreamResponse.job:type_name -> nomatron.derrick.GetJobStreamResponse.JobChange
+	366, // 134: nomatron.derrick.GetJobStreamResponse.terminal:type_name -> nomatron.derrick.GetJobStreamResponse.Terminal
+	365, // 135: nomatron.derrick.GetJobStreamResponse.download:type_name -> nomatron.derrick.GetJobStreamResponse.Download
+	367, // 136: nomatron.derrick.GetJobStreamResponse.error:type_name -> nomatron.derrick.GetJobStreamResponse.Error
+	368, // 137: nomatron.derrick.GetJobStreamResponse.complete:type_name -> nomatron.derrick.GetJobStreamResponse.Complete
+	381, // 138: nomatron.derrick.Runner.odr:type_name -> nomatron.derrick.Runner.ODR
+	382, // 139: nomatron.derrick.Runner.local:type_name -> nomatron.derrick.Runner.Local
+	383, // 140: nomatron.derrick.Runner.remote:type_name -> nomatron.derrick.Runner.Remote
+	35,  // 141: nomatron.derrick.Runner.components:type_name -> nomatron.derrick.Component
+	380, // 142: nomatron.derrick.Runner.labels:type_name -> nomatron.derrick.Runner.LabelsEntry
+	460, // 143: nomatron.derrick.Runner.first_seen:type_name -> google.protobuf.Timestamp
+	460, // 144: nomatron.derrick.Runner.last_seen:type_name -> google.protobuf.Timestamp
+	12,  // 145: nomatron.derrick.Runner.adoption_state:type_name -> nomatron.derrick.Runner.AdoptionState
+	85,  // 146: nomatron.derrick.RunnerTokenRequest.runner:type_name -> nomatron.derrick.Runner
+	384, // 147: nomatron.derrick.RunnerConfigRequest.open:type_name -> nomatron.derrick.RunnerConfigRequest.Open
+	90,  // 148: nomatron.derrick.RunnerConfigResponse.config:type_name -> nomatron.derrick.RunnerConfig
+	188, // 149: nomatron.derrick.RunnerConfig.config_vars:type_name -> nomatron.derrick.ConfigVar
+	195, // 150: nomatron.derrick.RunnerConfig.config_sources:type_name -> nomatron.derrick.ConfigSource
+	385, // 151: nomatron.derrick.RunnerJobStreamRequest.request:type_name -> nomatron.derrick.RunnerJobStreamRequest.Request
+	386, // 152: nomatron.derrick.RunnerJobStreamRequest.ack:type_name -> nomatron.derrick.RunnerJobStreamRequest.Ack
+	387, // 153: nomatron.derrick.RunnerJobStreamRequest.complete:type_name -> nomatron.derrick.RunnerJobStreamRequest.Complete
+	388, // 154: nomatron.derrick.RunnerJobStreamRequest.error:type_name -> nomatron.derrick.RunnerJobStreamRequest.Error
+	366, // 155: nomatron.derrick.RunnerJobStreamRequest.terminal:type_name -> nomatron.derrick.GetJobStreamResponse.Terminal
+	365, // 156: nomatron.derrick.RunnerJobStreamRequest.download:type_name -> nomatron.derrick.GetJobStreamResponse.Download
+	390, // 157: nomatron.derrick.RunnerJobStreamRequest.config_load:type_name -> nomatron.derrick.RunnerJobStreamRequest.ConfigLoad
+	391, // 158: nomatron.derrick.RunnerJobStreamRequest.variable_values_set:type_name -> nomatron.derrick.RunnerJobStreamRequest.VariableValuesSet
+	389, // 159: nomatron.derrick.RunnerJobStreamRequest.heartbeat:type_name -> nomatron.derrick.RunnerJobStreamRequest.Heartbeat
+	393, // 160: nomatron.derrick.RunnerJobStreamResponse.assignment:type_name -> nomatron.derrick.RunnerJobStreamResponse.JobAssignment
+	394, // 161: nomatron.derrick.RunnerJobStreamResponse.cancel:type_name -> nomatron.derrick.RunnerJobStreamResponse.JobCancel
+	85,  // 162: nomatron.derrick.ListRunnersResponse.runners:type_name -> nomatron.derrick.Runner
+	102, // 163: nomatron.derrick.SetServerConfigRequest.config:type_name -> nomatron.derrick.ServerConfig
+	102, // 164: nomatron.derrick.GetServerConfigResponse.config:type_name -> nomatron.derrick.ServerConfig
+	395, // 165: nomatron.derrick.ServerConfig.advertise_addrs:type_name -> nomatron.derrick.ServerConfig.AdvertiseAddr
+	397, // 166: nomatron.derrick.CreateHostnameRequest.target:type_name -> nomatron.derrick.Hostname.Target
+	108, // 167: nomatron.derrick.CreateHostnameResponse.hostname:type_name -> nomatron.derrick.Hostname
+	397, // 168: nomatron.derrick.ListHostnamesRequest.target:type_name -> nomatron.derrick.Hostname.Target
+	108, // 169: nomatron.derrick.ListHostnamesResponse.hostnames:type_name -> nomatron.derrick.Hostname
+	396, // 170: nomatron.derrick.Hostname.target_labels:type_name -> nomatron.derrick.Hostname.TargetLabelsEntry
+	459, // 171: nomatron.derrick.ListWorkspacesRequest.global:type_name -> google.protobuf.Empty
+	270, // 172: nomatron.derrick.ListWorkspacesRequest.project:type_name -> nomatron.derrick.Ref.Project
+	269, // 173: nomatron.derrick.ListWorkspacesRequest.application:type_name -> nomatron.derrick.Ref.Application
+	32,  // 174: nomatron.derrick.ListWorkspacesResponse.workspaces:type_name -> nomatron.derrick.Workspace
+	271, // 175: nomatron.derrick.GetWorkspaceRequest.workspace:type_name -> nomatron.derrick.Ref.Workspace
+	32,  // 176: nomatron.derrick.GetWorkspaceResponse.workspace:type_name -> nomatron.derrick.Workspace
+	32,  // 177: nomatron.derrick.UpsertWorkspaceRequest.workspace:type_name -> nomatron.derrick.Workspace
+	32,  // 178: nomatron.derrick.UpsertWorkspaceResponse.workspace:type_name -> nomatron.derrick.Workspace
+	31,  // 179: nomatron.derrick.UpsertProjectRequest.project:type_name -> nomatron.derrick.Project
+	31,  // 180: nomatron.derrick.UpsertProjectResponse.project:type_name -> nomatron.derrick.Project
+	270, // 181: nomatron.derrick.GetProjectRequest.project:type_name -> nomatron.derrick.Ref.Project
+	31,  // 182: nomatron.derrick.GetProjectResponse.project:type_name -> nomatron.derrick.Project
+	264, // 183: nomatron.derrick.GetProjectResponse.workspaces:type_name -> nomatron.derrick.Workspace.Project
+	241, // 184: nomatron.derrick.ListProjectsRequest.pagination:type_name -> nomatron.derrick.PaginationRequest
+	270, // 185: nomatron.derrick.ListProjectsResponse.projects:type_name -> nomatron.derrick.Ref.Project
+	242, // 186: nomatron.derrick.ListProjectsResponse.pagination:type_name -> nomatron.derrick.PaginationResponse
+	270, // 187: nomatron.derrick.DestroyProjectRequest.project:type_name -> nomatron.derrick.Ref.Project
+	269, // 188: nomatron.derrick.GetApplicationRequest.application:type_name -> nomatron.derrick.Ref.Application
+	29,  // 189: nomatron.derrick.GetApplicationResponse.application:type_name -> nomatron.derrick.Application
+	270, // 190: nomatron.derrick.UpsertApplicationRequest.project:type_name -> nomatron.derrick.Ref.Project
+	29,  // 191: nomatron.derrick.UpsertApplicationResponse.application:type_name -> nomatron.derrick.Application
+	132, // 192: nomatron.derrick.UpsertBuildRequest.build:type_name -> nomatron.derrick.Build
+	132, // 193: nomatron.derrick.UpsertBuildResponse.build:type_name -> nomatron.derrick.Build
+	269, // 194: nomatron.derrick.ListBuildsRequest.application:type_name -> nomatron.derrick.Ref.Application
+	271, // 195: nomatron.derrick.ListBuildsRequest.workspace:type_name -> nomatron.derrick.Ref.Workspace
+	39,  // 196: nomatron.derrick.ListBuildsRequest.order:type_name -> nomatron.derrick.OperationOrder
+	132, // 197: nomatron.derrick.ListBuildsResponse.builds:type_name -> nomatron.derrick.Build
+	269, // 198: nomatron.derrick.GetLatestBuildRequest.application:type_name -> nomatron.derrick.Ref.Application
+	271, // 199: nomatron.derrick.GetLatestBuildRequest.workspace:type_name -> nomatron.derrick.Ref.Workspace
+	275, // 200: nomatron.derrick.GetBuildRequest.ref:type_name -> nomatron.derrick.Ref.Operation
+	269, // 201: nomatron.derrick.Build.application:type_name -> nomatron.derrick.Ref.Application
+	271, // 202: nomatron.derrick.Build.workspace:type_name -> nomatron.derrick.Ref.Workspace
+	36,  // 203: nomatron.derrick.Build.status:type_name -> nomatron.derrick.Status
+	35,  // 204: nomatron.derrick.Build.component:type_name -> nomatron.derrick.Component
+	133, // 205: nomatron.derrick.Build.artifact:type_name -> nomatron.derrick.Artifact
+	399, // 206: nomatron.derrick.Build.labels:type_name -> nomatron.derrick.Build.LabelsEntry
+	400, // 207: nomatron.derrick.Build.preload:type_name -> nomatron.derrick.Build.Preload
+	462, // 208: nomatron.derrick.Artifact.artifact:type_name -> opaqueany.Any
+	277, // 209: nomatron.derrick.OnDemandRunnerConfig.target_runner:type_name -> nomatron.derrick.Ref.Runner
+	401, // 210: nomatron.derrick.OnDemandRunnerConfig.environment_variables:type_name -> nomatron.derrick.OnDemandRunnerConfig.EnvironmentVariablesEntry
+	24,  // 211: nomatron.derrick.OnDemandRunnerConfig.config_format:type_name -> nomatron.derrick.Hcl.Format
+	134, // 212: nomatron.derrick.UpsertOnDemandRunnerConfigRequest.config:type_name -> nomatron.derrick.OnDemandRunnerConfig
+	134, // 213: nomatron.derrick.UpsertOnDemandRunnerConfigResponse.config:type_name -> nomatron.derrick.OnDemandRunnerConfig
+	286, // 214: nomatron.derrick.GetOnDemandRunnerConfigRequest.config:type_name -> nomatron.derrick.Ref.OnDemandRunnerConfig
+	134, // 215: nomatron.derrick.GetOnDemandRunnerConfigResponse.config:type_name -> nomatron.derrick.OnDemandRunnerConfig
+	286, // 216: nomatron.derrick.DeleteOnDemandRunnerConfigRequest.config:type_name -> nomatron.derrick.Ref.OnDemandRunnerConfig
+	134, // 217: nomatron.derrick.DeleteOnDemandRunnerConfigResponse.config:type_name -> nomatron.derrick.OnDemandRunnerConfig
+	134, // 218: nomatron.derrick.ListOnDemandRunnerConfigsResponse.configs:type_name -> nomatron.derrick.OnDemandRunnerConfig
+	148, // 219: nomatron.derrick.UpsertPushedArtifactRequest.artifact:type_name -> nomatron.derrick.PushedArtifact
+	148, // 220: nomatron.derrick.UpsertPushedArtifactResponse.artifact:type_name -> nomatron.derrick.PushedArtifact
+	269, // 221: nomatron.derrick.GetLatestPushedArtifactRequest.application:type_name -> nomatron.derrick.Ref.Application
+	271, // 222: nomatron.derrick.GetLatestPushedArtifactRequest.workspace:type_name -> nomatron.derrick.Ref.Workspace
+	275, // 223: nomatron.derrick.GetPushedArtifactRequest.ref:type_name -> nomatron.derrick.Ref.Operation
+	269, // 224: nomatron.derrick.ListPushedArtifactsRequest.application:type_name -> nomatron.derrick.Ref.Application
+	271, // 225: nomatron.derrick.ListPushedArtifactsRequest.workspace:type_name -> nomatron.derrick.Ref.Workspace
+	37,  // 226: nomatron.derrick.ListPushedArtifactsRequest.status:type_name -> nomatron.derrick.StatusFilter
+	39,  // 227: nomatron.derrick.ListPushedArtifactsRequest.order:type_name -> nomatron.derrick.OperationOrder
+	148, // 228: nomatron.derrick.ListPushedArtifactsResponse.artifacts:type_name -> nomatron.derrick.PushedArtifact
+	269, // 229: nomatron.derrick.PushedArtifact.application:type_name -> nomatron.derrick.Ref.Application
+	271, // 230: nomatron.derrick.PushedArtifact.workspace:type_name -> nomatron.derrick.Ref.Workspace
+	36,  // 231: nomatron.derrick.PushedArtifact.status:type_name -> nomatron.derrick.Status
+	35,  // 232: nomatron.derrick.PushedArtifact.component:type_name -> nomatron.derrick.Component
+	133, // 233: nomatron.derrick.PushedArtifact.artifact:type_name -> nomatron.derrick.Artifact
+	402, // 234: nomatron.derrick.PushedArtifact.labels:type_name -> nomatron.derrick.PushedArtifact.LabelsEntry
+	132, // 235: nomatron.derrick.PushedArtifact.build:type_name -> nomatron.derrick.Build
+	403, // 236: nomatron.derrick.PushedArtifact.preload:type_name -> nomatron.derrick.PushedArtifact.Preload
+	275, // 237: nomatron.derrick.GetDeploymentRequest.ref:type_name -> nomatron.derrick.Ref.Operation
+	14,  // 238: nomatron.derrick.GetDeploymentRequest.load_details:type_name -> nomatron.derrick.Deployment.LoadDetails
+	154, // 239: nomatron.derrick.UpsertDeploymentRequest.deployment:type_name -> nomatron.derrick.Deployment
+	13,  // 240: nomatron.derrick.UpsertDeploymentRequest.auto_hostname:type_name -> nomatron.derrick.UpsertDeploymentRequest.Tristate
+	154, // 241: nomatron.derrick.UpsertDeploymentResponse.deployment:type_name -> nomatron.derrick.Deployment
+	269, // 242: nomatron.derrick.ListDeploymentsRequest.application:type_name -> nomatron.derrick.Ref.Application
+	271, // 243: nomatron.derrick.ListDeploymentsRequest.workspace:type_name -> nomatron.derrick.Ref.Workspace
+	37,  // 244: nomatron.derrick.ListDeploymentsRequest.status:type_name -> nomatron.derrick.StatusFilter
+	6,   // 245: nomatron.derrick.ListDeploymentsRequest.physical_state:type_name -> nomatron.derrick.Operation.PhysicalState
+	39,  // 246: nomatron.derrick.ListDeploymentsRequest.order:type_name -> nomatron.derrick.OperationOrder
+	14,  // 247: nomatron.derrick.ListDeploymentsRequest.load_details:type_name -> nomatron.derrick.Deployment.LoadDetails
+	154, // 248: nomatron.derrick.ListDeploymentsResponse.deployments:type_name -> nomatron.derrick.Deployment
+	269, // 249: nomatron.derrick.Deployment.application:type_name -> nomatron.derrick.Ref.Application
+	271, // 250: nomatron.derrick.Deployment.workspace:type_name -> nomatron.derrick.Ref.Workspace
+	40,  // 251: nomatron.derrick.Deployment.generation:type_name -> nomatron.derrick.Generation
+	6,   // 252: nomatron.derrick.Deployment.state:type_name -> nomatron.derrick.Operation.PhysicalState
+	36,  // 253: nomatron.derrick.Deployment.status:type_name -> nomatron.derrick.Status
+	35,  // 254: nomatron.derrick.Deployment.component:type_name -> nomatron.derrick.Component
+	462, // 255: nomatron.derrick.Deployment.deployment:type_name -> opaqueany.Any
+	404, // 256: nomatron.derrick.Deployment.labels:type_name -> nomatron.derrick.Deployment.LabelsEntry
+	41,  // 257: nomatron.derrick.Deployment.declared_resources:type_name -> nomatron.derrick.DeclaredResource
+	42,  // 258: nomatron.derrick.Deployment.destroyed_resources:type_name -> nomatron.derrick.DestroyedResource
+	405, // 259: nomatron.derrick.Deployment.preload:type_name -> nomatron.derrick.Deployment.Preload
+	154, // 260: nomatron.derrick.DeploymentExpanded.deployment:type_name -> nomatron.derrick.Deployment
+	185, // 261: nomatron.derrick.DeploymentExpanded.latest_status_report:type_name -> nomatron.derrick.StatusReport
+	406, // 262: nomatron.derrick.ListInstancesRequest.application:type_name -> nomatron.derrick.ListInstancesRequest.Application
+	158, // 263: nomatron.derrick.ListInstancesResponse.instances:type_name -> nomatron.derrick.Instance
+	269, // 264: nomatron.derrick.Instance.application:type_name -> nomatron.derrick.Ref.Application
+	271, // 265: nomatron.derrick.Instance.workspace:type_name -> nomatron.derrick.Ref.Workspace
+	15,  // 266: nomatron.derrick.Instance.type:type_name -> nomatron.derrick.Instance.Type
+	165, // 267: nomatron.derrick.UpsertReleaseRequest.release:type_name -> nomatron.derrick.Release
+	165, // 268: nomatron.derrick.UpsertReleaseResponse.release:type_name -> nomatron.derrick.Release
+	269, // 269: nomatron.derrick.GetLatestReleaseRequest.application:type_name -> nomatron.derrick.Ref.Application
+	271, // 270: nomatron.derrick.GetLatestReleaseRequest.workspace:type_name -> nomatron.derrick.Ref.Workspace
+	16,  // 271: nomatron.derrick.GetLatestReleaseRequest.load_details:type_name -> nomatron.derrick.Release.LoadDetails
+	269, // 272: nomatron.derrick.ListReleasesRequest.application:type_name -> nomatron.derrick.Ref.Application
+	271, // 273: nomatron.derrick.ListReleasesRequest.workspace:type_name -> nomatron.derrick.Ref.Workspace
+	37,  // 274: nomatron.derrick.ListReleasesRequest.status:type_name -> nomatron.derrick.StatusFilter
+	6,   // 275: nomatron.derrick.ListReleasesRequest.physical_state:type_name -> nomatron.derrick.Operation.PhysicalState
+	39,  // 276: nomatron.derrick.ListReleasesRequest.order:type_name -> nomatron.derrick.OperationOrder
+	16,  // 277: nomatron.derrick.ListReleasesRequest.load_details:type_name -> nomatron.derrick.Release.LoadDetails
+	165, // 278: nomatron.derrick.ListReleasesResponse.releases:type_name -> nomatron.derrick.Release
+	275, // 279: nomatron.derrick.GetReleaseRequest.ref:type_name -> nomatron.derrick.Ref.Operation
+	16,  // 280: nomatron.derrick.GetReleaseRequest.load_details:type_name -> nomatron.derrick.Release.LoadDetails
+	269, // 281: nomatron.derrick.Release.application:type_name -> nomatron.derrick.Ref.Application
+	271, // 282: nomatron.derrick.Release.workspace:type_name -> nomatron.derrick.Ref.Workspace
+	36,  // 283: nomatron.derrick.Release.status:type_name -> nomatron.derrick.Status
+	6,   // 284: nomatron.derrick.Release.state:type_name -> nomatron.derrick.Operation.PhysicalState
+	35,  // 285: nomatron.derrick.Release.component:type_name -> nomatron.derrick.Component
+	462, // 286: nomatron.derrick.Release.release:type_name -> opaqueany.Any
+	407, // 287: nomatron.derrick.Release.labels:type_name -> nomatron.derrick.Release.LabelsEntry
+	41,  // 288: nomatron.derrick.Release.declared_resources:type_name -> nomatron.derrick.DeclaredResource
+	42,  // 289: nomatron.derrick.Release.destroyed_resources:type_name -> nomatron.derrick.DestroyedResource
+	408, // 290: nomatron.derrick.Release.preload:type_name -> nomatron.derrick.Release.Preload
+	165, // 291: nomatron.derrick.ReleaseExpanded.release:type_name -> nomatron.derrick.Release
+	185, // 292: nomatron.derrick.ReleaseExpanded.latest_status_report:type_name -> nomatron.derrick.StatusReport
+	460, // 293: nomatron.derrick.Trigger.active_time:type_name -> google.protobuf.Timestamp
+	316, // 294: nomatron.derrick.Trigger.build:type_name -> nomatron.derrick.Job.BuildOp
+	318, // 295: nomatron.derrick.Trigger.push:type_name -> nomatron.derrick.Job.PushOp
+	320, // 296: nomatron.derrick.Trigger.deploy:type_name -> nomatron.derrick.Job.DeployOp
+	325, // 297: nomatron.derrick.Trigger.destroy:type_name -> nomatron.derrick.Job.DestroyOp
+	326, // 298: nomatron.derrick.Trigger.release:type_name -> nomatron.derrick.Job.ReleaseOp
+	310, // 299: nomatron.derrick.Trigger.up:type_name -> nomatron.derrick.Job.UpOp
+	344, // 300: nomatron.derrick.Trigger.init:type_name -> nomatron.derrick.Job.InitOp
+	334, // 301: nomatron.derrick.Trigger.status_report:type_name -> nomatron.derrick.Job.StatusReportOp
+	271, // 302: nomatron.derrick.Trigger.workspace:type_name -> nomatron.derrick.Ref.Workspace
+	270, // 303: nomatron.derrick.Trigger.project:type_name -> nomatron.derrick.Ref.Project
+	269, // 304: nomatron.derrick.Trigger.application:type_name -> nomatron.derrick.Ref.Application
+	167, // 305: nomatron.derrick.UpsertTriggerRequest.trigger:type_name -> nomatron.derrick.Trigger
+	167, // 306: nomatron.derrick.UpsertTriggerResponse.trigger:type_name -> nomatron.derrick.Trigger
+	287, // 307: nomatron.derrick.GetTriggerRequest.ref:type_name -> nomatron.derrick.Ref.Trigger
+	167, // 308: nomatron.derrick.GetTriggerResponse.trigger:type_name -> nomatron.derrick.Trigger
+	287, // 309: nomatron.derrick.DeleteTriggerRequest.ref:type_name -> nomatron.derrick.Ref.Trigger
+	287, // 310: nomatron.derrick.RunTriggerRequest.ref:type_name -> nomatron.derrick.Ref.Trigger
+	30,  // 311: nomatron.derrick.RunTriggerRequest.variable_overrides:type_name -> nomatron.derrick.Variable
+	271, // 312: nomatron.derrick.ListTriggerRequest.workspace:type_name -> nomatron.derrick.Ref.Workspace
+	270, // 313: nomatron.derrick.ListTriggerRequest.project:type_name -> nomatron.derrick.Ref.Project
+	269, // 314: nomatron.derrick.ListTriggerRequest.application:type_name -> nomatron.derrick.Ref.Application
+	167, // 315: nomatron.derrick.ListTriggerResponse.triggers:type_name -> nomatron.derrick.Trigger
+	185, // 316: nomatron.derrick.UpsertStatusReportRequest.status_report:type_name -> nomatron.derrick.StatusReport
+	185, // 317: nomatron.derrick.UpsertStatusReportResponse.status_report:type_name -> nomatron.derrick.StatusReport
+	269, // 318: nomatron.derrick.GetLatestStatusReportRequest.application:type_name -> nomatron.derrick.Ref.Application
+	271, // 319: nomatron.derrick.GetLatestStatusReportRequest.workspace:type_name -> nomatron.derrick.Ref.Workspace
+	459, // 320: nomatron.derrick.GetLatestStatusReportRequest.any:type_name -> google.protobuf.Empty
+	459, // 321: nomatron.derrick.GetLatestStatusReportRequest.deployment_any:type_name -> google.protobuf.Empty
+	459, // 322: nomatron.derrick.GetLatestStatusReportRequest.release_any:type_name -> google.protobuf.Empty
+	37,  // 323: nomatron.derrick.ListStatusReportsRequest.status:type_name -> nomatron.derrick.StatusFilter
+	39,  // 324: nomatron.derrick.ListStatusReportsRequest.order:type_name -> nomatron.derrick.OperationOrder
+	269, // 325: nomatron.derrick.ListStatusReportsRequest.application:type_name -> nomatron.derrick.Ref.Application
+	271, // 326: nomatron.derrick.ListStatusReportsRequest.workspace:type_name -> nomatron.derrick.Ref.Workspace
+	275, // 327: nomatron.derrick.ListStatusReportsRequest.deployment:type_name -> nomatron.derrick.Ref.Operation
+	275, // 328: nomatron.derrick.ListStatusReportsRequest.release:type_name -> nomatron.derrick.Ref.Operation
+	185, // 329: nomatron.derrick.ListStatusReportsResponse.status_reports:type_name -> nomatron.derrick.StatusReport
+	275, // 330: nomatron.derrick.GetStatusReportRequest.ref:type_name -> nomatron.derrick.Ref.Operation
+	271, // 331: nomatron.derrick.ExpediteStatusReportRequest.workspace:type_name -> nomatron.derrick.Ref.Workspace
+	275, // 332: nomatron.derrick.ExpediteStatusReportRequest.deployment:type_name -> nomatron.derrick.Ref.Operation
+	275, // 333: nomatron.derrick.ExpediteStatusReportRequest.release:type_name -> nomatron.derrick.Ref.Operation
+	269, // 334: nomatron.derrick.StatusReport.application:type_name -> nomatron.derrick.Ref.Application
+	271, // 335: nomatron.derrick.StatusReport.workspace:type_name -> nomatron.derrick.Ref.Workspace
+	36,  // 336: nomatron.derrick.StatusReport.status:type_name -> nomatron.derrick.Status
+	462, // 337: nomatron.derrick.StatusReport.status_report:type_name -> opaqueany.Any
+	410, // 338: nomatron.derrick.StatusReport.health:type_name -> nomatron.derrick.StatusReport.Health
+	460, // 339: nomatron.derrick.StatusReport.generated_time:type_name -> google.protobuf.Timestamp
+	409, // 340: nomatron.derrick.StatusReport.resources:type_name -> nomatron.derrick.StatusReport.Resource
+	410, // 341: nomatron.derrick.StatusReport.deprecated_resources_health:type_name -> nomatron.derrick.StatusReport.Health
+	411, // 342: nomatron.derrick.GetLogStreamRequest.application:type_name -> nomatron.derrick.GetLogStreamRequest.Application
+	412, // 343: nomatron.derrick.LogBatch.lines:type_name -> nomatron.derrick.LogBatch.Entry
+	414, // 344: nomatron.derrick.ConfigVar.target:type_name -> nomatron.derrick.ConfigVar.Target
+	459, // 345: nomatron.derrick.ConfigVar.unset:type_name -> google.protobuf.Empty
+	413, // 346: nomatron.derrick.ConfigVar.dynamic:type_name -> nomatron.derrick.ConfigVar.DynamicVal
+	269, // 347: nomatron.derrick.ConfigVar.application:type_name -> nomatron.derrick.Ref.Application
+	270, // 348: nomatron.derrick.ConfigVar.project:type_name -> nomatron.derrick.Ref.Project
+	277, // 349: nomatron.derrick.ConfigVar.runner:type_name -> nomatron.derrick.Ref.Runner
+	188, // 350: nomatron.derrick.ConfigSetRequest.variables:type_name -> nomatron.derrick.ConfigVar
+	188, // 351: nomatron.derrick.ConfigDeleteRequest.variables:type_name -> nomatron.derrick.ConfigVar
+	269, // 352: nomatron.derrick.ConfigGetRequest.application:type_name -> nomatron.derrick.Ref.Application
+	270, // 353: nomatron.derrick.ConfigGetRequest.project:type_name -> nomatron.derrick.Ref.Project
+	279, // 354: nomatron.derrick.ConfigGetRequest.runner:type_name -> nomatron.derrick.Ref.RunnerId
+	271, // 355: nomatron.derrick.ConfigGetRequest.workspace:type_name -> nomatron.derrick.Ref.Workspace
+	416, // 356: nomatron.derrick.ConfigGetRequest.labels:type_name -> nomatron.derrick.ConfigGetRequest.LabelsEntry
+	188, // 357: nomatron.derrick.ConfigGetResponse.variables:type_name -> nomatron.derrick.ConfigVar
+	268, // 358: nomatron.derrick.ConfigSource.global:type_name -> nomatron.derrick.Ref.Global
+	270, // 359: nomatron.derrick.ConfigSource.project:type_name -> nomatron.derrick.Ref.Project
+	269, // 360: nomatron.derrick.ConfigSource.application:type_name -> nomatron.derrick.Ref.Application
+	271, // 361: nomatron.derrick.ConfigSource.workspace:type_name -> nomatron.derrick.Ref.Workspace
+	417, // 362: nomatron.derrick.ConfigSource.config:type_name -> nomatron.derrick.ConfigSource.ConfigEntry
+	195, // 363: nomatron.derrick.SetConfigSourceRequest.config_source:type_name -> nomatron.derrick.ConfigSource
+	195, // 364: nomatron.derrick.DeleteConfigSourceRequest.config_source:type_name -> nomatron.derrick.ConfigSource
+	268, // 365: nomatron.derrick.GetConfigSourceRequest.global:type_name -> nomatron.derrick.Ref.Global
+	270, // 366: nomatron.derrick.GetConfigSourceRequest.project:type_name -> nomatron.derrick.Ref.Project
+	269, // 367: nomatron.derrick.GetConfigSourceRequest.application:type_name -> nomatron.derrick.Ref.Application
+	271, // 368: nomatron.derrick.GetConfigSourceRequest.workspace:type_name -> nomatron.derrick.Ref.Workspace
+	195, // 369: nomatron.derrick.GetConfigSourceResponse.config_sources:type_name -> nomatron.derrick.ConfigSource
+	418, // 370: nomatron.derrick.ExecStreamRequest.start:type_name -> nomatron.derrick.ExecStreamRequest.Start
+	419, // 371: nomatron.derrick.ExecStreamRequest.input:type_name -> nomatron.derrick.ExecStreamRequest.Input
+	421, // 372: nomatron.derrick.ExecStreamRequest.winch:type_name -> nomatron.derrick.ExecStreamRequest.WindowSize
+	459, // 373: nomatron.derrick.ExecStreamRequest.input_eof:type_name -> google.protobuf.Empty
+	422, // 374: nomatron.derrick.ExecStreamResponse.open:type_name -> nomatron.derrick.ExecStreamResponse.Open
+	424, // 375: nomatron.derrick.ExecStreamResponse.output:type_name -> nomatron.derrick.ExecStreamResponse.Output
+	423, // 376: nomatron.derrick.ExecStreamResponse.exit:type_name -> nomatron.derrick.ExecStreamResponse.Exit
+	15,  // 377: nomatron.derrick.EntrypointConfigRequest.type:type_name -> nomatron.derrick.Instance.Type
+	204, // 378: nomatron.derrick.EntrypointConfigResponse.config:type_name -> nomatron.derrick.EntrypointConfig
+	425, // 379: nomatron.derrick.EntrypointConfig.exec:type_name -> nomatron.derrick.EntrypointConfig.Exec
+	188, // 380: nomatron.derrick.EntrypointConfig.env_vars:type_name -> nomatron.derrick.ConfigVar
+	195, // 381: nomatron.derrick.EntrypointConfig.config_sources:type_name -> nomatron.derrick.ConfigSource
+	426, // 382: nomatron.derrick.EntrypointConfig.url_service:type_name -> nomatron.derrick.EntrypointConfig.URLService
+	427, // 383: nomatron.derrick.EntrypointConfig.deployment:type_name -> nomatron.derrick.EntrypointConfig.DeploymentInfo
+	412, // 384: nomatron.derrick.EntrypointLogBatch.lines:type_name -> nomatron.derrick.LogBatch.Entry
+	429, // 385: nomatron.derrick.EntrypointExecRequest.open:type_name -> nomatron.derrick.EntrypointExecRequest.Open
+	430, // 386: nomatron.derrick.EntrypointExecRequest.exit:type_name -> nomatron.derrick.EntrypointExecRequest.Exit
+	431, // 387: nomatron.derrick.EntrypointExecRequest.output:type_name -> nomatron.derrick.EntrypointExecRequest.Output
+	432, // 388: nomatron.derrick.EntrypointExecRequest.error:type_name -> nomatron.derrick.EntrypointExecRequest.Error
+	459, // 389: nomatron.derrick.EntrypointExecResponse.input_eof:type_name -> google.protobuf.Empty
+	421, // 390: nomatron.derrick.EntrypointExecResponse.winch:type_name -> nomatron.derrick.ExecStreamRequest.WindowSize
+	270, // 391: nomatron.derrick.Pipeline.project:type_name -> nomatron.derrick.Ref.Project
+	433, // 392: nomatron.derrick.Pipeline.steps:type_name -> nomatron.derrick.Pipeline.StepsEntry
+	290, // 393: nomatron.derrick.PipelineRun.pipeline:type_name -> nomatron.derrick.Ref.Pipeline
+	288, // 394: nomatron.derrick.PipelineRun.jobs:type_name -> nomatron.derrick.Ref.Job
+	21,  // 395: nomatron.derrick.PipelineRun.state:type_name -> nomatron.derrick.PipelineRun.State
+	208, // 396: nomatron.derrick.UpsertPipelineRequest.pipeline:type_name -> nomatron.derrick.Pipeline
+	208, // 397: nomatron.derrick.UpsertPipelineResponse.pipeline:type_name -> nomatron.derrick.Pipeline
+	290, // 398: nomatron.derrick.GetPipelineRequest.pipeline:type_name -> nomatron.derrick.Ref.Pipeline
+	208, // 399: nomatron.derrick.GetPipelineResponse.pipeline:type_name -> nomatron.derrick.Pipeline
+	441, // 400: nomatron.derrick.GetPipelineResponse.graph:type_name -> nomatron.derrick.GetPipelineResponse.Graph
+	290, // 401: nomatron.derrick.RunPipelineRequest.pipeline:type_name -> nomatron.derrick.Ref.Pipeline
+	78,  // 402: nomatron.derrick.RunPipelineRequest.job_template:type_name -> nomatron.derrick.Job
+	442, // 403: nomatron.derrick.RunPipelineResponse.job_map:type_name -> nomatron.derrick.RunPipelineResponse.JobMapEntry
+	270, // 404: nomatron.derrick.ListPipelinesRequest.project:type_name -> nomatron.derrick.Ref.Project
+	208, // 405: nomatron.derrick.ListPipelinesResponse.pipelines:type_name -> nomatron.derrick.Pipeline
+	290, // 406: nomatron.derrick.ListPipelineRunsRequest.pipeline:type_name -> nomatron.derrick.Ref.Pipeline
+	209, // 407: nomatron.derrick.ListPipelineRunsResponse.pipeline_runs:type_name -> nomatron.derrick.PipelineRun
+	290, // 408: nomatron.derrick.GetPipelineRunRequest.pipeline:type_name -> nomatron.derrick.Ref.Pipeline
+	209, // 409: nomatron.derrick.GetPipelineRunResponse.pipeline_run:type_name -> nomatron.derrick.PipelineRun
+	270, // 410: nomatron.derrick.ConfigSyncPipelineRequest.project:type_name -> nomatron.derrick.Ref.Project
+	443, // 411: nomatron.derrick.ConfigSyncPipelineResponse.synced_pipelines:type_name -> nomatron.derrick.ConfigSyncPipelineResponse.SyncedPipelinesEntry
+	444, // 412: nomatron.derrick.TokenTransport.metadata:type_name -> nomatron.derrick.TokenTransport.MetadataEntry
+	445, // 413: nomatron.derrick.TokenTransport.oauth_creds:type_name -> nomatron.derrick.TokenTransport.OAuthCredentials
+	460, // 414: nomatron.derrick.Token.valid_until:type_name -> google.protobuf.Timestamp
+	460, // 415: nomatron.derrick.Token.issued_time:type_name -> google.protobuf.Timestamp
+	446, // 416: nomatron.derrick.Token.login:type_name -> nomatron.derrick.Token.Login
+	447, // 417: nomatron.derrick.Token.runner:type_name -> nomatron.derrick.Token.Runner
+	448, // 418: nomatron.derrick.Token.invite:type_name -> nomatron.derrick.Token.Invite
+	450, // 419: nomatron.derrick.Token.trigger:type_name -> nomatron.derrick.Token.Trigger
+	449, // 420: nomatron.derrick.Token.unused_entrypoint:type_name -> nomatron.derrick.Token.Entrypoint
+	225, // 421: nomatron.derrick.DecodeTokenResponse.token:type_name -> nomatron.derrick.Token
+	224, // 422: nomatron.derrick.DecodeTokenResponse.transport:type_name -> nomatron.derrick.TokenTransport
+	281, // 423: nomatron.derrick.LoginTokenRequest.user:type_name -> nomatron.derrick.Ref.User
+	452, // 424: nomatron.derrick.GenerateRunnerTokenRequest.labels:type_name -> nomatron.derrick.GenerateRunnerTokenRequest.LabelsEntry
+	446, // 425: nomatron.derrick.InviteTokenRequest.login:type_name -> nomatron.derrick.Token.Login
+	451, // 426: nomatron.derrick.InviteTokenRequest.signup:type_name -> nomatron.derrick.Token.Invite.Signup
+	449, // 427: nomatron.derrick.InviteTokenRequest.unused_entrypoint:type_name -> nomatron.derrick.Token.Entrypoint
+	453, // 428: nomatron.derrick.CreateSnapshotResponse.open:type_name -> nomatron.derrick.CreateSnapshotResponse.Open
+	454, // 429: nomatron.derrick.RestoreSnapshotRequest.open:type_name -> nomatron.derrick.RestoreSnapshotRequest.Open
+	24,  // 430: nomatron.derrick.Hcl.format:type_name -> nomatron.derrick.Hcl.Format
+	241, // 431: nomatron.derrick.UI.ListProjectsRequest.pagination:type_name -> nomatron.derrick.PaginationRequest
+	245, // 432: nomatron.derrick.UI.ListProjectsResponse.project_bundles:type_name -> nomatron.derrick.UI.ProjectBundle
+	242, // 433: nomatron.derrick.UI.ListProjectsResponse.pagination:type_name -> nomatron.derrick.PaginationResponse
+	31,  // 434: nomatron.derrick.UI.ProjectBundle.project:type_name -> nomatron.derrick.Project
+	270, // 435: nomatron.derrick.UI.GetProjectRequest.project:type_name -> nomatron.derrick.Ref.Project
+	31,  // 436: nomatron.derrick.UI.GetProjectResponse.project:type_name -> nomatron.derrick.Project
+	78,  // 437: nomatron.derrick.UI.GetProjectResponse.latest_init_job:type_name -> nomatron.derrick.Job
+	269, // 438: nomatron.derrick.UI.ListDeploymentsRequest.application:type_name -> nomatron.derrick.Ref.Application
+	271, // 439: nomatron.derrick.UI.ListDeploymentsRequest.workspace:type_name -> nomatron.derrick.Ref.Workspace
+	39,  // 440: nomatron.derrick.UI.ListDeploymentsRequest.order:type_name -> nomatron.derrick.OperationOrder
+	37,  // 441: nomatron.derrick.UI.ListDeploymentsRequest.status:type_name -> nomatron.derrick.StatusFilter
+	6,   // 442: nomatron.derrick.UI.ListDeploymentsRequest.physical_state:type_name -> nomatron.derrick.Operation.PhysicalState
+	252, // 443: nomatron.derrick.UI.ListDeploymentsResponse.deployments:type_name -> nomatron.derrick.UI.DeploymentBundle
+	275, // 444: nomatron.derrick.UI.GetDeploymentRequest.ref:type_name -> nomatron.derrick.Ref.Operation
+	14,  // 445: nomatron.derrick.UI.GetDeploymentRequest.load_details:type_name -> nomatron.derrick.Deployment.LoadDetails
+	252, // 446: nomatron.derrick.UI.GetDeploymentResponse.deployment:type_name -> nomatron.derrick.UI.DeploymentBundle
+	154, // 447: nomatron.derrick.UI.DeploymentBundle.deployment:type_name -> nomatron.derrick.Deployment
+	148, // 448: nomatron.derrick.UI.DeploymentBundle.artifact:type_name -> nomatron.derrick.PushedArtifact
+	132, // 449: nomatron.derrick.UI.DeploymentBundle.build:type_name -> nomatron.derrick.Build
+	351, // 450: nomatron.derrick.UI.DeploymentBundle.job_data_source_ref:type_name -> nomatron.derrick.Job.DataSource.Ref
+	185, // 451: nomatron.derrick.UI.DeploymentBundle.latest_status_report:type_name -> nomatron.derrick.StatusReport
+	269, // 452: nomatron.derrick.UI.ListReleasesRequest.application:type_name -> nomatron.derrick.Ref.Application
+	271, // 453: nomatron.derrick.UI.ListReleasesRequest.workspace:type_name -> nomatron.derrick.Ref.Workspace
+	39,  // 454: nomatron.derrick.UI.ListReleasesRequest.order:type_name -> nomatron.derrick.OperationOrder
+	37,  // 455: nomatron.derrick.UI.ListReleasesRequest.status:type_name -> nomatron.derrick.StatusFilter
+	6,   // 456: nomatron.derrick.UI.ListReleasesRequest.physical_state:type_name -> nomatron.derrick.Operation.PhysicalState
+	255, // 457: nomatron.derrick.UI.ListReleasesResponse.releases:type_name -> nomatron.derrick.UI.ReleaseBundle
+	165, // 458: nomatron.derrick.UI.ReleaseBundle.release:type_name -> nomatron.derrick.Release
+	185, // 459: nomatron.derrick.UI.ReleaseBundle.latest_status_report:type_name -> nomatron.derrick.StatusReport
+	260, // 460: nomatron.derrick.Variable.File.hcl_range:type_name -> nomatron.derrick.Variable.HclRange
+	260, // 461: nomatron.derrick.Variable.VCS.hcl_range:type_name -> nomatron.derrick.Variable.HclRange
+	259, // 462: nomatron.derrick.Variable.HclRange.start:type_name -> nomatron.derrick.Variable.HclPos
+	259, // 463: nomatron.derrick.Variable.HclRange.end:type_name -> nomatron.derrick.Variable.HclPos
+	2,   // 464: nomatron.derrick.Variable.FinalValue.source:type_name -> nomatron.derrick.Variable.FinalValue.Source
+	270, // 465: nomatron.derrick.Workspace.Project.project:type_name -> nomatron.derrick.Ref.Project
+	271, // 466: nomatron.derrick.Workspace.Project.workspace:type_name -> nomatron.derrick.Ref.Workspace
+	351, // 467: nomatron.derrick.Workspace.Project.data_source_ref:type_name -> nomatron.derrick.Job.DataSource.Ref
+	460, // 468: nomatron.derrick.Workspace.Project.active_time:type_name -> google.protobuf.Timestamp
+	265, // 469: nomatron.derrick.Workspace.Project.applications:type_name -> nomatron.derrick.Workspace.Application
+	269, // 470: nomatron.derrick.Workspace.Application.application:type_name -> nomatron.derrick.Ref.Application
+	460, // 471: nomatron.derrick.Workspace.Application.active_time:type_name -> google.protobuf.Timestamp
+	267, // 472: nomatron.derrick.User.Link.oidc:type_name -> nomatron.derrick.User.Link.OIDC
+	4,   // 473: nomatron.derrick.Ref.Component.type:type_name -> nomatron.derrick.Component.Type
+	276, // 474: nomatron.derrick.Ref.Operation.sequence:type_name -> nomatron.derrick.Ref.OperationSeq
+	269, // 475: nomatron.derrick.Ref.OperationSeq.application:type_name -> nomatron.derrick.Ref.Application
+	278, // 476: nomatron.derrick.Ref.Runner.any:type_name -> nomatron.derrick.Ref.RunnerAny
+	279, // 477: nomatron.derrick.Ref.Runner.id:type_name -> nomatron.derrick.Ref.RunnerId
+	280, // 478: nomatron.derrick.Ref.Runner.labels:type_name -> nomatron.derrick.Ref.RunnerLabels
+	293, // 479: nomatron.derrick.Ref.RunnerLabels.labels:type_name -> nomatron.derrick.Ref.RunnerLabels.LabelsEntry
+	282, // 480: nomatron.derrick.Ref.User.id:type_name -> nomatron.derrick.Ref.UserId
+	283, // 481: nomatron.derrick.Ref.User.username:type_name -> nomatron.derrick.Ref.UserUsername
+	291, // 482: nomatron.derrick.Ref.Pipeline.owner:type_name -> nomatron.derrick.Ref.PipelineOwner
+	270, // 483: nomatron.derrick.Ref.PipelineOwner.project:type_name -> nomatron.derrick.Ref.Project
+	5,   // 484: nomatron.derrick.StatusFilter.Filter.state:type_name -> nomatron.derrick.Status.State
+	297, // 485: nomatron.derrick.AuthMethod.OIDC.claim_mappings:type_name -> nomatron.derrick.AuthMethod.OIDC.ClaimMappingsEntry
+	298, // 486: nomatron.derrick.AuthMethod.OIDC.list_claim_mappings:type_name -> nomatron.derrick.AuthMethod.OIDC.ListClaimMappingsEntry
+	43,  // 487: nomatron.derrick.Job.TaskOverride.launch_info:type_name -> nomatron.derrick.TaskLaunchInfo
+	261, // 488: nomatron.derrick.Job.VariableFinalValuesEntry.value:type_name -> nomatron.derrick.Variable.FinalValue
+	317, // 489: nomatron.derrick.Job.Result.build:type_name -> nomatron.derrick.Job.BuildResult
+	319, // 490: nomatron.derrick.Job.Result.push:type_name -> nomatron.derrick.Job.PushResult
+	321, // 491: nomatron.derrick.Job.Result.deploy:type_name -> nomatron.derrick.Job.DeployResult
+	327, // 492: nomatron.derrick.Job.Result.release:type_name -> nomatron.derrick.Job.ReleaseResult
+	313, // 493: nomatron.derrick.Job.Result.validate:type_name -> nomatron.derrick.Job.ValidateResult
+	315, // 494: nomatron.derrick.Job.Result.auth:type_name -> nomatron.derrick.Job.AuthResult
+	337, // 495: nomatron.derrick.Job.Result.docs:type_name -> nomatron.derrick.Job.DocsResult
+	339, // 496: nomatron.derrick.Job.Result.config_sync:type_name -> nomatron.derrick.Job.ConfigSyncResult
+	311, // 497: nomatron.derrick.Job.Result.up:type_name -> nomatron.derrick.Job.UpResult
+	350, // 498: nomatron.derrick.Job.Result.queue_project:type_name -> nomatron.derrick.Job.QueueProjectResult
+	343, // 499: nomatron.derrick.Job.Result.poll:type_name -> nomatron.derrick.Job.PollResult
+	335, // 500: nomatron.derrick.Job.Result.status_report:type_name -> nomatron.derrick.Job.StatusReportResult
+	330, // 501: nomatron.derrick.Job.Result.start_task:type_name -> nomatron.derrick.Job.StartTaskResult
+	345, // 502: nomatron.derrick.Job.Result.init:type_name -> nomatron.derrick.Job.InitResult
+	333, // 503: nomatron.derrick.Job.Result.watch_task:type_name -> nomatron.derrick.Job.WatchTaskResult
+	348, // 504: nomatron.derrick.Job.Result.pipeline_step:type_name -> nomatron.derrick.Job.PipelineStepResult
+	340, // 505: nomatron.derrick.Job.Result.pipeline_config_sync:type_name -> nomatron.derrick.Job.PipelineConfigSyncResult
+	341, // 506: nomatron.derrick.Job.Result.project_destroy:type_name -> nomatron.derrick.Job.ProjectDestroyResult
+	11,  // 507: nomatron.derrick.Job.Config.source:type_name -> nomatron.derrick.Job.Config.Source
+	306, // 508: nomatron.derrick.Job.DataSource.local:type_name -> nomatron.derrick.Job.Local
+	308, // 509: nomatron.derrick.Job.DataSource.git:type_name -> nomatron.derrick.Job.Git
+	307, // 510: nomatron.derrick.Job.DataSource.remote:type_name -> nomatron.derrick.Job.Remote
+	308, // 511: nomatron.derrick.Job.Remote.git_remote:type_name -> nomatron.derrick.Job.Git
+	352, // 512: nomatron.derrick.Job.Git.basic:type_name -> nomatron.derrick.Job.Git.Basic
+	353, // 513: nomatron.derrick.Job.Git.ssh:type_name -> nomatron.derrick.Job.Git.SSH
+	326, // 514: nomatron.derrick.Job.UpOp.release:type_name -> nomatron.derrick.Job.ReleaseOp
+	274, // 515: nomatron.derrick.Job.AuthOp.component:type_name -> nomatron.derrick.Ref.Component
+	355, // 516: nomatron.derrick.Job.AuthResult.results:type_name -> nomatron.derrick.Job.AuthResult.Result
+	132, // 517: nomatron.derrick.Job.BuildResult.build:type_name -> nomatron.derrick.Build
+	148, // 518: nomatron.derrick.Job.BuildResult.push:type_name -> nomatron.derrick.PushedArtifact
+	132, // 519: nomatron.derrick.Job.PushOp.build:type_name -> nomatron.derrick.Build
+	148, // 520: nomatron.derrick.Job.PushResult.artifact:type_name -> nomatron.derrick.PushedArtifact
+	148, // 521: nomatron.derrick.Job.DeployOp.artifact:type_name -> nomatron.derrick.PushedArtifact
+	154, // 522: nomatron.derrick.Job.DeployResult.deployment:type_name -> nomatron.derrick.Deployment
+	154, // 523: nomatron.derrick.Job.ExecOp.deployment:type_name -> nomatron.derrick.Deployment
+	154, // 524: nomatron.derrick.Job.LogsOp.deployment:type_name -> nomatron.derrick.Deployment
+	460, // 525: nomatron.derrick.Job.LogsOp.start_time:type_name -> google.protobuf.Timestamp
+	459, // 526: nomatron.derrick.Job.DestroyOp.workspace:type_name -> google.protobuf.Empty
+	154, // 527: nomatron.derrick.Job.DestroyOp.deployment:type_name -> nomatron.derrick.Deployment
+	154, // 528: nomatron.derrick.Job.ReleaseOp.deployment:type_name -> nomatron.derrick.Deployment
+	165, // 529: nomatron.derrick.Job.ReleaseResult.release:type_name -> nomatron.derrick.Release
+	24,  // 530: nomatron.derrick.Job.TaskPluginParams.hcl_format:type_name -> nomatron.derrick.Hcl.Format
+	43,  // 531: nomatron.derrick.Job.StartTaskLaunchOp.info:type_name -> nomatron.derrick.TaskLaunchInfo
+	328, // 532: nomatron.derrick.Job.StartTaskLaunchOp.params:type_name -> nomatron.derrick.Job.TaskPluginParams
+	462, // 533: nomatron.derrick.Job.StartTaskResult.state:type_name -> opaqueany.Any
+	328, // 534: nomatron.derrick.Job.StopTaskLaunchOp.params:type_name -> nomatron.derrick.Job.TaskPluginParams
+	462, // 535: nomatron.derrick.Job.StopTaskLaunchOp.direct:type_name -> opaqueany.Any
+	288, // 536: nomatron.derrick.Job.WatchTaskOp.start_job:type_name -> nomatron.derrick.Ref.Job
+	154, // 537: nomatron.derrick.Job.StatusReportOp.deployment:type_name -> nomatron.derrick.Deployment
+	165, // 538: nomatron.derrick.Job.StatusReportOp.release:type_name -> nomatron.derrick.Release
+	185, // 539: nomatron.derrick.Job.StatusReportResult.status_report:type_name -> nomatron.derrick.StatusReport
+	356, // 540: nomatron.derrick.Job.DocsResult.results:type_name -> nomatron.derrick.Job.DocsResult.Result
+	357, // 541: nomatron.derrick.Job.PipelineConfigSyncResult.synced_pipelines:type_name -> nomatron.derrick.Job.PipelineConfigSyncResult.SyncedPipelinesEntry
+	351, // 542: nomatron.derrick.Job.PollResult.old_ref:type_name -> nomatron.derrick.Job.DataSource.Ref
+	351, // 543: nomatron.derrick.Job.PollResult.new_ref:type_name -> nomatron.derrick.Job.DataSource.Ref
+	434, // 544: nomatron.derrick.Job.PipelineStepOp.step:type_name -> nomatron.derrick.Pipeline.Step
+	270, // 545: nomatron.derrick.Job.DestroyProjectOp.project:type_name -> nomatron.derrick.Ref.Project
+	461, // 546: nomatron.derrick.Job.PipelineStepResult.result:type_name -> google.rpc.Status
+	78,  // 547: nomatron.derrick.Job.QueueProjectOp.job_template:type_name -> nomatron.derrick.Job
+	358, // 548: nomatron.derrick.Job.QueueProjectResult.applications:type_name -> nomatron.derrick.Job.QueueProjectResult.Application
+	459, // 549: nomatron.derrick.Job.DataSource.Ref.unknown:type_name -> google.protobuf.Empty
+	354, // 550: nomatron.derrick.Job.DataSource.Ref.git:type_name -> nomatron.derrick.Job.Git.Ref
+	460, // 551: nomatron.derrick.Job.Git.Ref.timestamp:type_name -> google.protobuf.Timestamp
+	35,  // 552: nomatron.derrick.Job.AuthResult.Result.component:type_name -> nomatron.derrick.Component
+	461, // 553: nomatron.derrick.Job.AuthResult.Result.check_error:type_name -> google.rpc.Status
+	461, // 554: nomatron.derrick.Job.AuthResult.Result.auth_error:type_name -> google.rpc.Status
+	35,  // 555: nomatron.derrick.Job.DocsResult.Result.component:type_name -> nomatron.derrick.Component
+	79,  // 556: nomatron.derrick.Job.DocsResult.Result.docs:type_name -> nomatron.derrick.Documentation
+	290, // 557: nomatron.derrick.Job.PipelineConfigSyncResult.SyncedPipelinesEntry.value:type_name -> nomatron.derrick.Ref.Pipeline
+	269, // 558: nomatron.derrick.Job.QueueProjectResult.Application.application:type_name -> nomatron.derrick.Ref.Application
+	360, // 559: nomatron.derrick.Documentation.FieldsEntry.value:type_name -> nomatron.derrick.Documentation.Field
+	10,  // 560: nomatron.derrick.GetJobStreamResponse.State.previous:type_name -> nomatron.derrick.Job.State
+	10,  // 561: nomatron.derrick.GetJobStreamResponse.State.current:type_name -> nomatron.derrick.Job.State
+	78,  // 562: nomatron.derrick.GetJobStreamResponse.State.job:type_name -> nomatron.derrick.Job
+	78,  // 563: nomatron.derrick.GetJobStreamResponse.JobChange.job:type_name -> nomatron.derrick.Job
+	351, // 564: nomatron.derrick.GetJobStreamResponse.Download.data_source_ref:type_name -> nomatron.derrick.Job.DataSource.Ref
+	369, // 565: nomatron.derrick.GetJobStreamResponse.Terminal.events:type_name -> nomatron.derrick.GetJobStreamResponse.Terminal.Event
+	461, // 566: nomatron.derrick.GetJobStreamResponse.Error.error:type_name -> google.rpc.Status
+	461, // 567: nomatron.derrick.GetJobStreamResponse.Complete.error:type_name -> google.rpc.Status
+	303, // 568: nomatron.derrick.GetJobStreamResponse.Complete.result:type_name -> nomatron.derrick.Job.Result
+	460, // 569: nomatron.derrick.GetJobStreamResponse.Terminal.Event.timestamp:type_name -> google.protobuf.Timestamp
+	371, // 570: nomatron.derrick.GetJobStreamResponse.Terminal.Event.line:type_name -> nomatron.derrick.GetJobStreamResponse.Terminal.Event.Line
+	370, // 571: nomatron.derrick.GetJobStreamResponse.Terminal.Event.status:type_name -> nomatron.derrick.GetJobStreamResponse.Terminal.Event.Status
+	374, // 572: nomatron.derrick.GetJobStreamResponse.Terminal.Event.named_values:type_name -> nomatron.derrick.GetJobStreamResponse.Terminal.Event.NamedValues
+	372, // 573: nomatron.derrick.GetJobStreamResponse.Terminal.Event.raw:type_name -> nomatron.derrick.GetJobStreamResponse.Terminal.Event.Raw
+	377, // 574: nomatron.derrick.GetJobStreamResponse.Terminal.Event.table:type_name -> nomatron.derrick.GetJobStreamResponse.Terminal.Event.Table
+	378, // 575: nomatron.derrick.GetJobStreamResponse.Terminal.Event.step_group:type_name -> nomatron.derrick.GetJobStreamResponse.Terminal.Event.StepGroup
+	379, // 576: nomatron.derrick.GetJobStreamResponse.Terminal.Event.step:type_name -> nomatron.derrick.GetJobStreamResponse.Terminal.Event.Step
+	373, // 577: nomatron.derrick.GetJobStreamResponse.Terminal.Event.NamedValues.values:type_name -> nomatron.derrick.GetJobStreamResponse.Terminal.Event.NamedValue
+	375, // 578: nomatron.derrick.GetJobStreamResponse.Terminal.Event.TableRow.entries:type_name -> nomatron.derrick.GetJobStreamResponse.Terminal.Event.TableEntry
+	376, // 579: nomatron.derrick.GetJobStreamResponse.Terminal.Event.Table.rows:type_name -> nomatron.derrick.GetJobStreamResponse.Terminal.Event.TableRow
+	85,  // 580: nomatron.derrick.RunnerConfigRequest.Open.runner:type_name -> nomatron.derrick.Runner
+	303, // 581: nomatron.derrick.RunnerJobStreamRequest.Complete.result:type_name -> nomatron.derrick.Job.Result
+	461, // 582: nomatron.derrick.RunnerJobStreamRequest.Error.error:type_name -> google.rpc.Status
+	304, // 583: nomatron.derrick.RunnerJobStreamRequest.ConfigLoad.config:type_name -> nomatron.derrick.Job.Config
+	392, // 584: nomatron.derrick.RunnerJobStreamRequest.VariableValuesSet.final_values:type_name -> nomatron.derrick.RunnerJobStreamRequest.VariableValuesSet.FinalValuesEntry
+	261, // 585: nomatron.derrick.RunnerJobStreamRequest.VariableValuesSet.FinalValuesEntry.value:type_name -> nomatron.derrick.Variable.FinalValue
+	78,  // 586: nomatron.derrick.RunnerJobStreamResponse.JobAssignment.job:type_name -> nomatron.derrick.Job
+	195, // 587: nomatron.derrick.RunnerJobStreamResponse.JobAssignment.config_sources:type_name -> nomatron.derrick.ConfigSource
+	398, // 588: nomatron.derrick.Hostname.Target.application:type_name -> nomatron.derrick.Hostname.TargetApp
+	269, // 589: nomatron.derrick.Hostname.TargetApp.application:type_name -> nomatron.derrick.Ref.Application
+	271, // 590: nomatron.derrick.Hostname.TargetApp.workspace:type_name -> nomatron.derrick.Ref.Workspace
+	351, // 591: nomatron.derrick.Build.Preload.job_data_source_ref:type_name -> nomatron.derrick.Job.DataSource.Ref
+	351, // 592: nomatron.derrick.PushedArtifact.Preload.job_data_source_ref:type_name -> nomatron.derrick.Job.DataSource.Ref
+	148, // 593: nomatron.derrick.Deployment.Preload.artifact:type_name -> nomatron.derrick.PushedArtifact
+	132, // 594: nomatron.derrick.Deployment.Preload.build:type_name -> nomatron.derrick.Build
+	351, // 595: nomatron.derrick.Deployment.Preload.job_data_source_ref:type_name -> nomatron.derrick.Job.DataSource.Ref
+	269, // 596: nomatron.derrick.ListInstancesRequest.Application.application:type_name -> nomatron.derrick.Ref.Application
+	271, // 597: nomatron.derrick.ListInstancesRequest.Application.workspace:type_name -> nomatron.derrick.Ref.Workspace
+	154, // 598: nomatron.derrick.Release.Preload.deployment:type_name -> nomatron.derrick.Deployment
+	148, // 599: nomatron.derrick.Release.Preload.artifact:type_name -> nomatron.derrick.PushedArtifact
+	132, // 600: nomatron.derrick.Release.Preload.build:type_name -> nomatron.derrick.Build
+	351, // 601: nomatron.derrick.Release.Preload.job_data_source_ref:type_name -> nomatron.derrick.Job.DataSource.Ref
+	285, // 602: nomatron.derrick.StatusReport.Resource.declared_resource:type_name -> nomatron.derrick.Ref.DeclaredResource
+	0,   // 603: nomatron.derrick.StatusReport.Resource.category_display_hint:type_name -> nomatron.derrick.ResourceCategoryDisplayHint
+	460, // 604: nomatron.derrick.StatusReport.Resource.created_time:type_name -> google.protobuf.Timestamp
+	17,  // 605: nomatron.derrick.StatusReport.Resource.health:type_name -> nomatron.derrick.StatusReport.Resource.Health
+	410, // 606: nomatron.derrick.StatusReport.Resource.deprecated_health:type_name -> nomatron.derrick.StatusReport.Health
+	269, // 607: nomatron.derrick.GetLogStreamRequest.Application.application:type_name -> nomatron.derrick.Ref.Application
+	271, // 608: nomatron.derrick.GetLogStreamRequest.Application.workspace:type_name -> nomatron.derrick.Ref.Workspace
+	18,  // 609: nomatron.derrick.LogBatch.Entry.source:type_name -> nomatron.derrick.LogBatch.Entry.Source
+	460, // 610: nomatron.derrick.LogBatch.Entry.timestamp:type_name -> google.protobuf.Timestamp
+	415, // 611: nomatron.derrick.ConfigVar.DynamicVal.config:type_name -> nomatron.derrick.ConfigVar.DynamicVal.ConfigEntry
+	268, // 612: nomatron.derrick.ConfigVar.Target.global:type_name -> nomatron.derrick.Ref.Global
+	270, // 613: nomatron.derrick.ConfigVar.Target.project:type_name -> nomatron.derrick.Ref.Project
+	269, // 614: nomatron.derrick.ConfigVar.Target.application:type_name -> nomatron.derrick.Ref.Application
+	271, // 615: nomatron.derrick.ConfigVar.Target.workspace:type_name -> nomatron.derrick.Ref.Workspace
+	277, // 616: nomatron.derrick.ConfigVar.Target.runner:type_name -> nomatron.derrick.Ref.Runner
+	420, // 617: nomatron.derrick.ExecStreamRequest.Start.pty:type_name -> nomatron.derrick.ExecStreamRequest.PTY
+	421, // 618: nomatron.derrick.ExecStreamRequest.PTY.window_size:type_name -> nomatron.derrick.ExecStreamRequest.WindowSize
+	19,  // 619: nomatron.derrick.ExecStreamResponse.Output.channel:type_name -> nomatron.derrick.ExecStreamResponse.Output.Channel
+	420, // 620: nomatron.derrick.EntrypointConfig.Exec.pty:type_name -> nomatron.derrick.ExecStreamRequest.PTY
+	35,  // 621: nomatron.derrick.EntrypointConfig.DeploymentInfo.component:type_name -> nomatron.derrick.Component
+	428, // 622: nomatron.derrick.EntrypointConfig.DeploymentInfo.labels:type_name -> nomatron.derrick.EntrypointConfig.DeploymentInfo.LabelsEntry
+	20,  // 623: nomatron.derrick.EntrypointExecRequest.Output.channel:type_name -> nomatron.derrick.EntrypointExecRequest.Output.Channel
+	461, // 624: nomatron.derrick.EntrypointExecRequest.Error.error:type_name -> google.rpc.Status
+	434, // 625: nomatron.derrick.Pipeline.StepsEntry.value:type_name -> nomatron.derrick.Pipeline.Step
+	435, // 626: nomatron.derrick.Pipeline.Step.exec:type_name -> nomatron.derrick.Pipeline.Step.Exec
+	436, // 627: nomatron.derrick.Pipeline.Step.build:type_name -> nomatron.derrick.Pipeline.Step.Build
+	437, // 628: nomatron.derrick.Pipeline.Step.deploy:type_name -> nomatron.derrick.Pipeline.Step.Deploy
+	438, // 629: nomatron.derrick.Pipeline.Step.release:type_name -> nomatron.derrick.Pipeline.Step.Release
+	439, // 630: nomatron.derrick.Pipeline.Step.up:type_name -> nomatron.derrick.Pipeline.Step.Up
+	440, // 631: nomatron.derrick.Pipeline.Step.pipeline:type_name -> nomatron.derrick.Pipeline.Step.Pipeline
+	271, // 632: nomatron.derrick.Pipeline.Step.workspace:type_name -> nomatron.derrick.Ref.Workspace
+	272, // 633: nomatron.derrick.Pipeline.Step.Release.deployment:type_name -> nomatron.derrick.Ref.Deployment
+	290, // 634: nomatron.derrick.Pipeline.Step.Pipeline.ref:type_name -> nomatron.derrick.Ref.Pipeline
+	22,  // 635: nomatron.derrick.GetPipelineResponse.Graph.format:type_name -> nomatron.derrick.GetPipelineResponse.Graph.Format
+	292, // 636: nomatron.derrick.RunPipelineResponse.JobMapEntry.value:type_name -> nomatron.derrick.Ref.PipelineStep
+	290, // 637: nomatron.derrick.ConfigSyncPipelineResponse.SyncedPipelinesEntry.value:type_name -> nomatron.derrick.Ref.Pipeline
+	449, // 638: nomatron.derrick.Token.Login.entrypoint:type_name -> nomatron.derrick.Token.Entrypoint
+	446, // 639: nomatron.derrick.Token.Invite.login:type_name -> nomatron.derrick.Token.Login
+	451, // 640: nomatron.derrick.Token.Invite.signup:type_name -> nomatron.derrick.Token.Invite.Signup
+	28,  // 641: nomatron.derrick.Snapshot.Header.version:type_name -> nomatron.derrick.VersionInfo
+	23,  // 642: nomatron.derrick.Snapshot.Header.format:type_name -> nomatron.derrick.Snapshot.Header.Format
+	458, // 643: nomatron.derrick.Snapshot.BoltChunk.items:type_name -> nomatron.derrick.Snapshot.BoltChunk.ItemsEntry
+	459, // 644: nomatron.derrick.Waypoint.GetVersionInfo:input_type -> google.protobuf.Empty
+	459, // 645: nomatron.derrick.Waypoint.ListOIDCAuthMethods:input_type -> google.protobuf.Empty
+	69,  // 646: nomatron.derrick.Waypoint.GetOIDCAuthURL:input_type -> nomatron.derrick.GetOIDCAuthURLRequest
+	71,  // 647: nomatron.derrick.Waypoint.CompleteOIDCAuth:input_type -> nomatron.derrick.CompleteOIDCAuthRequest
+	173, // 648: nomatron.derrick.Waypoint.NoAuthRunTrigger:input_type -> nomatron.derrick.RunTriggerRequest
+	54,  // 649: nomatron.derrick.Waypoint.GetUser:input_type -> nomatron.derrick.GetUserRequest
+	459, // 650: nomatron.derrick.Waypoint.ListUsers:input_type -> google.protobuf.Empty
+	57,  // 651: nomatron.derrick.Waypoint.UpdateUser:input_type -> nomatron.derrick.UpdateUserRequest
+	59,  // 652: nomatron.derrick.Waypoint.DeleteUser:input_type -> nomatron.derrick.DeleteUserRequest
+	62,  // 653: nomatron.derrick.Waypoint.UpsertAuthMethod:input_type -> nomatron.derrick.UpsertAuthMethodRequest
+	64,  // 654: nomatron.derrick.Waypoint.GetAuthMethod:input_type -> nomatron.derrick.GetAuthMethodRequest
+	459, // 655: nomatron.derrick.Waypoint.ListAuthMethods:input_type -> google.protobuf.Empty
+	66,  // 656: nomatron.derrick.Waypoint.DeleteAuthMethod:input_type -> nomatron.derrick.DeleteAuthMethodRequest
+	109, // 657: nomatron.derrick.Waypoint.ListWorkspaces:input_type -> nomatron.derrick.ListWorkspacesRequest
+	111, // 658: nomatron.derrick.Waypoint.GetWorkspace:input_type -> nomatron.derrick.GetWorkspaceRequest
+	113, // 659: nomatron.derrick.Waypoint.UpsertWorkspace:input_type -> nomatron.derrick.UpsertWorkspaceRequest
+	115, // 660: nomatron.derrick.Waypoint.UpsertProject:input_type -> nomatron.derrick.UpsertProjectRequest
+	117, // 661: nomatron.derrick.Waypoint.GetProject:input_type -> nomatron.derrick.GetProjectRequest
+	119, // 662: nomatron.derrick.Waypoint.ListProjects:input_type -> nomatron.derrick.ListProjectsRequest
+	121, // 663: nomatron.derrick.Waypoint.DestroyProject:input_type -> nomatron.derrick.DestroyProjectRequest
+	122, // 664: nomatron.derrick.Waypoint.GetApplication:input_type -> nomatron.derrick.GetApplicationRequest
+	124, // 665: nomatron.derrick.Waypoint.UpsertApplication:input_type -> nomatron.derrick.UpsertApplicationRequest
+	128, // 666: nomatron.derrick.Waypoint.ListBuilds:input_type -> nomatron.derrick.ListBuildsRequest
+	131, // 667: nomatron.derrick.Waypoint.GetBuild:input_type -> nomatron.derrick.GetBuildRequest
+	130, // 668: nomatron.derrick.Waypoint.GetLatestBuild:input_type -> nomatron.derrick.GetLatestBuildRequest
+	146, // 669: nomatron.derrick.Waypoint.ListPushedArtifacts:input_type -> nomatron.derrick.ListPushedArtifactsRequest
+	145, // 670: nomatron.derrick.Waypoint.GetPushedArtifact:input_type -> nomatron.derrick.GetPushedArtifactRequest
+	144, // 671: nomatron.derrick.Waypoint.GetLatestPushedArtifact:input_type -> nomatron.derrick.GetLatestPushedArtifactRequest
+	152, // 672: nomatron.derrick.Waypoint.ListDeployments:input_type -> nomatron.derrick.ListDeploymentsRequest
+	149, // 673: nomatron.derrick.Waypoint.GetDeployment:input_type -> nomatron.derrick.GetDeploymentRequest
+	156, // 674: nomatron.derrick.Waypoint.ListInstances:input_type -> nomatron.derrick.ListInstancesRequest
+	162, // 675: nomatron.derrick.Waypoint.ListReleases:input_type -> nomatron.derrick.ListReleasesRequest
+	164, // 676: nomatron.derrick.Waypoint.GetRelease:input_type -> nomatron.derrick.GetReleaseRequest
+	161, // 677: nomatron.derrick.Waypoint.GetLatestRelease:input_type -> nomatron.derrick.GetLatestReleaseRequest
+	182, // 678: nomatron.derrick.Waypoint.GetStatusReport:input_type -> nomatron.derrick.GetStatusReportRequest
+	179, // 679: nomatron.derrick.Waypoint.GetLatestStatusReport:input_type -> nomatron.derrick.GetLatestStatusReportRequest
+	180, // 680: nomatron.derrick.Waypoint.ListStatusReports:input_type -> nomatron.derrick.ListStatusReportsRequest
+	183, // 681: nomatron.derrick.Waypoint.ExpediteStatusReport:input_type -> nomatron.derrick.ExpediteStatusReportRequest
+	186, // 682: nomatron.derrick.Waypoint.GetLogStream:input_type -> nomatron.derrick.GetLogStreamRequest
+	200, // 683: nomatron.derrick.Waypoint.StartExecStream:input_type -> nomatron.derrick.ExecStreamRequest
+	189, // 684: nomatron.derrick.Waypoint.SetConfig:input_type -> nomatron.derrick.ConfigSetRequest
+	191, // 685: nomatron.derrick.Waypoint.DeleteConfig:input_type -> nomatron.derrick.ConfigDeleteRequest
+	193, // 686: nomatron.derrick.Waypoint.GetConfig:input_type -> nomatron.derrick.ConfigGetRequest
+	196, // 687: nomatron.derrick.Waypoint.SetConfigSource:input_type -> nomatron.derrick.SetConfigSourceRequest
+	197, // 688: nomatron.derrick.Waypoint.DeleteConfigSource:input_type -> nomatron.derrick.DeleteConfigSourceRequest
+	198, // 689: nomatron.derrick.Waypoint.GetConfigSource:input_type -> nomatron.derrick.GetConfigSourceRequest
+	103, // 690: nomatron.derrick.Waypoint.CreateHostname:input_type -> nomatron.derrick.CreateHostnameRequest
+	107, // 691: nomatron.derrick.Waypoint.DeleteHostname:input_type -> nomatron.derrick.DeleteHostnameRequest
+	105, // 692: nomatron.derrick.Waypoint.ListHostnames:input_type -> nomatron.derrick.ListHostnamesRequest
+	73,  // 693: nomatron.derrick.Waypoint.QueueJob:input_type -> nomatron.derrick.QueueJobRequest
+	75,  // 694: nomatron.derrick.Waypoint.CancelJob:input_type -> nomatron.derrick.CancelJobRequest
+	80,  // 695: nomatron.derrick.Waypoint.GetJob:input_type -> nomatron.derrick.GetJobRequest
+	81,  // 696: nomatron.derrick.Waypoint.ListJobs:input_type -> nomatron.derrick.ListJobsRequest
+	76,  // 697: nomatron.derrick.Waypoint.ValidateJob:input_type -> nomatron.derrick.ValidateJobRequest
+	83,  // 698: nomatron.derrick.Waypoint.GetJobStream:input_type -> nomatron.derrick.GetJobStreamRequest
+	95,  // 699: nomatron.derrick.Waypoint.GetRunner:input_type -> nomatron.derrick.GetRunnerRequest
+	96,  // 700: nomatron.derrick.Waypoint.ListRunners:input_type -> nomatron.derrick.ListRunnersRequest
+	98,  // 701: nomatron.derrick.Waypoint.AdoptRunner:input_type -> nomatron.derrick.AdoptRunnerRequest
+	99,  // 702: nomatron.derrick.Waypoint.ForgetRunner:input_type -> nomatron.derrick.ForgetRunnerRequest
+	459, // 703: nomatron.derrick.Waypoint.GetServerConfig:input_type -> google.protobuf.Empty
+	100, // 704: nomatron.derrick.Waypoint.SetServerConfig:input_type -> nomatron.derrick.SetServerConfigRequest
+	459, // 705: nomatron.derrick.Waypoint.CreateSnapshot:input_type -> google.protobuf.Empty
+	235, // 706: nomatron.derrick.Waypoint.RestoreSnapshot:input_type -> nomatron.derrick.RestoreSnapshotRequest
+	459, // 707: nomatron.derrick.Waypoint.BootstrapToken:input_type -> google.protobuf.Empty
+	227, // 708: nomatron.derrick.Waypoint.DecodeToken:input_type -> nomatron.derrick.DecodeTokenRequest
+	231, // 709: nomatron.derrick.Waypoint.GenerateInviteToken:input_type -> nomatron.derrick.InviteTokenRequest
+	229, // 710: nomatron.derrick.Waypoint.GenerateLoginToken:input_type -> nomatron.derrick.LoginTokenRequest
+	230, // 711: nomatron.derrick.Waypoint.GenerateRunnerToken:input_type -> nomatron.derrick.GenerateRunnerTokenRequest
+	233, // 712: nomatron.derrick.Waypoint.ConvertInviteToken:input_type -> nomatron.derrick.ConvertInviteTokenRequest
+	86,  // 713: nomatron.derrick.Waypoint.RunnerToken:input_type -> nomatron.derrick.RunnerTokenRequest
+	88,  // 714: nomatron.derrick.Waypoint.RunnerConfig:input_type -> nomatron.derrick.RunnerConfigRequest
+	91,  // 715: nomatron.derrick.Waypoint.RunnerJobStream:input_type -> nomatron.derrick.RunnerJobStreamRequest
+	93,  // 716: nomatron.derrick.Waypoint.RunnerGetDeploymentConfig:input_type -> nomatron.derrick.RunnerGetDeploymentConfigRequest
+	202, // 717: nomatron.derrick.Waypoint.EntrypointConfig:input_type -> nomatron.derrick.EntrypointConfigRequest
+	205, // 718: nomatron.derrick.Waypoint.EntrypointLogStream:input_type -> nomatron.derrick.EntrypointLogBatch
+	206, // 719: nomatron.derrick.Waypoint.EntrypointExecStream:input_type -> nomatron.derrick.EntrypointExecRequest
+	238, // 720: nomatron.derrick.Waypoint.DerrickHclFmt:input_type -> nomatron.derrick.DerrickHclFmtRequest
+	135, // 721: nomatron.derrick.Waypoint.UpsertOnDemandRunnerConfig:input_type -> nomatron.derrick.UpsertOnDemandRunnerConfigRequest
+	137, // 722: nomatron.derrick.Waypoint.GetOnDemandRunnerConfig:input_type -> nomatron.derrick.GetOnDemandRunnerConfigRequest
+	459, // 723: nomatron.derrick.Waypoint.GetDefaultOnDemandRunnerConfig:input_type -> google.protobuf.Empty
+	139, // 724: nomatron.derrick.Waypoint.DeleteOnDemandRunnerConfig:input_type -> nomatron.derrick.DeleteOnDemandRunnerConfigRequest
+	459, // 725: nomatron.derrick.Waypoint.ListOnDemandRunnerConfigs:input_type -> google.protobuf.Empty
+	126, // 726: nomatron.derrick.Waypoint.UpsertBuild:input_type -> nomatron.derrick.UpsertBuildRequest
+	142, // 727: nomatron.derrick.Waypoint.UpsertPushedArtifact:input_type -> nomatron.derrick.UpsertPushedArtifactRequest
+	150, // 728: nomatron.derrick.Waypoint.UpsertDeployment:input_type -> nomatron.derrick.UpsertDeploymentRequest
+	159, // 729: nomatron.derrick.Waypoint.UpsertRelease:input_type -> nomatron.derrick.UpsertReleaseRequest
+	177, // 730: nomatron.derrick.Waypoint.UpsertStatusReport:input_type -> nomatron.derrick.UpsertStatusReportRequest
+	47,  // 731: nomatron.derrick.Waypoint.GetTask:input_type -> nomatron.derrick.GetTaskRequest
+	50,  // 732: nomatron.derrick.Waypoint.ListTask:input_type -> nomatron.derrick.ListTaskRequest
+	52,  // 733: nomatron.derrick.Waypoint.CancelTask:input_type -> nomatron.derrick.CancelTaskRequest
+	168, // 734: nomatron.derrick.Waypoint.UpsertTrigger:input_type -> nomatron.derrick.UpsertTriggerRequest
+	170, // 735: nomatron.derrick.Waypoint.GetTrigger:input_type -> nomatron.derrick.GetTriggerRequest
+	172, // 736: nomatron.derrick.Waypoint.DeleteTrigger:input_type -> nomatron.derrick.DeleteTriggerRequest
+	175, // 737: nomatron.derrick.Waypoint.ListTriggers:input_type -> nomatron.derrick.ListTriggerRequest
+	173, // 738: nomatron.derrick.Waypoint.RunTrigger:input_type -> nomatron.derrick.RunTriggerRequest
+	210, // 739: nomatron.derrick.Waypoint.UpsertPipeline:input_type -> nomatron.derrick.UpsertPipelineRequest
+	214, // 740: nomatron.derrick.Waypoint.RunPipeline:input_type -> nomatron.derrick.RunPipelineRequest
+	212, // 741: nomatron.derrick.Waypoint.GetPipeline:input_type -> nomatron.derrick.GetPipelineRequest
+	220, // 742: nomatron.derrick.Waypoint.GetPipelineRun:input_type -> nomatron.derrick.GetPipelineRunRequest
+	212, // 743: nomatron.derrick.Waypoint.GetLatestPipelineRun:input_type -> nomatron.derrick.GetPipelineRequest
+	216, // 744: nomatron.derrick.Waypoint.ListPipelines:input_type -> nomatron.derrick.ListPipelinesRequest
+	218, // 745: nomatron.derrick.Waypoint.ListPipelineRuns:input_type -> nomatron.derrick.ListPipelineRunsRequest
+	222, // 746: nomatron.derrick.Waypoint.ConfigSyncPipeline:input_type -> nomatron.derrick.ConfigSyncPipelineRequest
+	243, // 747: nomatron.derrick.Waypoint.UI_ListProjects:input_type -> nomatron.derrick.UI.ListProjectsRequest
+	246, // 748: nomatron.derrick.Waypoint.UI_GetProject:input_type -> nomatron.derrick.UI.GetProjectRequest
+	248, // 749: nomatron.derrick.Waypoint.UI_ListDeployments:input_type -> nomatron.derrick.UI.ListDeploymentsRequest
+	250, // 750: nomatron.derrick.Waypoint.UI_GetDeployment:input_type -> nomatron.derrick.UI.GetDeploymentRequest
+	253, // 751: nomatron.derrick.Waypoint.UI_ListReleases:input_type -> nomatron.derrick.UI.ListReleasesRequest
+	26,  // 752: nomatron.derrick.Waypoint.GetVersionInfo:output_type -> nomatron.derrick.GetVersionInfoResponse
+	68,  // 753: nomatron.derrick.Waypoint.ListOIDCAuthMethods:output_type -> nomatron.derrick.ListOIDCAuthMethodsResponse
+	70,  // 754: nomatron.derrick.Waypoint.GetOIDCAuthURL:output_type -> nomatron.derrick.GetOIDCAuthURLResponse
+	72,  // 755: nomatron.derrick.Waypoint.CompleteOIDCAuth:output_type -> nomatron.derrick.CompleteOIDCAuthResponse
+	174, // 756: nomatron.derrick.Waypoint.NoAuthRunTrigger:output_type -> nomatron.derrick.RunTriggerResponse
+	55,  // 757: nomatron.derrick.Waypoint.GetUser:output_type -> nomatron.derrick.GetUserResponse
+	56,  // 758: nomatron.derrick.Waypoint.ListUsers:output_type -> nomatron.derrick.ListUsersResponse
+	58,  // 759: nomatron.derrick.Waypoint.UpdateUser:output_type -> nomatron.derrick.UpdateUserResponse
+	459, // 760: nomatron.derrick.Waypoint.DeleteUser:output_type -> google.protobuf.Empty
+	63,  // 761: nomatron.derrick.Waypoint.UpsertAuthMethod:output_type -> nomatron.derrick.UpsertAuthMethodResponse
+	65,  // 762: nomatron.derrick.Waypoint.GetAuthMethod:output_type -> nomatron.derrick.GetAuthMethodResponse
+	67,  // 763: nomatron.derrick.Waypoint.ListAuthMethods:output_type -> nomatron.derrick.ListAuthMethodsResponse
+	459, // 764: nomatron.derrick.Waypoint.DeleteAuthMethod:output_type -> google.protobuf.Empty
+	110, // 765: nomatron.derrick.Waypoint.ListWorkspaces:output_type -> nomatron.derrick.ListWorkspacesResponse
+	112, // 766: nomatron.derrick.Waypoint.GetWorkspace:output_type -> nomatron.derrick.GetWorkspaceResponse
+	114, // 767: nomatron.derrick.Waypoint.UpsertWorkspace:output_type -> nomatron.derrick.UpsertWorkspaceResponse
+	116, // 768: nomatron.derrick.Waypoint.UpsertProject:output_type -> nomatron.derrick.UpsertProjectResponse
+	118, // 769: nomatron.derrick.Waypoint.GetProject:output_type -> nomatron.derrick.GetProjectResponse
+	120, // 770: nomatron.derrick.Waypoint.ListProjects:output_type -> nomatron.derrick.ListProjectsResponse
+	459, // 771: nomatron.derrick.Waypoint.DestroyProject:output_type -> google.protobuf.Empty
+	123, // 772: nomatron.derrick.Waypoint.GetApplication:output_type -> nomatron.derrick.GetApplicationResponse
+	125, // 773: nomatron.derrick.Waypoint.UpsertApplication:output_type -> nomatron.derrick.UpsertApplicationResponse
+	129, // 774: nomatron.derrick.Waypoint.ListBuilds:output_type -> nomatron.derrick.ListBuildsResponse
+	132, // 775: nomatron.derrick.Waypoint.GetBuild:output_type -> nomatron.derrick.Build
+	132, // 776: nomatron.derrick.Waypoint.GetLatestBuild:output_type -> nomatron.derrick.Build
+	147, // 777: nomatron.derrick.Waypoint.ListPushedArtifacts:output_type -> nomatron.derrick.ListPushedArtifactsResponse
+	148, // 778: nomatron.derrick.Waypoint.GetPushedArtifact:output_type -> nomatron.derrick.PushedArtifact
+	148, // 779: nomatron.derrick.Waypoint.GetLatestPushedArtifact:output_type -> nomatron.derrick.PushedArtifact
+	153, // 780: nomatron.derrick.Waypoint.ListDeployments:output_type -> nomatron.derrick.ListDeploymentsResponse
+	154, // 781: nomatron.derrick.Waypoint.GetDeployment:output_type -> nomatron.derrick.Deployment
+	157, // 782: nomatron.derrick.Waypoint.ListInstances:output_type -> nomatron.derrick.ListInstancesResponse
+	163, // 783: nomatron.derrick.Waypoint.ListReleases:output_type -> nomatron.derrick.ListReleasesResponse
+	165, // 784: nomatron.derrick.Waypoint.GetRelease:output_type -> nomatron.derrick.Release
+	165, // 785: nomatron.derrick.Waypoint.GetLatestRelease:output_type -> nomatron.derrick.Release
+	185, // 786: nomatron.derrick.Waypoint.GetStatusReport:output_type -> nomatron.derrick.StatusReport
+	185, // 787: nomatron.derrick.Waypoint.GetLatestStatusReport:output_type -> nomatron.derrick.StatusReport
+	181, // 788: nomatron.derrick.Waypoint.ListStatusReports:output_type -> nomatron.derrick.ListStatusReportsResponse
+	184, // 789: nomatron.derrick.Waypoint.ExpediteStatusReport:output_type -> nomatron.derrick.ExpediteStatusReportResponse
+	187, // 790: nomatron.derrick.Waypoint.GetLogStream:output_type -> nomatron.derrick.LogBatch
+	201, // 791: nomatron.derrick.Waypoint.StartExecStream:output_type -> nomatron.derrick.ExecStreamResponse
+	190, // 792: nomatron.derrick.Waypoint.SetConfig:output_type -> nomatron.derrick.ConfigSetResponse
+	192, // 793: nomatron.derrick.Waypoint.DeleteConfig:output_type -> nomatron.derrick.ConfigDeleteResponse
+	194, // 794: nomatron.derrick.Waypoint.GetConfig:output_type -> nomatron.derrick.ConfigGetResponse
+	459, // 795: nomatron.derrick.Waypoint.SetConfigSource:output_type -> google.protobuf.Empty
+	459, // 796: nomatron.derrick.Waypoint.DeleteConfigSource:output_type -> google.protobuf.Empty
+	199, // 797: nomatron.derrick.Waypoint.GetConfigSource:output_type -> nomatron.derrick.GetConfigSourceResponse
+	104, // 798: nomatron.derrick.Waypoint.CreateHostname:output_type -> nomatron.derrick.CreateHostnameResponse
+	459, // 799: nomatron.derrick.Waypoint.DeleteHostname:output_type -> google.protobuf.Empty
+	106, // 800: nomatron.derrick.Waypoint.ListHostnames:output_type -> nomatron.derrick.ListHostnamesResponse
+	74,  // 801: nomatron.derrick.Waypoint.QueueJob:output_type -> nomatron.derrick.QueueJobResponse
+	459, // 802: nomatron.derrick.Waypoint.CancelJob:output_type -> google.protobuf.Empty
+	78,  // 803: nomatron.derrick.Waypoint.GetJob:output_type -> nomatron.derrick.Job
+	82,  // 804: nomatron.derrick.Waypoint.ListJobs:output_type -> nomatron.derrick.ListJobsResponse
+	77,  // 805: nomatron.derrick.Waypoint.ValidateJob:output_type -> nomatron.derrick.ValidateJobResponse
+	84,  // 806: nomatron.derrick.Waypoint.GetJobStream:output_type -> nomatron.derrick.GetJobStreamResponse
+	85,  // 807: nomatron.derrick.Waypoint.GetRunner:output_type -> nomatron.derrick.Runner
+	97,  // 808: nomatron.derrick.Waypoint.ListRunners:output_type -> nomatron.derrick.ListRunnersResponse
+	459, // 809: nomatron.derrick.Waypoint.AdoptRunner:output_type -> google.protobuf.Empty
+	459, // 810: nomatron.derrick.Waypoint.ForgetRunner:output_type -> google.protobuf.Empty
+	101, // 811: nomatron.derrick.Waypoint.GetServerConfig:output_type -> nomatron.derrick.GetServerConfigResponse
+	459, // 812: nomatron.derrick.Waypoint.SetServerConfig:output_type -> google.protobuf.Empty
+	234, // 813: nomatron.derrick.Waypoint.CreateSnapshot:output_type -> nomatron.derrick.CreateSnapshotResponse
+	459, // 814: nomatron.derrick.Waypoint.RestoreSnapshot:output_type -> google.protobuf.Empty
+	232, // 815: nomatron.derrick.Waypoint.BootstrapToken:output_type -> nomatron.derrick.NewTokenResponse
+	228, // 816: nomatron.derrick.Waypoint.DecodeToken:output_type -> nomatron.derrick.DecodeTokenResponse
+	232, // 817: nomatron.derrick.Waypoint.GenerateInviteToken:output_type -> nomatron.derrick.NewTokenResponse
+	232, // 818: nomatron.derrick.Waypoint.GenerateLoginToken:output_type -> nomatron.derrick.NewTokenResponse
+	232, // 819: nomatron.derrick.Waypoint.GenerateRunnerToken:output_type -> nomatron.derrick.NewTokenResponse
+	232, // 820: nomatron.derrick.Waypoint.ConvertInviteToken:output_type -> nomatron.derrick.NewTokenResponse
+	87,  // 821: nomatron.derrick.Waypoint.RunnerToken:output_type -> nomatron.derrick.RunnerTokenResponse
+	89,  // 822: nomatron.derrick.Waypoint.RunnerConfig:output_type -> nomatron.derrick.RunnerConfigResponse
+	92,  // 823: nomatron.derrick.Waypoint.RunnerJobStream:output_type -> nomatron.derrick.RunnerJobStreamResponse
+	94,  // 824: nomatron.derrick.Waypoint.RunnerGetDeploymentConfig:output_type -> nomatron.derrick.RunnerGetDeploymentConfigResponse
+	203, // 825: nomatron.derrick.Waypoint.EntrypointConfig:output_type -> nomatron.derrick.EntrypointConfigResponse
+	459, // 826: nomatron.derrick.Waypoint.EntrypointLogStream:output_type -> google.protobuf.Empty
+	207, // 827: nomatron.derrick.Waypoint.EntrypointExecStream:output_type -> nomatron.derrick.EntrypointExecResponse
+	239, // 828: nomatron.derrick.Waypoint.DerrickHclFmt:output_type -> nomatron.derrick.DerrickHclFmtResponse
+	136, // 829: nomatron.derrick.Waypoint.UpsertOnDemandRunnerConfig:output_type -> nomatron.derrick.UpsertOnDemandRunnerConfigResponse
+	138, // 830: nomatron.derrick.Waypoint.GetOnDemandRunnerConfig:output_type -> nomatron.derrick.GetOnDemandRunnerConfigResponse
+	138, // 831: nomatron.derrick.Waypoint.GetDefaultOnDemandRunnerConfig:output_type -> nomatron.derrick.GetOnDemandRunnerConfigResponse
+	140, // 832: nomatron.derrick.Waypoint.DeleteOnDemandRunnerConfig:output_type -> nomatron.derrick.DeleteOnDemandRunnerConfigResponse
+	141, // 833: nomatron.derrick.Waypoint.ListOnDemandRunnerConfigs:output_type -> nomatron.derrick.ListOnDemandRunnerConfigsResponse
+	127, // 834: nomatron.derrick.Waypoint.UpsertBuild:output_type -> nomatron.derrick.UpsertBuildResponse
+	143, // 835: nomatron.derrick.Waypoint.UpsertPushedArtifact:output_type -> nomatron.derrick.UpsertPushedArtifactResponse
+	151, // 836: nomatron.derrick.Waypoint.UpsertDeployment:output_type -> nomatron.derrick.UpsertDeploymentResponse
+	160, // 837: nomatron.derrick.Waypoint.UpsertRelease:output_type -> nomatron.derrick.UpsertReleaseResponse
+	178, // 838: nomatron.derrick.Waypoint.UpsertStatusReport:output_type -> nomatron.derrick.UpsertStatusReportResponse
+	48,  // 839: nomatron.derrick.Waypoint.GetTask:output_type -> nomatron.derrick.GetTaskResponse
+	51,  // 840: nomatron.derrick.Waypoint.ListTask:output_type -> nomatron.derrick.ListTaskResponse
+	459, // 841: nomatron.derrick.Waypoint.CancelTask:output_type -> google.protobuf.Empty
+	169, // 842: nomatron.derrick.Waypoint.UpsertTrigger:output_type -> nomatron.derrick.UpsertTriggerResponse
+	171, // 843: nomatron.derrick.Waypoint.GetTrigger:output_type -> nomatron.derrick.GetTriggerResponse
+	459, // 844: nomatron.derrick.Waypoint.DeleteTrigger:output_type -> google.protobuf.Empty
+	176, // 845: nomatron.derrick.Waypoint.ListTriggers:output_type -> nomatron.derrick.ListTriggerResponse
+	174, // 846: nomatron.derrick.Waypoint.RunTrigger:output_type -> nomatron.derrick.RunTriggerResponse
+	211, // 847: nomatron.derrick.Waypoint.UpsertPipeline:output_type -> nomatron.derrick.UpsertPipelineResponse
+	215, // 848: nomatron.derrick.Waypoint.RunPipeline:output_type -> nomatron.derrick.RunPipelineResponse
+	213, // 849: nomatron.derrick.Waypoint.GetPipeline:output_type -> nomatron.derrick.GetPipelineResponse
+	221, // 850: nomatron.derrick.Waypoint.GetPipelineRun:output_type -> nomatron.derrick.GetPipelineRunResponse
+	221, // 851: nomatron.derrick.Waypoint.GetLatestPipelineRun:output_type -> nomatron.derrick.GetPipelineRunResponse
+	217, // 852: nomatron.derrick.Waypoint.ListPipelines:output_type -> nomatron.derrick.ListPipelinesResponse
+	219, // 853: nomatron.derrick.Waypoint.ListPipelineRuns:output_type -> nomatron.derrick.ListPipelineRunsResponse
+	223, // 854: nomatron.derrick.Waypoint.ConfigSyncPipeline:output_type -> nomatron.derrick.ConfigSyncPipelineResponse
+	244, // 855: nomatron.derrick.Waypoint.UI_ListProjects:output_type -> nomatron.derrick.UI.ListProjectsResponse
+	247, // 856: nomatron.derrick.Waypoint.UI_GetProject:output_type -> nomatron.derrick.UI.GetProjectResponse
+	249, // 857: nomatron.derrick.Waypoint.UI_ListDeployments:output_type -> nomatron.derrick.UI.ListDeploymentsResponse
+	251, // 858: nomatron.derrick.Waypoint.UI_GetDeployment:output_type -> nomatron.derrick.UI.GetDeploymentResponse
+	254, // 859: nomatron.derrick.Waypoint.UI_ListReleases:output_type -> nomatron.derrick.UI.ListReleasesResponse
 	752, // [752:860] is the sub-list for method output_type
 	644, // [644:752] is the sub-list for method input_type
 	644, // [644:644] is the sub-list for extension type_name
@@ -37802,7 +37802,7 @@ func file_pkg_server_proto_server_proto_init() {
 			}
 		}
 		file_pkg_server_proto_server_proto_msgTypes[213].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*WaypointHclFmtRequest); i {
+			switch v := v.(*DerrickHclFmtRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -37814,7 +37814,7 @@ func file_pkg_server_proto_server_proto_init() {
 			}
 		}
 		file_pkg_server_proto_server_proto_msgTypes[214].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*WaypointHclFmtResponse); i {
+			switch v := v.(*DerrickHclFmtResponse); i {
 			case 0:
 				return &v.state
 			case 1:

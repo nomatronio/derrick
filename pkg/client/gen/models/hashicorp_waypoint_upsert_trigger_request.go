@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointUpsertTriggerRequest hashicorp waypoint upsert trigger request
 //
-// swagger:model hashicorp.waypoint.UpsertTriggerRequest
+// swagger:model nomatron.derrick.UpsertTriggerRequest
 type HashicorpWaypointUpsertTriggerRequest struct {
 
 	// Trigger URL to upsert. If the id in the message is empty, then this

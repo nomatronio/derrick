@@ -7,5 +7,5 @@ package models
 
 // HashicorpWaypointRunnerLocal hashicorp waypoint runner local
 //
-// swagger:model hashicorp.waypoint.Runner.Local
+// swagger:model nomatron.derrick.Runner.Local
 type HashicorpWaypointRunnerLocal interface{}

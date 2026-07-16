@@ -1,13 +1,13 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
-import ApiService from 'waypoint/services/api';
-import { Breadcrumb } from 'waypoint/services/breadcrumbs';
-import { ConfigGetRequest, ConfigGetResponse, Ref } from 'waypoint-pb';
+import ApiService from 'derrick/services/api';
+import { Breadcrumb } from 'derrick/services/breadcrumbs';
+import { ConfigGetRequest, ConfigGetResponse, Ref } from 'derrick-pb';
 import {
   Model as ProjectRouteModel,
   Params as ProjectRouteParams,
-} from 'waypoint/routes/workspace/projects/project';
-import ConfigVariablesController from 'waypoint/controllers/workspace/projects/project/settings/config-variables';
+} from 'derrick/routes/workspace/projects/project';
+import ConfigVariablesController from 'derrick/controllers/workspace/projects/project/settings/config-variables';
 
 export default class WorkspaceProjectsProjectSettingsConfigVariables extends Route {
   @service api!: ApiService;

@@ -14,12 +14,12 @@ import (
 	"google.golang.org/protobuf/proto"
 	empty "google.golang.org/protobuf/types/known/emptypb"
 
-	"github.com/hashicorp/waypoint/internal/server/boltdbstate"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	"github.com/hashicorp/waypoint/pkg/server/hcerr"
-	"github.com/hashicorp/waypoint/pkg/server/logbuffer"
-	"github.com/hashicorp/waypoint/pkg/server/ptypes"
-	"github.com/hashicorp/waypoint/pkg/serverstate"
+	"github.com/nomatronio/derrick/internal/server/boltdbstate"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	"github.com/nomatronio/derrick/pkg/server/hcerr"
+	"github.com/nomatronio/derrick/pkg/server/logbuffer"
+	"github.com/nomatronio/derrick/pkg/server/ptypes"
+	"github.com/nomatronio/derrick/pkg/serverstate"
 )
 
 // TODO: test

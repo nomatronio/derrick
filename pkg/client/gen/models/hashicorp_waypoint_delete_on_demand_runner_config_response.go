@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointDeleteOnDemandRunnerConfigResponse hashicorp waypoint delete on demand runner config response
 //
-// swagger:model hashicorp.waypoint.DeleteOnDemandRunnerConfigResponse
+// swagger:model nomatron.derrick.DeleteOnDemandRunnerConfigResponse
 type HashicorpWaypointDeleteOnDemandRunnerConfigResponse struct {
 
 	// config

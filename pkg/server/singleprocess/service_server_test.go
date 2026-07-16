@@ -7,9 +7,9 @@ import (
 	"github.com/hashicorp/go-hclog"
 	"github.com/stretchr/testify/require"
 
-	"github.com/hashicorp/waypoint/internal/server/boltdbstate"
-	"github.com/hashicorp/waypoint/internal/serverconfig"
-	"github.com/hashicorp/waypoint/pkg/server"
+	"github.com/nomatronio/derrick/internal/server/boltdbstate"
+	"github.com/nomatronio/derrick/internal/serverconfig"
+	"github.com/nomatronio/derrick/pkg/server"
 )
 
 func TestServerConfigWithStartupConfig(t *testing.T) {

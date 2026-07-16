@@ -13,12 +13,12 @@ import (
 	"google.golang.org/grpc/credentials"
 	"google.golang.org/grpc/keepalive"
 
-	"github.com/hashicorp/waypoint/internal/clicontext"
-	"github.com/hashicorp/waypoint/internal/env"
-	"github.com/hashicorp/waypoint/pkg/inlinekeepalive"
-	"github.com/hashicorp/waypoint/pkg/protocolversion"
-	"github.com/hashicorp/waypoint/pkg/serverconfig"
-	"github.com/hashicorp/waypoint/pkg/tokenutil"
+	"github.com/nomatronio/derrick/internal/clicontext"
+	"github.com/nomatronio/derrick/internal/env"
+	"github.com/nomatronio/derrick/pkg/inlinekeepalive"
+	"github.com/nomatronio/derrick/pkg/protocolversion"
+	"github.com/nomatronio/derrick/pkg/serverconfig"
+	"github.com/nomatronio/derrick/pkg/tokenutil"
 )
 
 // ErrNoServerConfig is the error when there is no server configuration
@@ -87,7 +87,7 @@ func Connect(ctx context.Context, opts ...ConnectOption) (*grpc.ClientConn, erro
 		}
 
 		if token == "" {
-			return nil, fmt.Errorf("No token available at the WAYPOINT_SERVER_TOKEN environment variable")
+			return nil, fmt.Errorf("No token available at the DERRICK_SERVER_TOKEN environment variable")
 		}
 
 		// We allow the token of "-" to explicitly be a guest.
@@ -283,7 +283,7 @@ func FromContextConfig(cfg *clicontext.Config) ConnectOption {
 }
 
 // FromContext loads the context. This will prefer the given name. If name
-// is empty, we'll respect the WAYPOINT_CONTEXT env var followed by the
+// is empty, we'll respect the DERRICK_CONTEXT env var followed by the
 // default context.
 func FromContext(st *clicontext.Storage, n string) ConnectOption {
 	return func(c *connectConfig) error {
@@ -360,19 +360,19 @@ func Logger(v hclog.Logger) ConnectOption {
 const (
 	// ServerAddr is the address for the Waypoint server. This should be
 	// in the format of "ip:port" for TCP.
-	EnvServerAddr = "WAYPOINT_SERVER_ADDR"
+	EnvServerAddr = "DERRICK_SERVER_ADDR"
 
 	// ServerTls should be any value that strconv.ParseBool parses as
 	// true to connect to the server with TLS.
-	EnvServerTls           = "WAYPOINT_SERVER_TLS"
-	EnvServerTlsSkipVerify = "WAYPOINT_SERVER_TLS_SKIP_VERIFY"
+	EnvServerTls           = "DERRICK_SERVER_TLS"
+	EnvServerTlsSkipVerify = "DERRICK_SERVER_TLS_SKIP_VERIFY"
 
 	// EnvServerToken is the token for authenticated with the server.
-	EnvServerToken = "WAYPOINT_SERVER_TOKEN"
+	EnvServerToken = "DERRICK_SERVER_TOKEN"
 
 	// EnvServerCookie is the optional cookie value for API requests.
-	EnvServerCookie = "WAYPOINT_SERVER_COOKIE"
+	EnvServerCookie = "DERRICK_SERVER_COOKIE"
 
 	// EnvContext specifies a named context to load.
-	EnvContext = "WAYPOINT_CONTEXT"
+	EnvContext = "DERRICK_CONTEXT"
 )

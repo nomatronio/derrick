@@ -1,9 +1,9 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
-import ApiService from 'waypoint/services/api';
-import { Ref, GetProjectRequest, Project } from 'waypoint-pb';
-import { Breadcrumb } from 'waypoint/services/breadcrumbs';
-import { Params as ProjectRouteParams } from 'waypoint/routes/workspace/projects/project';
+import ApiService from 'derrick/services/api';
+import { Ref, GetProjectRequest, Project } from 'derrick-pb';
+import { Breadcrumb } from 'derrick/services/breadcrumbs';
+import { Params as ProjectRouteParams } from 'derrick/routes/workspace/projects/project';
 
 type Model = Project.AsObject;
 

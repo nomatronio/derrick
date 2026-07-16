@@ -5,8 +5,8 @@ import (
 	"path/filepath"
 )
 
-// Filename is the default filename for the Waypoint configuration.
-const Filename = "waypoint.hcl"
+// Filename is the default filename for the Derrick configuration.
+const Filename = "derrick.hcl"
 
 // FindPath looks for our configuration file starting at "start" and
 // traversing parent directories until it is found. If it is found, the

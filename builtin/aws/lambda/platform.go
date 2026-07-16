@@ -23,14 +23,14 @@ import (
 	"github.com/aws/aws-sdk-go/service/lambda"
 	validation "github.com/go-ozzo/ozzo-validation/v4"
 	"github.com/hashicorp/go-hclog"
-	"github.com/hashicorp/waypoint/builtin/aws/ecr"
-	"github.com/hashicorp/waypoint/builtin/aws/utils"
-	wpssh "github.com/hashicorp/waypoint/internal/ssh"
+	"github.com/nomatronio/derrick/builtin/aws/ecr"
+	"github.com/nomatronio/derrick/builtin/aws/utils"
+	wpssh "github.com/nomatronio/derrick/internal/ssh"
 	"github.com/pkg/errors"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/component"
-	"github.com/hashicorp/waypoint-plugin-sdk/docs"
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick-plugin-sdk/component"
+	"github.com/nomatronio/derrick-plugin-sdk/docs"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
 )
 
 // Platform is the Platform implementation for AWS Lambda
@@ -709,7 +709,7 @@ func (p *Platform) Exec(
 
 	// Just an FYI for the user of the session to know what deployment they're
 	// using.
-	sess.Setenv("WAYPOINT_DEPLOYMENT", deployment.Id)
+	sess.Setenv("DERRICK_DEPLOYMENT", deployment.Id)
 
 	log.Info("starting shell")
 

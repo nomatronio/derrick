@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointUIGetDeploymentResponse hashicorp waypoint UI get deployment response
 //
-// swagger:model hashicorp.waypoint.UI.GetDeploymentResponse
+// swagger:model nomatron.derrick.UI.GetDeploymentResponse
 type HashicorpWaypointUIGetDeploymentResponse struct {
 
 	// The deployment with related messages prefetched.

@@ -16,7 +16,7 @@ import (
 
 // HashicorpWaypointPipeline hashicorp waypoint pipeline
 //
-// swagger:model hashicorp.waypoint.Pipeline
+// swagger:model nomatron.derrick.Pipeline
 type HashicorpWaypointPipeline struct {
 
 	// Unique ID for this pipeline.
@@ -27,7 +27,7 @@ type HashicorpWaypointPipeline struct {
 	// we recommend avoiding reusing names.
 	Name string `json:"name,omitempty"`
 
-	// This pipeline is created from a waypoint.hcl file that is synced via VCS.
+	// This pipeline is created from a derrick.hcl file that is synced via VCS.
 	Project *HashicorpWaypointRefProject `json:"project,omitempty"`
 
 	// The steps that make up this pipeline. This is a set and the order
@@ -43,7 +43,7 @@ type HashicorpWaypointPipeline struct {
 	// the root step, mermaid-formatted graph output, and more.
 	//
 	// These requirements are usually hidden from users through nicer user
-	// experiences for editing: waypoint.hcl syntax (which implicitly creates
+	// experiences for editing: derrick.hcl syntax (which implicitly creates
 	// ordering and root steps), UIs, etc. All these requirements are noted for
 	// _internal_ users who are modifying pipelines via the API. For those
 	// internal users, they must manage the tedium of adhering to these requirements.

@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointRunnerTokenResponse hashicorp waypoint runner token response
 //
-// swagger:model hashicorp.waypoint.RunnerTokenResponse
+// swagger:model nomatron.derrick.RunnerTokenResponse
 type HashicorpWaypointRunnerTokenResponse struct {
 
 	// The token to use for subsequent API calls. The runner should reconnect

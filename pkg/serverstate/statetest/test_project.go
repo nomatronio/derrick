@@ -14,10 +14,10 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/hashicorp/waypoint/internal/pkg/jsonpb"
-	"github.com/hashicorp/waypoint/pkg/pagination"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	serverptypes "github.com/hashicorp/waypoint/pkg/server/ptypes"
+	"github.com/nomatronio/derrick/internal/pkg/jsonpb"
+	"github.com/nomatronio/derrick/pkg/pagination"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	serverptypes "github.com/nomatronio/derrick/pkg/server/ptypes"
 )
 
 func init() {
@@ -486,8 +486,8 @@ func TestProjectGetSetAllPropertiesSansVariables(t *testing.T, f Factory, rf Res
 			Enabled:  true,
 			Interval: "1h",
 		},
-		WaypointHcl:       []byte("hcl bytes"),
-		WaypointHclFormat: pb.Hcl_JSON,
+		DerrickHcl:       []byte("hcl bytes"),
+		DerrickHclFormat: pb.Hcl_JSON,
 		FileChangeSignal:  "HUP",
 		StatusReportPoll: &pb.Project_AppStatusPoll{
 			Enabled:  true,
@@ -653,8 +653,8 @@ func TestProjectGetSetAllProperties(t *testing.T, f Factory, rf RestartFactory) 
 			Enabled:  true,
 			Interval: "1h",
 		},
-		WaypointHcl:       []byte("hcl bytes"),
-		WaypointHclFormat: pb.Hcl_JSON,
+		DerrickHcl:       []byte("hcl bytes"),
+		DerrickHclFormat: pb.Hcl_JSON,
 		FileChangeSignal:  "HUP",
 		Variables: []*pb.Variable{{
 			Name: "test-variable",

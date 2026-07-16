@@ -2,28 +2,28 @@
 layout: commands
 page_title: 'Commands: Task list'
 sidebar_title: 'task list'
-description: 'List all On-Demand Runner Tasks in Waypoint'
+description: 'List all On-Demand Runner Tasks in Derrick'
 ---
 
-# Waypoint Task list
+# Derrick Task list
 
-Command: `waypoint task list`
+Command: `derrick task list`
 
-List all On-Demand Runner Tasks in Waypoint
+List all On-Demand Runner Tasks in Derrick
 
 @include "commands/task-list_desc.mdx"
 
 ## Usage
 
-Usage: `waypoint task list [options]`
+Usage: `derrick task list [options]`
 
-List all known On-Demand Runner Tasks from Waypoint server. Each task is a
-Waypoint Job tuple made up of a StartTask, RunTask, and StopTask.
+List all known On-Demand Runner Tasks from Derrick server. Each task is a
+Derrick Job tuple made up of a StartTask, RunTask, and StopTask.
 
 #### Global Options
 
 - `-plain` - Plain output: no colors, no animation. The default is false.
-- `-app=<string>` (`-a`) - App to target. Certain commands require a single app target for Waypoint configurations with multiple apps. If you have a single app, then this can be ignored.
+- `-app=<string>` (`-a`) - App to target. Certain commands require a single app target for Derrick configurations with multiple apps. If you have a single app, then this can be ignored.
 - `-project=<string>` (`-p`) - Project to target.
 - `-workspace=<string>` (`-w`) - Workspace to operate in.
 
@@ -31,7 +31,7 @@ Waypoint Job tuple made up of a StartTask, RunTask, and StopTask.
 
 - `-label=<key=value>` - Labels to set for this operation. Can be specified multiple times.
 - `-local` - True to use a local runner to execute the operation, false to use a remote runner.
-  If unset, Waypoint will automatically determine where the operation will occur,
+  If unset, Derrick will automatically determine where the operation will occur,
   defaulting to remote if possible.
 - `-remote-source=<key=value>` - Override configurations for how remote runners source data. This is specified to the data source type being used in your configuration. This is used for example to set a specific Git ref to run against.
 - `-var=<key=value>` - Variable value to set for this operation. Can be specified multiple times.

@@ -16,7 +16,7 @@ import (
 
 // HashicorpWaypointGetJobStreamResponseTerminal hashicorp waypoint get job stream response terminal
 //
-// swagger:model hashicorp.waypoint.GetJobStreamResponse.Terminal
+// swagger:model nomatron.derrick.GetJobStreamResponse.Terminal
 type HashicorpWaypointGetJobStreamResponseTerminal struct {
 
 	// buffered if true signifies that the data being sent is from the

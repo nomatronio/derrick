@@ -15,7 +15,7 @@ import (
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 
-	"github.com/hashicorp/waypoint/pkg/client/gen/models"
+	"github.com/nomatronio/derrick/pkg/client/gen/models"
 )
 
 // WaypointStartExecStreamReader is a Reader for the WaypointStartExecStream structure.
@@ -180,7 +180,7 @@ func (o *WaypointStartExecStreamDefault) readResponse(response runtime.ClientRes
 }
 
 /*
-WaypointStartExecStreamOKBody Stream result of hashicorp.waypoint.ExecStreamResponse
+WaypointStartExecStreamOKBody Stream result of nomatron.derrick.ExecStreamResponse
 swagger:model WaypointStartExecStreamOKBody
 */
 type WaypointStartExecStreamOKBody struct {

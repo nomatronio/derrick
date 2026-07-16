@@ -9,7 +9,7 @@ import (
 
 	"github.com/hashicorp/go-hclog"
 
-	"github.com/hashicorp/waypoint/internal/pkg/copy"
+	"github.com/nomatronio/derrick/internal/pkg/copy"
 	"github.com/stretchr/testify/require"
 )
 

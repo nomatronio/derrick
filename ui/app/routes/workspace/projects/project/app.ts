@@ -1,13 +1,13 @@
 /* eslint-disable ember/no-controller-access-in-routes */
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
-import ApiService, { DeploymentExtended, ReleaseExtended } from 'waypoint/services/api';
-import { Ref, Build, Project, PushedArtifact } from 'waypoint-pb';
-import PollModelService from 'waypoint/services/poll-model';
+import ApiService, { DeploymentExtended, ReleaseExtended } from 'derrick/services/api';
+import { Ref, Build, Project, PushedArtifact } from 'derrick-pb';
+import PollModelService from 'derrick/services/poll-model';
 import { hash } from 'rsvp';
-import { Breadcrumb } from 'waypoint/services/breadcrumbs';
-import AppController from 'waypoint/controllers/workspace/projects/project/app';
-import { Params as WorkspaceParams } from 'waypoint/routes/workspace';
+import { Breadcrumb } from 'derrick/services/breadcrumbs';
+import AppController from 'derrick/controllers/workspace/projects/project/app';
+import { Params as WorkspaceParams } from 'derrick/routes/workspace';
 
 export interface Params {
   app_id: string;

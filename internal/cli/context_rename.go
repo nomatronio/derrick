@@ -3,9 +3,9 @@ package cli
 import (
 	"github.com/posener/complete"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
 )
 
 type ContextRenameCommand struct {
@@ -57,7 +57,7 @@ func (c *ContextRenameCommand) Synopsis() string {
 
 func (c *ContextRenameCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint context rename [options] FROM TO
+Usage: derrick context rename [options] FROM TO
 
   Rename a context FROM to TO.
 

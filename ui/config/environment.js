@@ -3,7 +3,7 @@
 module.exports = function (environment) {
   let ENV = {
     apiAddress: '',
-    modulePrefix: 'waypoint',
+    modulePrefix: 'derrick',
     environment,
     rootURL: '/',
     locationType: 'auto',

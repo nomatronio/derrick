@@ -1,4 +1,4 @@
-import { Hcl, Project, Ref } from 'waypoint-pb';
+import { Hcl, Project, Ref } from 'derrick-pb';
 import { Model, belongsTo, hasMany } from 'ember-cli-mirage';
 
 export default Model.extend({
@@ -16,8 +16,8 @@ export default Model.extend({
     result.setFileChangeSignal(this.fileChangeSignal);
     result.setName(this.name);
     result.setRemoteEnabled(this.remoteEnabled);
-    result.setWaypointHcl(this.waypointHcl);
-    result.setWaypointHclFormat(Hcl.Format.HCL);
+    result.setDerrickHcl(this.derrickHcl);
+    result.setDerrickHclFormat(Hcl.Format.HCL);
     let varProtosList = this.variables.models.map((a) => a.toProtobuf());
     result.setVariablesList(varProtosList);
     return result;

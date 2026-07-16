@@ -11,7 +11,7 @@ import (
 	"google.golang.org/grpc/status"
 	"google.golang.org/protobuf/proto"
 
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 var onDemandRunnerBucket = []byte("ondemandRunner")
@@ -159,10 +159,10 @@ func (s *State) ondemandRunnerPut(
 	memTxn *memdb.Txn,
 	value *pb.OnDemandRunnerConfig,
 ) error {
-	// This is to prevent mistakes or abuse. Realistically a waypoint.hcl
+	// This is to prevent mistakes or abuse. Realistically a derrick.hcl
 	// file should be MUCH smaller than this so this catches the really big
 	// mistakes.
-	if len(value.PluginConfig) > projectWaypointHclMaxSize {
+	if len(value.PluginConfig) > projectDerrickHclMaxSize {
 		return status.Errorf(codes.FailedPrecondition,
 			"ondemandRunner 'waypoint_hcl' exceeds maximum size (5MB)",
 		)
@@ -396,7 +396,7 @@ const (
 	onDemandRunnerIndexName      = "name"
 	onDemandRunnerIndexDefault   = "default"
 
-	onDemandRunnerWaypointHclMaxSize = 5 * 1024 // 5 MB
+	onDemandRunnerDerrickHclMaxSize = 5 * 1024 // 5 MB
 )
 
 type onDemandRunnerIndexRecord struct {

@@ -1,0 +1,73 @@
+---
+layout: docs
+page_title: path - Variables - derrick.hcl
+description: |-
+  Path variables are used to construct an absolute path to reference files or directories that may be used within your Derrick configuration.
+---
+
+# `path` Variables
+
+Path variables are used to construct an absolute path to reference
+files or directories that may be used within your Derrick configuration.
+For example, path variables may be used with the Docker builder to
+specify the path to the Dockerfile to build.
+
+## `path.app`
+
+<Placement groups={[['app']]} />
+
+The directory of the application being built or deployed with Derrick.
+
+If [`path`](/waypoint/docs/derrick-hcl/app#path) is not set for the app, this will
+always equal `path.project`. If you are referencing app-relative data,
+you should always use `path.app` in case you move the application in
+the future.
+
+Example:
+
+```hcl
+dockerfile = "${path.app}/Dockerfile"
+```
+
+## `path.project`
+
+<Placement groups={[['* (global)']]} />
+
+The directory that contains the `derrick.hcl`. **This is the recommended
+variable to use** when referencing files relative to the `derrick.hcl` file.
+
+Unlike `path.pwd`, this will always point to the directory where the
+`derrick.hcl` is. If you execute Derrick from a subdirectory and it loads
+a `derrick.hcl` file in some parent directory, that directory will be
+the value of `path.project`.
+When executing the `derrick` CLI in the same directory as the `derrick.hcl`
+file, `path.pwd` and `path.project` are equivalent.
+
+Example:
+
+```hcl
+dockerfile = "${path.project}/Dockerfile"
+```
+
+## `path.pwd`
+
+<Placement groups={[['* (global)']]} />
+
+The working directory for the CLI. This is equivalent to the result of
+`pwd` in the shell.
+
+When executed from a subdirectory, Derrick will search parent directories
+for a `derrick.hcl`. In this case, the `path.pwd` variable will point to
+the subdirectory where you executed Derrick, _not_ the directory where
+the `derrick.hcl` is.
+
+Example:
+
+```hcl
+dockerfile = "${path.pwd}/Dockerfile"
+```
+
+~> **`path.pwd` is not recommended.** You almost always want `path.project`
+or `path.app` instead. Using `path.pwd` makes Derrick execution dependent
+on the current working directory when executing `derrick`, which can be
+surprising to users.

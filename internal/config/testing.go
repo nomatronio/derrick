@@ -19,7 +19,7 @@ func TestConfig(t testing.T, src string) *Config {
 	require.NoError(t, err)
 	t.Cleanup(func() { os.RemoveAll(td) })
 
-	path := filepath.Join(td, "waypoint.hcl")
+	path := filepath.Join(td, "derrick.hcl")
 	require.NoError(t, ioutil.WriteFile(path, []byte(src), 0644))
 
 	result, err := Load(path, &LoadOptions{})

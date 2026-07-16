@@ -16,7 +16,7 @@ import (
 
 // HashicorpWaypointStatusReportResourceHealth the state of overall health of a deployed application
 //
-// swagger:model hashicorp.waypoint.StatusReport.Resource.Health
+// swagger:model nomatron.derrick.StatusReport.Resource.Health
 type HashicorpWaypointStatusReportResourceHealth string
 
 func NewHashicorpWaypointStatusReportResourceHealth(value HashicorpWaypointStatusReportResourceHealth) *HashicorpWaypointStatusReportResourceHealth {

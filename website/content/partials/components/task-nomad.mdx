@@ -1,9 +1,9 @@
 ## nomad (task)
 
-Launch a Nomad job for on-demand tasks from the Waypoint server.
+Launch a Nomad job for on-demand tasks from the Derrick server.
 
 This will use the standard Nomad environment used for with the server install
-to launch on demand Nomad jobs for Waypoint server tasks.
+to launch on demand Nomad jobs for Derrick server tasks.
 
 ### Interface
 
@@ -21,7 +21,7 @@ This plugin has no required parameters.
 
 ### Optional Parameters
 
-These parameters are used in the [`use` stanza](/waypoint/docs/waypoint-hcl/use) for this plugin.
+These parameters are used in the [`use` stanza](/waypoint/docs/derrick-hcl/use) for this plugin.
 
 #### datacenter
 
@@ -73,7 +73,7 @@ Amount of memory in MB to allocate to this task. This can be overriden with the 
 
 ### Output Attributes
 
-Output attributes can be used in your `waypoint.hcl` as [variables](/waypoint/docs/waypoint-hcl/variables) via [`artifact`](/waypoint/docs/waypoint-hcl/variables/artifact) or [`deploy`](/waypoint/docs/waypoint-hcl/variables/deploy).
+Output attributes can be used in your `derrick.hcl` as [variables](/waypoint/docs/derrick-hcl/variables) via [`artifact`](/waypoint/docs/derrick-hcl/variables/artifact) or [`deploy`](/waypoint/docs/derrick-hcl/variables/deploy).
 
 #### id
 

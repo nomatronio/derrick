@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointCancelTaskRequest hashicorp waypoint cancel task request
 //
-// swagger:model hashicorp.waypoint.CancelTaskRequest
+// swagger:model nomatron.derrick.CancelTaskRequest
 type HashicorpWaypointCancelTaskRequest struct {
 
 	// A reference to the task to cancel

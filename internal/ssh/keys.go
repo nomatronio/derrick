@@ -14,17 +14,17 @@ import (
 const (
 	// Contains the port that the ssh server should listen on. The number should be
 	// base 10 encoded.
-	ENVSSHPort = "WAYPOINT_EXEC_PLUGIN_SSH"
+	ENVSSHPort = "DERRICK_EXEC_PLUGIN_SSH"
 
 	// hostKey contains an SSH RSA private key, marshaled as PKCS1 and armored
 	// with base64. This will be used as the servers host key and verified
 	// by the client when it connects.
-	ENVHostKey = "WAYPOINT_EXEC_PLUGIN_SSH_HOST_KEY"
+	ENVHostKey = "DERRICK_EXEC_PLUGIN_SSH_HOST_KEY"
 
 	// key contains an SSH RSA public key, marshaled as PKCS1 and armored
 	// with base64. This will be used to authenticate the ssh client.
 
-	ENVUserKey = "WAYPOINT_EXEC_PLUGIN_SSH_KEY"
+	ENVUserKey = "DERRICK_EXEC_PLUGIN_SSH_KEY"
 )
 
 // MarshalPrivateKey converts the key to a string, such that UnmarshalPrivateKey can

@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointUpsertApplicationResponse hashicorp waypoint upsert application response
 //
-// swagger:model hashicorp.waypoint.UpsertApplicationResponse
+// swagger:model nomatron.derrick.UpsertApplicationResponse
 type HashicorpWaypointUpsertApplicationResponse struct {
 
 	// application

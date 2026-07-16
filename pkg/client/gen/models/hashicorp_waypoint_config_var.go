@@ -38,7 +38,7 @@ import (
 //     label selector by string length is used. This is arbitrary but makes
 //     the process deterministic.
 //
-// swagger:model hashicorp.waypoint.ConfigVar
+// swagger:model nomatron.derrick.ConfigVar
 type HashicorpWaypointConfigVar struct {
 
 	// These fields used to have docs but removed since they shouldn't be

@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointCreateHostnameRequest hashicorp waypoint create hostname request
 //
-// swagger:model hashicorp.waypoint.CreateHostnameRequest
+// swagger:model nomatron.derrick.CreateHostnameRequest
 type HashicorpWaypointCreateHostnameRequest struct {
 
 	// hostname to register. This may be empty to autogenerate a hostname.

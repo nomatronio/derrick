@@ -7,11 +7,11 @@ import (
 	"github.com/posener/complete"
 	empty "google.golang.org/protobuf/types/known/emptypb"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	"github.com/hashicorp/waypoint/pkg/serverconfig"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	"github.com/nomatronio/derrick/pkg/serverconfig"
 )
 
 type TriggerApplyCommand struct {
@@ -430,9 +430,9 @@ func (c *TriggerApplyCommand) Synopsis() string {
 func (c *TriggerApplyCommand) Help() string {
 	if c.Update {
 		return formatHelp(`
-Usage: waypoint trigger update [options]
+Usage: derrick trigger update [options]
 
-  Update a trigger URL to Waypoint Server.
+  Update a trigger URL to Derrick Server.
 
   If no sequence number is specified, the trigger will use the "latest" sequence
   for the given operation. I.e. if you create a deploy trigger with no specified
@@ -441,9 +441,9 @@ Usage: waypoint trigger update [options]
 ` + c.Flags().Help())
 	} else {
 		return formatHelp(`
-Usage: waypoint trigger create [options]
+Usage: derrick trigger create [options]
 
-  Create a trigger URL to Waypoint Server.
+  Create a trigger URL to Derrick Server.
 
   If no sequence number is specified, the trigger will use the "latest" sequence
   for the given operation. I.e. if you create a deploy trigger with no specified

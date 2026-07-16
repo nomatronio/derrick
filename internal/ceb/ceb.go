@@ -16,28 +16,28 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/hashicorp/waypoint/internal/env"
-	"github.com/hashicorp/waypoint/internal/pkg/gatedwriter"
-	"github.com/hashicorp/waypoint/internal/plugin"
-	"github.com/hashicorp/waypoint/internal/version"
-	"github.com/hashicorp/waypoint/pkg/server"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick/internal/env"
+	"github.com/nomatronio/derrick/internal/pkg/gatedwriter"
+	"github.com/nomatronio/derrick/internal/plugin"
+	"github.com/nomatronio/derrick/internal/version"
+	"github.com/nomatronio/derrick/pkg/server"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 const (
-	envDeploymentId        = "WAYPOINT_DEPLOYMENT_ID"
-	envServerAddr          = "WAYPOINT_SERVER_ADDR"
-	envServerTls           = "WAYPOINT_SERVER_TLS"
-	envServerTlsSkipVerify = "WAYPOINT_SERVER_TLS_SKIP_VERIFY"
-	envCEBDisable          = "WAYPOINT_CEB_DISABLE"
-	envCEBDisableExec      = "WAYPOINT_CEB_DISABLE_EXEC"
-	envCEBServerRequired   = "WAYPOINT_CEB_SERVER_REQUIRED"
-	envCEBToken            = "WAYPOINT_CEB_INVITE_TOKEN"
+	envDeploymentId        = "DERRICK_DEPLOYMENT_ID"
+	envServerAddr          = "DERRICK_SERVER_ADDR"
+	envServerTls           = "DERRICK_SERVER_TLS"
+	envServerTlsSkipVerify = "DERRICK_SERVER_TLS_SKIP_VERIFY"
+	envCEBDisable          = "DERRICK_CEB_DISABLE"
+	envCEBDisableExec      = "DERRICK_CEB_DISABLE_EXEC"
+	envCEBServerRequired   = "DERRICK_CEB_SERVER_REQUIRED"
+	envCEBToken            = "DERRICK_CEB_INVITE_TOKEN"
 
 	// envLogLevel is the env var to set with the log level. This
 	// env var matches the Waypoint CLI on purpose. This can be set on
 	// the entrypoint process OR via app config (`waypoint config`).
-	envLogLevel = "WAYPOINT_LOG_LEVEL"
+	envLogLevel = "DERRICK_LOG_LEVEL"
 )
 
 const (
@@ -77,7 +77,7 @@ type CEB struct {
 	// you probably want to use waitClient() instead of this directly.
 	clientMu   sync.Mutex
 	clientCond *sync.Cond
-	client     pb.WaypointClient
+	client     pb.DerrickClient
 
 	// childSigCh can be sent signals which will be sent to the child command via kill(2).
 	childSigCh chan os.Signal
@@ -349,7 +349,7 @@ func WithExec(args []string) Option {
 
 // WithClient specifies the Waypoint client to use directly. This will
 // override any env vars or any other form of client connection configuration.
-func WithClient(client pb.WaypointClient) Option {
+func WithClient(client pb.DerrickClient) Option {
 	return func(ceb *CEB, cfg *config) error {
 		ceb.client = client
 		return nil

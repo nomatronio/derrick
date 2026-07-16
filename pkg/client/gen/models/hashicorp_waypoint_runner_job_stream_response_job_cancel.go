@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointRunnerJobStreamResponseJobCancel hashicorp waypoint runner job stream response job cancel
 //
-// swagger:model hashicorp.waypoint.RunnerJobStreamResponse.JobCancel
+// swagger:model nomatron.derrick.RunnerJobStreamResponse.JobCancel
 type HashicorpWaypointRunnerJobStreamResponseJobCancel struct {
 
 	// force

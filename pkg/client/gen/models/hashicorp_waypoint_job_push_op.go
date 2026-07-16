@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointJobPushOp hashicorp waypoint job push op
 //
-// swagger:model hashicorp.waypoint.Job.PushOp
+// swagger:model nomatron.derrick.Job.PushOp
 type HashicorpWaypointJobPushOp struct {
 
 	// Build to push

@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointVariableHclPos Types mapped from https://pkg.go.dev/github.com/hashicorp/hcl/v2#Pos
 //
-// swagger:model hashicorp.waypoint.Variable.HclPos
+// swagger:model nomatron.derrick.Variable.HclPos
 type HashicorpWaypointVariableHclPos struct {
 
 	// byte

@@ -1,32 +1,32 @@
 ---
 layout: docs
 page_title: Compatibility Promise
-description: Waypoint version compatibility is determined based on the protocol version and not the release version such as "1.2.3". Two different Waypoint release versions are compatible so long as their protocol versions are compatible.
+description: Derrick version compatibility is determined based on the protocol version and not the release version such as "1.2.3". Two different Derrick release versions are compatible so long as their protocol versions are compatible.
 ---
 
 # Compatibility Promise
 
-Waypoint has multiple components that need to interact with each other:
+Derrick has multiple components that need to interact with each other:
 the clients, the server, entrypoints, etc. Due to the diverse nature of these
-components, Waypoint has a protocol versioning system designed to minimize
+components, Derrick has a protocol versioning system designed to minimize
 breaking changes and allow users to predictably run differing versions of
 each component.
 
--> **Waypoint version compatibility is determined based on the
+-> **Derrick version compatibility is determined based on the
 [protocol version](#protocol-versions) and not the release version such
-as "1.2.3".** Two different Waypoint release versions are compatible so
+as "1.2.3".** Two different Derrick release versions are compatible so
 long as their protocol versions are compatible. This allows for multiple
-simultaneous Waypoint versions to be in use, which is expected.
+simultaneous Derrick versions to be in use, which is expected.
 
 Our promises:
 
-1. We promise that two Waypoint versions can interoperate with each other if their
+1. We promise that two Derrick versions can interoperate with each other if their
    [protocol versions](#protocol-versions) overlap.
 
 2. We promise that there will always be a release with overlapping protocol
-   versions to allow all Waypoint components to safely upgrade.
+   versions to allow all Derrick components to safely upgrade.
 
-3. For Waypoint servers, we promise that each subsequent release will be compatible with the
+3. For Derrick servers, we promise that each subsequent release will be compatible with the
    prior release for upgrades. Concretely: 0.4 can upgrade to 0.5 but
    may not be able to safely upgrade to 0.6 directly. You often will be
    able to upgrade multiple versions at once but you must verify with the
@@ -39,8 +39,8 @@ etc.), compatibility promise #1 is most important.
 ## Scope of Compatibility
 
 The usage of the term "compatibility" describes the ability for two
-separate Waypoint processes to interoperate by API. Compatibility does
-not cover CLI commands or flags, the Waypoint configuration file, or UI
+separate Derrick processes to interoperate by API. Compatibility does
+not cover CLI commands or flags, the Derrick configuration file, or UI
 layout.
 
 We will make our best effort to keep these compatible across versions
@@ -52,18 +52,18 @@ in the upgrade guide for a specific version.
 
 ## Protocol Versions
 
-Waypoint advertises _protocol versions_ which can be used to determine
+Derrick advertises _protocol versions_ which can be used to determine
 if differing release versions are compatible with each other. Protocol
 versions are integers that are greater than or equal to 1.
 
-For each advertised protocol version, Waypoint advertises a _minimum_
+For each advertised protocol version, Derrick advertises a _minimum_
 compatible version along with the _current_ compatible version. A client
-may communicate with a Waypoint server so long as the current protocol
+may communicate with a Derrick server so long as the current protocol
 versions are within the range advertised.
 
-Finally, Waypoint advertises two types of protocol versions: one for
+Finally, Derrick advertises two types of protocol versions: one for
 the API, and one exclusively for the [entrypoint](/waypoint/docs/entrypoint) protocol.
-This allows Waypoint to iterate on the API in potentially backwards
+This allows Derrick to iterate on the API in potentially backwards
 incompatible ways without breaking entrypoints, and vice versa.
 
 ### Current Protocol Version Table
@@ -73,10 +73,10 @@ The current protocol version table can be viewed [here](/waypoint/docs/upgrading
 ### Example
 
 The following is a concrete example of using the protocol versions to
-determine compatibility. The Waypoint versions and their advertised protocol
-versions are examples and not real, current Waypoint versions.
+determine compatibility. The Derrick versions and their advertised protocol
+versions are examples and not real, current Derrick versions.
 
-The scenario of the _currently deployed_ Waypoint components is:
+The scenario of the _currently deployed_ Derrick components is:
 
 | Component  | Version | Protocol Min | Protocol Current |
 | ---------- | ------- | ------------ | ---------------- |
@@ -85,14 +85,14 @@ The scenario of the _currently deployed_ Waypoint components is:
 | Entrypoint | 4.1.0   | 1            | 3                |
 | Entrypoint | 3.3.0   | 1            | 2                |
 
-In this scenario, there is a diverse set of Waypoint components currently
+In this scenario, there is a diverse set of Derrick components currently
 deployed. Each has differing versions and its own set of protocol compatibilities.
 This is expected and normal. For example, developers will often use newer
 CLIs than what the server may be running and deployments will often run older
 (sometimes much older) entrypoint versions if they haven't been rebuilt and
 redeployed recently.
 
-In this scenario, a new version of Waypoint comes out with the following compatibility:
+In this scenario, a new version of Derrick comes out with the following compatibility:
 
 | Component | Version | Protocol Min  | Protocol Current |
 | --------- | ------- | ------------- | ---------------- |
@@ -122,7 +122,7 @@ but that doesn't mean that we will do so frequently. We recognize that protocol
 version changes can be _very_ disruptive, and therefore aim to minimize
 the frequency of these changes.
 
-At the time of writing, Waypoint is a relatively new project. Based on
+At the time of writing, Derrick is a relatively new project. Based on
 prior experience with other projects, we expect some protocol version changes
 during early releases (0.x) but for the frequency to quickly dissipate as
 the project matures.
@@ -135,6 +135,6 @@ of the project but retained compatibility for 2 years (until version 0.7).
 And while we introduced more protocol versions we continue to be compatible
 with versions over 4 years old.
 
-With Waypoint, we hope to achieve something similar: we may iterate on the
+With Derrick, we hope to achieve something similar: we may iterate on the
 protocol quickly as a new project, but will aim to maintain compatibility
 for as long as possible.

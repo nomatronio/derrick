@@ -15,14 +15,14 @@ import (
 
 // HashicorpWaypointGetVersionInfoResponse hashicorp waypoint get version info response
 //
-// swagger:model hashicorp.waypoint.GetVersionInfoResponse
+// swagger:model nomatron.derrick.GetVersionInfoResponse
 type HashicorpWaypointGetVersionInfoResponse struct {
 
 	// info
 	Info *HashicorpWaypointVersionInfo `json:"info,omitempty"`
 
 	// Represents additional features that the current server supports.
-	ServerFeatures *HashicorpWaypointServerFeatures `json:"server_features,omitempty"`
+	ServerFeatures *HashicorpDerrickServerFeatures `json:"server_features,omitempty"`
 }
 
 // Validate validates this hashicorp waypoint get version info response

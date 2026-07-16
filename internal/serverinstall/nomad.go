@@ -10,23 +10,23 @@ import (
 	"strings"
 	"time"
 
-	"github.com/hashicorp/waypoint/internal/installutil"
+	"github.com/nomatronio/derrick/internal/installutil"
 
-	"github.com/hashicorp/waypoint/internal/installutil/nomad"
-	"github.com/hashicorp/waypoint/internal/runnerinstall"
+	"github.com/nomatronio/derrick/internal/installutil/nomad"
+	"github.com/nomatronio/derrick/internal/runnerinstall"
 
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
 	"github.com/hashicorp/nomad/api"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
 
-	"github.com/hashicorp/waypoint/internal/clicontext"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	"github.com/hashicorp/waypoint/pkg/serverconfig"
+	"github.com/nomatronio/derrick/internal/clicontext"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	"github.com/nomatronio/derrick/pkg/serverconfig"
 )
 
 const runnerJobName string = "waypoint-static-runner"

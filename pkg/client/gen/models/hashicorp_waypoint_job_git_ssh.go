@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointJobGitSSH SSH private key auth
 //
-// swagger:model hashicorp.waypoint.Job.Git.SSH
+// swagger:model nomatron.derrick.Job.Git.SSH
 type HashicorpWaypointJobGitSSH struct {
 
 	// password is an optional password for decoding the private key.

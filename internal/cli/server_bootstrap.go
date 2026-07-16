@@ -8,9 +8,9 @@ import (
 	"github.com/posener/complete"
 	empty "google.golang.org/protobuf/types/known/emptypb"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
 )
 
 type ServerBootstrapCommand struct {
@@ -132,7 +132,7 @@ func (c *ServerBootstrapCommand) Synopsis() string {
 
 func (c *ServerBootstrapCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint server bootstrap [options]
+Usage: derrick server bootstrap [options]
 
   Bootstrap a new server and retrieve the initial auth token.
 
@@ -154,7 +154,7 @@ Usage: waypoint server bootstrap [options]
 
 var (
 	errBootstrapContext = strings.TrimSpace(`
-The Waypoint server successfully bootstrapped, but creating the context failed.
+The Derrick server successfully bootstrapped, but creating the context failed.
 
 The bootstrap token is available above. The context could not be created
 so the CLI is not configured to connect to the server. Please try to manually

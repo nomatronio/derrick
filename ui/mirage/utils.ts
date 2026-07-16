@@ -1,7 +1,7 @@
 import FakeXMLHttpRequest from 'fake-xml-http-request';
 import faker from './faker';
-import { Component } from 'waypoint-pb';
-import { Status } from 'waypoint-pb';
+import { Component } from 'derrick-pb';
+import { Status } from 'derrick-pb';
 import { Timestamp } from 'google-protobuf/google/protobuf/timestamp_pb';
 import { subMinutes } from 'date-fns';
 
@@ -42,7 +42,7 @@ export function statusRandom(): Status {
 }
 
 /**
- * Generates a random fake ID roughly matching the Waypoint
+ * Generates a random fake ID roughly matching the Derrick
  * internal format.
  */
 export function fakeId(): string {
@@ -50,7 +50,7 @@ export function fakeId(): string {
 }
 
 /**
- * Known component types and names to Waypoint
+ * Known component types and names to Derrick
  * for mocking and development.
  */
 export const componentOptions = {

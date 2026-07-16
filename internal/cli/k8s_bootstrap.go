@@ -14,13 +14,13 @@ import (
 	"k8s.io/apimachinery/pkg/types"
 	"k8s.io/apimachinery/pkg/util/wait"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	"github.com/hashicorp/waypoint/internal/pkg/k8sauth"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	"github.com/hashicorp/waypoint/pkg/serverclient"
-	"github.com/hashicorp/waypoint/pkg/serverconfig"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	"github.com/nomatronio/derrick/internal/pkg/k8sauth"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	"github.com/nomatronio/derrick/pkg/serverclient"
+	"github.com/nomatronio/derrick/pkg/serverconfig"
 )
 
 type K8SBootstrapCommand struct {
@@ -98,7 +98,7 @@ func (c *K8SBootstrapCommand) Run(args []string) int {
 	})
 	if err != nil {
 		c.ui.Output(
-			"Error waiting for Waypoint service: %s",
+			"Error waiting for Derrick service: %s",
 			clierrors.Humanize(err),
 			terminal.WithErrorStyle(),
 		)
@@ -120,7 +120,7 @@ func (c *K8SBootstrapCommand) Run(args []string) int {
 
 	// The service is ready so we should also be ready to connect. We
 	// set a slightly longer timeout on the initial connection in case the
-	// service came up quicker than Waypoint itself. A more robust check would
+	// service came up quicker than Derrick itself. A more robust check would
 	// be checking the pods for readiness.
 	log.Info("initializing server connection")
 	proj, err := c.initClient(ctx, serverclient.Timeout(120*time.Second))
@@ -133,14 +133,14 @@ func (c *K8SBootstrapCommand) Run(args []string) int {
 		return 1
 	}
 
-	// Waypoint bootstrap
+	// Derrick bootstrap
 	log.Info("bootstrapping the server")
 	client := proj.Client()
 	resp, err := client.BootstrapToken(ctx, &empty.Empty{})
 	if status.Code(err) == codes.PermissionDenied {
 		// This is not an error, since our Helm chart will run this
 		// bootstrap job on every upgrade as well and we just want to ignore it.
-		c.ui.Output("Waypoint already bootstrapped. Doing nothing.")
+		c.ui.Output("Derrick already bootstrapped. Doing nothing.")
 		return 0
 	}
 	if err != nil {
@@ -336,9 +336,9 @@ func (c *K8SBootstrapCommand) Synopsis() string {
 
 func (c *K8SBootstrapCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint k8s bootstrap [options]
+Usage: derrick k8s bootstrap [options]
 
-  Bootstrap a Waypoint installation from the Waypoint Helm chart.
+  Bootstrap a Derrick installation from the Derrick Helm chart.
   This is an internal command and not expected to be manually executed.
   This command only works with in-cluster Kubernetes authentication and
   will not work with out-of-cluster kubectl configuration.
@@ -354,7 +354,7 @@ Usage: waypoint k8s bootstrap [options]
   This command will only run if the server hasn't already been bootstrapped.
   If the server is bootstrapped, this will not run again. This doesn't handle
   partial failures well: if the server bootstrap succeeds but writing the
-  secret fails, then the Waypoint installation should be fully uninstalled
+  secret fails, then the Derrick installation should be fully uninstalled
   and then reinstalled. This is only use for fresh installations so there
   should be no concern of data loss in the event of a bootstrap failure.
 

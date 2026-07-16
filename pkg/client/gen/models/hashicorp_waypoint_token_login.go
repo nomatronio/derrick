@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointTokenLogin hashicorp waypoint token login
 //
-// swagger:model hashicorp.waypoint.Token.Login
+// swagger:model nomatron.derrick.Token.Login
 type HashicorpWaypointTokenLogin struct {
 
 	// If set, this login token can only be used for entrypoint-related

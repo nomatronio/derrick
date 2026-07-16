@@ -4,7 +4,7 @@ import {
   ListStatusReportsRequest,
   ListStatusReportsResponse,
   ExpediteStatusReportResponse,
-} from 'waypoint-pb';
+} from 'derrick-pb';
 import { Empty } from 'google-protobuf/google/protobuf/empty_pb';
 import { decode } from '../helpers/protobufs';
 

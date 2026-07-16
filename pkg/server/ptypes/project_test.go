@@ -5,7 +5,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 func TestValidateProject(t *testing.T) {
@@ -75,8 +75,8 @@ func TestValidateProject(t *testing.T) {
 		{
 			"invalid Waypoint HCL",
 			func(v *pb.Project) {
-				v.WaypointHcl = []byte("i am not valid")
-				v.WaypointHclFormat = pb.Hcl_HCL
+				v.DerrickHcl = []byte("i am not valid")
+				v.DerrickHclFormat = pb.Hcl_HCL
 			},
 			"waypoint_hcl",
 		},
@@ -84,8 +84,8 @@ func TestValidateProject(t *testing.T) {
 		{
 			"valid Waypoint HCL",
 			func(v *pb.Project) {
-				v.WaypointHcl = []byte("foo = 42")
-				v.WaypointHclFormat = pb.Hcl_HCL
+				v.DerrickHcl = []byte("foo = 42")
+				v.DerrickHclFormat = pb.Hcl_HCL
 			},
 			"",
 		},

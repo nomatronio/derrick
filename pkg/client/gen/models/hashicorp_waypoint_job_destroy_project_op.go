@@ -17,7 +17,7 @@ import (
 // as well as (optionally) the destruction of all resources created within
 // a project
 //
-// swagger:model hashicorp.waypoint.Job.DestroyProjectOp
+// swagger:model nomatron.derrick.Job.DestroyProjectOp
 type HashicorpWaypointJobDestroyProjectOp struct {
 
 	// project

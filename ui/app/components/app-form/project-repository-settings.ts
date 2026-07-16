@@ -3,11 +3,11 @@ import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
 import RouterService from '@ember/routing/router-service';
 import { isEmpty } from '@ember/utils';
-import ApiService from 'waypoint/services/api';
-import FlashMessagesService from 'waypoint/services/pds-flash-messages';
+import ApiService from 'derrick/services/api';
+import FlashMessagesService from 'derrick/services/pds-flash-messages';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
-import { Project, Job } from 'waypoint-pb';
+import { Project, Job } from 'derrick-pb';
 import parseUrl from 'parse-url';
 import { later } from '@ember/runloop';
 
@@ -41,8 +41,8 @@ const DEFAULT_PROJECT_MODEL = {
     interval: '2m',
   },
   remoteEnabled: false,
-  waypointHcl: '',
-  waypointHclFormat: FORMAT.HCL,
+  derrickHcl: '',
+  derrickHclFormat: FORMAT.HCL,
   variablesList: [],
 };
 
@@ -67,7 +67,7 @@ export default class AppFormProjectRepositorySettings extends Component<ProjectS
     let { project } = this.args;
     this.populateExistingFields(project, this.project);
     this.authCase = 4;
-    this.serverHcl = !!this.project?.waypointHcl;
+    this.serverHcl = !!this.project?.derrickHcl;
 
     // restore git settings state if editing existing project
     if (this.git?.url) {
@@ -102,8 +102,8 @@ export default class AppFormProjectRepositorySettings extends Component<ProjectS
     return this.dataSource?.git;
   }
 
-  get decodedWaypointHcl(): string {
-    return atob((this.project.waypointHcl as string) || '');
+  get decodedDerrickHcl(): string {
+    return atob((this.project.derrickHcl as string) || '');
   }
 
   get decodedPrivateKey(): string {
@@ -209,8 +209,8 @@ export default class AppFormProjectRepositorySettings extends Component<ProjectS
   }
 
   @action
-  setWaypointHcl(value: string): void {
-    this.project.waypointHcl = btoa(value);
+  setDerrickHcl(value: string): void {
+    this.project.derrickHcl = btoa(value);
   }
 
   @action
@@ -222,7 +222,7 @@ export default class AppFormProjectRepositorySettings extends Component<ProjectS
     }
 
     if (!this.serverHcl) {
-      this.project.waypointHcl = '';
+      this.project.derrickHcl = '';
     }
 
     try {

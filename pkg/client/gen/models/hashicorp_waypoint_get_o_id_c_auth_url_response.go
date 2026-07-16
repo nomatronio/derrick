@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointGetOIDCAuthURLResponse hashicorp waypoint get o ID c auth URL response
 //
-// swagger:model hashicorp.waypoint.GetOIDCAuthURLResponse
+// swagger:model nomatron.derrick.GetOIDCAuthURLResponse
 type HashicorpWaypointGetOIDCAuthURLResponse struct {
 
 	// The URL to begin authorization. The user should go here.

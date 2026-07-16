@@ -5,11 +5,11 @@ import (
 
 	"github.com/posener/complete"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	clientpkg "github.com/hashicorp/waypoint/internal/client"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	clientpkg "github.com/nomatronio/derrick/internal/client"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 type ArtifactPushCommand struct {
@@ -76,7 +76,7 @@ func (c *ArtifactPushCommand) Synopsis() string {
 
 func (c *ArtifactPushCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint artifact push [options]
+Usage: derrick artifact push [options]
 Alias: waypoint push [options]
 
   Push a local build to a registry. This will push the most recent

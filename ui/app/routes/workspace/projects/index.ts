@@ -1,10 +1,10 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
-import { Ref } from 'waypoint-pb';
-import ApiService from 'waypoint/services/api';
+import { Ref } from 'derrick-pb';
+import ApiService from 'derrick/services/api';
 import { Empty } from 'google-protobuf/google/protobuf/empty_pb';
-import PollModelService from 'waypoint/services/poll-model';
-import ProjectsIndex from 'waypoint/controllers/workspace/projects';
+import PollModelService from 'derrick/services/poll-model';
+import ProjectsIndex from 'derrick/controllers/workspace/projects';
 
 type Model = Ref.Project.AsObject[];
 

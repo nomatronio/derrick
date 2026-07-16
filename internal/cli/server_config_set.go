@@ -1,10 +1,10 @@
 package cli
 
 import (
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 	"github.com/posener/complete"
 )
 
@@ -108,9 +108,9 @@ func (c *ServerConfigSetCommand) Synopsis() string {
 
 func (c *ServerConfigSetCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint server config-set [options]
+Usage: derrick server config-set [options]
 
-  Set the online configuration for a running Waypoint server.
+  Set the online configuration for a running Derrick server.
 
   The configuration that can be set here is different from the configuration
   given via the startup file. This configuration is persisted in the server

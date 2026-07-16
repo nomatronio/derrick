@@ -9,12 +9,12 @@ import (
 
 	"github.com/posener/complete"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
 
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/config"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	configpkg "github.com/hashicorp/waypoint/pkg/config"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/config"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	configpkg "github.com/nomatronio/derrick/pkg/config"
 )
 
 type FmtCommand struct {
@@ -151,23 +151,23 @@ func (c *FmtCommand) AutocompleteFlags() complete.Flags {
 }
 
 func (c *FmtCommand) Synopsis() string {
-	return "Rewrite waypoint.hcl configuration to a canonical format"
+	return "Rewrite derrick.hcl configuration to a canonical format"
 }
 
 func (c *FmtCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint fmt [options] [FILE]
+Usage: derrick fmt [options] [FILE]
 
-  Rewrite a waypoint.hcl file to a canonical format.
+  Rewrite a derrick.hcl file to a canonical format.
 
-  This only works for HCL-formatted Waypoint configuration files. JSON-formatted
+  This only works for HCL-formatted Derrick configuration files. JSON-formatted
   files do not work and will result in an error.
 
   If FILE is not specified, then the current directory will be searched
-  for a "waypoint.hcl" file. If FILE is "-" then the content will be read
+  for a "derrick.hcl" file. If FILE is "-" then the content will be read
   from stdin.
 
-  This command does not validate the waypoint.hcl configuration. This will
+  This command does not validate the derrick.hcl configuration. This will
   work for older and newer configuration formats.
 
 ` + c.Flags().Help())

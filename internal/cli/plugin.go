@@ -4,10 +4,10 @@ import (
 	"context"
 	"fmt"
 
-	sdk "github.com/hashicorp/waypoint-plugin-sdk"
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	"github.com/hashicorp/waypoint/internal/plugin"
+	sdk "github.com/nomatronio/derrick-plugin-sdk"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	"github.com/nomatronio/derrick/internal/plugin"
 )
 
 type PluginCommand struct {
@@ -75,7 +75,7 @@ func (c *PluginCommand) Synopsis() string {
 
 func (c *PluginCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint plugin [options] <plugin>
+Usage: derrick plugin [options] <plugin>
 
   Runs a specified plugin directly.
 

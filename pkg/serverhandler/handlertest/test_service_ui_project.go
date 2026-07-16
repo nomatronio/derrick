@@ -6,8 +6,8 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	serverptypes "github.com/hashicorp/waypoint/pkg/server/ptypes"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	serverptypes "github.com/nomatronio/derrick/pkg/server/ptypes"
 )
 
 func init() {
@@ -93,7 +93,7 @@ func TestServiceUI_GetProject(t *testing.T, factory Factory) {
 func queueTestInitJob(
 	t *testing.T,
 	ctx context.Context,
-	client pb.WaypointClient,
+	client pb.DerrickClient,
 	project *pb.Project,
 ) (*pb.QueueJobResponse, error) {
 	return client.QueueJob(ctx, &pb.QueueJobRequest{

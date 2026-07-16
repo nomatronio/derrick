@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointJobDocsResultResult hashicorp waypoint job docs result result
 //
-// swagger:model hashicorp.waypoint.Job.DocsResult.Result
+// swagger:model nomatron.derrick.Job.DocsResult.Result
 type HashicorpWaypointJobDocsResultResult struct {
 
 	// component that the docs are for

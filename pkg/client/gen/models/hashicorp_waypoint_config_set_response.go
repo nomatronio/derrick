@@ -7,5 +7,5 @@ package models
 
 // HashicorpWaypointConfigSetResponse hashicorp waypoint config set response
 //
-// swagger:model hashicorp.waypoint.ConfigSetResponse
+// swagger:model nomatron.derrick.ConfigSetResponse
 type HashicorpWaypointConfigSetResponse interface{}

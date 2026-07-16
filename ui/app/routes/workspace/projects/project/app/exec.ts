@@ -1,5 +1,5 @@
-import ApiService from 'waypoint/services/api';
-import { Breadcrumb } from 'waypoint/services/breadcrumbs';
+import ApiService from 'derrick/services/api';
+import { Breadcrumb } from 'derrick/services/breadcrumbs';
 import { Model as AppRouteModel } from '../app';
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';

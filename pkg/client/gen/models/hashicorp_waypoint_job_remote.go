@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointJobRemote hashicorp waypoint job remote
 //
-// swagger:model hashicorp.waypoint.Job.Remote
+// swagger:model nomatron.derrick.Job.Remote
 type HashicorpWaypointJobRemote struct {
 
 	// This corresponds with the implicit behavior associated with data source

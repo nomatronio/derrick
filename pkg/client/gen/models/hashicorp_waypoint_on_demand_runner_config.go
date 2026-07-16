@@ -17,11 +17,11 @@ import (
 // OnDemand Runners
 // ******************************************************************
 //
-// swagger:model hashicorp.waypoint.OnDemandRunnerConfig
+// swagger:model nomatron.derrick.OnDemandRunnerConfig
 type HashicorpWaypointOnDemandRunnerConfig struct {
 
 	// config format specifies the format of plugin_config
-	ConfigFormat *HashicorpWaypointHclFormat `json:"config_format,omitempty"`
+	ConfigFormat *HashicorpDerrickHclFormat `json:"config_format,omitempty"`
 
 	// Indicates if this entry is the default for any new projects.
 	Default bool `json:"default,omitempty"`

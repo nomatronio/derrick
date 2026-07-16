@@ -2,18 +2,18 @@
 layout: docs
 page_title: Kubernetes - YAML Directory Deployment
 description: |-
-  Waypoint can mimic `kubectl apply` and deploy from a directory of YAML files. This option lets you adopt Waypoint very easily with existing applications.
+  Derrick can mimic `kubectl apply` and deploy from a directory of YAML files. This option lets you adopt Derrick very easily with existing applications.
 ---
 
 # Deploying Applications using YAML
 
-Waypoint can mimic `kubectl apply` and deploy from a directory of YAML
-files. This option lets you adopt Waypoint very easily with existing
-applications. A downside of this option is that Waypoint cannot help automatically
+Derrick can mimic `kubectl apply` and deploy from a directory of YAML
+files. This option lets you adopt Derrick very easily with existing
+applications. A downside of this option is that Derrick cannot help automatically
 configure any aspect of Kubernetes (such as autoscaling). Instead, users
 are expected to write YAML and exactly control their deployments.
 
--> **There are other deployment options.** Waypoint supports many other mechanisms
+-> **There are other deployment options.** Derrick supports many other mechanisms
 for deploying to Kubernetes. You can use the
 [`kubernetes`](/waypoint/docs/platforms/kubernetes/deploy) plugin for highly opinionated, no YAML deployments. Or you can use
 [Helm](/waypoint/docs/platforms/kubernetes/helm-deploy).
@@ -56,24 +56,24 @@ spec:
         image: ${artifact.image}:${artifact.tag}
 ```
 
-We use the [`templatedir` function](/waypoint/docs/waypoint-hcl/functions/template#templatedir)
-so that we can access the [`artifact` variable](/waypoint/docs/waypoint-hcl/variables/artifact)
+We use the [`templatedir` function](/waypoint/docs/derrick-hcl/functions/template#templatedir)
+so that we can access the [`artifact` variable](/waypoint/docs/derrick-hcl/variables/artifact)
 and use this to dynamically set our image for the deployment based on the
 image built in the build step. The ability to access HCL variables and
-functions in our YAML files is one big benefit of using Waypoint.
+functions in our YAML files is one big benefit of using Derrick.
 
-The `prune_label` option specifies a Kubernetes label selector that Waypoint
+The `prune_label` option specifies a Kubernetes label selector that Derrick
 uses to know what resources to delete if and when the deployment is eventually
 destroyed. This should be set to a label selector that uniquely identifies
 the resources created by your YAML files.
 
 ## Entrypoint Functionality
 
-With this plugin, Waypoint does not automatically inject the necessary
-environment variables for the [Waypoint Entrypoint](/waypoint/docs/entrypoint). Therefore,
+With this plugin, Derrick does not automatically inject the necessary
+environment variables for the [Derrick Entrypoint](/waypoint/docs/entrypoint). Therefore,
 features such as logs, exec, etc. will not be available by default. If you
 wish to use this functionality, you can manually inject the necessary environment
-variables by using the [`entrypoint` variable](/waypoint/docs/waypoint-hcl/variables/entrypoint)
+variables by using the [`entrypoint` variable](/waypoint/docs/derrick-hcl/variables/entrypoint)
 paired with templating as shown above.
 
 The YAML file below shows the same deployment resource being created

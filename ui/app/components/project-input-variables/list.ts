@@ -1,11 +1,11 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
-import { Project, Variable } from 'waypoint-pb';
+import { Project, Variable } from 'derrick-pb';
 import { inject as service } from '@ember/service';
-import ApiService from 'waypoint/services/api';
+import ApiService from 'derrick/services/api';
 import RouterService from '@ember/routing/router-service';
-import FlashMessagesService from 'waypoint/services/pds-flash-messages';
+import FlashMessagesService from 'derrick/services/pds-flash-messages';
 
 interface ProjectSettingsArgs {
   project: Project.AsObject;

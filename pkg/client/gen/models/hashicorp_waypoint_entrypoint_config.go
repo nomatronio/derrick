@@ -16,7 +16,7 @@ import (
 
 // HashicorpWaypointEntrypointConfig hashicorp waypoint entrypoint config
 //
-// swagger:model hashicorp.waypoint.EntrypointConfig
+// swagger:model nomatron.derrick.EntrypointConfig
 type HashicorpWaypointEntrypointConfig struct {
 
 	// The configuration for any config sources that may be used in the

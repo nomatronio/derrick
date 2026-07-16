@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointJobResult hashicorp waypoint job result
 //
-// swagger:model hashicorp.waypoint.Job.Result
+// swagger:model nomatron.derrick.Job.Result
 type HashicorpWaypointJobResult struct {
 
 	// auth

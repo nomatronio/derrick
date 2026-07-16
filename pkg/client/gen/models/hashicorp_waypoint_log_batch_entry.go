@@ -16,7 +16,7 @@ import (
 
 // HashicorpWaypointLogBatchEntry hashicorp waypoint log batch entry
 //
-// swagger:model hashicorp.waypoint.LogBatch.Entry
+// swagger:model nomatron.derrick.LogBatch.Entry
 type HashicorpWaypointLogBatchEntry struct {
 
 	// line

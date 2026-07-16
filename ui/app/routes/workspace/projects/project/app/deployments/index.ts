@@ -1,6 +1,6 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
-import ApiService from 'waypoint/services/api';
+import ApiService from 'derrick/services/api';
 import { Model } from '../deployments';
 
 export default class DeploymentsList extends Route {

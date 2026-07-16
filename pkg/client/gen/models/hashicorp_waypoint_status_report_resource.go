@@ -16,7 +16,7 @@ import (
 
 // HashicorpWaypointStatusReportResource A resource as observed in a platform
 //
-// swagger:model hashicorp.waypoint.StatusReport.Resource
+// swagger:model nomatron.derrick.StatusReport.Resource
 type HashicorpWaypointStatusReportResource struct {
 
 	// The high level category of the resource, used as a hint to the UI on how to display the resource.

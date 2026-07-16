@@ -9,11 +9,11 @@ import (
 	"google.golang.org/protobuf/proto"
 
 	"github.com/hashicorp/go-hclog"
-	"github.com/hashicorp/waypoint/internal/pkg/graph"
-	"github.com/hashicorp/waypoint/pkg/server"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	"github.com/hashicorp/waypoint/pkg/server/hcerr"
-	serverptypes "github.com/hashicorp/waypoint/pkg/server/ptypes"
+	"github.com/nomatronio/derrick/internal/pkg/graph"
+	"github.com/nomatronio/derrick/pkg/server"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	"github.com/nomatronio/derrick/pkg/server/hcerr"
+	serverptypes "github.com/nomatronio/derrick/pkg/server/ptypes"
 )
 
 func (s *Service) UpsertPipeline(
@@ -552,7 +552,7 @@ func (s *Service) pipelineGraphFull(
 	}
 
 	// Note that pipeline.Steps is not an ordered list of steps. It's a map of key val
-	// steps so the order will not match the order steps are defined in a waypoint.hcl.
+	// steps so the order will not match the order steps are defined in a derrick.hcl.
 	for _, step := range pipeline.Steps {
 		if len(visitedNodes) != 0 {
 			if pipeName, ok := visitedNodes[step.Name]; ok && pipeName == pipeline.Name {

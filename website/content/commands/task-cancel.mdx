@@ -2,27 +2,27 @@
 layout: commands
 page_title: 'Commands: Task cancel'
 sidebar_title: 'task cancel'
-description: 'Cancel an On-Demand Runner Task running in Waypoint'
+description: 'Cancel an On-Demand Runner Task running in Derrick'
 ---
 
-# Waypoint Task cancel
+# Derrick Task cancel
 
-Command: `waypoint task cancel`
+Command: `derrick task cancel`
 
-Cancel an On-Demand Runner Task running in Waypoint
+Cancel an On-Demand Runner Task running in Derrick
 
 @include "commands/task-cancel_desc.mdx"
 
 ## Usage
 
-Usage: `waypoint task cancel [options] <task-id>`
+Usage: `derrick task cancel [options] <task-id>`
 
 Cancel an On-Demand Runner Task and all of the jobs associated with it.
 
 #### Global Options
 
 - `-plain` - Plain output: no colors, no animation. The default is false.
-- `-app=<string>` (`-a`) - App to target. Certain commands require a single app target for Waypoint configurations with multiple apps. If you have a single app, then this can be ignored.
+- `-app=<string>` (`-a`) - App to target. Certain commands require a single app target for Derrick configurations with multiple apps. If you have a single app, then this can be ignored.
 - `-project=<string>` (`-p`) - Project to target.
 - `-workspace=<string>` (`-w`) - Workspace to operate in.
 
@@ -30,7 +30,7 @@ Cancel an On-Demand Runner Task and all of the jobs associated with it.
 
 - `-label=<key=value>` - Labels to set for this operation. Can be specified multiple times.
 - `-local` - True to use a local runner to execute the operation, false to use a remote runner.
-  If unset, Waypoint will automatically determine where the operation will occur,
+  If unset, Derrick will automatically determine where the operation will occur,
   defaulting to remote if possible.
 - `-remote-source=<key=value>` - Override configurations for how remote runners source data. This is specified to the data source type being used in your configuration. This is used for example to set a specific Git ref to run against.
 - `-var=<key=value>` - Variable value to set for this operation. Can be specified multiple times.

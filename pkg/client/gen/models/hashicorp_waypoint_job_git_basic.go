@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointJobGitBasic Basic auth
 //
-// swagger:model hashicorp.waypoint.Job.Git.Basic
+// swagger:model nomatron.derrick.Job.Git.Basic
 type HashicorpWaypointJobGitBasic struct {
 
 	// password for authentication. If using access token based auth

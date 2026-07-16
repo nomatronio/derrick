@@ -17,15 +17,15 @@ import (
 	"google.golang.org/protobuf/proto"
 	empty "google.golang.org/protobuf/types/known/emptypb"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 type Client struct {
 	Logger  hclog.Logger
 	UI      terminal.UI
 	Context context.Context
-	Client  pb.WaypointClient
+	Client  pb.DerrickClient
 	Args    []string
 	Stdin   io.Reader
 	Stdout  io.Writer

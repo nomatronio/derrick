@@ -8,11 +8,11 @@ import (
 	"google.golang.org/grpc/status"
 
 	"github.com/hashicorp/go-hclog"
-	"github.com/hashicorp/waypoint/pkg/server"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	"github.com/hashicorp/waypoint/pkg/server/hcerr"
-	serverptypes "github.com/hashicorp/waypoint/pkg/server/ptypes"
-	"github.com/hashicorp/waypoint/pkg/serverstate"
+	"github.com/nomatronio/derrick/pkg/server"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	"github.com/nomatronio/derrick/pkg/server/hcerr"
+	serverptypes "github.com/nomatronio/derrick/pkg/server/ptypes"
+	"github.com/nomatronio/derrick/pkg/serverstate"
 )
 
 func (s *Service) UpsertStatusReport(

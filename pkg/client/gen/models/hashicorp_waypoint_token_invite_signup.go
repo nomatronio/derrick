@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointTokenInviteSignup hashicorp waypoint token invite signup
 //
-// swagger:model hashicorp.waypoint.Token.Invite.Signup
+// swagger:model nomatron.derrick.Token.Invite.Signup
 type HashicorpWaypointTokenInviteSignup struct {
 
 	// The initial username that the new user should be given. If this

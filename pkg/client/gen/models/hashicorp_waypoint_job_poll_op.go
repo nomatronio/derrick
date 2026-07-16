@@ -12,5 +12,5 @@ package models
 // If a project has polling enabled, a manually queued poll operation will
 // have no effect on the poll timer or intervals.
 //
-// swagger:model hashicorp.waypoint.Job.PollOp
+// swagger:model nomatron.derrick.Job.PollOp
 type HashicorpWaypointJobPollOp interface{}

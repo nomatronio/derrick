@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointConfigSyncPipelineRequest hashicorp waypoint config sync pipeline request
 //
-// swagger:model hashicorp.waypoint.ConfigSyncPipelineRequest
+// swagger:model nomatron.derrick.ConfigSyncPipelineRequest
 type HashicorpWaypointConfigSyncPipelineRequest struct {
 
 	// The project to sync all pipeline configs on

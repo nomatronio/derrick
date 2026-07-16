@@ -1,4 +1,4 @@
-import { Project } from 'waypoint-pb';
+import { Project } from 'derrick-pb';
 import { helper } from '@ember/component/helper';
 
 export function projectIsRemoteUppable(params: Array<Project.AsObject> /*, hash*/): boolean {

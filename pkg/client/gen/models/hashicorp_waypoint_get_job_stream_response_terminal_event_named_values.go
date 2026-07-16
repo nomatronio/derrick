@@ -16,7 +16,7 @@ import (
 
 // HashicorpWaypointGetJobStreamResponseTerminalEventNamedValues hashicorp waypoint get job stream response terminal event named values
 //
-// swagger:model hashicorp.waypoint.GetJobStreamResponse.Terminal.Event.NamedValues
+// swagger:model nomatron.derrick.GetJobStreamResponse.Terminal.Event.NamedValues
 type HashicorpWaypointGetJobStreamResponseTerminalEventNamedValues struct {
 
 	// values

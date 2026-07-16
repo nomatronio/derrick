@@ -1,6 +1,6 @@
 import { Factory, trait } from 'ember-cli-mirage';
 import faker from '../faker';
-import { Status } from 'waypoint-pb';
+import { Status } from 'derrick-pb';
 
 export default Factory.extend({
   afterCreate(status) {

@@ -11,15 +11,15 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/component"
-	"github.com/hashicorp/waypoint-plugin-sdk/datadir"
-	"github.com/hashicorp/waypoint-plugin-sdk/internal-shared/protomappers"
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/config"
-	"github.com/hashicorp/waypoint/internal/config/variables"
-	"github.com/hashicorp/waypoint/internal/factory"
-	"github.com/hashicorp/waypoint/internal/plugin"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/component"
+	"github.com/nomatronio/derrick-plugin-sdk/datadir"
+	"github.com/nomatronio/derrick-plugin-sdk/internal-shared/protomappers"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/config"
+	"github.com/nomatronio/derrick/internal/config/variables"
+	"github.com/nomatronio/derrick/internal/factory"
+	"github.com/nomatronio/derrick/internal/plugin"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 // Project represents a project with one or more applications.
@@ -33,7 +33,7 @@ type Project struct {
 	factories map[component.Type]*factory.Factory
 	dir       *datadir.Project
 	mappers   []*argmapper.Func
-	client    pb.WaypointClient
+	client    pb.DerrickClient
 
 	// name is the name of the project
 	name string
@@ -207,7 +207,7 @@ func (p *Project) App(name string) (*App, error) {
 
 	return nil, status.Errorf(codes.NotFound,
 		"Application %q was not found in this project. Please ensure that "+
-			"you've created this project in the waypoint.hcl configuration.",
+			"you've created this project in the derrick.hcl configuration.",
 		name,
 	)
 }
@@ -231,13 +231,13 @@ func (p *Project) Pipeline(name string) (*Pipeline, error) {
 
 	return nil, status.Errorf(codes.NotFound,
 		"Pipeline %q was not found in this project. Please ensure that "+
-			"you've created this project in the waypoint.hcl configuration.",
+			"you've created this project in the derrick.hcl configuration.",
 		name,
 	)
 }
 
 // Client returns the API client for the backend server.
-func (p *Project) Client() pb.WaypointClient {
+func (p *Project) Client() pb.DerrickClient {
 	return p.client
 }
 
@@ -281,7 +281,7 @@ func (p *Project) getFactories() map[component.Type]*factory.Factory {
 	return p.factories
 }
 
-func (p *Project) getClient() pb.WaypointClient {
+func (p *Project) getClient() pb.DerrickClient {
 	return p.client
 }
 
@@ -364,7 +364,7 @@ type options struct {
 type Option func(*Project, *options)
 
 // WithClient sets the API client to use.
-func WithClient(client pb.WaypointClient) Option {
+func WithClient(client pb.DerrickClient) Option {
 	return func(p *Project, opts *options) {
 		p.client = client
 	}

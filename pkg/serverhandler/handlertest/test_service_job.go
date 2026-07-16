@@ -11,9 +11,9 @@ import (
 	"github.com/stretchr/testify/require"
 	"google.golang.org/grpc/codes"
 
-	"github.com/hashicorp/waypoint/pkg/server"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	serverptypes "github.com/hashicorp/waypoint/pkg/server/ptypes"
+	"github.com/nomatronio/derrick/pkg/server"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	serverptypes "github.com/nomatronio/derrick/pkg/server/ptypes"
 )
 
 func init() {
@@ -1103,7 +1103,7 @@ func TestServiceQueueJob_odr_basic(t *testing.T, factory Factory) {
 	}))
 
 	// Register our runner
-	runnerId := st.Info.EnvironmentVariables["WAYPOINT_RUNNER_ID"]
+	runnerId := st.Info.EnvironmentVariables["DERRICK_RUNNER_ID"]
 	server.TestRunner(t, client, &pb.Runner{
 		Id:       runnerId,
 		ByIdOnly: true,
@@ -1436,7 +1436,7 @@ func TestServiceQueueJob_odr_customTask(t *testing.T, factory Factory) {
 	}))
 
 	// Register our runner
-	runnerId := st.Info.EnvironmentVariables["WAYPOINT_RUNNER_ID"]
+	runnerId := st.Info.EnvironmentVariables["DERRICK_RUNNER_ID"]
 	server.TestRunner(t, client, &pb.Runner{
 		Id:       runnerId,
 		ByIdOnly: true,
@@ -2017,7 +2017,7 @@ func TestServiceQueueJob_odr_default(t *testing.T, factory Factory) {
 		require.Equal(v, st.Info.EnvironmentVariables[k])
 	}
 
-	runnerId := st.Info.EnvironmentVariables["WAYPOINT_RUNNER_ID"]
+	runnerId := st.Info.EnvironmentVariables["DERRICK_RUNNER_ID"]
 
 	require.NoError(runnerStream.Send(&pb.RunnerJobStreamRequest{
 		Event: &pb.RunnerJobStreamRequest_Ack_{
@@ -2190,7 +2190,7 @@ func TestServiceQueueJob_odr_target_id(t *testing.T, factory Factory) {
 	}))
 
 	// Register on-demand runner
-	odrId := st.Info.EnvironmentVariables["WAYPOINT_RUNNER_ID"]
+	odrId := st.Info.EnvironmentVariables["DERRICK_RUNNER_ID"]
 	server.TestRunner(t, client, &pb.Runner{Id: odrId})
 
 	// Start a job request
@@ -2355,7 +2355,7 @@ func TestServiceQueueJob_odr_target_labels(t *testing.T, factory Factory) {
 	}))
 
 	// Register on-demand runner
-	odrId := st.Info.EnvironmentVariables["WAYPOINT_RUNNER_ID"]
+	odrId := st.Info.EnvironmentVariables["DERRICK_RUNNER_ID"]
 	server.TestRunner(t, client, &pb.Runner{Id: odrId})
 
 	// Start a job request

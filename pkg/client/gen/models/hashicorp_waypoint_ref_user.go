@@ -17,7 +17,7 @@ import (
 // This generic form makes it easy for APIs to accept multiple values, whatever
 // is easiest for the caller.
 //
-// swagger:model hashicorp.waypoint.Ref.User
+// swagger:model nomatron.derrick.Ref.User
 type HashicorpWaypointRefUser struct {
 
 	// id

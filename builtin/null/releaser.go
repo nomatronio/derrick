@@ -3,10 +3,10 @@ package null
 import (
 	"time"
 
-	sdk "github.com/hashicorp/waypoint-plugin-sdk/proto/gen"
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
+	sdk "github.com/nomatronio/derrick-plugin-sdk/proto/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
 
-	"github.com/hashicorp/waypoint/builtin/k8s"
+	"github.com/nomatronio/derrick/builtin/k8s"
 )
 
 type Releaser struct {

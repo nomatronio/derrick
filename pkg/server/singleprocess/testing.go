@@ -21,24 +21,24 @@ import (
 
 	wphznpb "github.com/hashicorp/waypoint-hzn/pkg/pb"
 	wphzn "github.com/hashicorp/waypoint-hzn/pkg/server"
-	"github.com/hashicorp/waypoint/internal/server/boltdbstate"
-	"github.com/hashicorp/waypoint/pkg/serverstate"
+	"github.com/nomatronio/derrick/internal/server/boltdbstate"
+	"github.com/nomatronio/derrick/pkg/serverstate"
 
-	"github.com/hashicorp/waypoint/internal/serverconfig"
-	"github.com/hashicorp/waypoint/pkg/server"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	serverptypes "github.com/hashicorp/waypoint/pkg/server/ptypes"
+	"github.com/nomatronio/derrick/internal/serverconfig"
+	"github.com/nomatronio/derrick/pkg/server"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	serverptypes "github.com/nomatronio/derrick/pkg/server/ptypes"
 )
 
 // TestServer starts a singleprocess server and returns the connected client.
 // We use t.Cleanup to ensure resources are automatically cleaned up.
-func TestServer(t testing.T, opts ...Option) pb.WaypointClient {
+func TestServer(t testing.T, opts ...Option) pb.DerrickClient {
 	return server.TestServer(t, TestImpl(t, opts...))
 }
 
 // TestImpl returns the waypoint server implementation. This can be used
 // with server.TestServer. It is easier to just use TestServer directly.
-func TestImpl(t testing.T, opts ...Option) pb.WaypointServer {
+func TestImpl(t testing.T, opts ...Option) pb.DerrickServer {
 	impl, err := New(append(
 		[]Option{WithDB(testDB(t))},
 		opts...,
@@ -128,7 +128,7 @@ func TestWithURLServiceGuestAccount(t testing.T) Option {
 	}
 }
 
-func TestEntrypoint(t testing.T, client pb.WaypointClient) (string, string, func()) {
+func TestEntrypoint(t testing.T, client pb.DerrickClient) (string, string, func()) {
 	instanceId, err := server.Id()
 	require.NoError(t, err)
 
@@ -161,7 +161,7 @@ func TestEntrypoint(t testing.T, client pb.WaypointClient) (string, string, func
 	}
 }
 
-func TestEntrypointPlugin(t testing.T, client pb.WaypointClient) (string, string, func()) {
+func TestEntrypointPlugin(t testing.T, client pb.DerrickClient) (string, string, func()) {
 	instanceId, err := server.Id()
 	require.NoError(t, err)
 
@@ -201,10 +201,10 @@ func TestEntrypointPlugin(t testing.T, client pb.WaypointClient) (string, string
 // uses t.Cleanup so the runner will be cleaned up on completion.
 func TestRunnerAdopted(
 	t testing.T,
-	impl pb.WaypointServer,
-	client pb.WaypointClient,
+	impl pb.DerrickServer,
+	client pb.DerrickClient,
 	r *pb.Runner,
-) (string, pb.WaypointClient) {
+) (string, pb.DerrickClient) {
 	require := require.New(t)
 	ctx := context.Background()
 
@@ -284,7 +284,7 @@ func TestRunnerAdopted(
 }
 
 // TestApp creates the app in the DB.
-func TestApp(t testing.T, client pb.WaypointClient, ref *pb.Ref_Application) {
+func TestApp(t testing.T, client pb.DerrickClient, ref *pb.Ref_Application) {
 	{
 		_, err := client.UpsertProject(context.Background(), &pb.UpsertProjectRequest{
 			Project: &pb.Project{

@@ -17,7 +17,7 @@ import (
 
 // HashicorpWaypointWorkspaceProject hashicorp waypoint workspace project
 //
-// swagger:model hashicorp.waypoint.Workspace.Project
+// swagger:model nomatron.derrick.Workspace.Project
 type HashicorpWaypointWorkspaceProject struct {
 
 	// active_time is the last time that this project had activity in

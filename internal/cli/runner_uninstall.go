@@ -6,11 +6,11 @@ import (
 
 	"github.com/posener/complete"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	"github.com/hashicorp/waypoint/internal/runnerinstall"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	"github.com/nomatronio/derrick/internal/runnerinstall"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 type RunnerUninstallCommand struct {
@@ -37,20 +37,20 @@ func (c *RunnerUninstallCommand) Flags() *flag.Sets {
 
 		f.StringVar(&flag.StringVar{
 			Name:   "platform",
-			Usage:  "Platform to uninstall the Waypoint runner from.",
+			Usage:  "Platform to uninstall the Derrick runner from.",
 			Target: &c.platform,
 		})
 
 		f.StringVar(&flag.StringVar{
 			Name:   "server-addr",
-			Usage:  "Address of the Waypoint server.",
-			EnvVar: "WAYPOINT_ADDR",
+			Usage:  "Address of the Derrick server.",
+			EnvVar: "DERRICK_ADDR",
 			Target: &c.serverUrl,
 		})
 
 		f.StringVar(&flag.StringVar{
 			Name:   "id",
-			Usage:  "ID of the Waypoint runner.",
+			Usage:  "ID of the Derrick runner.",
 			Target: &c.id,
 		})
 
@@ -71,9 +71,9 @@ func (c *RunnerUninstallCommand) Flags() *flag.Sets {
 
 func (c *RunnerUninstallCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint runner uninstall [options]
+Usage: derrick runner uninstall [options]
 
-  Uninstall a Waypoint runner from server given a platform and Waypoint runner
+  Uninstall a Derrick runner from server given a platform and Derrick runner
   id. The platform should be specified as kubernetes, nomad, ecs, or docker.
 
   This will forget the runner on the server and remove any of the resources
@@ -181,5 +181,5 @@ func (c *RunnerUninstallCommand) Run(args []string) int {
 }
 
 func (c *RunnerUninstallCommand) Synopsis() string {
-	return "Uninstall a Waypoint runner from Kubernetes, Nomad, ECS, or Docker"
+	return "Uninstall a Derrick runner from Kubernetes, Nomad, ECS, or Docker"
 }

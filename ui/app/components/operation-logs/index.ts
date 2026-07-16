@@ -1,13 +1,13 @@
 import * as AnsiColors from 'ansi-colors';
 
-import { GetJobStreamRequest, GetJobStreamResponse } from 'waypoint-pb';
-import { WaypointClient } from 'waypoint-client';
+import { GetJobStreamRequest, GetJobStreamResponse } from 'derrick-pb';
+import { DerrickClient } from 'derrick-client';
 
-import ApiService from 'waypoint/services/api';
+import ApiService from 'derrick/services/api';
 import Component from '@glimmer/component';
 import { Status } from 'grpc-web';
 import { Terminal } from 'xterm';
-import { createTerminal } from 'waypoint/utils/create-terminal';
+import { createTerminal } from 'derrick/utils/create-terminal';
 import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
@@ -16,10 +16,10 @@ interface OperationLogsArgs {
   jobId: string;
 }
 
-type JobStream = ReturnType<WaypointClient['getJobStream']>;
+type JobStream = ReturnType<DerrickClient['getJobStream']>;
 
 // Mappings for message styles
-// https://github.com/hashicorp/waypoint-plugin-sdk/blob/baf566811af680c5df138f9915d756f67d271b1a/terminal/ui.go#L126-L135
+// https://github.com/nomatronio/derrick-plugin-sdk/blob/baf566811af680c5df138f9915d756f67d271b1a/terminal/ui.go#L126-L135
 const STYLE_TO_ANSI: Record<string, (msg: string) => string> = {
   header: AnsiColors.bold,
   error: AnsiColors.red,

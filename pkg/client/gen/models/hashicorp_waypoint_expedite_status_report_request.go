@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointExpediteStatusReportRequest hashicorp waypoint expedite status report request
 //
-// swagger:model hashicorp.waypoint.ExpediteStatusReportRequest
+// swagger:model nomatron.derrick.ExpediteStatusReportRequest
 type HashicorpWaypointExpediteStatusReportRequest struct {
 
 	// the deployment id that this status report was generated on

@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointRefDeclaredResource DeclaredResource references a declared resource.
 //
-// swagger:model hashicorp.waypoint.Ref.DeclaredResource
+// swagger:model nomatron.derrick.Ref.DeclaredResource
 type HashicorpWaypointRefDeclaredResource struct {
 
 	// name

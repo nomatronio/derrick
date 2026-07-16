@@ -1,5 +1,5 @@
-import Application from 'waypoint/app';
-import config from 'waypoint/config/environment';
+import Application from 'derrick/app';
+import config from 'derrick/config/environment';
 import * as QUnit from 'qunit';
 import { setApplication } from '@ember/test-helpers';
 import { setup } from 'qunit-dom';

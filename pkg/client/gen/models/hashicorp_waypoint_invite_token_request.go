@@ -16,7 +16,7 @@ import (
 // HashicorpWaypointInviteTokenRequest Passed with GenerateInviteToken with the params on how the invite token should
 // be generate.
 //
-// swagger:model hashicorp.waypoint.InviteTokenRequest
+// swagger:model nomatron.derrick.InviteTokenRequest
 type HashicorpWaypointInviteTokenRequest struct {
 
 	// How long the token should be valid until. The resulting token has a timestamp

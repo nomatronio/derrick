@@ -2,22 +2,22 @@
 layout: docs
 page_title: Kubernetes - Deploy with Helm
 description: |-
-  Waypoint can deploy your applications onto Kubernetes using Helm. Waypoint then tracks and shows you the health of all the resources that the Helm chart created.
+  Derrick can deploy your applications onto Kubernetes using Helm. Derrick then tracks and shows you the health of all the resources that the Helm chart created.
 ---
 
 # Deploying Applications with Helm
 
-Waypoint can deploy your applications onto Kubernetes using [Helm](https://helm.sh/).
-Waypoint then tracks and shows you the health of all the resources that
+Derrick can deploy your applications onto Kubernetes using [Helm](https://helm.sh/).
+Derrick then tracks and shows you the health of all the resources that
 the Helm chart created.
 
-If you're already using Helm, this lets you adopt Waypoint with very little
+If you're already using Helm, this lets you adopt Derrick with very little
 friction since you can reuse your existing Helm charts for your applications.
-Another benefit of using Helm with Waypoint is that you can set chart values
+Another benefit of using Helm with Derrick is that you can set chart values
 more dynamically, such as setting different settings per environment,
 referencing the most recently built artifacts, etc.
 
--> **Not a Helm user? No problem!** Waypoint supports many other mechanisms
+-> **Not a Helm user? No problem!** Derrick supports many other mechanisms
 for deploying to Kubernetes. You can use the
 [`kubernetes`](/waypoint/docs/platforms/kubernetes/deploy) plugin for highly opinionated, no YAML deployments. Or you can use
 [`kubernetes-apply`](/waypoint/docs/platforms/kubernetes/kubectl-deploy) with
@@ -25,7 +25,7 @@ a directory of YAML files.
 
 ## Why Helm?
 
-The Helm deployment plugin for Waypoint is aimed primarily at people
+The Helm deployment plugin for Derrick is aimed primarily at people
 who either already use Helm or need to use a tool that lets them specify
 any custom Kubernetes resources. If you don't know Helm and are just trying
 to deploy a typical web service, you can use the YAML-less
@@ -34,15 +34,15 @@ deployment plugins later, so you don't need to be worried about making a
 "wrong" decision.
 
 For people who are familiar with Helm or would prefer to use Helm,
-you might still ask: but why would I use Helm with Waypoint? Why not use
+you might still ask: but why would I use Helm with Derrick? Why not use
 Helm directly? There are many reasons:
 
-1. **Dynamic Chart values.** Waypoint makes it easy to set chart values
+1. **Dynamic Chart values.** Derrick makes it easy to set chart values
    based on dynamic information such as metadata about the most recent
    artifact build, Git commit information, or just computed or templated
-   information using [HCL functions](/waypoint/docs/waypoint-hcl/functions/all).
+   information using [HCL functions](/waypoint/docs/derrick-hcl/functions/all).
 
-2. **Environments.** Waypoint handles the higher level multi-environment
+2. **Environments.** Derrick handles the higher level multi-environment
    abstraction for you, so you can deploy your chart to multiple environments
    but manage and see them all using the same tool and UI.
 
@@ -50,16 +50,16 @@ Helm directly? There are many reasons:
    you can invoke Helm using the same tool you're using to invoke builds,
    release management, etc.
 
-4. **Other Waypoint features.** You can take advantage of other Waypoint features such as [remote operations](/waypoint/docs/waypoint-hcl/functions/all),
-   [logs](/waypoint/docs/logs), [exec](/waypoint/docs/exec), [input variables](/waypoint/docs/waypoint-hcl/variables/input), and more.
+4. **Other Derrick features.** You can take advantage of other Derrick features such as [remote operations](/waypoint/docs/derrick-hcl/functions/all),
+   [logs](/waypoint/docs/logs), [exec](/waypoint/docs/exec), [input variables](/waypoint/docs/derrick-hcl/variables/input), and more.
 
-## Using Helm with Waypoint
+## Using Helm with Derrick
 
-The example below shows a `waypoint.hcl` configuration that uses a
+The example below shows a `derrick.hcl` configuration that uses a
 Helm chart in the "helm" directory. We set two Chart values `image.repository`
 and `image.tag` to point to the artifact we just built (see
-[here for more information on artifact variables](/waypoint/docs/waypoint-hcl/variables/artifact)). Notice that with the
-`set` Chart values, we could use any Waypoint variables, HCL functions, etc.
+[here for more information on artifact variables](/waypoint/docs/derrick-hcl/variables/artifact)). Notice that with the
+`set` Chart values, we could use any Derrick variables, HCL functions, etc.
 to dynamically set chart configuration.
 
 ```hcl
@@ -94,8 +94,8 @@ app "my-app" {
 }
 ```
 
-With this set, you can run `waypoint deploy` (if you have an artifact
-built already) and Waypoint will use Helm to deploy your application.
+With this set, you can run `derrick deploy` (if you have an artifact
+built already) and Derrick will use Helm to deploy your application.
 
 -> **Note:** The `set` syntax is the same as the `--set` flag used
 with the `helm` CLI. This is documented on the Helm website [here](https://helm.sh/docs/intro/using_helm/#the-format-and-limitations-of---set). You can also specify
@@ -117,18 +117,18 @@ deploy {
 
 ## Entrypoint Variables
 
-If you want to use the [Waypoint entrypoint](/waypoint/docs/entrypoint) functionality,
+If you want to use the [Derrick entrypoint](/waypoint/docs/entrypoint) functionality,
 you must manually inject the [entrypoint environment variables](/waypoint/docs/entrypoint).
 The [opinionated Kubernetes plugin](/waypoint/docs/platforms/kubernetes/deploy) does this
 automatically but since with Helm you're writing manual Kubernetes resources with
 YAML, we can't automatically inject the environment variables.
 
-A map of the environment variables to set are exposed in the `waypoint.hcl`
-as [`entrypoint.env`](/waypoint/docs/waypoint-hcl/variables/entrypoint). This can be
+A map of the environment variables to set are exposed in the `derrick.hcl`
+as [`entrypoint.env`](/waypoint/docs/derrick-hcl/variables/entrypoint). This can be
 passed into your Helm chart either as values or templating your YAML templates.
 The recommended approach is to use Helm values, to avoid templating a template.
 
-A full example is available [in the `waypoint-examples` repository](https://github.com/hashicorp/waypoint-examples/tree/main/kubernetes/nodejs-helm),
+A full example is available [in the `derrick-examples` repository](https://github.com/hashicorp/waypoint-examples/tree/main/kubernetes/nodejs-helm),
 but an incomplete example is shown below to briefly explain the process.
 
 -> **Note:** This also requires that the entrypoint binary is already

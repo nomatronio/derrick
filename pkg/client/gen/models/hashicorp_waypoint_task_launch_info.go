@@ -15,7 +15,7 @@ import (
 // HashicorpWaypointTaskLaunchInfo TaskLaunchInfo gets stored on the job/operation when queued for execution.
 // It details various options required for the task it will launch.
 //
-// swagger:model hashicorp.waypoint.TaskLaunchInfo
+// swagger:model nomatron.derrick.TaskLaunchInfo
 type HashicorpWaypointTaskLaunchInfo struct {
 
 	// The arguments that will be passed to the new container on boot.

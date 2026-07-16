@@ -3,7 +3,7 @@ package core
 import (
 	"context"
 
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 // ConfigSync will evaluate the current hcl config for a given Pipeline and

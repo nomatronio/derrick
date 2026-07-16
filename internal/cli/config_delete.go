@@ -10,10 +10,10 @@ import (
 
 	"github.com/posener/complete"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 type ConfigDeleteCommand struct {
@@ -46,7 +46,7 @@ func (c *ConfigDeleteCommand) Run(args []string) int {
 		// we need a way to load that project name.
 		if c.flagScope == "global" || c.flagProject != "" {
 			initOpts = append(initOpts,
-				WithNoConfig(), // no waypoint.hcl
+				WithNoConfig(), // no derrick.hcl
 			)
 		}
 	}
@@ -187,7 +187,7 @@ func (c *ConfigDeleteCommand) Synopsis() string {
 
 func (c *ConfigDeleteCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint config delete <name> <name2> ...
+Usage: derrick config delete <name> <name2> ...
 
   Delete a config variable from the system. This cannot be undone.
 

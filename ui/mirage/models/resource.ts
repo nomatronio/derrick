@@ -1,5 +1,5 @@
 import { Model, belongsTo, hasMany } from 'miragejs';
-import { StatusReport, ResourceCategoryDisplayHint } from 'waypoint-pb';
+import { StatusReport, ResourceCategoryDisplayHint } from 'derrick-pb';
 import { dateToTimestamp } from '../utils';
 
 export default Model.extend({

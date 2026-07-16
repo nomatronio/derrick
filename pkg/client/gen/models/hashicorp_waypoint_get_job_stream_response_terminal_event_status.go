@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointGetJobStreamResponseTerminalEventStatus hashicorp waypoint get job stream response terminal event status
 //
-// swagger:model hashicorp.waypoint.GetJobStreamResponse.Terminal.Event.Status
+// swagger:model nomatron.derrick.GetJobStreamResponse.Terminal.Event.Status
 type HashicorpWaypointGetJobStreamResponseTerminalEventStatus struct {
 
 	// msg

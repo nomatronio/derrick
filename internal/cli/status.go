@@ -12,13 +12,13 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clicontext"
-	clientpkg "github.com/hashicorp/waypoint/internal/client"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	"github.com/hashicorp/waypoint/internal/version"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clicontext"
+	clientpkg "github.com/nomatronio/derrick/internal/client"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	"github.com/nomatronio/derrick/internal/version"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 type StatusCommand struct {
@@ -350,7 +350,7 @@ func (c *StatusCommand) refreshAppStatus(
 // Helper functions
 //
 
-func ListDeployments(c context.Context, client pb.WaypointClient, app string, project string, workspace string) (*pb.UI_ListDeploymentsResponse, error) {
+func ListDeployments(c context.Context, client pb.DerrickClient, app string, project string, workspace string) (*pb.UI_ListDeploymentsResponse, error) {
 	resp, err := client.UI_ListDeployments(c, &pb.UI_ListDeploymentsRequest{
 		Application: &pb.Ref_Application{
 			Application: app,
@@ -368,7 +368,7 @@ func ListDeployments(c context.Context, client pb.WaypointClient, app string, pr
 	return resp, err
 }
 
-func ListReleases(c context.Context, client pb.WaypointClient, app string, project string, workspace string) (*pb.UI_ListReleasesResponse, error) {
+func ListReleases(c context.Context, client pb.DerrickClient, app string, project string, workspace string) (*pb.UI_ListReleasesResponse, error) {
 	resp, err := client.UI_ListReleases(c, &pb.UI_ListReleasesRequest{
 		Application: &pb.Ref_Application{
 			Application: app,
@@ -1244,7 +1244,7 @@ func (c *StatusCommand) Synopsis() string {
 
 func (c *StatusCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint status [options] [project]
+Usage: derrick status [options] [project]
 
   View the current status of projects, applications, and their resources
   managed by Waypoint.
@@ -1261,19 +1261,19 @@ var (
 
 	wpStatusSuccessMsg = strings.TrimSpace(`
 The projects listed above represent their current state known
-in the Waypoint server. For more information about a project’s applications and
+in the Derrick server. For more information about a project’s applications and
 their current state, run ‘waypoint status -project=PROJECT-NAME’.
 `)
 
 	wpStatusProjectSuccessMsg = strings.TrimSpace(`
 The project and its apps listed above represents its current state known
-in the Waypoint server. For more information about a project’s applications and
+in the Derrick server. For more information about a project’s applications and
 their current state, run ‘waypoint status -app=APP-NAME -project=PROJECT-NAME’.
 `)
 
 	wpStatusAppSuccessMsg = strings.TrimSpace(`
 The application and its resources listed above represents its current state known
-in the Waypoint server.
+in the Derrick server.
 `)
 
 	wpStatusMsg = "Current project statuses in server context %q"
@@ -1287,9 +1287,9 @@ Current status for application % q in project %q in server context %q.
 	// Failure messages
 
 	wpNoServerContext = strings.TrimSpace(`
-No default server context set for the Waypoint CLI. To set a default, use
+No default server context set for the Derrick CLI. To set a default, use
 'waypoint context use <context-name>'. To see a full list of known contexts,
-run 'waypoint context list'. If Waypoint is running in local mode, this is expected.
+run 'waypoint context list'. If Derrick is running in local mode, this is expected.
 `)
 
 	wpStatusHealthTriageMsg = strings.TrimSpace(`
@@ -1298,7 +1298,7 @@ To see more information about the failing application, please check out the appl
 waypoint logs -app=APP-NAME
 
 The projects listed above represent their current state known
-in Waypoint server. For more information about an application defined in the
+in Derrick server. For more information about an application defined in the
 project %[1]q can be viewed by running the command:
 
 waypoint status -app=APP-NAME -project=%[1]s

@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointConfigSource hashicorp waypoint config source
 //
-// swagger:model hashicorp.waypoint.ConfigSource
+// swagger:model nomatron.derrick.ConfigSource
 type HashicorpWaypointConfigSource struct {
 
 	// application

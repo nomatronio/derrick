@@ -16,7 +16,7 @@ import (
 
 // HashicorpWaypointDeploymentLoadDetails hashicorp waypoint deployment load details
 //
-// swagger:model hashicorp.waypoint.Deployment.LoadDetails
+// swagger:model nomatron.derrick.Deployment.LoadDetails
 type HashicorpWaypointDeploymentLoadDetails string
 
 func NewHashicorpWaypointDeploymentLoadDetails(value HashicorpWaypointDeploymentLoadDetails) *HashicorpWaypointDeploymentLoadDetails {

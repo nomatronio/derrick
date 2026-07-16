@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointGetJobStreamResponseJobChange hashicorp waypoint get job stream response job change
 //
-// swagger:model hashicorp.waypoint.GetJobStreamResponse.JobChange
+// swagger:model nomatron.derrick.GetJobStreamResponse.JobChange
 type HashicorpWaypointGetJobStreamResponseJobChange struct {
 
 	// The full updated job.

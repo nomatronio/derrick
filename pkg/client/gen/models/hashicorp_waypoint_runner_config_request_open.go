@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointRunnerConfigRequestOpen hashicorp waypoint runner config request open
 //
-// swagger:model hashicorp.waypoint.RunnerConfigRequest.Open
+// swagger:model nomatron.derrick.RunnerConfigRequest.Open
 type HashicorpWaypointRunnerConfigRequestOpen struct {
 
 	// Runner to register. See Runner for what fields can be set. This

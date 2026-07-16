@@ -7,8 +7,8 @@ import (
 	"github.com/mitchellh/go-testing-interface"
 	"github.com/stretchr/testify/require"
 
-	configpkg "github.com/hashicorp/waypoint/internal/config"
-	"github.com/hashicorp/waypoint/pkg/server/singleprocess"
+	configpkg "github.com/nomatronio/derrick/internal/config"
+	"github.com/nomatronio/derrick/pkg/server/singleprocess"
 )
 
 // TestRunner returns an initialized runner pointing to an in-memory test

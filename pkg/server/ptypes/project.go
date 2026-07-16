@@ -12,8 +12,8 @@ import (
 	"github.com/mitchellh/go-testing-interface"
 	"github.com/stretchr/testify/require"
 
-	"github.com/hashicorp/waypoint/internal/pkg/validationext"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick/internal/pkg/validationext"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 // TestProject returns a valid project for tests.
@@ -62,7 +62,7 @@ func ValidateProjectRules(p *pb.Project) []*validation.FieldRules {
 			validation.By(validatePathToken),
 		),
 
-		validation.Field(&p.WaypointHcl, isWaypointHcl(p)),
+		validation.Field(&p.DerrickHcl, isDerrickHcl(p)),
 
 		validationext.StructField(&p.DataSource, func() []*validation.FieldRules {
 			return ValidateJobDataSourceRules(p.DataSource)
@@ -125,22 +125,22 @@ func ValidateUIGetProjectRequest(v *pb.UI_GetProjectRequest) error {
 	))
 }
 
-func isWaypointHcl(p *pb.Project) validation.Rule {
+func isDerrickHcl(p *pb.Project) validation.Rule {
 	return validation.By(func(_ interface{}) error {
-		if len(p.WaypointHcl) == 0 {
+		if len(p.DerrickHcl) == 0 {
 			return nil
 		}
 
-		switch p.WaypointHclFormat {
+		switch p.DerrickHclFormat {
 		case pb.Hcl_HCL:
-			_, diag := hclsyntax.ParseConfig(p.WaypointHcl, "<waypoint-hcl>", hcl.Pos{})
+			_, diag := hclsyntax.ParseConfig(p.DerrickHcl, "<waypoint-hcl>", hcl.Pos{})
 			if diag.HasErrors() {
 				return diag
 			}
 
 			return nil
 		case pb.Hcl_JSON:
-			_, diag := hcljson.Parse(p.WaypointHcl, "<waypoint-hcl>")
+			_, diag := hcljson.Parse(p.DerrickHcl, "<waypoint-hcl>")
 			if diag.HasErrors() {
 				return diag
 			}

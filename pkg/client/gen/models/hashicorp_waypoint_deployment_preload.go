@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointDeploymentPreload hashicorp waypoint deployment preload
 //
-// swagger:model hashicorp.waypoint.Deployment.Preload
+// swagger:model nomatron.derrick.Deployment.Preload
 type HashicorpWaypointDeploymentPreload struct {
 
 	// Populated when a Deployment is read with LoadDetails set

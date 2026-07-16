@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointRefWorkspace Workspace references a workspace.
 //
-// swagger:model hashicorp.waypoint.Ref.Workspace
+// swagger:model nomatron.derrick.Ref.Workspace
 type HashicorpWaypointRefWorkspace struct {
 
 	// workspace

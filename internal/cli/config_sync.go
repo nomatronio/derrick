@@ -5,11 +5,11 @@ import (
 
 	"github.com/posener/complete"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	clientpkg "github.com/hashicorp/waypoint/internal/client"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	clientpkg "github.com/nomatronio/derrick/internal/client"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 type ConfigSyncCommand struct {
@@ -27,7 +27,7 @@ func (c *ConfigSyncCommand) Run(args []string) int {
 	}
 
 	err := c.DoApp(c.Ctx, func(ctx context.Context, app *clientpkg.App) error {
-		app.UI.Output("Synchronizing application %q configuration with Waypoint server...",
+		app.UI.Output("Synchronizing application %q configuration with Derrick server...",
 			app.Ref().Application, terminal.WithHeaderStyle())
 
 		sg := app.UI.StepGroup()
@@ -62,7 +62,7 @@ func (c *ConfigSyncCommand) Run(args []string) int {
 			}
 		}
 
-		step = sg.Add("Application configuration for %q synchronized successfully with Waypoint server!", app.Ref().Application)
+		step = sg.Add("Application configuration for %q synchronized successfully with Derrick server!", app.Ref().Application)
 		step.Done()
 
 		return nil
@@ -87,18 +87,18 @@ func (c *ConfigSyncCommand) AutocompleteFlags() complete.Flags {
 }
 
 func (c *ConfigSyncCommand) Synopsis() string {
-	return "Synchronize declared variables and pipeline configs in a waypoint.hcl"
+	return "Synchronize declared variables and pipeline configs in a derrick.hcl"
 }
 
 func (c *ConfigSyncCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint config sync [options]
+Usage: derrick config sync [options]
 
-  Synchronize declared application configuration in the waypoint.hcl file
+  Synchronize declared application configuration in the derrick.hcl file
   for existing and new deployments.
 
   Conflicting configuration keys will be overwritten. Configuration keys
-  that do not exist in the waypoint.hcl file but exist on the server will not
+  that do not exist in the derrick.hcl file but exist on the server will not
   be deleted.
 
 ` + c.Flags().Help())

@@ -10,13 +10,13 @@ import (
 	"google.golang.org/grpc/status"
 	"google.golang.org/protobuf/types/known/emptypb"
 
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 // WriteSnapshot requests a snapshot from the client and writes it to the
 // provided writer. Cancelling the context will prematurely cancel the snapshot.
 // This may result in partial writes to the writer.
-func WriteSnapshot(ctx context.Context, client pb.WaypointClient, w io.Writer) error {
+func WriteSnapshot(ctx context.Context, client pb.DerrickClient, w io.Writer) error {
 	stream, err := client.CreateSnapshot(ctx, &emptypb.Empty{})
 	if err != nil {
 		return fmt.Errorf("failed to generate snapshot: %s", err)
@@ -57,7 +57,7 @@ func WriteSnapshot(ctx context.Context, client pb.WaypointClient, w io.Writer) e
 // sends an exit signal to the server if 'exit' is true. Cancelling the context
 // will prematurely cancel the snapshot restore. This may result in a partial
 // restore from the reader being staged.
-func ReadSnapshot(ctx context.Context, client pb.WaypointClient, r io.Reader, exit bool) error {
+func ReadSnapshot(ctx context.Context, client pb.DerrickClient, r io.Reader, exit bool) error {
 	stream, err := client.RestoreSnapshot(ctx)
 	if err != nil {
 		return status.Error(status.Code(err), fmt.Sprintf("failed to restore snapshot: %s", err))

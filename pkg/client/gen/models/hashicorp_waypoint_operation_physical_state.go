@@ -18,7 +18,7 @@ import (
 // an operation. A physical resource for example is the actual container
 // that might be created alongside an operation.
 //
-// swagger:model hashicorp.waypoint.Operation.PhysicalState
+// swagger:model nomatron.derrick.Operation.PhysicalState
 type HashicorpWaypointOperationPhysicalState string
 
 func NewHashicorpWaypointOperationPhysicalState(value HashicorpWaypointOperationPhysicalState) *HashicorpWaypointOperationPhysicalState {

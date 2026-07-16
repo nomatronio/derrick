@@ -5,10 +5,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 	"github.com/posener/complete"
 )
 
@@ -101,7 +101,7 @@ func (c *UserTokenCommand) Synopsis() string {
 
 func (c *UserTokenCommand) Help() string {
 	helpText := `
-Usage: waypoint user token [options]
+Usage: derrick user token [options]
 
   Request a new login token for a user.
 
@@ -109,7 +109,7 @@ Usage: waypoint user token [options]
   log in, use the "waypoint login" command.
 
   This generates a new token that can be used to authenticate directly
-  to the Waypoint server. If you're inviting a new user to Waypoint,
+  to the Derrick server. If you're inviting a new user to Waypoint,
   its recommended to generate an invite token with "waypoint user invite"
   or share the UI URL for logging in.
 ` + warnTokenDeprecated + "\n" + c.Flags().Help()

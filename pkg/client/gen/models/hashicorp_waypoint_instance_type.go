@@ -27,7 +27,7 @@ import (
 // itself as an instance for the purposes of interacting with the
 // exec and logs functionality
 //
-// swagger:model hashicorp.waypoint.Instance.Type
+// swagger:model nomatron.derrick.Instance.Type
 type HashicorpWaypointInstanceType string
 
 func NewHashicorpWaypointInstanceType(value HashicorpWaypointInstanceType) *HashicorpWaypointInstanceType {

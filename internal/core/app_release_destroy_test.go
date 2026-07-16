@@ -10,10 +10,10 @@ import (
 	"github.com/stretchr/testify/require"
 	empty "google.golang.org/protobuf/types/known/emptypb"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/component"
-	componentmocks "github.com/hashicorp/waypoint-plugin-sdk/component/mocks"
-	"github.com/hashicorp/waypoint/internal/config"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/component"
+	componentmocks "github.com/nomatronio/derrick-plugin-sdk/component/mocks"
+	"github.com/nomatronio/derrick/internal/config"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 func TestAppCanDestroyRelease(t *testing.T) {

@@ -30,7 +30,7 @@ import (
 //
 // Updates should never modify the generation.
 //
-// swagger:model hashicorp.waypoint.Generation
+// swagger:model nomatron.derrick.Generation
 type HashicorpWaypointGeneration struct {
 
 	// Id is the unique identifier for this generation. This value is opaque.

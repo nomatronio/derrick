@@ -1,10 +1,10 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
-import ApiService from 'waypoint/services/api';
-import { Breadcrumb } from 'waypoint/services/breadcrumbs';
-import { GetLogStreamRequest, Ref } from 'waypoint-pb';
+import ApiService from 'derrick/services/api';
+import { Breadcrumb } from 'derrick/services/breadcrumbs';
+import { GetLogStreamRequest, Ref } from 'derrick-pb';
 import { Model as AppRouteModel } from '../app';
-import { Model as WorkspaceRouteModel } from 'waypoint/routes/workspace';
+import { Model as WorkspaceRouteModel } from 'derrick/routes/workspace';
 
 type Model = {
   app: string;

@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { Release } from 'waypoint-pb';
+import { Release } from 'derrick-pb';
 
 interface LatestReleaseUrlArgs {
   releases: Release.AsObject[];

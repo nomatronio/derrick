@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointHostname hashicorp waypoint hostname
 //
-// swagger:model hashicorp.waypoint.Hostname
+// swagger:model nomatron.derrick.Hostname
 type HashicorpWaypointHostname struct {
 
 	// fqdn is the fully qualified domain, such as "fabulous-panda.waypoint.run"

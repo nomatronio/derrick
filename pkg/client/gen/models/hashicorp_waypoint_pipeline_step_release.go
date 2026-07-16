@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointPipelineStepRelease hashicorp waypoint pipeline step release
 //
-// swagger:model hashicorp.waypoint.Pipeline.Step.Release
+// swagger:model nomatron.derrick.Pipeline.Step.Release
 type HashicorpWaypointPipelineStepRelease struct {
 
 	// deployment

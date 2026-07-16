@@ -10,7 +10,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/hashicorp/waypoint/internal/pkg/copy"
+	"github.com/nomatronio/derrick/internal/pkg/copy"
 )
 
 func TestCert_replace(t *testing.T) {

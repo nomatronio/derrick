@@ -1,10 +1,10 @@
-import { ConfigGetRequest, ConfigSetRequest, ConfigVar, Project, Ref } from 'waypoint-pb';
+import { ConfigGetRequest, ConfigSetRequest, ConfigVar, Project, Ref } from 'derrick-pb';
 
-import ApiService from 'waypoint/services/api';
+import ApiService from 'derrick/services/api';
 import { BufferedChangeset } from 'validated-changeset';
 import Component from '@glimmer/component';
 import { Empty } from 'google-protobuf/google/protobuf/empty_pb';
-import FlashMessagesService from 'waypoint/services/pds-flash-messages';
+import FlashMessagesService from 'derrick/services/pds-flash-messages';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';

@@ -1,7 +1,7 @@
 import Route from '@ember/routing/route';
-import { StatusReport } from 'waypoint-pb';
+import { StatusReport } from 'derrick-pb';
 import { Model as DeploymentRouteModel } from '../deployment';
-import { Breadcrumb } from 'waypoint/services/breadcrumbs';
+import { Breadcrumb } from 'derrick/services/breadcrumbs';
 import { action } from '@ember/object';
 
 interface Params {

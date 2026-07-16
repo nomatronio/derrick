@@ -1,6 +1,6 @@
 import { Factory, trait } from 'ember-cli-mirage';
 import { fakeComponentForKind } from '../utils';
-import { Component } from 'waypoint-pb';
+import { Component } from 'derrick-pb';
 
 // eslint-disable-next-line ember/require-tagless-components
 export default Factory.extend({

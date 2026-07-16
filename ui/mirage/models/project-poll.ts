@@ -1,5 +1,5 @@
 import { Model, belongsTo } from 'ember-cli-mirage';
-import { Project } from 'waypoint-pb';
+import { Project } from 'derrick-pb';
 
 export default Model.extend({
   project: belongsTo({ inverse: 'dataSourcePoll' }),

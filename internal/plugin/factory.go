@@ -12,8 +12,8 @@ import (
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/go-plugin"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/component"
-	"github.com/hashicorp/waypoint-plugin-sdk/internal-shared/pluginclient"
+	"github.com/nomatronio/derrick-plugin-sdk/component"
+	"github.com/nomatronio/derrick-plugin-sdk/internal-shared/pluginclient"
 )
 
 // Indicates that the process is running inside an ondemand runner. This information
@@ -27,7 +27,7 @@ var exePath string
 
 func init() {
 	var err error
-	exp := os.Getenv("WAYPOINT_BUILTIN_PLUGIN_EXE")
+	exp := os.Getenv("DERRICK_BUILTIN_PLUGIN_EXE")
 	if exp != "" {
 		exePath, err = filepath.Abs(exp)
 		if err != nil {

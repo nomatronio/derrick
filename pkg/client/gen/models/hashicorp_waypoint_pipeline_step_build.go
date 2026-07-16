@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointPipelineStepBuild hashicorp waypoint pipeline step build
 //
-// swagger:model hashicorp.waypoint.Pipeline.Step.Build
+// swagger:model nomatron.derrick.Pipeline.Step.Build
 type HashicorpWaypointPipelineStepBuild struct {
 
 	// Whether or not to push the built artifact to a remote container registry

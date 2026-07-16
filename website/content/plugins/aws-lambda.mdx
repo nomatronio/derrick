@@ -13,8 +13,8 @@ rather than .zip files.
 
 We recommend that the `docker` build plugin is used to generate these images.
 
-Below is a simple Dockerfile, handler code, and waypoint.hcl for building, deploying, and
-releasing using Waypoint.
+Below is a simple Dockerfile, handler code, and derrick.hcl for building, deploying, and
+releasing using Derrick.
 
 ### handler.rb
 
@@ -50,7 +50,7 @@ COPY handler.rb /var/task
 CMD [ "handler.handler" ]
 ```
 
-### waypoint.hcl
+### derrick.hcl
 
 ```hcl
 project = "hello"

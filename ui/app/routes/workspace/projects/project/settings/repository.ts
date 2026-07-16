@@ -1,5 +1,5 @@
 import Route from '@ember/routing/route';
-import { Breadcrumb } from 'waypoint/services/breadcrumbs';
+import { Breadcrumb } from 'derrick/services/breadcrumbs';
 
 export default class WorkspaceProjectsProjectSettingsRepository extends Route {
   breadcrumbs(): Breadcrumb[] {

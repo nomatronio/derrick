@@ -1,14 +1,14 @@
 import Modifier from 'ember-modifier';
 import codemirror from 'codemirror';
 
-import './utils/register-waypoint-hcl-mode';
+import './utils/register-derrick-hcl-mode';
 import 'codemirror/addon/edit/matchbrackets';
 import 'codemirror/addon/edit/closebrackets';
 import 'codemirror/addon/selection/active-line';
 import 'codemirror/mode/javascript/javascript';
 
 const _PRESET_DEFAULTS: codemirror.EditorConfiguration = {
-  mode: 'waypointHCL',
+  mode: 'derrickHCL',
   theme: 'monokai',
   lineNumbers: true,
   cursorBlinkRate: 500,

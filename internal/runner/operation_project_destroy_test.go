@@ -3,10 +3,10 @@ package runner
 import (
 	"context"
 	"github.com/hashicorp/go-hclog"
-	configinternal "github.com/hashicorp/waypoint/internal/config"
-	"github.com/hashicorp/waypoint/internal/core"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	"github.com/hashicorp/waypoint/pkg/server/singleprocess"
+	configinternal "github.com/nomatronio/derrick/internal/config"
+	"github.com/nomatronio/derrick/internal/core"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	"github.com/nomatronio/derrick/pkg/server/singleprocess"
 	"github.com/stretchr/testify/require"
 	"testing"
 )

@@ -16,17 +16,17 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/component"
-	"github.com/hashicorp/waypoint-plugin-sdk/datadir"
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/appconfig"
-	configpkg "github.com/hashicorp/waypoint/internal/config"
-	"github.com/hashicorp/waypoint/internal/config/variables"
-	"github.com/hashicorp/waypoint/internal/config/variables/formatter"
-	"github.com/hashicorp/waypoint/internal/core"
-	"github.com/hashicorp/waypoint/internal/factory"
-	"github.com/hashicorp/waypoint/internal/plugin"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/component"
+	"github.com/nomatronio/derrick-plugin-sdk/datadir"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/appconfig"
+	configpkg "github.com/nomatronio/derrick/internal/config"
+	"github.com/nomatronio/derrick/internal/config/variables"
+	"github.com/nomatronio/derrick/internal/config/variables/formatter"
+	"github.com/nomatronio/derrick/internal/core"
+	"github.com/nomatronio/derrick/internal/factory"
+	"github.com/nomatronio/derrick/internal/plugin"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 // executeJob executes an assigned job. This will source the data (if necessary),
@@ -43,7 +43,7 @@ func (r *Runner) executeJob(
 	job := assignment.Job
 
 	// NOTE(mitchellh; krantzinator): For now, we query the project directly here
-	// since we use it only in case of a missing local waypoint.hcl, and to
+	// since we use it only in case of a missing local derrick.hcl, and to
 	// collect input variable values set on the server. I can see us moving this
 	// to accept() eventually though if other data is used.
 	resp, err := r.client.GetProject(ctx, &pb.GetProjectRequest{
@@ -59,7 +59,7 @@ func (r *Runner) executeJob(
 	// update our job later.
 	var configInfo pb.Job_Config
 
-	// Try to load the waypoint.hcl from the working directory first.
+	// Try to load the derrick.hcl from the working directory first.
 	configInfo.Source = pb.Job_Config_FILE
 	path, err := configpkg.FindPath(wd, "", false)
 	if err != nil {
@@ -67,22 +67,22 @@ func (r *Runner) executeJob(
 	}
 
 	// Waypoint.hcl set on the job overrides all, even if we found a
-	// waypoint.hcl in the working directory above.
-	if job.WaypointHcl != nil && len(job.WaypointHcl.Contents) > 0 {
-		log.Info("using waypoint.hcl associated with the project in the server")
+	// derrick.hcl in the working directory above.
+	if job.DerrickHcl != nil && len(job.DerrickHcl.Contents) > 0 {
+		log.Info("using derrick.hcl associated with the project in the server")
 
 		// ext has the extra extension information for the file. We add
 		// ".json" if this is JSON-formatted.
 		ext := ""
-		if job.WaypointHcl.Format == pb.Hcl_JSON {
+		if job.DerrickHcl.Format == pb.Hcl_JSON {
 			ext = ".json"
 		}
 
 		// We just write this into the working directory.
 		path = filepath.Join(wd, configpkg.Filename+ext)
-		if err := ioutil.WriteFile(path, job.WaypointHcl.Contents, 0644); err != nil {
+		if err := ioutil.WriteFile(path, job.DerrickHcl.Contents, 0644); err != nil {
 			return nil, status.Errorf(codes.Internal,
-				"Failed to write waypoint.hcl from job metadata: %s", err)
+				"Failed to write derrick.hcl from job metadata: %s", err)
 		}
 
 		configInfo.Source = pb.Job_Config_JOB
@@ -90,14 +90,14 @@ func (r *Runner) executeJob(
 
 	// If we still have no path, try to load from the project.
 	if path == "" {
-		log.Trace("waypoint.hcl not found in downloaded data, looking for default in server")
-		if v := resp.Project.WaypointHcl; len(v) > 0 {
-			log.Info("using waypoint.hcl associated with the project in the server")
+		log.Trace("derrick.hcl not found in downloaded data, looking for default in server")
+		if v := resp.Project.DerrickHcl; len(v) > 0 {
+			log.Info("using derrick.hcl associated with the project in the server")
 
 			// ext has the extra extension information for the file. We add
 			// ".json" if this is JSON-formatted.
 			ext := ""
-			if resp.Project.WaypointHclFormat == pb.Hcl_JSON {
+			if resp.Project.DerrickHclFormat == pb.Hcl_JSON {
 				ext = ".json"
 			}
 
@@ -105,19 +105,19 @@ func (r *Runner) executeJob(
 			path = filepath.Join(wd, configpkg.Filename+ext)
 			if err := ioutil.WriteFile(path, v, 0644); err != nil {
 				return nil, status.Errorf(codes.Internal,
-					"Failed to write waypoint.hcl from server: %s", err)
+					"Failed to write derrick.hcl from server: %s", err)
 			}
 
 			configInfo.Source = pb.Job_Config_SERVER
 		} else {
-			log.Trace("waypoint.hcl not found in server data")
+			log.Trace("derrick.hcl not found in server data")
 		}
 	}
 
 	if path == "" {
-		// No waypoint.hcl file is found.
+		// No derrick.hcl file is found.
 		return nil, status.Errorf(codes.FailedPrecondition,
-			"A waypoint.hcl was not found. Please either add a waypoint.hcl to "+
+			"A derrick.hcl was not found. Please either add a derrick.hcl to "+
 				"the project source or in the project settings in the Waypoint UI.")
 	}
 

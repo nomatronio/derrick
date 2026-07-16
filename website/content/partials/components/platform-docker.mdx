@@ -28,7 +28,7 @@ This plugin has no required parameters.
 
 ### Optional Parameters
 
-These parameters are used in the [`use` stanza](/waypoint/docs/waypoint-hcl/use) for this plugin.
+These parameters are used in the [`use` stanza](/waypoint/docs/derrick-hcl/use) for this plugin.
 
 #### auth (category)
 
@@ -101,7 +101,7 @@ A list of folders to mount onto the container from the host. The expected format
 
 Client config for remote Docker engine.
 
-This config block can be used to configure a remote Docker engine. By default Waypoint will attempt to discover this configuration using the environment variables: `DOCKER_HOST` to set the url to the docker server. `DOCKER_API_VERSION` to set the version of the API to reach, leave empty for latest. `DOCKER_CERT_PATH` to load the TLS certificates from. `DOCKER_TLS_VERIFY` to enable or disable TLS verification, off by default.
+This config block can be used to configure a remote Docker engine. By default Derrick will attempt to discover this configuration using the environment variables: `DOCKER_HOST` to set the url to the docker server. `DOCKER_API_VERSION` to set the version of the API to reach, leave empty for latest. `DOCKER_CERT_PATH` to load the TLS certificates from. `DOCKER_TLS_VERIFY` to enable or disable TLS verification, off by default.
 
 - Type: **docker.ClientConfig**
 - **Optional**
@@ -135,7 +135,7 @@ Always pull the docker container from the registry.
 
 A map of key/value pairs to label the docker container with.
 
-A map of key/value pair(s), stored in docker as a string. Each key/value pair must be unique. Validiation occurs at the docker layer, not in Waypoint. Label keys are alphanumeric strings which may contain periods (.) and hyphens (-).
+A map of key/value pair(s), stored in docker as a string. Each key/value pair must be unique. Validiation occurs at the docker layer, not in Derrick. Label keys are alphanumeric strings which may contain periods (.) and hyphens (-).
 
 - Type: **map of string to string**
 - **Optional**
@@ -144,11 +144,11 @@ A map of key/value pair(s), stored in docker as a string. Each key/value pair mu
 
 An list of strings with network names to connect the container to.
 
-A list of networks to connect the container to. By default the container will always connect to the `waypoint` network.
+A list of networks to connect the container to. By default the container will always connect to the `derrick` network.
 
 - Type: **list of string**
 - **Optional**
-- Default: waypoint
+- Default: derrick
 
 #### resources
 
@@ -180,14 +180,14 @@ Port that your service is running on in the container.
 
 Environment variables to expose to the application.
 
-These environment variables should not be run of the mill configuration variables, use waypoint config for that. These variables are used to control over all container modes, such as configuring it to start a web app vs a background worker.
+These environment variables should not be run of the mill configuration variables, use derrick config for that. These variables are used to control over all container modes, such as configuring it to start a web app vs a background worker.
 
 - Type: **map of string to string**
 - **Optional**
 
 ### Output Attributes
 
-Output attributes can be used in your `waypoint.hcl` as [variables](/waypoint/docs/waypoint-hcl/variables) via [`artifact`](/waypoint/docs/waypoint-hcl/variables/artifact) or [`deploy`](/waypoint/docs/waypoint-hcl/variables/deploy).
+Output attributes can be used in your `derrick.hcl` as [variables](/waypoint/docs/derrick-hcl/variables) via [`artifact`](/waypoint/docs/derrick-hcl/variables/artifact) or [`deploy`](/waypoint/docs/derrick-hcl/variables/deploy).
 
 #### container
 

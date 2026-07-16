@@ -16,7 +16,7 @@ import (
 // authenticated trigger URL requests. It should not have any other
 // authorized access to make requests in any other API endpoint.
 //
-// swagger:model hashicorp.waypoint.Token.Trigger
+// swagger:model nomatron.derrick.Token.Trigger
 type HashicorpWaypointTokenTrigger struct {
 
 	// The user that initiated the trigger token generation

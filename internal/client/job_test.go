@@ -6,9 +6,9 @@ import (
 
 	"github.com/hashicorp/go-hclog"
 
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	"github.com/hashicorp/waypoint/pkg/server/grpcmetadata"
-	"github.com/hashicorp/waypoint/pkg/server/singleprocess"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	"github.com/nomatronio/derrick/pkg/server/grpcmetadata"
+	"github.com/nomatronio/derrick/pkg/server/singleprocess"
 
 	"github.com/stretchr/testify/require"
 )

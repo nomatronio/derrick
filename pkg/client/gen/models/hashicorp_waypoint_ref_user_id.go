@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointRefUserID UserId references a user by their ID (ULID-formatted).
 //
-// swagger:model hashicorp.waypoint.Ref.UserId
+// swagger:model nomatron.derrick.Ref.UserId
 type HashicorpWaypointRefUserID struct {
 
 	// id

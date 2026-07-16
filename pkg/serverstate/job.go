@@ -3,8 +3,8 @@ package serverstate
 import (
 	"time"
 
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	"github.com/hashicorp/waypoint/pkg/server/logbuffer"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	"github.com/nomatronio/derrick/pkg/server/logbuffer"
 )
 
 // These variables control the timeouts associated with the job system.

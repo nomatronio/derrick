@@ -15,7 +15,7 @@ import (
 // HashicorpWaypointRefOnDemandRunnerConfig OnDemandRunnerConfig references an OnDemandRunnerConfig value to be used for contextual
 // operation. The reference can by via id or name, with id taking priority if both are set.
 //
-// swagger:model hashicorp.waypoint.Ref.OnDemandRunnerConfig
+// swagger:model nomatron.derrick.Ref.OnDemandRunnerConfig
 type HashicorpWaypointRefOnDemandRunnerConfig struct {
 
 	// id

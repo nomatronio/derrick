@@ -2,18 +2,18 @@
 layout: docs
 page_title: Workspace and Label Scoping - Application Configuration
 description: |-
-  Waypoint allows you to set different configuration values for specific workspaces or labels. For example, you might set a database URL for staging different from production using workspaces, or you might use labels to set different addresses for different regions or any other metadata.
+  Derrick allows you to set different configuration values for specific workspaces or labels. For example, you might set a database URL for staging different from production using workspaces, or you might use labels to set different addresses for different regions or any other metadata.
 ---
 
 # Workspace and Label Scoping
 
-Waypoint allows you to set different configuration values for specific
-[workspaces](/waypoint/docs/workspaces) or [labels](/waypoint/docs/waypoint-hcl/variables/labels).
+Derrick allows you to set different configuration values for specific
+[workspaces](/waypoint/docs/workspaces) or [labels](/waypoint/docs/derrick-hcl/variables/labels).
 For example, you might set a database URL for staging different from production
 using workspaces, or you might use labels to set different addresses for
 different regions or any other metadata.
 
-By default, Waypoint application configuration is exposed to the application
+By default, Derrick application configuration is exposed to the application
 in every scenario. By using the additional scoping constraints described in
 this document, you can limit what configuration values are set in what
 situations.
@@ -51,7 +51,7 @@ variables used.
 
 The `workspace` stanza does not support non-exact workspace matching. However,
 you can use the `label` stanza documented below to do this. All workspaces
-automatically are exposed via the `waypoint/workspace` label and label
+automatically are exposed via the `derrick/workspace` label and label
 selectors support
 [Consul style matching operators](/consul/api-docs/features/filtering#matching-operators)
 such as `contains`, `matches`, etc. For example, you could match all workspaces
@@ -97,7 +97,7 @@ selector.
 ~> **Warning!** This is an advanced use case. Most cases can be satisfied
 using the `workspace` stanza which is much simpler to understand and debug.
 Under the covers, the `workspace` stanza is functionally equivalent to a
-label selector of `waypoint/workspace == <name>`.
+label selector of `derrick/workspace == <name>`.
 
 ## Inheritance
 

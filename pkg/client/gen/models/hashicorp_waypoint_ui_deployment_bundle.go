@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointUIDeploymentBundle A deployment packaged alongside prefetched related messages.
 //
-// swagger:model hashicorp.waypoint.UI.DeploymentBundle
+// swagger:model nomatron.derrick.UI.DeploymentBundle
 type HashicorpWaypointUIDeploymentBundle struct {
 
 	// Populated when a Deployment is read with LoadDetails set

@@ -10,11 +10,11 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	"github.com/hashicorp/waypoint/pkg/server/gen"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	"github.com/nomatronio/derrick/pkg/server/gen"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 type WorkspaceListCommand struct {
@@ -91,15 +91,15 @@ func (c *WorkspaceListCommand) Synopsis() string {
 
 func (c *WorkspaceListCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint workspace list
+Usage: derrick workspace list
 
-  Lists all the known workspaces available to the CLI for the current Waypoint server
+  Lists all the known workspaces available to the CLI for the current Derrick server
   context.
 
 ` + c.Flags().Help())
 }
 
-func getWorkspace(ctx context.Context, client pb.WaypointClient, name string) (*gen.Workspace, error) {
+func getWorkspace(ctx context.Context, client pb.DerrickClient, name string) (*gen.Workspace, error) {
 	resp, err := client.GetWorkspace(ctx, &pb.GetWorkspaceRequest{
 		Workspace: &pb.Ref_Workspace{
 			Workspace: name,

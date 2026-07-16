@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointEntrypointConfigDeploymentInfo hashicorp waypoint entrypoint config deployment info
 //
-// swagger:model hashicorp.waypoint.EntrypointConfig.DeploymentInfo
+// swagger:model nomatron.derrick.EntrypointConfig.DeploymentInfo
 type HashicorpWaypointEntrypointConfigDeploymentInfo struct {
 
 	// component is the deployment plugin information that launched this instance.

@@ -7,8 +7,8 @@ import (
 
 	"github.com/hashicorp/go-hclog"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 func (r *Runner) executePollOp(

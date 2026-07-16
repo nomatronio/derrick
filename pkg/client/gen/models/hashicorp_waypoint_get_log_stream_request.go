@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointGetLogStreamRequest hashicorp waypoint get log stream request
 //
-// swagger:model hashicorp.waypoint.GetLogStreamRequest
+// swagger:model nomatron.derrick.GetLogStreamRequest
 type HashicorpWaypointGetLogStreamRequest struct {
 
 	// Logs for a specific application in a workspace.

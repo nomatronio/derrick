@@ -8,10 +8,10 @@ import (
 	"github.com/dustin/go-humanize"
 	"github.com/golang/protobuf/jsonpb"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 type TaskListCommand struct {
@@ -95,7 +95,7 @@ func (c *TaskListCommand) Run(args []string) int {
 		return 0
 	}
 
-	c.ui.Output("Waypoint On-Demand Runner Tasks", terminal.WithHeaderStyle())
+	c.ui.Output("Derrick On-Demand Runner Tasks", terminal.WithHeaderStyle())
 
 	tblHeaders := []string{"ID", "Run Job Operation", "Pipeline", "Task State", "Project", "Time Created", "Time Completed"}
 	tbl := terminal.NewTable(tblHeaders...)
@@ -240,10 +240,10 @@ func (c *TaskListCommand) Synopsis() string {
 
 func (c *TaskListCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint task list [options]
+Usage: derrick task list [options]
 
-  List all known On-Demand Runner Tasks from Waypoint server. Each task is a
-  Waypoint Job tuple made up of a StartTask, RunTask, and StopTask.
+  List all known On-Demand Runner Tasks from Derrick server. Each task is a
+  Derrick Job tuple made up of a StartTask, RunTask, and StopTask.
 
 ` + c.Flags().Help())
 }

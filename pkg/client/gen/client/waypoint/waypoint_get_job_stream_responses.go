@@ -15,7 +15,7 @@ import (
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 
-	"github.com/hashicorp/waypoint/pkg/client/gen/models"
+	"github.com/nomatronio/derrick/pkg/client/gen/models"
 )
 
 // WaypointGetJobStreamReader is a Reader for the WaypointGetJobStream structure.
@@ -180,7 +180,7 @@ func (o *WaypointGetJobStreamDefault) readResponse(response runtime.ClientRespon
 }
 
 /*
-WaypointGetJobStreamOKBody Stream result of hashicorp.waypoint.GetJobStreamResponse
+WaypointGetJobStreamOKBody Stream result of nomatron.derrick.GetJobStreamResponse
 swagger:model WaypointGetJobStreamOKBody
 */
 type WaypointGetJobStreamOKBody struct {

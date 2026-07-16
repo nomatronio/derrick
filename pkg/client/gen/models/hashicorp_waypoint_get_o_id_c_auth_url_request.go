@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointGetOIDCAuthURLRequest hashicorp waypoint get o ID c auth URL request
 //
-// swagger:model hashicorp.waypoint.GetOIDCAuthURLRequest
+// swagger:model nomatron.derrick.GetOIDCAuthURLRequest
 type HashicorpWaypointGetOIDCAuthURLRequest struct {
 
 	// OIDC auth method to use

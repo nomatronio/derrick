@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointPipelineStep A single step within the pipeline.
 //
-// swagger:model hashicorp.waypoint.Pipeline.Step
+// swagger:model nomatron.derrick.Pipeline.Step
 type HashicorpWaypointPipelineStep struct {
 
 	// Built-in build operation

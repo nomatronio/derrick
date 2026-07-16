@@ -14,7 +14,7 @@ import (
 	"helm.sh/helm/v3/pkg/strvals"
 	"sigs.k8s.io/yaml"
 
-	"github.com/hashicorp/waypoint/builtin/k8s"
+	"github.com/nomatronio/derrick/builtin/k8s"
 )
 
 func (p *Platform) settingsInit() (*cli.EnvSettings, error) {

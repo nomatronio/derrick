@@ -16,7 +16,7 @@ import (
 // HashicorpWaypointJobTaskPluginParams TaskPluginParams contains the information about a specific task plugin
 // that is used by both StartTask and StopTask
 //
-// swagger:model hashicorp.waypoint.Job.TaskPluginParams
+// swagger:model nomatron.derrick.Job.TaskPluginParams
 type HashicorpWaypointJobTaskPluginParams struct {
 
 	// The configuration information for the task. This is HCL that is
@@ -26,7 +26,7 @@ type HashicorpWaypointJobTaskPluginParams struct {
 	HclConfig strfmt.Base64 `json:"hcl_config,omitempty"`
 
 	// hcl format
-	HclFormat *HashicorpWaypointHclFormat `json:"hcl_format,omitempty"`
+	HclFormat *HashicorpDerrickHclFormat `json:"hcl_format,omitempty"`
 
 	// The plugin type to invoke for the task plugin.
 	PluginType string `json:"plugin_type,omitempty"`

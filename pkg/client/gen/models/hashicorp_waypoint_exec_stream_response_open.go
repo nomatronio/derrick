@@ -7,5 +7,5 @@ package models
 
 // HashicorpWaypointExecStreamResponseOpen hashicorp waypoint exec stream response open
 //
-// swagger:model hashicorp.waypoint.ExecStreamResponse.Open
+// swagger:model nomatron.derrick.ExecStreamResponse.Open
 type HashicorpWaypointExecStreamResponseOpen interface{}

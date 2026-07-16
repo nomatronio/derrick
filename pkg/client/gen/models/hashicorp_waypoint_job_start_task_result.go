@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointJobStartTaskResult hashicorp waypoint job start task result
 //
-// swagger:model hashicorp.waypoint.Job.StartTaskResult
+// swagger:model nomatron.derrick.Job.StartTaskResult
 type HashicorpWaypointJobStartTaskResult struct {
 
 	// The state of the create task, used to identify it later.

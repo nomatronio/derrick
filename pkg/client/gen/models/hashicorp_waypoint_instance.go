@@ -18,7 +18,7 @@ import (
 // An instance is only represented if you're using the Waypoint Entrypoint.
 // Otherwise, the Waypoint server will never be notified of running instances.
 //
-// swagger:model hashicorp.waypoint.Instance
+// swagger:model nomatron.derrick.Instance
 type HashicorpWaypointInstance struct {
 
 	// application that this instance belongs to

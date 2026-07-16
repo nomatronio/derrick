@@ -20,17 +20,17 @@ import (
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/hcl/v2"
 	"github.com/hashicorp/hcl/v2/hclwrite"
-	"github.com/hashicorp/waypoint-plugin-sdk/component"
-	"github.com/hashicorp/waypoint-plugin-sdk/docs"
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick-plugin-sdk/component"
+	"github.com/nomatronio/derrick-plugin-sdk/docs"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
 
-	clientpkg "github.com/hashicorp/waypoint/internal/client"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/factory"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	"github.com/hashicorp/waypoint/internal/plugin"
-	"github.com/hashicorp/waypoint/pkg/config/funcs"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	clientpkg "github.com/nomatronio/derrick/internal/client"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/factory"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	"github.com/nomatronio/derrick/internal/plugin"
+	"github.com/nomatronio/derrick/pkg/config/funcs"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 type AppDocsCommand struct {
@@ -346,7 +346,7 @@ func (c *AppDocsCommand) jsonFormat(name, ct string, doc *docs.Documentation) {
 		jMap["optionalFields"] = optional
 
 		if fields := doc.TemplateFields(); len(fields) > 0 {
-			jMap["outputAttrsHelp"] = "Output attributes can be used in your `waypoint.hcl` as [variables](/waypoint/docs/waypoint-hcl/variables) via [`artifact`](/waypoint/docs/waypoint-hcl/variables/artifact) or [`deploy`](/waypoint/docs/waypoint-hcl/variables/deploy)."
+			jMap["outputAttrsHelp"] = "Output attributes can be used in your `derrick.hcl` as [variables](/waypoint/docs/waypoint-hcl/variables) via [`artifact`](/waypoint/docs/waypoint-hcl/variables/artifact) or [`deploy`](/waypoint/docs/waypoint-hcl/variables/deploy)."
 			jMap["outputAttrs"] = fields
 		}
 	}
@@ -417,7 +417,7 @@ func (c *AppDocsCommand) mdxFormat(name, ct string, doc *docs.Documentation) {
 
 	if fields := doc.TemplateFields(); len(fields) > 0 {
 		fmt.Fprintf(w, "\n\n### Output Attributes\n")
-		fmt.Fprintf(w, "\nOutput attributes can be used in your `waypoint.hcl` as [variables](/waypoint/docs/waypoint-hcl/variables) via [`artifact`](/waypoint/docs/waypoint-hcl/variables/artifact) or [`deploy`](/waypoint/docs/waypoint-hcl/variables/deploy).\n\n")
+		fmt.Fprintf(w, "\nOutput attributes can be used in your `derrick.hcl` as [variables](/waypoint/docs/waypoint-hcl/variables) via [`artifact`](/waypoint/docs/waypoint-hcl/variables/artifact) or [`deploy`](/waypoint/docs/waypoint-hcl/variables/deploy).\n\n")
 		for i, f := range fields {
 			c.emitField(w, "####", "", f)
 			endingSpace(w, i, len(fields))
@@ -1268,7 +1268,7 @@ func (c *AppDocsCommand) Synopsis() string {
 
 func (c *AppDocsCommand) Help() string {
 	helpText := `
-Usage: waypoint docs [options]
+Usage: derrick docs [options]
 
 Output documentation about the plugins. By default, it lists the documentation
 for the plugins configured by this project.

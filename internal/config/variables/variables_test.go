@@ -19,9 +19,9 @@ import (
 	"github.com/zclconf/go-cty/cty"
 	"github.com/zclconf/go-cty/cty/convert"
 
-	"github.com/hashicorp/waypoint/internal/appconfig"
-	"github.com/hashicorp/waypoint/internal/plugin"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick/internal/appconfig"
+	"github.com/nomatronio/derrick/internal/plugin"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 func TestVariables_DecodeVariableBlock(t *testing.T) {

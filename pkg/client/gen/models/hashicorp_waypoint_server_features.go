@@ -14,18 +14,18 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// HashicorpWaypointServerFeatures Represents features that the server supports.
+// HashicorpDerrickServerFeatures Represents features that the server supports.
 // Useful for ensuring compatibility between clients and servers.
 //
-// swagger:model hashicorp.waypoint.ServerFeatures
-type HashicorpWaypointServerFeatures struct {
+// swagger:model nomatron.derrick.ServerFeatures
+type HashicorpDerrickServerFeatures struct {
 
 	// features
-	Features []*HashicorpWaypointServerFeaturesFeature `json:"features"`
+	Features []*HashicorpDerrickServerFeaturesFeature `json:"features"`
 }
 
 // Validate validates this hashicorp waypoint server features
-func (m *HashicorpWaypointServerFeatures) Validate(formats strfmt.Registry) error {
+func (m *HashicorpDerrickServerFeatures) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateFeatures(formats); err != nil {
@@ -38,7 +38,7 @@ func (m *HashicorpWaypointServerFeatures) Validate(formats strfmt.Registry) erro
 	return nil
 }
 
-func (m *HashicorpWaypointServerFeatures) validateFeatures(formats strfmt.Registry) error {
+func (m *HashicorpDerrickServerFeatures) validateFeatures(formats strfmt.Registry) error {
 	if swag.IsZero(m.Features) { // not required
 		return nil
 	}
@@ -65,7 +65,7 @@ func (m *HashicorpWaypointServerFeatures) validateFeatures(formats strfmt.Regist
 }
 
 // ContextValidate validate this hashicorp waypoint server features based on the context it is used
-func (m *HashicorpWaypointServerFeatures) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+func (m *HashicorpDerrickServerFeatures) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.contextValidateFeatures(ctx, formats); err != nil {
@@ -78,7 +78,7 @@ func (m *HashicorpWaypointServerFeatures) ContextValidate(ctx context.Context, f
 	return nil
 }
 
-func (m *HashicorpWaypointServerFeatures) contextValidateFeatures(ctx context.Context, formats strfmt.Registry) error {
+func (m *HashicorpDerrickServerFeatures) contextValidateFeatures(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Features); i++ {
 
@@ -99,7 +99,7 @@ func (m *HashicorpWaypointServerFeatures) contextValidateFeatures(ctx context.Co
 }
 
 // MarshalBinary interface implementation
-func (m *HashicorpWaypointServerFeatures) MarshalBinary() ([]byte, error) {
+func (m *HashicorpDerrickServerFeatures) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -107,8 +107,8 @@ func (m *HashicorpWaypointServerFeatures) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *HashicorpWaypointServerFeatures) UnmarshalBinary(b []byte) error {
-	var res HashicorpWaypointServerFeatures
+func (m *HashicorpDerrickServerFeatures) UnmarshalBinary(b []byte) error {
+	var res HashicorpDerrickServerFeatures
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

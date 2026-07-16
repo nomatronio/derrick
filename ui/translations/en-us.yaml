@@ -15,7 +15,7 @@ nav:
   auth: 'Authenticate'
 
 product:
-  name: 'Waypoint'
+  name: 'Derrick'
 
 page:
   app:
@@ -70,7 +70,7 @@ page:
   project:
     deprecation-banner:
       title: Upcoming changes to projects
-      description: More than one app stanza within a waypoint.hcl file is under consideration for change or removal in a future version. If you are interested in more information or providing feedback, visit the link below.
+      description: More than one app stanza within a derrick.hcl file is under consideration for change or removal in a future version. If you are interested in more information or providing feedback, visit the link below.
       link: Upcoming changes to projects
   release:
     title: 'Release'
@@ -134,16 +134,16 @@ form:
     git_source_basic_password_label: 'Password'
     git_sync_label: 'Automated sync'
     git_sync_description_label: 'Enable automated deployment on changes'
-    hcl_title: 'Waypoint.hcl settings'
-    hcl_location: 'waypoint.hcl config location'
+    hcl_title: 'Derrick.hcl settings'
+    hcl_location: 'derrick.hcl config location'
     hcl_location_repo_label: 'Project repository'
-    hcl_location_server_label: 'Waypoint server'
-    hcl_content_helptext: 'Paste or edit your Waypoint configuration here to store it on the server'
-    hcl_content_label: 'waypoint.hcl file'
+    hcl_location_server_label: 'Derrick server'
+    hcl_content_helptext: 'Paste or edit your Derrick configuration here to store it on the server'
+    hcl_content_label: 'derrick.hcl file'
     button: 'Apply'
   project_variables_settings:
     empty_state_heading: 'No input variables configured'
-    empty_state_content: 'Variables defined in your waypoint.hcl file can be assigned a server value here.'
+    empty_state_content: 'Variables defined in your derrick.hcl file can be assigned a server value here.'
     title: 'Input variable'
     button_apply: 'Add variable'
     variable_name: 'Key'
@@ -178,7 +178,7 @@ form:
     button_cancel: 'Cancel'
 
 auth:
-  title: 'Welcome to Waypoint'
+  title: 'Welcome to Derrick'
   subtitle: 'To get started, please authenticate'
   button: 'Authenticate'
   token_link: 'Authenticate with Token'
@@ -186,7 +186,7 @@ auth:
   oidc_docs_link: 'Set up OIDC'
 
 login:
-  title: 'Authenticate Waypoint'
+  title: 'Authenticate Derrick'
   subtitle: 'To get started, authenticate with a token'
   instruction: 'Run this command in the CLI to generate a token'
   input:
@@ -196,8 +196,8 @@ login:
   oidc_link: 'Authenticate with OIDC'
 
 invite_login:
-  title: 'Welcome to Waypoint'
-  subtitle: 'You’ve been invited to join an existing Waypoint instance'
+  title: 'Welcome to Derrick'
+  subtitle: 'You’ve been invited to join an existing Derrick instance'
   cli_subtitle: 'Authenticating via CLI token'
   input:
     label: 'Enter your invite token'
@@ -287,7 +287,7 @@ project-init-running:
     suffix: from the CLI
   more-help:
     prefix: For more help getting started, refer to the
-    link-label: Waypoint documentation
+    link-label: Derrick documentation
 
 project-init-error:
   title:
@@ -296,7 +296,7 @@ project-init-error:
     title: Error
   more-help:
     prefix: For more help getting started, refer to the
-    link-label: Waypoint documentation
+    link-label: Derrick documentation
 
 resource-detail:
   overview:
@@ -321,4 +321,4 @@ workspace-switcher:
 runner-alert:
   title: Remote runner required
   description: In order to connect to a repository, you must install a remote runner first.
-  link: Waypoint Runners documentation
+  link: Derrick Runners documentation

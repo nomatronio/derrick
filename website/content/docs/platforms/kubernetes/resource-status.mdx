@@ -2,14 +2,14 @@
 layout: docs
 page_title: Kubernetes - Resource Status
 description: |-
-  Waypoint tracks the Kubernetes resources created during deployment and can show you their details and health status in the web UI and CLI.
+  Derrick tracks the Kubernetes resources created during deployment and can show you their details and health status in the web UI and CLI.
 ---
 
 # Resource Status
 
-Waypoint tracks the Kubernetes resources created during deployment
+Derrick tracks the Kubernetes resources created during deployment
 and can show you their details and health status in the web UI and CLI.
-This helps show that what Waypoint is doing isn't magic and isn't trying
+This helps show that what Derrick is doing isn't magic and isn't trying
 to hide anything, and lets developers and operators more easily debug
 their deployments when something isn't healthy.
 
@@ -20,12 +20,12 @@ their deployments when something isn't healthy.
 ![Kubernetes Resource Status](/img/k8s-resource-status.png)
 
 You may also view the resource status in the CLI. While in your project
-repository (with a `waypoint.hcl` file), execute `waypoint status`. To
+repository (with a `derrick.hcl` file), execute `derrick status`. To
 view detailed status about a specific app, specify the `-app` flag with
 the name of the application.
 
 ```shell-session
-$ waypoint status -app=my-app my-project
+$ derrick status -app=my-app my-project
 Current status for application "my-app" in project "my-project"
 
 » Application Summary
@@ -44,12 +44,12 @@ Service   	my-app-waypoint-nodejs			kubernetes	UNKNOWN	13 minutes ago
 Deployment	my-app-waypoint-nodejs			kubernetes	UNKNOWN	13 minutes ago
 
 The application and its resources listed above represents its current state known
-in the Waypoint server.
+in the Derrick server.
 ```
 
 ## Refreshing Resource Status
 
-When viewing the resource status in the UI or the CLI, Waypoint by default
+When viewing the resource status in the UI or the CLI, Derrick by default
 will show you the _most recent status report_, but this report may be minutes
 old. You can request a refreshed status report in the CLI by specifying the
 `-refresh` flag. Note that this may cause the `status` operation to take
@@ -57,6 +57,6 @@ anywhere from a few seconds to a few minutes depending on the size of your
 deployment and the load on Kubernetes.
 
 ```shell-session
-$ waypoint status -refresh
+$ derrick status -refresh
 ...
 ```

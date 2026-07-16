@@ -15,9 +15,9 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/component"
-	"github.com/hashicorp/waypoint-plugin-sdk/docs"
-	pb "github.com/hashicorp/waypoint-plugin-sdk/proto/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/component"
+	"github.com/nomatronio/derrick-plugin-sdk/docs"
+	pb "github.com/nomatronio/derrick-plugin-sdk/proto/gen"
 )
 
 var (
@@ -484,7 +484,7 @@ config {
 			"are currently supported.",
 			"If unspecified, all outputs from the workspace will be read",
 			"and returned as a map[string]object, and can be referenced as such",
-			"in the waypoint.hcl. ",
+			"in the derrick.hcl. ",
 			"See https://github.com/hashicorp/waypoint-examples/tree/main/terraform/variables for examples.",
 		),
 	)

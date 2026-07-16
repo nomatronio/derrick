@@ -2,8 +2,8 @@ import { inject as service } from '@ember/service';
 import Component from '@glimmer/component';
 import { task, TaskGenerator } from 'ember-concurrency';
 import { taskFor } from 'ember-concurrency-ts';
-import { Workspace } from 'waypoint-pb';
-import ApiService from 'waypoint/services/api';
+import { Workspace } from 'derrick-pb';
+import ApiService from 'derrick/services/api';
 
 type Args = {
   current?: string;

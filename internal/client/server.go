@@ -12,11 +12,11 @@ import (
 	"google.golang.org/grpc"
 	empty "google.golang.org/protobuf/types/known/emptypb"
 
-	"github.com/hashicorp/waypoint/internal/server"
-	"github.com/hashicorp/waypoint/pkg/protocolversion"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	"github.com/hashicorp/waypoint/pkg/server/singleprocess"
-	"github.com/hashicorp/waypoint/pkg/serverclient"
+	"github.com/nomatronio/derrick/internal/server"
+	"github.com/nomatronio/derrick/pkg/protocolversion"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	"github.com/nomatronio/derrick/pkg/server/singleprocess"
+	"github.com/nomatronio/derrick/pkg/serverclient"
 )
 
 // initServerClient will initialize a gRPC connection to the Waypoint server.
@@ -141,7 +141,7 @@ func (c *Project) initLocalServer(ctx context.Context) (*grpc.ClientConn, error)
 	// Setup our server config. The configuration is specifically set so
 	// so that there is no advertise address which will disable the CEB
 	// completely.
-	client := pb.NewWaypointClient(conn)
+	client := pb.NewDerrickClient(conn)
 	_, err = client.SetServerConfig(ctx, &pb.SetServerConfigRequest{
 		Config: &pb.ServerConfig{
 			AdvertiseAddrs: []*pb.ServerConfig_AdvertiseAddr{

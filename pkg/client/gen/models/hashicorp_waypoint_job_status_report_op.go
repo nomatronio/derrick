@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointJobStatusReportOp hashicorp waypoint job status report op
 //
-// swagger:model hashicorp.waypoint.Job.StatusReportOp
+// swagger:model nomatron.derrick.Job.StatusReportOp
 type HashicorpWaypointJobStatusReportOp struct {
 
 	// The deployment that should be associated with this status report

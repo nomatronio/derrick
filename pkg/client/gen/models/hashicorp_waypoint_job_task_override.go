@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointJobTaskOverride hashicorp waypoint job task override
 //
-// swagger:model hashicorp.waypoint.Job.TaskOverride
+// swagger:model nomatron.derrick.Job.TaskOverride
 type HashicorpWaypointJobTaskOverride struct {
 
 	// Launch info for the task. The environment variables will be merged

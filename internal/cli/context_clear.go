@@ -3,9 +3,9 @@ package cli
 import (
 	"github.com/posener/complete"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
 )
 
 type ContextClearCommand struct {
@@ -58,7 +58,7 @@ func (c *ContextClearCommand) Synopsis() string {
 
 func (c *ContextClearCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint context clear
+Usage: derrick context clear
 
   This unsets any default context.
 
@@ -66,7 +66,7 @@ Usage: waypoint context clear
   a default set: (1) forcing yourself to specify a context to use or
   (2) operating in local (non-server) mode.
 
-  For (2), you may also set the value of the "WAYPOINT_CONTEXT" environment
+  For (2), you may also set the value of the "DERRICK_CONTEXT" environment
   variable to "-" which will force a local mode operation if supported by
   the project.
 

@@ -11,7 +11,7 @@ import (
 	"google.golang.org/grpc/status"
 	"google.golang.org/protobuf/proto"
 
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 var projectBucket = []byte("project")
@@ -460,10 +460,10 @@ func (s *State) projectPut(
 	memTxn *memdb.Txn,
 	value *pb.Project,
 ) error {
-	// This is to prevent mistakes or abuse. Realistically a waypoint.hcl
+	// This is to prevent mistakes or abuse. Realistically a derrick.hcl
 	// file should be MUCH smaller than this so this catches the really big
 	// mistakes.
-	if len(value.WaypointHcl) > projectWaypointHclMaxSize {
+	if len(value.DerrickHcl) > projectDerrickHclMaxSize {
 		return status.Errorf(codes.FailedPrecondition,
 			"project 'waypoint_hcl' exceeds maximum size (5MB)",
 		)
@@ -794,7 +794,7 @@ const (
 	projectIndexNextPollIndexName = "next-poll"
 	appIndexNextPollIndexName     = "app-next-poll"
 
-	projectWaypointHclMaxSize = 5 * 1024 // 5 MB
+	projectDerrickHclMaxSize = 5 * 1024 // 5 MB
 
 	// defaultProjectPollInterval is used by the project poll handler
 	// for setting up a default interval time

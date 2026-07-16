@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointUpdateUserResponse hashicorp waypoint update user response
 //
-// swagger:model hashicorp.waypoint.UpdateUserResponse
+// swagger:model nomatron.derrick.UpdateUserResponse
 type HashicorpWaypointUpdateUserResponse struct {
 
 	// user

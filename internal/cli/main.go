@@ -18,23 +18,23 @@ import (
 	"github.com/mitchellh/cli"
 	"github.com/mitchellh/go-glint"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/env"
-	"github.com/hashicorp/waypoint/internal/pkg/signalcontext"
-	"github.com/hashicorp/waypoint/internal/version"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/env"
+	"github.com/nomatronio/derrick/internal/pkg/signalcontext"
+	"github.com/nomatronio/derrick/internal/version"
 )
 
 const (
 	// EnvLogLevel is the env var to set with the log level.
-	EnvLogLevel = "WAYPOINT_LOG_LEVEL"
+	EnvLogLevel = "DERRICK_LOG_LEVEL"
 
 	// EnvPlain is the env var that can be set to force plain output mode.
-	EnvPlain = "WAYPOINT_PLAIN"
+	EnvPlain = "DERRICK_PLAIN"
 )
 
 var (
 	// cliName is the name of this CLI.
-	cliName = "waypoint"
+	cliName = "derrick"
 
 	// commonCommands are the commands that are deemed "common" and shown first
 	// in the CLI help output.
@@ -130,7 +130,7 @@ func Main(args []string) int {
 		// used by mitchellh/cli will return an untyped error containing this
 		// message. We check here simply to avoid presenting a panic to the user
 		// in the event autocomplete has already been installed.
-		// See https://github.com/hashicorp/waypoint/pull/2986
+		// See https://github.com/nomatronio/derrick/pull/2986
 		if strings.Contains(err.Error(), "already installed") {
 			fmt.Println(err)
 			return 1
@@ -900,7 +900,7 @@ func GroupedHelpFunc(f cli.HelpFunc) cli.HelpFunc {
 
 		// Header
 		d.Append(glint.Style(
-			glint.Text("Welcome to Waypoint"),
+			glint.Text("Welcome to Derrick"),
 			glint.Bold(),
 		))
 		d.Append(glint.Layout(
@@ -909,7 +909,7 @@ func GroupedHelpFunc(f cli.HelpFunc) cli.HelpFunc {
 				glint.Color("lightBlue"),
 			),
 			glint.Text(" "),
-			glint.Text("https://waypointproject.io"),
+			glint.Text("https://derrick.dev"),
 		).Row())
 		d.Append(glint.Layout(
 			glint.Style(
@@ -1007,7 +1007,7 @@ Artifact and build management.
 
 The artifact commands can be used to create new builds, push those
 builds to a registry, etc. The result of a build is known as an artifact.
-Waypoint will search for artifacts to pass to the deployment phase.
+Derrick will search for artifacts to pass to the deployment phase.
 `,
 	},
 
@@ -1017,9 +1017,9 @@ Waypoint will search for artifacts to pass to the deployment phase.
 Auth method management
 
 The auth-method commands can be used to manage how users can authenticate
-into the Waypoint server. For day-to-day Waypoint users, you likely want
+into the Derrick server. For day-to-day Derrick users, you likely want
 to use the "waypoint login" command or "waypoint user" commands. The
-auth-method subcommand is primarily aimed at Waypoint server operators.
+auth-method subcommand is primarily aimed at Derrick server operators.
 `,
 	},
 
@@ -1041,22 +1041,22 @@ end users.
 Manage application configuration.
 
 The config commands can be used to manage the configuration that
-Waypoint will inject into your application via environment variables.
+Derrick will inject into your application via environment variables.
 This can be used to set values such as ports to listen on, database URLs,
 etc.
 
-For more information see: https://waypointproject.io/docs/app-config
+For more information see: https://derrick.dev/docs/app-config
 `,
 	},
 
 	"context": {
 		"Server access configurations",
 		`
-Manage configurations for accessing Waypoint servers.
+Manage configurations for accessing Derrick servers.
 
 A context contains all the configuration to connect to a single Waypoint
-server. The Waypoint CLI can have multiple contexts to make it easy to switch
-between different Waypoint servers.
+server. The Derrick CLI can have multiple contexts to make it easy to switch
+between different Derrick servers.
 `,
 	},
 
@@ -1066,7 +1066,7 @@ between different Waypoint servers.
 Create and manage application deployments.
 
 A deployment is the process of taking an artifact and launching it,
-potentially for public access. Waypoint deployment commands let you create
+potentially for public access. Derrick deployment commands let you create
 new deployments, delete existing ones, list previous deployments, and more.
 `,
 	},
@@ -1074,13 +1074,13 @@ new deployments, delete existing ones, list previous deployments, and more.
 	"hostname": {
 		"Application URLs",
 		`
-Create and manage application URLs powered by the Waypoint URL service.
+Create and manage application URLs powered by the Derrick URL service.
 
-The Waypoint URL service registers publicly routable URLs to access your
+The Derrick URL service registers publicly routable URLs to access your
 deployments. These can be used to share previews with teammates, see
 unreleased deployments, and more.
 
-For more information see: https://waypointproject.io/docs/url
+For more information see: https://derrick.dev/docs/url
 `,
 	},
 
@@ -1096,7 +1096,7 @@ Manage and check the status of jobs in Waypoint.
 		`
 Pipeline config management.
 
-Pipelines are custom defined Waypoint operations that allow you to customize
+Pipelines are custom defined Derrick operations that allow you to customize
 your application delivery experience.
 `,
 	},
@@ -1127,8 +1127,8 @@ entire section.
 		`
 Server management.
 
-The CLI, UI, and entrypoints all communicate to a Waypoint server. A
-Waypoint server is required for logs, exec, config, and more to work.
+The CLI, UI, and entrypoints all communicate to a Derrick server. A
+Derrick server is required for logs, exec, config, and more to work.
 The recommended way to run a server is "waypoint install".
 
 This command contains further subcommands to work with servers.
@@ -1148,7 +1148,7 @@ Manage and check the status of On-Demand Runner Tasks in Waypoint.
 Authenticate and invite collaborators.
 
 Tokens are the primary form of authentication to Waypoint. Everyone who
-accesses a Waypoint server requires a token.
+accesses a Derrick server requires a token.
 
 ` + warnTokenDeprecated,
 	},
@@ -1159,7 +1159,7 @@ accesses a Waypoint server requires a token.
 Trigger URL management.
 
 Trigger URLs are used to execute lifecycle operations for Waypoint. They are configured
-ahead of the execution request, and Waypoint server will generate a configuration
+ahead of the execution request, and Derrick server will generate a configuration
 URL for clients to send a request to execute the operation.
 `,
 	},
@@ -1169,10 +1169,10 @@ URL for clients to send a request to execute the operation.
 		`
 View, manage, and invite users.
 
-Everyone who uses Waypoint is represented as a Waypoint user, including
+Everyone who uses Derrick is represented as a Derrick user, including
 token authentication. This subcommand can be used to inspect information
 about the currently logged in user, generate new access, and invite new
-users directly into the Waypoint server.
+users directly into the Derrick server.
 
 If you are looking to log in to Waypoint, use "waypoint login".
 `,

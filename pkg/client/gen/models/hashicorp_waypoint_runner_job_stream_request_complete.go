@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointRunnerJobStreamRequestComplete hashicorp waypoint runner job stream request complete
 //
-// swagger:model hashicorp.waypoint.RunnerJobStreamRequest.Complete
+// swagger:model nomatron.derrick.RunnerJobStreamRequest.Complete
 type HashicorpWaypointRunnerJobStreamRequestComplete struct {
 
 	// result

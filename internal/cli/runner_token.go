@@ -7,10 +7,10 @@ import (
 
 	"github.com/posener/complete"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 type RunnerTokenCommand struct {
@@ -91,7 +91,7 @@ func (c *RunnerTokenCommand) Synopsis() string {
 
 func (c *RunnerTokenCommand) Help() string {
 	helpText := `
-Usage: waypoint runner token [options]
+Usage: derrick runner token [options]
 
   Generate a new runner token used for runners.
 

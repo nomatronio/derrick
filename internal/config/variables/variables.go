@@ -26,10 +26,10 @@ import (
 	"github.com/zclconf/go-cty/cty/function"
 	"github.com/zclconf/go-cty/cty/gocty"
 
-	"github.com/hashicorp/waypoint/internal/appconfig"
-	"github.com/hashicorp/waypoint/internal/config/dynamic"
-	"github.com/hashicorp/waypoint/internal/config/variables/formatter"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick/internal/appconfig"
+	"github.com/nomatronio/derrick/internal/config/dynamic"
+	"github.com/nomatronio/derrick/internal/config/variables/formatter"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 const (
@@ -82,7 +82,7 @@ var (
 	}
 )
 
-// Variable stores a parsed variable definition from the waypoint.hcl
+// Variable stores a parsed variable definition from the derrick.hcl
 type Variable struct {
 	Name string
 
@@ -108,11 +108,11 @@ type Variable struct {
 	// Description of the variable
 	Description string
 
-	// The location of the variable definition block in the waypoint.hcl
+	// The location of the variable definition block in the derrick.hcl
 	Range hcl.Range
 }
 
-// HclVariable is used when decoding the waypoint.hcl config. Because we use
+// HclVariable is used when decoding the derrick.hcl config. Because we use
 // hclsimple for this decode, we need the `Type` to be evaluated as an hcl
 // expression. When we parse the config, we need `Type` to be evaluated as
 // cty.Type, so this struct is only used for the basic decoding of the file
@@ -301,7 +301,7 @@ func decodeVariableBlock(
 // LoadVariableValues collects values set via the CLI (-var, -varfile) and
 // local env vars (WP_VAR_*) and translates those values to pb.Variables. These
 // pb.Variables can then be set on the job for eventual parsing on the runner,
-// after the runner has decoded the variables defined in the waypoint.hcl.
+// after the runner has decoded the variables defined in the derrick.hcl.
 // All values are set as protobuf strings, with the expectation that later
 // evaluation will convert them to their defined types.
 func LoadVariableValues(vars map[string]string, files []string) ([]*pb.Variable, hcl.Diagnostics) {
@@ -480,7 +480,7 @@ func LoadDynamicDefaults(
 			Summary:  "Error initializing configuration watcher",
 			Detail:   err.Error(),
 			Subject: &hcl.Range{
-				Filename: "waypoint.hcl",
+				Filename: "derrick.hcl",
 			},
 		})
 		return nil, diags
@@ -521,7 +521,7 @@ func LoadDynamicDefaults(
 				Summary:  "Cancellation while waiting for configuration.",
 				Detail:   ctx.Err().Error(),
 				Subject: &hcl.Range{
-					Filename: "waypoint.hcl",
+					Filename: "derrick.hcl",
 				},
 			})
 			return nil, diags
@@ -570,7 +570,7 @@ func LoadDynamicDefaults(
 									err,
 								),
 								Subject: &hcl.Range{
-									Filename: "waypoint.hcl",
+									Filename: "derrick.hcl",
 								},
 							})
 							return nil, diags
@@ -602,12 +602,12 @@ func LoadDynamicDefaults(
 }
 
 // EvaluateVariables evaluates the provided variable values and validates their
-// types per the type declared in the waypoint.hcl for that variable name.
+// types per the type declared in the derrick.hcl for that variable name.
 // The order in which values are evaluated corresponds to their precedence, with
 // higher precedence values overwriting lower precedence values.
 //
 // The supplied map of *Variable should be all defined variables (currently
-// comes from decoding all variable blocks within the waypoint.hcl), and
+// comes from decoding all variable blocks within the derrick.hcl), and
 // is used to validate types and that all variables have at least one
 // assigned value.
 func EvaluateVariables(
@@ -638,10 +638,10 @@ func EvaluateVariables(
 				Summary:  "Undefined variable",
 				Detail: fmt.Sprintf("A %q variable value was set, "+
 					"but was not found in known variables. To declare variable "+
-					"%q, place a variable definition block in your waypoint.hcl file.",
+					"%q, place a variable definition block in your derrick.hcl file.",
 					pbv.Name, pbv.Name),
 				Subject: &hcl.Range{
-					Filename: "waypoint.hcl",
+					Filename: "derrick.hcl",
 				},
 			})
 			continue
@@ -899,7 +899,7 @@ func parseFileValues(filename string, source string) ([]*pb.Variable, hcl.Diagno
 	attrs, moreDiags := f.Body.JustAttributes()
 	diags = append(diags, moreDiags...)
 	// We grab all variables here; we'll later check set variables against the
-	// known variables defined in the waypoint.hcl on the runner when we
+	// known variables defined in the derrick.hcl on the runner when we
 	// consolidate values from local + server
 	for name, attr := range attrs {
 		val, moreDiags := attr.Expr.Value(nil)
@@ -1012,9 +1012,9 @@ func readFileValues(filename string) (*hcl.File, hcl.Diagnostics) {
 				Summary:  "Variable declaration in a wpvars file",
 				Detail: fmt.Sprintf("A wpvars file is used to assign "+
 					"values to variables that have already been declared "+
-					"in the waypoint.hcl, not to declare new variables. To "+
+					"in the derrick.hcl, not to declare new variables. To "+
 					"declare variable %q, place this block in your "+
-					"waypoint.hcl file.\n\nTo set a value for this variable "+
+					"derrick.hcl file.\n\nTo set a value for this variable "+
 					"in %s, use the definition syntax instead:\n    %s = <value>",
 					name, block.TypeRange.Filename, name),
 				Subject: &block.TypeRange,

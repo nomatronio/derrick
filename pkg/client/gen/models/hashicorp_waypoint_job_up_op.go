@@ -18,7 +18,7 @@ import (
 // will be set directly on the Release message (i.e. "build" will be
 // populated in addition to "up").
 //
-// swagger:model hashicorp.waypoint.Job.UpOp
+// swagger:model nomatron.derrick.Job.UpOp
 type HashicorpWaypointJobUpOp struct {
 
 	// Options for the release stage. The "deployment" field in this will

@@ -1,7 +1,7 @@
 package packer
 
 import (
-	sdk "github.com/hashicorp/waypoint-plugin-sdk"
+	sdk "github.com/nomatronio/derrick-plugin-sdk"
 )
 
 var Options = []sdk.Option{

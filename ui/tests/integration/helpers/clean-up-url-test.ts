@@ -7,18 +7,18 @@ module('Integration | Helper | clean-up-url', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it removes https:// from input', async function (assert) {
-    this.set('inputValue', 'https://wildly-intent-honeybee.waypoint.run');
+    this.set('inputValue', 'https://wildly-intent-honeybee.derrick.run');
 
     await render(hbs`{{clean-up-url this.inputValue}}`);
 
-    assert.equal(this.element.textContent?.trim(), 'wildly-intent-honeybee.waypoint.run');
+    assert.equal(this.element.textContent?.trim(), 'wildly-intent-honeybee.derrick.run');
   });
 
   test('it removes http:// from input', async function (assert) {
-    this.set('inputValue', 'http://wildly-intent-honeybee.waypoint.run');
+    this.set('inputValue', 'http://wildly-intent-honeybee.derrick.run');
 
     await render(hbs`{{clean-up-url this.inputValue}}`);
 
-    assert.equal(this.element.textContent?.trim(), 'wildly-intent-honeybee.waypoint.run');
+    assert.equal(this.element.textContent?.trim(), 'wildly-intent-honeybee.derrick.run');
   });
 });

@@ -5,7 +5,7 @@
 
 {{#if this.hintIsVisible}}
 <div class="cli-hint">
-  <p>You can share the following link with anyone you want to give access to this Waypoint instance</p>
+  <p>You can share the following link with anyone you want to give access to this Derrick instance</p>
   <div class="input-wrap">
     <input type="text" id="invite-token" value="{{this.hostname}}/auth/invite?token={{this.token}}" {{did-insert this.selectContents}} {{did-update this.selectContents this.token}} />
     <CopyButton
@@ -18,8 +18,8 @@
     </CopyButton>
     <button class="button button--secondary button--compact" type="button" {{on "click" this.createToken}}><FlightIcon @name="reload" class="icon" /></button>
   </div>
-  <small>To share a Waypoint instance the server must be run in a location that the users can access. <br />
-    <ExternalLink href="https://waypointproject.io/docs">Read more in our documentation</ExternalLink>
+  <small>To share a Derrick instance the server must be run in a location that the users can access. <br />
+    <ExternalLink href="https://derrick.dev/docs">Read more in our documentation</ExternalLink>
   </small>
 </div>
 <div class="cli-hint-overlay" role="button" {{on "click" this.toggleHint}}></div>

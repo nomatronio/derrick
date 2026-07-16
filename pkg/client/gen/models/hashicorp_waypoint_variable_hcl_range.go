@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointVariableHclRange hashicorp waypoint variable hcl range
 //
-// swagger:model hashicorp.waypoint.Variable.HclRange
+// swagger:model nomatron.derrick.Variable.HclRange
 type HashicorpWaypointVariableHclRange struct {
 
 	// end

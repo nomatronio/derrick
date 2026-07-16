@@ -17,7 +17,7 @@ import (
 // An AuthMethod deals with AuthN only: it provides identity and trades
 // that for a Waypoint token.
 //
-// swagger:model hashicorp.waypoint.AuthMethod
+// swagger:model nomatron.derrick.AuthMethod
 type HashicorpWaypointAuthMethod struct {
 
 	// A selector to determine whether a user who authenticates using this

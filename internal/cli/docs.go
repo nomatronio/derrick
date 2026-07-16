@@ -8,7 +8,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
 	"github.com/mitchellh/cli"
 )
 
@@ -92,7 +92,7 @@ description: "%s"
 
 `, capital, name, cmd.Synopsis())
 
-	fmt.Fprintf(w, "# Waypoint %s\n\nCommand: `waypoint %s`\n\n%s\n\n", capital, name, cmd.Synopsis())
+	fmt.Fprintf(w, "# Derrick %s\n\nCommand: `waypoint %s`\n\n%s\n\n", capital, name, cmd.Synopsis())
 
 	descFile := goodName + "_desc.mdx"
 

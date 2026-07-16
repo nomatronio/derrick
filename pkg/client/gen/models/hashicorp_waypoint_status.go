@@ -16,7 +16,7 @@ import (
 
 // HashicorpWaypointStatus Status represents the status of an async operation.
 //
-// swagger:model hashicorp.waypoint.Status
+// swagger:model nomatron.derrick.Status
 type HashicorpWaypointStatus struct {
 
 	// complete_time is the time the operation completed (success or fail).

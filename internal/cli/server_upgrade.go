@@ -15,18 +15,18 @@ import (
 	empty "google.golang.org/protobuf/types/known/emptypb"
 
 	"github.com/hashicorp/go-version"
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
 
-	"github.com/hashicorp/waypoint/builtin/k8s"
-	clientpkg "github.com/hashicorp/waypoint/internal/client"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/clisnapshot"
-	"github.com/hashicorp/waypoint/internal/installutil"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	"github.com/hashicorp/waypoint/internal/runnerinstall"
-	"github.com/hashicorp/waypoint/internal/serverinstall"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	"github.com/hashicorp/waypoint/pkg/serverclient"
+	"github.com/nomatronio/derrick/builtin/k8s"
+	clientpkg "github.com/nomatronio/derrick/internal/client"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/clisnapshot"
+	"github.com/nomatronio/derrick/internal/installutil"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	"github.com/nomatronio/derrick/internal/runnerinstall"
+	"github.com/nomatronio/derrick/internal/serverinstall"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	"github.com/nomatronio/derrick/pkg/serverclient"
 )
 
 type ServerUpgradeCommand struct {
@@ -91,7 +91,7 @@ func (c *ServerUpgradeCommand) Run(args []string) int {
 
 	if !c.confirm {
 		proceed, err := c.ui.Input(&terminal.Input{
-			Prompt: "Would you like to proceed with the Waypoint server upgrade? Only 'yes' will be accepted to approve: ",
+			Prompt: "Would you like to proceed with the Derrick server upgrade? Only 'yes' will be accepted to approve: ",
 			Style:  "",
 			Secret: false,
 		})
@@ -151,7 +151,7 @@ func (c *ServerUpgradeCommand) Run(args []string) int {
 
 	s.Update("Verifying connection is valid for context %q...", ctxName)
 
-	client := pb.NewWaypointClient(conn)
+	client := pb.NewDerrickClient(conn)
 	// validate API compat here with new clientpkg
 	if _, err := clientpkg.New(ctx,
 		clientpkg.WithLogger(c.Log),
@@ -242,7 +242,7 @@ func (c *ServerUpgradeCommand) Run(args []string) int {
 		}
 	}
 
-	c.ui.Output("Waypoint server will now upgrade from version %q",
+	c.ui.Output("Derrick server will now upgrade from version %q",
 		initServerVersion, terminal.WithInfoStyle())
 
 	installOpts := &serverinstall.InstallOpts{
@@ -328,7 +328,7 @@ func (c *ServerUpgradeCommand) Run(args []string) int {
 
 		return 1
 	}
-	client = pb.NewWaypointClient(conn)
+	client = pb.NewDerrickClient(conn)
 
 	resp, err = client.GetVersionInfo(ctx, &empty.Empty{})
 	if err != nil {
@@ -355,7 +355,7 @@ func (c *ServerUpgradeCommand) Run(args []string) int {
 	c.ui.Output("\nServer upgrade for platform %q context %q complete!",
 		c.platform, ctxName, terminal.WithSuccessStyle())
 
-	c.ui.Output("Waypoint has finished upgrading the server to version %q\n",
+	c.ui.Output("Derrick has finished upgrading the server to version %q\n",
 		resp.Info.Version, terminal.WithSuccessStyle())
 
 	c.ui.Output(addrSuccess, advertiseAddr.Addr, "https://"+httpAddr,
@@ -366,7 +366,7 @@ func (c *ServerUpgradeCommand) Run(args []string) int {
 
 func (c *ServerUpgradeCommand) upgradeRunner(
 	ctx context.Context,
-	client pb.WaypointClient,
+	client pb.DerrickClient,
 	p serverinstall.Installer,
 	installOpts *serverinstall.InstallOpts,
 	runnerOpts *runnerinstall.InstallOpts,
@@ -397,7 +397,7 @@ func (c *ServerUpgradeCommand) upgradeRunner(
 		return 0
 	}
 
-	s.Update("Runner found on Waypoint server. Uninstalling previous runner...")
+	s.Update("Runner found on Derrick server. Uninstalling previous runner...")
 	if err := p.UninstallRunner(ctx, runnerOpts); err != nil {
 		c.ui.Output(
 			"Error uninstalling runner from %s: %s\n\n"+
@@ -428,7 +428,7 @@ func (c *ServerUpgradeCommand) upgradeRunner(
 			c.ui.Output(clierrors.Humanize(err), terminal.WithErrorStyle())
 			return 1
 		} else if err != nil && status.Code(err) == codes.NotFound {
-			c.ui.Output("Waypoint runner profile %q not found, creating new profile", runnerConfigName, terminal.WithWarningStyle())
+			c.ui.Output("Derrick runner profile %q not found, creating new profile", runnerConfigName, terminal.WithWarningStyle())
 		} else {
 			ociUrl := odr.OciUrl
 			if ociUrl == "" {
@@ -450,7 +450,7 @@ func (c *ServerUpgradeCommand) upgradeRunner(
 		// Look at the existing on-demand runner configs and let the user know
 		// they should not have multiple defaults
 		// NOTE(briancain): A better way to handle this going forward is to enforce
-		// a single default at the Waypoint state level. That should likely happen
+		// a single default at the Derrick state level. That should likely happen
 		// soon.
 		resp, err := client.ListOnDemandRunnerConfigs(ctx, &empty.Empty{})
 		if err != nil {
@@ -540,13 +540,13 @@ func (c *ServerUpgradeCommand) Flags() *flag.Sets {
 			Name:    "context-name",
 			Target:  &c.contextName,
 			Default: "",
-			Usage:   "Waypoint server context to upgrade.",
+			Usage:   "Derrick server context to upgrade.",
 		})
 		f.StringVar(&flag.StringVar{
 			Name:    "platform",
 			Target:  &c.platform,
 			Default: "",
-			Usage: "Platform to upgrade the Waypoint server from, " +
+			Usage: "Platform to upgrade the Derrick server from, " +
 				"defaults to the platform stored in the context.",
 		})
 		f.StringVar(&flag.StringVar{
@@ -560,7 +560,7 @@ func (c *ServerUpgradeCommand) Flags() *flag.Sets {
 			Name:    "snapshot",
 			Target:  &c.flagSnapshot,
 			Default: true,
-			Usage:   "Enable or disable taking a snapshot of Waypoint server prior to upgrades.",
+			Usage:   "Enable or disable taking a snapshot of Derrick server prior to upgrades.",
 		})
 
 		// Add platforms in alphabetical order. A consistent order is important for repeatable doc generation.
@@ -589,15 +589,15 @@ func (c *ServerUpgradeCommand) AutocompleteFlags() complete.Flags {
 }
 
 func (c *ServerUpgradeCommand) Synopsis() string {
-	return "Upgrades Waypoint server in the current context to the latest version"
+	return "Upgrades Derrick server in the current context to the latest version"
 }
 
 func (c *ServerUpgradeCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint server upgrade [options]
+Usage: derrick server upgrade [options]
 
-  Upgrade Waypoint server in the current context to the latest version or the
-  server image version specified. By default, Waypoint will upgrade to server
+  Upgrade Derrick server in the current context to the latest version or the
+  server image version specified. By default, Derrick will upgrade to server
   version "hashicorp/waypoint:latest". Before upgrading, a snapshot of the
   server will be taken in case of any upgrade failures.
 
@@ -611,7 +611,7 @@ Usage: waypoint server upgrade [options]
 var (
 	defaultSnapshotName = "waypoint-server-snapshot"
 	upgradeConfirmMsg   = strings.TrimSpace(`
-Upgrading Waypoint server requires confirmation.
+Upgrading Derrick server requires confirmation.
 `)
 	platformReqMsg = strings.TrimSpace(`
 A platform is required and must match the server context.
@@ -619,7 +619,7 @@ Rerun the command with '-platform=' and include the platform of the context to
 upgrade.
 `)
 	upgradeFailHelp = strings.TrimSpace(`
-Upgrading Waypoint server has failed. To restore from a snapshot, use the command:
+Upgrading Derrick server has failed. To restore from a snapshot, use the command:
 
 waypoint server restore [snapshot-name]
 
@@ -627,7 +627,7 @@ Where 'snapshot-name' is the name of the snapshot taken prior to the upgrade.
 
 More information can be found by running 'waypoint server restore -help' or
 following the server maintenance guide for backups and restores:
-https://www.waypointproject.io/docs/server/run/maintenance#backup-restore
+https://www.derrick.dev/docs/server/run/maintenance#backup-restore
 `)
 	addrSuccess = strings.TrimSpace(`
 Advertise Address: %[1]s
@@ -641,7 +641,7 @@ waypoint runner profile set -default=false -plugin-type=%[1]s -name=%[2]s
 	runnerDefaultName = "=> %[1]s"
 
 	runnerMultiDefault = strings.TrimSpace(`
-Waypoint expects only one runner profile to be a default. During the upgrade,
+Derrick expects only one runner profile to be a default. During the upgrade,
 we have detected that there are multiple default runner profiles. This can
 cause issues with launching on-demand runner tasks. The following profile names
 have been set to be a default runner profile:
@@ -658,7 +658,7 @@ from being the default:
 Upgrading directly to 0.9.0 is not currently supported via this method on Kubernetes.
 
 You can manually perform the upgrade by taking a snapshot of your Waypoint
-server and restoring the snapshot to a fresh install of Waypoint Server using
+server and restoring the snapshot to a fresh install of Derrick Server using
 the commands:
 
 waypoint server snapshot

@@ -16,7 +16,7 @@ import (
 // HashicorpWaypointVariable Variable stores a variable's value, and metadata to allow for precedence
 // sorting and source-specific error messaging
 //
-// swagger:model hashicorp.waypoint.Variable
+// swagger:model nomatron.derrick.Variable
 type HashicorpWaypointVariable struct {
 
 	// bool

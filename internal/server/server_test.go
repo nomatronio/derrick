@@ -11,11 +11,11 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/component"
+	"github.com/nomatronio/derrick-plugin-sdk/component"
 
-	serverpkg "github.com/hashicorp/waypoint/pkg/server"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	pbmocks "github.com/hashicorp/waypoint/pkg/server/gen/mocks"
+	serverpkg "github.com/nomatronio/derrick/pkg/server"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	pbmocks "github.com/nomatronio/derrick/pkg/server/gen/mocks"
 )
 
 func TestComponentEnum(t *testing.T) {
@@ -31,9 +31,9 @@ func TestComponentEnum(t *testing.T) {
 }
 
 type mockServer struct {
-	pbmocks.WaypointServer
+	pbmocks.DerrickServer
 
-	pb.UnsafeWaypointServer
+	pb.UnsafeDerrickServer
 }
 
 func TestRun_reconnect(t *testing.T) {

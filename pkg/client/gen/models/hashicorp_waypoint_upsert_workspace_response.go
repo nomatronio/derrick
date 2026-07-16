@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointUpsertWorkspaceResponse hashicorp waypoint upsert workspace response
 //
-// swagger:model hashicorp.waypoint.UpsertWorkspaceResponse
+// swagger:model nomatron.derrick.UpsertWorkspaceResponse
 type HashicorpWaypointUpsertWorkspaceResponse struct {
 
 	// workspace

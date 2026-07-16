@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointEntrypointExecRequestOpen hashicorp waypoint entrypoint exec request open
 //
-// swagger:model hashicorp.waypoint.EntrypointExecRequest.Open
+// swagger:model nomatron.derrick.EntrypointExecRequest.Open
 type HashicorpWaypointEntrypointExecRequestOpen struct {
 
 	// index

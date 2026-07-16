@@ -8,14 +8,14 @@ import (
 	"strings"
 	"testing"
 
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	"github.com/hashicorp/waypoint/pkg/serverstate"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	"github.com/nomatronio/derrick/pkg/serverstate"
 )
 
 type (
 	// Factory is the function type used to create a new serverhandler
 	// implementation. To fail, this should fail the test.
-	Factory func(*testing.T) (pb.WaypointClient, TestServerImpl)
+	Factory func(*testing.T) (pb.DerrickClient, TestServerImpl)
 )
 
 // TestServerImpl is a wrapper around a server implementation that allows us
@@ -27,7 +27,7 @@ type TestServerImpl interface {
 	State(ctx context.Context) serverstate.Interface
 }
 
-// Test runs a validation test suite for a pb.WaypointServer implementation.
+// Test runs a validation test suite for a pb.DerrickServer implementation.
 // All server implementations should pass this suite with no errors to ensure
 // the correct behavior of the server.
 // skipTests are function names of tests in the serverstate package to skip

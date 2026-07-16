@@ -12,25 +12,25 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 
-	"github.com/hashicorp/waypoint/pkg/client/gen/models"
+	"github.com/nomatronio/derrick/pkg/client/gen/models"
 )
 
-// WaypointWaypointHclFmtReader is a Reader for the WaypointWaypointHclFmt structure.
-type WaypointWaypointHclFmtReader struct {
+// WaypointDerrickHclFmtReader is a Reader for the WaypointDerrickHclFmt structure.
+type WaypointDerrickHclFmtReader struct {
 	formats strfmt.Registry
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *WaypointWaypointHclFmtReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *WaypointDerrickHclFmtReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
 	case 200:
-		result := NewWaypointWaypointHclFmtOK()
+		result := NewWaypointDerrickHclFmtOK()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
 		return result, nil
 	default:
-		result := NewWaypointWaypointHclFmtDefault(response.Code())
+		result := NewWaypointDerrickHclFmtDefault(response.Code())
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -41,60 +41,60 @@ func (o *WaypointWaypointHclFmtReader) ReadResponse(response runtime.ClientRespo
 	}
 }
 
-// NewWaypointWaypointHclFmtOK creates a WaypointWaypointHclFmtOK with default headers values
-func NewWaypointWaypointHclFmtOK() *WaypointWaypointHclFmtOK {
-	return &WaypointWaypointHclFmtOK{}
+// NewWaypointDerrickHclFmtOK creates a WaypointDerrickHclFmtOK with default headers values
+func NewWaypointDerrickHclFmtOK() *WaypointDerrickHclFmtOK {
+	return &WaypointDerrickHclFmtOK{}
 }
 
 /*
-WaypointWaypointHclFmtOK describes a response with status code 200, with default header values.
+WaypointDerrickHclFmtOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
-type WaypointWaypointHclFmtOK struct {
-	Payload *models.HashicorpWaypointWaypointHclFmtResponse
+type WaypointDerrickHclFmtOK struct {
+	Payload *models.HashicorpWaypointDerrickHclFmtResponse
 }
 
 // IsSuccess returns true when this waypoint waypoint hcl fmt o k response has a 2xx status code
-func (o *WaypointWaypointHclFmtOK) IsSuccess() bool {
+func (o *WaypointDerrickHclFmtOK) IsSuccess() bool {
 	return true
 }
 
 // IsRedirect returns true when this waypoint waypoint hcl fmt o k response has a 3xx status code
-func (o *WaypointWaypointHclFmtOK) IsRedirect() bool {
+func (o *WaypointDerrickHclFmtOK) IsRedirect() bool {
 	return false
 }
 
 // IsClientError returns true when this waypoint waypoint hcl fmt o k response has a 4xx status code
-func (o *WaypointWaypointHclFmtOK) IsClientError() bool {
+func (o *WaypointDerrickHclFmtOK) IsClientError() bool {
 	return false
 }
 
 // IsServerError returns true when this waypoint waypoint hcl fmt o k response has a 5xx status code
-func (o *WaypointWaypointHclFmtOK) IsServerError() bool {
+func (o *WaypointDerrickHclFmtOK) IsServerError() bool {
 	return false
 }
 
 // IsCode returns true when this waypoint waypoint hcl fmt o k response a status code equal to that given
-func (o *WaypointWaypointHclFmtOK) IsCode(code int) bool {
+func (o *WaypointDerrickHclFmtOK) IsCode(code int) bool {
 	return code == 200
 }
 
-func (o *WaypointWaypointHclFmtOK) Error() string {
-	return fmt.Sprintf("[POST /hcl/format][%d] waypointWaypointHclFmtOK  %+v", 200, o.Payload)
+func (o *WaypointDerrickHclFmtOK) Error() string {
+	return fmt.Sprintf("[POST /hcl/format][%d] waypointDerrickHclFmtOK  %+v", 200, o.Payload)
 }
 
-func (o *WaypointWaypointHclFmtOK) String() string {
-	return fmt.Sprintf("[POST /hcl/format][%d] waypointWaypointHclFmtOK  %+v", 200, o.Payload)
+func (o *WaypointDerrickHclFmtOK) String() string {
+	return fmt.Sprintf("[POST /hcl/format][%d] waypointDerrickHclFmtOK  %+v", 200, o.Payload)
 }
 
-func (o *WaypointWaypointHclFmtOK) GetPayload() *models.HashicorpWaypointWaypointHclFmtResponse {
+func (o *WaypointDerrickHclFmtOK) GetPayload() *models.HashicorpWaypointDerrickHclFmtResponse {
 	return o.Payload
 }
 
-func (o *WaypointWaypointHclFmtOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+func (o *WaypointDerrickHclFmtOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.HashicorpWaypointWaypointHclFmtResponse)
+	o.Payload = new(models.HashicorpWaypointDerrickHclFmtResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -104,67 +104,67 @@ func (o *WaypointWaypointHclFmtOK) readResponse(response runtime.ClientResponse,
 	return nil
 }
 
-// NewWaypointWaypointHclFmtDefault creates a WaypointWaypointHclFmtDefault with default headers values
-func NewWaypointWaypointHclFmtDefault(code int) *WaypointWaypointHclFmtDefault {
-	return &WaypointWaypointHclFmtDefault{
+// NewWaypointDerrickHclFmtDefault creates a WaypointDerrickHclFmtDefault with default headers values
+func NewWaypointDerrickHclFmtDefault(code int) *WaypointDerrickHclFmtDefault {
+	return &WaypointDerrickHclFmtDefault{
 		_statusCode: code,
 	}
 }
 
 /*
-WaypointWaypointHclFmtDefault describes a response with status code -1, with default header values.
+WaypointDerrickHclFmtDefault describes a response with status code -1, with default header values.
 
 An unexpected error response.
 */
-type WaypointWaypointHclFmtDefault struct {
+type WaypointDerrickHclFmtDefault struct {
 	_statusCode int
 
 	Payload *models.GrpcGatewayRuntimeError
 }
 
 // Code gets the status code for the waypoint waypoint hcl fmt default response
-func (o *WaypointWaypointHclFmtDefault) Code() int {
+func (o *WaypointDerrickHclFmtDefault) Code() int {
 	return o._statusCode
 }
 
 // IsSuccess returns true when this waypoint waypoint hcl fmt default response has a 2xx status code
-func (o *WaypointWaypointHclFmtDefault) IsSuccess() bool {
+func (o *WaypointDerrickHclFmtDefault) IsSuccess() bool {
 	return o._statusCode/100 == 2
 }
 
 // IsRedirect returns true when this waypoint waypoint hcl fmt default response has a 3xx status code
-func (o *WaypointWaypointHclFmtDefault) IsRedirect() bool {
+func (o *WaypointDerrickHclFmtDefault) IsRedirect() bool {
 	return o._statusCode/100 == 3
 }
 
 // IsClientError returns true when this waypoint waypoint hcl fmt default response has a 4xx status code
-func (o *WaypointWaypointHclFmtDefault) IsClientError() bool {
+func (o *WaypointDerrickHclFmtDefault) IsClientError() bool {
 	return o._statusCode/100 == 4
 }
 
 // IsServerError returns true when this waypoint waypoint hcl fmt default response has a 5xx status code
-func (o *WaypointWaypointHclFmtDefault) IsServerError() bool {
+func (o *WaypointDerrickHclFmtDefault) IsServerError() bool {
 	return o._statusCode/100 == 5
 }
 
 // IsCode returns true when this waypoint waypoint hcl fmt default response a status code equal to that given
-func (o *WaypointWaypointHclFmtDefault) IsCode(code int) bool {
+func (o *WaypointDerrickHclFmtDefault) IsCode(code int) bool {
 	return o._statusCode == code
 }
 
-func (o *WaypointWaypointHclFmtDefault) Error() string {
-	return fmt.Sprintf("[POST /hcl/format][%d] Waypoint_WaypointHclFmt default  %+v", o._statusCode, o.Payload)
+func (o *WaypointDerrickHclFmtDefault) Error() string {
+	return fmt.Sprintf("[POST /hcl/format][%d] Waypoint_DerrickHclFmt default  %+v", o._statusCode, o.Payload)
 }
 
-func (o *WaypointWaypointHclFmtDefault) String() string {
-	return fmt.Sprintf("[POST /hcl/format][%d] Waypoint_WaypointHclFmt default  %+v", o._statusCode, o.Payload)
+func (o *WaypointDerrickHclFmtDefault) String() string {
+	return fmt.Sprintf("[POST /hcl/format][%d] Waypoint_DerrickHclFmt default  %+v", o._statusCode, o.Payload)
 }
 
-func (o *WaypointWaypointHclFmtDefault) GetPayload() *models.GrpcGatewayRuntimeError {
+func (o *WaypointDerrickHclFmtDefault) GetPayload() *models.GrpcGatewayRuntimeError {
 	return o.Payload
 }
 
-func (o *WaypointWaypointHclFmtDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+func (o *WaypointDerrickHclFmtDefault) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.GrpcGatewayRuntimeError)
 

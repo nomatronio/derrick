@@ -4,9 +4,9 @@ import (
 	"context"
 
 	"github.com/hashicorp/go-hclog"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	"github.com/hashicorp/waypoint/pkg/server/hcerr"
-	"github.com/hashicorp/waypoint/pkg/serverstate"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	"github.com/nomatronio/derrick/pkg/server/hcerr"
+	"github.com/nomatronio/derrick/pkg/serverstate"
 )
 
 func (s *Service) UI_ListReleases(

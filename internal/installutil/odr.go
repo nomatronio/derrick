@@ -5,7 +5,7 @@ import (
 
 	"github.com/distribution/distribution/v3/reference"
 
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 // DeriveDefaultODRImage returns the default Waypoint ODR image based on the

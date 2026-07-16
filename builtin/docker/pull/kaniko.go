@@ -12,10 +12,10 @@ import (
 	"github.com/docker/cli/cli/command/image/build"
 	"github.com/docker/distribution/reference"
 	"github.com/hashicorp/go-hclog"
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	wpdocker "github.com/hashicorp/waypoint/builtin/docker"
-	"github.com/hashicorp/waypoint/internal/assets"
-	"github.com/hashicorp/waypoint/internal/pkg/epinject/ociregistry"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	wpdocker "github.com/nomatronio/derrick/builtin/docker"
+	"github.com/nomatronio/derrick/internal/assets"
+	"github.com/nomatronio/derrick/internal/pkg/epinject/ociregistry"
 	"github.com/pkg/errors"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
@@ -43,7 +43,7 @@ func (b *Builder) pullWithKaniko(
 
 	// destinationProxy is the OCI Proxy server that the Kaniko process will push the
 	// resulting docker container to. It authenticates and proxies the image to
-	// the location specified in the build->registry block of a waypoint.hcl file.
+	// the location specified in the build->registry block of a derrick.hcl file.
 	var destinationProxy ociregistry.Server
 	// localRef represents the destination of the resulting image for use with
 	// Kaniko

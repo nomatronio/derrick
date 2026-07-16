@@ -31,4 +31,11 @@ Nomatron Ltd modifications to this fork are tracked in this repository. All chan
 
 ## Rename Status
 
-The product is named **Derrick**. The codebase still uses Waypoint naming (binary, module path, HCL filename) until a dedicated rename milestone. See `README.md` for current build instructions.
+The product is named **Derrick**. As of version **0.1.0**, the codebase uses Derrick naming (binary, module path, HCL filename, env vars, and gRPC API). Waypoint naming is retained only in this fork provenance document and NOTICE attribution.
+
+## Derrick Release Line
+
+| Version | Notes |
+|---------|-------|
+| v0.11.4 (fork point) | Last HashiCorp Waypoint CE release under MPL 2.0 |
+| v0.1.0+ | Derrick-branded open-core releases |

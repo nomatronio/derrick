@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointRefAuthMethod AuthMethod references an auth method.
 //
-// swagger:model hashicorp.waypoint.Ref.AuthMethod
+// swagger:model nomatron.derrick.Ref.AuthMethod
 type HashicorpWaypointRefAuthMethod struct {
 
 	// name

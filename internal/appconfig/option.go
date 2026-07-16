@@ -5,7 +5,7 @@ import (
 
 	"github.com/hashicorp/go-hclog"
 
-	"github.com/hashicorp/waypoint/internal/plugin"
+	"github.com/nomatronio/derrick/internal/plugin"
 )
 
 // Option is used to configure NewWatcher.

@@ -10,9 +10,9 @@ import (
 	"google.golang.org/grpc/reflection"
 	empty "google.golang.org/protobuf/types/known/emptypb"
 
-	"github.com/hashicorp/waypoint/pkg/inlinekeepalive"
-	"github.com/hashicorp/waypoint/pkg/server"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick/pkg/inlinekeepalive"
+	"github.com/nomatronio/derrick/pkg/server"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 type grpcServer struct {
@@ -101,7 +101,7 @@ func (s *grpcServer) start() error {
 	reflection.Register(s.server)
 
 	// Register our server
-	pb.RegisterWaypointServer(s.server, s.opts.Service)
+	pb.RegisterDerrickServer(s.server, s.opts.Service)
 	// Serve traffic
 	ln := s.opts.GRPCListener
 	s.log.Info("starting gRPC server", "addr", ln.Addr().String())

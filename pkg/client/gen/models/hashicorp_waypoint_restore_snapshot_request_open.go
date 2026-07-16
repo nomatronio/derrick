@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointRestoreSnapshotRequestOpen hashicorp waypoint restore snapshot request open
 //
-// swagger:model hashicorp.waypoint.RestoreSnapshotRequest.Open
+// swagger:model nomatron.derrick.RestoreSnapshotRequest.Open
 type HashicorpWaypointRestoreSnapshotRequestOpen struct {
 
 	// If true, the server will exit after the restore is staged. This will

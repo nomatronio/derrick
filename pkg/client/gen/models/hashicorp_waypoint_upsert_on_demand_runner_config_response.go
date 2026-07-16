@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointUpsertOnDemandRunnerConfigResponse hashicorp waypoint upsert on demand runner config response
 //
-// swagger:model hashicorp.waypoint.UpsertOnDemandRunnerConfigResponse
+// swagger:model nomatron.derrick.UpsertOnDemandRunnerConfigResponse
 type HashicorpWaypointUpsertOnDemandRunnerConfigResponse struct {
 
 	// The resulting ondemand runner value. It should replace the one that was

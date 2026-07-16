@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointCancelJobRequest hashicorp waypoint cancel job request
 //
-// swagger:model hashicorp.waypoint.CancelJobRequest
+// swagger:model nomatron.derrick.CancelJobRequest
 type HashicorpWaypointCancelJobRequest struct {
 
 	// Forcefully attempt to cancel the job

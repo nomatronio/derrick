@@ -30,7 +30,7 @@ type Client struct {
 
 	// AuthToken is the token to use to authenticate to the server.
 	// Note this will be stored plaintext on disk. You can also use the
-	// WAYPOINT_SERVER_TOKEN env var.
+	// DERRICK_SERVER_TOKEN env var.
 	AuthToken string `hcl:"auth_token,optional" json:"auth_token,omitempty"`
 
 	// The platform for where the server is running. Although this option should
@@ -43,13 +43,13 @@ type Client struct {
 // that will authenticate to the server without a context set.
 func (c *Client) EnvMap() map[string]string {
 	result := map[string]string{
-		"WAYPOINT_SERVER_ADDR":            c.Address,
-		"WAYPOINT_SERVER_TLS":             strconv.FormatBool(c.Tls),
-		"WAYPOINT_SERVER_TLS_SKIP_VERIFY": strconv.FormatBool(c.TlsSkipVerify),
+		"DERRICK_SERVER_ADDR":            c.Address,
+		"DERRICK_SERVER_TLS":             strconv.FormatBool(c.Tls),
+		"DERRICK_SERVER_TLS_SKIP_VERIFY": strconv.FormatBool(c.TlsSkipVerify),
 	}
 
 	if c.RequireAuth {
-		result["WAYPOINT_SERVER_TOKEN"] = c.AuthToken
+		result["DERRICK_SERVER_TOKEN"] = c.AuthToken
 	}
 
 	return result

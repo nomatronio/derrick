@@ -18,7 +18,7 @@ import (
 // added later this allows the default to just work.
 //   - ENTRYPOINT: Entrypoint logs.
 //
-// swagger:model hashicorp.waypoint.LogBatch.Entry.Source
+// swagger:model nomatron.derrick.LogBatch.Entry.Source
 type HashicorpWaypointLogBatchEntrySource string
 
 func NewHashicorpWaypointLogBatchEntrySource(value HashicorpWaypointLogBatchEntrySource) *HashicorpWaypointLogBatchEntrySource {

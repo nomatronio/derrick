@@ -5,9 +5,9 @@ sidebar_title: 'server bootstrap'
 description: 'Bootstrap the server and retrieve the initial auth token'
 ---
 
-# Waypoint Server bootstrap
+# Derrick Server bootstrap
 
-Command: `waypoint server bootstrap`
+Command: `derrick server bootstrap`
 
 Bootstrap the server and retrieve the initial auth token
 
@@ -15,7 +15,7 @@ Bootstrap the server and retrieve the initial auth token
 
 ## Usage
 
-Usage: `waypoint server bootstrap [options]`
+Usage: `derrick server bootstrap [options]`
 
 Bootstrap a new server and retrieve the initial auth token.
 
@@ -25,7 +25,7 @@ auth token for the server. After the auth token is retrieved, it can never
 be bootstrapped again.
 
 This command is only required for manually run servers. For servers
-installed with "waypoint install", the bootstrap is done automatically
+installed with "derrick install", the bootstrap is done automatically
 during the install process.
 
 The easiest way to run this command against a new server is by using
@@ -35,7 +35,7 @@ a CLI context by default.
 #### Global Options
 
 - `-plain` - Plain output: no colors, no animation. The default is false.
-- `-app=<string>` (`-a`) - App to target. Certain commands require a single app target for Waypoint configurations with multiple apps. If you have a single app, then this can be ignored.
+- `-app=<string>` (`-a`) - App to target. Certain commands require a single app target for Derrick configurations with multiple apps. If you have a single app, then this can be ignored.
 - `-project=<string>` (`-p`) - Project to target.
 - `-workspace=<string>` (`-w`) - Workspace to operate in.
 

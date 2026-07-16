@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointUpsertPipelineResponse hashicorp waypoint upsert pipeline response
 //
-// swagger:model hashicorp.waypoint.UpsertPipelineResponse
+// swagger:model nomatron.derrick.UpsertPipelineResponse
 type HashicorpWaypointUpsertPipelineResponse struct {
 
 	// This is the inserted/updated pipeline. This may not match the

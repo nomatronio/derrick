@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointStatusFilterFilter hashicorp waypoint status filter filter
 //
-// swagger:model hashicorp.waypoint.StatusFilter.Filter
+// swagger:model nomatron.derrick.StatusFilter.Filter
 type HashicorpWaypointStatusFilterFilter struct {
 
 	// state will match any status that has the given state.

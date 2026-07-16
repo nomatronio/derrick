@@ -1,6 +1,6 @@
 import Controller from '@ember/controller';
 import { tracked } from '@glimmer/tracking';
-import { Deployment } from 'waypoint-pb';
+import { Deployment } from 'derrick-pb';
 import { action } from '@ember/object';
 
 export default class extends Controller {

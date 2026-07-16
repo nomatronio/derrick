@@ -7,7 +7,7 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/hashicorp/waypoint/internal/config"
+	"github.com/nomatronio/derrick/internal/config"
 )
 
 func TestNewProject(t *testing.T) {

@@ -3,10 +3,10 @@ package cli
 import (
 	"strings"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 type ProjectDestroyCommand struct {
@@ -86,7 +86,7 @@ func (c *ProjectDestroyCommand) Flags() *flag.Sets {
 
 		f.BoolVar(&flag.BoolVar{
 			Name:    "skip-destroy-resources",
-			Usage:   "Skips destroying resources created for the Waypoint project.",
+			Usage:   "Skips destroying resources created for the Derrick project.",
 			Default: false,
 			Target:  &c.skipDestroyResources,
 		})
@@ -106,7 +106,7 @@ func (c *ProjectDestroyCommand) Synopsis() string {
 
 func (c *ProjectDestroyCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint project destroy [options] -p <project>
+Usage: derrick project destroy [options] -p <project>
 
   Delete the project and all resources created for all apps in the project, within
   the platform each app was deployed to.

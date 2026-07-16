@@ -14,57 +14,57 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// HashicorpWaypointHclFormat HCL files can be in either HCL or JSON syntax. We need to know ahead of
+// HashicorpDerrickHclFormat HCL files can be in either HCL or JSON syntax. We need to know ahead of
 // time in order to parse it properly. We could perform heuristics but
 // we prefer to be explicit.
 //
-// swagger:model hashicorp.waypoint.Hcl.Format
-type HashicorpWaypointHclFormat string
+// swagger:model nomatron.derrick.Hcl.Format
+type HashicorpDerrickHclFormat string
 
-func NewHashicorpWaypointHclFormat(value HashicorpWaypointHclFormat) *HashicorpWaypointHclFormat {
+func NewHashicorpDerrickHclFormat(value HashicorpDerrickHclFormat) *HashicorpDerrickHclFormat {
 	return &value
 }
 
-// Pointer returns a pointer to a freshly-allocated HashicorpWaypointHclFormat.
-func (m HashicorpWaypointHclFormat) Pointer() *HashicorpWaypointHclFormat {
+// Pointer returns a pointer to a freshly-allocated HashicorpDerrickHclFormat.
+func (m HashicorpDerrickHclFormat) Pointer() *HashicorpDerrickHclFormat {
 	return &m
 }
 
 const (
 
-	// HashicorpWaypointHclFormatHCL captures enum value "HCL"
-	HashicorpWaypointHclFormatHCL HashicorpWaypointHclFormat = "HCL"
+	// HashicorpDerrickHclFormatHCL captures enum value "HCL"
+	HashicorpDerrickHclFormatHCL HashicorpDerrickHclFormat = "HCL"
 
-	// HashicorpWaypointHclFormatJSON captures enum value "JSON"
-	HashicorpWaypointHclFormatJSON HashicorpWaypointHclFormat = "JSON"
+	// HashicorpDerrickHclFormatJSON captures enum value "JSON"
+	HashicorpDerrickHclFormatJSON HashicorpDerrickHclFormat = "JSON"
 )
 
 // for schema
-var hashicorpWaypointHclFormatEnum []interface{}
+var hashicorpDerrickHclFormatEnum []interface{}
 
 func init() {
-	var res []HashicorpWaypointHclFormat
+	var res []HashicorpDerrickHclFormat
 	if err := json.Unmarshal([]byte(`["HCL","JSON"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
-		hashicorpWaypointHclFormatEnum = append(hashicorpWaypointHclFormatEnum, v)
+		hashicorpDerrickHclFormatEnum = append(hashicorpDerrickHclFormatEnum, v)
 	}
 }
 
-func (m HashicorpWaypointHclFormat) validateHashicorpWaypointHclFormatEnum(path, location string, value HashicorpWaypointHclFormat) error {
-	if err := validate.EnumCase(path, location, value, hashicorpWaypointHclFormatEnum, true); err != nil {
+func (m HashicorpDerrickHclFormat) validateHashicorpDerrickHclFormatEnum(path, location string, value HashicorpDerrickHclFormat) error {
+	if err := validate.EnumCase(path, location, value, hashicorpDerrickHclFormatEnum, true); err != nil {
 		return err
 	}
 	return nil
 }
 
 // Validate validates this hashicorp waypoint hcl format
-func (m HashicorpWaypointHclFormat) Validate(formats strfmt.Registry) error {
+func (m HashicorpDerrickHclFormat) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	// value enum
-	if err := m.validateHashicorpWaypointHclFormatEnum("", "body", m); err != nil {
+	if err := m.validateHashicorpDerrickHclFormatEnum("", "body", m); err != nil {
 		return err
 	}
 
@@ -75,6 +75,6 @@ func (m HashicorpWaypointHclFormat) Validate(formats strfmt.Registry) error {
 }
 
 // ContextValidate validates this hashicorp waypoint hcl format based on context it is used
-func (m HashicorpWaypointHclFormat) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+func (m HashicorpDerrickHclFormat) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }

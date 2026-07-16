@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointPipelineStepExec hashicorp waypoint pipeline step exec
 //
-// swagger:model hashicorp.waypoint.Pipeline.Step.Exec
+// swagger:model nomatron.derrick.Pipeline.Step.Exec
 type HashicorpWaypointPipelineStepExec struct {
 
 	// args

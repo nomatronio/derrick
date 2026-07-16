@@ -11,12 +11,12 @@ import (
 	"google.golang.org/grpc/status"
 	"google.golang.org/protobuf/types/known/timestamppb"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/component"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/component"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 
-	"github.com/hashicorp/waypoint/internal/appconfig"
-	"github.com/hashicorp/waypoint/internal/ceb/execwriter"
-	"github.com/hashicorp/waypoint/internal/plugin"
+	"github.com/nomatronio/derrick/internal/appconfig"
+	"github.com/nomatronio/derrick/internal/ceb/execwriter"
+	"github.com/nomatronio/derrick/internal/plugin"
 )
 
 // ExecInfo contains values to run an exec session.
@@ -66,7 +66,7 @@ type Config struct {
 
 	// How to connect back to the server. Because Virtual is usually used in the context
 	// of a Runner, this can be the same Client the Runner is using.
-	Client pb.WaypointClient
+	Client pb.DerrickClient
 
 	// Support Dynamic Config
 	EnableDynamicConfig bool

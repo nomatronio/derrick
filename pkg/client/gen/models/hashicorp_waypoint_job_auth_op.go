@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointJobAuthOp AuthOp is the configuration to authenticate any plugins.
 //
-// swagger:model hashicorp.waypoint.Job.AuthOp
+// swagger:model nomatron.derrick.Job.AuthOp
 type HashicorpWaypointJobAuthOp struct {
 
 	// if true, auth will only be checked but not attempted. Currently

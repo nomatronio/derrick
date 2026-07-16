@@ -4,8 +4,8 @@ import (
 	"context"
 	"strconv"
 
-	"github.com/hashicorp/waypoint/internal/server/execclient"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick/internal/server/execclient"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 func (c *Project) Validate(ctx context.Context, op *pb.Job_ValidateOp) (*pb.Job_ValidateResult, error) {

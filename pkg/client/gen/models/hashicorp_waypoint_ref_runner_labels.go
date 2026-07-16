@@ -15,7 +15,7 @@ import (
 // HashicorpWaypointRefRunnerLabels RunnerLabels references a runner by labels.
 // The labels can be a subset match or an exact match.
 //
-// swagger:model hashicorp.waypoint.Ref.RunnerLabels
+// swagger:model nomatron.derrick.Ref.RunnerLabels
 type HashicorpWaypointRefRunnerLabels struct {
 
 	// labels

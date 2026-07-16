@@ -80,7 +80,7 @@ func SetupTestProject(templateDir string) (projectName string, projectDir string
 		return "", "", errors.Wrapf(err, "failed to copy %s to %s", templateDir, tempDir)
 	}
 
-	waypointHclFilePath := tempDir + "/waypoint.hcl"
+	waypointHclFilePath := tempDir + "/derrick.hcl"
 
 	hclContents, err := ioutil.ReadFile(waypointHclFilePath)
 	if err != nil {

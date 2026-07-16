@@ -10,7 +10,7 @@ import (
 
 	ulidpkg "github.com/oklog/ulid"
 
-	"github.com/hashicorp/waypoint/pkg/serverstate"
+	"github.com/nomatronio/derrick/pkg/serverstate"
 )
 
 type (

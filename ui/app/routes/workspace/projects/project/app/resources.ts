@@ -1,8 +1,8 @@
-import { DeploymentExtended, ReleaseExtended } from 'waypoint/services/api';
-import { Breadcrumb } from 'waypoint/services/breadcrumbs';
+import { DeploymentExtended, ReleaseExtended } from 'derrick/services/api';
+import { Breadcrumb } from 'derrick/services/breadcrumbs';
 import { Model as AppRouteModel } from '../app';
 import Route from '@ember/routing/route';
-import { StatusReport } from 'waypoint-pb';
+import { StatusReport } from 'derrick-pb';
 
 type Model = {
   resources: ResourceMap[];

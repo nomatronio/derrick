@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointUpsertOnDemandRunnerConfigRequest hashicorp waypoint upsert on demand runner config request
 //
-// swagger:model hashicorp.waypoint.UpsertOnDemandRunnerConfigRequest
+// swagger:model nomatron.derrick.UpsertOnDemandRunnerConfigRequest
 type HashicorpWaypointUpsertOnDemandRunnerConfigRequest struct {
 
 	// ondemand_runner to upsert. If the id is empty, then this is an insert,

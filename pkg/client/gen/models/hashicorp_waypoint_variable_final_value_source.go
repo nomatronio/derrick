@@ -17,7 +17,7 @@ import (
 // HashicorpWaypointVariableFinalValueSource  - UNKNOWN: This is the final used value's source
 // that is supplied to the user in outputs.
 //
-// swagger:model hashicorp.waypoint.Variable.FinalValue.Source
+// swagger:model nomatron.derrick.Variable.FinalValue.Source
 type HashicorpWaypointVariableFinalValueSource string
 
 func NewHashicorpWaypointVariableFinalValueSource(value HashicorpWaypointVariableFinalValueSource) *HashicorpWaypointVariableFinalValueSource {

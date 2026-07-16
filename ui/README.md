@@ -1,4 +1,4 @@
-# waypoint
+# derrick
 
 This README outlines the details of collaborating on this Ember application.
 A short introduction of this app could easily go here.
@@ -16,15 +16,15 @@ You will need the following things properly installed on your computer.
 
 ## Installation
 
-- `cd waypoint/ui`
+- `cd derrick/ui`
 - `yarn install`
 
 ## Testing UI Changes
 
 If you are trying out UI changes on a pull request and don't want to run Ember
-locally, you can build the static assets and compile it into Waypoint server.
+locally, you can build the static assets and compile it into Derrick server.
 
-Run the following commands to build the UI and compile it into Waypoint Server:
+Run the following commands to build the UI and compile it into Derrick Server:
 
 ```shell
 cd ui
@@ -45,7 +45,7 @@ There are two modes of development.
 
 This returns data in-browser with Mirage.js (a mocking framework)
 active. This means that the network requests will be intercepted
-and return [mocked objects](https://github.com/hashicorp/waypoint/tree/master/ui/mirage/services)
+and return [mocked objects](https://github.com/nomatronio/derrick/tree/master/ui/mirage/services)
 that are static and are re-loaded on page refresh.
 
 - `ember serve`
@@ -56,25 +56,25 @@ Troubleshooting:
 
 - If you run into issues with `ember serve`, try deleting the directory `ui/node_modules/`, rerunning `yarn install`, and rerunning an `ember serve`.
 
-### Running with a local Waypoint Server
+### Running with a local Derrick Server
 
-This option assumes there is a Waypoint server running
+This option assumes there is a Derrick server running
 at `https://localhost:9702`, which you can verify by visiting https://localhost:9702 in the browser. 
 
 If you need to make any API changes to go along
 with frontend changes, or just wish to run the server locally, you can follow
-the instructions to run [Waypoint server locally](https://www.waypointproject.io/docs/server/run).
+the instructions to run [Derrick server locally](https://www.derrick.dev/docs/server/run).
 
 - Visit https://localhost:9702, and accept the invalid certificate warning.
 - `ember serve local` 
 - The app will be available at [http://localhost:4200](http://localhost:4200). Make sure that you are in the same browser session (e.g. a new tab) where you accepted the invalid certificate warning above.
-- When prompted for a token, run `waypoint user token` in the command line, and enter the response. 
+- When prompted for a token, run `derrick user token` in the command line, and enter the response. 
 
 If you need to build the server and run it locally, you'll want to stop the existing instance, build and reinstall it in docker:
 
-- `docker stop waypoint-server; docker rm waypoint-server; docker volume prune -f`
+- `docker stop derrick-server; docker rm derrick-server; docker volume prune -f`
 - `make docker/server`
-- `waypoint install -platform=docker -docker-server-image="waypoint:dev" -accept-tos`
+- `derrick install -platform=docker -docker-server-image="derrick:dev" -accept-tos`
 
 Then run the authentication steps above again.
 

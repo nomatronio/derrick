@@ -19,7 +19,7 @@ import failUnhandledRequest from './helpers/fail-unhandled-request';
 import { logRequestConsole } from './utils';
 
 export default function (this: Server): void {
-  this.namespace = 'hashicorp.waypoint.Waypoint';
+  this.namespace = 'nomatron.derrick.Derrick';
   this.urlPrefix = '/grpc';
   this.timing = 0;
 

@@ -7,15 +7,15 @@ import (
 	"github.com/posener/complete"
 	empty "google.golang.org/protobuf/types/known/emptypb"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
 
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/installutil"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	"github.com/hashicorp/waypoint/internal/runnerinstall"
-	"github.com/hashicorp/waypoint/pkg/server"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	"github.com/hashicorp/waypoint/pkg/serverconfig"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/installutil"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	"github.com/nomatronio/derrick/internal/runnerinstall"
+	"github.com/nomatronio/derrick/pkg/server"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	"github.com/nomatronio/derrick/pkg/serverconfig"
 )
 
 type RunnerInstallCommand struct {
@@ -52,15 +52,15 @@ func (c *RunnerInstallCommand) Flags() *flag.Sets {
 
 		f.EnumVar(&flag.EnumVar{
 			Name:   "platform",
-			Usage:  "Platform to install the Waypoint runner into. If unset, uses the platform of the local context.",
+			Usage:  "Platform to install the Derrick runner into. If unset, uses the platform of the local context.",
 			Values: sortedPlatformNames,
 			Target: &c.platform,
 		})
 
 		f.StringVar(&flag.StringVar{
 			Name:   "server-addr",
-			Usage:  "Address of the Waypoint server.",
-			EnvVar: "WAYPOINT_ADDR",
+			Usage:  "Address of the Derrick server.",
+			EnvVar: "DERRICK_ADDR",
 			Target: &c.serverUrl,
 		})
 
@@ -113,13 +113,13 @@ func (c *RunnerInstallCommand) Flags() *flag.Sets {
 
 func (c *RunnerInstallCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint runner install [options]
+Usage: derrick runner install [options]
 
-  Install a Waypoint runner to the specified platform: kubernetes, nomad, ecs, 
+  Install a Derrick runner to the specified platform: kubernetes, nomad, ecs, 
   or docker.
 
   This command will attempt to install a runner for the server configured in 
-  the current Waypoint context. It will adopt the runner after installation, 
+  the current Derrick context. It will adopt the runner after installation, 
   unless the '-skip-adopt' flag is set to true.
 
   To further customize the runner installation, you may pass advanced flag
@@ -135,7 +135,7 @@ Usage: waypoint runner install [options]
 }
 
 func (c *RunnerInstallCommand) Synopsis() string {
-	return "Install a Waypoint runner to Kubernetes, Nomad, ECS, or Docker"
+	return "Install a Derrick runner to Kubernetes, Nomad, ECS, or Docker"
 }
 
 func (c *RunnerInstallCommand) Run(args []string) int {

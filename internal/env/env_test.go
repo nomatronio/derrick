@@ -6,7 +6,7 @@ import (
 )
 
 func TestGetBool(t *testing.T) {
-	envVarTestKey := "WAYPOINT_GET_ENV_BOOL_TEST"
+	envVarTestKey := "DERRICK_GET_ENV_BOOL_TEST"
 
 	tests := []struct {
 		name       string

@@ -9,10 +9,10 @@ import (
 	"github.com/stretchr/testify/require"
 	"google.golang.org/protobuf/types/known/timestamppb"
 
-	"github.com/hashicorp/waypoint/pkg/server"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	"github.com/hashicorp/waypoint/pkg/server/grpcmetadata"
-	serverptypes "github.com/hashicorp/waypoint/pkg/server/ptypes"
+	"github.com/nomatronio/derrick/pkg/server"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	"github.com/nomatronio/derrick/pkg/server/grpcmetadata"
+	serverptypes "github.com/nomatronio/derrick/pkg/server/ptypes"
 )
 
 func init() {
@@ -34,7 +34,7 @@ func TestServiceGetLogStreamCases(t *testing.T, factory Factory) {
 	}
 
 	mkinsts := func(
-		t *testing.T, ctx context.Context, client pb.WaypointClient, cnt int,
+		t *testing.T, ctx context.Context, client pb.DerrickClient, cnt int,
 	) ([]*instLog, *pb.Deployment) {
 		// pb.Waypoint_EntrypointLogStreamClient, string) {
 		// Register our instances

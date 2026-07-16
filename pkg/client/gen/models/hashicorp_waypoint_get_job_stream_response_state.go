@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointGetJobStreamResponseState hashicorp waypoint get job stream response state
 //
-// swagger:model hashicorp.waypoint.GetJobStreamResponse.State
+// swagger:model nomatron.derrick.GetJobStreamResponse.State
 type HashicorpWaypointGetJobStreamResponseState struct {
 
 	// canceling is true if the job was requested to be canceled.

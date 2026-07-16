@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
-import { Project, Variable } from 'waypoint-pb';
+import { Project, Variable } from 'derrick-pb';
 import { inject as service } from '@ember/service';
 
 interface VariableArgs {

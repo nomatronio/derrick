@@ -1,7 +1,7 @@
 package docker
 
 import (
-	sdk "github.com/hashicorp/waypoint-plugin-sdk"
+	sdk "github.com/nomatronio/derrick-plugin-sdk"
 )
 
 //go:generate protoc -I ../../.. -I ../../thirdparty/proto/opaqueany --go_out=../../.. --go-grpc_out=../../.. waypoint/builtin/docker/plugin.proto

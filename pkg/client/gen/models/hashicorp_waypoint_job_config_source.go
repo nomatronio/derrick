@@ -17,17 +17,17 @@ import (
 // HashicorpWaypointJobConfigSource Source is the location where the configuration was loaded from.
 //
 //   - UNKNOWN: Unknown should never be set, but represents a zero value.
-//   - FILE: File is when the waypoint.hcl was loaded from a file either
+//   - FILE: File is when the derrick.hcl was loaded from a file either
 //
 // on disk (local actions) or the attached repository (GitOps).
-//   - SERVER: Server is when the waypoint.hcl was loaded from the server
+//   - SERVER: Server is when the derrick.hcl was loaded from the server
 //
 // from being written directly in the project settings.
-//   - JOB: Job is when the waypoint.hcl was loaded directly from the job by
+//   - JOB: Job is when the derrick.hcl was loaded directly from the job by
 //
-// being embedded in the "waypoint_hcl" field (tag 12).
+// being embedded in the "derrick_hcl" field (tag 12).
 //
-// swagger:model hashicorp.waypoint.Job.Config.Source
+// swagger:model nomatron.derrick.Job.Config.Source
 type HashicorpWaypointJobConfigSource string
 
 func NewHashicorpWaypointJobConfigSource(value HashicorpWaypointJobConfigSource) *HashicorpWaypointJobConfigSource {

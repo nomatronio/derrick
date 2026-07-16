@@ -14,13 +14,13 @@ import (
 	empty "google.golang.org/protobuf/types/known/emptypb"
 	"google.golang.org/protobuf/types/known/timestamppb"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/pkg/server"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	"github.com/hashicorp/waypoint/pkg/server/hcerr"
-	serverptypes "github.com/hashicorp/waypoint/pkg/server/ptypes"
-	"github.com/hashicorp/waypoint/pkg/serverconfig"
-	"github.com/hashicorp/waypoint/pkg/serverstate"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/pkg/server"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	"github.com/nomatronio/derrick/pkg/server/hcerr"
+	serverptypes "github.com/nomatronio/derrick/pkg/server/ptypes"
+	"github.com/nomatronio/derrick/pkg/serverconfig"
+	"github.com/nomatronio/derrick/pkg/serverstate"
 )
 
 func (s *Service) GetJob(
@@ -499,7 +499,7 @@ func (s *Service) onDemandRunnerStartJob(
 		AuthToken:     token,
 	}
 	envVars := scfg.EnvMap()
-	envVars["WAYPOINT_RUNNER_ID"] = runnerId
+	envVars["DERRICK_RUNNER_ID"] = runnerId
 
 	// Add any env vars that our profile overrides
 	for k, v := range od.EnvironmentVariables {

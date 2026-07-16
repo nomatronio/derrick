@@ -1,8 +1,8 @@
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
-import ApiService from 'waypoint/services/api';
-import { UpsertProjectRequest, UpsertProjectResponse, Project, Hcl } from 'waypoint-pb';
-import { WaypointClient } from 'waypoint-client';
+import ApiService from 'derrick/services/api';
+import { UpsertProjectRequest, UpsertProjectResponse, Project, Hcl } from 'derrick-pb';
+import { DerrickClient } from 'derrick-client';
 
 module('Unit | Service | api', function (hooks) {
   setupTest(hooks);
@@ -14,7 +14,7 @@ module('Unit | Service | api', function (hooks) {
       let project = projectObject({
         dataSource: {
           git: {
-            url: 'https://github.com/hashicorp/waypoint-examples',
+            url: 'https://github.com/nomatronio/derrick-examples',
             ref: 'head',
             path: '',
             ignoreChangesOutsidePath: true,
@@ -45,22 +45,22 @@ module('Unit | Service | api', function (hooks) {
 });
 
 /**
- * Mocks out the `upsertProject` method on a WaypointClient instance.
+ * Mocks out the `upsertProject` method on a DerrickClient instance.
  *
  * Yes we could use a library like Sinon, but things get complicated making all
  * that work with TypeScript.
  *
- * @param client {WaypointClient}
+ * @param client {DerrickClient}
  * @returns {MockResult} object that records interactions with upsertProject
  */
-function setupMockUpsertProject(client: WaypointClient): MockResult {
+function setupMockUpsertProject(client: DerrickClient): MockResult {
   let result: MockResult = {};
   let upsertProject = (request: UpsertProjectRequest, _meta: never) => {
     result.request = request;
     return Promise.resolve(new UpsertProjectResponse());
   };
 
-  client.upsertProject = upsertProject as WaypointClient['upsertProject'];
+  client.upsertProject = upsertProject as DerrickClient['upsertProject'];
 
   return result;
 }
@@ -82,8 +82,8 @@ function projectObject(attrs: Partial<Project.AsObject>): Project.AsObject {
     name: 'test-project',
     remoteEnabled: false,
     variablesList: [],
-    waypointHcl: '',
-    waypointHclFormat: Hcl.Format.HCL,
+    derrickHcl: '',
+    derrickHclFormat: Hcl.Format.HCL,
     ...attrs,
   };
 }

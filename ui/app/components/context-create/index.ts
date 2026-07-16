@@ -1,8 +1,8 @@
 import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
-import ApiService from 'waypoint/services/api';
+import ApiService from 'derrick/services/api';
 import { tracked } from '@glimmer/tracking';
-import { LoginTokenRequest } from 'waypoint-pb';
+import { LoginTokenRequest } from 'derrick-pb';
 
 type Args = Record<string, never>;
 

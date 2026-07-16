@@ -7,8 +7,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/hashicorp/waypoint/internal/installutil"
-	"github.com/hashicorp/waypoint/internal/runnerinstall"
+	"github.com/nomatronio/derrick/internal/installutil"
+	"github.com/nomatronio/derrick/internal/runnerinstall"
 
 	"github.com/hashicorp/go-hclog"
 	"github.com/posener/complete"
@@ -17,15 +17,15 @@ import (
 	"google.golang.org/grpc/status"
 	empty "google.golang.org/protobuf/types/known/emptypb"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clicontext"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	"github.com/hashicorp/waypoint/internal/serverinstall"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	"github.com/hashicorp/waypoint/pkg/serverclient"
-	"github.com/hashicorp/waypoint/pkg/serverconfig"
-	"github.com/hashicorp/waypoint/pkg/tokenutil"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clicontext"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	"github.com/nomatronio/derrick/internal/serverinstall"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	"github.com/nomatronio/derrick/pkg/serverclient"
+	"github.com/nomatronio/derrick/pkg/serverconfig"
+	"github.com/nomatronio/derrick/pkg/tokenutil"
 )
 
 type InstallCommand struct {
@@ -150,14 +150,14 @@ func (c *InstallCommand) Run(args []string) int {
 			if p == "Ecs" {
 				p = strings.ToUpper(p)
 			}
-			sr.Update("Successfully connected to Waypoint server in %s!", p)
+			sr.Update("Successfully connected to Derrick server in %s!", p)
 			sr.Status(terminal.StatusOK)
 			sr.Done()
 			break
 		}
 
 		if retries >= maxRetries {
-			sr.Update("Failed to connect to Waypoint server after max retry attempts of %d", maxRetries)
+			sr.Update("Failed to connect to Derrick server after max retry attempts of %d", maxRetries)
 			sr.Status(terminal.StatusError)
 			sr.Done()
 			break
@@ -184,14 +184,14 @@ func (c *InstallCommand) Run(args []string) int {
 		// the user in case we fail on the "Retrieving initial auth token..." series
 		// Prior to this change, if we failed to retrieve the auth token, the resolved
 		// step with the error message would appear _before_ the above "Successfully connected
-		// to Waypoint server!" message and that is confusing
+		// to Derrick server!" message and that is confusing
 		s.Update("Configured server connection")
 		s.Status(terminal.StatusOK)
 		s.Done()
 		s = sg.Add("")
 	}
 
-	client := pb.NewWaypointClient(conn)
+	client := pb.NewDerrickClient(conn)
 
 	s.Update("Retrieving initial auth token...")
 
@@ -262,7 +262,7 @@ func (c *InstallCommand) Run(args []string) int {
 				)
 				return 1
 			}
-			client := pb.NewWaypointClient(conn)
+			client := pb.NewDerrickClient(conn)
 			// TODO: ideally we need a `GetVersionInfo` with auth for this, but for
 			// now we use this func as it requires authentication
 			_, err = client.GetServerConfig(ctx, &empty.Empty{})
@@ -341,7 +341,7 @@ func (c *InstallCommand) Run(args []string) int {
 		)
 		return 1
 	}
-	client = pb.NewWaypointClient(conn)
+	client = pb.NewDerrickClient(conn)
 
 	// Set the config
 	s.Update("Configuring server...")
@@ -421,7 +421,7 @@ func (c *InstallCommand) Flags() *flag.Sets {
 			Name:    "platform",
 			Target:  &c.platform,
 			Default: "",
-			Usage:   "Platform to install the Waypoint server into.",
+			Usage:   "Platform to install the Derrick server into.",
 		})
 
 		f.BoolVar(&flag.BoolVar{
@@ -458,18 +458,18 @@ func (c *InstallCommand) AutocompleteFlags() complete.Flags {
 }
 
 func (c *InstallCommand) Synopsis() string {
-	return "Install the Waypoint server to Kubernetes, Nomad, ECS, or Docker"
+	return "Install the Derrick server to Kubernetes, Nomad, ECS, or Docker"
 }
 
 func (c *InstallCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint server install [options]
+Usage: derrick server install [options]
 Alias: waypoint install
 
-  Installs a Waypoint server to an existing platform. The platform should be
+  Installs a Derrick server to an existing platform. The platform should be
   specified as kubernetes, nomad, ecs, or docker.
 
-  This will also install a single Waypoint runner by default. This enables
+  This will also install a single Derrick runner by default. This enables
   remote operations out of the box, such as polling a Git repository. This can
   be disabled by specifying "-runner=false".
 
@@ -477,9 +477,9 @@ Alias: waypoint install
   (see "waypoint context") so the CLI will be configured to use the newly
   installed server.
 
-  This command will require you to accept the Waypoint Terms of Service
-  and Privacy Policy for the Waypoint URL service by specifying the "-accept-tos"
-  flag. This only applies to the Waypoint URL service. You may disable the
+  This command will require you to accept the Derrick Terms of Service
+  and Privacy Policy for the Derrick URL service by specifying the "-accept-tos"
+  flag. This only applies to the Derrick URL service. You may disable the
   URL service by manually running the server. If you disable the URL service,
   you do not need to accept any terms.
 
@@ -504,7 +504,7 @@ Alias: waypoint install
 // error. The function itself handles outputting error messages to the terminal.
 func installRunner(ctx context.Context,
 	log hclog.Logger,
-	client pb.WaypointClient,
+	client pb.DerrickClient,
 	ui terminal.UI,
 	p serverinstall.Installer,
 	advertiseAddr *pb.ServerConfig_AdvertiseAddr,
@@ -619,33 +619,33 @@ func installRunner(ctx context.Context,
 
 var (
 	errInstallRunning = strings.TrimSpace(`
-The Waypoint server has been deployed, but due to this error we were
-unable to automatically configure the local CLI or the Waypoint server
+The Derrick server has been deployed, but due to this error we were
+unable to automatically configure the local CLI or the Derrick server
 advertise address. You must do this manually using "waypoint context"
 and "waypoint server config-set".
 `)
 
 	errInstallToken = strings.TrimSpace(`
-Waypoint CLI attempted to use the default context auth token to connect
-to Waypoint Server due to the server token bootstrap step failing.
+Derrick CLI attempted to use the default context auth token to connect
+to Derrick Server due to the server token bootstrap step failing.
 `)
 
 	errInstallRunner = strings.TrimSpace(`
-The Waypoint runner failed to install. This error occurred after the
-Waypoint server was successfully installed. Your CLI is configured to
+The Derrick runner failed to install. This error occurred after the
+Derrick server was successfully installed. Your CLI is configured to
 use the installed server. If you want to retry, you must uninstall the
 server first.
 `)
 
 	errNoValidContext = strings.TrimSpace(`
-Waypoint has detected that the server has already been deployed and bootstrapped.
+Derrick has detected that the server has already been deployed and bootstrapped.
 However, the current context used to restart the server is not configured
 to authenticate to the current server. If there is a valid context, switch
 to it using "waypoint context use".
 `)
 
 	outInstallSuccess = strings.TrimSpace(`
-Waypoint server successfully installed and configured!
+Derrick server successfully installed and configured!
 
 The CLI has been configured to connect to the server automatically. This
 connection information is saved in the CLI context named %[1]q.

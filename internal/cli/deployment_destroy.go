@@ -9,11 +9,11 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	clientpkg "github.com/hashicorp/waypoint/internal/client"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	clientpkg "github.com/nomatronio/derrick/internal/client"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 type DeploymentDestroyCommand struct {
@@ -213,7 +213,7 @@ func (c *DeploymentDestroyCommand) Synopsis() string {
 
 func (c *DeploymentDestroyCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint deployment destroy [options] [id...]
+Usage: derrick deployment destroy [options] [id...]
 
   Destroy one or more deployments. This will "undeploy" this specific
   instance of an application.

@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointRefOperationSeq OperationSeq references an operation by sequence number.
 //
-// swagger:model hashicorp.waypoint.Ref.OperationSeq
+// swagger:model nomatron.derrick.Ref.OperationSeq
 type HashicorpWaypointRefOperationSeq struct {
 
 	// application

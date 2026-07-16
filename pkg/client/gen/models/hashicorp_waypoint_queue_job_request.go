@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointQueueJobRequest hashicorp waypoint queue job request
 //
-// swagger:model hashicorp.waypoint.QueueJobRequest
+// swagger:model nomatron.derrick.QueueJobRequest
 type HashicorpWaypointQueueJobRequest struct {
 
 	// Set an expiration duration. If the job is not assigned and acked

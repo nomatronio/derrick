@@ -1,5 +1,5 @@
 import { Model } from 'miragejs';
-import { OIDCAuthMethod } from 'waypoint-pb';
+import { OIDCAuthMethod } from 'derrick-pb';
 
 export default Model.extend({
   toProtobuf(): OIDCAuthMethod {

@@ -6,10 +6,10 @@ import (
 
 	"github.com/posener/complete"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 type ConfigSourceGetCommand struct {
@@ -227,7 +227,7 @@ func (c *ConfigSourceGetCommand) Synopsis() string {
 
 func (c *ConfigSourceGetCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint config source-get [options]
+Usage: derrick config source-get [options]
 
   Get the configuration for a dynamic configuration source plugin.
 

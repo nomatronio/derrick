@@ -13,12 +13,12 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	"github.com/hashicorp/waypoint/internal/plugin"
-	runnerpkg "github.com/hashicorp/waypoint/internal/runner"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	"github.com/hashicorp/waypoint/pkg/serverclient"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	"github.com/nomatronio/derrick/internal/plugin"
+	runnerpkg "github.com/nomatronio/derrick/internal/runner"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	"github.com/nomatronio/derrick/pkg/serverclient"
 )
 
 type RunnerAgentCommand struct {
@@ -92,19 +92,19 @@ func (c *RunnerAgentCommand) Run(args []string) int {
 	}
 
 	// Connect to the server
-	log.Info("sourcing credentials and connecting to the Waypoint server")
+	log.Info("sourcing credentials and connecting to the Derrick server")
 	conn, err := serverclient.Connect(ctx,
 		serverclient.FromContext(c.contextStorage, ""),
 		serverclient.FromEnv(),
 	)
 	if err != nil {
 		c.ui.Output(
-			"Error connecting to the Waypoint server: %s", err.Error(),
+			"Error connecting to the Derrick server: %s", err.Error(),
 			terminal.WithErrorStyle(),
 		)
 		return 1
 	}
-	client := pb.NewWaypointClient(conn)
+	client := pb.NewDerrickClient(conn)
 
 	// Build the values we'll show in the runner config table
 	infoValues := []terminal.NamedValue{
@@ -399,7 +399,7 @@ func (c *RunnerAgentCommand) Synopsis() string {
 
 func (c *RunnerAgentCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint runner agent [options]
+Usage: derrick runner agent [options]
 
   Run a remote runner for executing remote operations.
 
@@ -409,7 +409,7 @@ Usage: waypoint runner agent [options]
 
   A runner can be registered with the server in two ways. First, a
   runner token can be created with "waypoint runner token" and used with
-  this command (using the WAYPOINT_SERVER_TOKEN environment variable,
+  this command (using the DERRICK_SERVER_TOKEN environment variable,
   "waypoint context", etc.). This will allow the runner to begin accepting
   jobs immediately since it is preauthorized.
 

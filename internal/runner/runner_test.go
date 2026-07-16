@@ -13,9 +13,9 @@ import (
 	"google.golang.org/grpc/status"
 	empty "google.golang.org/protobuf/types/known/emptypb"
 
-	serverpkg "github.com/hashicorp/waypoint/pkg/server"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	"github.com/hashicorp/waypoint/pkg/server/singleprocess"
+	serverpkg "github.com/nomatronio/derrick/pkg/server"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	"github.com/nomatronio/derrick/pkg/server/singleprocess"
 )
 
 func TestRunnerStart(t *testing.T) {
@@ -762,7 +762,7 @@ func TestRunner_stateId(t *testing.T) {
 	require.Equal(id, runner2.Id())
 }
 
-func testCookie(t *testing.T, c pb.WaypointClient) string {
+func testCookie(t *testing.T, c pb.DerrickClient) string {
 	resp, err := c.GetServerConfig(context.Background(), &empty.Empty{})
 	require.NoError(t, err)
 	return resp.Config.Cookie

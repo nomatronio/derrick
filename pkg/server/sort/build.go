@@ -3,7 +3,7 @@ package sort
 import (
 	"sort"
 
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 // BuildStartDesc sorts builds by start time descending (most recent first).

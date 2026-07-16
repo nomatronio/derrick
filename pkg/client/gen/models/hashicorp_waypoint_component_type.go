@@ -18,7 +18,7 @@ import (
 // in the Go sdk/component package exactly. A test in internal/server
 // validates this.
 //
-// swagger:model hashicorp.waypoint.Component.Type
+// swagger:model nomatron.derrick.Component.Type
 type HashicorpWaypointComponentType string
 
 func NewHashicorpWaypointComponentType(value HashicorpWaypointComponentType) *HashicorpWaypointComponentType {

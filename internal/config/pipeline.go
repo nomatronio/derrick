@@ -6,8 +6,8 @@ import (
 
 	"github.com/hashicorp/hcl/v2"
 	"github.com/hashicorp/hcl/v2/gohcl"
-	"github.com/hashicorp/waypoint-plugin-sdk/component"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/component"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 // Pipeline represents a single pipeline definition
@@ -42,7 +42,7 @@ type Step struct {
 
 	// If set, this step will depend on the defined step. The default step
 	// will be the previously defined step in order that it was defined
-	// in a waypoint.hcl
+	// in a derrick.hcl
 	DependsOn []string `hcl:"depends_on,optional"`
 
 	// The OCI image to use for executing this step

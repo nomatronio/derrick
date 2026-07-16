@@ -6,10 +6,10 @@ import (
 	"github.com/posener/complete"
 	empty "google.golang.org/protobuf/types/known/emptypb"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 type AuthMethodListCommand struct {
@@ -78,12 +78,12 @@ func (c *AuthMethodListCommand) Synopsis() string {
 
 func (c *AuthMethodListCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint auth-method list
+Usage: derrick auth-method list
 
-  List all the auth methods configured with the Waypoint server.
+  List all the auth methods configured with the Derrick server.
 
-  This will list all the ways that a user can log in to the Waypoint server.
-  For most day-to-day Waypoint users, this doesn't provide much value. You
+  This will list all the ways that a user can log in to the Derrick server.
+  For most day-to-day Derrick users, this doesn't provide much value. You
   can use the results of this command with "waypoint login" to target a
   specific auth method. However, if there is only one auth method other than "token", then
   "waypoint login" automatically uses that method.

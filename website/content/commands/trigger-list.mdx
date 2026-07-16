@@ -5,9 +5,9 @@ sidebar_title: 'trigger list'
 description: 'List registered trigger URL configurations.'
 ---
 
-# Waypoint Trigger list
+# Derrick Trigger list
 
-Command: `waypoint trigger list`
+Command: `derrick trigger list`
 
 List registered trigger URL configurations.
 
@@ -15,14 +15,14 @@ List registered trigger URL configurations.
 
 ## Usage
 
-Usage: `waypoint trigger list [options]`
+Usage: `derrick trigger list [options]`
 
-List trigger URL configurations on Waypoint Server.
+List trigger URL configurations on Derrick Server.
 
 #### Global Options
 
 - `-plain` - Plain output: no colors, no animation. The default is false.
-- `-app=<string>` (`-a`) - App to target. Certain commands require a single app target for Waypoint configurations with multiple apps. If you have a single app, then this can be ignored.
+- `-app=<string>` (`-a`) - App to target. Certain commands require a single app target for Derrick configurations with multiple apps. If you have a single app, then this can be ignored.
 - `-project=<string>` (`-p`) - Project to target.
 - `-workspace=<string>` (`-w`) - Workspace to operate in.
 
@@ -30,7 +30,7 @@ List trigger URL configurations on Waypoint Server.
 
 - `-label=<key=value>` - Labels to set for this operation. Can be specified multiple times.
 - `-local` - True to use a local runner to execute the operation, false to use a remote runner.
-  If unset, Waypoint will automatically determine where the operation will occur,
+  If unset, Derrick will automatically determine where the operation will occur,
   defaulting to remote if possible.
 - `-remote-source=<key=value>` - Override configurations for how remote runners source data. This is specified to the data source type being used in your configuration. This is used for example to set a specific Git ref to run against.
 - `-var=<key=value>` - Variable value to set for this operation. Can be specified multiple times.

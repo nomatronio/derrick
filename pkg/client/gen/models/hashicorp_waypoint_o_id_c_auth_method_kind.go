@@ -16,7 +16,7 @@ import (
 
 // HashicorpWaypointOIDCAuthMethodKind hashicorp waypoint o ID c auth method kind
 //
-// swagger:model hashicorp.waypoint.OIDCAuthMethod.Kind
+// swagger:model nomatron.derrick.OIDCAuthMethod.Kind
 type HashicorpWaypointOIDCAuthMethodKind string
 
 func NewHashicorpWaypointOIDCAuthMethodKind(value HashicorpWaypointOIDCAuthMethodKind) *HashicorpWaypointOIDCAuthMethodKind {

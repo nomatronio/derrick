@@ -14,15 +14,15 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/util/wait"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clicontext"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	"github.com/hashicorp/waypoint/internal/pkg/k8sauth"
-	wpoidc "github.com/hashicorp/waypoint/pkg/auth/oidc"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	"github.com/hashicorp/waypoint/pkg/serverclient"
-	"github.com/hashicorp/waypoint/pkg/serverconfig"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clicontext"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	"github.com/nomatronio/derrick/internal/pkg/k8sauth"
+	wpoidc "github.com/nomatronio/derrick/pkg/auth/oidc"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	"github.com/nomatronio/derrick/pkg/serverclient"
+	"github.com/nomatronio/derrick/pkg/serverconfig"
 )
 
 type LoginCommand struct {
@@ -393,7 +393,7 @@ func (c *LoginCommand) k8sServerAddr(ctx context.Context) (string, error) {
 
 		// Only show this once.
 		if !waitOut {
-			c.ui.Output("Waiting for the Waypoint service to become ready...")
+			c.ui.Output("Waiting for the Derrick service to become ready...")
 			waitOut = true
 		}
 
@@ -411,7 +411,7 @@ func (c *LoginCommand) k8sServerAddr(ctx context.Context) (string, error) {
 	// this isn't configurable so this is always correct.
 	advertiseAddr += ":" + serverconfig.DefaultGRPCPort
 
-	c.ui.Output("Waypoint server URL: %s", advertiseAddr)
+	c.ui.Output("Derrick server URL: %s", advertiseAddr)
 	return advertiseAddr, nil
 }
 
@@ -435,10 +435,10 @@ func (c *LoginCommand) Flags() *flag.Sets {
 		f.BoolVar(&flag.BoolVar{
 			Name:   "from-kubernetes",
 			Target: &c.flagK8S,
-			Usage: "Perform the initial authentication after Waypoint is installed " +
+			Usage: "Perform the initial authentication after Derrick is installed " +
 				"to Kubernetes. This requires kubectl to be configured with access to the " +
 				"Kubernetes cluster. The primary use case of this is to get the first " +
-				"token from a Waypoint installation. After that, future users should use " +
+				"token from a Derrick installation. After that, future users should use " +
 				"a configured auth method or request a token from an administrator.",
 		})
 
@@ -453,7 +453,7 @@ func (c *LoginCommand) Flags() *flag.Sets {
 		f.StringVar(&flag.StringVar{
 			Name:   "from-kubernetes-secret",
 			Target: &c.flagK8STokenSecret,
-			Usage: "The name of the Kubernetes secret that has the Waypoint token " +
+			Usage: "The name of the Kubernetes secret that has the Derrick token " +
 				"when using the -from-kubernetes flag.",
 			Default: "waypoint-server-token",
 		})
@@ -461,7 +461,7 @@ func (c *LoginCommand) Flags() *flag.Sets {
 		f.StringVar(&flag.StringVar{
 			Name:   "from-kubernetes-namespace",
 			Target: &c.flagK8SNamespace,
-			Usage: "The name of the Kubernetes namespace that has the Waypoint token " +
+			Usage: "The name of the Kubernetes namespace that has the Derrick token " +
 				"when using the -from-kubernetes flag.",
 		})
 	})
@@ -476,17 +476,17 @@ func (c *LoginCommand) AutocompleteFlags() complete.Flags {
 }
 
 func (c *LoginCommand) Synopsis() string {
-	return "Log in to a Waypoint server"
+	return "Log in to a Derrick server"
 }
 
 func (c *LoginCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint login [server address]
+Usage: derrick login [server address]
 
-  Log in to a Waypoint server.
+  Log in to a Derrick server.
 
   This is usually the first command a new user runs to gain CLI access to
-  an existing Waypoint server.
+  an existing Derrick server.
 
   If the server address is not specified and you have an active
   context (see "waypoint context"), then this command will reauthenticate
@@ -496,7 +496,7 @@ Usage: waypoint login [server address]
   other forms such as OIDC. You can use "-token" to specify a login or
   invite token and configure the CLI to access the server.
 
-  The "-from-kubernetes" flag can be used after a fresh Waypoint installation
+  The "-from-kubernetes" flag can be used after a fresh Derrick installation
   on Kubernetes to log in using the bootstrap token. This requires local
   Kubernetes connection configuration via a KUBECONFIG environment variable
   or file.
@@ -511,7 +511,7 @@ a token, use the "waypoint login" command with the "-token" flag.
 `
 
 	errManyAuthMethods = `
-The Waypoint server has multiple auth methods configured. You must specify
+The Derrick server has multiple auth methods configured. You must specify
 which auth method you want to use using the "-auth-method" flag. The list
 of available auth methods are:
 
@@ -521,7 +521,7 @@ of available auth methods are:
 	errLoginServerAddress = `
 This error usually is because you forgot to specify an address for
 a server as an argument. Please use "waypoint login <address>" where
-"<address>" is the address to your Waypoint server. For example:
+"<address>" is the address to your Derrick server. For example:
 
 waypoint login example.com
 
@@ -536,20 +536,20 @@ double-check the token and try again.
 `
 
 	errK8STokenEmpty = `
-The Waypoint token in the Kubernetes secret is empty. This is usually
-for one of two reasons. First, the Waypoint server may not be bootstrapped.
-After installing Waypoint on Kubernetes, it takes a few minutes for Waypoint
+The Derrick token in the Kubernetes secret is empty. This is usually
+for one of two reasons. First, the Derrick server may not be bootstrapped.
+After installing Derrick on Kubernetes, it takes a few minutes for Waypoint
 to bootstrap itself.
 
-If Waypoint is already bootstrapped, it's possible the server administrator
+If Derrick is already bootstrapped, it's possible the server administrator
 already deleted the secret. Future users should not use this authentication
-method and should instead ask another Waypoint user to generate an invite token
+method and should instead ask another Derrick user to generate an invite token
 for them.
 `
 
 	errTokenValidation = `
 Error while validating the login token. This generally shouldn't happen.
-Waypoint performs a final verification that the login is valid and this failed.
+Derrick performs a final verification that the login is valid and this failed.
 Please see the error message below:
 
 %s

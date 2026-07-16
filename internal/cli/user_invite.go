@@ -5,10 +5,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 	"github.com/posener/complete"
 )
 
@@ -96,12 +96,12 @@ func (c *UserInviteCommand) AutocompleteFlags() complete.Flags {
 }
 
 func (c *UserInviteCommand) Synopsis() string {
-	return "Invite a user to join the Waypoint server"
+	return "Invite a user to join the Derrick server"
 }
 
 func (c *UserInviteCommand) Help() string {
 	helpText := `
-Usage: waypoint user invite [options]
+Usage: derrick user invite [options]
 
   Generate an invite token that can be used to log in.
 
@@ -109,7 +109,7 @@ Usage: waypoint user invite [options]
   log in, use the "waypoint login" command.
 
   This generates a new invite token. An invite token can be exchanged for
-  a login token. If your Waypoint server has OIDC (non-token) auth enabled,
+  a login token. If your Derrick server has OIDC (non-token) auth enabled,
   it is recommended to instead invite users using your UI URL or directly
   via "waypoint login".
 

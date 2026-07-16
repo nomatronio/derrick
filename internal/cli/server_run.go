@@ -25,29 +25,29 @@ import (
 	hzntest "github.com/hashicorp/horizon/pkg/testutils/central"
 
 	wphzn "github.com/hashicorp/waypoint-hzn/pkg/server"
-	"github.com/hashicorp/waypoint/internal/server/boltdbstate"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	"github.com/hashicorp/waypoint/pkg/server/singleprocess"
+	"github.com/nomatronio/derrick/internal/server/boltdbstate"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	"github.com/nomatronio/derrick/pkg/server/singleprocess"
 
-	"github.com/hashicorp/waypoint/internal/telemetry"
-	serverpkg "github.com/hashicorp/waypoint/pkg/server"
+	"github.com/nomatronio/derrick/internal/telemetry"
+	serverpkg "github.com/nomatronio/derrick/pkg/server"
 
 	"github.com/mitchellh/go-testing-interface"
 	"github.com/posener/complete"
 	"github.com/stretchr/testify/require"
 	bolt "go.etcd.io/bbolt"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
 
-	"github.com/hashicorp/waypoint/internal/pkg/cert"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	"github.com/hashicorp/waypoint/internal/server"
-	"github.com/hashicorp/waypoint/internal/serverconfig"
+	"github.com/nomatronio/derrick/internal/pkg/cert"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	"github.com/nomatronio/derrick/internal/server"
+	"github.com/nomatronio/derrick/internal/serverconfig"
 )
 
 const tosStatement = `
-The "-accept-tos" flag must be provided to use the Waypoint URL service.
-The Waypoint URL service is the free service run by HashiCorp that provides
+The "-accept-tos" flag must be provided to use the Derrick URL service.
+The Derrick URL service is the free service run by HashiCorp that provides
 an automatic "waypoint.run" URL for each application and deployment. You can use
 this URL to quickly view your deployed applications and share your applications
 with others.
@@ -55,15 +55,15 @@ with others.
 Usage of this service requires accepting the Terms of Service and a Privacy
 Policy at the URLs below. If you do not feel comfortable accepting the terms,
 you may disable the URL service or self-host the URL service.
-Learn more about this at: https://waypointproject.io/docs/url
+Learn more about this at: https://derrick.dev/docs/url
 
 Privacy Policy: https://hashicorp.com/privacy
-Terms of Service: https://waypointproject.io/terms
+Terms of Service: https://derrick.dev/terms
 
 Please rerun this command using the "-accept-tos" flag to accept the terms above.
 `
 
-const acceptTOSHelp = `Pass to accept the Terms of Service and Privacy Policy to use the Waypoint URL Service. This is required if the URL service is enabled and you're using the HashiCorp-provided URL service rather than self-hosting. See the privacy policy at https://hashicorp.com/privacy and the ToS at https://waypointproject.io/terms`
+const acceptTOSHelp = `Pass to accept the Terms of Service and Privacy Policy to use the Derrick URL Service. This is required if the URL service is enabled and you're using the HashiCorp-provided URL service rather than self-hosting. See the privacy policy at https://hashicorp.com/privacy and the ToS at https://derrick.dev/terms`
 
 const DefaultURLControlAddress = "https://control.hzn.network"
 
@@ -491,28 +491,28 @@ func (c *ServerRunCommand) Flags() *flag.Sets {
 		f.StringVar(&flag.StringVar{
 			Name:    "url-api-addr",
 			Target:  &c.config.URL.APIAddress,
-			Usage:   "Address to Waypoint URL service API.",
+			Usage:   "Address to Derrick URL service API.",
 			Default: "api.waypoint.run:443",
 		})
 
 		f.BoolVar(&flag.BoolVar{
 			Name:    "url-api-insecure",
 			Target:  &c.config.URL.APIInsecure,
-			Usage:   "True if TLS is not enabled for the Waypoint URL service API.",
+			Usage:   "True if TLS is not enabled for the Derrick URL service API.",
 			Default: false,
 		})
 
 		f.StringVar(&flag.StringVar{
 			Name:    "url-control-addr",
 			Target:  &c.config.URL.ControlAddress,
-			Usage:   "Address to Waypoint URL service control API.",
+			Usage:   "Address to Derrick URL service control API.",
 			Default: DefaultURLControlAddress,
 		})
 
 		f.StringVar(&flag.StringVar{
 			Name:    "url-control-token",
 			Target:  &c.config.URL.APIToken,
-			Usage:   "Token for the Waypoint URL server control API.",
+			Usage:   "Token for the Derrick URL server control API.",
 			Default: "",
 		})
 
@@ -569,7 +569,7 @@ func (c *ServerRunCommand) Flags() *flag.Sets {
 		f.StringVar(&flag.StringVar{
 			Name:   "telemetry-oc-zpages-addr",
 			Target: &c.flagTelemetryOpenCensusZpagesAddr,
-			Usage: "If set, Waypoint will run an OpenCensus zPages server at this address. Typically this is " +
+			Usage: "If set, Derrick will run an OpenCensus zPages server at this address. Typically this is " +
 				"set to something like localhost:9999, where trace debug information could be viewed at " +
 				"http://localhost:9999/debug/tracez, and rpc stats at http://localhost:55679/debug/rpcz. " +
 				"More information at https://opencensus.io/zpages/",
@@ -591,7 +591,7 @@ func (c *ServerRunCommand) Synopsis() string {
 
 func (c *ServerRunCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint server run [options]
+Usage: derrick server run [options]
 
   Run the builtin server.
 

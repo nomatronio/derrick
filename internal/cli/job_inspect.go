@@ -8,10 +8,10 @@ import (
 	"google.golang.org/grpc/status"
 	"google.golang.org/protobuf/encoding/protojson"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 type JobInspectCommand struct {
@@ -260,9 +260,9 @@ func (c *JobInspectCommand) Synopsis() string {
 
 func (c *JobInspectCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint job inspect [options] <job-id>
+Usage: derrick job inspect [options] <job-id>
 
-  Inspect the details of a job by id in Waypoint server.
+  Inspect the details of a job by id in Derrick server.
 
 ` + c.Flags().Help())
 }

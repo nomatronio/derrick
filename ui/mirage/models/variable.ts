@@ -1,5 +1,5 @@
 import { Model, belongsTo } from 'ember-cli-mirage';
-import { Variable } from 'waypoint-pb';
+import { Variable } from 'derrick-pb';
 
 export default Model.extend({
   project: belongsTo(),

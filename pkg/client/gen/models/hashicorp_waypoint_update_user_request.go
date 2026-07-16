@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointUpdateUserRequest hashicorp waypoint update user request
 //
-// swagger:model hashicorp.waypoint.UpdateUserRequest
+// swagger:model nomatron.derrick.UpdateUserRequest
 type HashicorpWaypointUpdateUserRequest struct {
 
 	// User to update along with the edited fields. Please see the docs

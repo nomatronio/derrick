@@ -14284,10 +14284,10 @@ watchpack@^2.4.0:
     glob-to-regexp "^0.4.1"
     graceful-fs "^4.1.2"
 
-"waypoint-client@link:./lib/waypoint-client":
+"derrick-client@link:./lib/derrick-client":
   version "1.0.0"
 
-"waypoint-pb@link:./lib/waypoint-pb":
+"derrick-pb@link:./lib/derrick-pb":
   version "1.0.0"
 
 wcwidth@^1.0.1:

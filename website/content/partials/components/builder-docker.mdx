@@ -11,12 +11,12 @@ from a Dockerfile.
 Many hosted environments, such as Kubernetes clusters, don't provide access
 to a Docker server. In these cases, it is desirable to perform what is called
 a "dockerless" build: building a Docker image without access to a Docker
-daemon. Waypoint supports dockerless builds.
+daemon. Derrick supports dockerless builds.
 
-Waypoint performs Dockerless builds by leveraging
+Derrick performs Dockerless builds by leveraging
 [Kaniko](https://github.com/GoogleContainerTools/kaniko)
 within on-demand launched runners. This should work in all supported
-Waypoint installation environments by default and you should not have
+Derrick installation environments by default and you should not have
 to specify any additional configuration.
 
 ### Interface
@@ -41,7 +41,7 @@ This plugin has no required parameters.
 
 ### Optional Parameters
 
-These parameters are used in the [`use` stanza](/waypoint/docs/waypoint-hcl/use) for this plugin.
+These parameters are used in the [`use` stanza](/waypoint/docs/derrick-hcl/use) for this plugin.
 
 #### auth (category)
 
@@ -171,7 +171,7 @@ If buildkit is enabled unused stages will be skipped.
 
 ### Output Attributes
 
-Output attributes can be used in your `waypoint.hcl` as [variables](/waypoint/docs/waypoint-hcl/variables) via [`artifact`](/waypoint/docs/waypoint-hcl/variables/artifact) or [`deploy`](/waypoint/docs/waypoint-hcl/variables/deploy).
+Output attributes can be used in your `derrick.hcl` as [variables](/waypoint/docs/derrick-hcl/variables) via [`artifact`](/waypoint/docs/derrick-hcl/variables/artifact) or [`deploy`](/waypoint/docs/derrick-hcl/variables/deploy).
 
 #### architecture
 

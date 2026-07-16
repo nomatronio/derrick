@@ -13,24 +13,24 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// HashicorpWaypointHcl Hcl is a message used to encapsulate the contents of an HCL
+// HashicorpDerrickHcl Hcl is a message used to encapsulate the contents of an HCL
 // file. Note that this was introduced later so there are some message types
 // that reproduce this functionality without actually using this in order
 // to maintain backwards compatibility.
 //
-// swagger:model hashicorp.waypoint.Hcl
-type HashicorpWaypointHcl struct {
+// swagger:model nomatron.derrick.Hcl
+type HashicorpDerrickHcl struct {
 
 	// Raw contents of the HCL file.
 	// Format: byte
 	Contents strfmt.Base64 `json:"contents,omitempty"`
 
 	// Format of HCL contents
-	Format *HashicorpWaypointHclFormat `json:"format,omitempty"`
+	Format *HashicorpDerrickHclFormat `json:"format,omitempty"`
 }
 
 // Validate validates this hashicorp waypoint hcl
-func (m *HashicorpWaypointHcl) Validate(formats strfmt.Registry) error {
+func (m *HashicorpDerrickHcl) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateFormat(formats); err != nil {
@@ -43,7 +43,7 @@ func (m *HashicorpWaypointHcl) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *HashicorpWaypointHcl) validateFormat(formats strfmt.Registry) error {
+func (m *HashicorpDerrickHcl) validateFormat(formats strfmt.Registry) error {
 	if swag.IsZero(m.Format) { // not required
 		return nil
 	}
@@ -63,7 +63,7 @@ func (m *HashicorpWaypointHcl) validateFormat(formats strfmt.Registry) error {
 }
 
 // ContextValidate validate this hashicorp waypoint hcl based on the context it is used
-func (m *HashicorpWaypointHcl) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+func (m *HashicorpDerrickHcl) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.contextValidateFormat(ctx, formats); err != nil {
@@ -76,7 +76,7 @@ func (m *HashicorpWaypointHcl) ContextValidate(ctx context.Context, formats strf
 	return nil
 }
 
-func (m *HashicorpWaypointHcl) contextValidateFormat(ctx context.Context, formats strfmt.Registry) error {
+func (m *HashicorpDerrickHcl) contextValidateFormat(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Format != nil {
 		if err := m.Format.ContextValidate(ctx, formats); err != nil {
@@ -93,7 +93,7 @@ func (m *HashicorpWaypointHcl) contextValidateFormat(ctx context.Context, format
 }
 
 // MarshalBinary interface implementation
-func (m *HashicorpWaypointHcl) MarshalBinary() ([]byte, error) {
+func (m *HashicorpDerrickHcl) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -101,8 +101,8 @@ func (m *HashicorpWaypointHcl) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *HashicorpWaypointHcl) UnmarshalBinary(b []byte) error {
-	var res HashicorpWaypointHcl
+func (m *HashicorpDerrickHcl) UnmarshalBinary(b []byte) error {
+	var res HashicorpDerrickHcl
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

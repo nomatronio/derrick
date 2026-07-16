@@ -15,17 +15,17 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
 
-	"github.com/hashicorp/waypoint/internal/cli/datagen"
-	hclpkg "github.com/hashicorp/waypoint/internal/cli/hclgen"
-	clientpkg "github.com/hashicorp/waypoint/internal/client"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	configpkg "github.com/hashicorp/waypoint/internal/config"
-	"github.com/hashicorp/waypoint/internal/datasource"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	serverptypes "github.com/hashicorp/waypoint/pkg/server/ptypes"
+	"github.com/nomatronio/derrick/internal/cli/datagen"
+	hclpkg "github.com/nomatronio/derrick/internal/cli/hclgen"
+	clientpkg "github.com/nomatronio/derrick/internal/client"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	configpkg "github.com/nomatronio/derrick/internal/config"
+	"github.com/nomatronio/derrick/internal/datasource"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	serverptypes "github.com/nomatronio/derrick/pkg/server/ptypes"
 )
 
 type InitCommand struct {
@@ -77,7 +77,7 @@ func (c *InitCommand) Run(args []string) int {
 			c.ui.Output("Cannot perform a remote initialization", terminal.WithStyle(terminal.ErrorBoldStyle))
 			c.ui.Output("")
 			c.ui.Output(
-				"Waypoint has detected an existing directory '"+dir+"' and will not \n"+
+				"Derrick has detected an existing directory '"+dir+"' and will not \n"+
 					"overwrite an existing application with a remote one.",
 				terminal.WithErrorStyle(),
 			)
@@ -159,7 +159,7 @@ func (c *InitCommand) Run(args []string) int {
 	// If we have no config, initialize a new one.
 	if path == "" {
 		proceed, err := c.ui.Input(&terminal.Input{
-			Prompt: "Do you want help generating a waypoint.hcl file? Type 'yes' to initialize the interactive generator or 'no' to generate a template waypoint.hcl file: ",
+			Prompt: "Do you want help generating a derrick.hcl file? Type 'yes' to initialize the interactive generator or 'no' to generate a template derrick.hcl file: ",
 			Style:  "",
 			Secret: false,
 		})
@@ -205,7 +205,7 @@ func (c *InitCommand) Run(args []string) int {
 	for _, step := range steps {
 		if !step() {
 			c.ui.Output("Project had errors during initialization.\n"+
-				"Waypoint experienced some errors during project initialization. The output\n"+
+				"Derrick experienced some errors during project initialization. The output\n"+
 				"above should contain the failure messages. Please correct these errors and\n"+
 				"run 'waypoint init' again.",
 				terminal.WithStyle(terminal.ErrorBoldStyle),
@@ -238,11 +238,11 @@ func (c *InitCommand) initNew() bool {
 		return false
 	}
 
-	c.ui.Output("Initial Waypoint configuration created!", terminal.WithStyle(terminal.SuccessBoldStyle))
+	c.ui.Output("Initial Derrick configuration created!", terminal.WithStyle(terminal.SuccessBoldStyle))
 	c.ui.Output(strings.TrimSpace(`
-No Waypoint configuration was found in this directory.
+No Derrick configuration was found in this directory.
 
-A sample configuration has been created in the file "waypoint.hcl". This
+A sample configuration has been created in the file "derrick.hcl". This
 file is heavily commented to help you get started.
 
 Once you've setup your initial configuration, run "waypoint init" again to
@@ -298,7 +298,7 @@ func (c *InitCommand) validateServer() bool {
 	if c.project.Local() {
 		s.Update("Local mode initialized successfully")
 	} else {
-		s.Update("Connection to Waypoint server was successful")
+		s.Update("Connection to Derrick server was successful")
 	}
 
 	s.Status(terminal.StatusOK)
@@ -692,12 +692,12 @@ func (c *InitCommand) Synopsis() string {
 
 func (c *InitCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint init [options]
+Usage: derrick init [options]
 
   Initialize and validate a project.
 
   This is the first command that should be run for any new or existing
-  Waypoint project per machine. This sets up the project if required and
+  Derrick project per machine. This sets up the project if required and
   also validates that operations such as "up" will most likely work.
 
   This command is always safe to run multiple times. This command will never
@@ -728,10 +728,10 @@ var initStepStrings = map[initStepType]struct {
 	},
 
 	initStepConnect: {
-		Error: "Failed to initialize client for Waypoint server.",
+		Error: "Failed to initialize client for Derrick server.",
 		ErrorDetails: `
-The Waypoint client validation step validates that we can connect to the
-configured Waypoint server. If this is a local-only operation (no Waypoint
+The Derrick client validation step validates that we can connect to the
+configured Derrick server. If this is a local-only operation (no Waypoint
 server is configured), then we validate that we can initialize local writes.
 The error for this failure is shown below.
 			`,
@@ -750,7 +750,7 @@ below should tell you which plugin(s) failed.
 		Error: "Error while checking for project registration.",
 		ErrorDetails: `
 There was an error while the checking if the project and applications
-are registered with the Waypoint server. This error may be temporary and
+are registered with the Derrick server. This error may be temporary and
 you may retry to init. See the error message below.
 		`,
 
@@ -768,7 +768,7 @@ the correct server.
 		Error: "Error while checking for pipeline registration.",
 		ErrorDetails: `
 There was an error while the checking if the pipelines for the project
-are registered with the Waypoint server. This error may be temporary and
+are registered with the Derrick server. This error may be temporary and
 you may retry to init. See the error message below.
 		`,
 
@@ -785,7 +785,7 @@ you're targeting the correct server.
 	initStepAuth: {
 		Error: "Failed to check authentication requirements!",
 		ErrorDetails: `
-This step verifies that Waypoint has access to the configured systems.
+This step verifies that Derrick has access to the configured systems.
 This is a best-effort check, since not all plugins support this check
 and the check can often only check that any known credentials work at
 a minimal level.
@@ -795,7 +795,7 @@ There was an error during this step and it is shown below.
 
 		Other: map[string]string{
 			"guide": `
-Waypoint will guide you through the authentication process one plugin
+Derrick will guide you through the authentication process one plugin
 at a time. Plugins may interactively attempt to authenticate or they may
 just output help text to guide you there. You can use Ctrl-C at any point
 to cancel and run "waypoint init" again later.

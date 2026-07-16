@@ -4,11 +4,11 @@ import {
   GetOIDCAuthURLRequest,
   ListOIDCAuthMethodsResponse,
   Ref,
-} from 'waypoint-pb';
+} from 'derrick-pb';
 
-import ApiService from 'waypoint/services/api';
+import ApiService from 'derrick/services/api';
 import Component from '@glimmer/component';
-import FlashMessagesService from 'waypoint/services/pds-flash-messages';
+import FlashMessagesService from 'derrick/services/pds-flash-messages';
 import { inject as service } from '@ember/service';
 import { task } from 'ember-concurrency';
 
@@ -56,7 +56,7 @@ export default class OIDCAuthButtonsComponent extends Component<OIDCAuthButtonsA
 
   // Store OIDC Data in LocalStorage, this gets cleaned up on authentication
   _storeOIDCAuthData(nonce: string, authMethod: string): void {
-    window.localStorage.setItem('waypointOIDCNonce', nonce);
-    window.localStorage.setItem('waypointOIDCAuthMethod', authMethod);
+    window.localStorage.setItem('derrickOIDCNonce', nonce);
+    window.localStorage.setItem('derrickOIDCAuthMethod', authMethod);
   }
 }

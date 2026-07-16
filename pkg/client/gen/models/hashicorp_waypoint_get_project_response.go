@@ -16,7 +16,7 @@ import (
 
 // HashicorpWaypointGetProjectResponse hashicorp waypoint get project response
 //
-// swagger:model hashicorp.waypoint.GetProjectResponse
+// swagger:model nomatron.derrick.GetProjectResponse
 type HashicorpWaypointGetProjectResponse struct {
 
 	// project

@@ -1,5 +1,5 @@
 import { Model } from 'ember-cli-mirage';
-import { Ref, Workspace } from 'waypoint-pb';
+import { Ref, Workspace } from 'derrick-pb';
 
 export default Model.extend({
   toProtobuf(): Workspace {

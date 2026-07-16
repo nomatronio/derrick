@@ -1,5 +1,5 @@
 import { Model, belongsTo } from 'ember-cli-mirage';
-import { Job } from 'waypoint-pb';
+import { Job } from 'derrick-pb';
 
 export default Model.extend({
   parent: belongsTo('job-git', { inverse: 'basic' }),

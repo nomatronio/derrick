@@ -8,9 +8,9 @@ import (
 
 	"github.com/hashicorp/go-hclog"
 
-	"github.com/hashicorp/waypoint/internal/core"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	"github.com/hashicorp/waypoint/pkg/server/singleprocess"
+	"github.com/nomatronio/derrick/internal/core"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	"github.com/nomatronio/derrick/pkg/server/singleprocess"
 )
 
 func TestRunnerInitOp(t *testing.T) {
@@ -111,7 +111,7 @@ func testLog() hclog.Logger {
 
 func getStoredProject(
 	ctx context.Context,
-	client pb.WaypointClient,
+	client pb.DerrickClient,
 	project *pb.Ref_Project,
 ) (*pb.Project, error) {
 	res, err := client.GetProject(ctx, &pb.GetProjectRequest{

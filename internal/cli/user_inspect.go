@@ -5,10 +5,10 @@ import (
 
 	"github.com/posener/complete"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 type UserInspectCommand struct {
@@ -77,7 +77,7 @@ func (c *UserInspectCommand) Synopsis() string {
 
 func (c *UserInspectCommand) Help() string {
 	helpText := `
-Usage: waypoint user inspect [options]
+Usage: derrick user inspect [options]
 
   Show details about a single user, defaulting to the currently logged in user.
 

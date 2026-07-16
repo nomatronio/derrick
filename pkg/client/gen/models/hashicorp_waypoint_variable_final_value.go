@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointVariableFinalValue hashicorp waypoint variable final value
 //
-// swagger:model hashicorp.waypoint.Variable.FinalValue
+// swagger:model nomatron.derrick.Variable.FinalValue
 type HashicorpWaypointVariableFinalValue struct {
 
 	// bool

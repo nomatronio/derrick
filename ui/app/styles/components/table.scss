@@ -16,7 +16,7 @@
     border-spacing: 0;
     border: 1px solid;
     // border-color must be separated out to work around a bug in clean-css
-    // https://github.com/hashicorp/waypoint/issues/2376
+    // https://github.com/nomatronio/derrick/issues/2376
     border-color: rgb(var(--border));
     overflow: hidden;
     table-layout: fixed;

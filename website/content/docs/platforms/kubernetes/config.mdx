@@ -2,21 +2,21 @@
 layout: docs
 page_title: Kubernetes - ConfigMaps and Secrets
 description: |-
-  Waypoint provides multiple options for accessing ConfigMap and Secret resources within your deployed application. This can be used or instead of Waypoint's native application configuration.
+  Derrick provides multiple options for accessing ConfigMap and Secret resources within your deployed application. This can be used or instead of Derrick's native application configuration.
 ---
 
 # ConfigMaps and Secrets
 
-Waypoint provides multiple options for accessing ConfigMap and Secret resources
-within your deployed application. This can be used or instead of Waypoint's native
+Derrick provides multiple options for accessing ConfigMap and Secret resources
+within your deployed application. This can be used or instead of Derrick's native
 [application configuration](/waypoint/docs/app-config) functionality.
 
-This page will focus on Waypoint-specific mechanisms for injecting
+This page will focus on Derrick-specific mechanisms for injecting
 configuration into your application, and it all requires the
-[Waypoint Entrypoint](/waypoint/docs/entrypoint) to be injected and configured.
+[Derrick Entrypoint](/waypoint/docs/entrypoint) to be injected and configured.
 Please note that **if you're using the [Helm](/waypoint/docs/platforms/kubernetes/helm-deploy) or
 [`kubernetes-apply`](/waypoint/docs/platforms/kubernetes/kubectl-deploy) deployment plugins,
-you do not need to use the Waypoint entrypoint** and you can access
+you do not need to use the Derrick entrypoint** and you can access
 ConfigMaps and Secrets using
 [standard Kubernetes practices](https://kubernetes.io/docs/concepts/configuration/configmap/).
 Even if you are using Helm or raw YAML, you can also mix in any of the
@@ -25,7 +25,7 @@ techniques noted below as well.
 ## Environment Variables
 
 You can set environment variables for your application directly
-in the `waypoint.hcl` file using the [`config` stanza](/waypoint/docs/waypoint-hcl/config).
+in the `derrick.hcl` file using the [`config` stanza](/waypoint/docs/derrick-hcl/config).
 Static environment variables like this can also be set using the
 [web UI or CLI](/waypoint/docs/app-config).
 
@@ -42,8 +42,8 @@ app "my-app" {
 ```
 
 But, it's not a good idea to put something like an API key directly
-in your Waypoint configuration. A better idea would be to use a Kubernetes
-Secret and access it from there. Waypoint lets you do this with
+in your Derrick configuration. A better idea would be to use a Kubernetes
+Secret and access it from there. Derrick lets you do this with
 [dynamic configuration](/waypoint/docs/app-config/dynamic):
 
 ```hcl
@@ -109,15 +109,15 @@ a path you have permission to write to.
 ### File Change Notification
 
 If an input to a configuration file changes while the application is deployed,
-Waypoint will send a signal to the deployed application (by default `SIGUSR2`).
+Derrick will send a signal to the deployed application (by default `SIGUSR2`).
 The application can listen for this signal to reload configuration.
 
 For example, if you change the `my-secret` secret (as used in the example above)
-_after_ you had already deployed your application, Waypoint would detect
+_after_ you had already deployed your application, Derrick would detect
 the change, update the file, and then send a `SIGUSR2` signal to your
 running application.
 
 This is a big improvement over native Kubernetes mechanisms which update the
 file but depend on the running application to watch the filesystem for changes.
-For more information, including how to change the signal Waypoint sends,
+For more information, including how to change the signal Derrick sends,
 see [the reference documentation](/waypoint/docs/app-config/files#file-change-signal).

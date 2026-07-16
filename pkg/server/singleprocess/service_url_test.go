@@ -7,7 +7,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/hashicorp/waypoint/internal/serverconfig"
+	"github.com/nomatronio/derrick/internal/serverconfig"
 )
 
 func TestServerURLService(t *testing.T) {

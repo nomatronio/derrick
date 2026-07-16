@@ -1,7 +1,7 @@
 import Route from '@ember/routing/route';
-import { Project } from 'waypoint-pb';
-import { Breadcrumb } from 'waypoint/services/breadcrumbs';
-import Controller from 'waypoint/controllers/workspace/projects/create';
+import { Project } from 'derrick-pb';
+import { Breadcrumb } from 'derrick/services/breadcrumbs';
+import Controller from 'derrick/controllers/workspace/projects/create';
 
 type Model = Project.AsObject;
 

@@ -15,7 +15,7 @@ import (
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 
-	"github.com/hashicorp/waypoint/pkg/client/gen/models"
+	"github.com/nomatronio/derrick/pkg/client/gen/models"
 )
 
 // WaypointGetLogStream3Reader is a Reader for the WaypointGetLogStream3 structure.
@@ -180,7 +180,7 @@ func (o *WaypointGetLogStream3Default) readResponse(response runtime.ClientRespo
 }
 
 /*
-WaypointGetLogStream3OKBody Stream result of hashicorp.waypoint.LogBatch
+WaypointGetLogStream3OKBody Stream result of nomatron.derrick.LogBatch
 swagger:model WaypointGetLogStream3OKBody
 */
 type WaypointGetLogStream3OKBody struct {

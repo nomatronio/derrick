@@ -16,7 +16,7 @@ import (
 
 // HashicorpWaypointResourceCategoryDisplayHint hashicorp waypoint resource category display hint
 //
-// swagger:model hashicorp.waypoint.ResourceCategoryDisplayHint
+// swagger:model nomatron.derrick.ResourceCategoryDisplayHint
 type HashicorpWaypointResourceCategoryDisplayHint string
 
 func NewHashicorpWaypointResourceCategoryDisplayHint(value HashicorpWaypointResourceCategoryDisplayHint) *HashicorpWaypointResourceCategoryDisplayHint {

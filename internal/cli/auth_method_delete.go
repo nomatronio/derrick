@@ -6,10 +6,10 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 	"github.com/posener/complete"
 )
 
@@ -83,7 +83,7 @@ func (c *AuthMethodDeleteCommand) Synopsis() string {
 
 func (c *AuthMethodDeleteCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint auth-method delete NAME
+Usage: derrick auth-method delete NAME
 
   Delete a previously configured auth method.
 
@@ -96,5 +96,5 @@ Usage: waypoint auth-method delete NAME
 
 const errDeleteTokenAuth = `
 The "token" auth method can't be deleted. This auth method is required for
-the Waypoint server to function.
+the Derrick server to function.
 `

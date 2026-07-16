@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointPushedArtifact hashicorp waypoint pushed artifact
 //
-// swagger:model hashicorp.waypoint.PushedArtifact
+// swagger:model nomatron.derrick.PushedArtifact
 type HashicorpWaypointPushedArtifact struct {
 
 	// application that this belongs to

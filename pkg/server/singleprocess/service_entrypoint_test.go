@@ -11,10 +11,10 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/hashicorp/waypoint/pkg/server"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	serverptypes "github.com/hashicorp/waypoint/pkg/server/ptypes"
-	"github.com/hashicorp/waypoint/pkg/serverstate"
+	"github.com/nomatronio/derrick/pkg/server"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	serverptypes "github.com/nomatronio/derrick/pkg/server/ptypes"
+	"github.com/nomatronio/derrick/pkg/serverstate"
 )
 
 func TestServiceEntrypointConfig(t *testing.T) {
@@ -459,7 +459,7 @@ func TestServiceEntrypointExecStream_doubleStart(t *testing.T) {
 	require.Nil(resp)
 }
 
-func testRegisterExec(ctx context.Context, t *testing.T, client pb.WaypointClient, impl pb.WaypointServer) (*serverstate.InstanceExec, func()) {
+func testRegisterExec(ctx context.Context, t *testing.T, client pb.DerrickClient, impl pb.DerrickServer) (*serverstate.InstanceExec, func()) {
 	// Create an instance
 	instanceId, deploymentId, closer := TestEntrypoint(t, client)
 	defer closer()

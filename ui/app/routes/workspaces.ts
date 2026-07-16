@@ -1,7 +1,7 @@
-import ApiService from 'waypoint/services/api';
+import ApiService from 'derrick/services/api';
 import Route from '@ember/routing/route';
 import SessionService from 'ember-simple-auth/services/session';
-import { Workspace } from 'waypoint-pb';
+import { Workspace } from 'derrick-pb';
 import { inject as service } from '@ember/service';
 
 export default class Workspaces extends Route {

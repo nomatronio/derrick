@@ -16,7 +16,7 @@ import (
 // HashicorpWaypointRefOperation Operation references an operation (build, deploy, etc.). This can reference
 // an operation in multiple ways so you must use the oneof to choose.
 //
-// swagger:model hashicorp.waypoint.Ref.Operation
+// swagger:model nomatron.derrick.Ref.Operation
 type HashicorpWaypointRefOperation struct {
 
 	// id

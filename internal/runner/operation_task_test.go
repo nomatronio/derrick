@@ -9,12 +9,12 @@ import (
 
 	"github.com/hashicorp/go-hclog"
 
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	"github.com/hashicorp/waypoint/pkg/server/singleprocess"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	"github.com/nomatronio/derrick/pkg/server/singleprocess"
 )
 
 func TestRunnerTaskLauncherStart(t *testing.T) {
-	if os.Getenv("WAYPOINT_BUILTIN_PLUGIN_EXE") == "" {
+	if os.Getenv("DERRICK_BUILTIN_PLUGIN_EXE") == "" {
 		t.Skip("unable to run plugins in tests without setting plugin path")
 
 	}

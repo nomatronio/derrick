@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointJobWatchTaskOp hashicorp waypoint job watch task op
 //
-// swagger:model hashicorp.waypoint.Job.WatchTaskOp
+// swagger:model nomatron.derrick.Job.WatchTaskOp
 type HashicorpWaypointJobWatchTaskOp struct {
 
 	// The job that started the task (should match up to a StartTaskLaunchOp).

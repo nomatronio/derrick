@@ -9,10 +9,10 @@ import (
 	"github.com/dustin/go-humanize"
 	"google.golang.org/protobuf/encoding/protojson"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 type JobListCommand struct {
@@ -208,7 +208,7 @@ func (c *JobListCommand) Run(args []string) int {
 		return 0
 	}
 
-	c.ui.Output("Waypoint Jobs", terminal.WithHeaderStyle())
+	c.ui.Output("Derrick Jobs", terminal.WithHeaderStyle())
 
 	tblHeaders := []string{"ID", "Operation", "State", "Time Queued", "Time Completed", "Target Runner", "Project", "Workspace"}
 	if c.flagVerbose {
@@ -420,9 +420,9 @@ func (c *JobListCommand) Synopsis() string {
 
 func (c *JobListCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint job list [options]
+Usage: derrick job list [options]
 
-  List known jobs from Waypoint server.
+  List known jobs from Derrick server.
   Options to filter job list by project, workspace, target runner, pipeline, and pipeline run.
 
 ` + c.Flags().Help())

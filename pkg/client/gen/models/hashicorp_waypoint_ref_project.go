@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointRefProject Project references a project.
 //
-// swagger:model hashicorp.waypoint.Ref.Project
+// swagger:model nomatron.derrick.Ref.Project
 type HashicorpWaypointRefProject struct {
 
 	// project

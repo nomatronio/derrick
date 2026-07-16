@@ -11,12 +11,12 @@ import (
 	"github.com/dustin/go-humanize"
 	"github.com/posener/complete"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
 
-	clientpkg "github.com/hashicorp/waypoint/internal/client"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	clientpkg "github.com/nomatronio/derrick/internal/client"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 type ArtifactListCommand struct {
@@ -276,7 +276,7 @@ func (c *ArtifactListCommand) Synopsis() string {
 
 func (c *ArtifactListCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint artifact list [options]
+Usage: derrick artifact list [options]
 
   Lists the artifacts that are pushed to a registry. This does not
   list the artifacts that are just part of local builds.

@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointUpsertDeploymentResponse hashicorp waypoint upsert deployment response
 //
-// swagger:model hashicorp.waypoint.UpsertDeploymentResponse
+// swagger:model nomatron.derrick.UpsertDeploymentResponse
 type HashicorpWaypointUpsertDeploymentResponse struct {
 
 	// resulting object, you should replace this with what was sent in the request

@@ -16,7 +16,7 @@ import (
 
 // HashicorpWaypointJobState hashicorp waypoint job state
 //
-// swagger:model hashicorp.waypoint.Job.State
+// swagger:model nomatron.derrick.Job.State
 type HashicorpWaypointJobState string
 
 func NewHashicorpWaypointJobState(value HashicorpWaypointJobState) *HashicorpWaypointJobState {

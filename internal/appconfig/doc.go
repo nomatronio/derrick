@@ -8,5 +8,5 @@
 // can be used standalone if application config wants to be pulled in anywhere.
 //
 // This package is also used for getting dynamic config values and rendering
-// them into other stanzas in the waypoint.hcl.
+// them into other stanzas in the derrick.hcl.
 package appconfig

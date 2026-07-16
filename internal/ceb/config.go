@@ -13,8 +13,8 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/hashicorp/waypoint/internal/appconfig"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick/internal/appconfig"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 var (
@@ -190,7 +190,7 @@ func (ceb *CEB) watchConfig(
 			}
 
 			// Process it for any keys that we handle differently (such as
-			// WAYPOINT_LOG_LEVEL)
+			// DERRICK_LOG_LEVEL)
 			ceb.processAppEnv(appCfg.EnvVars)
 
 			// Set our new env vars
@@ -346,7 +346,7 @@ func (ceb *CEB) recvConfig(
 }
 
 // processAppEnv takes a list of env vars meant for the app and handles
-// certain special cases (such as WAYPOINT_LOG_LEVEL) that also affect the
+// certain special cases (such as DERRICK_LOG_LEVEL) that also affect the
 // entrypoint.
 func (ceb *CEB) processAppEnv(env []string) {
 	// Check if we changed our log level. We change this on the

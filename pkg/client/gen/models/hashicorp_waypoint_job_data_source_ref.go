@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointJobDataSourceRef Ref is a reference to the exact set of data used by a data source.
 //
-// swagger:model hashicorp.waypoint.Job.DataSource.Ref
+// swagger:model nomatron.derrick.Job.DataSource.Ref
 type HashicorpWaypointJobDataSourceRef struct {
 
 	// git commit

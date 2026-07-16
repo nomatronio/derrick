@@ -1,5 +1,5 @@
 import Route from '@ember/routing/route';
-import { Ref } from 'waypoint-pb';
+import { Ref } from 'derrick-pb';
 import SessionService from 'ember-simple-auth/services/session';
 import { inject as service } from '@ember/service';
 

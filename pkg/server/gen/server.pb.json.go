@@ -6440,7 +6440,7 @@ func (msg *Hcl) UnmarshalJSON(b []byte) error {
 }
 
 // MarshalJSON implements json.Marshaler
-func (msg *WaypointHclFmtRequest) MarshalJSON() ([]byte, error) {
+func (msg *DerrickHclFmtRequest) MarshalJSON() ([]byte, error) {
 	return protojson.MarshalOptions{
 		UseEnumNumbers:  false,
 		EmitUnpopulated: false,
@@ -6449,14 +6449,14 @@ func (msg *WaypointHclFmtRequest) MarshalJSON() ([]byte, error) {
 }
 
 // UnmarshalJSON implements json.Unmarshaler
-func (msg *WaypointHclFmtRequest) UnmarshalJSON(b []byte) error {
+func (msg *DerrickHclFmtRequest) UnmarshalJSON(b []byte) error {
 	return protojson.UnmarshalOptions{
 		DiscardUnknown: false,
 	}.Unmarshal(b, msg)
 }
 
 // MarshalJSON implements json.Marshaler
-func (msg *WaypointHclFmtResponse) MarshalJSON() ([]byte, error) {
+func (msg *DerrickHclFmtResponse) MarshalJSON() ([]byte, error) {
 	return protojson.MarshalOptions{
 		UseEnumNumbers:  false,
 		EmitUnpopulated: false,
@@ -6465,7 +6465,7 @@ func (msg *WaypointHclFmtResponse) MarshalJSON() ([]byte, error) {
 }
 
 // UnmarshalJSON implements json.Unmarshaler
-func (msg *WaypointHclFmtResponse) UnmarshalJSON(b []byte) error {
+func (msg *DerrickHclFmtResponse) UnmarshalJSON(b []byte) error {
 	return protojson.UnmarshalOptions{
 		DiscardUnknown: false,
 	}.Unmarshal(b, msg)

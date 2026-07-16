@@ -1,7 +1,7 @@
 import { currentURL, visit } from '@ember/test-helpers';
 import { module, test } from 'qunit';
 
-import login from 'waypoint/tests/helpers/login';
+import login from 'derrick/tests/helpers/login';
 import { setupApplicationTest } from 'ember-qunit';
 import { setupMirage } from 'ember-cli-mirage/test-support';
 

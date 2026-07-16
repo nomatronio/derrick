@@ -1,6 +1,6 @@
-import ApiService from 'waypoint/services/api';
+import ApiService from 'derrick/services/api';
 import { Empty } from 'google-protobuf/google/protobuf/empty_pb';
-import { ListOIDCAuthMethodsResponse } from 'waypoint-pb';
+import { ListOIDCAuthMethodsResponse } from 'derrick-pb';
 import Route from '@ember/routing/route';
 import SessionService from 'ember-simple-auth/services/session';
 import { inject as service } from '@ember/service';

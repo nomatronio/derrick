@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointExpediteStatusReportResponse id of job expedited by the request
 //
-// swagger:model hashicorp.waypoint.ExpediteStatusReportResponse
+// swagger:model nomatron.derrick.ExpediteStatusReportResponse
 type HashicorpWaypointExpediteStatusReportResponse struct {
 
 	// job id

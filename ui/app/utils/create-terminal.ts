@@ -1,6 +1,6 @@
 import { ITerminalOptions, Terminal } from 'xterm';
 
-import terminalTheme from 'waypoint/utils/terminal-theme';
+import terminalTheme from 'derrick/utils/terminal-theme';
 
 interface TerminalOptions {
   inputDisabled: boolean;

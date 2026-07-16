@@ -9,8 +9,8 @@ import (
 	"google.golang.org/grpc/metadata"
 	"google.golang.org/grpc/status"
 
-	"github.com/hashicorp/waypoint/pkg/protocolversion"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick/pkg/protocolversion"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 // VersionUnaryInterceptor returns a gRPC unary interceptor that negotiates
@@ -67,7 +67,7 @@ func VersionStreamInterceptor(serverInfo *pb.VersionInfo) grpc.StreamServerInter
 // versionType returns the type of protocol version we should negotiate.
 func versionType(fullMethod string) (protocolversion.Type, bool) {
 	// Only care about waypoint APIs and ignore the version info call.
-	if !strings.HasPrefix(fullMethod, "/hashicorp.waypoint.Waypoint/") {
+	if !strings.HasPrefix(fullMethod, "/nomatron.derrick.Derrick/") {
 		return protocolversion.Invalid, false
 	}
 

@@ -8,12 +8,12 @@ import (
 
 	"github.com/posener/complete"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	clientpkg "github.com/hashicorp/waypoint/internal/client"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	jobstream "github.com/hashicorp/waypoint/internal/jobstream"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	clientpkg "github.com/nomatronio/derrick/internal/client"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	jobstream "github.com/nomatronio/derrick/internal/jobstream"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 type PipelineRunCommand struct {
@@ -45,7 +45,7 @@ func (c *PipelineRunCommand) Run(args []string) int {
 
 	if c.flagLocal != nil && *c.flagLocal {
 		// TODO(briancain): Remove this warning when local support for Pipelines is introduced.
-		// GitHub: https://github.com/hashicorp/waypoint/issues/3813
+		// GitHub: https://github.com/nomatronio/derrick/issues/3813
 		c.ui.Output("At the moment, the initial Tech Preview of Custom Pipelines does not allow "+
 			"for executing pipelines with a local runner. The CLI will attempt to run the "+
 			"requested pipeline but it will likely fail if the project was not configured "+
@@ -391,7 +391,7 @@ func (c *PipelineRunCommand) Synopsis() string {
 
 func (c *PipelineRunCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint pipeline run [options] <pipeline-name>
+Usage: derrick pipeline run [options] <pipeline-name>
 
 	Run a pipeline by name. If run outside of a project dir, a '-project' flag is
 	required. Before running a requested pipeline, this command will sync

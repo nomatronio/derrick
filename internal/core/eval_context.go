@@ -8,7 +8,7 @@ import (
 	"github.com/zclconf/go-cty/cty"
 	"google.golang.org/protobuf/proto"
 
-	"github.com/hashicorp/waypoint/internal/pkg/ctystructure"
+	"github.com/nomatronio/derrick/internal/pkg/ctystructure"
 )
 
 // evalCtxTemplateProto adds template data to the eval context if tpl has a

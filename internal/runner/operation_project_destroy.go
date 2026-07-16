@@ -3,9 +3,9 @@ package runner
 import (
 	"context"
 	"github.com/hashicorp/go-hclog"
-	projConfig "github.com/hashicorp/waypoint/internal/config"
-	"github.com/hashicorp/waypoint/internal/core"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	projConfig "github.com/nomatronio/derrick/internal/config"
+	"github.com/nomatronio/derrick/internal/core"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 	empty "google.golang.org/protobuf/types/known/emptypb"

@@ -38,8 +38,8 @@ export default class OIDCAuthenticator extends OAuth2ImplicitGrantAuthenticator 
   // Used to clean up OIDC information stored in LocalStorage
   // during the authentication flow
   _cleanUpLocalStorage(): void {
-    window.localStorage.removeItem('waypointOIDCAuthMethod');
-    window.localStorage.removeItem('waypointOIDCNonce');
+    window.localStorage.removeItem('derrickOIDCAuthMethod');
+    window.localStorage.removeItem('derrickOIDCNonce');
   }
 }
 

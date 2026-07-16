@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointExecStreamRequest hashicorp waypoint exec stream request
 //
-// swagger:model hashicorp.waypoint.ExecStreamRequest
+// swagger:model nomatron.derrick.ExecStreamRequest
 type HashicorpWaypointExecStreamRequest struct {
 
 	// input

@@ -2,7 +2,7 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { TestContext } from 'ember-test-helpers';
 import { render, settled } from '@ember/test-helpers';
-import { GetJobStreamRequest, GetJobStreamResponse } from 'waypoint-pb';
+import { GetJobStreamRequest, GetJobStreamResponse } from 'derrick-pb';
 import { getTerminalText } from '../../helpers/xterm';
 import Service from '@ember/service';
 import hbs from 'htmlbars-inline-precompile';

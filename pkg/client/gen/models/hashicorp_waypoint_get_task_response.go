@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointGetTaskResponse hashicorp waypoint get task response
 //
-// swagger:model hashicorp.waypoint.GetTaskResponse
+// swagger:model nomatron.derrick.GetTaskResponse
 type HashicorpWaypointGetTaskResponse struct {
 
 	// start job

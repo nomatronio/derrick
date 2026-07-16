@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointRunnerJobStreamRequestError hashicorp waypoint runner job stream request error
 //
-// swagger:model hashicorp.waypoint.RunnerJobStreamRequest.Error
+// swagger:model nomatron.derrick.RunnerJobStreamRequest.Error
 type HashicorpWaypointRunnerJobStreamRequestError struct {
 
 	// error

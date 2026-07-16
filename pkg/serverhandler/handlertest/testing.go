@@ -6,11 +6,11 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 // TestApp creates the app in the DB.
-func TestApp(t *testing.T, client pb.WaypointClient, ref *pb.Ref_Application) {
+func TestApp(t *testing.T, client pb.DerrickClient, ref *pb.Ref_Application) {
 	{
 		_, err := client.UpsertProject(context.Background(), &pb.UpsertProjectRequest{
 			Project: &pb.Project{

@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointJobConfig hashicorp waypoint job config
 //
-// swagger:model hashicorp.waypoint.Job.Config
+// swagger:model nomatron.derrick.Job.Config
 type HashicorpWaypointJobConfig struct {
 
 	// Source is the location where the configuration was loaded from.

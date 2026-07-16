@@ -7,5 +7,5 @@ package models
 
 // HashicorpWaypointRefRunnerAny RunnerAny will reference any runner.
 //
-// swagger:model hashicorp.waypoint.Ref.RunnerAny
+// swagger:model nomatron.derrick.Ref.RunnerAny
 type HashicorpWaypointRefRunnerAny interface{}

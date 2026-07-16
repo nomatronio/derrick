@@ -16,7 +16,7 @@ import (
 // HashicorpWaypointComponent Component represents metadata about a component. A component is the
 // generic name for a builder, registry, platform, etc.
 //
-// swagger:model hashicorp.waypoint.Component
+// swagger:model nomatron.derrick.Component
 type HashicorpWaypointComponent struct {
 
 	// name of the component

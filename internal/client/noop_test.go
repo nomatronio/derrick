@@ -7,7 +7,7 @@ import (
 	"github.com/hashicorp/go-hclog"
 	"github.com/stretchr/testify/require"
 
-	"github.com/hashicorp/waypoint/pkg/server/singleprocess"
+	"github.com/nomatronio/derrick/pkg/server/singleprocess"
 )
 
 func init() {

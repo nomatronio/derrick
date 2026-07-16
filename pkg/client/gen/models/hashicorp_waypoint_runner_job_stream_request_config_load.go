@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointRunnerJobStreamRequestConfigLoad hashicorp waypoint runner job stream request config load
 //
-// swagger:model hashicorp.waypoint.RunnerJobStreamRequest.ConfigLoad
+// swagger:model nomatron.derrick.RunnerJobStreamRequest.ConfigLoad
 type HashicorpWaypointRunnerJobStreamRequestConfigLoad struct {
 
 	// Config is the configuration information for the loaded config.

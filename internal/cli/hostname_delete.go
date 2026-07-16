@@ -1,10 +1,10 @@
 package cli
 
 import (
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 	"github.com/posener/complete"
 )
 
@@ -58,7 +58,7 @@ func (c *HostnameDeleteCommand) Synopsis() string {
 
 func (c *HostnameDeleteCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint hostname delete HOSTNAME
+Usage: derrick hostname delete HOSTNAME
 
   Delete a previously registered hostname.
 

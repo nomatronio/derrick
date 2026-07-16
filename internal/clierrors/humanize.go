@@ -6,7 +6,7 @@ import (
 	"github.com/mitchellh/go-wordwrap"
 	"google.golang.org/grpc/status"
 
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 func Humanize(err error) string {

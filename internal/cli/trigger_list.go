@@ -9,10 +9,10 @@ import (
 	"github.com/posener/complete"
 	"google.golang.org/protobuf/encoding/protojson"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 type TriggerListCommand struct {
@@ -213,9 +213,9 @@ func (c *TriggerListCommand) Synopsis() string {
 
 func (c *TriggerListCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint trigger list [options]
+Usage: derrick trigger list [options]
 
-  List trigger URL configurations on Waypoint Server.
+  List trigger URL configurations on Derrick Server.
 
 ` + c.Flags().Help())
 }

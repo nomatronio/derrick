@@ -6,9 +6,9 @@ import (
 
 	"github.com/posener/complete"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
 )
 
 type ContextUseCommand struct {
@@ -68,7 +68,7 @@ func (c *ContextUseCommand) Synopsis() string {
 
 func (c *ContextUseCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint context use [options] NAME
+Usage: derrick context use [options] NAME
 
   Set the default context for the CLI.
 

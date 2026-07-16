@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointTokenRunner hashicorp waypoint token runner
 //
-// swagger:model hashicorp.waypoint.Token.Runner
+// swagger:model nomatron.derrick.Token.Runner
 type HashicorpWaypointTokenRunner struct {
 
 	// Id is the exact ID to match for this token. If a runner with another

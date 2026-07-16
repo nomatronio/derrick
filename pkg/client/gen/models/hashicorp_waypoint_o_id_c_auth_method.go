@@ -16,7 +16,7 @@ import (
 // HashicorpWaypointOIDCAuthMethod This is used by ListOIDCAuthMethods to return the minimal information
 // for an OIDC auth method in an unauthenticated setting.
 //
-// swagger:model hashicorp.waypoint.OIDCAuthMethod
+// swagger:model nomatron.derrick.OIDCAuthMethod
 type HashicorpWaypointOIDCAuthMethod struct {
 
 	// human friendly name

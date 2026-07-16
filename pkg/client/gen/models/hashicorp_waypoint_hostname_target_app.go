@@ -17,7 +17,7 @@ import (
 // this target type, you can still target specific deployments by
 // appending `--<deployment id>` to the hostname after registration.
 //
-// swagger:model hashicorp.waypoint.Hostname.TargetApp
+// swagger:model nomatron.derrick.Hostname.TargetApp
 type HashicorpWaypointHostnameTargetApp struct {
 
 	// application

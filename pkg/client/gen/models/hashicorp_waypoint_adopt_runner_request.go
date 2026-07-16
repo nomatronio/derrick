@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointAdoptRunnerRequest hashicorp waypoint adopt runner request
 //
-// swagger:model hashicorp.waypoint.AdoptRunnerRequest
+// swagger:model nomatron.derrick.AdoptRunnerRequest
 type HashicorpWaypointAdoptRunnerRequest struct {
 
 	// Whether to adopt or reject. True for adopt, false for reject.

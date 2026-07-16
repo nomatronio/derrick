@@ -1,6 +1,6 @@
-import ApiService from 'waypoint/services/api';
+import ApiService from 'derrick/services/api';
 import Component from '@glimmer/component';
-import { ConvertInviteTokenRequest } from 'waypoint-pb';
+import { ConvertInviteTokenRequest } from 'derrick-pb';
 import RouterService from '@ember/routing/router-service';
 import SessionService from 'ember-simple-auth/services/session';
 import { action } from '@ember/object';

@@ -1,4 +1,4 @@
-import { ListReleasesRequest, ListReleasesResponse, GetReleaseRequest, UI } from 'waypoint-pb';
+import { ListReleasesRequest, ListReleasesResponse, GetReleaseRequest, UI } from 'derrick-pb';
 import { Request, Response } from 'miragejs';
 import { RouteHandler } from '../types';
 import { decode } from '../helpers/protobufs';

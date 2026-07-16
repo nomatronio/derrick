@@ -2,7 +2,7 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, clearRender, fillIn } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
-import { Project } from 'waypoint-pb';
+import { Project } from 'derrick-pb';
 
 module('Integration | Component | app-form/project-repository-settings', function (hooks) {
   setupRenderingTest(hooks);

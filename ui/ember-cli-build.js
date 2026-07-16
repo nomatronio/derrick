@@ -16,7 +16,7 @@ module.exports = function (defaults) {
       faviconsConfig: {
         // these options are passed directly to the favicons module
         path: '/',
-        appName: 'Waypoint',
+        appName: 'Derrick',
         appShortName: 'WP',
         developerName: 'HashiCorp',
         appleStatusBarStyle: 'black',
@@ -57,11 +57,11 @@ module.exports = function (defaults) {
       },
       skipBabel: [
         {
-          package: 'waypoint-client',
+          package: 'derrick-client',
           semverRange: '*',
         },
         {
-          package: 'waypoint-pb',
+          package: 'derrick-pb',
           semverRange: '*',
         },
       ],

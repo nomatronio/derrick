@@ -5,9 +5,9 @@ import (
 	"os/exec"
 
 	"github.com/hashicorp/go-hclog"
-	"github.com/hashicorp/waypoint-plugin-sdk/component"
-	"github.com/hashicorp/waypoint-plugin-sdk/docs"
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick-plugin-sdk/component"
+	"github.com/nomatronio/derrick-plugin-sdk/docs"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
@@ -249,7 +249,7 @@ deploy {
 `)
 
 	doc.Example(`
-// The waypoint.hcl file
+// The derrick.hcl file
 deploy {
   use "kubernetes-apply" {
     // Templated to perhaps bring in the artifact from a previous

@@ -13,11 +13,11 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	configpkg "github.com/hashicorp/waypoint/internal/config"
-	serverpkg "github.com/hashicorp/waypoint/pkg/server"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	serverptypes "github.com/hashicorp/waypoint/pkg/server/ptypes"
-	"github.com/hashicorp/waypoint/pkg/server/singleprocess"
+	configpkg "github.com/nomatronio/derrick/internal/config"
+	serverpkg "github.com/nomatronio/derrick/pkg/server"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	serverptypes "github.com/nomatronio/derrick/pkg/server/ptypes"
+	"github.com/nomatronio/derrick/pkg/server/singleprocess"
 )
 
 var testHasGit bool
@@ -689,7 +689,7 @@ func TestRunnerAccept_noConfig_serverHcl(t *testing.T) {
 		_, err := client.UpsertProject(context.Background(), &pb.UpsertProjectRequest{
 			Project: &pb.Project{
 				Name:        ref.Project,
-				WaypointHcl: []byte(configpkg.TestSource(t)),
+				DerrickHcl: []byte(configpkg.TestSource(t)),
 			},
 		})
 		require.NoError(err)
@@ -737,8 +737,8 @@ func TestRunnerAccept_noConfig_serverHclJson(t *testing.T) {
 		_, err := client.UpsertProject(context.Background(), &pb.UpsertProjectRequest{
 			Project: &pb.Project{
 				Name:              ref.Project,
-				WaypointHcl:       []byte(configpkg.TestSourceJSON(t)),
-				WaypointHclFormat: pb.Hcl_JSON,
+				DerrickHcl:       []byte(configpkg.TestSourceJSON(t)),
+				DerrickHclFormat: pb.Hcl_JSON,
 			},
 		})
 		require.NoError(err)
@@ -802,7 +802,7 @@ func TestRunnerAccept_jobHcl(t *testing.T) {
 	// Queue a job
 	queueResp, err := client.QueueJob(ctx, &pb.QueueJobRequest{
 		Job: serverptypes.TestJobNew(t, &pb.Job{
-			WaypointHcl: &pb.Hcl{
+			DerrickHcl: &pb.Hcl{
 				Contents: []byte(configpkg.TestSourceJSON(t)),
 				Format:   pb.Hcl_JSON,
 			},

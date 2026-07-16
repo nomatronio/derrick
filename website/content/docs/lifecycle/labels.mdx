@@ -2,15 +2,15 @@
 layout: docs
 page_title: 'Lifecycle: Labels'
 description: |-
-  Labels are key/value pairs that can be specified by the user and attached to Waypoint operations. Labels can be used to specify any information that may be useful for the user, but are not directly interpreted by Waypoint itself.
+  Labels are key/value pairs that can be specified by the user and attached to Derrick operations. Labels can be used to specify any information that may be useful for the user, but are not directly interpreted by Derrick itself.
 ---
 
 # Labels
 
 Labels are key/value pairs that can be specified by the user and
-attached to Waypoint operations. Labels can be used to specify any information
+attached to Derrick operations. Labels can be used to specify any information
 that may be useful for the user, but are not directly interpreted by
-Waypoint itself. For example, this can be used for organizational information
+Derrick itself. For example, this can be used for organizational information
 (`team=widget`), process information (`scanned=true`), etc.
 
 ## Specifying Labels
@@ -41,7 +41,7 @@ to specify multiple labels. The example below specifies a couple labels
 that will be applied to the build step only for this invocation.
 
 ```shell-session
-$ waypoint build -label a=1 -label b=2
+$ derrick build -label a=1 -label b=2
 ```
 
 ### Project and App Labels
@@ -65,20 +65,20 @@ app "web" {
 
 ## Predefined Labels
 
-Labels starting with `waypoint/` are reserved for Waypoint rather than
+Labels starting with `derrick/` are reserved for Derrick rather than
 user specification. It is an error to try to set any labels starting with
-`waypoint/` and Waypoint will not allow it. We call these "system labels".
+`derrick/` and Derrick will not allow it. We call these "system labels".
 The full set of system labels is listed below:
 
-- `waypoint/workspace` - The current workspace of the operation.
+- `derrick/workspace` - The current workspace of the operation.
 
 ## Using Labels
 
 ### Labels Variable
 
 The complete label set for the current operation is always available
-using the [`labels`](/waypoint/docs/waypoint-hcl/variables/labels) variable
-within the `waypoint.hcl` file. The linked documentation shares various
+using the [`labels`](/waypoint/docs/derrick-hcl/variables/labels) variable
+within the `derrick.hcl` file. The linked documentation shares various
 examples of how this might be useful, but one example might be that you
 want to also store all the labels as annotations within a platform such
 as Kubernetes:
@@ -95,7 +95,7 @@ app "web" {
 
 ### Filtering with Selectors
 
-Labels can be used in various places in Waypoint for filtering by using
+Labels can be used in various places in Derrick for filtering by using
 "label selectors." Label selectors are
 [boolean expressions](https://en.wikipedia.org/wiki/Boolean_expression)
 (result in a "true" or "false"). An example of where filtering can be

@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"path/filepath"
 
-	"github.com/hashicorp/waypoint/internal/clicontext"
-	clientpkg "github.com/hashicorp/waypoint/internal/client"
-	configpkg "github.com/hashicorp/waypoint/internal/config"
-	"github.com/hashicorp/waypoint/pkg/serverclient"
+	"github.com/nomatronio/derrick/internal/clicontext"
+	clientpkg "github.com/nomatronio/derrick/internal/client"
+	configpkg "github.com/nomatronio/derrick/internal/config"
+	"github.com/nomatronio/derrick/pkg/serverclient"
 )
 
 // This file contains the various methods that are used to perform
@@ -39,7 +39,7 @@ func (c *baseCommand) initConfig(filename string) (*configpkg.Config, configpkg.
 func (c *baseCommand) initConfigPath(filename string) (string, error) {
 	path, err := configpkg.FindPath("", filename, true)
 	if err != nil {
-		return "", fmt.Errorf("Error looking for a Waypoint configuration: %s", err)
+		return "", fmt.Errorf("Error looking for a Derrick configuration: %s", err)
 	}
 
 	return path, nil

@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointNewTokenResponse Returned by any action that creates a token.
 //
-// swagger:model hashicorp.waypoint.NewTokenResponse
+// swagger:model nomatron.derrick.NewTokenResponse
 type HashicorpWaypointNewTokenResponse struct {
 
 	// The new token which can be presented to whichever API expects it.

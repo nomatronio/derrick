@@ -6,9 +6,9 @@ import (
 	"github.com/hashicorp/go-hclog"
 	empty "google.golang.org/protobuf/types/known/emptypb"
 
-	configpkg "github.com/hashicorp/waypoint/internal/config"
-	"github.com/hashicorp/waypoint/internal/runner"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	configpkg "github.com/nomatronio/derrick/internal/config"
+	"github.com/nomatronio/derrick/internal/runner"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 // startRunner initializes and starts a local runner.
@@ -57,7 +57,7 @@ func (c *Project) startRunner(ctx context.Context) error {
 //
 // Note that this cannot guarantee that an operation will succeed remotely - the remote environment
 // may not have the right auth configured, the right plugins configured, etc.
-func remoteOpPreferred(ctx context.Context, client pb.WaypointClient, project *pb.Project, runnerCfgs []*configpkg.Runner, log hclog.Logger) (bool, error) {
+func remoteOpPreferred(ctx context.Context, client pb.DerrickClient, project *pb.Project, runnerCfgs []*configpkg.Runner, log hclog.Logger) (bool, error) {
 	if !project.RemoteEnabled {
 		log.Debug("Remote operations are disabled for this project - operation cannot occur remotely")
 		return false, nil

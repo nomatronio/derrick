@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointGetJobStreamResponseDownload hashicorp waypoint get job stream response download
 //
-// swagger:model hashicorp.waypoint.GetJobStreamResponse.Download
+// swagger:model nomatron.derrick.GetJobStreamResponse.Download
 type HashicorpWaypointGetJobStreamResponseDownload struct {
 
 	// The ref for the data that was downloaded. This can be nil if no

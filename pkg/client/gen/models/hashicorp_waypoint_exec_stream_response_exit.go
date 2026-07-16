@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointExecStreamResponseExit hashicorp waypoint exec stream response exit
 //
-// swagger:model hashicorp.waypoint.ExecStreamResponse.Exit
+// swagger:model nomatron.derrick.ExecStreamResponse.Exit
 type HashicorpWaypointExecStreamResponseExit struct {
 
 	// code

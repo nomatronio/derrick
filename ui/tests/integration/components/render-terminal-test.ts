@@ -2,7 +2,7 @@
 import { clearRender, render } from '@ember/test-helpers';
 import { module, test } from 'qunit';
 
-import { createTerminal } from 'waypoint/utils/create-terminal';
+import { createTerminal } from 'derrick/utils/create-terminal';
 import hbs from 'htmlbars-inline-precompile';
 import { later } from '@ember/runloop';
 import settled from '@ember/test-helpers/settled';
@@ -18,11 +18,11 @@ module('Integration | Component | render-terminal', function (hooks) {
     // pass terminal and render
     await render(hbs`<RenderTerminal @terminal={{this.terminal}}/>`);
     // write line and see if it renders
-    terminal.writeln('Welcome to Waypoint!');
+    terminal.writeln('Welcome to Derrick!');
     // We have to use the runloop as writeln isn't async
     // Note that even the xterm.js rendering tests use polling to evaluate rendering
     later(() => {
-      assert.equal(terminal?.buffer?.active?.getLine(0)?.translateToString(true), 'Welcome to Waypoint!');
+      assert.equal(terminal?.buffer?.active?.getLine(0)?.translateToString(true), 'Welcome to Derrick!');
     }, 10);
     assert.dom('[data-test-xterm-pane]').exists('the xterm pane renders');
     assert.dom('.xterm').exists('the xterm terminal renders');

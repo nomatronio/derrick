@@ -7,5 +7,5 @@ package models
 
 // HashicorpWaypointJobDocsOp hashicorp waypoint job docs op
 //
-// swagger:model hashicorp.waypoint.Job.DocsOp
+// swagger:model nomatron.derrick.Job.DocsOp
 type HashicorpWaypointJobDocsOp interface{}

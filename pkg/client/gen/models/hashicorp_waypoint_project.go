@@ -16,7 +16,7 @@ import (
 
 // HashicorpWaypointProject hashicorp waypoint project
 //
-// swagger:model hashicorp.waypoint.Project
+// swagger:model nomatron.derrick.Project
 type HashicorpWaypointProject struct {
 
 	// The set of applications that are known about this project. Note that
@@ -70,17 +70,17 @@ type HashicorpWaypointProject struct {
 	// Variable values stored on the server. These values are set in the UI.
 	Variables []*HashicorpWaypointVariable `json:"variables"`
 
-	// The contents of a default waypoint.hcl file. This will be used ONLY IF
-	// this project does not have a waypoint.hcl file when an operation is
+	// The contents of a default derrick.hcl file. This will be used ONLY IF
+	// this project does not have a derrick.hcl file when an operation is
 	// executed. When this is used, local operations can't be run any more
-	// since the CLI usually determines the project based on the waypoint.hcl
+	// since the CLI usually determines the project based on the derrick.hcl
 	// file. The CLI may still be used for remote operations by executing
 	// i.e. waypoint up <project>
 	// Format: byte
-	WaypointHcl strfmt.Base64 `json:"waypoint_hcl,omitempty"`
+	DerrickHcl strfmt.Base64 `json:"derrick_hcl,omitempty"`
 
 	// waypoint hcl format
-	WaypointHclFormat *HashicorpWaypointHclFormat `json:"waypoint_hcl_format,omitempty"`
+	DerrickHclFormat *HashicorpDerrickHclFormat `json:"derrick_hcl_format,omitempty"`
 }
 
 // Validate validates this hashicorp waypoint project
@@ -111,7 +111,7 @@ func (m *HashicorpWaypointProject) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateWaypointHclFormat(formats); err != nil {
+	if err := m.validateDerrickHclFormat(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -249,17 +249,17 @@ func (m *HashicorpWaypointProject) validateVariables(formats strfmt.Registry) er
 	return nil
 }
 
-func (m *HashicorpWaypointProject) validateWaypointHclFormat(formats strfmt.Registry) error {
-	if swag.IsZero(m.WaypointHclFormat) { // not required
+func (m *HashicorpWaypointProject) validateDerrickHclFormat(formats strfmt.Registry) error {
+	if swag.IsZero(m.DerrickHclFormat) { // not required
 		return nil
 	}
 
-	if m.WaypointHclFormat != nil {
-		if err := m.WaypointHclFormat.Validate(formats); err != nil {
+	if m.DerrickHclFormat != nil {
+		if err := m.DerrickHclFormat.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("waypoint_hcl_format")
+				return ve.ValidateName("derrick_hcl_format")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("waypoint_hcl_format")
+				return ce.ValidateName("derrick_hcl_format")
 			}
 			return err
 		}
@@ -296,7 +296,7 @@ func (m *HashicorpWaypointProject) ContextValidate(ctx context.Context, formats 
 		res = append(res, err)
 	}
 
-	if err := m.contextValidateWaypointHclFormat(ctx, formats); err != nil {
+	if err := m.contextValidateDerrickHclFormat(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -410,14 +410,14 @@ func (m *HashicorpWaypointProject) contextValidateVariables(ctx context.Context,
 	return nil
 }
 
-func (m *HashicorpWaypointProject) contextValidateWaypointHclFormat(ctx context.Context, formats strfmt.Registry) error {
+func (m *HashicorpWaypointProject) contextValidateDerrickHclFormat(ctx context.Context, formats strfmt.Registry) error {
 
-	if m.WaypointHclFormat != nil {
-		if err := m.WaypointHclFormat.ContextValidate(ctx, formats); err != nil {
+	if m.DerrickHclFormat != nil {
+		if err := m.DerrickHclFormat.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("waypoint_hcl_format")
+				return ve.ValidateName("derrick_hcl_format")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("waypoint_hcl_format")
+				return ce.ValidateName("derrick_hcl_format")
 			}
 			return err
 		}

@@ -5,9 +5,9 @@ sidebar_title: 'runner agent'
 description: 'Run a runner for executing remote operations.'
 ---
 
-# Waypoint Runner agent
+# Derrick Runner agent
 
-Command: `waypoint runner agent`
+Command: `derrick runner agent`
 
 Run a runner for executing remote operations.
 
@@ -15,7 +15,7 @@ Run a runner for executing remote operations.
 
 ## Usage
 
-Usage: `waypoint runner agent [options]`
+Usage: `derrick runner agent [options]`
 
 Run a remote runner for executing remote operations.
 
@@ -24,13 +24,13 @@ can be manually specified or automatically generated. The label set is
 specified using "-label" flags.
 
 A runner can be registered with the server in two ways. First, a
-runner token can be created with "waypoint runner token" and used with
+runner token can be created with "derrick runner token" and used with
 this command (using the WAYPOINT_SERVER_TOKEN environment variable,
-"waypoint context", etc.). This will allow the runner to begin accepting
+"derrick context", etc.). This will allow the runner to begin accepting
 jobs immediately since it is preauthorized.
 
 The second approach is to specify only the cookie value (acquired using
-the "waypoint server cookie" command) and the server address. This will
+the "derrick server cookie" command) and the server address. This will
 trigger a process that puts the runner in a pending state until a human
 manually verifies it. This is useful for easily installing runners.
 
@@ -42,7 +42,7 @@ not generally recommended.
 #### Global Options
 
 - `-plain` - Plain output: no colors, no animation. The default is false.
-- `-app=<string>` (`-a`) - App to target. Certain commands require a single app target for Waypoint configurations with multiple apps. If you have a single app, then this can be ignored.
+- `-app=<string>` (`-a`) - App to target. Certain commands require a single app target for Derrick configurations with multiple apps. If you have a single app, then this can be ignored.
 - `-project=<string>` (`-p`) - Project to target.
 - `-workspace=<string>` (`-w`) - Workspace to operate in.
 

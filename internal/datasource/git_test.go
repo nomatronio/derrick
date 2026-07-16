@@ -11,8 +11,8 @@ import (
 	"github.com/hashicorp/hcl/v2/hclsyntax"
 	"github.com/stretchr/testify/require"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 func TestGitProjectSource(t *testing.T) {
@@ -207,7 +207,7 @@ func TestGitSourceGet(t *testing.T) {
 		}
 
 		// Verify files
-		_, err = os.Stat(filepath.Join(dir, "waypoint.hcl"))
+		_, err = os.Stat(filepath.Join(dir, "derrick.hcl"))
 		require.NoError(err)
 
 		// Verify ref
@@ -243,7 +243,7 @@ func TestGitSourceGet(t *testing.T) {
 		}
 
 		// Verify files
-		_, err = os.Stat(filepath.Join(dir, "waypoint.hcl"))
+		_, err = os.Stat(filepath.Join(dir, "derrick.hcl"))
 		require.NoError(err)
 		_, err = os.Stat(filepath.Join(dir, "branchfile"))
 		require.NoError(err)
@@ -273,7 +273,7 @@ func TestGitSourceGet(t *testing.T) {
 		}
 
 		// Verify files
-		_, err = os.Stat(filepath.Join(dir, "waypoint.hcl"))
+		_, err = os.Stat(filepath.Join(dir, "derrick.hcl"))
 		require.NoError(err)
 		_, err = os.Stat(filepath.Join(dir, "two"))
 		require.Error(err)

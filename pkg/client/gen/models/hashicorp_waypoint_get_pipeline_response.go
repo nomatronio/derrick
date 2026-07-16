@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointGetPipelineResponse hashicorp waypoint get pipeline response
 //
-// swagger:model hashicorp.waypoint.GetPipelineResponse
+// swagger:model nomatron.derrick.GetPipelineResponse
 type HashicorpWaypointGetPipelineResponse struct {
 
 	// Graph is the execution graph for the pipeline steps. This can be

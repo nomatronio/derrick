@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointRefDeployment hashicorp waypoint ref deployment
 //
-// swagger:model hashicorp.waypoint.Ref.Deployment
+// swagger:model nomatron.derrick.Ref.Deployment
 type HashicorpWaypointRefDeployment struct {
 
 	// latest

@@ -16,7 +16,7 @@ import (
 
 // HashicorpWaypointListAuthMethodsResponse hashicorp waypoint list auth methods response
 //
-// swagger:model hashicorp.waypoint.ListAuthMethodsResponse
+// swagger:model nomatron.derrick.ListAuthMethodsResponse
 type HashicorpWaypointListAuthMethodsResponse struct {
 
 	// auth methods

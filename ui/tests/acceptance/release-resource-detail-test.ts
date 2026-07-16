@@ -2,7 +2,7 @@ import { module, test } from 'qunit';
 
 import { setupApplicationTest } from 'ember-qunit';
 import { setupMirage } from 'ember-cli-mirage/test-support';
-import { setupSession } from 'waypoint/tests/helpers/login';
+import { setupSession } from 'derrick/tests/helpers/login';
 import { visit } from '@ember/test-helpers';
 
 module('Acceptance | release resource detail', function (hooks) {

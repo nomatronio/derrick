@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointTokenEntrypoint hashicorp waypoint token entrypoint
 //
-// swagger:model hashicorp.waypoint.Token.Entrypoint
+// swagger:model nomatron.derrick.Token.Entrypoint
 type HashicorpWaypointTokenEntrypoint struct {
 
 	// deployment id is the deployment to restrict this token to.

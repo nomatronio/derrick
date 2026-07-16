@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointPushedArtifactPreload hashicorp waypoint pushed artifact preload
 //
-// swagger:model hashicorp.waypoint.PushedArtifact.Preload
+// swagger:model nomatron.derrick.PushedArtifact.Preload
 type HashicorpWaypointPushedArtifactPreload struct {
 
 	// The ref that was used in the job to run this operation. This is

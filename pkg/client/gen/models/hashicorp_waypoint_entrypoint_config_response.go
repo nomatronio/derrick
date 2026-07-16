@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointEntrypointConfigResponse hashicorp waypoint entrypoint config response
 //
-// swagger:model hashicorp.waypoint.EntrypointConfigResponse
+// swagger:model nomatron.derrick.EntrypointConfigResponse
 type HashicorpWaypointEntrypointConfigResponse struct {
 
 	// config

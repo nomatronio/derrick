@@ -12,28 +12,28 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// HashicorpWaypointWaypointHclFmtResponse hashicorp waypoint waypoint hcl fmt response
+// HashicorpWaypointDerrickHclFmtResponse hashicorp waypoint waypoint hcl fmt response
 //
-// swagger:model hashicorp.waypoint.WaypointHclFmtResponse
-type HashicorpWaypointWaypointHclFmtResponse struct {
+// swagger:model nomatron.derrick.DerrickHclFmtResponse
+type HashicorpWaypointDerrickHclFmtResponse struct {
 
 	// waypoint hcl
 	// Format: byte
-	WaypointHcl strfmt.Base64 `json:"waypoint_hcl,omitempty"`
+	DerrickHcl strfmt.Base64 `json:"derrick_hcl,omitempty"`
 }
 
 // Validate validates this hashicorp waypoint waypoint hcl fmt response
-func (m *HashicorpWaypointWaypointHclFmtResponse) Validate(formats strfmt.Registry) error {
+func (m *HashicorpWaypointDerrickHclFmtResponse) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
 // ContextValidate validates this hashicorp waypoint waypoint hcl fmt response based on context it is used
-func (m *HashicorpWaypointWaypointHclFmtResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+func (m *HashicorpWaypointDerrickHclFmtResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 
 // MarshalBinary interface implementation
-func (m *HashicorpWaypointWaypointHclFmtResponse) MarshalBinary() ([]byte, error) {
+func (m *HashicorpWaypointDerrickHclFmtResponse) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -41,8 +41,8 @@ func (m *HashicorpWaypointWaypointHclFmtResponse) MarshalBinary() ([]byte, error
 }
 
 // UnmarshalBinary interface implementation
-func (m *HashicorpWaypointWaypointHclFmtResponse) UnmarshalBinary(b []byte) error {
-	var res HashicorpWaypointWaypointHclFmtResponse
+func (m *HashicorpWaypointDerrickHclFmtResponse) UnmarshalBinary(b []byte) error {
+	var res HashicorpWaypointDerrickHclFmtResponse
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

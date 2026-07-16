@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointStatusReportHealth hashicorp waypoint status report health
 //
-// swagger:model hashicorp.waypoint.StatusReport.Health
+// swagger:model nomatron.derrick.StatusReport.Health
 type HashicorpWaypointStatusReportHealth struct {
 
 	// deprecated id

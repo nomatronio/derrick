@@ -9,9 +9,9 @@ import (
 	hzntest "github.com/hashicorp/horizon/pkg/testutils/central"
 	"github.com/stretchr/testify/require"
 
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	serverptypes "github.com/hashicorp/waypoint/pkg/server/ptypes"
-	"github.com/hashicorp/waypoint/pkg/server/singleprocess"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	serverptypes "github.com/nomatronio/derrick/pkg/server/ptypes"
+	"github.com/nomatronio/derrick/pkg/server/singleprocess"
 )
 
 func TestCEB_url(t *testing.T) {

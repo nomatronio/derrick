@@ -1,5 +1,5 @@
 import { Model, belongsTo } from 'miragejs';
-import { Artifact } from 'waypoint-pb';
+import { Artifact } from 'derrick-pb';
 
 export default Model.extend({
   build: belongsTo(),

@@ -15,17 +15,17 @@ import (
 	awsecr "github.com/aws/aws-sdk-go/service/ecr"
 	"github.com/aws/aws-sdk-go/service/lambda"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/component"
-	"github.com/hashicorp/waypoint-plugin-sdk/docs"
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/builtin/aws/ecr"
-	"github.com/hashicorp/waypoint/builtin/aws/utils"
+	"github.com/nomatronio/derrick-plugin-sdk/component"
+	"github.com/nomatronio/derrick-plugin-sdk/docs"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/builtin/aws/ecr"
+	"github.com/nomatronio/derrick/builtin/aws/utils"
 
 	"encoding/base64"
 	"encoding/json"
 
-	wpdocker "github.com/hashicorp/waypoint/builtin/docker"
-	wpdockerpull "github.com/hashicorp/waypoint/builtin/docker/pull"
+	wpdocker "github.com/nomatronio/derrick/builtin/docker"
+	wpdockerpull "github.com/nomatronio/derrick/builtin/docker/pull"
 
 	validation "github.com/go-ozzo/ozzo-validation/v4"
 )

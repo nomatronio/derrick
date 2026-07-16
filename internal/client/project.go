@@ -6,11 +6,11 @@ import (
 
 	"github.com/hashicorp/go-hclog"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	configpkg "github.com/hashicorp/waypoint/internal/config"
-	"github.com/hashicorp/waypoint/internal/runner"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	"github.com/hashicorp/waypoint/pkg/serverclient"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	configpkg "github.com/nomatronio/derrick/internal/config"
+	"github.com/nomatronio/derrick/internal/runner"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	"github.com/nomatronio/derrick/pkg/serverclient"
 )
 
 // Project is the primary structure for interacting with a Waypoint
@@ -20,7 +20,7 @@ import (
 type Project struct {
 	UI terminal.UI
 
-	client              pb.WaypointClient
+	client              pb.DerrickClient
 	logger              hclog.Logger
 	project             *pb.Ref_Project
 	workspace           *pb.Ref_Workspace
@@ -42,7 +42,7 @@ type Project struct {
 
 	localServer bool // True when a local server is created
 
-	// configPath is the path to the local directory that contains our config file (waypoint.hcl)
+	// configPath is the path to the local directory that contains our config file (derrick.hcl)
 	// May not be present.
 	configPath string
 
@@ -91,7 +91,7 @@ func New(ctx context.Context, opts ...Option) (*Project, error) {
 		if err != nil {
 			return nil, err
 		}
-		client.client = pb.NewWaypointClient(conn)
+		client.client = pb.NewDerrickClient(conn)
 	}
 
 	// Negotiate the version
@@ -123,7 +123,7 @@ func (c *Project) Ref() *pb.Ref_Project {
 }
 
 // Client returns the raw Waypoint server API client.
-func (c *Project) Client() pb.WaypointClient {
+func (c *Project) Client() pb.DerrickClient {
 	return c.client
 }
 
@@ -207,7 +207,7 @@ func WithWorkspaceRef(ref *pb.Ref_Workspace) Option {
 // If this is specified, the client MUST use a tokenutil.ContextToken
 // type for the PerRPCCredentials setting. This package and others will use
 // context overrides for the token. If you do not use this, things will break.
-func WithClient(client pb.WaypointClient) Option {
+func WithClient(client pb.DerrickClient) Option {
 	return func(c *Project, cfg *config) error {
 		c.client = client
 		return nil
@@ -285,7 +285,7 @@ func WithUseLocalRunner(useLocalRunner bool) Option {
 	}
 }
 
-// WithConfig sets the config file (waypoint.hcl) and path.
+// WithConfig sets the config file (derrick.hcl) and path.
 func WithConfig(waypointHCL *configpkg.Config) Option {
 	return func(c *Project, cfg *config) error {
 		c.waypointHCL = waypointHCL

@@ -7,11 +7,11 @@ import (
 	"github.com/hashicorp/go-hclog"
 	"github.com/stretchr/testify/require"
 
-	"github.com/hashicorp/waypoint/internal/jobstream"
-	"github.com/hashicorp/waypoint/internal/runner"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	serverptypes "github.com/hashicorp/waypoint/pkg/server/ptypes"
-	"github.com/hashicorp/waypoint/pkg/server/singleprocess"
+	"github.com/nomatronio/derrick/internal/jobstream"
+	"github.com/nomatronio/derrick/internal/runner"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	serverptypes "github.com/nomatronio/derrick/pkg/server/ptypes"
+	"github.com/nomatronio/derrick/pkg/server/singleprocess"
 )
 
 func TestStream_single(t *testing.T) {

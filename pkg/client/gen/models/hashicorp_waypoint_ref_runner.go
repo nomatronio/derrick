@@ -18,7 +18,7 @@ import (
 // by ID. If you want to constrain which runners can be targeted,
 // a different ref type should be used.
 //
-// swagger:model hashicorp.waypoint.Ref.Runner
+// swagger:model nomatron.derrick.Ref.Runner
 type HashicorpWaypointRefRunner struct {
 
 	// any

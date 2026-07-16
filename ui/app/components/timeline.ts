@@ -1,8 +1,8 @@
 import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
 import RouterService from '@ember/routing/router-service';
-import ApiService from 'waypoint/services/api';
-import { Status } from 'waypoint-pb';
+import ApiService from 'derrick/services/api';
+import { Status } from 'derrick-pb';
 
 const _TYPE_TRANSLATIONS = {
   build: 'page.artifact.timeline.build',

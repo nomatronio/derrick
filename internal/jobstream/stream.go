@@ -9,9 +9,9 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/pkg/finalcontext"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/pkg/finalcontext"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 // Stream a single job and return the result from that job. This function
@@ -40,7 +40,7 @@ func Stream(ctx context.Context, jobId string, opts ...Option) (*pb.Job_Result, 
 type stream struct {
 	jobId          string
 	log            hclog.Logger
-	client         pb.WaypointClient
+	client         pb.DerrickClient
 	ui             terminal.UI
 	cancelOnErr    bool
 	ignoreTerminal bool

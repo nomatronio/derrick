@@ -1,5 +1,5 @@
 import { Request, Response } from 'miragejs';
-import { ListWorkspacesRequest, ListWorkspacesResponse, Ref } from 'waypoint-pb';
+import { ListWorkspacesRequest, ListWorkspacesResponse, Ref } from 'derrick-pb';
 import { decode } from '../helpers/protobufs';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-module-boundary-types

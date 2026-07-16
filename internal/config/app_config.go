@@ -10,10 +10,10 @@ import (
 	"github.com/zclconf/go-cty/cty/convert"
 	"github.com/zclconf/go-cty/cty/function"
 
-	"github.com/hashicorp/waypoint/internal/config/dynamic"
-	"github.com/hashicorp/waypoint/internal/pkg/partial"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	serversort "github.com/hashicorp/waypoint/pkg/server/sort"
+	"github.com/nomatronio/derrick/internal/config/dynamic"
+	"github.com/nomatronio/derrick/internal/pkg/partial"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	serversort "github.com/nomatronio/derrick/pkg/server/sort"
 )
 
 // genericConfig represents the `config` stanza that can be placed

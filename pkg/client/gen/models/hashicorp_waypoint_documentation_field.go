@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointDocumentationField hashicorp waypoint documentation field
 //
-// swagger:model hashicorp.waypoint.Documentation.Field
+// swagger:model nomatron.derrick.Documentation.Field
 type HashicorpWaypointDocumentationField struct {
 
 	// default

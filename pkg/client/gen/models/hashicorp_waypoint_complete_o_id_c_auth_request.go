@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointCompleteOIDCAuthRequest hashicorp waypoint complete o ID c auth request
 //
-// swagger:model hashicorp.waypoint.CompleteOIDCAuthRequest
+// swagger:model nomatron.derrick.CompleteOIDCAuthRequest
 type HashicorpWaypointCompleteOIDCAuthRequest struct {
 
 	// auth method

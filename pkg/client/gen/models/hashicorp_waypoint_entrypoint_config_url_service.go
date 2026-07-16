@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointEntrypointConfigURLService hashicorp waypoint entrypoint config URL service
 //
-// swagger:model hashicorp.waypoint.EntrypointConfig.URLService
+// swagger:model nomatron.derrick.EntrypointConfig.URLService
 type HashicorpWaypointEntrypointConfigURLService struct {
 
 	// address to the control server and the token for auth

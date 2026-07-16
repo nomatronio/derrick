@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointEntrypointExecResponse hashicorp waypoint entrypoint exec response
 //
-// swagger:model hashicorp.waypoint.EntrypointExecResponse
+// swagger:model nomatron.derrick.EntrypointExecResponse
 type HashicorpWaypointEntrypointExecResponse struct {
 
 	// input is raw stdin input from the client

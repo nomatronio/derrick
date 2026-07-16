@@ -1,7 +1,7 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
-import ApiService from 'waypoint/services/api';
-import { ListRunnersRequest, Runner } from 'waypoint-pb';
+import ApiService from 'derrick/services/api';
+import { ListRunnersRequest, Runner } from 'derrick-pb';
 
 type Model = Runner.AsObject[];
 

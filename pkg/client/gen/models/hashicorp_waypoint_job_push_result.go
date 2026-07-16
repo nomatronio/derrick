@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointJobPushResult hashicorp waypoint job push result
 //
-// swagger:model hashicorp.waypoint.Job.PushResult
+// swagger:model nomatron.derrick.Job.PushResult
 type HashicorpWaypointJobPushResult struct {
 
 	// artifact

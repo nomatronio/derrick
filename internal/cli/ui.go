@@ -5,10 +5,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 	"github.com/posener/complete"
 	"github.com/skratchdot/open-golang/open"
 )
@@ -30,7 +30,7 @@ func (c *UICommand) Run(args []string) int {
 	}
 
 	if c.project.Local() {
-		c.project.UI.Output("Waypoint must be configured in server mode to access the UI", terminal.WithWarningStyle())
+		c.project.UI.Output("Derrick must be configured in server mode to access the UI", terminal.WithWarningStyle())
 	}
 
 	// Get our API client
@@ -131,7 +131,7 @@ func (c *UICommand) Synopsis() string {
 
 func (c *UICommand) Help() string {
 	return formatHelp(`
-Usage: waypoint ui [options]
+Usage: derrick ui [options]
 
   Opens the new UI. When provided a flag, will automatically open the
   token invite page with an invite token for authentication.
@@ -141,8 +141,8 @@ Usage: waypoint ui [options]
 
 var (
 	noContextFoundError = strings.TrimSpace(`
-Attempted to open the ui but found no Waypoint contexts. Please either create a new
-context that uses an existing Waypoint server with 'waypoint context create'
+Attempted to open the ui but found no Derrick contexts. Please either create a new
+context that uses an existing Derrick server with 'waypoint context create'
 or install a server using 'waypoint server install' which will set up a context for you.
 `)
 )

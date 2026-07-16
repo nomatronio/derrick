@@ -9,10 +9,10 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 type PipelineInspectCommand struct {
@@ -292,7 +292,7 @@ func (c *PipelineInspectCommand) Synopsis() string {
 
 func (c *PipelineInspectCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint pipeline inspect [options] <pipeline-id>
+Usage: derrick pipeline inspect [options] <pipeline-id>
 
   Inspect the full details of a pipeline by id or name for a project.
   Including the '-run' option will show full details of a specific run of this pipeline. 

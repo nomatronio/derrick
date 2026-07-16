@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 	"github.com/posener/complete"
 )
 
@@ -39,7 +39,7 @@ func (c *ConfigGetCommand) Run(args []string) int {
 	if err := c.Flags().Parse(args); err == nil {
 		if c.flagProject != "" {
 			initOpts = append(initOpts,
-				WithNoConfig(), // no waypoint.hcl
+				WithNoConfig(), // no derrick.hcl
 			)
 		}
 	}
@@ -251,7 +251,7 @@ func (c *ConfigGetCommand) Synopsis() string {
 
 func (c *ConfigGetCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint config get [prefix]
+Usage: derrick config get [prefix]
 
   Retrieve and print all config variables previously configured that have
   the given prefix. If no prefix is given, all variables are returned.

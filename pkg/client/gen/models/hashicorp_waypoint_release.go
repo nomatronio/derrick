@@ -16,7 +16,7 @@ import (
 
 // HashicorpWaypointRelease hashicorp waypoint release
 //
-// swagger:model hashicorp.waypoint.Release
+// swagger:model nomatron.derrick.Release
 type HashicorpWaypointRelease struct {
 
 	// application that this release belongs to

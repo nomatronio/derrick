@@ -16,7 +16,7 @@ import (
 
 // HashicorpWaypointGetPipelineResponseGraphFormat hashicorp waypoint get pipeline response graph format
 //
-// swagger:model hashicorp.waypoint.GetPipelineResponse.Graph.Format
+// swagger:model nomatron.derrick.GetPipelineResponse.Graph.Format
 type HashicorpWaypointGetPipelineResponseGraphFormat string
 
 func NewHashicorpWaypointGetPipelineResponseGraphFormat(value HashicorpWaypointGetPipelineResponseGraphFormat) *HashicorpWaypointGetPipelineResponseGraphFormat {

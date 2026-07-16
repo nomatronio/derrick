@@ -2,17 +2,17 @@
 layout: docs
 page_title: Server Authentication
 description: |-
-  All connections to the Waypoint server via the CLI or UI require authentication. Waypoint supports authentication using an API token or via OpenID Connect (OIDC).
+  All connections to the Derrick server via the CLI or UI require authentication. Derrick supports authentication using an API token or via OpenID Connect (OIDC).
 ---
 
 # Server Authentication
 
-All connections to the Waypoint server via the CLI or UI require authentication.
-Waypoint supports authentication using an API token or via OpenID Connect (OIDC).
-OIDC allows Waypoint to use existing accounts from providers such as Google,
+All connections to the Derrick server via the CLI or UI require authentication.
+Derrick supports authentication using an API token or via OpenID Connect (OIDC).
+OIDC allows Derrick to use existing accounts from providers such as Google,
 Okta, GitLab, and more.
 
-If you're a new user that ran `waypoint install`, the auth token was automatically
+If you're a new user that ran `derrick install`, the auth token was automatically
 configured for your local CLI. As a next step, we recomend
 [setting up OIDC](/waypoint/docs/server/auth/oidc).
 
@@ -21,18 +21,18 @@ configured for your local CLI. As a next step, we recomend
 <Tabs>
 <Tab heading="UI">
 
-To log in in the Waypoint UI, open the UI in your browser and follow
+To log in in the Derrick UI, open the UI in your browser and follow
 the onscreen instructions.
 
 </Tab>
 <Tab heading="CLI">
 
 To log in using either a token or OIDC, use the
-[waypoint login](/waypoint/commands/login) command. Specify the address to the
-Waypoint server as the argument:
+[derrick login](/waypoint/commands/login) command. Specify the address to the
+Derrick server as the argument:
 
 ```shell-session
-$ waypoint login 127.0.0.1:9701
+$ derrick login 127.0.0.1:9701
 ...
 ```
 
@@ -51,26 +51,26 @@ any current saved auth information if it is present.
 ## Invite Teammates
 
 If using OIDC, other teammates can attempt to authenticate using the
-UI or `waypoint login`. This will create a new account if they're allowed to
+UI or `derrick login`. This will create a new account if they're allowed to
 authenticate.
 
 For tokens, use the
-[waypoint user invite](/waypoint/commands/user-invite) CLI command with
+[derrick user invite](/waypoint/commands/user-invite) CLI command with
 the `-username` flag. This will create an invite token that can be exchanged
 for a token for a specific user.
 
 To invite a new user `alice`:
 
 ```shell-session
-$ waypoint user invite -username=alice
+$ derrick user invite -username=alice
 svESKuVYKeLkgFP3heNanrhvwiMfxfM7q7d3m8UTU3fTDwetfq9vMsBtdqeRmKakXZXJjLDinApxkDcVe594vR2FfVeF3m6gupZ8NVcSC
 ```
 
 After giving Alice the invite token, they can setup their account using
-the standard `waypoint login` flow.
+the standard `derrick login` flow.
 
 ## Revoke, Inspect, etc.
 
-Waypoint currently doesn't have any mechanism to revoke sessions,
+Derrick currently doesn't have any mechanism to revoke sessions,
 audit token usage, inspect existing sessions, etc. We plan on expanding
 our authentication system to support this in the future.

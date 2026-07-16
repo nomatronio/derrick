@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
-import FlashMessagesService from 'waypoint/services/pds-flash-messages';
+import FlashMessagesService from 'derrick/services/pds-flash-messages';
 
 /**
  *

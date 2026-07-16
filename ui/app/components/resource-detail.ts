@@ -1,8 +1,8 @@
 import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
 import RouterService from '@ember/routing/router-service';
-import { StatusReport } from 'waypoint-pb';
-import { findImageRefs } from 'waypoint/utils/image-refs';
+import { StatusReport } from 'derrick-pb';
+import { findImageRefs } from 'derrick/utils/image-refs';
 
 interface Args {
   resource?: StatusReport.Resource.AsObject;

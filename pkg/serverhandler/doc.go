@@ -1,5 +1,5 @@
 // Package serverstate exports the verification harness for
-// implementing a new waypoint server protobuf (i.e. pb.WaypointServer)
+// implementing a new waypoint server protobuf (i.e. pb.DerrickServer)
 // implementations.
 //
 // Additional server implementations is not an officially supported extension

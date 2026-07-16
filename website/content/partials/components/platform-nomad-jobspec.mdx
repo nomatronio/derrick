@@ -3,48 +3,48 @@
 Deploy to a Nomad cluster from a pre-existing Nomad job specification file.
 
 This plugin lets you use any pre-existing Nomad job specification file to
-deploy to Nomad. This deployment is able to support all the features of Waypoint.
-You may use Waypoint's [templating features](/waypoint/docs/waypoint-hcl/functions/template)
+deploy to Nomad. This deployment is able to support all the features of Derrick.
+You may use Derrick's [templating features](/waypoint/docs/derrick-hcl/functions/template)
 to template the Nomad jobspec with information such as the artifact from
 a previous build step, entrypoint environment variables, etc.
 
 ### Artifact Access
 
-You may use Waypoint's [templating features](/waypoint/docs/waypoint-hcl/functions/template)
+You may use Derrick's [templating features](/waypoint/docs/derrick-hcl/functions/template)
 to access information such as the artifact from the build or push stages.
 An example below shows this by using `templatefile` mixed with
 variables such as `artifact.image` to dynamically configure the
 Docker image within the Nomad job specification.
 
 -> **Note:** If using [Nomad interpolation](/nomad/docs/runtime/interpolation) in your jobspec file,
-and the `templatefile` function in your waypoint.hcl file, any interpolated values must be escaped with a second
+and the `templatefile` function in your derrick.hcl file, any interpolated values must be escaped with a second
 `$`. For example: `$${meta.metadata}` instead of `${meta.metadata}`.
 
 ### Entrypoint Functionality
 
-Waypoint [entrypoint functionality](/waypoint/docs/entrypoint#functionality) such
+Derrick [entrypoint functionality](/waypoint/docs/entrypoint#functionality) such
 as logs, exec, app configuration, and more require two properties to be true:
 
-1. The running image must already have the Waypoint entrypoint installed
+1. The running image must already have the Derrick entrypoint installed
    and configured as the entrypoint. This should happen in the build stage.
 
 2. Proper environment variables must be set so the entrypoint knows how
-   to communicate to the Waypoint server. **This step happens in this
+   to communicate to the Derrick server. **This step happens in this
    deployment stage.**
 
 **Step 2 does not happen automatically.** You must manually set the entrypoint
-environment variables using the [templating feature](/waypoint/docs/waypoint-hcl/functions/template).
+environment variables using the [templating feature](/waypoint/docs/derrick-hcl/functions/template).
 One of the examples below shows the entrypoint environment variables being
 injected.
 
--> **Note:** The Waypoint entrypoint and the [Nomad entrypoint functionality](/nomad/docs/drivers/docker#entrypoint)
-cannot be used simultaneously. In order to use the features of the Waypoint entrypoint, the Nomad entrypoint must not be used in your jobspec.
+-> **Note:** The Derrick entrypoint and the [Nomad entrypoint functionality](/nomad/docs/drivers/docker#entrypoint)
+cannot be used simultaneously. In order to use the features of the Derrick entrypoint, the Nomad entrypoint must not be used in your jobspec.
 
 ### URL Service
 
 If you want your workload to be accessible by the
-[Waypoint URL service](/waypoint/docs/url), you must set the PORT environment variable
-within your job and be using the Waypoint entrypoint (documented in the
+[Derrick URL service](/waypoint/docs/url), you must set the PORT environment variable
+within your job and be using the Derrick entrypoint (documented in the
 previous section).
 
 The PORT environment variable should be the port that your web service
@@ -59,7 +59,7 @@ below for more details.
 ### Examples
 
 ```hcl
-// The waypoint.hcl file
+// The derrick.hcl file
 deploy {
   use "nomad-jobspec" {
     // Templated to perhaps bring in the artifact from a previous
@@ -96,7 +96,7 @@ job "web" {
 
 ### Required Parameters
 
-These parameters are used in the [`use` stanza](/waypoint/docs/waypoint-hcl/use) for this plugin.
+These parameters are used in the [`use` stanza](/waypoint/docs/derrick-hcl/use) for this plugin.
 
 #### consul_token
 
@@ -122,7 +122,7 @@ Uses the runner config environment variable VAULT_TOKEN.
 
 ### Optional Parameters
 
-These parameters are used in the [`use` stanza](/waypoint/docs/waypoint-hcl/use) for this plugin.
+These parameters are used in the [`use` stanza](/waypoint/docs/derrick-hcl/use) for this plugin.
 
 #### hcl1
 
@@ -134,7 +134,7 @@ Parses jobspec as HCL1 instead of HCL2.
 
 ### Output Attributes
 
-Output attributes can be used in your `waypoint.hcl` as [variables](/waypoint/docs/waypoint-hcl/variables) via [`artifact`](/waypoint/docs/waypoint-hcl/variables/artifact) or [`deploy`](/waypoint/docs/waypoint-hcl/variables/deploy).
+Output attributes can be used in your `derrick.hcl` as [variables](/waypoint/docs/derrick-hcl/variables) via [`artifact`](/waypoint/docs/derrick-hcl/variables/artifact) or [`deploy`](/waypoint/docs/derrick-hcl/variables/deploy).
 
 #### id
 

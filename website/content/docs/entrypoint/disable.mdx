@@ -5,11 +5,11 @@ description: |-
   The entrypoint can be disabled by disabling build-time injection or by setting a runtime variable in already-built artifacts.
 ---
 
-# Disable the Waypoint Entrypoint
+# Disable the Derrick Entrypoint
 
 The entrypoint can be disabled by disabling build-time injection or
 by setting a runtime variable in already-built artifacts. The former can
-be used to prevent the Waypoint from ever being used by a deployment. The
+be used to prevent the Derrick from ever being used by a deployment. The
 latter can be used to disable the entrypoint in deployments that already
 have it installed.
 
@@ -60,7 +60,7 @@ alter your build scripts to prevent entrypoint installation.
 
 ### Exec
 
-You can disable only the [`waypoint exec`](/waypoint/docs/exec) functionality by
+You can disable only the [`derrick exec`](/waypoint/docs/exec) functionality by
 setting the `WAYPOINT_CEB_DISABLE_EXEC` environment variable to a truthy
 value (e.g. "1"). Other entrypoint features such as logs, application config,
 etc. will continue to work.
@@ -82,13 +82,13 @@ deploy {
 }
 ```
 
-When exec is disabled, the entrypoint will not allow `waypoint exec` to
+When exec is disabled, the entrypoint will not allow `derrick exec` to
 target _that specific instance_. If there are other instances running without
 the environment variable set (such as from a previous deployment), those may
 still be targeted.
 
 This environment variable only disables _entrypoint-based exec_. For some
-plugins, `waypoint exec` works without the Waypoint entrypoint. For example,
+plugins, `derrick exec` works without the Derrick entrypoint. For example,
 the AWS Lambda plugin launches a just-in-time instance for `exec` that
 doesn't use the entrypoint. This environment variable will have no effect
 on this functionality.

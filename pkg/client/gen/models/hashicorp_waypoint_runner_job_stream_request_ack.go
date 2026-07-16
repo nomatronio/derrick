@@ -7,5 +7,5 @@ package models
 
 // HashicorpWaypointRunnerJobStreamRequestAck hashicorp waypoint runner job stream request ack
 //
-// swagger:model hashicorp.waypoint.RunnerJobStreamRequest.Ack
+// swagger:model nomatron.derrick.RunnerJobStreamRequest.Ack
 type HashicorpWaypointRunnerJobStreamRequestAck interface{}

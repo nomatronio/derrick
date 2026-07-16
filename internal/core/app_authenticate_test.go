@@ -7,9 +7,9 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/component"
-	componentmocks "github.com/hashicorp/waypoint-plugin-sdk/component/mocks"
-	"github.com/hashicorp/waypoint/internal/config"
+	"github.com/nomatronio/derrick-plugin-sdk/component"
+	componentmocks "github.com/nomatronio/derrick-plugin-sdk/component/mocks"
+	"github.com/nomatronio/derrick/internal/config"
 )
 
 func TestAppAuthenticate(t *testing.T) {

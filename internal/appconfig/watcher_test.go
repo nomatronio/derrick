@@ -10,9 +10,9 @@ import (
 	"github.com/hashicorp/go-hclog"
 	"github.com/stretchr/testify/require"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/component"
-	sdkpb "github.com/hashicorp/waypoint-plugin-sdk/proto/gen"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/component"
+	sdkpb "github.com/nomatronio/derrick-plugin-sdk/proto/gen"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 func init() {

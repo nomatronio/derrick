@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointJobDeployOp hashicorp waypoint job deploy op
 //
-// swagger:model hashicorp.waypoint.Job.DeployOp
+// swagger:model nomatron.derrick.Job.DeployOp
 type HashicorpWaypointJobDeployOp struct {
 
 	// Artifact to deploy

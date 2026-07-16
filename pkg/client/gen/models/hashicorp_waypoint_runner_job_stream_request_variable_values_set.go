@@ -16,7 +16,7 @@ import (
 
 // HashicorpWaypointRunnerJobStreamRequestVariableValuesSet hashicorp waypoint runner job stream request variable values set
 //
-// swagger:model hashicorp.waypoint.RunnerJobStreamRequest.VariableValuesSet
+// swagger:model nomatron.derrick.RunnerJobStreamRequest.VariableValuesSet
 type HashicorpWaypointRunnerJobStreamRequestVariableValuesSet struct {
 
 	// final values

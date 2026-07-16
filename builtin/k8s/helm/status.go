@@ -11,11 +11,11 @@ import (
 	"google.golang.org/protobuf/types/known/timestamppb"
 	"helm.sh/helm/v3/pkg/release"
 
-	sdk "github.com/hashicorp/waypoint-plugin-sdk/proto/gen"
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/builtin/k8s"
-	"github.com/hashicorp/waypoint/builtin/k8s/internal/k8sstatus"
-	"github.com/hashicorp/waypoint/builtin/k8s/internal/manifest"
+	sdk "github.com/nomatronio/derrick-plugin-sdk/proto/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/builtin/k8s"
+	"github.com/nomatronio/derrick/builtin/k8s/internal/k8sstatus"
+	"github.com/nomatronio/derrick/builtin/k8s/internal/manifest"
 )
 
 func (p *Platform) StatusFunc() interface{} {

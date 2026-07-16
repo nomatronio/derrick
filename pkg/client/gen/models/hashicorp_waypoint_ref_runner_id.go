@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointRefRunnerID RunnerId references a runner by ID.
 //
-// swagger:model hashicorp.waypoint.Ref.RunnerId
+// swagger:model nomatron.derrick.Ref.RunnerId
 type HashicorpWaypointRefRunnerID struct {
 
 	// id

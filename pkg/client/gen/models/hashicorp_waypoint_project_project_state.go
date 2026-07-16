@@ -17,7 +17,7 @@ import (
 // HashicorpWaypointProjectProjectState ProjectState is set to active when the project is created and throughout its lifetime.
 // When a project destroy operation begins, the state is set to destroying.
 //
-// swagger:model hashicorp.waypoint.Project.ProjectState
+// swagger:model nomatron.derrick.Project.ProjectState
 type HashicorpWaypointProjectProjectState string
 
 func NewHashicorpWaypointProjectProjectState(value HashicorpWaypointProjectProjectState) *HashicorpWaypointProjectProjectState {

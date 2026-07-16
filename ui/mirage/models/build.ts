@@ -1,5 +1,5 @@
 import { Model, belongsTo, hasMany } from 'ember-cli-mirage';
-import { Build, Job } from 'waypoint-pb';
+import { Build, Job } from 'derrick-pb';
 
 export default Model.extend({
   application: belongsTo(),

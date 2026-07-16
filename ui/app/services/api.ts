@@ -19,7 +19,7 @@ import {
   UpsertProjectRequest,
   Variable,
   Workspace,
-} from 'waypoint-pb';
+} from 'derrick-pb';
 import { Metadata, Request, UnaryInterceptor, UnaryResponse } from 'grpc-web';
 
 import { DEBUG } from '@glimmer/env';
@@ -27,14 +27,14 @@ import { Empty } from 'google-protobuf/google/protobuf/empty_pb';
 import { Message } from 'google-protobuf';
 import Service from '@ember/service';
 import SessionService from 'ember-simple-auth/services/session';
-import { WaypointClient } from 'waypoint-client';
+import { DerrickClient } from 'derrick-client';
 import { buildWaiter } from '@ember/test-waiters';
-import config from 'waypoint/config/environment';
+import config from 'derrick/config/environment';
 import { inject as service } from '@ember/service';
 
 // The docs for @ember/test-waiters recommend building waiters in module scope.
 // https://github.com/emberjs/ember-test-waiters#use-buildwaiter-in-module-scope
-const waiter = buildWaiter('waypoint-api-service:waiter');
+const waiter = buildWaiter('derrick-api-service:waiter');
 
 const protocolVersions = {
   // These map to upstream protocol versions
@@ -69,7 +69,7 @@ export default class ApiService extends Service {
   @service session!: SessionService;
   // If the the apiAddress is not set, this will use the /grpc prefix on the
   // same host as the UI is being served from
-  client = new WaypointClient(`${config.apiAddress}/grpc`, null, {
+  client = new DerrickClient(`${config.apiAddress}/grpc`, null, {
     unaryInterceptors: this.unaryInterceptors(),
   });
 
@@ -104,7 +104,7 @@ export default class ApiService extends Service {
 
     let order = new OperationOrder();
     order.setDesc(true);
-    // See https://github.com/hashicorp/waypoint/issues/2919 for more context on this limit
+    // See https://github.com/nomatronio/derrick/issues/2919 for more context on this limit
     order.setLimit(10);
     req.setOrder(order);
 
@@ -328,10 +328,10 @@ export default class ApiService extends Service {
     ref.setDataSource(dataSource);
     ref.setDataSourcePoll(dataSourcePoll);
 
-    if (project.waypointHcl) {
+    if (project.derrickHcl) {
       // Hardcode hcl for now
-      ref.setWaypointHclFormat(0); // check project-repository-settings.ts for FORMAT obj
-      ref.setWaypointHcl(project.waypointHcl);
+      ref.setDerrickHclFormat(0); // check project-repository-settings.ts for FORMAT obj
+      ref.setDerrickHcl(project.derrickHcl);
     }
 
     // Application list settings

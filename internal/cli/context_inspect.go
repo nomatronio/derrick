@@ -3,8 +3,8 @@ package cli
 import (
 	"encoding/json"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
 	"github.com/posener/complete"
 )
 
@@ -146,7 +146,7 @@ func (c *ContextInspectCommand) Synopsis() string {
 
 func (c *ContextInspectCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint context inspect [<name>]
+Usage: derrick context inspect [<name>]
 
   Output information about a waypoint context or general context info.
 

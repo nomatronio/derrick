@@ -24,7 +24,7 @@ import (
 // used to run the StatusReport job operation for Waypoint Server. The raw SDK
 // StatusReport message is stored as an option on this message
 //
-// swagger:model hashicorp.waypoint.StatusReport
+// swagger:model nomatron.derrick.StatusReport
 type HashicorpWaypointStatusReport struct {
 
 	// The application that this build is part of.

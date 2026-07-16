@@ -17,7 +17,7 @@ import (
 	"golang.org/x/oauth2"
 	iam "google.golang.org/api/iamcredentials/v1"
 
-	"github.com/hashicorp/waypoint/builtin/vault/internal/auth"
+	"github.com/nomatronio/derrick/builtin/vault/internal/auth"
 )
 
 const (

@@ -16,7 +16,7 @@ import (
 
 // HashicorpWaypointJobPipelineConfigSyncResult hashicorp waypoint job pipeline config sync result
 //
-// swagger:model hashicorp.waypoint.Job.PipelineConfigSyncResult
+// swagger:model nomatron.derrick.Job.PipelineConfigSyncResult
 type HashicorpWaypointJobPipelineConfigSyncResult struct {
 
 	// synced_pipelines is a map of Pipeline Name Keys to Pipeline ID Refs for

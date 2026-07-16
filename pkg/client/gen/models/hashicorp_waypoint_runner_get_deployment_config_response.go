@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointRunnerGetDeploymentConfigResponse hashicorp waypoint runner get deployment config response
 //
-// swagger:model hashicorp.waypoint.RunnerGetDeploymentConfigResponse
+// swagger:model nomatron.derrick.RunnerGetDeploymentConfigResponse
 type HashicorpWaypointRunnerGetDeploymentConfigResponse struct {
 
 	// server addr

@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointJobBuildResult hashicorp waypoint job build result
 //
-// swagger:model hashicorp.waypoint.Job.BuildResult
+// swagger:model nomatron.derrick.Job.BuildResult
 type HashicorpWaypointJobBuildResult struct {
 
 	// The resulting build

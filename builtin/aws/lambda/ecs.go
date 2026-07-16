@@ -15,10 +15,10 @@ import (
 	"github.com/aws/aws-sdk-go/service/ecs"
 	"github.com/aws/aws-sdk-go/service/iam"
 	"github.com/hashicorp/go-hclog"
-	"github.com/hashicorp/waypoint-plugin-sdk/component"
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/builtin/aws/utils"
-	"github.com/hashicorp/waypoint/internal/ssh"
+	"github.com/nomatronio/derrick-plugin-sdk/component"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/builtin/aws/utils"
+	"github.com/nomatronio/derrick/internal/ssh"
 )
 
 // This launches an ECS task to run the given image. It creates an ECS cluster configured
@@ -305,7 +305,7 @@ func (e *ecsLauncher) Launch(
 							Value: aws.String(e.HostKey),
 						},
 						{
-							Name:  aws.String("WAYPOINT_EXEC_PLUGIN_SSH_DEPLOYMENT_ID"),
+							Name:  aws.String("DERRICK_EXEC_PLUGIN_SSH_DEPLOYMENT_ID"),
 							Value: aws.String(e.DeploymentId),
 						},
 					},

@@ -10,5 +10,5 @@ package models
 // A noop may be useful outside of testing to verify a runner is
 // executing properly or can access data properly.
 //
-// swagger:model hashicorp.waypoint.Job.Noop
+// swagger:model nomatron.derrick.Job.Noop
 type HashicorpWaypointJobNoop interface{}

@@ -3,11 +3,11 @@ package cli
 import (
 	"context"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	clientpkg "github.com/hashicorp/waypoint/internal/client"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	clientpkg "github.com/nomatronio/derrick/internal/client"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 	"github.com/posener/complete"
 )
 
@@ -83,11 +83,11 @@ func (c *HostnameRegisterCommand) Synopsis() string {
 
 func (c *HostnameRegisterCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint hostname register [hostname]
+Usage: derrick hostname register [hostname]
 
   Register a hostname with the URL service to route to your apps.
 
-  The URL service must be enabled and configured with the Waypoint server.
+  The URL service must be enabled and configured with the Derrick server.
   This will output the fully qualified domain name that should begin
   routing immediately.
 

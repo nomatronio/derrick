@@ -7,9 +7,9 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/hashicorp/waypoint/internal/core"
-	"github.com/hashicorp/waypoint/internal/jobstream"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick/internal/core"
+	"github.com/nomatronio/derrick/internal/jobstream"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 func (r *Runner) executePipelineStepOp(
@@ -144,7 +144,7 @@ func (r *Runner) executePipelineStepExec(
 		Labels:              job.Labels,
 		DataSource:          job.DataSource,
 		DataSourceOverrides: job.DataSourceOverrides,
-		WaypointHcl:         job.WaypointHcl,
+		DerrickHcl:         job.DerrickHcl,
 		Variables:           job.Variables,
 
 		// Must target "any" runner so we get ODR to work.

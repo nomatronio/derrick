@@ -2,14 +2,14 @@
 layout: docs
 page_title: On-Demand Runners
 description: |-
-  A brief overview about on-demand runners and their role in Waypoint.
+  A brief overview about on-demand runners and their role in Derrick.
 ---
 
 # On-Demand Runners
 
-On-demand runners allow a single Waypoint installation to scale by
-leveraging the defined platform to spawn resources to execute Waypoint jobs.
-Through on-demand runner profiles and static runner targeting, Waypoint can
+On-demand runners allow a single Derrick installation to scale by
+leveraging the defined platform to spawn resources to execute Derrick jobs.
+Through on-demand runner profiles and static runner targeting, Derrick can
 even utilize resources from multiple platforms.
 For example, you could configure a local Kubernetes server install could be configured to use Amazon ECS
 to execute jobs.
@@ -19,7 +19,7 @@ to execute jobs.
 When the server receives a job, if on-demand runners are enabled, it
 will signal a static runner to spawn an on-demand runner and place the job in held.
 This is the same mechanism we use for automatic CLI runners. When the on-demand
-runner starts, it will execute the normal Waypoint runner code and connect back
+runner starts, it will execute the normal Derrick runner code and connect back
 to the server. Upon connection, the server sees the job being held
 and send it immediately to the new runner.
 
@@ -32,7 +32,7 @@ on will reclaim its resources.
 
 ### Launching Tasks to Execute Jobs
 
-When Waypoint goes to launch an on-demand runner task, it will generate four
+When Derrick goes to launch an on-demand runner task, it will generate four
 jobs:
 
 - `StartJob`
@@ -48,19 +48,19 @@ plugin system will launch a `StopJob` operation to clean up the launched platfor
 
 ## On-Demand Runner Profiles
 
-Users can configure Waypoint server to launch on-demand runners with specific
+Users can configure Derrick server to launch on-demand runners with specific
 configurations. These configurations are set through on-demand runner profiles.
 See [runner profiles](/waypoint/docs/runner/profiles) for more information.
 
 ## OCI/Docker Image
 
 By default, the server will launch on-demand runners using the same OCI image the
-server was configured with. For HCP Waypoint, there is no default. The on-demand
+server was configured with. For HCP Derrick, there is no default. The on-demand
 configuration also accepts a specific OCI image URL to use instead. This allows
-operators the ability to prepackage any Waypoint plugins into the image and use
+operators the ability to prepackage any Derrick plugins into the image and use
 them in their configuration.
 
-The official on-demand runner container image is built very similarly to the Waypoint
+The official on-demand runner container image is built very similarly to the Derrick
 server, with some additional packages such as `kaniko` for doing in-container
 builds for jobs like the `Build` operation.
 
@@ -73,7 +73,7 @@ please consult the [on-demand runner profile documentation](/waypoint/docs/runne
 
 Those docs detail how to configure and communicate the various aspects of an on-demand runner launch.
 
-## Official Waypoint Supported Task Plugin Platforms
+## Official Derrick Supported Task Plugin Platforms
 
 We currently support the following platforms for launching on-demand runner tasks:
 
@@ -82,14 +82,14 @@ We currently support the following platforms for launching on-demand runner task
 - [AWS/ECS](/waypoint/integrations/hashicorp/aws-ecs/latest/components/task)
 - [Docker](/waypoint/integrations/hashicorp/docker/latest/components/task)
 
--> **Self-managed Waypoint server:** When you use the `waypoint server install` command,
+-> **Self-managed Derrick server:** When you use the `derrick server install` command,
 we automatically set up a default on-demand runner profile for you that matches the
 platform of the server installation.
 
 ## Adding on-demand runner support for other platforms
 
 On-demand runner support can be implemented for additional platforms
-using the [plugin SDK](/waypoint/docs/extending-waypoint).
+using the [plugin SDK](/waypoint/docs/extending-derrick).
 
 Plugins expect to fulfill the SDK interface with the following functions:
 
@@ -98,20 +98,20 @@ Plugins expect to fulfill the SDK interface with the following functions:
 - `StopTask`
 
 These functions are what launch, monitor, and stop the spawned resource used to
-execute the Waypoint runner code.
+execute the Derrick runner code.
 
 ## Task Inspection
 
-The CLI command `waypoint task` gives users more insight into the task launcher system and
-what Waypoint does with remote-enabled projects. Tasks are the operations that
-on-demand runners are built off of within Waypoint.
+The CLI command `derrick task` gives users more insight into the task launcher system and
+what Derrick does with remote-enabled projects. Tasks are the operations that
+on-demand runners are built off of within Derrick.
 
 This command listing all known tasks in the system:
 
 ```shell
-$ waypoint task list
+$ derrick task list
 
-» Waypoint On-Demand Runner Tasks
+» Derrick On-Demand Runner Tasks
               ID             | RUN JOB OPERATION | PIPELINE   | TASK STATE |   PROJECT   |  TIME CREATED  | TIME COMPLETED
 -----------------------------+-------------------+------------+------------+-------------+----------------+-----------------
   01GBWYSZ02YEB3EHMVQCA5240G | ConfigSync        |            | STARTED    | k8s-tetris  | 1 week ago     |
@@ -122,12 +122,12 @@ $ waypoint task list
   01G1RYNNEK141B23YDE26XPED7 | Init              |            | STOPPED    | go-gitops-0 | 21 seconds ago | 15 seconds ago
 ```
 
-You can also take a closer look at an individual task using `waypoint task inspect`.
+You can also take a closer look at an individual task using `derrick task inspect`.
 This output includes information about the runners that handled the job,
 as well as the four jobs (TaskJob, StartJob, WatchJob, StopJob) in the operation task.
 
 ```shell
-$ waypoint task inspect 01GBWYSZ02YEB3EHMVQCA5240G
+$ derrick task inspect 01GBWYSZ02YEB3EHMVQCA5240G
 
 » On-Demand Runner Task Configuration
       Task ID: 01GBWYSZ02YEB3EHMVQCA5240G

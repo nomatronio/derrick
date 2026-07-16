@@ -1,13 +1,13 @@
 [
   {
-    "title": "What is Waypoint?",
+    "title": "What is Derrick?",
     "routes": [
       {
         "title": "Overview",
         "path": "intro"
       },
       {
-        "title": "Waypoint vs. Other Software",
+        "title": "Derrick vs. Other Software",
         "routes": [
           {
             "title": "Overview",
@@ -33,7 +33,7 @@
     "title": "Use Cases",
     "routes": [
       {
-        "title": "HCP Stack Quickstart with Terraform, Waypoint, Consul, Vault, and Nomad",
+        "title": "HCP Stack Quickstart with Terraform, Derrick, Consul, Vault, and Nomad",
         "path": "use-cases/hcp-hashistack-quickstart"
       },
       {
@@ -53,7 +53,7 @@
         "path": "use-cases/service-mesh-microservice-deployment"
       },
       {
-        "title": "Seamless Cloud Migration With Waypoint",
+        "title": "Seamless Cloud Migration With Derrick",
         "path": "use-cases/migrate-clouds"
       }
     ]
@@ -63,7 +63,7 @@
     "path": "getting-started"
   },
   {
-    "title": "Upgrading Waypoint",
+    "title": "Upgrading Derrick",
     "routes": [
       {
         "title": "Overview",
@@ -280,50 +280,50 @@
     ]
   },
   {
-    "title": "waypoint.hcl",
+    "title": "derrick.hcl",
     "routes": [
       {
         "title": "Overview",
-        "path": "waypoint-hcl"
+        "path": "derrick-hcl"
       },
       {
         "title": "Variables",
         "routes": [
           {
             "title": "Overview",
-            "path": "waypoint-hcl/variables"
+            "path": "derrick-hcl/variables"
           },
           {
             "title": "Input Variables",
-            "path": "waypoint-hcl/variables/input"
+            "path": "derrick-hcl/variables/input"
           },
           {
             "title": "External Data",
-            "path": "waypoint-hcl/variables/dynamic"
+            "path": "derrick-hcl/variables/dynamic"
           },
           {
             "title": "<code>artifact</code>",
-            "path": "waypoint-hcl/variables/artifact"
+            "path": "derrick-hcl/variables/artifact"
           },
           {
             "title": "<code>deploy</code>",
-            "path": "waypoint-hcl/variables/deploy"
+            "path": "derrick-hcl/variables/deploy"
           },
           {
             "title": "<code>entrypoint</code>",
-            "path": "waypoint-hcl/variables/entrypoint"
+            "path": "derrick-hcl/variables/entrypoint"
           },
           {
             "title": "<code>labels</code>",
-            "path": "waypoint-hcl/variables/labels"
+            "path": "derrick-hcl/variables/labels"
           },
           {
             "title": "<code>path</code>",
-            "path": "waypoint-hcl/variables/path"
+            "path": "derrick-hcl/variables/path"
           },
           {
             "title": "<code>workspace</code>",
-            "path": "waypoint-hcl/variables/workspace"
+            "path": "derrick-hcl/variables/workspace"
           }
         ]
       },
@@ -332,15 +332,15 @@
         "routes": [
           {
             "title": "Overview",
-            "path": "waypoint-hcl/functions"
+            "path": "derrick-hcl/functions"
           },
           {
             "title": "Full Reference",
-            "path": "waypoint-hcl/functions/all"
+            "path": "derrick-hcl/functions/all"
           },
           {
             "title": "Templating",
-            "path": "waypoint-hcl/functions/template"
+            "path": "derrick-hcl/functions/template"
           }
         ]
       },
@@ -349,65 +349,65 @@
         "routes": [
           {
             "title": "Overview",
-            "path": "waypoint-hcl/syntax"
+            "path": "derrick-hcl/syntax"
           },
           {
             "title": "Expressions",
-            "path": "waypoint-hcl/syntax/expressions"
+            "path": "derrick-hcl/syntax/expressions"
           },
           {
             "title": "JSON Syntax",
-            "path": "waypoint-hcl/syntax/json"
+            "path": "derrick-hcl/syntax/json"
           }
         ]
       },
       {
         "title": "<code>app</code>",
-        "path": "waypoint-hcl/app"
+        "path": "derrick-hcl/app"
       },
       {
         "title": "<code>build</code>",
-        "path": "waypoint-hcl/build"
+        "path": "derrick-hcl/build"
       },
       {
         "title": "<code>config</code>",
-        "path": "waypoint-hcl/config"
+        "path": "derrick-hcl/config"
       },
       {
         "title": "<code>deploy</code>",
-        "path": "waypoint-hcl/deploy"
+        "path": "derrick-hcl/deploy"
       },
       {
         "title": "<code>hook</code>",
-        "path": "waypoint-hcl/hook"
+        "path": "derrick-hcl/hook"
       },
       {
         "title": "<code>plugin</code>",
-        "path": "waypoint-hcl/plugin"
+        "path": "derrick-hcl/plugin"
       },
       {
         "title": "<code>registry</code>",
-        "path": "waypoint-hcl/registry"
+        "path": "derrick-hcl/registry"
       },
       {
         "title": "<code>release</code>",
-        "path": "waypoint-hcl/release"
+        "path": "derrick-hcl/release"
       },
       {
         "title": "<code>runner</code>",
-        "path": "waypoint-hcl/runner"
+        "path": "derrick-hcl/runner"
       },
       {
         "title": "<code>url</code>",
-        "path": "waypoint-hcl/url"
+        "path": "derrick-hcl/url"
       },
       {
         "title": "<code>use</code>",
-        "path": "waypoint-hcl/use"
+        "path": "derrick-hcl/use"
       },
       {
         "title": "<code>variable</code>",
-        "path": "waypoint-hcl/variable"
+        "path": "derrick-hcl/variable"
       }
     ]
   },
@@ -561,111 +561,111 @@
     "divider": true
   },
   {
-    "title": "Extending Waypoint",
+    "title": "Extending Derrick",
     "routes": [
       {
         "title": "Overview",
-        "path": "extending-waypoint"
+        "path": "extending-derrick"
       },
       {
-        "title": "Creating a Waypoint Plugin",
+        "title": "Creating a Derrick Plugin",
         "routes": [
           {
             "title": "Overview",
-            "path": "extending-waypoint/creating-plugins"
+            "path": "extending-derrick/creating-plugins"
           },
           {
             "title": "Registering Plugin Components",
-            "path": "extending-waypoint/creating-plugins/main"
+            "path": "extending-derrick/creating-plugins/main"
           },
           {
             "title": "Handling Configuration",
-            "path": "extending-waypoint/creating-plugins/configuration"
+            "path": "extending-derrick/creating-plugins/configuration"
           },
           {
             "title": "Implementing the Builder Interface",
-            "path": "extending-waypoint/creating-plugins/build-interface"
+            "path": "extending-derrick/creating-plugins/build-interface"
           },
           {
             "title": "Compiling the Plugin",
-            "path": "extending-waypoint/creating-plugins/compiling"
+            "path": "extending-derrick/creating-plugins/compiling"
           },
           {
             "title": "Creating an Example Application",
-            "path": "extending-waypoint/creating-plugins/example-application"
+            "path": "extending-derrick/creating-plugins/example-application"
           },
           {
             "title": "Testing the Plugin",
-            "path": "extending-waypoint/creating-plugins/testing"
+            "path": "extending-derrick/creating-plugins/testing"
           }
         ]
       },
       {
         "title": "Initializing the SDK",
-        "path": "extending-waypoint/main-func"
+        "path": "extending-derrick/main-func"
       },
       {
         "title": "Passing Values Between Components",
-        "path": "extending-waypoint/passing-values"
+        "path": "extending-derrick/passing-values"
       },
       {
         "title": "Plugin Interfaces",
         "routes": [
           {
             "title": "Overview",
-            "path": "extending-waypoint/plugin-interfaces"
+            "path": "extending-derrick/plugin-interfaces"
           },
           {
             "title": "Authenticator",
-            "path": "extending-waypoint/plugin-interfaces/authenticator"
+            "path": "extending-derrick/plugin-interfaces/authenticator"
           },
           {
             "title": "ConfigSourcer",
-            "path": "extending-waypoint/plugin-interfaces/configsourcer"
+            "path": "extending-derrick/plugin-interfaces/configsourcer"
           },
           {
             "title": "Configurable",
-            "path": "extending-waypoint/plugin-interfaces/configurable"
+            "path": "extending-derrick/plugin-interfaces/configurable"
           },
           {
             "title": "ConfigurableNotify",
-            "path": "extending-waypoint/plugin-interfaces/configurable-notify"
+            "path": "extending-derrick/plugin-interfaces/configurable-notify"
           },
           {
             "title": "Builder",
-            "path": "extending-waypoint/plugin-interfaces/builder"
+            "path": "extending-derrick/plugin-interfaces/builder"
           },
           {
             "title": "Registry",
-            "path": "extending-waypoint/plugin-interfaces/registry"
+            "path": "extending-derrick/plugin-interfaces/registry"
           },
           {
             "title": "Platform",
-            "path": "extending-waypoint/plugin-interfaces/platform"
+            "path": "extending-derrick/plugin-interfaces/platform"
           },
           {
             "title": "PlatformReleaser",
-            "path": "extending-waypoint/plugin-interfaces/platform-releaser"
+            "path": "extending-derrick/plugin-interfaces/platform-releaser"
           },
           {
             "title": "ReleaseManager",
-            "path": "extending-waypoint/plugin-interfaces/release-manager"
+            "path": "extending-derrick/plugin-interfaces/release-manager"
           },
           {
             "title": "Destroy",
-            "path": "extending-waypoint/plugin-interfaces/destroy"
+            "path": "extending-derrick/plugin-interfaces/destroy"
           },
           {
             "title": "Status",
-            "path": "extending-waypoint/plugin-interfaces/status"
+            "path": "extending-derrick/plugin-interfaces/status"
           },
           {
             "title": "TaskLauncher",
-            "path": "extending-waypoint/plugin-interfaces/task-launcher"
+            "path": "extending-derrick/plugin-interfaces/task-launcher"
           },
           {
             "title": "Default Parameters",
-            "path": "extending-waypoint/plugin-interfaces/default-parameters"
+            "path": "extending-derrick/plugin-interfaces/default-parameters"
           }
         ]
       },
@@ -674,13 +674,13 @@
         "routes": [
           {
             "title": "Overview",
-            "path": "extending-waypoint/plugin-frameworks"
+            "path": "extending-derrick/plugin-frameworks"
           }
         ]
       },
       {
         "title": "API",
-        "path": "extending-waypoint/api"
+        "path": "extending-derrick/api"
       }
     ]
   },
@@ -726,7 +726,7 @@
     "divider": true
   },
   {
-    "title": "Waypoint Resources",
+    "title": "Derrick Resources",
     "routes": [
       {
         "title": "Internals",

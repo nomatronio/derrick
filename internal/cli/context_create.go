@@ -3,10 +3,10 @@ package cli
 import (
 	"github.com/posener/complete"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clicontext"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clicontext"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
 )
 
 type ContextCreateCommand struct {
@@ -77,7 +77,7 @@ func (c *ContextCreateCommand) Flags() *flag.Sets {
 			Name:    "server-platform",
 			Target:  &c.flagConfig.Server.Platform,
 			Default: "n/a",
-			Usage:   "The current platform that Waypoint server is running on.",
+			Usage:   "The current platform that Derrick server is running on.",
 		})
 		f.BoolVar(&flag.BoolVar{
 			Name:    "server-tls",
@@ -112,7 +112,7 @@ func (c *ContextCreateCommand) Synopsis() string {
 
 func (c *ContextCreateCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint context create [options] NAME
+Usage: derrick context create [options] NAME
 
   Creates a new context.
 

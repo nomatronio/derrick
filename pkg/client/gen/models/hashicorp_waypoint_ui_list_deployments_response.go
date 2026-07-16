@@ -16,7 +16,7 @@ import (
 
 // HashicorpWaypointUIListDeploymentsResponse hashicorp waypoint UI list deployments response
 //
-// swagger:model hashicorp.waypoint.UI.ListDeploymentsResponse
+// swagger:model nomatron.derrick.UI.ListDeploymentsResponse
 type HashicorpWaypointUIListDeploymentsResponse struct {
 
 	// The list of deployments with related messages prefetched.

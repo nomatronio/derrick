@@ -1,4 +1,4 @@
-import { Token, NewTokenResponse } from 'waypoint-pb';
+import { Token, NewTokenResponse } from 'derrick-pb';
 import { Response } from 'miragejs';
 import { RouteHandler } from '../types';
 

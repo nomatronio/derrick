@@ -1,11 +1,11 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
-import ApiService from 'waypoint/services/api';
+import ApiService from 'derrick/services/api';
 import { Model as AppRouteModel } from '../app';
-import { Breadcrumb } from 'waypoint/services/breadcrumbs';
-import { ReleaseExtended } from 'waypoint/services/api';
+import { Breadcrumb } from 'derrick/services/breadcrumbs';
+import { ReleaseExtended } from 'derrick/services/api';
 import { TimelineModel } from '../../../../../components/timeline';
-import { Operation } from 'waypoint-pb';
+import { Operation } from 'derrick-pb';
 
 type Params = { sequence: string };
 

@@ -18,7 +18,7 @@ import (
 // user account may represent multiple authentication methods (OIDC from
 // multiple sources, tokens, etc.).
 //
-// swagger:model hashicorp.waypoint.User
+// swagger:model nomatron.derrick.User
 type HashicorpWaypointUser struct {
 
 	// Display name, not used for login. May be blank.

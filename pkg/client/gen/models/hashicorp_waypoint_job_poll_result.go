@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointJobPollResult hashicorp waypoint job poll result
 //
-// swagger:model hashicorp.waypoint.Job.PollResult
+// swagger:model nomatron.derrick.Job.PollResult
 type HashicorpWaypointJobPollResult struct {
 
 	// This field will be non-empty if and only if polling resulted in

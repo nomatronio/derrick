@@ -18,7 +18,7 @@ import (
 // interested in viewing logs should use the GetLogStream API. This
 // is only meant for implementing custom log handling by plugins.
 //
-// swagger:model hashicorp.waypoint.Job.LogsOp
+// swagger:model nomatron.derrick.Job.LogsOp
 type HashicorpWaypointJobLogsOp struct {
 
 	// The deployment to create the exec session context. Ie, what

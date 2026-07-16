@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointRunnerJobStreamRequestRequest hashicorp waypoint runner job stream request request
 //
-// swagger:model hashicorp.waypoint.RunnerJobStreamRequest.Request
+// swagger:model nomatron.derrick.RunnerJobStreamRequest.Request
 type HashicorpWaypointRunnerJobStreamRequestRequest struct {
 
 	// If the runner is reconnecting to a dropped connection, it can specify

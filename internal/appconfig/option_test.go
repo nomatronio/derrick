@@ -1,8 +1,8 @@
 package appconfig
 
 import (
-	"github.com/hashicorp/waypoint-plugin-sdk/component"
-	"github.com/hashicorp/waypoint/internal/plugin"
+	"github.com/nomatronio/derrick-plugin-sdk/component"
+	"github.com/nomatronio/derrick/internal/plugin"
 )
 
 // testWithConfigSourcer can be used by tests to set a specific

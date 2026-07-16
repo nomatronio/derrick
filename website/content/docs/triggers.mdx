@@ -2,31 +2,31 @@
 layout: docs
 page_title: Triggers
 description: |-
-  This page covers how to use Waypoint Triggers and their various use-cases.
+  This page covers how to use Derrick Triggers and their various use-cases.
 ---
 
-# About Waypoint Triggers
+# About Derrick Triggers
 
-Trigger URLs are pre-configured Waypoint lifecycle operations for execution
+Trigger URLs are pre-configured Derrick lifecycle operations for execution
 inside Continuous Integration (CI) environments. Users can configure operations
 like deploying the latest build, running a status report on all applications in
-a project, running a Waypoint Up operation on all applications in a project,
-and more. Trigger URLs make it easy to run Waypoint operations inside CI without
-requiring the Waypoint CLI or any other Waypoint setup in your scripts. You will
+a project, running a Derrick Up operation on all applications in a project,
+and more. Trigger URLs make it easy to run Derrick operations inside CI without
+requiring the Derrick CLI or any other Derrick setup in your scripts. You will
 simply need curl to execute a Trigger URL via HTTP.
 
 Trigger URLs can be invoked directly inside an environment with a http request
-that tells Waypoint to execute the pre-configured action. Trigger URLs
+that tells Derrick to execute the pre-configured action. Trigger URLs
 configurations are project-scoped, where their actions can operate on every
 application defined in a project or target a single application inside a project.
 
-## Waypoint Trigger CLI
+## Derrick Trigger CLI
 
-The Waypoint CLI comes with a subcommand that lets you configure and update
+The Derrick CLI comes with a subcommand that lets you configure and update
 Trigger URL configurations.
 
-Check out our CLI docs for the `waypoint trigger` command, such as
-[waypoint trigger create](/waypoint/commands/trigger-create).
+Check out our CLI docs for the `derrick trigger` command, such as
+[derrick trigger create](/waypoint/commands/trigger-create).
 
 ## Pre-configuring a Trigger URL
 
@@ -37,7 +37,7 @@ you want the trigger to execute when run. You can also include a `description` o
 `tags` for extra information for the user.
 
 ```sh
-$ waypoint trigger create \
+$ derrick trigger create \
       -project=hcp-packer \
       -app=backend-svc \
       -workspace=production \
@@ -52,18 +52,18 @@ Trigger URL: https://waypoint.server.address.example.com/v1/trigger/123ABC456DEF
 
 Note that creating a trigger does not validate the existence of a Project or
 Application. This validation happens at execution time. If you have made a mistake
-or typo, you can easily modify an existing trigger with `waypoint trigger update`.
+or typo, you can easily modify an existing trigger with `derrick trigger update`.
 
 Once a trigger has been created, you can make an HTTP request against the given
-trigger URL to start and queue a job on Waypoint server.
+trigger URL to start and queue a job on Derrick server.
 
 ## Modifying an existing Trigger URL Configuration
 
-If you wish to see all of your configured triggers inside a Waypoint server,
-run the `waypoint trigger list` command:
+If you wish to see all of your configured triggers inside a Derrick server,
+run the `derrick trigger list` command:
 
 ```sh
-$ waypoint trigger list
+$ derrick trigger list
 » Trigger URL Configs
               ID             |         NAME         | WORKSPACE |   PROJECT   | APPLICATION |        OPERATION
 -----------------------------+----------------------+-----------+-------------+-------------+---------------------------
@@ -85,7 +85,7 @@ status in the `production` workspace.
 First, inspect the Trigger URL configuration to see how it's configured:
 
 ```sh
-$ waypoint trigger inspect 01FS582B3X8VW0251C1XDQ56RR
+$ derrick trigger inspect 01FS582B3X8VW0251C1XDQ56RR
 
 » Trigger URL config:
               Name: deploy-statusreport
@@ -103,10 +103,10 @@ For this trigger to run in the `production` workspace, update the
 trigger's configuration:
 
 ```sh
-$ waypoint trigger update -id=01FS582B3X8VW0251C1XDQ56RR -workspace=production
+$ derrick trigger update -id=01FS582B3X8VW0251C1XDQ56RR -workspace=production
 Trigger "deploy-statusreport" (01FS582B3X8VW0251C1XDQ56RR) has been updated
 Trigger ID: 01FS582B3X8VW0251C1XDQ56RR
-$ waypoint trigger inspect 01FS582B3X8VW0251C1XDQ56RR
+$ derrick trigger inspect 01FS582B3X8VW0251C1XDQ56RR
 
 
 » Trigger URL config:
@@ -120,7 +120,7 @@ $ waypoint trigger inspect 01FS582B3X8VW0251C1XDQ56RR
        Application: go
 ```
 
-For now, you can use this ID to make a request to Waypoint server to execute the
+For now, you can use this ID to make a request to Derrick server to execute the
 trigger.
 
 ## Running a Trigger URL Configuration via HTTP
@@ -140,12 +140,12 @@ It also accepts 3 request parameters:
 
 ### Example
 
-In an upcoming version of Waypoint, we will provide an HTTP endpoint for easy
+In an upcoming version of Derrick, we will provide an HTTP endpoint for easy
 access to request running a configured Trigger. When you create a trigger,
 you'll then see an HTTP url:
 
 ```sh
-$ waypoint trigger create \
+$ derrick trigger create \
       -project=hcp-packer \
       -app=backend-svc \
       -workspace=production \
@@ -162,22 +162,22 @@ Once a trigger has been created, you can request it start via `curl` or any othe
 http request.
 
 ```
-curl -k -G -d "token=`waypoint user token`" https://waypoint.server.address.example.com/v1/trigger/123ABC456DEF
+curl -k -G -d "token=`derrick user token`" https://waypoint.server.address.example.com/v1/trigger/123ABC456DEF
 ```
 
 If your project includes an input variable that you wish to override on the request,
 you can provide a `variables` option.
 
 ```
-curl -k -G -d "variables={\"tag\":\"latest\"}" -d "token=`waypoint user token`" https://waypoint.server.address.example.com/v1/trigger/123ABC456DEF
+curl -k -G -d "variables={\"tag\":\"latest\"}" -d "token=`derrick user token`" https://waypoint.server.address.example.com/v1/trigger/123ABC456DEF
 ```
 
 ### Streaming Job Output over HTTP
 
-When starting a trigger URL request, Waypoint server supports streaming
+When starting a trigger URL request, Derrick server supports streaming
 job output to the requester. Additionally, it supports streaming all concurrent
 jobs that are running from the result of starting a trigger URL. For trigger URLs
-that are not authenticated, Waypoint server does not allow for job streaming.
+that are not authenticated, Derrick server does not allow for job streaming.
 
 #### Streamed Event Types
 
@@ -199,11 +199,11 @@ will be finished if it returns a `Complete` or `Error` value type.
 Streaming output will give you the job event streamed directly to you:
 
 ```
-$ curl -k -G -d "stream=true" -d "token=`waypoint user token`" https://waypoint.server.address.example.com/v1/trigger/01FTS1A6H3EH4H4W1XY89AWZ84
+$ curl -k -G -d "stream=true" -d "token=`derrick user token`" https://waypoint.server.address.example.com/v1/trigger/01FTS1A6H3EH4H4W1XY89AWZ84
 ...
 ...
 > GET /v1/trigger/123ABC456DEF?stream=true&token=tokenstring HTTP/1.1
-> Host: waypoint.server.address.example.com
+> Host: derrick.server.address.example.com
 > User-Agent: curl/7.68.0
 > Accept: */*
 >
@@ -230,7 +230,7 @@ $ curl -k -G -d "stream=true" -d "token=`waypoint user token`" https://waypoint.
 {"jobId":"01FTXNMJ28WKXHBGQ74AH4DMM0","value":"Gathering health report for Kubernetes release...","valueType":"TerminalEventStep"}
 {"jobId":"01FTXNMJ28WKXHBGQ74AH4DMM0","value":"Checking status of Kubernetes service resource \"go\"...","valueType":"TerminalEventStep"}
 {"jobId":"01FTXNMJ28WKXHBGQ74AH4DMM0","valueType":"Complete","exitCode":"0"}
-* Connection #0 to host waypoint.server.address.example.com left intact
+* Connection #0 to host derrick.server.address.example.com left intact
 ```
 
 Note that if you cancel watching a job stream, the job will still execute

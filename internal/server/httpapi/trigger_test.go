@@ -8,11 +8,11 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/hashicorp/waypoint/pkg/server/gen/mocks"
+	"github.com/nomatronio/derrick/pkg/server/gen/mocks"
 	"github.com/stretchr/testify/require"
 	pbstatus "google.golang.org/genproto/googleapis/rpc/status"
 
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 // For a note about the magic value 445DHu, see exec_test.go
@@ -155,14 +155,14 @@ func TestHandleTrigger_CancelStream(t *testing.T) {
 
 type triggerImpl struct {
 	sync.Mutex
-	mocks.WaypointServer
-	pb.UnsafeWaypointServer
+	mocks.DerrickServer
+	pb.UnsafeDerrickServer
 }
 
 type triggerBadImpl struct {
 	sync.Mutex
-	mocks.WaypointServer
-	pb.UnsafeWaypointServer
+	mocks.DerrickServer
+	pb.UnsafeDerrickServer
 }
 
 // RunTrigger mocks out a "good" RunTrigger execution and returns a slice

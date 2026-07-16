@@ -16,7 +16,7 @@ import (
 
 // HashicorpWaypointRunPipelineResponse hashicorp waypoint run pipeline response
 //
-// swagger:model hashicorp.waypoint.RunPipelineResponse
+// swagger:model nomatron.derrick.RunPipelineResponse
 type HashicorpWaypointRunPipelineResponse struct {
 
 	// All job IDs are the list of all jobs that were queued for this pipeline.

@@ -16,7 +16,7 @@ import (
 
 // HashicorpWaypointOperationOrderOrder hashicorp waypoint operation order order
 //
-// swagger:model hashicorp.waypoint.OperationOrder.Order
+// swagger:model nomatron.derrick.OperationOrder.Order
 type HashicorpWaypointOperationOrderOrder string
 
 func NewHashicorpWaypointOperationOrderOrder(value HashicorpWaypointOperationOrderOrder) *HashicorpWaypointOperationOrderOrder {

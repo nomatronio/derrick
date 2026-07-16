@@ -1,7 +1,7 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
-import { GetReleaseRequest, Release, Ref } from 'waypoint-pb';
-import ApiService from 'waypoint/services/api';
+import { GetReleaseRequest, Release, Ref } from 'derrick-pb';
+import ApiService from 'derrick/services/api';
 
 type Params = { release_id: string };
 type Model = Release.AsObject;

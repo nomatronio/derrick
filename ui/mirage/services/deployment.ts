@@ -1,4 +1,4 @@
-import { GetDeploymentRequest, Job, ListDeploymentsRequest, ListDeploymentsResponse, UI } from 'waypoint-pb';
+import { GetDeploymentRequest, Job, ListDeploymentsRequest, ListDeploymentsResponse, UI } from 'derrick-pb';
 import { Request, Response } from 'miragejs';
 import { RouteHandler } from '../types';
 import { decode } from '../helpers/protobufs';

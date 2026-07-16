@@ -9,12 +9,12 @@ import (
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/component"
-	componentmocks "github.com/hashicorp/waypoint-plugin-sdk/component/mocks"
-	"github.com/hashicorp/waypoint-plugin-sdk/datadir"
-	"github.com/hashicorp/waypoint/internal/config"
-	"github.com/hashicorp/waypoint/internal/factory"
-	"github.com/hashicorp/waypoint/pkg/server/singleprocess"
+	"github.com/nomatronio/derrick-plugin-sdk/component"
+	componentmocks "github.com/nomatronio/derrick-plugin-sdk/component/mocks"
+	"github.com/nomatronio/derrick-plugin-sdk/datadir"
+	"github.com/nomatronio/derrick/internal/config"
+	"github.com/nomatronio/derrick/internal/factory"
+	"github.com/nomatronio/derrick/pkg/server/singleprocess"
 )
 
 // TestProject returns a fully in-memory and side-effect free Project that

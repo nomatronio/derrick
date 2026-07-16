@@ -7,5 +7,5 @@ package models
 
 // HashicorpWaypointJobInitResult hashicorp waypoint job init result
 //
-// swagger:model hashicorp.waypoint.Job.InitResult
+// swagger:model nomatron.derrick.Job.InitResult
 type HashicorpWaypointJobInitResult interface{}

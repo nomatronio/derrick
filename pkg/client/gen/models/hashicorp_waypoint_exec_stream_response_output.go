@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointExecStreamResponseOutput hashicorp waypoint exec stream response output
 //
-// swagger:model hashicorp.waypoint.ExecStreamResponse.Output
+// swagger:model nomatron.derrick.ExecStreamResponse.Output
 type HashicorpWaypointExecStreamResponseOutput struct {
 
 	// channel

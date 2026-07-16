@@ -13,9 +13,9 @@ import (
 	"google.golang.org/protobuf/proto"
 	empty "google.golang.org/protobuf/types/known/emptypb"
 
-	"github.com/hashicorp/waypoint/pkg/protocolversion"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	"github.com/hashicorp/waypoint/pkg/server/gen/mocks"
+	"github.com/nomatronio/derrick/pkg/protocolversion"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	"github.com/nomatronio/derrick/pkg/server/gen/mocks"
 )
 
 // Happy path - server and client both support inline keepalives
@@ -67,7 +67,7 @@ func TestCompatibility_OldServerOldClient(t *testing.T) {
 }
 
 // Simulates bidirectional communication on a grpc stream.
-func runTest(t *testing.T, impl *serverImpl, client pb.WaypointClient, sendInterval time.Duration) {
+func runTest(t *testing.T, impl *serverImpl, client pb.DerrickClient, sendInterval time.Duration) {
 	require := require.New(t)
 	ctx := context.Background()
 
@@ -154,12 +154,12 @@ func runTest(t *testing.T, impl *serverImpl, client pb.WaypointClient, sendInter
 	require.Equal(actualResp2.Config.ConfigVars[0].Name, "resp2")
 }
 
-func testClient(t *testing.T, addr string, opts ...grpc.DialOption) pb.WaypointClient {
+func testClient(t *testing.T, addr string, opts ...grpc.DialOption) pb.DerrickClient {
 	require := require.New(t)
 	conn, err := grpc.Dial(addr, append(opts, grpc.WithTransportCredentials(insecure.NewCredentials()))...)
 	require.NoError(err)
 
-	return pb.NewWaypointClient(conn)
+	return pb.NewDerrickClient(conn)
 }
 
 func testServer(t *testing.T, impl *serverImpl, opts ...grpc.ServerOption) (addr string) {
@@ -172,7 +172,7 @@ func testServer(t *testing.T, impl *serverImpl, opts ...grpc.ServerOption) (addr
 	require.NoError(err)
 
 	s := grpc.NewServer(opts...)
-	pb.RegisterWaypointServer(s, impl)
+	pb.RegisterDerrickServer(s, impl)
 	t.Cleanup(s.Stop)
 	go s.Serve(ln)
 	return ln.Addr().String()
@@ -180,9 +180,9 @@ func testServer(t *testing.T, impl *serverImpl, opts ...grpc.ServerOption) (addr
 
 type serverImpl struct {
 	sync.Mutex
-	mocks.WaypointServer
-	pb.UnsafeWaypointServer
-	//pb.UnimplementedWaypointServer
+	mocks.DerrickServer
+	pb.UnsafeDerrickServer
+	//pb.UnimplementedDerrickServer
 
 	t *testing.T
 

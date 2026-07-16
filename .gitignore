@@ -2,9 +2,9 @@ bin/
 tmp/
 
 # Repo-specific
-.waypoint/
-/waypoint
-/waypoint-entrypoint
+.derrick/
+/derrick
+/derrick-entrypoint
 /doc
 
 # System-specific

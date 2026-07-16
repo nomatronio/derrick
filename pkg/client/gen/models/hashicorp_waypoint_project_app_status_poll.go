@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointProjectAppStatusPoll hashicorp waypoint project app status poll
 //
-// swagger:model hashicorp.waypoint.Project.AppStatusPoll
+// swagger:model nomatron.derrick.Project.AppStatusPoll
 type HashicorpWaypointProjectAppStatusPoll struct {
 
 	// enabled must be set to true to enable application polling for the project

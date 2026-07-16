@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointJobDestroyOp hashicorp waypoint job destroy op
 //
-// swagger:model hashicorp.waypoint.Job.DestroyOp
+// swagger:model nomatron.derrick.Job.DestroyOp
 type HashicorpWaypointJobDestroyOp struct {
 
 	// deployment

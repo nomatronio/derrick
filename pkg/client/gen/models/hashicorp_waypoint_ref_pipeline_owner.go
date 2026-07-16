@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointRefPipelineOwner hashicorp waypoint ref pipeline owner
 //
-// swagger:model hashicorp.waypoint.Ref.PipelineOwner
+// swagger:model nomatron.derrick.Ref.PipelineOwner
 type HashicorpWaypointRefPipelineOwner struct {
 
 	// the name of the defined pipeline config

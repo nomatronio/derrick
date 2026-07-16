@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointJobGit hashicorp waypoint job git
 //
-// swagger:model hashicorp.waypoint.Job.Git
+// swagger:model nomatron.derrick.Job.Git
 type HashicorpWaypointJobGit struct {
 
 	// basic

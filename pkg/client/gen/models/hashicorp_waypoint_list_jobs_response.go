@@ -16,7 +16,7 @@ import (
 
 // HashicorpWaypointListJobsResponse hashicorp waypoint list jobs response
 //
-// swagger:model hashicorp.waypoint.ListJobsResponse
+// swagger:model nomatron.derrick.ListJobsResponse
 type HashicorpWaypointListJobsResponse struct {
 
 	// jobs

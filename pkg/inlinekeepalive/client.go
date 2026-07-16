@@ -14,7 +14,7 @@ import (
 	"google.golang.org/protobuf/reflect/protoreflect"
 	"google.golang.org/protobuf/types/known/emptypb"
 
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 // KeepaliveClientStream implements grpc.ClientStream
@@ -109,7 +109,7 @@ func KeepaliveClientStreamInterceptor(sendInterval time.Duration) grpc.StreamCli
 				return
 			}
 
-			client := pb.NewWaypointClient(cc)
+			client := pb.NewDerrickClient(cc)
 
 			versionInfo, err := client.GetVersionInfo(ctx, &emptypb.Empty{})
 			if err != nil {

@@ -12,7 +12,7 @@
         @icon='external-link'
         @iconPosition='trailing'
         @text={{t 'runner-alert.link'}}
-        @href='https://developer.hashicorp.com/waypoint/docs/runner'
+        @href='https://derrick.dev/docs/docs/runner'
       />
     </Hds::Alert>
     <div class="card-header">
@@ -229,8 +229,8 @@
           </Pds::HelpText>
           <CodeEditorField
             id="project-hcl-content"
-            @value={{this.decodedWaypointHcl}}
-            @onInput={{this.setWaypointHcl}}
+            @value={{this.decodedDerrickHcl}}
+            @onInput={{this.setDerrickHcl}}
             @required={{this.serverHcl}}
           />
         </div>

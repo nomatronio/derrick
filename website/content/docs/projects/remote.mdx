@@ -2,12 +2,12 @@
 layout: docs
 page_title: Remote Operations
 description: |-
-  Waypoint operations such as `waypoint up`, `build`, `deploy`, etc. can be executed remotely using runners.
+  Derrick operations such as `derrick up`, `build`, `deploy`, etc. can be executed remotely using runners.
 ---
 
 # Remote Operations
 
-Waypoint operations such as `waypoint up`, `build`, `deploy`, etc. can
+Derrick operations such as `derrick up`, `build`, `deploy`, etc. can
 be executed _remotely_ using [runners](/waypoint/docs/runner). This enables
 a variety of useful functionality and patterns:
 
@@ -15,13 +15,13 @@ a variety of useful functionality and patterns:
 - Users don't need to have credentials for build or deployment targets,
   only the runners do. For example, if you're deploying an application
   AWS, only the runners need AWS credentials. Users only need a token
-  for the Waypoint server to queue the deployment job.
+  for the Derrick server to queue the deployment job.
 - Private resource access. Every client only needs access to the
-  Waypoint server. The runners can run on a private network to access
+  Derrick server. The runners can run on a private network to access
   internal resources.
 
 Running operations remotely is the default and most common mode as it decouples
-waypoint from an individual machine. Operations such as `waypoint build` will always
+derrick from an individual machine. Operations such as `derrick build` will always
 attempt to perform a remote operation if possible. This can be overridden by passing
 `-local` on the command line.
 
@@ -29,25 +29,25 @@ attempt to perform a remote operation if possible. This can be overridden by pas
 
 Remote operations require:
 
-- At least one [runner is installed and running](/waypoint/docs/runner). Waypoint
-  automatically installs a runner with `waypoint install`.
-- Your project is configured with a [data source](/waypoint/docs/waypoint-hcl/runner)
+- At least one [runner is installed and running](/waypoint/docs/runner). Derrick
+  automatically installs a runner with `derrick install`.
+- Your project is configured with a [data source](/waypoint/docs/derrick-hcl/runner)
   so that the runners can clone the project source code.
-- Your project has [remote operations enabled](/waypoint/docs/waypoint-hcl/runner).
+- Your project has [remote operations enabled](/waypoint/docs/derrick-hcl/runner).
 
-Waypoint will automatically run your operations remotely if all these conditions are met, and that you have a [runner profile](/waypoint/docs/runner/profiles) configured.
+Derrick will automatically run your operations remotely if all these conditions are met, and that you have a [runner profile](/waypoint/docs/runner/profiles) configured.
 
 ## Usage
 
 ### CLI
 
 ```shell-session
-# let waypoint choose to run your operation remotely if possible (recommended):
-$ waypoint up
+# let derrick choose to run your operation remotely if possible (recommended):
+$ derrick up
 ...
 
 # or, force it to run locally on your development machine:
-$ waypoint up -local
+$ derrick up -local
 ...
 ```
 
@@ -59,11 +59,11 @@ logic is executing remotely.
 
 ## Concurrency
 
-Waypoint only allows a single operation per distinct `(workspace, project, app)`
+Derrick only allows a single operation per distinct `(workspace, project, app)`
 combination. This applies to both local and remote operations. Therefore, if two
-users attempt run `waypoint up` at the same time, even if they add the `-local` flag,
+users attempt run `derrick up` at the same time, even if they add the `-local` flag,
 one of the operations will wait for the other to complete before continuing.
 
-However, if a second user runs `waypoint up` in a _different project_ or
+However, if a second user runs `derrick up` in a _different project_ or
 _different application in the same project_ or _different workspace_, that
 operation will run concurrently so long as there is available runner capacity.

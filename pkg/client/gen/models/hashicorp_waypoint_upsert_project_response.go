@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointUpsertProjectResponse hashicorp waypoint upsert project response
 //
-// swagger:model hashicorp.waypoint.UpsertProjectResponse
+// swagger:model nomatron.derrick.UpsertProjectResponse
 type HashicorpWaypointUpsertProjectResponse struct {
 
 	// project

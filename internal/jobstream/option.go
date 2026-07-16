@@ -3,8 +3,8 @@ package jobstream
 import (
 	"github.com/hashicorp/go-hclog"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 // Option specifies an option for streaming.
@@ -19,7 +19,7 @@ func WithLogger(log hclog.Logger) Option {
 }
 
 // Set the client for the stream watcher. This is required.
-func WithClient(client pb.WaypointClient) Option {
+func WithClient(client pb.DerrickClient) Option {
 	return func(s *stream) error {
 		s.client = client
 		return nil

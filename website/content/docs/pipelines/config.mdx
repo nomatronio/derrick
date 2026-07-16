@@ -2,7 +2,7 @@
 layout: docs
 page_title: Pipelines Configuration
 description: |-
-  The page for detailing Waypoint pipeline configurations
+  The page for detailing Derrick pipeline configurations
 ---
 
 # Pipeline Configurations
@@ -107,12 +107,12 @@ step "my-step-name" {
 ## Built-In Step Config Options
 
 Currently, Pipeline Steps have "built-in" plugins that are backed by the existing
-Waypoint job system. See below for examples of each of these built-in Steps and their
+Derrick job system. See below for examples of each of these built-in Steps and their
 parameters.
 
 ### `build`
 
-This built-in Step will run a Build operation job, similar to running `waypoint build`.
+This built-in Step will run a Build operation job, similar to running `derrick build`.
 
 ```hcl
 step "my-build-step" {
@@ -129,7 +129,7 @@ step "my-build-step" {
 
 ### `deploy`
 
-This built-in Step will run a Deploy operation job, similar to running `waypoint deploy`.
+This built-in Step will run a Deploy operation job, similar to running `derrick deploy`.
 
 ```hcl
 step "my-deploy-step" {
@@ -139,7 +139,7 @@ step "my-deploy-step" {
 
 ### `release`
 
-This built-in Step will run a Release operation job, similar to running `waypoint release`.
+This built-in Step will run a Release operation job, similar to running `derrick release`.
 
 ```hcl
 step "my-release-step" {
@@ -183,7 +183,7 @@ If true, will respect the `prune_retain` value when pruning during a release.
 
 ### `up`
 
-This built-in Step will run an Up operation job, similar to running `waypoint up`.
+This built-in Step will run an Up operation job, similar to running `derrick up`.
 
 ```hcl
 step "my-up-step" {
@@ -257,7 +257,7 @@ step "my-pipeline-step" {
 ##### project
 
 The project that the pipeline reference exists in. **Note that currently
-Waypoint does not support running across Project pipelines**.
+Derrick does not support running across Project pipelines**.
 
 - Type: **string**
 - **Optional**

@@ -1,4 +1,4 @@
-module github.com/hashicorp/waypoint
+module github.com/nomatronio/derrick
 
 go 1.19
 
@@ -90,6 +90,7 @@ require (
 	github.com/moby/buildkit v0.8.3
 	github.com/mr-tron/base58 v1.2.0
 	github.com/natefinch/atomic v0.0.0-20200526193002-18c0533a5b09
+	github.com/nomatronio/derrick-plugin-sdk v0.0.0-00010101000000-000000000000
 	github.com/novln/docker-parser v1.0.0
 	github.com/oklog/ulid v1.3.1
 	github.com/oklog/ulid/v2 v2.0.2
@@ -361,12 +362,9 @@ require (
 require (
 	github.com/agext/levenshtein v1.2.3 // indirect
 	github.com/desertbit/timer v0.0.0-20180107155436-c41aec40b27f // indirect
-	github.com/docker/libtrust v0.0.0-20160708172513-aabc10ec26b7 // indirect
 	github.com/evanphx/grpc-gateway v1.16.1-0.20220211183845-48e5be386c15
 	github.com/hashicorp/go-grpc-net-conn v0.0.0-20220321172933-7ab38178cb90
 	github.com/hashicorp/opaqueany v0.0.0-20220321170339-a5c6ff5bb0ec
-	github.com/hashicorp/waypoint-plugin-sdk v0.0.0-20230125180203-cb1d684e3cc5
-	github.com/jinzhu/now v1.1.1 // indirect
 	github.com/mattn/go-isatty v0.0.14 // indirect
 	github.com/rs/cors v1.7.0 // indirect
 	github.com/sabhiram/go-gitignore v0.0.0-20201211210132-54b8a0bf510f // indirect
@@ -383,3 +381,7 @@ require (
 
 // v0.3.11 panics for some reason on our tests
 replace github.com/imdario/mergo => github.com/imdario/mergo v0.3.9
+
+replace github.com/nomatronio/derrick-plugin-sdk => ../derrick-plugin-sdk
+
+replace github.com/nomatronio/derrick => .

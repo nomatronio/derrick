@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointPipelineStepUp hashicorp waypoint pipeline step up
 //
-// swagger:model hashicorp.waypoint.Pipeline.Step.Up
+// swagger:model nomatron.derrick.Pipeline.Step.Up
 type HashicorpWaypointPipelineStepUp struct {
 
 	// prune

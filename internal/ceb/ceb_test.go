@@ -16,12 +16,12 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/component"
-	"github.com/hashicorp/waypoint/internal/plugin"
-	"github.com/hashicorp/waypoint/pkg/server"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	serverptypes "github.com/hashicorp/waypoint/pkg/server/ptypes"
-	"github.com/hashicorp/waypoint/pkg/server/singleprocess"
+	"github.com/nomatronio/derrick-plugin-sdk/component"
+	"github.com/nomatronio/derrick/internal/plugin"
+	"github.com/nomatronio/derrick/pkg/server"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	serverptypes "github.com/nomatronio/derrick/pkg/server/ptypes"
+	"github.com/nomatronio/derrick/pkg/server/singleprocess"
 
 	"github.com/stretchr/testify/require"
 )
@@ -474,7 +474,7 @@ func testRun(t *testing.T, ctx context.Context, opts *testRunOpts) *CEB {
 }
 
 type testRunOpts struct {
-	Client        pb.WaypointClient
+	Client        pb.DerrickClient
 	ClientDisable bool
 	Helper        string
 	HelperEnv     map[string]string

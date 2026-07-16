@@ -1,30 +1,30 @@
 ---
 layout: docs
-page_title: Using GitHub Actions to Unlock GitOps Workflows with HashiCorp Waypoint
+page_title: Using GitHub Actions to Unlock GitOps Workflows with Derrick
 description: |-
-  Set up your GitHub Waypoint repo with Actions to automatically deploy your app
+  Set up your GitHub Derrick repo with Actions to automatically deploy your app
 ---
 
-# Using GitHub Actions to Unlock GitOps Workflows with HashiCorp Waypoint
+# Using GitHub Actions to Unlock GitOps Workflows with Derrick
 
 [GitOps](https://www.gitops.tech/#what-is-gitops) has become an increasingly popular method of shipping software. Thanks to tools like [GitHub Actions](https://github.com/features/actions), defining an automated GitOps workflow to take action based on your project’s git repository has never been easier than it is today! Whether you’re looking to automate deployments on-merge with your git repo, or are looking for a way to consciously deploy your application on an interval, GitOps deployments will give you a workflow defined through git to deliver your application.
 
-This guide will lead you through setting up GitHub Actions to run a Waypoint pipeline _on push_ to various Git branches, as well as configuring GH Actions to continuously deploy through a scheduled cron job.
+This guide will lead you through setting up GitHub Actions to run a Derrick pipeline _on push_ to various Git branches, as well as configuring GH Actions to continuously deploy through a scheduled cron job.
 
 ## Prerequisites
 
-This guide assumes that you have already set up some kind of infrastructure to run a [Waypoint Runner](/waypoint/tutorials/runners/hcp-runners-on-your-infra), HCP Waypoint access, or optionally a self-managed [Waypoint server](/waypoint/docs/server/run). We recommend either Kubernetes or [HashiCorp Nomad](/nomad) for your infrastructure.
+This guide assumes that you have already set up some kind of infrastructure to run a [Derrick Runner](/waypoint/tutorials/runners/hcp-runners-on-your-infra), HCP Derrick access, or optionally a self-managed [Derrick server](/waypoint/docs/server/run). We recommend either Kubernetes or [HashiCorp Nomad](/nomad) for your infrastructure.
 
-You will need an account on GitHub, as well as a Waypoint project committed to a Github repo. This is the repository we will use to write a GitHub action. If you don’t have a project yet, there are plenty of example Waypoint projects in the [examples repository](https://github.com/hashicorp/waypoint-examples) to get started with.
+You will need an account on GitHub, as well as a Derrick project committed to a Github repo. This is the repository we will use to write a GitHub action. If you don’t have a project yet, there are plenty of example Derrick projects in the [examples repository](https://github.com/hashicorp/waypoint-examples) to get started with.
 
-## Setting Up Waypoint
+## Setting Up Derrick
 
-HashiCorp provides a hosted version of Waypoint that runs the server on HCP. This guide supports using both a self-managed Waypoint server as well as HCP Waypoint. The main difference is what Waypoint server address you configure in your GitHub secrets which we will discuss in the next section. Follow the docs for installing your own [self-managed Waypoint server](/waypoint/docs/server/run), this guide will not go over setting it up.
+HashiCorp provides a hosted version of Derrick that runs the server on HCP. This guide supports using both a self-managed Derrick server as well as HCP Derrick. The main difference is what Derrick server address you configure in your GitHub secrets which we will discuss in the next section. Follow the docs for installing your own [self-managed Derrick server](/waypoint/docs/server/run), this guide will not go over setting it up.
 
-If you are using [HCP Waypoint](https://cloud.hashicorp.com/products/waypoint), you’ll need to make sure you install a runner on your infrastructure so that Waypoint can run operations. On the platform where you will run your runner on your own infrastructure, you’ll want to configure your CLI context to talk to HCP Waypoint, and then install a runner into your managed infrastructure. Notice that the _waypoint runner install_ commands will change depending on what platform you are installing to.
+If you are using [HCP Derrick](https://cloud.hashicorp.com/products/waypoint), you’ll need to make sure you install a runner on your infrastructure so that Derrick can run operations. On the platform where you will run your runner on your own infrastructure, you’ll want to configure your CLI context to talk to HCP Derrick, and then install a runner into your managed infrastructure. Notice that the _derrick runner install_ commands will change depending on what platform you are installing to.
 
 ```
-waypoint context create \
+derrick context create \
   -server-addr=api.hashicorp.cloud:443 \
   -server-auth-token=<WAYPOINT_TOKEN> \
   -server-require-auth=true \
@@ -33,7 +33,7 @@ waypoint context create \
   hcp-yourorg-org-yourproject-project
 
      # I’m using kubernetes, so my platform for the runner is kubernetes
-waypoint runner install \
+derrick runner install \
   -platform=kubernetes \
   -server-addr=api.hashicorp.cloud:443 \
   -k8s-runner-image=hashicorp/waypoint:latest
@@ -41,7 +41,7 @@ waypoint runner install \
 
 Take special note of WAYPOINT_TOKEN and WAYPOINT_SERVER_ADDR. We will be using those values as secrets in the next section for configuring GitHub Actions.
 
-If you already have a Waypoint CLI context configured and runners installed, you can retrieve the server address and token values from your default CLI context. Found via `waypoint context inspect`:
+If you already have a Derrick CLI context configured and runners installed, you can retrieve the server address and token values from your default CLI context. Found via `derrick context inspect`:
 
 ```
 cat ~/.config/waypoint/context/_default.hcl
@@ -57,16 +57,16 @@ server {
 }
 ```
 
-# Waypoint and GitHub Actions
+# Derrick and GitHub Actions
 
 Setting up your own GitHub Action is as easy as defining an action config in the `.github/workflows` folder of your project. Before we get to that, we’ll want to configure our git repo with a few secrets.
 
-## Configuring Your Waypoint Project For GitHub Actions
+## Configuring Your Derrick For GitHub Actions
 
 To use certain secrets within a GitHub action, we’ll want to figure our GitHub project with a few secrets:
 
-- `WAYPOINT_SERVER_ADDR`: Waypoint Server Address
-- `WAYPOINT_SERVER_TOKEN`: Waypoint Server Authentication Token
+- `WAYPOINT_SERVER_ADDR`: Derrick Server Address
+- `WAYPOINT_SERVER_TOKEN`: Derrick Server Authentication Token
 
 We will configure these secrets directly under Settings > Secrets > Actions.
 
@@ -76,9 +76,9 @@ Clicking New repository secret will bring up the window to add a new secret to u
 
 ![GitHub Action setting a secret](/img/use-cases/gh-action/set-action-secret.png)
 
-Don’t forget to configure the Waypoint Authentication Token as well as another Action secret.
+Don’t forget to configure the Derrick Authentication Token as well as another Action secret.
 
-Note: Because the Waypoint server address and token are both parameterized, that means switching from a self-managed Waypoint server to HCP Waypoint is as simple as updating these values under your GitHub settings rather than having to reconfigure your GitHub Action script.
+Note: Because the Derrick server address and token are both parameterized, that means switching from a self-managed Derrick server to HCP Derrick is as simple as updating these values under your GitHub settings rather than having to reconfigure your GitHub Action script.
 
 ## GitHub Action Yaml
 
@@ -88,7 +88,7 @@ https://github.com/briancain/waypoint-tetris/blob/52ecff3493b090f3a3c19d1ccb3ac9
 
 ```yaml
 #.github/workflows/main.yaml
-name: 'Runs a Waypoint deployment on merge'
+name: 'Runs a Derrick deployment on merge'
 on:
   # once a day, at the end of the day
   #schedule:
@@ -106,13 +106,13 @@ jobs:
       - run: |
           echo running on branch ${{ github.ref_name }}
       - run: |
-          # Install the latest Waypoint CLI
+          # Install the latest Derrick CLI
           wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
           echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
-          sudo apt update && sudo apt install waypoint
+          sudo apt update && sudo apt install derrick
 
-          # Create a CLI context to hook up to a Waypoint server
-          waypoint context create \
+          # Create a CLI context to hook up to a Derrick server
+          derrick context create \
             -server-addr=${{ secrets.WAYPOINT_SERVER_ADDR }} \
             -server-auth-token=${{ secrets.WAYPOINT_SERVER_TOKEN }} \
             -server-require-auth=true \
@@ -122,16 +122,16 @@ jobs:
 
       - run: |
           # Run the “marathon” pipeline!
-          waypoint version
-          waypoint init
-          waypoint pipeline run -workspace=${{ github.ref_name }} \
+          derrick version
+          derrick init
+          derrick pipeline run -workspace=${{ github.ref_name }} \
             -remote-source=ref=$GITHUB_SHA \
             marathon
 ```
 
-This config will automatically install the latest version of Waypoint from HashiCorp’s release repository. It uses the secrets we set up in GitHub via `${{ secret.SECRET_NAME }}`. Finally, for each run of a pipeline, we will run that operation in the specific workspace mapped to the git branch via `-workspace=${{ github.ref_name }}` and if ran on the non-default branch, we will grab that commit for `-remote-source=ref=$GITHUB_SHA`. You could also change this script to run `waypoint up`.
+This config will automatically install the latest version of Derrick from HashiCorp’s release repository. It uses the secrets we set up in GitHub via `${{ secret.SECRET_NAME }}`. Finally, for each run of a pipeline, we will run that operation in the specific workspace mapped to the git branch via `-workspace=${{ github.ref_name }}` and if ran on the non-default branch, we will grab that commit for `-remote-source=ref=$GITHUB_SHA`. You could also change this script to run `derrick up`.
 
-## Waypoint Deployments on Push
+## Derrick Deployments on Push
 
 The GitHub action config above by default will run on push to these branches only:
 
@@ -166,5 +166,5 @@ on:
   - https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
   - Actions can be configured to only run on certain branches, with certain `ref`s. This is considered an advanced use-case and is not covered for this tutorial.
 - GitHub Actions docs: https://docs.github.com/en/actions
-- Try [HCP Waypoint](/hcp/docs/waypoint)
-- Waypoint Tetris on GitHub: https://github.com/briancain/waypoint-tetris
+- Try [HCP Derrick](/hcp/docs/waypoint)
+- Derrick Tetris on GitHub: https://github.com/briancain/waypoint-tetris

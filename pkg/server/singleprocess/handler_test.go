@@ -6,10 +6,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/hashicorp/waypoint/pkg/server"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	"github.com/hashicorp/waypoint/pkg/serverhandler/handlertest"
-	"github.com/hashicorp/waypoint/pkg/serverstate"
+	"github.com/nomatronio/derrick/pkg/server"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	"github.com/nomatronio/derrick/pkg/serverhandler/handlertest"
+	"github.com/nomatronio/derrick/pkg/serverstate"
 )
 
 func init() {
@@ -28,7 +28,7 @@ func (o *OSSTestServerImpl) State(ctx context.Context) serverstate.Interface {
 // TestHandlers run the service handler tests that depend exclusively on the protobuf
 // interfaces.
 func TestHandlers(t *testing.T) {
-	handlertest.Test(t, func(t *testing.T) (pb.WaypointClient, handlertest.TestServerImpl) {
+	handlertest.Test(t, func(t *testing.T) (pb.DerrickClient, handlertest.TestServerImpl) {
 		impl := TestImpl(t)
 
 		client := server.TestServer(t, impl)

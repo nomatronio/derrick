@@ -16,7 +16,7 @@ import (
 // are unique but can be changed at anytime, so for long-living refs
 // the ID should be used.
 //
-// swagger:model hashicorp.waypoint.Ref.UserUsername
+// swagger:model nomatron.derrick.Ref.UserUsername
 type HashicorpWaypointRefUserUsername struct {
 
 	// username

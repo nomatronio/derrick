@@ -1,10 +1,10 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
-import ApiService from 'waypoint/services/api';
-import { Ref, GetBuildRequest, Build, PushedArtifact } from 'waypoint-pb';
+import ApiService from 'derrick/services/api';
+import { Ref, GetBuildRequest, Build, PushedArtifact } from 'derrick-pb';
 import { Model as AppRouteModel } from '../app';
-import { Breadcrumb } from 'waypoint/services/breadcrumbs';
-import { TimelineModel } from 'waypoint/components/timeline';
+import { Breadcrumb } from 'derrick/services/breadcrumbs';
+import { TimelineModel } from 'derrick/components/timeline';
 
 type Params = { sequence: string };
 type Model = Build.AsObject & WithPushedArtifact;

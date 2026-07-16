@@ -7,10 +7,10 @@ import (
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/posener/complete"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 type ProjectListCommand struct {
@@ -93,12 +93,12 @@ func (c *ProjectListCommand) Synopsis() string {
 
 func (c *ProjectListCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint project list
+Usage: derrick project list
 
   List all registered projects.
 
   Projects usually map to a single version control repository and contain
-  exactly one "waypoint.hcl" configuration. A project may contain multiple
+  exactly one "derrick.hcl" configuration. A project may contain multiple
   applications.
 
   A project is registered via the web UI, "waypoint project apply",

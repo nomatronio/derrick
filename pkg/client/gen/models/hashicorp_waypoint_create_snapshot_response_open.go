@@ -7,5 +7,5 @@ package models
 
 // HashicorpWaypointCreateSnapshotResponseOpen One day we may add information here. For now we are reserving this.
 //
-// swagger:model hashicorp.waypoint.CreateSnapshotResponse.Open
+// swagger:model nomatron.derrick.CreateSnapshotResponse.Open
 type HashicorpWaypointCreateSnapshotResponseOpen interface{}

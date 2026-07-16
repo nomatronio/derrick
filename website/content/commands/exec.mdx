@@ -5,9 +5,9 @@ sidebar_title: 'exec'
 description: 'Execute a command in the context of a running application instance'
 ---
 
-# Waypoint Exec
+# Derrick Exec
 
-Command: `waypoint exec`
+Command: `derrick exec`
 
 Execute a command in the context of a running application instance
 
@@ -15,19 +15,19 @@ Execute a command in the context of a running application instance
 
 ## Usage
 
-Usage: `waypoint exec [options] cmd`
+Usage: `derrick exec [options] cmd`
 
 Execute a command in the context of a running application instance.
 
 For example, you could run one of the following commands:
 
-    waypoint exec bash
-    waypoint exec rake db:migrate
+    derrick exec bash
+    derrick exec rake db:migrate
 
 #### Global Options
 
 - `-plain` - Plain output: no colors, no animation. The default is false.
-- `-app=<string>` (`-a`) - App to target. Certain commands require a single app target for Waypoint configurations with multiple apps. If you have a single app, then this can be ignored.
+- `-app=<string>` (`-a`) - App to target. Certain commands require a single app target for Derrick configurations with multiple apps. If you have a single app, then this can be ignored.
 - `-project=<string>` (`-p`) - Project to target.
 - `-workspace=<string>` (`-w`) - Workspace to operate in.
 
@@ -35,7 +35,7 @@ For example, you could run one of the following commands:
 
 - `-label=<key=value>` - Labels to set for this operation. Can be specified multiple times.
 - `-local` - True to use a local runner to execute the operation, false to use a remote runner.
-  If unset, Waypoint will automatically determine where the operation will occur,
+  If unset, Derrick will automatically determine where the operation will occur,
   defaulting to remote if possible.
 - `-remote-source=<key=value>` - Override configurations for how remote runners source data. This is specified to the data source type being used in your configuration. This is used for example to set a specific Git ref to run against.
 - `-var=<key=value>` - Variable value to set for this operation. Can be specified multiple times.

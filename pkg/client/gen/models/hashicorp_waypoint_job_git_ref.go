@@ -16,7 +16,7 @@ import (
 
 // HashicorpWaypointJobGitRef Ref is used to populate DataSource.Ref
 //
-// swagger:model hashicorp.waypoint.Job.Git.Ref
+// swagger:model nomatron.derrick.Job.Git.Ref
 type HashicorpWaypointJobGitRef struct {
 
 	// commit is the full commit hash

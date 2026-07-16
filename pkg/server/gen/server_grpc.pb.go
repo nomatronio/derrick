@@ -19,10 +19,10 @@ import (
 // Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
-// WaypointClient is the client API for Waypoint service.
+// DerrickClient is the client API for Waypoint service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type WaypointClient interface {
+type DerrickClient interface {
 	// GetVersionInfo returns information about the server. This RPC call does
 	// NOT require authentication. It can be used by clients to determine if they
 	// are capable of talking to this server.
@@ -252,9 +252,9 @@ type WaypointClient interface {
 	EntrypointLogStream(ctx context.Context, opts ...grpc.CallOption) (Waypoint_EntrypointLogStreamClient, error)
 	// EntrypointExecStream is called to open the data stream for the exec session.
 	EntrypointExecStream(ctx context.Context, opts ...grpc.CallOption) (Waypoint_EntrypointExecStreamClient, error)
-	// WaypointHclFmt formats a waypoint.hcl file. This must be in HCL format.
+	// DerrickHclFmt formats a derrick.hcl file. This must be in HCL format.
 	// JSON formatting is not supported.
-	WaypointHclFmt(ctx context.Context, in *WaypointHclFmtRequest, opts ...grpc.CallOption) (*WaypointHclFmtResponse, error)
+	DerrickHclFmt(ctx context.Context, in *DerrickHclFmtRequest, opts ...grpc.CallOption) (*DerrickHclFmtResponse, error)
 	// UpsertOnDemandRunnerConfig updates or inserts a on-demand runner
 	// configuration. This configuration can be used by projects for running
 	// operations on just-in-time launched runners.
@@ -339,13 +339,13 @@ type waypointClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewWaypointClient(cc grpc.ClientConnInterface) WaypointClient {
+func NewDerrickClient(cc grpc.ClientConnInterface) DerrickClient {
 	return &waypointClient{cc}
 }
 
 func (c *waypointClient) GetVersionInfo(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetVersionInfoResponse, error) {
 	out := new(GetVersionInfoResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/GetVersionInfo", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/GetVersionInfo", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -354,7 +354,7 @@ func (c *waypointClient) GetVersionInfo(ctx context.Context, in *emptypb.Empty, 
 
 func (c *waypointClient) ListOIDCAuthMethods(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*ListOIDCAuthMethodsResponse, error) {
 	out := new(ListOIDCAuthMethodsResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/ListOIDCAuthMethods", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/ListOIDCAuthMethods", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -363,7 +363,7 @@ func (c *waypointClient) ListOIDCAuthMethods(ctx context.Context, in *emptypb.Em
 
 func (c *waypointClient) GetOIDCAuthURL(ctx context.Context, in *GetOIDCAuthURLRequest, opts ...grpc.CallOption) (*GetOIDCAuthURLResponse, error) {
 	out := new(GetOIDCAuthURLResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/GetOIDCAuthURL", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/GetOIDCAuthURL", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -372,7 +372,7 @@ func (c *waypointClient) GetOIDCAuthURL(ctx context.Context, in *GetOIDCAuthURLR
 
 func (c *waypointClient) CompleteOIDCAuth(ctx context.Context, in *CompleteOIDCAuthRequest, opts ...grpc.CallOption) (*CompleteOIDCAuthResponse, error) {
 	out := new(CompleteOIDCAuthResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/CompleteOIDCAuth", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/CompleteOIDCAuth", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -381,7 +381,7 @@ func (c *waypointClient) CompleteOIDCAuth(ctx context.Context, in *CompleteOIDCA
 
 func (c *waypointClient) NoAuthRunTrigger(ctx context.Context, in *RunTriggerRequest, opts ...grpc.CallOption) (*RunTriggerResponse, error) {
 	out := new(RunTriggerResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/NoAuthRunTrigger", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/NoAuthRunTrigger", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -390,7 +390,7 @@ func (c *waypointClient) NoAuthRunTrigger(ctx context.Context, in *RunTriggerReq
 
 func (c *waypointClient) GetUser(ctx context.Context, in *GetUserRequest, opts ...grpc.CallOption) (*GetUserResponse, error) {
 	out := new(GetUserResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/GetUser", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/GetUser", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -399,7 +399,7 @@ func (c *waypointClient) GetUser(ctx context.Context, in *GetUserRequest, opts .
 
 func (c *waypointClient) ListUsers(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*ListUsersResponse, error) {
 	out := new(ListUsersResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/ListUsers", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/ListUsers", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -408,7 +408,7 @@ func (c *waypointClient) ListUsers(ctx context.Context, in *emptypb.Empty, opts 
 
 func (c *waypointClient) UpdateUser(ctx context.Context, in *UpdateUserRequest, opts ...grpc.CallOption) (*UpdateUserResponse, error) {
 	out := new(UpdateUserResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/UpdateUser", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/UpdateUser", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -417,7 +417,7 @@ func (c *waypointClient) UpdateUser(ctx context.Context, in *UpdateUserRequest, 
 
 func (c *waypointClient) DeleteUser(ctx context.Context, in *DeleteUserRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	out := new(emptypb.Empty)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/DeleteUser", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/DeleteUser", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -426,7 +426,7 @@ func (c *waypointClient) DeleteUser(ctx context.Context, in *DeleteUserRequest, 
 
 func (c *waypointClient) UpsertAuthMethod(ctx context.Context, in *UpsertAuthMethodRequest, opts ...grpc.CallOption) (*UpsertAuthMethodResponse, error) {
 	out := new(UpsertAuthMethodResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/UpsertAuthMethod", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/UpsertAuthMethod", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -435,7 +435,7 @@ func (c *waypointClient) UpsertAuthMethod(ctx context.Context, in *UpsertAuthMet
 
 func (c *waypointClient) GetAuthMethod(ctx context.Context, in *GetAuthMethodRequest, opts ...grpc.CallOption) (*GetAuthMethodResponse, error) {
 	out := new(GetAuthMethodResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/GetAuthMethod", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/GetAuthMethod", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -444,7 +444,7 @@ func (c *waypointClient) GetAuthMethod(ctx context.Context, in *GetAuthMethodReq
 
 func (c *waypointClient) ListAuthMethods(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*ListAuthMethodsResponse, error) {
 	out := new(ListAuthMethodsResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/ListAuthMethods", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/ListAuthMethods", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -453,7 +453,7 @@ func (c *waypointClient) ListAuthMethods(ctx context.Context, in *emptypb.Empty,
 
 func (c *waypointClient) DeleteAuthMethod(ctx context.Context, in *DeleteAuthMethodRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	out := new(emptypb.Empty)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/DeleteAuthMethod", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/DeleteAuthMethod", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -462,7 +462,7 @@ func (c *waypointClient) DeleteAuthMethod(ctx context.Context, in *DeleteAuthMet
 
 func (c *waypointClient) ListWorkspaces(ctx context.Context, in *ListWorkspacesRequest, opts ...grpc.CallOption) (*ListWorkspacesResponse, error) {
 	out := new(ListWorkspacesResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/ListWorkspaces", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/ListWorkspaces", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -471,7 +471,7 @@ func (c *waypointClient) ListWorkspaces(ctx context.Context, in *ListWorkspacesR
 
 func (c *waypointClient) GetWorkspace(ctx context.Context, in *GetWorkspaceRequest, opts ...grpc.CallOption) (*GetWorkspaceResponse, error) {
 	out := new(GetWorkspaceResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/GetWorkspace", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/GetWorkspace", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -480,7 +480,7 @@ func (c *waypointClient) GetWorkspace(ctx context.Context, in *GetWorkspaceReque
 
 func (c *waypointClient) UpsertWorkspace(ctx context.Context, in *UpsertWorkspaceRequest, opts ...grpc.CallOption) (*UpsertWorkspaceResponse, error) {
 	out := new(UpsertWorkspaceResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/UpsertWorkspace", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/UpsertWorkspace", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -489,7 +489,7 @@ func (c *waypointClient) UpsertWorkspace(ctx context.Context, in *UpsertWorkspac
 
 func (c *waypointClient) UpsertProject(ctx context.Context, in *UpsertProjectRequest, opts ...grpc.CallOption) (*UpsertProjectResponse, error) {
 	out := new(UpsertProjectResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/UpsertProject", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/UpsertProject", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -498,7 +498,7 @@ func (c *waypointClient) UpsertProject(ctx context.Context, in *UpsertProjectReq
 
 func (c *waypointClient) GetProject(ctx context.Context, in *GetProjectRequest, opts ...grpc.CallOption) (*GetProjectResponse, error) {
 	out := new(GetProjectResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/GetProject", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/GetProject", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -507,7 +507,7 @@ func (c *waypointClient) GetProject(ctx context.Context, in *GetProjectRequest, 
 
 func (c *waypointClient) ListProjects(ctx context.Context, in *ListProjectsRequest, opts ...grpc.CallOption) (*ListProjectsResponse, error) {
 	out := new(ListProjectsResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/ListProjects", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/ListProjects", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -516,7 +516,7 @@ func (c *waypointClient) ListProjects(ctx context.Context, in *ListProjectsReque
 
 func (c *waypointClient) DestroyProject(ctx context.Context, in *DestroyProjectRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	out := new(emptypb.Empty)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/DestroyProject", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/DestroyProject", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -525,7 +525,7 @@ func (c *waypointClient) DestroyProject(ctx context.Context, in *DestroyProjectR
 
 func (c *waypointClient) GetApplication(ctx context.Context, in *GetApplicationRequest, opts ...grpc.CallOption) (*GetApplicationResponse, error) {
 	out := new(GetApplicationResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/GetApplication", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/GetApplication", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -534,7 +534,7 @@ func (c *waypointClient) GetApplication(ctx context.Context, in *GetApplicationR
 
 func (c *waypointClient) UpsertApplication(ctx context.Context, in *UpsertApplicationRequest, opts ...grpc.CallOption) (*UpsertApplicationResponse, error) {
 	out := new(UpsertApplicationResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/UpsertApplication", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/UpsertApplication", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -543,7 +543,7 @@ func (c *waypointClient) UpsertApplication(ctx context.Context, in *UpsertApplic
 
 func (c *waypointClient) ListBuilds(ctx context.Context, in *ListBuildsRequest, opts ...grpc.CallOption) (*ListBuildsResponse, error) {
 	out := new(ListBuildsResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/ListBuilds", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/ListBuilds", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -552,7 +552,7 @@ func (c *waypointClient) ListBuilds(ctx context.Context, in *ListBuildsRequest, 
 
 func (c *waypointClient) GetBuild(ctx context.Context, in *GetBuildRequest, opts ...grpc.CallOption) (*Build, error) {
 	out := new(Build)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/GetBuild", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/GetBuild", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -561,7 +561,7 @@ func (c *waypointClient) GetBuild(ctx context.Context, in *GetBuildRequest, opts
 
 func (c *waypointClient) GetLatestBuild(ctx context.Context, in *GetLatestBuildRequest, opts ...grpc.CallOption) (*Build, error) {
 	out := new(Build)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/GetLatestBuild", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/GetLatestBuild", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -570,7 +570,7 @@ func (c *waypointClient) GetLatestBuild(ctx context.Context, in *GetLatestBuildR
 
 func (c *waypointClient) ListPushedArtifacts(ctx context.Context, in *ListPushedArtifactsRequest, opts ...grpc.CallOption) (*ListPushedArtifactsResponse, error) {
 	out := new(ListPushedArtifactsResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/ListPushedArtifacts", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/ListPushedArtifacts", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -579,7 +579,7 @@ func (c *waypointClient) ListPushedArtifacts(ctx context.Context, in *ListPushed
 
 func (c *waypointClient) GetPushedArtifact(ctx context.Context, in *GetPushedArtifactRequest, opts ...grpc.CallOption) (*PushedArtifact, error) {
 	out := new(PushedArtifact)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/GetPushedArtifact", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/GetPushedArtifact", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -588,7 +588,7 @@ func (c *waypointClient) GetPushedArtifact(ctx context.Context, in *GetPushedArt
 
 func (c *waypointClient) GetLatestPushedArtifact(ctx context.Context, in *GetLatestPushedArtifactRequest, opts ...grpc.CallOption) (*PushedArtifact, error) {
 	out := new(PushedArtifact)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/GetLatestPushedArtifact", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/GetLatestPushedArtifact", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -597,7 +597,7 @@ func (c *waypointClient) GetLatestPushedArtifact(ctx context.Context, in *GetLat
 
 func (c *waypointClient) ListDeployments(ctx context.Context, in *ListDeploymentsRequest, opts ...grpc.CallOption) (*ListDeploymentsResponse, error) {
 	out := new(ListDeploymentsResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/ListDeployments", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/ListDeployments", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -606,7 +606,7 @@ func (c *waypointClient) ListDeployments(ctx context.Context, in *ListDeployment
 
 func (c *waypointClient) GetDeployment(ctx context.Context, in *GetDeploymentRequest, opts ...grpc.CallOption) (*Deployment, error) {
 	out := new(Deployment)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/GetDeployment", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/GetDeployment", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -615,7 +615,7 @@ func (c *waypointClient) GetDeployment(ctx context.Context, in *GetDeploymentReq
 
 func (c *waypointClient) ListInstances(ctx context.Context, in *ListInstancesRequest, opts ...grpc.CallOption) (*ListInstancesResponse, error) {
 	out := new(ListInstancesResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/ListInstances", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/ListInstances", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -624,7 +624,7 @@ func (c *waypointClient) ListInstances(ctx context.Context, in *ListInstancesReq
 
 func (c *waypointClient) ListReleases(ctx context.Context, in *ListReleasesRequest, opts ...grpc.CallOption) (*ListReleasesResponse, error) {
 	out := new(ListReleasesResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/ListReleases", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/ListReleases", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -633,7 +633,7 @@ func (c *waypointClient) ListReleases(ctx context.Context, in *ListReleasesReque
 
 func (c *waypointClient) GetRelease(ctx context.Context, in *GetReleaseRequest, opts ...grpc.CallOption) (*Release, error) {
 	out := new(Release)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/GetRelease", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/GetRelease", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -642,7 +642,7 @@ func (c *waypointClient) GetRelease(ctx context.Context, in *GetReleaseRequest, 
 
 func (c *waypointClient) GetLatestRelease(ctx context.Context, in *GetLatestReleaseRequest, opts ...grpc.CallOption) (*Release, error) {
 	out := new(Release)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/GetLatestRelease", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/GetLatestRelease", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -651,7 +651,7 @@ func (c *waypointClient) GetLatestRelease(ctx context.Context, in *GetLatestRele
 
 func (c *waypointClient) GetStatusReport(ctx context.Context, in *GetStatusReportRequest, opts ...grpc.CallOption) (*StatusReport, error) {
 	out := new(StatusReport)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/GetStatusReport", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/GetStatusReport", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -660,7 +660,7 @@ func (c *waypointClient) GetStatusReport(ctx context.Context, in *GetStatusRepor
 
 func (c *waypointClient) GetLatestStatusReport(ctx context.Context, in *GetLatestStatusReportRequest, opts ...grpc.CallOption) (*StatusReport, error) {
 	out := new(StatusReport)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/GetLatestStatusReport", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/GetLatestStatusReport", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -669,7 +669,7 @@ func (c *waypointClient) GetLatestStatusReport(ctx context.Context, in *GetLates
 
 func (c *waypointClient) ListStatusReports(ctx context.Context, in *ListStatusReportsRequest, opts ...grpc.CallOption) (*ListStatusReportsResponse, error) {
 	out := new(ListStatusReportsResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/ListStatusReports", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/ListStatusReports", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -678,7 +678,7 @@ func (c *waypointClient) ListStatusReports(ctx context.Context, in *ListStatusRe
 
 func (c *waypointClient) ExpediteStatusReport(ctx context.Context, in *ExpediteStatusReportRequest, opts ...grpc.CallOption) (*ExpediteStatusReportResponse, error) {
 	out := new(ExpediteStatusReportResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/ExpediteStatusReport", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/ExpediteStatusReport", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -686,7 +686,7 @@ func (c *waypointClient) ExpediteStatusReport(ctx context.Context, in *ExpediteS
 }
 
 func (c *waypointClient) GetLogStream(ctx context.Context, in *GetLogStreamRequest, opts ...grpc.CallOption) (Waypoint_GetLogStreamClient, error) {
-	stream, err := c.cc.NewStream(ctx, &Waypoint_ServiceDesc.Streams[0], "/hashicorp.waypoint.Waypoint/GetLogStream", opts...)
+	stream, err := c.cc.NewStream(ctx, &Waypoint_ServiceDesc.Streams[0], "/nomatron.derrick.Waypoint/GetLogStream", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -718,7 +718,7 @@ func (x *waypointGetLogStreamClient) Recv() (*LogBatch, error) {
 }
 
 func (c *waypointClient) StartExecStream(ctx context.Context, opts ...grpc.CallOption) (Waypoint_StartExecStreamClient, error) {
-	stream, err := c.cc.NewStream(ctx, &Waypoint_ServiceDesc.Streams[1], "/hashicorp.waypoint.Waypoint/StartExecStream", opts...)
+	stream, err := c.cc.NewStream(ctx, &Waypoint_ServiceDesc.Streams[1], "/nomatron.derrick.Waypoint/StartExecStream", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -750,7 +750,7 @@ func (x *waypointStartExecStreamClient) Recv() (*ExecStreamResponse, error) {
 
 func (c *waypointClient) SetConfig(ctx context.Context, in *ConfigSetRequest, opts ...grpc.CallOption) (*ConfigSetResponse, error) {
 	out := new(ConfigSetResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/SetConfig", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/SetConfig", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -759,7 +759,7 @@ func (c *waypointClient) SetConfig(ctx context.Context, in *ConfigSetRequest, op
 
 func (c *waypointClient) DeleteConfig(ctx context.Context, in *ConfigDeleteRequest, opts ...grpc.CallOption) (*ConfigDeleteResponse, error) {
 	out := new(ConfigDeleteResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/DeleteConfig", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/DeleteConfig", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -768,7 +768,7 @@ func (c *waypointClient) DeleteConfig(ctx context.Context, in *ConfigDeleteReque
 
 func (c *waypointClient) GetConfig(ctx context.Context, in *ConfigGetRequest, opts ...grpc.CallOption) (*ConfigGetResponse, error) {
 	out := new(ConfigGetResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/GetConfig", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/GetConfig", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -777,7 +777,7 @@ func (c *waypointClient) GetConfig(ctx context.Context, in *ConfigGetRequest, op
 
 func (c *waypointClient) SetConfigSource(ctx context.Context, in *SetConfigSourceRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	out := new(emptypb.Empty)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/SetConfigSource", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/SetConfigSource", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -786,7 +786,7 @@ func (c *waypointClient) SetConfigSource(ctx context.Context, in *SetConfigSourc
 
 func (c *waypointClient) DeleteConfigSource(ctx context.Context, in *DeleteConfigSourceRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	out := new(emptypb.Empty)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/DeleteConfigSource", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/DeleteConfigSource", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -795,7 +795,7 @@ func (c *waypointClient) DeleteConfigSource(ctx context.Context, in *DeleteConfi
 
 func (c *waypointClient) GetConfigSource(ctx context.Context, in *GetConfigSourceRequest, opts ...grpc.CallOption) (*GetConfigSourceResponse, error) {
 	out := new(GetConfigSourceResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/GetConfigSource", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/GetConfigSource", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -804,7 +804,7 @@ func (c *waypointClient) GetConfigSource(ctx context.Context, in *GetConfigSourc
 
 func (c *waypointClient) CreateHostname(ctx context.Context, in *CreateHostnameRequest, opts ...grpc.CallOption) (*CreateHostnameResponse, error) {
 	out := new(CreateHostnameResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/CreateHostname", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/CreateHostname", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -813,7 +813,7 @@ func (c *waypointClient) CreateHostname(ctx context.Context, in *CreateHostnameR
 
 func (c *waypointClient) DeleteHostname(ctx context.Context, in *DeleteHostnameRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	out := new(emptypb.Empty)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/DeleteHostname", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/DeleteHostname", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -822,7 +822,7 @@ func (c *waypointClient) DeleteHostname(ctx context.Context, in *DeleteHostnameR
 
 func (c *waypointClient) ListHostnames(ctx context.Context, in *ListHostnamesRequest, opts ...grpc.CallOption) (*ListHostnamesResponse, error) {
 	out := new(ListHostnamesResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/ListHostnames", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/ListHostnames", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -831,7 +831,7 @@ func (c *waypointClient) ListHostnames(ctx context.Context, in *ListHostnamesReq
 
 func (c *waypointClient) QueueJob(ctx context.Context, in *QueueJobRequest, opts ...grpc.CallOption) (*QueueJobResponse, error) {
 	out := new(QueueJobResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/QueueJob", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/QueueJob", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -840,7 +840,7 @@ func (c *waypointClient) QueueJob(ctx context.Context, in *QueueJobRequest, opts
 
 func (c *waypointClient) CancelJob(ctx context.Context, in *CancelJobRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	out := new(emptypb.Empty)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/CancelJob", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/CancelJob", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -849,7 +849,7 @@ func (c *waypointClient) CancelJob(ctx context.Context, in *CancelJobRequest, op
 
 func (c *waypointClient) GetJob(ctx context.Context, in *GetJobRequest, opts ...grpc.CallOption) (*Job, error) {
 	out := new(Job)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/GetJob", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/GetJob", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -858,7 +858,7 @@ func (c *waypointClient) GetJob(ctx context.Context, in *GetJobRequest, opts ...
 
 func (c *waypointClient) ListJobs(ctx context.Context, in *ListJobsRequest, opts ...grpc.CallOption) (*ListJobsResponse, error) {
 	out := new(ListJobsResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/ListJobs", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/ListJobs", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -867,7 +867,7 @@ func (c *waypointClient) ListJobs(ctx context.Context, in *ListJobsRequest, opts
 
 func (c *waypointClient) ValidateJob(ctx context.Context, in *ValidateJobRequest, opts ...grpc.CallOption) (*ValidateJobResponse, error) {
 	out := new(ValidateJobResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/ValidateJob", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/ValidateJob", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -875,7 +875,7 @@ func (c *waypointClient) ValidateJob(ctx context.Context, in *ValidateJobRequest
 }
 
 func (c *waypointClient) GetJobStream(ctx context.Context, in *GetJobStreamRequest, opts ...grpc.CallOption) (Waypoint_GetJobStreamClient, error) {
-	stream, err := c.cc.NewStream(ctx, &Waypoint_ServiceDesc.Streams[2], "/hashicorp.waypoint.Waypoint/GetJobStream", opts...)
+	stream, err := c.cc.NewStream(ctx, &Waypoint_ServiceDesc.Streams[2], "/nomatron.derrick.Waypoint/GetJobStream", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -908,7 +908,7 @@ func (x *waypointGetJobStreamClient) Recv() (*GetJobStreamResponse, error) {
 
 func (c *waypointClient) GetRunner(ctx context.Context, in *GetRunnerRequest, opts ...grpc.CallOption) (*Runner, error) {
 	out := new(Runner)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/GetRunner", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/GetRunner", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -917,7 +917,7 @@ func (c *waypointClient) GetRunner(ctx context.Context, in *GetRunnerRequest, op
 
 func (c *waypointClient) ListRunners(ctx context.Context, in *ListRunnersRequest, opts ...grpc.CallOption) (*ListRunnersResponse, error) {
 	out := new(ListRunnersResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/ListRunners", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/ListRunners", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -926,7 +926,7 @@ func (c *waypointClient) ListRunners(ctx context.Context, in *ListRunnersRequest
 
 func (c *waypointClient) AdoptRunner(ctx context.Context, in *AdoptRunnerRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	out := new(emptypb.Empty)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/AdoptRunner", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/AdoptRunner", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -935,7 +935,7 @@ func (c *waypointClient) AdoptRunner(ctx context.Context, in *AdoptRunnerRequest
 
 func (c *waypointClient) ForgetRunner(ctx context.Context, in *ForgetRunnerRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	out := new(emptypb.Empty)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/ForgetRunner", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/ForgetRunner", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -944,7 +944,7 @@ func (c *waypointClient) ForgetRunner(ctx context.Context, in *ForgetRunnerReque
 
 func (c *waypointClient) GetServerConfig(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetServerConfigResponse, error) {
 	out := new(GetServerConfigResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/GetServerConfig", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/GetServerConfig", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -953,7 +953,7 @@ func (c *waypointClient) GetServerConfig(ctx context.Context, in *emptypb.Empty,
 
 func (c *waypointClient) SetServerConfig(ctx context.Context, in *SetServerConfigRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	out := new(emptypb.Empty)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/SetServerConfig", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/SetServerConfig", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -961,7 +961,7 @@ func (c *waypointClient) SetServerConfig(ctx context.Context, in *SetServerConfi
 }
 
 func (c *waypointClient) CreateSnapshot(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (Waypoint_CreateSnapshotClient, error) {
-	stream, err := c.cc.NewStream(ctx, &Waypoint_ServiceDesc.Streams[3], "/hashicorp.waypoint.Waypoint/CreateSnapshot", opts...)
+	stream, err := c.cc.NewStream(ctx, &Waypoint_ServiceDesc.Streams[3], "/nomatron.derrick.Waypoint/CreateSnapshot", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -993,7 +993,7 @@ func (x *waypointCreateSnapshotClient) Recv() (*CreateSnapshotResponse, error) {
 }
 
 func (c *waypointClient) RestoreSnapshot(ctx context.Context, opts ...grpc.CallOption) (Waypoint_RestoreSnapshotClient, error) {
-	stream, err := c.cc.NewStream(ctx, &Waypoint_ServiceDesc.Streams[4], "/hashicorp.waypoint.Waypoint/RestoreSnapshot", opts...)
+	stream, err := c.cc.NewStream(ctx, &Waypoint_ServiceDesc.Streams[4], "/nomatron.derrick.Waypoint/RestoreSnapshot", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1028,7 +1028,7 @@ func (x *waypointRestoreSnapshotClient) CloseAndRecv() (*emptypb.Empty, error) {
 
 func (c *waypointClient) BootstrapToken(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*NewTokenResponse, error) {
 	out := new(NewTokenResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/BootstrapToken", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/BootstrapToken", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1037,7 +1037,7 @@ func (c *waypointClient) BootstrapToken(ctx context.Context, in *emptypb.Empty, 
 
 func (c *waypointClient) DecodeToken(ctx context.Context, in *DecodeTokenRequest, opts ...grpc.CallOption) (*DecodeTokenResponse, error) {
 	out := new(DecodeTokenResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/DecodeToken", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/DecodeToken", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1046,7 +1046,7 @@ func (c *waypointClient) DecodeToken(ctx context.Context, in *DecodeTokenRequest
 
 func (c *waypointClient) GenerateInviteToken(ctx context.Context, in *InviteTokenRequest, opts ...grpc.CallOption) (*NewTokenResponse, error) {
 	out := new(NewTokenResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/GenerateInviteToken", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/GenerateInviteToken", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1055,7 +1055,7 @@ func (c *waypointClient) GenerateInviteToken(ctx context.Context, in *InviteToke
 
 func (c *waypointClient) GenerateLoginToken(ctx context.Context, in *LoginTokenRequest, opts ...grpc.CallOption) (*NewTokenResponse, error) {
 	out := new(NewTokenResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/GenerateLoginToken", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/GenerateLoginToken", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1064,7 +1064,7 @@ func (c *waypointClient) GenerateLoginToken(ctx context.Context, in *LoginTokenR
 
 func (c *waypointClient) GenerateRunnerToken(ctx context.Context, in *GenerateRunnerTokenRequest, opts ...grpc.CallOption) (*NewTokenResponse, error) {
 	out := new(NewTokenResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/GenerateRunnerToken", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/GenerateRunnerToken", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1073,7 +1073,7 @@ func (c *waypointClient) GenerateRunnerToken(ctx context.Context, in *GenerateRu
 
 func (c *waypointClient) ConvertInviteToken(ctx context.Context, in *ConvertInviteTokenRequest, opts ...grpc.CallOption) (*NewTokenResponse, error) {
 	out := new(NewTokenResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/ConvertInviteToken", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/ConvertInviteToken", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1082,7 +1082,7 @@ func (c *waypointClient) ConvertInviteToken(ctx context.Context, in *ConvertInvi
 
 func (c *waypointClient) RunnerToken(ctx context.Context, in *RunnerTokenRequest, opts ...grpc.CallOption) (*RunnerTokenResponse, error) {
 	out := new(RunnerTokenResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/RunnerToken", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/RunnerToken", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1090,7 +1090,7 @@ func (c *waypointClient) RunnerToken(ctx context.Context, in *RunnerTokenRequest
 }
 
 func (c *waypointClient) RunnerConfig(ctx context.Context, opts ...grpc.CallOption) (Waypoint_RunnerConfigClient, error) {
-	stream, err := c.cc.NewStream(ctx, &Waypoint_ServiceDesc.Streams[5], "/hashicorp.waypoint.Waypoint/RunnerConfig", opts...)
+	stream, err := c.cc.NewStream(ctx, &Waypoint_ServiceDesc.Streams[5], "/nomatron.derrick.Waypoint/RunnerConfig", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1121,7 +1121,7 @@ func (x *waypointRunnerConfigClient) Recv() (*RunnerConfigResponse, error) {
 }
 
 func (c *waypointClient) RunnerJobStream(ctx context.Context, opts ...grpc.CallOption) (Waypoint_RunnerJobStreamClient, error) {
-	stream, err := c.cc.NewStream(ctx, &Waypoint_ServiceDesc.Streams[6], "/hashicorp.waypoint.Waypoint/RunnerJobStream", opts...)
+	stream, err := c.cc.NewStream(ctx, &Waypoint_ServiceDesc.Streams[6], "/nomatron.derrick.Waypoint/RunnerJobStream", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1153,7 +1153,7 @@ func (x *waypointRunnerJobStreamClient) Recv() (*RunnerJobStreamResponse, error)
 
 func (c *waypointClient) RunnerGetDeploymentConfig(ctx context.Context, in *RunnerGetDeploymentConfigRequest, opts ...grpc.CallOption) (*RunnerGetDeploymentConfigResponse, error) {
 	out := new(RunnerGetDeploymentConfigResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/RunnerGetDeploymentConfig", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/RunnerGetDeploymentConfig", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1161,7 +1161,7 @@ func (c *waypointClient) RunnerGetDeploymentConfig(ctx context.Context, in *Runn
 }
 
 func (c *waypointClient) EntrypointConfig(ctx context.Context, in *EntrypointConfigRequest, opts ...grpc.CallOption) (Waypoint_EntrypointConfigClient, error) {
-	stream, err := c.cc.NewStream(ctx, &Waypoint_ServiceDesc.Streams[7], "/hashicorp.waypoint.Waypoint/EntrypointConfig", opts...)
+	stream, err := c.cc.NewStream(ctx, &Waypoint_ServiceDesc.Streams[7], "/nomatron.derrick.Waypoint/EntrypointConfig", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1193,7 +1193,7 @@ func (x *waypointEntrypointConfigClient) Recv() (*EntrypointConfigResponse, erro
 }
 
 func (c *waypointClient) EntrypointLogStream(ctx context.Context, opts ...grpc.CallOption) (Waypoint_EntrypointLogStreamClient, error) {
-	stream, err := c.cc.NewStream(ctx, &Waypoint_ServiceDesc.Streams[8], "/hashicorp.waypoint.Waypoint/EntrypointLogStream", opts...)
+	stream, err := c.cc.NewStream(ctx, &Waypoint_ServiceDesc.Streams[8], "/nomatron.derrick.Waypoint/EntrypointLogStream", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1227,7 +1227,7 @@ func (x *waypointEntrypointLogStreamClient) CloseAndRecv() (*emptypb.Empty, erro
 }
 
 func (c *waypointClient) EntrypointExecStream(ctx context.Context, opts ...grpc.CallOption) (Waypoint_EntrypointExecStreamClient, error) {
-	stream, err := c.cc.NewStream(ctx, &Waypoint_ServiceDesc.Streams[9], "/hashicorp.waypoint.Waypoint/EntrypointExecStream", opts...)
+	stream, err := c.cc.NewStream(ctx, &Waypoint_ServiceDesc.Streams[9], "/nomatron.derrick.Waypoint/EntrypointExecStream", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1257,9 +1257,9 @@ func (x *waypointEntrypointExecStreamClient) Recv() (*EntrypointExecResponse, er
 	return m, nil
 }
 
-func (c *waypointClient) WaypointHclFmt(ctx context.Context, in *WaypointHclFmtRequest, opts ...grpc.CallOption) (*WaypointHclFmtResponse, error) {
-	out := new(WaypointHclFmtResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/WaypointHclFmt", in, out, opts...)
+func (c *waypointClient) DerrickHclFmt(ctx context.Context, in *DerrickHclFmtRequest, opts ...grpc.CallOption) (*DerrickHclFmtResponse, error) {
+	out := new(DerrickHclFmtResponse)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/DerrickHclFmt", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1268,7 +1268,7 @@ func (c *waypointClient) WaypointHclFmt(ctx context.Context, in *WaypointHclFmtR
 
 func (c *waypointClient) UpsertOnDemandRunnerConfig(ctx context.Context, in *UpsertOnDemandRunnerConfigRequest, opts ...grpc.CallOption) (*UpsertOnDemandRunnerConfigResponse, error) {
 	out := new(UpsertOnDemandRunnerConfigResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/UpsertOnDemandRunnerConfig", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/UpsertOnDemandRunnerConfig", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1277,7 +1277,7 @@ func (c *waypointClient) UpsertOnDemandRunnerConfig(ctx context.Context, in *Ups
 
 func (c *waypointClient) GetOnDemandRunnerConfig(ctx context.Context, in *GetOnDemandRunnerConfigRequest, opts ...grpc.CallOption) (*GetOnDemandRunnerConfigResponse, error) {
 	out := new(GetOnDemandRunnerConfigResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/GetOnDemandRunnerConfig", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/GetOnDemandRunnerConfig", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1286,7 +1286,7 @@ func (c *waypointClient) GetOnDemandRunnerConfig(ctx context.Context, in *GetOnD
 
 func (c *waypointClient) GetDefaultOnDemandRunnerConfig(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetOnDemandRunnerConfigResponse, error) {
 	out := new(GetOnDemandRunnerConfigResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/GetDefaultOnDemandRunnerConfig", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/GetDefaultOnDemandRunnerConfig", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1295,7 +1295,7 @@ func (c *waypointClient) GetDefaultOnDemandRunnerConfig(ctx context.Context, in 
 
 func (c *waypointClient) DeleteOnDemandRunnerConfig(ctx context.Context, in *DeleteOnDemandRunnerConfigRequest, opts ...grpc.CallOption) (*DeleteOnDemandRunnerConfigResponse, error) {
 	out := new(DeleteOnDemandRunnerConfigResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/DeleteOnDemandRunnerConfig", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/DeleteOnDemandRunnerConfig", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1304,7 +1304,7 @@ func (c *waypointClient) DeleteOnDemandRunnerConfig(ctx context.Context, in *Del
 
 func (c *waypointClient) ListOnDemandRunnerConfigs(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*ListOnDemandRunnerConfigsResponse, error) {
 	out := new(ListOnDemandRunnerConfigsResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/ListOnDemandRunnerConfigs", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/ListOnDemandRunnerConfigs", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1313,7 +1313,7 @@ func (c *waypointClient) ListOnDemandRunnerConfigs(ctx context.Context, in *empt
 
 func (c *waypointClient) UpsertBuild(ctx context.Context, in *UpsertBuildRequest, opts ...grpc.CallOption) (*UpsertBuildResponse, error) {
 	out := new(UpsertBuildResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/UpsertBuild", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/UpsertBuild", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1322,7 +1322,7 @@ func (c *waypointClient) UpsertBuild(ctx context.Context, in *UpsertBuildRequest
 
 func (c *waypointClient) UpsertPushedArtifact(ctx context.Context, in *UpsertPushedArtifactRequest, opts ...grpc.CallOption) (*UpsertPushedArtifactResponse, error) {
 	out := new(UpsertPushedArtifactResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/UpsertPushedArtifact", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/UpsertPushedArtifact", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1331,7 +1331,7 @@ func (c *waypointClient) UpsertPushedArtifact(ctx context.Context, in *UpsertPus
 
 func (c *waypointClient) UpsertDeployment(ctx context.Context, in *UpsertDeploymentRequest, opts ...grpc.CallOption) (*UpsertDeploymentResponse, error) {
 	out := new(UpsertDeploymentResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/UpsertDeployment", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/UpsertDeployment", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1340,7 +1340,7 @@ func (c *waypointClient) UpsertDeployment(ctx context.Context, in *UpsertDeploym
 
 func (c *waypointClient) UpsertRelease(ctx context.Context, in *UpsertReleaseRequest, opts ...grpc.CallOption) (*UpsertReleaseResponse, error) {
 	out := new(UpsertReleaseResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/UpsertRelease", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/UpsertRelease", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1349,7 +1349,7 @@ func (c *waypointClient) UpsertRelease(ctx context.Context, in *UpsertReleaseReq
 
 func (c *waypointClient) UpsertStatusReport(ctx context.Context, in *UpsertStatusReportRequest, opts ...grpc.CallOption) (*UpsertStatusReportResponse, error) {
 	out := new(UpsertStatusReportResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/UpsertStatusReport", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/UpsertStatusReport", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1358,7 +1358,7 @@ func (c *waypointClient) UpsertStatusReport(ctx context.Context, in *UpsertStatu
 
 func (c *waypointClient) GetTask(ctx context.Context, in *GetTaskRequest, opts ...grpc.CallOption) (*GetTaskResponse, error) {
 	out := new(GetTaskResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/GetTask", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/GetTask", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1367,7 +1367,7 @@ func (c *waypointClient) GetTask(ctx context.Context, in *GetTaskRequest, opts .
 
 func (c *waypointClient) ListTask(ctx context.Context, in *ListTaskRequest, opts ...grpc.CallOption) (*ListTaskResponse, error) {
 	out := new(ListTaskResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/ListTask", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/ListTask", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1376,7 +1376,7 @@ func (c *waypointClient) ListTask(ctx context.Context, in *ListTaskRequest, opts
 
 func (c *waypointClient) CancelTask(ctx context.Context, in *CancelTaskRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	out := new(emptypb.Empty)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/CancelTask", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/CancelTask", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1385,7 +1385,7 @@ func (c *waypointClient) CancelTask(ctx context.Context, in *CancelTaskRequest, 
 
 func (c *waypointClient) UpsertTrigger(ctx context.Context, in *UpsertTriggerRequest, opts ...grpc.CallOption) (*UpsertTriggerResponse, error) {
 	out := new(UpsertTriggerResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/UpsertTrigger", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/UpsertTrigger", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1394,7 +1394,7 @@ func (c *waypointClient) UpsertTrigger(ctx context.Context, in *UpsertTriggerReq
 
 func (c *waypointClient) GetTrigger(ctx context.Context, in *GetTriggerRequest, opts ...grpc.CallOption) (*GetTriggerResponse, error) {
 	out := new(GetTriggerResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/GetTrigger", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/GetTrigger", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1403,7 +1403,7 @@ func (c *waypointClient) GetTrigger(ctx context.Context, in *GetTriggerRequest, 
 
 func (c *waypointClient) DeleteTrigger(ctx context.Context, in *DeleteTriggerRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	out := new(emptypb.Empty)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/DeleteTrigger", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/DeleteTrigger", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1412,7 +1412,7 @@ func (c *waypointClient) DeleteTrigger(ctx context.Context, in *DeleteTriggerReq
 
 func (c *waypointClient) ListTriggers(ctx context.Context, in *ListTriggerRequest, opts ...grpc.CallOption) (*ListTriggerResponse, error) {
 	out := new(ListTriggerResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/ListTriggers", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/ListTriggers", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1421,7 +1421,7 @@ func (c *waypointClient) ListTriggers(ctx context.Context, in *ListTriggerReques
 
 func (c *waypointClient) RunTrigger(ctx context.Context, in *RunTriggerRequest, opts ...grpc.CallOption) (*RunTriggerResponse, error) {
 	out := new(RunTriggerResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/RunTrigger", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/RunTrigger", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1430,7 +1430,7 @@ func (c *waypointClient) RunTrigger(ctx context.Context, in *RunTriggerRequest, 
 
 func (c *waypointClient) UpsertPipeline(ctx context.Context, in *UpsertPipelineRequest, opts ...grpc.CallOption) (*UpsertPipelineResponse, error) {
 	out := new(UpsertPipelineResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/UpsertPipeline", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/UpsertPipeline", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1439,7 +1439,7 @@ func (c *waypointClient) UpsertPipeline(ctx context.Context, in *UpsertPipelineR
 
 func (c *waypointClient) RunPipeline(ctx context.Context, in *RunPipelineRequest, opts ...grpc.CallOption) (*RunPipelineResponse, error) {
 	out := new(RunPipelineResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/RunPipeline", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/RunPipeline", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1448,7 +1448,7 @@ func (c *waypointClient) RunPipeline(ctx context.Context, in *RunPipelineRequest
 
 func (c *waypointClient) GetPipeline(ctx context.Context, in *GetPipelineRequest, opts ...grpc.CallOption) (*GetPipelineResponse, error) {
 	out := new(GetPipelineResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/GetPipeline", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/GetPipeline", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1457,7 +1457,7 @@ func (c *waypointClient) GetPipeline(ctx context.Context, in *GetPipelineRequest
 
 func (c *waypointClient) GetPipelineRun(ctx context.Context, in *GetPipelineRunRequest, opts ...grpc.CallOption) (*GetPipelineRunResponse, error) {
 	out := new(GetPipelineRunResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/GetPipelineRun", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/GetPipelineRun", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1466,7 +1466,7 @@ func (c *waypointClient) GetPipelineRun(ctx context.Context, in *GetPipelineRunR
 
 func (c *waypointClient) GetLatestPipelineRun(ctx context.Context, in *GetPipelineRequest, opts ...grpc.CallOption) (*GetPipelineRunResponse, error) {
 	out := new(GetPipelineRunResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/GetLatestPipelineRun", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/GetLatestPipelineRun", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1475,7 +1475,7 @@ func (c *waypointClient) GetLatestPipelineRun(ctx context.Context, in *GetPipeli
 
 func (c *waypointClient) ListPipelines(ctx context.Context, in *ListPipelinesRequest, opts ...grpc.CallOption) (*ListPipelinesResponse, error) {
 	out := new(ListPipelinesResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/ListPipelines", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/ListPipelines", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1484,7 +1484,7 @@ func (c *waypointClient) ListPipelines(ctx context.Context, in *ListPipelinesReq
 
 func (c *waypointClient) ListPipelineRuns(ctx context.Context, in *ListPipelineRunsRequest, opts ...grpc.CallOption) (*ListPipelineRunsResponse, error) {
 	out := new(ListPipelineRunsResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/ListPipelineRuns", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/ListPipelineRuns", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1493,7 +1493,7 @@ func (c *waypointClient) ListPipelineRuns(ctx context.Context, in *ListPipelineR
 
 func (c *waypointClient) ConfigSyncPipeline(ctx context.Context, in *ConfigSyncPipelineRequest, opts ...grpc.CallOption) (*ConfigSyncPipelineResponse, error) {
 	out := new(ConfigSyncPipelineResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/ConfigSyncPipeline", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/ConfigSyncPipeline", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1502,7 +1502,7 @@ func (c *waypointClient) ConfigSyncPipeline(ctx context.Context, in *ConfigSyncP
 
 func (c *waypointClient) UI_ListProjects(ctx context.Context, in *UI_ListProjectsRequest, opts ...grpc.CallOption) (*UI_ListProjectsResponse, error) {
 	out := new(UI_ListProjectsResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/UI_ListProjects", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/UI_ListProjects", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1511,7 +1511,7 @@ func (c *waypointClient) UI_ListProjects(ctx context.Context, in *UI_ListProject
 
 func (c *waypointClient) UI_GetProject(ctx context.Context, in *UI_GetProjectRequest, opts ...grpc.CallOption) (*UI_GetProjectResponse, error) {
 	out := new(UI_GetProjectResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/UI_GetProject", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/UI_GetProject", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1520,7 +1520,7 @@ func (c *waypointClient) UI_GetProject(ctx context.Context, in *UI_GetProjectReq
 
 func (c *waypointClient) UI_ListDeployments(ctx context.Context, in *UI_ListDeploymentsRequest, opts ...grpc.CallOption) (*UI_ListDeploymentsResponse, error) {
 	out := new(UI_ListDeploymentsResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/UI_ListDeployments", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/UI_ListDeployments", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1529,7 +1529,7 @@ func (c *waypointClient) UI_ListDeployments(ctx context.Context, in *UI_ListDepl
 
 func (c *waypointClient) UI_GetDeployment(ctx context.Context, in *UI_GetDeploymentRequest, opts ...grpc.CallOption) (*UI_GetDeploymentResponse, error) {
 	out := new(UI_GetDeploymentResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/UI_GetDeployment", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/UI_GetDeployment", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1538,17 +1538,17 @@ func (c *waypointClient) UI_GetDeployment(ctx context.Context, in *UI_GetDeploym
 
 func (c *waypointClient) UI_ListReleases(ctx context.Context, in *UI_ListReleasesRequest, opts ...grpc.CallOption) (*UI_ListReleasesResponse, error) {
 	out := new(UI_ListReleasesResponse)
-	err := c.cc.Invoke(ctx, "/hashicorp.waypoint.Waypoint/UI_ListReleases", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/nomatron.derrick.Waypoint/UI_ListReleases", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// WaypointServer is the server API for Waypoint service.
-// All implementations must embed UnimplementedWaypointServer
+// DerrickServer is the server API for Waypoint service.
+// All implementations must embed UnimplementedDerrickServer
 // for forward compatibility
-type WaypointServer interface {
+type DerrickServer interface {
 	// GetVersionInfo returns information about the server. This RPC call does
 	// NOT require authentication. It can be used by clients to determine if they
 	// are capable of talking to this server.
@@ -1778,9 +1778,9 @@ type WaypointServer interface {
 	EntrypointLogStream(Waypoint_EntrypointLogStreamServer) error
 	// EntrypointExecStream is called to open the data stream for the exec session.
 	EntrypointExecStream(Waypoint_EntrypointExecStreamServer) error
-	// WaypointHclFmt formats a waypoint.hcl file. This must be in HCL format.
+	// DerrickHclFmt formats a derrick.hcl file. This must be in HCL format.
 	// JSON formatting is not supported.
-	WaypointHclFmt(context.Context, *WaypointHclFmtRequest) (*WaypointHclFmtResponse, error)
+	DerrickHclFmt(context.Context, *DerrickHclFmtRequest) (*DerrickHclFmtResponse, error)
 	// UpsertOnDemandRunnerConfig updates or inserts a on-demand runner
 	// configuration. This configuration can be used by projects for running
 	// operations on just-in-time launched runners.
@@ -1859,347 +1859,347 @@ type WaypointServer interface {
 	UI_GetDeployment(context.Context, *UI_GetDeploymentRequest) (*UI_GetDeploymentResponse, error)
 	// List releases for a given application.
 	UI_ListReleases(context.Context, *UI_ListReleasesRequest) (*UI_ListReleasesResponse, error)
-	mustEmbedUnimplementedWaypointServer()
+	mustEmbedUnimplementedDerrickServer()
 }
 
-// UnimplementedWaypointServer must be embedded to have forward compatible implementations.
-type UnimplementedWaypointServer struct {
+// UnimplementedDerrickServer must be embedded to have forward compatible implementations.
+type UnimplementedDerrickServer struct {
 }
 
-func (UnimplementedWaypointServer) GetVersionInfo(context.Context, *emptypb.Empty) (*GetVersionInfoResponse, error) {
+func (UnimplementedDerrickServer) GetVersionInfo(context.Context, *emptypb.Empty) (*GetVersionInfoResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetVersionInfo not implemented")
 }
-func (UnimplementedWaypointServer) ListOIDCAuthMethods(context.Context, *emptypb.Empty) (*ListOIDCAuthMethodsResponse, error) {
+func (UnimplementedDerrickServer) ListOIDCAuthMethods(context.Context, *emptypb.Empty) (*ListOIDCAuthMethodsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListOIDCAuthMethods not implemented")
 }
-func (UnimplementedWaypointServer) GetOIDCAuthURL(context.Context, *GetOIDCAuthURLRequest) (*GetOIDCAuthURLResponse, error) {
+func (UnimplementedDerrickServer) GetOIDCAuthURL(context.Context, *GetOIDCAuthURLRequest) (*GetOIDCAuthURLResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetOIDCAuthURL not implemented")
 }
-func (UnimplementedWaypointServer) CompleteOIDCAuth(context.Context, *CompleteOIDCAuthRequest) (*CompleteOIDCAuthResponse, error) {
+func (UnimplementedDerrickServer) CompleteOIDCAuth(context.Context, *CompleteOIDCAuthRequest) (*CompleteOIDCAuthResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CompleteOIDCAuth not implemented")
 }
-func (UnimplementedWaypointServer) NoAuthRunTrigger(context.Context, *RunTriggerRequest) (*RunTriggerResponse, error) {
+func (UnimplementedDerrickServer) NoAuthRunTrigger(context.Context, *RunTriggerRequest) (*RunTriggerResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method NoAuthRunTrigger not implemented")
 }
-func (UnimplementedWaypointServer) GetUser(context.Context, *GetUserRequest) (*GetUserResponse, error) {
+func (UnimplementedDerrickServer) GetUser(context.Context, *GetUserRequest) (*GetUserResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetUser not implemented")
 }
-func (UnimplementedWaypointServer) ListUsers(context.Context, *emptypb.Empty) (*ListUsersResponse, error) {
+func (UnimplementedDerrickServer) ListUsers(context.Context, *emptypb.Empty) (*ListUsersResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListUsers not implemented")
 }
-func (UnimplementedWaypointServer) UpdateUser(context.Context, *UpdateUserRequest) (*UpdateUserResponse, error) {
+func (UnimplementedDerrickServer) UpdateUser(context.Context, *UpdateUserRequest) (*UpdateUserResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateUser not implemented")
 }
-func (UnimplementedWaypointServer) DeleteUser(context.Context, *DeleteUserRequest) (*emptypb.Empty, error) {
+func (UnimplementedDerrickServer) DeleteUser(context.Context, *DeleteUserRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteUser not implemented")
 }
-func (UnimplementedWaypointServer) UpsertAuthMethod(context.Context, *UpsertAuthMethodRequest) (*UpsertAuthMethodResponse, error) {
+func (UnimplementedDerrickServer) UpsertAuthMethod(context.Context, *UpsertAuthMethodRequest) (*UpsertAuthMethodResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpsertAuthMethod not implemented")
 }
-func (UnimplementedWaypointServer) GetAuthMethod(context.Context, *GetAuthMethodRequest) (*GetAuthMethodResponse, error) {
+func (UnimplementedDerrickServer) GetAuthMethod(context.Context, *GetAuthMethodRequest) (*GetAuthMethodResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAuthMethod not implemented")
 }
-func (UnimplementedWaypointServer) ListAuthMethods(context.Context, *emptypb.Empty) (*ListAuthMethodsResponse, error) {
+func (UnimplementedDerrickServer) ListAuthMethods(context.Context, *emptypb.Empty) (*ListAuthMethodsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListAuthMethods not implemented")
 }
-func (UnimplementedWaypointServer) DeleteAuthMethod(context.Context, *DeleteAuthMethodRequest) (*emptypb.Empty, error) {
+func (UnimplementedDerrickServer) DeleteAuthMethod(context.Context, *DeleteAuthMethodRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteAuthMethod not implemented")
 }
-func (UnimplementedWaypointServer) ListWorkspaces(context.Context, *ListWorkspacesRequest) (*ListWorkspacesResponse, error) {
+func (UnimplementedDerrickServer) ListWorkspaces(context.Context, *ListWorkspacesRequest) (*ListWorkspacesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListWorkspaces not implemented")
 }
-func (UnimplementedWaypointServer) GetWorkspace(context.Context, *GetWorkspaceRequest) (*GetWorkspaceResponse, error) {
+func (UnimplementedDerrickServer) GetWorkspace(context.Context, *GetWorkspaceRequest) (*GetWorkspaceResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetWorkspace not implemented")
 }
-func (UnimplementedWaypointServer) UpsertWorkspace(context.Context, *UpsertWorkspaceRequest) (*UpsertWorkspaceResponse, error) {
+func (UnimplementedDerrickServer) UpsertWorkspace(context.Context, *UpsertWorkspaceRequest) (*UpsertWorkspaceResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpsertWorkspace not implemented")
 }
-func (UnimplementedWaypointServer) UpsertProject(context.Context, *UpsertProjectRequest) (*UpsertProjectResponse, error) {
+func (UnimplementedDerrickServer) UpsertProject(context.Context, *UpsertProjectRequest) (*UpsertProjectResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpsertProject not implemented")
 }
-func (UnimplementedWaypointServer) GetProject(context.Context, *GetProjectRequest) (*GetProjectResponse, error) {
+func (UnimplementedDerrickServer) GetProject(context.Context, *GetProjectRequest) (*GetProjectResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetProject not implemented")
 }
-func (UnimplementedWaypointServer) ListProjects(context.Context, *ListProjectsRequest) (*ListProjectsResponse, error) {
+func (UnimplementedDerrickServer) ListProjects(context.Context, *ListProjectsRequest) (*ListProjectsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListProjects not implemented")
 }
-func (UnimplementedWaypointServer) DestroyProject(context.Context, *DestroyProjectRequest) (*emptypb.Empty, error) {
+func (UnimplementedDerrickServer) DestroyProject(context.Context, *DestroyProjectRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DestroyProject not implemented")
 }
-func (UnimplementedWaypointServer) GetApplication(context.Context, *GetApplicationRequest) (*GetApplicationResponse, error) {
+func (UnimplementedDerrickServer) GetApplication(context.Context, *GetApplicationRequest) (*GetApplicationResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetApplication not implemented")
 }
-func (UnimplementedWaypointServer) UpsertApplication(context.Context, *UpsertApplicationRequest) (*UpsertApplicationResponse, error) {
+func (UnimplementedDerrickServer) UpsertApplication(context.Context, *UpsertApplicationRequest) (*UpsertApplicationResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpsertApplication not implemented")
 }
-func (UnimplementedWaypointServer) ListBuilds(context.Context, *ListBuildsRequest) (*ListBuildsResponse, error) {
+func (UnimplementedDerrickServer) ListBuilds(context.Context, *ListBuildsRequest) (*ListBuildsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListBuilds not implemented")
 }
-func (UnimplementedWaypointServer) GetBuild(context.Context, *GetBuildRequest) (*Build, error) {
+func (UnimplementedDerrickServer) GetBuild(context.Context, *GetBuildRequest) (*Build, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetBuild not implemented")
 }
-func (UnimplementedWaypointServer) GetLatestBuild(context.Context, *GetLatestBuildRequest) (*Build, error) {
+func (UnimplementedDerrickServer) GetLatestBuild(context.Context, *GetLatestBuildRequest) (*Build, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetLatestBuild not implemented")
 }
-func (UnimplementedWaypointServer) ListPushedArtifacts(context.Context, *ListPushedArtifactsRequest) (*ListPushedArtifactsResponse, error) {
+func (UnimplementedDerrickServer) ListPushedArtifacts(context.Context, *ListPushedArtifactsRequest) (*ListPushedArtifactsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListPushedArtifacts not implemented")
 }
-func (UnimplementedWaypointServer) GetPushedArtifact(context.Context, *GetPushedArtifactRequest) (*PushedArtifact, error) {
+func (UnimplementedDerrickServer) GetPushedArtifact(context.Context, *GetPushedArtifactRequest) (*PushedArtifact, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPushedArtifact not implemented")
 }
-func (UnimplementedWaypointServer) GetLatestPushedArtifact(context.Context, *GetLatestPushedArtifactRequest) (*PushedArtifact, error) {
+func (UnimplementedDerrickServer) GetLatestPushedArtifact(context.Context, *GetLatestPushedArtifactRequest) (*PushedArtifact, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetLatestPushedArtifact not implemented")
 }
-func (UnimplementedWaypointServer) ListDeployments(context.Context, *ListDeploymentsRequest) (*ListDeploymentsResponse, error) {
+func (UnimplementedDerrickServer) ListDeployments(context.Context, *ListDeploymentsRequest) (*ListDeploymentsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListDeployments not implemented")
 }
-func (UnimplementedWaypointServer) GetDeployment(context.Context, *GetDeploymentRequest) (*Deployment, error) {
+func (UnimplementedDerrickServer) GetDeployment(context.Context, *GetDeploymentRequest) (*Deployment, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetDeployment not implemented")
 }
-func (UnimplementedWaypointServer) ListInstances(context.Context, *ListInstancesRequest) (*ListInstancesResponse, error) {
+func (UnimplementedDerrickServer) ListInstances(context.Context, *ListInstancesRequest) (*ListInstancesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListInstances not implemented")
 }
-func (UnimplementedWaypointServer) ListReleases(context.Context, *ListReleasesRequest) (*ListReleasesResponse, error) {
+func (UnimplementedDerrickServer) ListReleases(context.Context, *ListReleasesRequest) (*ListReleasesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListReleases not implemented")
 }
-func (UnimplementedWaypointServer) GetRelease(context.Context, *GetReleaseRequest) (*Release, error) {
+func (UnimplementedDerrickServer) GetRelease(context.Context, *GetReleaseRequest) (*Release, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetRelease not implemented")
 }
-func (UnimplementedWaypointServer) GetLatestRelease(context.Context, *GetLatestReleaseRequest) (*Release, error) {
+func (UnimplementedDerrickServer) GetLatestRelease(context.Context, *GetLatestReleaseRequest) (*Release, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetLatestRelease not implemented")
 }
-func (UnimplementedWaypointServer) GetStatusReport(context.Context, *GetStatusReportRequest) (*StatusReport, error) {
+func (UnimplementedDerrickServer) GetStatusReport(context.Context, *GetStatusReportRequest) (*StatusReport, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetStatusReport not implemented")
 }
-func (UnimplementedWaypointServer) GetLatestStatusReport(context.Context, *GetLatestStatusReportRequest) (*StatusReport, error) {
+func (UnimplementedDerrickServer) GetLatestStatusReport(context.Context, *GetLatestStatusReportRequest) (*StatusReport, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetLatestStatusReport not implemented")
 }
-func (UnimplementedWaypointServer) ListStatusReports(context.Context, *ListStatusReportsRequest) (*ListStatusReportsResponse, error) {
+func (UnimplementedDerrickServer) ListStatusReports(context.Context, *ListStatusReportsRequest) (*ListStatusReportsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListStatusReports not implemented")
 }
-func (UnimplementedWaypointServer) ExpediteStatusReport(context.Context, *ExpediteStatusReportRequest) (*ExpediteStatusReportResponse, error) {
+func (UnimplementedDerrickServer) ExpediteStatusReport(context.Context, *ExpediteStatusReportRequest) (*ExpediteStatusReportResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ExpediteStatusReport not implemented")
 }
-func (UnimplementedWaypointServer) GetLogStream(*GetLogStreamRequest, Waypoint_GetLogStreamServer) error {
+func (UnimplementedDerrickServer) GetLogStream(*GetLogStreamRequest, Waypoint_GetLogStreamServer) error {
 	return status.Errorf(codes.Unimplemented, "method GetLogStream not implemented")
 }
-func (UnimplementedWaypointServer) StartExecStream(Waypoint_StartExecStreamServer) error {
+func (UnimplementedDerrickServer) StartExecStream(Waypoint_StartExecStreamServer) error {
 	return status.Errorf(codes.Unimplemented, "method StartExecStream not implemented")
 }
-func (UnimplementedWaypointServer) SetConfig(context.Context, *ConfigSetRequest) (*ConfigSetResponse, error) {
+func (UnimplementedDerrickServer) SetConfig(context.Context, *ConfigSetRequest) (*ConfigSetResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SetConfig not implemented")
 }
-func (UnimplementedWaypointServer) DeleteConfig(context.Context, *ConfigDeleteRequest) (*ConfigDeleteResponse, error) {
+func (UnimplementedDerrickServer) DeleteConfig(context.Context, *ConfigDeleteRequest) (*ConfigDeleteResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteConfig not implemented")
 }
-func (UnimplementedWaypointServer) GetConfig(context.Context, *ConfigGetRequest) (*ConfigGetResponse, error) {
+func (UnimplementedDerrickServer) GetConfig(context.Context, *ConfigGetRequest) (*ConfigGetResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetConfig not implemented")
 }
-func (UnimplementedWaypointServer) SetConfigSource(context.Context, *SetConfigSourceRequest) (*emptypb.Empty, error) {
+func (UnimplementedDerrickServer) SetConfigSource(context.Context, *SetConfigSourceRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SetConfigSource not implemented")
 }
-func (UnimplementedWaypointServer) DeleteConfigSource(context.Context, *DeleteConfigSourceRequest) (*emptypb.Empty, error) {
+func (UnimplementedDerrickServer) DeleteConfigSource(context.Context, *DeleteConfigSourceRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteConfigSource not implemented")
 }
-func (UnimplementedWaypointServer) GetConfigSource(context.Context, *GetConfigSourceRequest) (*GetConfigSourceResponse, error) {
+func (UnimplementedDerrickServer) GetConfigSource(context.Context, *GetConfigSourceRequest) (*GetConfigSourceResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetConfigSource not implemented")
 }
-func (UnimplementedWaypointServer) CreateHostname(context.Context, *CreateHostnameRequest) (*CreateHostnameResponse, error) {
+func (UnimplementedDerrickServer) CreateHostname(context.Context, *CreateHostnameRequest) (*CreateHostnameResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateHostname not implemented")
 }
-func (UnimplementedWaypointServer) DeleteHostname(context.Context, *DeleteHostnameRequest) (*emptypb.Empty, error) {
+func (UnimplementedDerrickServer) DeleteHostname(context.Context, *DeleteHostnameRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteHostname not implemented")
 }
-func (UnimplementedWaypointServer) ListHostnames(context.Context, *ListHostnamesRequest) (*ListHostnamesResponse, error) {
+func (UnimplementedDerrickServer) ListHostnames(context.Context, *ListHostnamesRequest) (*ListHostnamesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListHostnames not implemented")
 }
-func (UnimplementedWaypointServer) QueueJob(context.Context, *QueueJobRequest) (*QueueJobResponse, error) {
+func (UnimplementedDerrickServer) QueueJob(context.Context, *QueueJobRequest) (*QueueJobResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method QueueJob not implemented")
 }
-func (UnimplementedWaypointServer) CancelJob(context.Context, *CancelJobRequest) (*emptypb.Empty, error) {
+func (UnimplementedDerrickServer) CancelJob(context.Context, *CancelJobRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CancelJob not implemented")
 }
-func (UnimplementedWaypointServer) GetJob(context.Context, *GetJobRequest) (*Job, error) {
+func (UnimplementedDerrickServer) GetJob(context.Context, *GetJobRequest) (*Job, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetJob not implemented")
 }
-func (UnimplementedWaypointServer) ListJobs(context.Context, *ListJobsRequest) (*ListJobsResponse, error) {
+func (UnimplementedDerrickServer) ListJobs(context.Context, *ListJobsRequest) (*ListJobsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListJobs not implemented")
 }
-func (UnimplementedWaypointServer) ValidateJob(context.Context, *ValidateJobRequest) (*ValidateJobResponse, error) {
+func (UnimplementedDerrickServer) ValidateJob(context.Context, *ValidateJobRequest) (*ValidateJobResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ValidateJob not implemented")
 }
-func (UnimplementedWaypointServer) GetJobStream(*GetJobStreamRequest, Waypoint_GetJobStreamServer) error {
+func (UnimplementedDerrickServer) GetJobStream(*GetJobStreamRequest, Waypoint_GetJobStreamServer) error {
 	return status.Errorf(codes.Unimplemented, "method GetJobStream not implemented")
 }
-func (UnimplementedWaypointServer) GetRunner(context.Context, *GetRunnerRequest) (*Runner, error) {
+func (UnimplementedDerrickServer) GetRunner(context.Context, *GetRunnerRequest) (*Runner, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetRunner not implemented")
 }
-func (UnimplementedWaypointServer) ListRunners(context.Context, *ListRunnersRequest) (*ListRunnersResponse, error) {
+func (UnimplementedDerrickServer) ListRunners(context.Context, *ListRunnersRequest) (*ListRunnersResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListRunners not implemented")
 }
-func (UnimplementedWaypointServer) AdoptRunner(context.Context, *AdoptRunnerRequest) (*emptypb.Empty, error) {
+func (UnimplementedDerrickServer) AdoptRunner(context.Context, *AdoptRunnerRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AdoptRunner not implemented")
 }
-func (UnimplementedWaypointServer) ForgetRunner(context.Context, *ForgetRunnerRequest) (*emptypb.Empty, error) {
+func (UnimplementedDerrickServer) ForgetRunner(context.Context, *ForgetRunnerRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ForgetRunner not implemented")
 }
-func (UnimplementedWaypointServer) GetServerConfig(context.Context, *emptypb.Empty) (*GetServerConfigResponse, error) {
+func (UnimplementedDerrickServer) GetServerConfig(context.Context, *emptypb.Empty) (*GetServerConfigResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetServerConfig not implemented")
 }
-func (UnimplementedWaypointServer) SetServerConfig(context.Context, *SetServerConfigRequest) (*emptypb.Empty, error) {
+func (UnimplementedDerrickServer) SetServerConfig(context.Context, *SetServerConfigRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SetServerConfig not implemented")
 }
-func (UnimplementedWaypointServer) CreateSnapshot(*emptypb.Empty, Waypoint_CreateSnapshotServer) error {
+func (UnimplementedDerrickServer) CreateSnapshot(*emptypb.Empty, Waypoint_CreateSnapshotServer) error {
 	return status.Errorf(codes.Unimplemented, "method CreateSnapshot not implemented")
 }
-func (UnimplementedWaypointServer) RestoreSnapshot(Waypoint_RestoreSnapshotServer) error {
+func (UnimplementedDerrickServer) RestoreSnapshot(Waypoint_RestoreSnapshotServer) error {
 	return status.Errorf(codes.Unimplemented, "method RestoreSnapshot not implemented")
 }
-func (UnimplementedWaypointServer) BootstrapToken(context.Context, *emptypb.Empty) (*NewTokenResponse, error) {
+func (UnimplementedDerrickServer) BootstrapToken(context.Context, *emptypb.Empty) (*NewTokenResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method BootstrapToken not implemented")
 }
-func (UnimplementedWaypointServer) DecodeToken(context.Context, *DecodeTokenRequest) (*DecodeTokenResponse, error) {
+func (UnimplementedDerrickServer) DecodeToken(context.Context, *DecodeTokenRequest) (*DecodeTokenResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DecodeToken not implemented")
 }
-func (UnimplementedWaypointServer) GenerateInviteToken(context.Context, *InviteTokenRequest) (*NewTokenResponse, error) {
+func (UnimplementedDerrickServer) GenerateInviteToken(context.Context, *InviteTokenRequest) (*NewTokenResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GenerateInviteToken not implemented")
 }
-func (UnimplementedWaypointServer) GenerateLoginToken(context.Context, *LoginTokenRequest) (*NewTokenResponse, error) {
+func (UnimplementedDerrickServer) GenerateLoginToken(context.Context, *LoginTokenRequest) (*NewTokenResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GenerateLoginToken not implemented")
 }
-func (UnimplementedWaypointServer) GenerateRunnerToken(context.Context, *GenerateRunnerTokenRequest) (*NewTokenResponse, error) {
+func (UnimplementedDerrickServer) GenerateRunnerToken(context.Context, *GenerateRunnerTokenRequest) (*NewTokenResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GenerateRunnerToken not implemented")
 }
-func (UnimplementedWaypointServer) ConvertInviteToken(context.Context, *ConvertInviteTokenRequest) (*NewTokenResponse, error) {
+func (UnimplementedDerrickServer) ConvertInviteToken(context.Context, *ConvertInviteTokenRequest) (*NewTokenResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ConvertInviteToken not implemented")
 }
-func (UnimplementedWaypointServer) RunnerToken(context.Context, *RunnerTokenRequest) (*RunnerTokenResponse, error) {
+func (UnimplementedDerrickServer) RunnerToken(context.Context, *RunnerTokenRequest) (*RunnerTokenResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RunnerToken not implemented")
 }
-func (UnimplementedWaypointServer) RunnerConfig(Waypoint_RunnerConfigServer) error {
+func (UnimplementedDerrickServer) RunnerConfig(Waypoint_RunnerConfigServer) error {
 	return status.Errorf(codes.Unimplemented, "method RunnerConfig not implemented")
 }
-func (UnimplementedWaypointServer) RunnerJobStream(Waypoint_RunnerJobStreamServer) error {
+func (UnimplementedDerrickServer) RunnerJobStream(Waypoint_RunnerJobStreamServer) error {
 	return status.Errorf(codes.Unimplemented, "method RunnerJobStream not implemented")
 }
-func (UnimplementedWaypointServer) RunnerGetDeploymentConfig(context.Context, *RunnerGetDeploymentConfigRequest) (*RunnerGetDeploymentConfigResponse, error) {
+func (UnimplementedDerrickServer) RunnerGetDeploymentConfig(context.Context, *RunnerGetDeploymentConfigRequest) (*RunnerGetDeploymentConfigResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RunnerGetDeploymentConfig not implemented")
 }
-func (UnimplementedWaypointServer) EntrypointConfig(*EntrypointConfigRequest, Waypoint_EntrypointConfigServer) error {
+func (UnimplementedDerrickServer) EntrypointConfig(*EntrypointConfigRequest, Waypoint_EntrypointConfigServer) error {
 	return status.Errorf(codes.Unimplemented, "method EntrypointConfig not implemented")
 }
-func (UnimplementedWaypointServer) EntrypointLogStream(Waypoint_EntrypointLogStreamServer) error {
+func (UnimplementedDerrickServer) EntrypointLogStream(Waypoint_EntrypointLogStreamServer) error {
 	return status.Errorf(codes.Unimplemented, "method EntrypointLogStream not implemented")
 }
-func (UnimplementedWaypointServer) EntrypointExecStream(Waypoint_EntrypointExecStreamServer) error {
+func (UnimplementedDerrickServer) EntrypointExecStream(Waypoint_EntrypointExecStreamServer) error {
 	return status.Errorf(codes.Unimplemented, "method EntrypointExecStream not implemented")
 }
-func (UnimplementedWaypointServer) WaypointHclFmt(context.Context, *WaypointHclFmtRequest) (*WaypointHclFmtResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method WaypointHclFmt not implemented")
+func (UnimplementedDerrickServer) DerrickHclFmt(context.Context, *DerrickHclFmtRequest) (*DerrickHclFmtResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DerrickHclFmt not implemented")
 }
-func (UnimplementedWaypointServer) UpsertOnDemandRunnerConfig(context.Context, *UpsertOnDemandRunnerConfigRequest) (*UpsertOnDemandRunnerConfigResponse, error) {
+func (UnimplementedDerrickServer) UpsertOnDemandRunnerConfig(context.Context, *UpsertOnDemandRunnerConfigRequest) (*UpsertOnDemandRunnerConfigResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpsertOnDemandRunnerConfig not implemented")
 }
-func (UnimplementedWaypointServer) GetOnDemandRunnerConfig(context.Context, *GetOnDemandRunnerConfigRequest) (*GetOnDemandRunnerConfigResponse, error) {
+func (UnimplementedDerrickServer) GetOnDemandRunnerConfig(context.Context, *GetOnDemandRunnerConfigRequest) (*GetOnDemandRunnerConfigResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetOnDemandRunnerConfig not implemented")
 }
-func (UnimplementedWaypointServer) GetDefaultOnDemandRunnerConfig(context.Context, *emptypb.Empty) (*GetOnDemandRunnerConfigResponse, error) {
+func (UnimplementedDerrickServer) GetDefaultOnDemandRunnerConfig(context.Context, *emptypb.Empty) (*GetOnDemandRunnerConfigResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetDefaultOnDemandRunnerConfig not implemented")
 }
-func (UnimplementedWaypointServer) DeleteOnDemandRunnerConfig(context.Context, *DeleteOnDemandRunnerConfigRequest) (*DeleteOnDemandRunnerConfigResponse, error) {
+func (UnimplementedDerrickServer) DeleteOnDemandRunnerConfig(context.Context, *DeleteOnDemandRunnerConfigRequest) (*DeleteOnDemandRunnerConfigResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteOnDemandRunnerConfig not implemented")
 }
-func (UnimplementedWaypointServer) ListOnDemandRunnerConfigs(context.Context, *emptypb.Empty) (*ListOnDemandRunnerConfigsResponse, error) {
+func (UnimplementedDerrickServer) ListOnDemandRunnerConfigs(context.Context, *emptypb.Empty) (*ListOnDemandRunnerConfigsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListOnDemandRunnerConfigs not implemented")
 }
-func (UnimplementedWaypointServer) UpsertBuild(context.Context, *UpsertBuildRequest) (*UpsertBuildResponse, error) {
+func (UnimplementedDerrickServer) UpsertBuild(context.Context, *UpsertBuildRequest) (*UpsertBuildResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpsertBuild not implemented")
 }
-func (UnimplementedWaypointServer) UpsertPushedArtifact(context.Context, *UpsertPushedArtifactRequest) (*UpsertPushedArtifactResponse, error) {
+func (UnimplementedDerrickServer) UpsertPushedArtifact(context.Context, *UpsertPushedArtifactRequest) (*UpsertPushedArtifactResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpsertPushedArtifact not implemented")
 }
-func (UnimplementedWaypointServer) UpsertDeployment(context.Context, *UpsertDeploymentRequest) (*UpsertDeploymentResponse, error) {
+func (UnimplementedDerrickServer) UpsertDeployment(context.Context, *UpsertDeploymentRequest) (*UpsertDeploymentResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpsertDeployment not implemented")
 }
-func (UnimplementedWaypointServer) UpsertRelease(context.Context, *UpsertReleaseRequest) (*UpsertReleaseResponse, error) {
+func (UnimplementedDerrickServer) UpsertRelease(context.Context, *UpsertReleaseRequest) (*UpsertReleaseResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpsertRelease not implemented")
 }
-func (UnimplementedWaypointServer) UpsertStatusReport(context.Context, *UpsertStatusReportRequest) (*UpsertStatusReportResponse, error) {
+func (UnimplementedDerrickServer) UpsertStatusReport(context.Context, *UpsertStatusReportRequest) (*UpsertStatusReportResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpsertStatusReport not implemented")
 }
-func (UnimplementedWaypointServer) GetTask(context.Context, *GetTaskRequest) (*GetTaskResponse, error) {
+func (UnimplementedDerrickServer) GetTask(context.Context, *GetTaskRequest) (*GetTaskResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetTask not implemented")
 }
-func (UnimplementedWaypointServer) ListTask(context.Context, *ListTaskRequest) (*ListTaskResponse, error) {
+func (UnimplementedDerrickServer) ListTask(context.Context, *ListTaskRequest) (*ListTaskResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListTask not implemented")
 }
-func (UnimplementedWaypointServer) CancelTask(context.Context, *CancelTaskRequest) (*emptypb.Empty, error) {
+func (UnimplementedDerrickServer) CancelTask(context.Context, *CancelTaskRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CancelTask not implemented")
 }
-func (UnimplementedWaypointServer) UpsertTrigger(context.Context, *UpsertTriggerRequest) (*UpsertTriggerResponse, error) {
+func (UnimplementedDerrickServer) UpsertTrigger(context.Context, *UpsertTriggerRequest) (*UpsertTriggerResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpsertTrigger not implemented")
 }
-func (UnimplementedWaypointServer) GetTrigger(context.Context, *GetTriggerRequest) (*GetTriggerResponse, error) {
+func (UnimplementedDerrickServer) GetTrigger(context.Context, *GetTriggerRequest) (*GetTriggerResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetTrigger not implemented")
 }
-func (UnimplementedWaypointServer) DeleteTrigger(context.Context, *DeleteTriggerRequest) (*emptypb.Empty, error) {
+func (UnimplementedDerrickServer) DeleteTrigger(context.Context, *DeleteTriggerRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteTrigger not implemented")
 }
-func (UnimplementedWaypointServer) ListTriggers(context.Context, *ListTriggerRequest) (*ListTriggerResponse, error) {
+func (UnimplementedDerrickServer) ListTriggers(context.Context, *ListTriggerRequest) (*ListTriggerResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListTriggers not implemented")
 }
-func (UnimplementedWaypointServer) RunTrigger(context.Context, *RunTriggerRequest) (*RunTriggerResponse, error) {
+func (UnimplementedDerrickServer) RunTrigger(context.Context, *RunTriggerRequest) (*RunTriggerResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RunTrigger not implemented")
 }
-func (UnimplementedWaypointServer) UpsertPipeline(context.Context, *UpsertPipelineRequest) (*UpsertPipelineResponse, error) {
+func (UnimplementedDerrickServer) UpsertPipeline(context.Context, *UpsertPipelineRequest) (*UpsertPipelineResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpsertPipeline not implemented")
 }
-func (UnimplementedWaypointServer) RunPipeline(context.Context, *RunPipelineRequest) (*RunPipelineResponse, error) {
+func (UnimplementedDerrickServer) RunPipeline(context.Context, *RunPipelineRequest) (*RunPipelineResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RunPipeline not implemented")
 }
-func (UnimplementedWaypointServer) GetPipeline(context.Context, *GetPipelineRequest) (*GetPipelineResponse, error) {
+func (UnimplementedDerrickServer) GetPipeline(context.Context, *GetPipelineRequest) (*GetPipelineResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPipeline not implemented")
 }
-func (UnimplementedWaypointServer) GetPipelineRun(context.Context, *GetPipelineRunRequest) (*GetPipelineRunResponse, error) {
+func (UnimplementedDerrickServer) GetPipelineRun(context.Context, *GetPipelineRunRequest) (*GetPipelineRunResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPipelineRun not implemented")
 }
-func (UnimplementedWaypointServer) GetLatestPipelineRun(context.Context, *GetPipelineRequest) (*GetPipelineRunResponse, error) {
+func (UnimplementedDerrickServer) GetLatestPipelineRun(context.Context, *GetPipelineRequest) (*GetPipelineRunResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetLatestPipelineRun not implemented")
 }
-func (UnimplementedWaypointServer) ListPipelines(context.Context, *ListPipelinesRequest) (*ListPipelinesResponse, error) {
+func (UnimplementedDerrickServer) ListPipelines(context.Context, *ListPipelinesRequest) (*ListPipelinesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListPipelines not implemented")
 }
-func (UnimplementedWaypointServer) ListPipelineRuns(context.Context, *ListPipelineRunsRequest) (*ListPipelineRunsResponse, error) {
+func (UnimplementedDerrickServer) ListPipelineRuns(context.Context, *ListPipelineRunsRequest) (*ListPipelineRunsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListPipelineRuns not implemented")
 }
-func (UnimplementedWaypointServer) ConfigSyncPipeline(context.Context, *ConfigSyncPipelineRequest) (*ConfigSyncPipelineResponse, error) {
+func (UnimplementedDerrickServer) ConfigSyncPipeline(context.Context, *ConfigSyncPipelineRequest) (*ConfigSyncPipelineResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ConfigSyncPipeline not implemented")
 }
-func (UnimplementedWaypointServer) UI_ListProjects(context.Context, *UI_ListProjectsRequest) (*UI_ListProjectsResponse, error) {
+func (UnimplementedDerrickServer) UI_ListProjects(context.Context, *UI_ListProjectsRequest) (*UI_ListProjectsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UI_ListProjects not implemented")
 }
-func (UnimplementedWaypointServer) UI_GetProject(context.Context, *UI_GetProjectRequest) (*UI_GetProjectResponse, error) {
+func (UnimplementedDerrickServer) UI_GetProject(context.Context, *UI_GetProjectRequest) (*UI_GetProjectResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UI_GetProject not implemented")
 }
-func (UnimplementedWaypointServer) UI_ListDeployments(context.Context, *UI_ListDeploymentsRequest) (*UI_ListDeploymentsResponse, error) {
+func (UnimplementedDerrickServer) UI_ListDeployments(context.Context, *UI_ListDeploymentsRequest) (*UI_ListDeploymentsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UI_ListDeployments not implemented")
 }
-func (UnimplementedWaypointServer) UI_GetDeployment(context.Context, *UI_GetDeploymentRequest) (*UI_GetDeploymentResponse, error) {
+func (UnimplementedDerrickServer) UI_GetDeployment(context.Context, *UI_GetDeploymentRequest) (*UI_GetDeploymentResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UI_GetDeployment not implemented")
 }
-func (UnimplementedWaypointServer) UI_ListReleases(context.Context, *UI_ListReleasesRequest) (*UI_ListReleasesResponse, error) {
+func (UnimplementedDerrickServer) UI_ListReleases(context.Context, *UI_ListReleasesRequest) (*UI_ListReleasesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UI_ListReleases not implemented")
 }
-func (UnimplementedWaypointServer) mustEmbedUnimplementedWaypointServer() {}
+func (UnimplementedDerrickServer) mustEmbedUnimplementedDerrickServer() {}
 
-// UnsafeWaypointServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to WaypointServer will
+// UnsafeDerrickServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DerrickServer will
 // result in compilation errors.
-type UnsafeWaypointServer interface {
-	mustEmbedUnimplementedWaypointServer()
+type UnsafeDerrickServer interface {
+	mustEmbedUnimplementedDerrickServer()
 }
 
-func RegisterWaypointServer(s grpc.ServiceRegistrar, srv WaypointServer) {
+func RegisterDerrickServer(s grpc.ServiceRegistrar, srv DerrickServer) {
 	s.RegisterService(&Waypoint_ServiceDesc, srv)
 }
 
@@ -2209,14 +2209,14 @@ func _Waypoint_GetVersionInfo_Handler(srv interface{}, ctx context.Context, dec 
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).GetVersionInfo(ctx, in)
+		return srv.(DerrickServer).GetVersionInfo(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/GetVersionInfo",
+		FullMethod: "/nomatron.derrick.Waypoint/GetVersionInfo",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).GetVersionInfo(ctx, req.(*emptypb.Empty))
+		return srv.(DerrickServer).GetVersionInfo(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2227,14 +2227,14 @@ func _Waypoint_ListOIDCAuthMethods_Handler(srv interface{}, ctx context.Context,
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).ListOIDCAuthMethods(ctx, in)
+		return srv.(DerrickServer).ListOIDCAuthMethods(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/ListOIDCAuthMethods",
+		FullMethod: "/nomatron.derrick.Waypoint/ListOIDCAuthMethods",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).ListOIDCAuthMethods(ctx, req.(*emptypb.Empty))
+		return srv.(DerrickServer).ListOIDCAuthMethods(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2245,14 +2245,14 @@ func _Waypoint_GetOIDCAuthURL_Handler(srv interface{}, ctx context.Context, dec 
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).GetOIDCAuthURL(ctx, in)
+		return srv.(DerrickServer).GetOIDCAuthURL(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/GetOIDCAuthURL",
+		FullMethod: "/nomatron.derrick.Waypoint/GetOIDCAuthURL",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).GetOIDCAuthURL(ctx, req.(*GetOIDCAuthURLRequest))
+		return srv.(DerrickServer).GetOIDCAuthURL(ctx, req.(*GetOIDCAuthURLRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2263,14 +2263,14 @@ func _Waypoint_CompleteOIDCAuth_Handler(srv interface{}, ctx context.Context, de
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).CompleteOIDCAuth(ctx, in)
+		return srv.(DerrickServer).CompleteOIDCAuth(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/CompleteOIDCAuth",
+		FullMethod: "/nomatron.derrick.Waypoint/CompleteOIDCAuth",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).CompleteOIDCAuth(ctx, req.(*CompleteOIDCAuthRequest))
+		return srv.(DerrickServer).CompleteOIDCAuth(ctx, req.(*CompleteOIDCAuthRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2281,14 +2281,14 @@ func _Waypoint_NoAuthRunTrigger_Handler(srv interface{}, ctx context.Context, de
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).NoAuthRunTrigger(ctx, in)
+		return srv.(DerrickServer).NoAuthRunTrigger(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/NoAuthRunTrigger",
+		FullMethod: "/nomatron.derrick.Waypoint/NoAuthRunTrigger",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).NoAuthRunTrigger(ctx, req.(*RunTriggerRequest))
+		return srv.(DerrickServer).NoAuthRunTrigger(ctx, req.(*RunTriggerRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2299,14 +2299,14 @@ func _Waypoint_GetUser_Handler(srv interface{}, ctx context.Context, dec func(in
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).GetUser(ctx, in)
+		return srv.(DerrickServer).GetUser(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/GetUser",
+		FullMethod: "/nomatron.derrick.Waypoint/GetUser",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).GetUser(ctx, req.(*GetUserRequest))
+		return srv.(DerrickServer).GetUser(ctx, req.(*GetUserRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2317,14 +2317,14 @@ func _Waypoint_ListUsers_Handler(srv interface{}, ctx context.Context, dec func(
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).ListUsers(ctx, in)
+		return srv.(DerrickServer).ListUsers(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/ListUsers",
+		FullMethod: "/nomatron.derrick.Waypoint/ListUsers",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).ListUsers(ctx, req.(*emptypb.Empty))
+		return srv.(DerrickServer).ListUsers(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2335,14 +2335,14 @@ func _Waypoint_UpdateUser_Handler(srv interface{}, ctx context.Context, dec func
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).UpdateUser(ctx, in)
+		return srv.(DerrickServer).UpdateUser(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/UpdateUser",
+		FullMethod: "/nomatron.derrick.Waypoint/UpdateUser",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).UpdateUser(ctx, req.(*UpdateUserRequest))
+		return srv.(DerrickServer).UpdateUser(ctx, req.(*UpdateUserRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2353,14 +2353,14 @@ func _Waypoint_DeleteUser_Handler(srv interface{}, ctx context.Context, dec func
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).DeleteUser(ctx, in)
+		return srv.(DerrickServer).DeleteUser(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/DeleteUser",
+		FullMethod: "/nomatron.derrick.Waypoint/DeleteUser",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).DeleteUser(ctx, req.(*DeleteUserRequest))
+		return srv.(DerrickServer).DeleteUser(ctx, req.(*DeleteUserRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2371,14 +2371,14 @@ func _Waypoint_UpsertAuthMethod_Handler(srv interface{}, ctx context.Context, de
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).UpsertAuthMethod(ctx, in)
+		return srv.(DerrickServer).UpsertAuthMethod(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/UpsertAuthMethod",
+		FullMethod: "/nomatron.derrick.Waypoint/UpsertAuthMethod",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).UpsertAuthMethod(ctx, req.(*UpsertAuthMethodRequest))
+		return srv.(DerrickServer).UpsertAuthMethod(ctx, req.(*UpsertAuthMethodRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2389,14 +2389,14 @@ func _Waypoint_GetAuthMethod_Handler(srv interface{}, ctx context.Context, dec f
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).GetAuthMethod(ctx, in)
+		return srv.(DerrickServer).GetAuthMethod(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/GetAuthMethod",
+		FullMethod: "/nomatron.derrick.Waypoint/GetAuthMethod",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).GetAuthMethod(ctx, req.(*GetAuthMethodRequest))
+		return srv.(DerrickServer).GetAuthMethod(ctx, req.(*GetAuthMethodRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2407,14 +2407,14 @@ func _Waypoint_ListAuthMethods_Handler(srv interface{}, ctx context.Context, dec
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).ListAuthMethods(ctx, in)
+		return srv.(DerrickServer).ListAuthMethods(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/ListAuthMethods",
+		FullMethod: "/nomatron.derrick.Waypoint/ListAuthMethods",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).ListAuthMethods(ctx, req.(*emptypb.Empty))
+		return srv.(DerrickServer).ListAuthMethods(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2425,14 +2425,14 @@ func _Waypoint_DeleteAuthMethod_Handler(srv interface{}, ctx context.Context, de
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).DeleteAuthMethod(ctx, in)
+		return srv.(DerrickServer).DeleteAuthMethod(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/DeleteAuthMethod",
+		FullMethod: "/nomatron.derrick.Waypoint/DeleteAuthMethod",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).DeleteAuthMethod(ctx, req.(*DeleteAuthMethodRequest))
+		return srv.(DerrickServer).DeleteAuthMethod(ctx, req.(*DeleteAuthMethodRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2443,14 +2443,14 @@ func _Waypoint_ListWorkspaces_Handler(srv interface{}, ctx context.Context, dec 
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).ListWorkspaces(ctx, in)
+		return srv.(DerrickServer).ListWorkspaces(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/ListWorkspaces",
+		FullMethod: "/nomatron.derrick.Waypoint/ListWorkspaces",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).ListWorkspaces(ctx, req.(*ListWorkspacesRequest))
+		return srv.(DerrickServer).ListWorkspaces(ctx, req.(*ListWorkspacesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2461,14 +2461,14 @@ func _Waypoint_GetWorkspace_Handler(srv interface{}, ctx context.Context, dec fu
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).GetWorkspace(ctx, in)
+		return srv.(DerrickServer).GetWorkspace(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/GetWorkspace",
+		FullMethod: "/nomatron.derrick.Waypoint/GetWorkspace",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).GetWorkspace(ctx, req.(*GetWorkspaceRequest))
+		return srv.(DerrickServer).GetWorkspace(ctx, req.(*GetWorkspaceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2479,14 +2479,14 @@ func _Waypoint_UpsertWorkspace_Handler(srv interface{}, ctx context.Context, dec
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).UpsertWorkspace(ctx, in)
+		return srv.(DerrickServer).UpsertWorkspace(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/UpsertWorkspace",
+		FullMethod: "/nomatron.derrick.Waypoint/UpsertWorkspace",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).UpsertWorkspace(ctx, req.(*UpsertWorkspaceRequest))
+		return srv.(DerrickServer).UpsertWorkspace(ctx, req.(*UpsertWorkspaceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2497,14 +2497,14 @@ func _Waypoint_UpsertProject_Handler(srv interface{}, ctx context.Context, dec f
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).UpsertProject(ctx, in)
+		return srv.(DerrickServer).UpsertProject(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/UpsertProject",
+		FullMethod: "/nomatron.derrick.Waypoint/UpsertProject",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).UpsertProject(ctx, req.(*UpsertProjectRequest))
+		return srv.(DerrickServer).UpsertProject(ctx, req.(*UpsertProjectRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2515,14 +2515,14 @@ func _Waypoint_GetProject_Handler(srv interface{}, ctx context.Context, dec func
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).GetProject(ctx, in)
+		return srv.(DerrickServer).GetProject(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/GetProject",
+		FullMethod: "/nomatron.derrick.Waypoint/GetProject",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).GetProject(ctx, req.(*GetProjectRequest))
+		return srv.(DerrickServer).GetProject(ctx, req.(*GetProjectRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2533,14 +2533,14 @@ func _Waypoint_ListProjects_Handler(srv interface{}, ctx context.Context, dec fu
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).ListProjects(ctx, in)
+		return srv.(DerrickServer).ListProjects(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/ListProjects",
+		FullMethod: "/nomatron.derrick.Waypoint/ListProjects",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).ListProjects(ctx, req.(*ListProjectsRequest))
+		return srv.(DerrickServer).ListProjects(ctx, req.(*ListProjectsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2551,14 +2551,14 @@ func _Waypoint_DestroyProject_Handler(srv interface{}, ctx context.Context, dec 
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).DestroyProject(ctx, in)
+		return srv.(DerrickServer).DestroyProject(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/DestroyProject",
+		FullMethod: "/nomatron.derrick.Waypoint/DestroyProject",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).DestroyProject(ctx, req.(*DestroyProjectRequest))
+		return srv.(DerrickServer).DestroyProject(ctx, req.(*DestroyProjectRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2569,14 +2569,14 @@ func _Waypoint_GetApplication_Handler(srv interface{}, ctx context.Context, dec 
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).GetApplication(ctx, in)
+		return srv.(DerrickServer).GetApplication(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/GetApplication",
+		FullMethod: "/nomatron.derrick.Waypoint/GetApplication",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).GetApplication(ctx, req.(*GetApplicationRequest))
+		return srv.(DerrickServer).GetApplication(ctx, req.(*GetApplicationRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2587,14 +2587,14 @@ func _Waypoint_UpsertApplication_Handler(srv interface{}, ctx context.Context, d
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).UpsertApplication(ctx, in)
+		return srv.(DerrickServer).UpsertApplication(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/UpsertApplication",
+		FullMethod: "/nomatron.derrick.Waypoint/UpsertApplication",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).UpsertApplication(ctx, req.(*UpsertApplicationRequest))
+		return srv.(DerrickServer).UpsertApplication(ctx, req.(*UpsertApplicationRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2605,14 +2605,14 @@ func _Waypoint_ListBuilds_Handler(srv interface{}, ctx context.Context, dec func
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).ListBuilds(ctx, in)
+		return srv.(DerrickServer).ListBuilds(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/ListBuilds",
+		FullMethod: "/nomatron.derrick.Waypoint/ListBuilds",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).ListBuilds(ctx, req.(*ListBuildsRequest))
+		return srv.(DerrickServer).ListBuilds(ctx, req.(*ListBuildsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2623,14 +2623,14 @@ func _Waypoint_GetBuild_Handler(srv interface{}, ctx context.Context, dec func(i
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).GetBuild(ctx, in)
+		return srv.(DerrickServer).GetBuild(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/GetBuild",
+		FullMethod: "/nomatron.derrick.Waypoint/GetBuild",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).GetBuild(ctx, req.(*GetBuildRequest))
+		return srv.(DerrickServer).GetBuild(ctx, req.(*GetBuildRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2641,14 +2641,14 @@ func _Waypoint_GetLatestBuild_Handler(srv interface{}, ctx context.Context, dec 
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).GetLatestBuild(ctx, in)
+		return srv.(DerrickServer).GetLatestBuild(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/GetLatestBuild",
+		FullMethod: "/nomatron.derrick.Waypoint/GetLatestBuild",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).GetLatestBuild(ctx, req.(*GetLatestBuildRequest))
+		return srv.(DerrickServer).GetLatestBuild(ctx, req.(*GetLatestBuildRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2659,14 +2659,14 @@ func _Waypoint_ListPushedArtifacts_Handler(srv interface{}, ctx context.Context,
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).ListPushedArtifacts(ctx, in)
+		return srv.(DerrickServer).ListPushedArtifacts(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/ListPushedArtifacts",
+		FullMethod: "/nomatron.derrick.Waypoint/ListPushedArtifacts",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).ListPushedArtifacts(ctx, req.(*ListPushedArtifactsRequest))
+		return srv.(DerrickServer).ListPushedArtifacts(ctx, req.(*ListPushedArtifactsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2677,14 +2677,14 @@ func _Waypoint_GetPushedArtifact_Handler(srv interface{}, ctx context.Context, d
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).GetPushedArtifact(ctx, in)
+		return srv.(DerrickServer).GetPushedArtifact(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/GetPushedArtifact",
+		FullMethod: "/nomatron.derrick.Waypoint/GetPushedArtifact",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).GetPushedArtifact(ctx, req.(*GetPushedArtifactRequest))
+		return srv.(DerrickServer).GetPushedArtifact(ctx, req.(*GetPushedArtifactRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2695,14 +2695,14 @@ func _Waypoint_GetLatestPushedArtifact_Handler(srv interface{}, ctx context.Cont
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).GetLatestPushedArtifact(ctx, in)
+		return srv.(DerrickServer).GetLatestPushedArtifact(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/GetLatestPushedArtifact",
+		FullMethod: "/nomatron.derrick.Waypoint/GetLatestPushedArtifact",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).GetLatestPushedArtifact(ctx, req.(*GetLatestPushedArtifactRequest))
+		return srv.(DerrickServer).GetLatestPushedArtifact(ctx, req.(*GetLatestPushedArtifactRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2713,14 +2713,14 @@ func _Waypoint_ListDeployments_Handler(srv interface{}, ctx context.Context, dec
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).ListDeployments(ctx, in)
+		return srv.(DerrickServer).ListDeployments(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/ListDeployments",
+		FullMethod: "/nomatron.derrick.Waypoint/ListDeployments",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).ListDeployments(ctx, req.(*ListDeploymentsRequest))
+		return srv.(DerrickServer).ListDeployments(ctx, req.(*ListDeploymentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2731,14 +2731,14 @@ func _Waypoint_GetDeployment_Handler(srv interface{}, ctx context.Context, dec f
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).GetDeployment(ctx, in)
+		return srv.(DerrickServer).GetDeployment(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/GetDeployment",
+		FullMethod: "/nomatron.derrick.Waypoint/GetDeployment",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).GetDeployment(ctx, req.(*GetDeploymentRequest))
+		return srv.(DerrickServer).GetDeployment(ctx, req.(*GetDeploymentRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2749,14 +2749,14 @@ func _Waypoint_ListInstances_Handler(srv interface{}, ctx context.Context, dec f
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).ListInstances(ctx, in)
+		return srv.(DerrickServer).ListInstances(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/ListInstances",
+		FullMethod: "/nomatron.derrick.Waypoint/ListInstances",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).ListInstances(ctx, req.(*ListInstancesRequest))
+		return srv.(DerrickServer).ListInstances(ctx, req.(*ListInstancesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2767,14 +2767,14 @@ func _Waypoint_ListReleases_Handler(srv interface{}, ctx context.Context, dec fu
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).ListReleases(ctx, in)
+		return srv.(DerrickServer).ListReleases(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/ListReleases",
+		FullMethod: "/nomatron.derrick.Waypoint/ListReleases",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).ListReleases(ctx, req.(*ListReleasesRequest))
+		return srv.(DerrickServer).ListReleases(ctx, req.(*ListReleasesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2785,14 +2785,14 @@ func _Waypoint_GetRelease_Handler(srv interface{}, ctx context.Context, dec func
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).GetRelease(ctx, in)
+		return srv.(DerrickServer).GetRelease(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/GetRelease",
+		FullMethod: "/nomatron.derrick.Waypoint/GetRelease",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).GetRelease(ctx, req.(*GetReleaseRequest))
+		return srv.(DerrickServer).GetRelease(ctx, req.(*GetReleaseRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2803,14 +2803,14 @@ func _Waypoint_GetLatestRelease_Handler(srv interface{}, ctx context.Context, de
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).GetLatestRelease(ctx, in)
+		return srv.(DerrickServer).GetLatestRelease(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/GetLatestRelease",
+		FullMethod: "/nomatron.derrick.Waypoint/GetLatestRelease",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).GetLatestRelease(ctx, req.(*GetLatestReleaseRequest))
+		return srv.(DerrickServer).GetLatestRelease(ctx, req.(*GetLatestReleaseRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2821,14 +2821,14 @@ func _Waypoint_GetStatusReport_Handler(srv interface{}, ctx context.Context, dec
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).GetStatusReport(ctx, in)
+		return srv.(DerrickServer).GetStatusReport(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/GetStatusReport",
+		FullMethod: "/nomatron.derrick.Waypoint/GetStatusReport",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).GetStatusReport(ctx, req.(*GetStatusReportRequest))
+		return srv.(DerrickServer).GetStatusReport(ctx, req.(*GetStatusReportRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2839,14 +2839,14 @@ func _Waypoint_GetLatestStatusReport_Handler(srv interface{}, ctx context.Contex
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).GetLatestStatusReport(ctx, in)
+		return srv.(DerrickServer).GetLatestStatusReport(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/GetLatestStatusReport",
+		FullMethod: "/nomatron.derrick.Waypoint/GetLatestStatusReport",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).GetLatestStatusReport(ctx, req.(*GetLatestStatusReportRequest))
+		return srv.(DerrickServer).GetLatestStatusReport(ctx, req.(*GetLatestStatusReportRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2857,14 +2857,14 @@ func _Waypoint_ListStatusReports_Handler(srv interface{}, ctx context.Context, d
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).ListStatusReports(ctx, in)
+		return srv.(DerrickServer).ListStatusReports(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/ListStatusReports",
+		FullMethod: "/nomatron.derrick.Waypoint/ListStatusReports",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).ListStatusReports(ctx, req.(*ListStatusReportsRequest))
+		return srv.(DerrickServer).ListStatusReports(ctx, req.(*ListStatusReportsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2875,14 +2875,14 @@ func _Waypoint_ExpediteStatusReport_Handler(srv interface{}, ctx context.Context
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).ExpediteStatusReport(ctx, in)
+		return srv.(DerrickServer).ExpediteStatusReport(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/ExpediteStatusReport",
+		FullMethod: "/nomatron.derrick.Waypoint/ExpediteStatusReport",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).ExpediteStatusReport(ctx, req.(*ExpediteStatusReportRequest))
+		return srv.(DerrickServer).ExpediteStatusReport(ctx, req.(*ExpediteStatusReportRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2892,7 +2892,7 @@ func _Waypoint_GetLogStream_Handler(srv interface{}, stream grpc.ServerStream) e
 	if err := stream.RecvMsg(m); err != nil {
 		return err
 	}
-	return srv.(WaypointServer).GetLogStream(m, &waypointGetLogStreamServer{stream})
+	return srv.(DerrickServer).GetLogStream(m, &waypointGetLogStreamServer{stream})
 }
 
 type Waypoint_GetLogStreamServer interface {
@@ -2909,7 +2909,7 @@ func (x *waypointGetLogStreamServer) Send(m *LogBatch) error {
 }
 
 func _Waypoint_StartExecStream_Handler(srv interface{}, stream grpc.ServerStream) error {
-	return srv.(WaypointServer).StartExecStream(&waypointStartExecStreamServer{stream})
+	return srv.(DerrickServer).StartExecStream(&waypointStartExecStreamServer{stream})
 }
 
 type Waypoint_StartExecStreamServer interface {
@@ -2940,14 +2940,14 @@ func _Waypoint_SetConfig_Handler(srv interface{}, ctx context.Context, dec func(
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).SetConfig(ctx, in)
+		return srv.(DerrickServer).SetConfig(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/SetConfig",
+		FullMethod: "/nomatron.derrick.Waypoint/SetConfig",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).SetConfig(ctx, req.(*ConfigSetRequest))
+		return srv.(DerrickServer).SetConfig(ctx, req.(*ConfigSetRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2958,14 +2958,14 @@ func _Waypoint_DeleteConfig_Handler(srv interface{}, ctx context.Context, dec fu
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).DeleteConfig(ctx, in)
+		return srv.(DerrickServer).DeleteConfig(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/DeleteConfig",
+		FullMethod: "/nomatron.derrick.Waypoint/DeleteConfig",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).DeleteConfig(ctx, req.(*ConfigDeleteRequest))
+		return srv.(DerrickServer).DeleteConfig(ctx, req.(*ConfigDeleteRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2976,14 +2976,14 @@ func _Waypoint_GetConfig_Handler(srv interface{}, ctx context.Context, dec func(
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).GetConfig(ctx, in)
+		return srv.(DerrickServer).GetConfig(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/GetConfig",
+		FullMethod: "/nomatron.derrick.Waypoint/GetConfig",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).GetConfig(ctx, req.(*ConfigGetRequest))
+		return srv.(DerrickServer).GetConfig(ctx, req.(*ConfigGetRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2994,14 +2994,14 @@ func _Waypoint_SetConfigSource_Handler(srv interface{}, ctx context.Context, dec
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).SetConfigSource(ctx, in)
+		return srv.(DerrickServer).SetConfigSource(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/SetConfigSource",
+		FullMethod: "/nomatron.derrick.Waypoint/SetConfigSource",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).SetConfigSource(ctx, req.(*SetConfigSourceRequest))
+		return srv.(DerrickServer).SetConfigSource(ctx, req.(*SetConfigSourceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3012,14 +3012,14 @@ func _Waypoint_DeleteConfigSource_Handler(srv interface{}, ctx context.Context, 
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).DeleteConfigSource(ctx, in)
+		return srv.(DerrickServer).DeleteConfigSource(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/DeleteConfigSource",
+		FullMethod: "/nomatron.derrick.Waypoint/DeleteConfigSource",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).DeleteConfigSource(ctx, req.(*DeleteConfigSourceRequest))
+		return srv.(DerrickServer).DeleteConfigSource(ctx, req.(*DeleteConfigSourceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3030,14 +3030,14 @@ func _Waypoint_GetConfigSource_Handler(srv interface{}, ctx context.Context, dec
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).GetConfigSource(ctx, in)
+		return srv.(DerrickServer).GetConfigSource(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/GetConfigSource",
+		FullMethod: "/nomatron.derrick.Waypoint/GetConfigSource",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).GetConfigSource(ctx, req.(*GetConfigSourceRequest))
+		return srv.(DerrickServer).GetConfigSource(ctx, req.(*GetConfigSourceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3048,14 +3048,14 @@ func _Waypoint_CreateHostname_Handler(srv interface{}, ctx context.Context, dec 
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).CreateHostname(ctx, in)
+		return srv.(DerrickServer).CreateHostname(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/CreateHostname",
+		FullMethod: "/nomatron.derrick.Waypoint/CreateHostname",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).CreateHostname(ctx, req.(*CreateHostnameRequest))
+		return srv.(DerrickServer).CreateHostname(ctx, req.(*CreateHostnameRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3066,14 +3066,14 @@ func _Waypoint_DeleteHostname_Handler(srv interface{}, ctx context.Context, dec 
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).DeleteHostname(ctx, in)
+		return srv.(DerrickServer).DeleteHostname(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/DeleteHostname",
+		FullMethod: "/nomatron.derrick.Waypoint/DeleteHostname",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).DeleteHostname(ctx, req.(*DeleteHostnameRequest))
+		return srv.(DerrickServer).DeleteHostname(ctx, req.(*DeleteHostnameRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3084,14 +3084,14 @@ func _Waypoint_ListHostnames_Handler(srv interface{}, ctx context.Context, dec f
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).ListHostnames(ctx, in)
+		return srv.(DerrickServer).ListHostnames(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/ListHostnames",
+		FullMethod: "/nomatron.derrick.Waypoint/ListHostnames",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).ListHostnames(ctx, req.(*ListHostnamesRequest))
+		return srv.(DerrickServer).ListHostnames(ctx, req.(*ListHostnamesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3102,14 +3102,14 @@ func _Waypoint_QueueJob_Handler(srv interface{}, ctx context.Context, dec func(i
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).QueueJob(ctx, in)
+		return srv.(DerrickServer).QueueJob(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/QueueJob",
+		FullMethod: "/nomatron.derrick.Waypoint/QueueJob",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).QueueJob(ctx, req.(*QueueJobRequest))
+		return srv.(DerrickServer).QueueJob(ctx, req.(*QueueJobRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3120,14 +3120,14 @@ func _Waypoint_CancelJob_Handler(srv interface{}, ctx context.Context, dec func(
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).CancelJob(ctx, in)
+		return srv.(DerrickServer).CancelJob(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/CancelJob",
+		FullMethod: "/nomatron.derrick.Waypoint/CancelJob",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).CancelJob(ctx, req.(*CancelJobRequest))
+		return srv.(DerrickServer).CancelJob(ctx, req.(*CancelJobRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3138,14 +3138,14 @@ func _Waypoint_GetJob_Handler(srv interface{}, ctx context.Context, dec func(int
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).GetJob(ctx, in)
+		return srv.(DerrickServer).GetJob(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/GetJob",
+		FullMethod: "/nomatron.derrick.Waypoint/GetJob",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).GetJob(ctx, req.(*GetJobRequest))
+		return srv.(DerrickServer).GetJob(ctx, req.(*GetJobRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3156,14 +3156,14 @@ func _Waypoint_ListJobs_Handler(srv interface{}, ctx context.Context, dec func(i
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).ListJobs(ctx, in)
+		return srv.(DerrickServer).ListJobs(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/ListJobs",
+		FullMethod: "/nomatron.derrick.Waypoint/ListJobs",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).ListJobs(ctx, req.(*ListJobsRequest))
+		return srv.(DerrickServer).ListJobs(ctx, req.(*ListJobsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3174,14 +3174,14 @@ func _Waypoint_ValidateJob_Handler(srv interface{}, ctx context.Context, dec fun
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).ValidateJob(ctx, in)
+		return srv.(DerrickServer).ValidateJob(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/ValidateJob",
+		FullMethod: "/nomatron.derrick.Waypoint/ValidateJob",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).ValidateJob(ctx, req.(*ValidateJobRequest))
+		return srv.(DerrickServer).ValidateJob(ctx, req.(*ValidateJobRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3191,7 +3191,7 @@ func _Waypoint_GetJobStream_Handler(srv interface{}, stream grpc.ServerStream) e
 	if err := stream.RecvMsg(m); err != nil {
 		return err
 	}
-	return srv.(WaypointServer).GetJobStream(m, &waypointGetJobStreamServer{stream})
+	return srv.(DerrickServer).GetJobStream(m, &waypointGetJobStreamServer{stream})
 }
 
 type Waypoint_GetJobStreamServer interface {
@@ -3213,14 +3213,14 @@ func _Waypoint_GetRunner_Handler(srv interface{}, ctx context.Context, dec func(
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).GetRunner(ctx, in)
+		return srv.(DerrickServer).GetRunner(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/GetRunner",
+		FullMethod: "/nomatron.derrick.Waypoint/GetRunner",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).GetRunner(ctx, req.(*GetRunnerRequest))
+		return srv.(DerrickServer).GetRunner(ctx, req.(*GetRunnerRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3231,14 +3231,14 @@ func _Waypoint_ListRunners_Handler(srv interface{}, ctx context.Context, dec fun
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).ListRunners(ctx, in)
+		return srv.(DerrickServer).ListRunners(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/ListRunners",
+		FullMethod: "/nomatron.derrick.Waypoint/ListRunners",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).ListRunners(ctx, req.(*ListRunnersRequest))
+		return srv.(DerrickServer).ListRunners(ctx, req.(*ListRunnersRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3249,14 +3249,14 @@ func _Waypoint_AdoptRunner_Handler(srv interface{}, ctx context.Context, dec fun
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).AdoptRunner(ctx, in)
+		return srv.(DerrickServer).AdoptRunner(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/AdoptRunner",
+		FullMethod: "/nomatron.derrick.Waypoint/AdoptRunner",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).AdoptRunner(ctx, req.(*AdoptRunnerRequest))
+		return srv.(DerrickServer).AdoptRunner(ctx, req.(*AdoptRunnerRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3267,14 +3267,14 @@ func _Waypoint_ForgetRunner_Handler(srv interface{}, ctx context.Context, dec fu
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).ForgetRunner(ctx, in)
+		return srv.(DerrickServer).ForgetRunner(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/ForgetRunner",
+		FullMethod: "/nomatron.derrick.Waypoint/ForgetRunner",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).ForgetRunner(ctx, req.(*ForgetRunnerRequest))
+		return srv.(DerrickServer).ForgetRunner(ctx, req.(*ForgetRunnerRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3285,14 +3285,14 @@ func _Waypoint_GetServerConfig_Handler(srv interface{}, ctx context.Context, dec
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).GetServerConfig(ctx, in)
+		return srv.(DerrickServer).GetServerConfig(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/GetServerConfig",
+		FullMethod: "/nomatron.derrick.Waypoint/GetServerConfig",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).GetServerConfig(ctx, req.(*emptypb.Empty))
+		return srv.(DerrickServer).GetServerConfig(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3303,14 +3303,14 @@ func _Waypoint_SetServerConfig_Handler(srv interface{}, ctx context.Context, dec
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).SetServerConfig(ctx, in)
+		return srv.(DerrickServer).SetServerConfig(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/SetServerConfig",
+		FullMethod: "/nomatron.derrick.Waypoint/SetServerConfig",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).SetServerConfig(ctx, req.(*SetServerConfigRequest))
+		return srv.(DerrickServer).SetServerConfig(ctx, req.(*SetServerConfigRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3320,7 +3320,7 @@ func _Waypoint_CreateSnapshot_Handler(srv interface{}, stream grpc.ServerStream)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
 	}
-	return srv.(WaypointServer).CreateSnapshot(m, &waypointCreateSnapshotServer{stream})
+	return srv.(DerrickServer).CreateSnapshot(m, &waypointCreateSnapshotServer{stream})
 }
 
 type Waypoint_CreateSnapshotServer interface {
@@ -3337,7 +3337,7 @@ func (x *waypointCreateSnapshotServer) Send(m *CreateSnapshotResponse) error {
 }
 
 func _Waypoint_RestoreSnapshot_Handler(srv interface{}, stream grpc.ServerStream) error {
-	return srv.(WaypointServer).RestoreSnapshot(&waypointRestoreSnapshotServer{stream})
+	return srv.(DerrickServer).RestoreSnapshot(&waypointRestoreSnapshotServer{stream})
 }
 
 type Waypoint_RestoreSnapshotServer interface {
@@ -3368,14 +3368,14 @@ func _Waypoint_BootstrapToken_Handler(srv interface{}, ctx context.Context, dec 
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).BootstrapToken(ctx, in)
+		return srv.(DerrickServer).BootstrapToken(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/BootstrapToken",
+		FullMethod: "/nomatron.derrick.Waypoint/BootstrapToken",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).BootstrapToken(ctx, req.(*emptypb.Empty))
+		return srv.(DerrickServer).BootstrapToken(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3386,14 +3386,14 @@ func _Waypoint_DecodeToken_Handler(srv interface{}, ctx context.Context, dec fun
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).DecodeToken(ctx, in)
+		return srv.(DerrickServer).DecodeToken(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/DecodeToken",
+		FullMethod: "/nomatron.derrick.Waypoint/DecodeToken",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).DecodeToken(ctx, req.(*DecodeTokenRequest))
+		return srv.(DerrickServer).DecodeToken(ctx, req.(*DecodeTokenRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3404,14 +3404,14 @@ func _Waypoint_GenerateInviteToken_Handler(srv interface{}, ctx context.Context,
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).GenerateInviteToken(ctx, in)
+		return srv.(DerrickServer).GenerateInviteToken(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/GenerateInviteToken",
+		FullMethod: "/nomatron.derrick.Waypoint/GenerateInviteToken",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).GenerateInviteToken(ctx, req.(*InviteTokenRequest))
+		return srv.(DerrickServer).GenerateInviteToken(ctx, req.(*InviteTokenRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3422,14 +3422,14 @@ func _Waypoint_GenerateLoginToken_Handler(srv interface{}, ctx context.Context, 
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).GenerateLoginToken(ctx, in)
+		return srv.(DerrickServer).GenerateLoginToken(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/GenerateLoginToken",
+		FullMethod: "/nomatron.derrick.Waypoint/GenerateLoginToken",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).GenerateLoginToken(ctx, req.(*LoginTokenRequest))
+		return srv.(DerrickServer).GenerateLoginToken(ctx, req.(*LoginTokenRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3440,14 +3440,14 @@ func _Waypoint_GenerateRunnerToken_Handler(srv interface{}, ctx context.Context,
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).GenerateRunnerToken(ctx, in)
+		return srv.(DerrickServer).GenerateRunnerToken(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/GenerateRunnerToken",
+		FullMethod: "/nomatron.derrick.Waypoint/GenerateRunnerToken",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).GenerateRunnerToken(ctx, req.(*GenerateRunnerTokenRequest))
+		return srv.(DerrickServer).GenerateRunnerToken(ctx, req.(*GenerateRunnerTokenRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3458,14 +3458,14 @@ func _Waypoint_ConvertInviteToken_Handler(srv interface{}, ctx context.Context, 
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).ConvertInviteToken(ctx, in)
+		return srv.(DerrickServer).ConvertInviteToken(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/ConvertInviteToken",
+		FullMethod: "/nomatron.derrick.Waypoint/ConvertInviteToken",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).ConvertInviteToken(ctx, req.(*ConvertInviteTokenRequest))
+		return srv.(DerrickServer).ConvertInviteToken(ctx, req.(*ConvertInviteTokenRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3476,20 +3476,20 @@ func _Waypoint_RunnerToken_Handler(srv interface{}, ctx context.Context, dec fun
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).RunnerToken(ctx, in)
+		return srv.(DerrickServer).RunnerToken(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/RunnerToken",
+		FullMethod: "/nomatron.derrick.Waypoint/RunnerToken",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).RunnerToken(ctx, req.(*RunnerTokenRequest))
+		return srv.(DerrickServer).RunnerToken(ctx, req.(*RunnerTokenRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _Waypoint_RunnerConfig_Handler(srv interface{}, stream grpc.ServerStream) error {
-	return srv.(WaypointServer).RunnerConfig(&waypointRunnerConfigServer{stream})
+	return srv.(DerrickServer).RunnerConfig(&waypointRunnerConfigServer{stream})
 }
 
 type Waypoint_RunnerConfigServer interface {
@@ -3515,7 +3515,7 @@ func (x *waypointRunnerConfigServer) Recv() (*RunnerConfigRequest, error) {
 }
 
 func _Waypoint_RunnerJobStream_Handler(srv interface{}, stream grpc.ServerStream) error {
-	return srv.(WaypointServer).RunnerJobStream(&waypointRunnerJobStreamServer{stream})
+	return srv.(DerrickServer).RunnerJobStream(&waypointRunnerJobStreamServer{stream})
 }
 
 type Waypoint_RunnerJobStreamServer interface {
@@ -3546,14 +3546,14 @@ func _Waypoint_RunnerGetDeploymentConfig_Handler(srv interface{}, ctx context.Co
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).RunnerGetDeploymentConfig(ctx, in)
+		return srv.(DerrickServer).RunnerGetDeploymentConfig(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/RunnerGetDeploymentConfig",
+		FullMethod: "/nomatron.derrick.Waypoint/RunnerGetDeploymentConfig",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).RunnerGetDeploymentConfig(ctx, req.(*RunnerGetDeploymentConfigRequest))
+		return srv.(DerrickServer).RunnerGetDeploymentConfig(ctx, req.(*RunnerGetDeploymentConfigRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3563,7 +3563,7 @@ func _Waypoint_EntrypointConfig_Handler(srv interface{}, stream grpc.ServerStrea
 	if err := stream.RecvMsg(m); err != nil {
 		return err
 	}
-	return srv.(WaypointServer).EntrypointConfig(m, &waypointEntrypointConfigServer{stream})
+	return srv.(DerrickServer).EntrypointConfig(m, &waypointEntrypointConfigServer{stream})
 }
 
 type Waypoint_EntrypointConfigServer interface {
@@ -3580,7 +3580,7 @@ func (x *waypointEntrypointConfigServer) Send(m *EntrypointConfigResponse) error
 }
 
 func _Waypoint_EntrypointLogStream_Handler(srv interface{}, stream grpc.ServerStream) error {
-	return srv.(WaypointServer).EntrypointLogStream(&waypointEntrypointLogStreamServer{stream})
+	return srv.(DerrickServer).EntrypointLogStream(&waypointEntrypointLogStreamServer{stream})
 }
 
 type Waypoint_EntrypointLogStreamServer interface {
@@ -3606,7 +3606,7 @@ func (x *waypointEntrypointLogStreamServer) Recv() (*EntrypointLogBatch, error) 
 }
 
 func _Waypoint_EntrypointExecStream_Handler(srv interface{}, stream grpc.ServerStream) error {
-	return srv.(WaypointServer).EntrypointExecStream(&waypointEntrypointExecStreamServer{stream})
+	return srv.(DerrickServer).EntrypointExecStream(&waypointEntrypointExecStreamServer{stream})
 }
 
 type Waypoint_EntrypointExecStreamServer interface {
@@ -3631,20 +3631,20 @@ func (x *waypointEntrypointExecStreamServer) Recv() (*EntrypointExecRequest, err
 	return m, nil
 }
 
-func _Waypoint_WaypointHclFmt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WaypointHclFmtRequest)
+func _Waypoint_DerrickHclFmt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DerrickHclFmtRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).WaypointHclFmt(ctx, in)
+		return srv.(DerrickServer).DerrickHclFmt(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/WaypointHclFmt",
+		FullMethod: "/nomatron.derrick.Waypoint/DerrickHclFmt",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).WaypointHclFmt(ctx, req.(*WaypointHclFmtRequest))
+		return srv.(DerrickServer).DerrickHclFmt(ctx, req.(*DerrickHclFmtRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3655,14 +3655,14 @@ func _Waypoint_UpsertOnDemandRunnerConfig_Handler(srv interface{}, ctx context.C
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).UpsertOnDemandRunnerConfig(ctx, in)
+		return srv.(DerrickServer).UpsertOnDemandRunnerConfig(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/UpsertOnDemandRunnerConfig",
+		FullMethod: "/nomatron.derrick.Waypoint/UpsertOnDemandRunnerConfig",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).UpsertOnDemandRunnerConfig(ctx, req.(*UpsertOnDemandRunnerConfigRequest))
+		return srv.(DerrickServer).UpsertOnDemandRunnerConfig(ctx, req.(*UpsertOnDemandRunnerConfigRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3673,14 +3673,14 @@ func _Waypoint_GetOnDemandRunnerConfig_Handler(srv interface{}, ctx context.Cont
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).GetOnDemandRunnerConfig(ctx, in)
+		return srv.(DerrickServer).GetOnDemandRunnerConfig(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/GetOnDemandRunnerConfig",
+		FullMethod: "/nomatron.derrick.Waypoint/GetOnDemandRunnerConfig",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).GetOnDemandRunnerConfig(ctx, req.(*GetOnDemandRunnerConfigRequest))
+		return srv.(DerrickServer).GetOnDemandRunnerConfig(ctx, req.(*GetOnDemandRunnerConfigRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3691,14 +3691,14 @@ func _Waypoint_GetDefaultOnDemandRunnerConfig_Handler(srv interface{}, ctx conte
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).GetDefaultOnDemandRunnerConfig(ctx, in)
+		return srv.(DerrickServer).GetDefaultOnDemandRunnerConfig(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/GetDefaultOnDemandRunnerConfig",
+		FullMethod: "/nomatron.derrick.Waypoint/GetDefaultOnDemandRunnerConfig",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).GetDefaultOnDemandRunnerConfig(ctx, req.(*emptypb.Empty))
+		return srv.(DerrickServer).GetDefaultOnDemandRunnerConfig(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3709,14 +3709,14 @@ func _Waypoint_DeleteOnDemandRunnerConfig_Handler(srv interface{}, ctx context.C
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).DeleteOnDemandRunnerConfig(ctx, in)
+		return srv.(DerrickServer).DeleteOnDemandRunnerConfig(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/DeleteOnDemandRunnerConfig",
+		FullMethod: "/nomatron.derrick.Waypoint/DeleteOnDemandRunnerConfig",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).DeleteOnDemandRunnerConfig(ctx, req.(*DeleteOnDemandRunnerConfigRequest))
+		return srv.(DerrickServer).DeleteOnDemandRunnerConfig(ctx, req.(*DeleteOnDemandRunnerConfigRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3727,14 +3727,14 @@ func _Waypoint_ListOnDemandRunnerConfigs_Handler(srv interface{}, ctx context.Co
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).ListOnDemandRunnerConfigs(ctx, in)
+		return srv.(DerrickServer).ListOnDemandRunnerConfigs(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/ListOnDemandRunnerConfigs",
+		FullMethod: "/nomatron.derrick.Waypoint/ListOnDemandRunnerConfigs",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).ListOnDemandRunnerConfigs(ctx, req.(*emptypb.Empty))
+		return srv.(DerrickServer).ListOnDemandRunnerConfigs(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3745,14 +3745,14 @@ func _Waypoint_UpsertBuild_Handler(srv interface{}, ctx context.Context, dec fun
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).UpsertBuild(ctx, in)
+		return srv.(DerrickServer).UpsertBuild(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/UpsertBuild",
+		FullMethod: "/nomatron.derrick.Waypoint/UpsertBuild",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).UpsertBuild(ctx, req.(*UpsertBuildRequest))
+		return srv.(DerrickServer).UpsertBuild(ctx, req.(*UpsertBuildRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3763,14 +3763,14 @@ func _Waypoint_UpsertPushedArtifact_Handler(srv interface{}, ctx context.Context
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).UpsertPushedArtifact(ctx, in)
+		return srv.(DerrickServer).UpsertPushedArtifact(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/UpsertPushedArtifact",
+		FullMethod: "/nomatron.derrick.Waypoint/UpsertPushedArtifact",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).UpsertPushedArtifact(ctx, req.(*UpsertPushedArtifactRequest))
+		return srv.(DerrickServer).UpsertPushedArtifact(ctx, req.(*UpsertPushedArtifactRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3781,14 +3781,14 @@ func _Waypoint_UpsertDeployment_Handler(srv interface{}, ctx context.Context, de
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).UpsertDeployment(ctx, in)
+		return srv.(DerrickServer).UpsertDeployment(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/UpsertDeployment",
+		FullMethod: "/nomatron.derrick.Waypoint/UpsertDeployment",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).UpsertDeployment(ctx, req.(*UpsertDeploymentRequest))
+		return srv.(DerrickServer).UpsertDeployment(ctx, req.(*UpsertDeploymentRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3799,14 +3799,14 @@ func _Waypoint_UpsertRelease_Handler(srv interface{}, ctx context.Context, dec f
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).UpsertRelease(ctx, in)
+		return srv.(DerrickServer).UpsertRelease(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/UpsertRelease",
+		FullMethod: "/nomatron.derrick.Waypoint/UpsertRelease",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).UpsertRelease(ctx, req.(*UpsertReleaseRequest))
+		return srv.(DerrickServer).UpsertRelease(ctx, req.(*UpsertReleaseRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3817,14 +3817,14 @@ func _Waypoint_UpsertStatusReport_Handler(srv interface{}, ctx context.Context, 
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).UpsertStatusReport(ctx, in)
+		return srv.(DerrickServer).UpsertStatusReport(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/UpsertStatusReport",
+		FullMethod: "/nomatron.derrick.Waypoint/UpsertStatusReport",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).UpsertStatusReport(ctx, req.(*UpsertStatusReportRequest))
+		return srv.(DerrickServer).UpsertStatusReport(ctx, req.(*UpsertStatusReportRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3835,14 +3835,14 @@ func _Waypoint_GetTask_Handler(srv interface{}, ctx context.Context, dec func(in
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).GetTask(ctx, in)
+		return srv.(DerrickServer).GetTask(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/GetTask",
+		FullMethod: "/nomatron.derrick.Waypoint/GetTask",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).GetTask(ctx, req.(*GetTaskRequest))
+		return srv.(DerrickServer).GetTask(ctx, req.(*GetTaskRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3853,14 +3853,14 @@ func _Waypoint_ListTask_Handler(srv interface{}, ctx context.Context, dec func(i
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).ListTask(ctx, in)
+		return srv.(DerrickServer).ListTask(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/ListTask",
+		FullMethod: "/nomatron.derrick.Waypoint/ListTask",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).ListTask(ctx, req.(*ListTaskRequest))
+		return srv.(DerrickServer).ListTask(ctx, req.(*ListTaskRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3871,14 +3871,14 @@ func _Waypoint_CancelTask_Handler(srv interface{}, ctx context.Context, dec func
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).CancelTask(ctx, in)
+		return srv.(DerrickServer).CancelTask(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/CancelTask",
+		FullMethod: "/nomatron.derrick.Waypoint/CancelTask",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).CancelTask(ctx, req.(*CancelTaskRequest))
+		return srv.(DerrickServer).CancelTask(ctx, req.(*CancelTaskRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3889,14 +3889,14 @@ func _Waypoint_UpsertTrigger_Handler(srv interface{}, ctx context.Context, dec f
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).UpsertTrigger(ctx, in)
+		return srv.(DerrickServer).UpsertTrigger(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/UpsertTrigger",
+		FullMethod: "/nomatron.derrick.Waypoint/UpsertTrigger",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).UpsertTrigger(ctx, req.(*UpsertTriggerRequest))
+		return srv.(DerrickServer).UpsertTrigger(ctx, req.(*UpsertTriggerRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3907,14 +3907,14 @@ func _Waypoint_GetTrigger_Handler(srv interface{}, ctx context.Context, dec func
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).GetTrigger(ctx, in)
+		return srv.(DerrickServer).GetTrigger(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/GetTrigger",
+		FullMethod: "/nomatron.derrick.Waypoint/GetTrigger",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).GetTrigger(ctx, req.(*GetTriggerRequest))
+		return srv.(DerrickServer).GetTrigger(ctx, req.(*GetTriggerRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3925,14 +3925,14 @@ func _Waypoint_DeleteTrigger_Handler(srv interface{}, ctx context.Context, dec f
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).DeleteTrigger(ctx, in)
+		return srv.(DerrickServer).DeleteTrigger(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/DeleteTrigger",
+		FullMethod: "/nomatron.derrick.Waypoint/DeleteTrigger",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).DeleteTrigger(ctx, req.(*DeleteTriggerRequest))
+		return srv.(DerrickServer).DeleteTrigger(ctx, req.(*DeleteTriggerRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3943,14 +3943,14 @@ func _Waypoint_ListTriggers_Handler(srv interface{}, ctx context.Context, dec fu
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).ListTriggers(ctx, in)
+		return srv.(DerrickServer).ListTriggers(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/ListTriggers",
+		FullMethod: "/nomatron.derrick.Waypoint/ListTriggers",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).ListTriggers(ctx, req.(*ListTriggerRequest))
+		return srv.(DerrickServer).ListTriggers(ctx, req.(*ListTriggerRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3961,14 +3961,14 @@ func _Waypoint_RunTrigger_Handler(srv interface{}, ctx context.Context, dec func
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).RunTrigger(ctx, in)
+		return srv.(DerrickServer).RunTrigger(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/RunTrigger",
+		FullMethod: "/nomatron.derrick.Waypoint/RunTrigger",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).RunTrigger(ctx, req.(*RunTriggerRequest))
+		return srv.(DerrickServer).RunTrigger(ctx, req.(*RunTriggerRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3979,14 +3979,14 @@ func _Waypoint_UpsertPipeline_Handler(srv interface{}, ctx context.Context, dec 
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).UpsertPipeline(ctx, in)
+		return srv.(DerrickServer).UpsertPipeline(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/UpsertPipeline",
+		FullMethod: "/nomatron.derrick.Waypoint/UpsertPipeline",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).UpsertPipeline(ctx, req.(*UpsertPipelineRequest))
+		return srv.(DerrickServer).UpsertPipeline(ctx, req.(*UpsertPipelineRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3997,14 +3997,14 @@ func _Waypoint_RunPipeline_Handler(srv interface{}, ctx context.Context, dec fun
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).RunPipeline(ctx, in)
+		return srv.(DerrickServer).RunPipeline(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/RunPipeline",
+		FullMethod: "/nomatron.derrick.Waypoint/RunPipeline",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).RunPipeline(ctx, req.(*RunPipelineRequest))
+		return srv.(DerrickServer).RunPipeline(ctx, req.(*RunPipelineRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4015,14 +4015,14 @@ func _Waypoint_GetPipeline_Handler(srv interface{}, ctx context.Context, dec fun
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).GetPipeline(ctx, in)
+		return srv.(DerrickServer).GetPipeline(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/GetPipeline",
+		FullMethod: "/nomatron.derrick.Waypoint/GetPipeline",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).GetPipeline(ctx, req.(*GetPipelineRequest))
+		return srv.(DerrickServer).GetPipeline(ctx, req.(*GetPipelineRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4033,14 +4033,14 @@ func _Waypoint_GetPipelineRun_Handler(srv interface{}, ctx context.Context, dec 
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).GetPipelineRun(ctx, in)
+		return srv.(DerrickServer).GetPipelineRun(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/GetPipelineRun",
+		FullMethod: "/nomatron.derrick.Waypoint/GetPipelineRun",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).GetPipelineRun(ctx, req.(*GetPipelineRunRequest))
+		return srv.(DerrickServer).GetPipelineRun(ctx, req.(*GetPipelineRunRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4051,14 +4051,14 @@ func _Waypoint_GetLatestPipelineRun_Handler(srv interface{}, ctx context.Context
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).GetLatestPipelineRun(ctx, in)
+		return srv.(DerrickServer).GetLatestPipelineRun(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/GetLatestPipelineRun",
+		FullMethod: "/nomatron.derrick.Waypoint/GetLatestPipelineRun",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).GetLatestPipelineRun(ctx, req.(*GetPipelineRequest))
+		return srv.(DerrickServer).GetLatestPipelineRun(ctx, req.(*GetPipelineRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4069,14 +4069,14 @@ func _Waypoint_ListPipelines_Handler(srv interface{}, ctx context.Context, dec f
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).ListPipelines(ctx, in)
+		return srv.(DerrickServer).ListPipelines(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/ListPipelines",
+		FullMethod: "/nomatron.derrick.Waypoint/ListPipelines",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).ListPipelines(ctx, req.(*ListPipelinesRequest))
+		return srv.(DerrickServer).ListPipelines(ctx, req.(*ListPipelinesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4087,14 +4087,14 @@ func _Waypoint_ListPipelineRuns_Handler(srv interface{}, ctx context.Context, de
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).ListPipelineRuns(ctx, in)
+		return srv.(DerrickServer).ListPipelineRuns(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/ListPipelineRuns",
+		FullMethod: "/nomatron.derrick.Waypoint/ListPipelineRuns",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).ListPipelineRuns(ctx, req.(*ListPipelineRunsRequest))
+		return srv.(DerrickServer).ListPipelineRuns(ctx, req.(*ListPipelineRunsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4105,14 +4105,14 @@ func _Waypoint_ConfigSyncPipeline_Handler(srv interface{}, ctx context.Context, 
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).ConfigSyncPipeline(ctx, in)
+		return srv.(DerrickServer).ConfigSyncPipeline(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/ConfigSyncPipeline",
+		FullMethod: "/nomatron.derrick.Waypoint/ConfigSyncPipeline",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).ConfigSyncPipeline(ctx, req.(*ConfigSyncPipelineRequest))
+		return srv.(DerrickServer).ConfigSyncPipeline(ctx, req.(*ConfigSyncPipelineRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4123,14 +4123,14 @@ func _Waypoint_UI_ListProjects_Handler(srv interface{}, ctx context.Context, dec
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).UI_ListProjects(ctx, in)
+		return srv.(DerrickServer).UI_ListProjects(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/UI_ListProjects",
+		FullMethod: "/nomatron.derrick.Waypoint/UI_ListProjects",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).UI_ListProjects(ctx, req.(*UI_ListProjectsRequest))
+		return srv.(DerrickServer).UI_ListProjects(ctx, req.(*UI_ListProjectsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4141,14 +4141,14 @@ func _Waypoint_UI_GetProject_Handler(srv interface{}, ctx context.Context, dec f
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).UI_GetProject(ctx, in)
+		return srv.(DerrickServer).UI_GetProject(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/UI_GetProject",
+		FullMethod: "/nomatron.derrick.Waypoint/UI_GetProject",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).UI_GetProject(ctx, req.(*UI_GetProjectRequest))
+		return srv.(DerrickServer).UI_GetProject(ctx, req.(*UI_GetProjectRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4159,14 +4159,14 @@ func _Waypoint_UI_ListDeployments_Handler(srv interface{}, ctx context.Context, 
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).UI_ListDeployments(ctx, in)
+		return srv.(DerrickServer).UI_ListDeployments(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/UI_ListDeployments",
+		FullMethod: "/nomatron.derrick.Waypoint/UI_ListDeployments",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).UI_ListDeployments(ctx, req.(*UI_ListDeploymentsRequest))
+		return srv.(DerrickServer).UI_ListDeployments(ctx, req.(*UI_ListDeploymentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4177,14 +4177,14 @@ func _Waypoint_UI_GetDeployment_Handler(srv interface{}, ctx context.Context, de
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).UI_GetDeployment(ctx, in)
+		return srv.(DerrickServer).UI_GetDeployment(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/UI_GetDeployment",
+		FullMethod: "/nomatron.derrick.Waypoint/UI_GetDeployment",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).UI_GetDeployment(ctx, req.(*UI_GetDeploymentRequest))
+		return srv.(DerrickServer).UI_GetDeployment(ctx, req.(*UI_GetDeploymentRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4195,14 +4195,14 @@ func _Waypoint_UI_ListReleases_Handler(srv interface{}, ctx context.Context, dec
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WaypointServer).UI_ListReleases(ctx, in)
+		return srv.(DerrickServer).UI_ListReleases(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hashicorp.waypoint.Waypoint/UI_ListReleases",
+		FullMethod: "/nomatron.derrick.Waypoint/UI_ListReleases",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WaypointServer).UI_ListReleases(ctx, req.(*UI_ListReleasesRequest))
+		return srv.(DerrickServer).UI_ListReleases(ctx, req.(*UI_ListReleasesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4211,8 +4211,8 @@ func _Waypoint_UI_ListReleases_Handler(srv interface{}, ctx context.Context, dec
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var Waypoint_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "hashicorp.waypoint.Waypoint",
-	HandlerType: (*WaypointServer)(nil),
+	ServiceName: "nomatron.derrick.Waypoint",
+	HandlerType: (*DerrickServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "GetVersionInfo",
@@ -4479,8 +4479,8 @@ var Waypoint_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _Waypoint_RunnerGetDeploymentConfig_Handler,
 		},
 		{
-			MethodName: "WaypointHclFmt",
-			Handler:    _Waypoint_WaypointHclFmt_Handler,
+			MethodName: "DerrickHclFmt",
+			Handler:    _Waypoint_DerrickHclFmt_Handler,
 		},
 		{
 			MethodName: "UpsertOnDemandRunnerConfig",

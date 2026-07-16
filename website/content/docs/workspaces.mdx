@@ -19,7 +19,7 @@ is hopefully apparent how workspaces can be used to model environments.
 ## Using Workspaces
 
 By default, all operations are performed in the "default" workspace. By
-specifying the `-workspace` flag to any operation, Waypoint will operate
+specifying the `-workspace` flag to any operation, Derrick will operate
 in a different workspace but on the same underlying infrastructure (by
 default).
 Workspaces are created on-demand. By using the `-workspace` flag with
@@ -33,10 +33,10 @@ If the URL service is enabled, the application URL is generated per workspace.
 
 ## Deleting Workspaces
 
-`waypoint destroy` will destroy all resources within the current workspace.
+`derrick destroy` will destroy all resources within the current workspace.
 Note that "destroy" behavior is dependent on plugins. In most cases, releases
 and deployments are deleted but builds and artifacts are retained and must
-be deleted outside of Waypoint if desired.
+be deleted outside of Derrick if desired.
 
 You may delete the "default" workspace, but it will be recreated on the next
 operation that doesn't specify a workspace. There is no way to change the

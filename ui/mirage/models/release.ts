@@ -1,5 +1,5 @@
 import { Model, belongsTo } from 'ember-cli-mirage';
-import { Release, Operation } from 'waypoint-pb';
+import { Release, Operation } from 'derrick-pb';
 
 const { PhysicalState } = Operation;
 type StateName = keyof typeof PhysicalState;

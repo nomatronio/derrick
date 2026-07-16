@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointGetJobStreamResponseComplete hashicorp waypoint get job stream response complete
 //
-// swagger:model hashicorp.waypoint.GetJobStreamResponse.Complete
+// swagger:model nomatron.derrick.GetJobStreamResponse.Complete
 type HashicorpWaypointGetJobStreamResponseComplete struct {
 
 	// error, if set, is an error that occurred as part of the job execution

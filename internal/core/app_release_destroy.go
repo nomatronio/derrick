@@ -14,11 +14,11 @@ import (
 	"google.golang.org/grpc/status"
 	"google.golang.org/protobuf/proto"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/component"
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/config"
-	"github.com/hashicorp/waypoint/internal/plugin"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/component"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/config"
+	"github.com/nomatronio/derrick/internal/plugin"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 // CanDestroyRelease returns true if this app supports destroying releases.
@@ -223,7 +223,7 @@ func (op *releaseDestroyOperation) Labels(app *App) map[string]string {
 
 func (op *releaseDestroyOperation) Upsert(
 	ctx context.Context,
-	client pb.WaypointClient,
+	client pb.DerrickClient,
 	msg proto.Message,
 ) (proto.Message, error) {
 	d := msg.(*pb.Release)

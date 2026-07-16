@@ -11,11 +11,11 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	clientpkg "github.com/hashicorp/waypoint/internal/client"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	clientpkg "github.com/nomatronio/derrick/internal/client"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 type ReleaseCreateCommand struct {
@@ -259,7 +259,7 @@ func (c *ReleaseCreateCommand) Synopsis() string {
 
 func (c *ReleaseCreateCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint release [options]
+Usage: derrick release [options]
 
   Open a deployment to traffic.
 
@@ -275,7 +275,7 @@ Deployment %s marked as released.
 
 No release manager was configured and the configured platform doesn't
 natively support releases. This means that releasing doesn't generate any
-public URL. Waypoint marked the deployment above as "released" for server
+public URL. Derrick marked the deployment above as "released" for server
 history and to prevent commands such as "waypoint destroy" from deleting
 the deployment by default.
 `

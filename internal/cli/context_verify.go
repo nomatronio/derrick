@@ -3,12 +3,12 @@ package cli
 import (
 	"github.com/posener/complete"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	clientpkg "github.com/hashicorp/waypoint/internal/client"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	"github.com/hashicorp/waypoint/pkg/serverclient"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	clientpkg "github.com/nomatronio/derrick/internal/client"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	"github.com/nomatronio/derrick/pkg/serverclient"
 )
 
 type ContextVerifyCommand struct {
@@ -82,7 +82,7 @@ func (c *ContextVerifyCommand) Run(args []string) int {
 
 	step.Update("Verifying connection is valid for context %q...", name)
 
-	client := pb.NewWaypointClient(conn)
+	client := pb.NewDerrickClient(conn)
 	if _, err := clientpkg.New(ctx,
 		clientpkg.WithLogger(c.Log),
 		clientpkg.WithClient(client),
@@ -120,7 +120,7 @@ func (c *ContextVerifyCommand) Synopsis() string {
 
 func (c *ContextVerifyCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint context verify [options] [NAME]
+Usage: derrick context verify [options] [NAME]
 
   Verify the connection information for a context is valid.
 

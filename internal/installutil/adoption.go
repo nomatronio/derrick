@@ -6,12 +6,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
-func AdoptRunner(ctx context.Context, ui terminal.UI, client pb.WaypointClient, id string, addr string) error {
+func AdoptRunner(ctx context.Context, ui terminal.UI, client pb.DerrickClient, id string, addr string) error {
 	sg := ui.StepGroup()
 	defer sg.Wait()
 

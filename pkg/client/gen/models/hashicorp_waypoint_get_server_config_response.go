@@ -15,11 +15,11 @@ import (
 
 // HashicorpWaypointGetServerConfigResponse hashicorp waypoint get server config response
 //
-// swagger:model hashicorp.waypoint.GetServerConfigResponse
+// swagger:model nomatron.derrick.GetServerConfigResponse
 type HashicorpWaypointGetServerConfigResponse struct {
 
 	// config
-	Config *HashicorpWaypointServerConfig `json:"config,omitempty"`
+	Config *HashicorpDerrickServerConfig `json:"config,omitempty"`
 }
 
 // Validate validates this hashicorp waypoint get server config response

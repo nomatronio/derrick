@@ -5,9 +5,9 @@ import (
 	"strings"
 
 	"github.com/dustin/go-humanize"
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
 	"github.com/posener/complete"
 )
 
@@ -108,9 +108,9 @@ func (c *WorkspaceInspectCommand) Synopsis() string {
 
 func (c *WorkspaceInspectCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint workspace inspect [<name>]
+Usage: derrick workspace inspect [<name>]
 
-  Output information about a Waypoint workspace, including all projects and
+  Output information about a Derrick workspace, including all projects and
   last known activity timestamp
 
 ` + c.Flags().Help())

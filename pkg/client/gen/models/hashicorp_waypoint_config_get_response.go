@@ -16,7 +16,7 @@ import (
 
 // HashicorpWaypointConfigGetResponse hashicorp waypoint config get response
 //
-// swagger:model hashicorp.waypoint.ConfigGetResponse
+// swagger:model nomatron.derrick.ConfigGetResponse
 type HashicorpWaypointConfigGetResponse struct {
 
 	// variables

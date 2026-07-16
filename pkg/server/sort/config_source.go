@@ -1,7 +1,7 @@
 package sort
 
 import (
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 	"reflect"
 	"sort"
 )

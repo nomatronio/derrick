@@ -51,7 +51,7 @@ export default Factory.extend({
             name: 'wp-matrix-v1',
             'pod-template-hash': 'cf9f9fb8f',
             version: '01FGBX52AM9FTDR5ZTSSBCHF6Q',
-            'waypoint.hashicorp.com/id': '01FGBX52AM9FTDR5ZTSSBCHF6Q',
+            'derrick.hashicorp.com/id': '01FGBX52AM9FTDR5ZTSSBCHF6Q',
           },
         },
         spec: {
@@ -94,7 +94,7 @@ export default Factory.extend({
           ports: [{ protocol: 'TCP', port: 80, targetPort: 'http' }],
           selector: {
             name: 'web-v2',
-            'waypoint.hashicorp.com/id': '01FGW6JS8XWG4G66YD8RH75BNM',
+            'derrick.hashicorp.com/id': '01FGW6JS8XWG4G66YD8RH75BNM',
           },
           clusterIP: '10.104.177.149',
           clusterIPs: ['10.104.177.149'],

@@ -232,13 +232,13 @@ export default Factory.extend({
         application,
         sequence: 1,
         statusReport: server.create('status-report', 'ready', { application }),
-        deployUrl: `https://instantly-worthy-shrew--v1.waypoint.run`,
+        deployUrl: `https://instantly-worthy-shrew--v1.derrick.run`,
       });
       server.create('deployment', 'docker', 'seconds-old-success', {
         application,
         sequence: 2,
         statusReport: server.create('status-report', 'ready', { application }),
-        deployUrl: `https://instantly-worthy-shrew--v2.waypoint.run`,
+        deployUrl: `https://instantly-worthy-shrew--v2.derrick.run`,
       });
 
       server.create('release', 'docker', 'minutes-old-success', {

@@ -29,13 +29,13 @@ func TestCliE2E(t *testing.T) {
 	}
 	foundWaypointConfig := false
 	for _, file := range projectFiles {
-		if file.Name() == "waypoint.hcl" {
+		if file.Name() == "derrick.hcl" {
 			foundWaypointConfig = true
 			break
 		}
 	}
 	if !foundWaypointConfig {
-		t.Fatalf("No waypoint.hcl file in project template path %s", projectTemplatePath)
+		t.Fatalf("No derrick.hcl file in project template path %s", projectTemplatePath)
 	}
 
 	require := require.New(t)

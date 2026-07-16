@@ -5,9 +5,9 @@ sidebar_title: 'trigger update'
 description: 'Update a registered trigger URL.'
 ---
 
-# Waypoint Trigger update
+# Derrick Trigger update
 
-Command: `waypoint trigger update`
+Command: `derrick trigger update`
 
 Update a registered trigger URL.
 
@@ -15,9 +15,9 @@ Update a registered trigger URL.
 
 ## Usage
 
-Usage: `waypoint trigger update [options]`
+Usage: `derrick trigger update [options]`
 
-Update a trigger URL to Waypoint Server.
+Update a trigger URL to Derrick Server.
 
 If no sequence number is specified, the trigger will use the "latest" sequence
 for the given operation. I.e. if you create a deploy trigger with no specified
@@ -26,7 +26,7 @@ build artifact sequence number, it will use whatever the latest artifact sequenc
 #### Global Options
 
 - `-plain` - Plain output: no colors, no animation. The default is false.
-- `-app=<string>` (`-a`) - App to target. Certain commands require a single app target for Waypoint configurations with multiple apps. If you have a single app, then this can be ignored.
+- `-app=<string>` (`-a`) - App to target. Certain commands require a single app target for Derrick configurations with multiple apps. If you have a single app, then this can be ignored.
 - `-project=<string>` (`-p`) - Project to target.
 - `-workspace=<string>` (`-w`) - Workspace to operate in.
 
@@ -34,7 +34,7 @@ build artifact sequence number, it will use whatever the latest artifact sequenc
 
 - `-label=<key=value>` - Labels to set for this operation. Can be specified multiple times.
 - `-local` - True to use a local runner to execute the operation, false to use a remote runner.
-  If unset, Waypoint will automatically determine where the operation will occur,
+  If unset, Derrick will automatically determine where the operation will occur,
   defaulting to remote if possible.
 - `-remote-source=<key=value>` - Override configurations for how remote runners source data. This is specified to the data source type being used in your configuration. This is used for example to set a specific Git ref to run against.
 - `-var=<key=value>` - Variable value to set for this operation. Can be specified multiple times.

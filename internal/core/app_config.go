@@ -4,10 +4,10 @@ import (
 	"context"
 	"fmt"
 
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
-// ConfigSync writes all the app configuration in the waypoint.hcl file to
+// ConfigSync writes all the app configuration in the derrick.hcl file to
 // the server.
 func (a *App) ConfigSync(ctx context.Context) error {
 	a.logger.Debug("evaluating config vars for syncing")

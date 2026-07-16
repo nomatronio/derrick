@@ -13,16 +13,16 @@ import (
 	"google.golang.org/grpc/status"
 	empty "google.golang.org/protobuf/types/known/emptypb"
 
-	"github.com/hashicorp/waypoint/pkg/inlinekeepalive"
-	"github.com/hashicorp/waypoint/pkg/protocolversion"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	"github.com/hashicorp/waypoint/pkg/tokenutil"
+	"github.com/nomatronio/derrick/pkg/inlinekeepalive"
+	"github.com/nomatronio/derrick/pkg/protocolversion"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	"github.com/nomatronio/derrick/pkg/tokenutil"
 )
 
 // client returns the Waypoint client or blocks until it is set or the
 // ceb is exiting. Once this returns, users should ALWAYS check if an exit
 // condition was triggered to avoid nil panics.
-func (ceb *CEB) waitClient() pb.WaypointClient {
+func (ceb *CEB) waitClient() pb.DerrickClient {
 	ceb.clientMu.Lock()
 	defer ceb.clientMu.Unlock()
 
@@ -151,7 +151,7 @@ func (ceb *CEB) dialServer(ctx context.Context, cfg *config, isRetry bool) error
 	}
 
 	// Init our client
-	client := pb.NewWaypointClient(conn)
+	client := pb.NewDerrickClient(conn)
 
 	authMethod := "token"
 
@@ -194,7 +194,7 @@ func (ceb *CEB) dialServer(ctx context.Context, cfg *config, isRetry bool) error
 			ceb.logger.Warn("failed to connect to server", "err", err)
 			return err
 		}
-		client = pb.NewWaypointClient(conn)
+		client = pb.NewDerrickClient(conn)
 	}
 
 	// Negotiate API version

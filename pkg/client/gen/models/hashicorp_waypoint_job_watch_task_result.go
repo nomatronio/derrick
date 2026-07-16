@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointJobWatchTaskResult hashicorp waypoint job watch task result
 //
-// swagger:model hashicorp.waypoint.Job.WatchTaskResult
+// swagger:model nomatron.derrick.Job.WatchTaskResult
 type HashicorpWaypointJobWatchTaskResult struct {
 
 	// exit code

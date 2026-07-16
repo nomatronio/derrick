@@ -11,13 +11,13 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clicontext"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/clisnapshot"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	"github.com/hashicorp/waypoint/internal/runnerinstall"
-	"github.com/hashicorp/waypoint/internal/serverinstall"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clicontext"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/clisnapshot"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	"github.com/nomatronio/derrick/internal/runnerinstall"
+	"github.com/nomatronio/derrick/internal/serverinstall"
 )
 
 type UninstallCommand struct {
@@ -48,7 +48,7 @@ func (c *UninstallCommand) Run(args []string) int {
 
 	if !c.autoApprove {
 		proceed, err := c.ui.Input(&terminal.Input{
-			Prompt: "Do you really want to uninstall the Waypoint server? Only 'yes' will be accepted to approve: ",
+			Prompt: "Do you really want to uninstall the Derrick server? Only 'yes' will be accepted to approve: ",
 			Style:  "",
 			Secret: false,
 		})
@@ -133,7 +133,7 @@ func (c *UninstallCommand) Run(args []string) int {
 	}
 
 	c.ui.Output(
-		"Uninstalling Waypoint server on platform %q with context %q",
+		"Uninstalling Derrick server on platform %q with context %q",
 		serverPlatform,
 		contextDefault,
 		terminal.WithSuccessStyle(),
@@ -211,7 +211,7 @@ func (c *UninstallCommand) Run(args []string) int {
 					"with runner uninstallation failures by using the -ignore-runner-error. "+
 					"Note that this may leave your runners dangling.\n\n"+
 					"See Troubleshooting docs "+
-					"for guidance on manual uninstall: https://www.waypointproject.io/docs/troubleshooting",
+					"for guidance on manual uninstall: https://www.derrick.dev/docs/troubleshooting",
 				serverPlatform,
 				clierrors.Humanize(err),
 				terminal.WithErrorStyle(),
@@ -233,7 +233,7 @@ func (c *UninstallCommand) Run(args []string) int {
 	if err := p.Uninstall(ctx, installOpts); err != nil {
 		c.ui.Output(
 			"Error uninstalling server from %s: %s\nSee Troubleshooting docs "+
-				"for guidance on manual uninstall: https://www.waypointproject.io/docs/troubleshooting",
+				"for guidance on manual uninstall: https://www.derrick.dev/docs/troubleshooting",
 			serverPlatform,
 			clierrors.Humanize(err),
 			terminal.WithErrorStyle(),
@@ -250,7 +250,7 @@ func (c *UninstallCommand) Run(args []string) int {
 		}
 	}
 
-	c.ui.Output("\nWaypoint server successfully uninstalled for %s platform", serverPlatform, terminal.WithSuccessStyle())
+	c.ui.Output("\nDerrick server successfully uninstalled for %s platform", serverPlatform, terminal.WithSuccessStyle())
 
 	return 0
 }
@@ -264,16 +264,16 @@ func (c *UninstallCommand) AutocompleteFlags() complete.Flags {
 }
 
 func (c *UninstallCommand) Synopsis() string {
-	return "Uninstall the Waypoint server"
+	return "Uninstall the Derrick server"
 }
 
 func (c *UninstallCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint server uninstall [options]
+Usage: derrick server uninstall [options]
 
-  Uninstall the Waypoint server. This command is not intended to uninstall a
+  Uninstall the Derrick server. This command is not intended to uninstall a
   server that was manually run with the 'waypoint server run' CLI, but with
-  a Waypoint server that was installed via 'waypoint server install'.
+  a Derrick server that was installed via 'waypoint server install'.
 
   The platform can be specified as kubernetes, nomad, ecs, or docker. If not
   specified, the CLI command will attempt to retrieve the platform defined in
@@ -282,7 +282,7 @@ Usage: waypoint server uninstall [options]
   By default, this command deletes the default server's context and creates 
   a server snapshot.
 
-  This command does not destroy Waypoint resources, such as deployments and
+  This command does not destroy Derrick resources, such as deployments and
   releases. Clear all workspaces prior to uninstall to prevent hanging resources.
 
   If a runner was installed via "waypoint install", the runner will also be
@@ -313,7 +313,7 @@ func (c *UninstallCommand) Flags() *flag.Sets {
 			Name:    "platform",
 			Target:  &c.platform,
 			Default: "",
-			Usage:   "Platform to uninstall the Waypoint server from.",
+			Usage:   "Platform to uninstall the Derrick server from.",
 		})
 
 		f.StringVar(&flag.StringVar{
@@ -328,7 +328,7 @@ func (c *UninstallCommand) Flags() *flag.Sets {
 			Name:    "snapshot",
 			Target:  &c.flagSnapshot,
 			Default: true,
-			Usage:   "Enable or disable taking a snapshot of Waypoint server prior to uninstall.",
+			Usage:   "Enable or disable taking a snapshot of Derrick server prior to uninstall.",
 		})
 
 		f.BoolVar(&flag.BoolVar{
@@ -360,6 +360,6 @@ func (c *UninstallCommand) Flags() *flag.Sets {
 
 var (
 	uninstallApproveMsg = strings.TrimSpace(`
-Uninstalling Waypoint server requires approval.
+Uninstalling Derrick server requires approval.
 `)
 )

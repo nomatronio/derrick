@@ -7,9 +7,9 @@ import (
 
 	"github.com/posener/complete"
 
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	"github.com/hashicorp/waypoint/internal/version"
-	"github.com/hashicorp/waypoint/pkg/serverclient"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	"github.com/nomatronio/derrick/internal/version"
+	"github.com/nomatronio/derrick/pkg/serverclient"
 )
 
 type VersionCommand struct {
@@ -64,17 +64,17 @@ func (c *VersionCommand) AutocompleteFlags() complete.Flags {
 }
 
 func (c *VersionCommand) Synopsis() string {
-	return "Prints the version of this Waypoint CLI"
+	return "Prints the version of this Derrick CLI"
 }
 
 func (c *VersionCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint version
+Usage: derrick version
 
   Prints the version information for Waypoint.
 
-  This command will show the version of the current Waypoint CLI. If
-  the CLI is configured to communicate to a Waypoint server, the server
+  This command will show the version of the current Derrick CLI. If
+  the CLI is configured to communicate to a Derrick server, the server
   version will also be shown.
 
 `)

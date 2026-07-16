@@ -1,4 +1,4 @@
-import { ConfigGetRequest, ConfigGetResponse, ConfigSetRequest, ConfigSetResponse } from 'waypoint-pb';
+import { ConfigGetRequest, ConfigGetResponse, ConfigSetRequest, ConfigSetResponse } from 'derrick-pb';
 import { Request, Response } from 'miragejs';
 import { RouteHandler } from '../types';
 import { decode } from '../helpers/protobufs';
@@ -22,7 +22,7 @@ export function get(this: RouteHandler, schema: any, { requestBody }: Request): 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/no-explicit-any
 export function set(this: RouteHandler, schema: any, { requestBody }: Request): Response {
   // This implementation faithfully recreates the behavior that leads to
-  // https://github.com/hashicorp/waypoint/issues/2339.
+  // https://github.com/nomatronio/derrick/issues/2339.
   // If core changes, we should update this implementation too.
 
   let requestMsg = decode(ConfigSetRequest, requestBody);

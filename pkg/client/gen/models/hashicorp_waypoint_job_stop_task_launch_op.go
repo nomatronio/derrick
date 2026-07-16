@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointJobStopTaskLaunchOp hashicorp waypoint job stop task launch op
 //
-// swagger:model hashicorp.waypoint.Job.StopTaskLaunchOp
+// swagger:model nomatron.derrick.Job.StopTaskLaunchOp
 type HashicorpWaypointJobStopTaskLaunchOp struct {
 
 	// The state can be directly provided.

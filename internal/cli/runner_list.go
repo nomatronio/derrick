@@ -8,10 +8,10 @@ import (
 	"github.com/posener/complete"
 	"google.golang.org/protobuf/encoding/protojson"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 type RunnerListCommand struct {
@@ -145,12 +145,12 @@ func (c *RunnerListCommand) Synopsis() string {
 
 func (c *RunnerListCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint runner list [options]
+Usage: derrick runner list [options]
 
-  List runners that are registered with the Waypoint server.
+  List runners that are registered with the Derrick server.
 
-  This will list all runners that the Waypoint server currently knows
-  about. This list does not guarantee each runner is online; Waypoint currently
+  This will list all runners that the Derrick server currently knows
+  about. This list does not guarantee each runner is online; Derrick currently
   does not expose online/offline status. This lists runners that have registered
   at least once with the server.
 

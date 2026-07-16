@@ -1,13 +1,13 @@
 import Component from '@glimmer/component';
 import { Empty } from 'google-protobuf/google/protobuf/empty_pb';
-import { ExecStreamRequest } from 'waypoint-pb';
-import { ExecWebSocketAddon } from 'waypoint/utils/exec-websocket-addon';
+import { ExecStreamRequest } from 'derrick-pb';
+import { ExecWebSocketAddon } from 'derrick/utils/exec-websocket-addon';
 import SessionService from 'ember-simple-auth/services/session';
 import { Terminal } from 'xterm';
-import { createTerminal } from 'waypoint/utils/create-terminal';
+import { createTerminal } from 'derrick/utils/create-terminal';
 import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
-import config from 'waypoint/config/environment';
+import config from 'derrick/config/environment';
 
 interface ExecComponentArgs {
   deploymentId: string;

@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointUpsertTriggerResponse hashicorp waypoint upsert trigger response
 //
-// swagger:model hashicorp.waypoint.UpsertTriggerResponse
+// swagger:model nomatron.derrick.UpsertTriggerResponse
 type HashicorpWaypointUpsertTriggerResponse struct {
 
 	// The resulting created trigger object after an Upsert.

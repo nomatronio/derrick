@@ -1,28 +1,28 @@
 ---
 layout: docs
-page_title: Integrating Waypoint with Jenkins
+page_title: Integrating Derrick with Jenkins
 description: |-
-  How to utilize Waypoint with Jenkins as the service to run
-  Waypoint to build and deploy applications
+  How to utilize Derrick with Jenkins as the service to run
+  Derrick to build and deploy applications
 ---
 
-# Integrating Waypoint with Jenkins
+# Integrating Derrick with Jenkins
 
-Using Waypoint to deploy an application from within Jenkins
+Using Derrick to deploy an application from within Jenkins
 is similar to how you might deploy an application from your own
 workspace.
 
-Your Jenkins runner must have Waypoint installed to execute it in a step.
-This can be accomplished by installing Waypoint on the runner
-using the standard installation instructions such as from the Waypoint
+Your Jenkins runner must have Derrick installed to execute it in a step.
+This can be accomplished by installing Derrick on the runner
+using the standard installation instructions such as from the Derrick
 `apt` repository. In addition, any dependencies such as authentication details or anything
-else required by Waypoint plugins must be available in the
+else required by Derrick plugins must be available in the
 execution environment.
 
 Note that this example assumes use of
 a [declarative pipeline](https://www.jenkins.io/doc/book/pipeline/syntax/#declarative-pipeline).
 
-~> Note: The Waypoint server authentication variables here are inlined but it is recommended to set the secret
+~> Note: The Derrick server authentication variables here are inlined but it is recommended to set the secret
 environment variables in a secure fashion such as [credentials binding](https://www.jenkins.io/doc/pipeline/steps/credentials-binding/)
 
 ## Workspaces
@@ -33,9 +33,9 @@ want to interpolate the relevant Git ref for the workspace parameter using
 something like the [git parameter](https://plugins.jenkins.io/git-parameter/) plugin, as demonstrated below:
 
 ```groovy
-stage('waypoint build') {
+stage('derrick build') {
     steps {
-        sh 'waypoint build -workspace "${params.BRANCH}"'
+        sh 'derrick build -workspace "${params.BRANCH}"'
     }
 }
 ```
@@ -58,27 +58,27 @@ pipeline {
     }
 
     stages {
-        stage('waypoint init') {
+        stage('derrick init') {
             steps {
-                sh 'waypoint init'
+                sh 'derrick init'
             }
         }
 
-        stage('waypoint build') {
+        stage('derrick build') {
             steps {
-                sh 'waypoint build'
+                sh 'derrick build'
             }
         }
 
-        stage('waypoint deploy') {
+        stage('derrick deploy') {
             steps {
-                sh 'waypoint deploy'
+                sh 'derrick deploy'
             }
         }
 
-        stage('waypoint release') {
+        stage('derrick release') {
             steps {
-                sh 'waypoint release'
+                sh 'derrick release'
             }
         }
     }

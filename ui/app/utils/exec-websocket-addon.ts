@@ -1,10 +1,10 @@
 import * as AnsiColors from 'ansi-colors';
 
-import { ExecStreamRequest, ExecStreamResponse } from 'waypoint-pb';
+import { ExecStreamRequest, ExecStreamResponse } from 'derrick-pb';
 import { IDisposable, Terminal } from 'xterm';
 
 import { AttachAddon } from 'xterm-addon-attach';
-import KEYS from 'waypoint/utils/keys';
+import KEYS from 'derrick/utils/keys';
 import { tracked } from '@glimmer/tracking';
 
 const BACKSPACE_ONE_CHARACTER = '\x08 \x08';
@@ -16,7 +16,7 @@ interface IAttachOptions {
   deploymentId?: string;
 }
 
-type WaypointCloseEvent = CloseEvent & MessageEvent;
+type DerrickCloseEvent = CloseEvent & MessageEvent;
 
 export class ExecWebSocketAddon extends AttachAddon {
   private _socket: WebSocket;
@@ -79,7 +79,7 @@ export class ExecWebSocketAddon extends AttachAddon {
           terminal.writeln(AnsiColors.yellow('Connection closed...'));
         }
       }),
-      addSocketListener(this._socket, 'close', (event: WaypointCloseEvent) => {
+      addSocketListener(this._socket, 'close', (event: DerrickCloseEvent) => {
         let output = event.data;
         if (output) {
           let resp = ExecStreamResponse.deserializeBinary(output);

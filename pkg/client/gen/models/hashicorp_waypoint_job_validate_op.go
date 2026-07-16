@@ -7,5 +7,5 @@ package models
 
 // HashicorpWaypointJobValidateOp ValidateOp validates various aspects of a configuration.
 //
-// swagger:model hashicorp.waypoint.Job.ValidateOp
+// swagger:model nomatron.derrick.Job.ValidateOp
 type HashicorpWaypointJobValidateOp interface{}

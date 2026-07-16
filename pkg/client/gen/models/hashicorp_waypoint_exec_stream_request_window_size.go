@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointExecStreamRequestWindowSize hashicorp waypoint exec stream request window size
 //
-// swagger:model hashicorp.waypoint.ExecStreamRequest.WindowSize
+// swagger:model nomatron.derrick.ExecStreamRequest.WindowSize
 type HashicorpWaypointExecStreamRequestWindowSize struct {
 
 	// cols

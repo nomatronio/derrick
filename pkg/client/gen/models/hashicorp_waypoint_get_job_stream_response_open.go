@@ -7,5 +7,5 @@ package models
 
 // HashicorpWaypointGetJobStreamResponseOpen hashicorp waypoint get job stream response open
 //
-// swagger:model hashicorp.waypoint.GetJobStreamResponse.Open
+// swagger:model nomatron.derrick.GetJobStreamResponse.Open
 type HashicorpWaypointGetJobStreamResponseOpen interface{}

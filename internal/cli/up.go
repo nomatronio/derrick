@@ -9,12 +9,12 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	clientpkg "github.com/hashicorp/waypoint/internal/client"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/config/variables/formatter"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	clientpkg "github.com/nomatronio/derrick/internal/client"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/config/variables/formatter"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 type UpCommand struct {
@@ -43,7 +43,7 @@ func (c *UpCommand) Run(args []string) int {
 			},
 		})
 		if c.legacyRequired(err) {
-			// An older Waypoint server version that doesn't support the
+			// An older Derrick server version that doesn't support the
 			// "up" operation, so fall back.
 			c.Log.Warn("server doesn't support 'up' operation, falling back")
 			return c.legacyUp(ctx, app)
@@ -141,11 +141,11 @@ func (c *UpCommand) Run(args []string) int {
 func (c *UpCommand) legacyRequired(err error) bool {
 	switch status.Code(err) {
 	case codes.Unimplemented:
-		// Waypoint 0.3+ returns this.
+		// Derrick 0.3+ returns this.
 		return true
 
 	case codes.FailedPrecondition:
-		// Waypoint 0.2 the only way we can detect is this error message
+		// Derrick 0.2 the only way we can detect is this error message
 		// since operation will be seen as "nil" to an older server since
 		// it can't understand our newer op type.
 		return err != nil && strings.Contains(strings.ToLower(err.Error()), "operation")
@@ -276,7 +276,7 @@ func (c *UpCommand) Synopsis() string {
 
 func (c *UpCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint up [options]
+Usage: derrick up [options]
 
   Perform the build, deploy, and release steps.
 

@@ -30,7 +30,7 @@ config {
 
 ### Required Parameters
 
-These parameters are used in `dynamic` for sourcing [configuration values](/waypoint/docs/app-config/dynamic) or [input variable values](/waypoint/docs/waypoint-hcl/variables/dynamic).
+These parameters are used in `dynamic` for sourcing [configuration values](/waypoint/docs/app-config/dynamic) or [input variable values](/waypoint/docs/derrick-hcl/variables/dynamic).
 
 #### organization
 
@@ -50,20 +50,20 @@ The outputs associated with the most recent state version for the given workspac
 
 ### Optional Parameters
 
-These parameters are used in `dynamic` for sourcing [configuration values](/waypoint/docs/app-config/dynamic) or [input variable values](/waypoint/docs/waypoint-hcl/variables/dynamic).
+These parameters are used in `dynamic` for sourcing [configuration values](/waypoint/docs/app-config/dynamic) or [input variable values](/waypoint/docs/derrick-hcl/variables/dynamic).
 
 #### output
 
 Optional: The name of the output to read the value of. All outputs if blank.
 
-The name of the output from Terraform Cloud to return. Only strings and objects representable as json (i.e. maps and lists) are currently supported. If unspecified, all outputs from the workspace will be read and returned as a map[string]object, and can be referenced as such in the waypoint.hcl. See https://github.com/hashicorp/waypoint-examples/tree/main/terraform/variables for examples.
+The name of the output from Terraform Cloud to return. Only strings and objects representable as json (i.e. maps and lists) are currently supported. If unspecified, all outputs from the workspace will be read and returned as a map[string]object, and can be referenced as such in the derrick.hcl. See https://github.com/hashicorp/waypoint-examples/tree/main/terraform/variables for examples.
 
 - Type: **string**
 - **Optional**
 
 ### Source Parameters
 
-The parameters below are used with `waypoint config source-set` to configure
+The parameters below are used with `derrick config source-set` to configure
 the behavior this plugin. These are _not_ used in `dynamic` calls. The
 parameters used for `dynamic` are in the previous section.
 

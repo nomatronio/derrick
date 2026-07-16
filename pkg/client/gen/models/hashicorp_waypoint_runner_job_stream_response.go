@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointRunnerJobStreamResponse hashicorp waypoint runner job stream response
 //
-// swagger:model hashicorp.waypoint.RunnerJobStreamResponse
+// swagger:model nomatron.derrick.RunnerJobStreamResponse
 type HashicorpWaypointRunnerJobStreamResponse struct {
 
 	// assignment is when a job is assigned to this job stream. This

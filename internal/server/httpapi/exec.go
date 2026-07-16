@@ -8,10 +8,10 @@ import (
 	"nhooyr.io/websocket"
 	"nhooyr.io/websocket/wspb"
 
-	"github.com/hashicorp/waypoint/internal/clicontext"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	"github.com/hashicorp/waypoint/pkg/serverclient"
-	"github.com/hashicorp/waypoint/pkg/serverconfig"
+	"github.com/nomatronio/derrick/internal/clicontext"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	"github.com/nomatronio/derrick/pkg/serverclient"
+	"github.com/nomatronio/derrick/pkg/serverconfig"
 )
 
 // HandleExec handles the `waypoint exec` websocket API. This works by
@@ -74,7 +74,7 @@ func HandleExec(addr string, tls bool) http.HandlerFunc {
 		defer grpcConn.Close()
 
 		// Our API client
-		client := pb.NewWaypointClient(grpcConn)
+		client := pb.NewDerrickClient(grpcConn)
 
 		// Start our exec stream
 		exec, err := client.StartExecStream(ctx)

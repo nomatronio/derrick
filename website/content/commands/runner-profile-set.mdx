@@ -5,9 +5,9 @@ sidebar_title: 'runner profile set'
 description: 'Create or update a runner profile.'
 ---
 
-# Waypoint Runner profile set
+# Derrick Runner profile set
 
-Command: `waypoint runner profile set`
+Command: `derrick runner profile set`
 
 Create or update a runner profile.
 
@@ -15,21 +15,21 @@ Create or update a runner profile.
 
 ## Usage
 
-Usage: `waypoint runner profile set [OPTIONS] <profile-name>`
+Usage: `derrick runner profile set [OPTIONS] <profile-name>`
 
 Create or update a runner profile.
 
 This will register a new runner profile with the given options. If
 a runner profile with the same id already exists, this will update the
 existing runner profile using the fields that are set.
-Waypoint will use a runner profile to spawn containers for
+Derrick will use a runner profile to spawn containers for
 various kinds of work as needed on the platform requested during any given
 lifecycle operation.
 
 #### Global Options
 
 - `-plain` - Plain output: no colors, no animation. The default is false.
-- `-app=<string>` (`-a`) - App to target. Certain commands require a single app target for Waypoint configurations with multiple apps. If you have a single app, then this can be ignored.
+- `-app=<string>` (`-a`) - App to target. Certain commands require a single app target for Derrick configurations with multiple apps. If you have a single app, then this can be ignored.
 - `-project=<string>` (`-p`) - Project to target.
 - `-workspace=<string>` (`-w`) - Workspace to operate in.
 

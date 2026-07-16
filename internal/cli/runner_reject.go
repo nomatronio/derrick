@@ -3,10 +3,10 @@ package cli
 import (
 	"github.com/posener/complete"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 type RunnerRejectCommand struct {
@@ -66,7 +66,7 @@ func (c *RunnerRejectCommand) Synopsis() string {
 
 func (c *RunnerRejectCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint runner reject [options] ID
+Usage: derrick runner reject [options] ID
 
   Reject a pending or adopted runner with the given ID.
 

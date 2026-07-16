@@ -6,12 +6,12 @@ import (
 
 	"github.com/posener/complete"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	clientpkg "github.com/hashicorp/waypoint/internal/client"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	"github.com/hashicorp/waypoint/internal/server/execclient"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	clientpkg "github.com/nomatronio/derrick/internal/client"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	"github.com/nomatronio/derrick/internal/server/execclient"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 type ExecCommand struct {
@@ -23,7 +23,7 @@ type ExecCommand struct {
 func (c *ExecCommand) targeted(
 	ctx context.Context,
 	app *clientpkg.App,
-	client pb.WaypointClient,
+	client pb.DerrickClient,
 	ec *execclient.Client,
 ) error {
 	resp, err := client.ListInstances(ctx, &pb.ListInstancesRequest{
@@ -59,7 +59,7 @@ func (c *ExecCommand) targeted(
 func (c *ExecCommand) searchDeployments(
 	ctx context.Context,
 	app *clientpkg.App,
-	client pb.WaypointClient,
+	client pb.DerrickClient,
 	ec *execclient.Client,
 ) error {
 	// Get the latest deployment
@@ -185,7 +185,7 @@ func (c *ExecCommand) Synopsis() string {
 
 func (c *ExecCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint exec [options] cmd
+Usage: derrick exec [options] cmd
 
   Execute a command in the context of a running application instance.
 

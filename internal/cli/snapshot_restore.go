@@ -5,8 +5,8 @@ import (
 	"io"
 	"os"
 
-	"github.com/hashicorp/waypoint/internal/clisnapshot"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
+	"github.com/nomatronio/derrick/internal/clisnapshot"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
 	"github.com/posener/complete"
 	sshterm "golang.org/x/crypto/ssh/terminal"
 )
@@ -103,7 +103,7 @@ func (c *SnapshotRestoreCommand) Synopsis() string {
 
 func (c *SnapshotRestoreCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint server restore [-exit] [<filename>]
+Usage: derrick server restore [-exit] [<filename>]
 
 Stage a backup snapshot within the current server. The data in the snapshot is not restored
 immediately, but rather staged such that on the next server start, it will be restored.

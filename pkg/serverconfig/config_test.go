@@ -30,10 +30,10 @@ func TestClientEnv(t *testing.T) {
 			AuthToken:     "bar",
 		}).Env())
 
-		require.Equal(env["WAYPOINT_SERVER_ADDR"], "foo")
-		require.Equal(env["WAYPOINT_SERVER_TLS"], "true")
-		require.Equal(env["WAYPOINT_SERVER_TLS_SKIP_VERIFY"], "true")
-		require.Empty(env["WAYPOINT_SERVER_TOKEN"])
+		require.Equal(env["DERRICK_SERVER_ADDR"], "foo")
+		require.Equal(env["DERRICK_SERVER_TLS"], "true")
+		require.Equal(env["DERRICK_SERVER_TLS_SKIP_VERIFY"], "true")
+		require.Empty(env["DERRICK_SERVER_TOKEN"])
 	})
 
 	t.Run("require auth, token set", func(t *testing.T) {
@@ -47,9 +47,9 @@ func TestClientEnv(t *testing.T) {
 			RequireAuth:   true,
 		}).Env())
 
-		require.Equal(env["WAYPOINT_SERVER_ADDR"], "foo")
-		require.Equal(env["WAYPOINT_SERVER_TLS"], "true")
-		require.Equal(env["WAYPOINT_SERVER_TLS_SKIP_VERIFY"], "true")
-		require.Equal(env["WAYPOINT_SERVER_TOKEN"], "bar")
+		require.Equal(env["DERRICK_SERVER_ADDR"], "foo")
+		require.Equal(env["DERRICK_SERVER_TLS"], "true")
+		require.Equal(env["DERRICK_SERVER_TLS_SKIP_VERIFY"], "true")
+		require.Equal(env["DERRICK_SERVER_TOKEN"], "bar")
 	})
 }

@@ -17,7 +17,7 @@ import (
 
 // HashicorpWaypointJob A Job is a job that executes on a runner and is queued by QueueOperation.
 //
-// swagger:model hashicorp.waypoint.Job
+// swagger:model nomatron.derrick.Job
 type HashicorpWaypointJob struct {
 
 	// ack time
@@ -56,7 +56,7 @@ type HashicorpWaypointJob struct {
 	// Format: date-time
 	CompleteTime strfmt.DateTime `json:"complete_time,omitempty"`
 
-	// Config is information about the Waypoint configuration (waypoint.hcl)
+	// Config is information about the Waypoint configuration (derrick.hcl)
 	// for this job. This is only available once the configuration is loaded.
 	// If this is nil and the job is RUNNING, then it may not be loaded yet.
 	// API users can wait on the Job event on the JobStream to listen for
@@ -225,8 +225,8 @@ type HashicorpWaypointJob struct {
 	Validate HashicorpWaypointJobValidateOp `json:"validate,omitempty"`
 
 	// Variable refs store the final value used on the operation for each variable
-	// defined in the waypoint.hcl. Any variables with `sensitive` set in the
-	// waypoint.hcl will have a value hashed with SHA256 so the user can verify
+	// defined in the derrick.hcl. Any variables with `sensitive` set in the
+	// derrick.hcl will have a value hashed with SHA256 so the user can verify
 	// the value used.
 	VariableFinalValues map[string]HashicorpWaypointVariableFinalValue `json:"variable_final_values,omitempty"`
 
@@ -240,10 +240,10 @@ type HashicorpWaypointJob struct {
 	WatchTask *HashicorpWaypointJobWatchTaskOp `json:"watch_task,omitempty"`
 
 	// Waypoint.hcl file contents. This is OPTIONAL and not typically supplied.
-	// If this is not provided, the job will source the waypoint.hcl file
+	// If this is not provided, the job will source the derrick.hcl file
 	// from the server or the data source. This can be used to override those
-	// and force a specific waypoint.hcl to be used.
-	WaypointHcl *HashicorpWaypointHcl `json:"waypoint_hcl,omitempty"`
+	// and force a specific derrick.hcl to be used.
+	DerrickHcl *HashicorpDerrickHcl `json:"derrick_hcl,omitempty"`
 
 	// The workspace to perform the operation in.
 	// This is required.
@@ -402,7 +402,7 @@ func (m *HashicorpWaypointJob) SwaggerValidate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateWaypointHcl(formats); err != nil {
+	if err := m.validateDerrickHcl(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -1091,17 +1091,17 @@ func (m *HashicorpWaypointJob) validateWatchTask(formats strfmt.Registry) error 
 	return nil
 }
 
-func (m *HashicorpWaypointJob) validateWaypointHcl(formats strfmt.Registry) error {
-	if swag.IsZero(m.WaypointHcl) { // not required
+func (m *HashicorpWaypointJob) validateDerrickHcl(formats strfmt.Registry) error {
+	if swag.IsZero(m.DerrickHcl) { // not required
 		return nil
 	}
 
-	if m.WaypointHcl != nil {
-		if err := m.WaypointHcl.Validate(formats); err != nil {
+	if m.DerrickHcl != nil {
+		if err := m.DerrickHcl.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("waypoint_hcl")
+				return ve.ValidateName("derrick_hcl")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("waypoint_hcl")
+				return ce.ValidateName("derrick_hcl")
 			}
 			return err
 		}
@@ -1257,7 +1257,7 @@ func (m *HashicorpWaypointJob) ContextValidate(ctx context.Context, formats strf
 		res = append(res, err)
 	}
 
-	if err := m.contextValidateWaypointHcl(ctx, formats); err != nil {
+	if err := m.contextValidateDerrickHcl(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -1770,14 +1770,14 @@ func (m *HashicorpWaypointJob) contextValidateWatchTask(ctx context.Context, for
 	return nil
 }
 
-func (m *HashicorpWaypointJob) contextValidateWaypointHcl(ctx context.Context, formats strfmt.Registry) error {
+func (m *HashicorpWaypointJob) contextValidateDerrickHcl(ctx context.Context, formats strfmt.Registry) error {
 
-	if m.WaypointHcl != nil {
-		if err := m.WaypointHcl.ContextValidate(ctx, formats); err != nil {
+	if m.DerrickHcl != nil {
+		if err := m.DerrickHcl.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("waypoint_hcl")
+				return ve.ValidateName("derrick_hcl")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("waypoint_hcl")
+				return ce.ValidateName("derrick_hcl")
 			}
 			return err
 		}

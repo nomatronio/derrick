@@ -8,7 +8,7 @@ import (
 
 	"github.com/google/go-github/github"
 	"github.com/hashicorp/go-hclog"
-	"github.com/hashicorp/waypoint/builtin/k8s"
+	"github.com/nomatronio/derrick/builtin/k8s"
 	"helm.sh/helm/v3/pkg/action"
 	"helm.sh/helm/v3/pkg/chart"
 	"helm.sh/helm/v3/pkg/chart/loader"

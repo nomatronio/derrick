@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointPipelineStepPipeline hashicorp waypoint pipeline step pipeline
 //
-// swagger:model hashicorp.waypoint.Pipeline.Step.Pipeline
+// swagger:model nomatron.derrick.Pipeline.Step.Pipeline
 type HashicorpWaypointPipelineStepPipeline struct {
 
 	// ref

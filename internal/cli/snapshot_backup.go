@@ -8,8 +8,8 @@ import (
 	"github.com/posener/complete"
 	sshterm "golang.org/x/crypto/ssh/terminal"
 
-	"github.com/hashicorp/waypoint/internal/clisnapshot"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
+	"github.com/nomatronio/derrick/internal/clisnapshot"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
 )
 
 type SnapshotBackupCommand struct {
@@ -91,7 +91,7 @@ func (c *SnapshotBackupCommand) Synopsis() string {
 
 func (c *SnapshotBackupCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint server snapshot [<filename>]
+Usage: derrick server snapshot [<filename>]
 
 Generate a snapshot from the current server and write it to a file specified
 by the given name. If no name is specified and standard out is not a terminal,

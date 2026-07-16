@@ -2,28 +2,28 @@
 layout: commands
 page_title: 'Commands: Job list'
 sidebar_title: 'job list'
-description: 'List all jobs in Waypoint'
+description: 'List all jobs in Derrick'
 ---
 
-# Waypoint Job list
+# Derrick Job list
 
-Command: `waypoint job list`
+Command: `derrick job list`
 
-List all jobs in Waypoint
+List all jobs in Derrick
 
 @include "commands/job-list_desc.mdx"
 
 ## Usage
 
-Usage: `waypoint job list [options]`
+Usage: `derrick job list [options]`
 
-List known jobs from Waypoint server.
+List known jobs from Derrick server.
 Options to filter job list by project, workspace, target runner, pipeline, and pipeline run.
 
 #### Global Options
 
 - `-plain` - Plain output: no colors, no animation. The default is false.
-- `-app=<string>` (`-a`) - App to target. Certain commands require a single app target for Waypoint configurations with multiple apps. If you have a single app, then this can be ignored.
+- `-app=<string>` (`-a`) - App to target. Certain commands require a single app target for Derrick configurations with multiple apps. If you have a single app, then this can be ignored.
 - `-project=<string>` (`-p`) - Project to target.
 - `-workspace=<string>` (`-w`) - Workspace to operate in.
 
@@ -31,7 +31,7 @@ Options to filter job list by project, workspace, target runner, pipeline, and p
 
 - `-label=<key=value>` - Labels to set for this operation. Can be specified multiple times.
 - `-local` - True to use a local runner to execute the operation, false to use a remote runner.
-  If unset, Waypoint will automatically determine where the operation will occur,
+  If unset, Derrick will automatically determine where the operation will occur,
   defaulting to remote if possible.
 - `-remote-source=<key=value>` - Override configurations for how remote runners source data. This is specified to the data source type being used in your configuration. This is used for example to set a specific Git ref to run against.
 - `-var=<key=value>` - Variable value to set for this operation. Can be specified multiple times.

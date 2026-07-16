@@ -9,17 +9,17 @@ import (
 	"google.golang.org/grpc/status"
 
 	wphznpb "github.com/hashicorp/waypoint-hzn/pkg/pb"
-	"github.com/hashicorp/waypoint/internal/serverconfig"
-	wpoidc "github.com/hashicorp/waypoint/pkg/auth/oidc"
-	"github.com/hashicorp/waypoint/pkg/server"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	"github.com/hashicorp/waypoint/pkg/server/logstream"
-	"github.com/hashicorp/waypoint/pkg/serverstate"
+	"github.com/nomatronio/derrick/internal/serverconfig"
+	wpoidc "github.com/nomatronio/derrick/pkg/auth/oidc"
+	"github.com/nomatronio/derrick/pkg/server"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	"github.com/nomatronio/derrick/pkg/server/logstream"
+	"github.com/nomatronio/derrick/pkg/serverstate"
 )
 
 // Service implements the gRPC service for the server.
 type Service struct {
-	pb.UnimplementedWaypointServer
+	pb.UnimplementedDerrickServer
 
 	// state is the state management interface that provides functions for
 	// safely mutating server state.
@@ -85,7 +85,7 @@ type Service struct {
 
 // New returns a Waypoint server implementation that uses BotlDB plus
 // in-memory locks to operate safely.
-func New(opts ...Option) (pb.WaypointServer, error) {
+func New(opts ...Option) (pb.DerrickServer, error) {
 	var s Service
 
 	// Set default config values
@@ -458,4 +458,4 @@ func WithPopulateJobDataSource(fn func(context.Context, *pb.Job) (*pb.Job, error
 	}
 }
 
-var _ pb.WaypointServer = (*Service)(nil)
+var _ pb.DerrickServer = (*Service)(nil)

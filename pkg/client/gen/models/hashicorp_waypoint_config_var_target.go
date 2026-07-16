@@ -24,7 +24,7 @@ import (
 // of what workspace it may be in. For this, you'd just set `app_scope` to
 // `project` and leave everything else empty.
 //
-// swagger:model hashicorp.waypoint.ConfigVar.Target
+// swagger:model nomatron.derrick.ConfigVar.Target
 type HashicorpWaypointConfigVarTarget struct {
 
 	// application

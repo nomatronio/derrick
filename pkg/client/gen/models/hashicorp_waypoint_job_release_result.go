@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointJobReleaseResult hashicorp waypoint job release result
 //
-// swagger:model hashicorp.waypoint.Job.ReleaseResult
+// swagger:model nomatron.derrick.Job.ReleaseResult
 type HashicorpWaypointJobReleaseResult struct {
 
 	// The release that was just created. If the release operation was a noop,

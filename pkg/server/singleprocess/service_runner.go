@@ -7,7 +7,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/hashicorp/waypoint/pkg/server/hcerr"
+	"github.com/nomatronio/derrick/pkg/server/hcerr"
 
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/go-memdb"
@@ -18,11 +18,11 @@ import (
 	empty "google.golang.org/protobuf/types/known/emptypb"
 	"google.golang.org/protobuf/types/known/timestamppb"
 
-	"github.com/hashicorp/waypoint/internal/telemetry/metrics"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
-	"github.com/hashicorp/waypoint/pkg/server/logstream"
-	serverptypes "github.com/hashicorp/waypoint/pkg/server/ptypes"
-	"github.com/hashicorp/waypoint/pkg/serverstate"
+	"github.com/nomatronio/derrick/internal/telemetry/metrics"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
+	"github.com/nomatronio/derrick/pkg/server/logstream"
+	serverptypes "github.com/nomatronio/derrick/pkg/server/ptypes"
+	"github.com/nomatronio/derrick/pkg/serverstate"
 )
 
 func (s *Service) ListRunners(
@@ -459,7 +459,7 @@ func (s *Service) RunnerConfig(
 		if varContainsDynamic(vars) || !isLocal {
 			// Important: we've discussed optimizing this to send down only the
 			// config sourcers that are needed by vars. We cannot do that because
-			// waypoint.hcl config can now source dynamic config too and we can't
+			// derrick.hcl config can now source dynamic config too and we can't
 			// know those in advance perfectly. Always send down all config sources.
 			getConfigSourceRequest := &pb.GetConfigSourceRequest{
 				Scope: &pb.GetConfigSourceRequest_Global{

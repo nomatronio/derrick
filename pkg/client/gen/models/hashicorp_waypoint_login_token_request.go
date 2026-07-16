@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointLoginTokenRequest hashicorp waypoint login token request
 //
-// swagger:model hashicorp.waypoint.LoginTokenRequest
+// swagger:model nomatron.derrick.LoginTokenRequest
 type HashicorpWaypointLoginTokenRequest struct {
 
 	// How long the token should be valid from the time the request

@@ -5,9 +5,9 @@ import (
 
 	"github.com/posener/complete"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
 )
 
 type ContextSetCommand struct {
@@ -84,7 +84,7 @@ func (c *ContextSetCommand) Synopsis() string {
 
 func (c *ContextSetCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint context set [options]
+Usage: derrick context set [options]
 
   Sets a property of the current context. The only property supported at this
   time is -workspace.

@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointAuthMethodOIDC hashicorp waypoint auth method o ID c
 //
-// swagger:model hashicorp.waypoint.AuthMethod.OIDC
+// swagger:model nomatron.derrick.AuthMethod.OIDC
 type HashicorpWaypointAuthMethodOIDC struct {
 
 	// List of allowed redirect URIs, since our redirect URIs

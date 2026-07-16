@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointGetJobStreamResponse hashicorp waypoint get job stream response
 //
-// swagger:model hashicorp.waypoint.GetJobStreamResponse
+// swagger:model nomatron.derrick.GetJobStreamResponse
 type HashicorpWaypointGetJobStreamResponse struct {
 
 	// job completion, no more events will follow this one. This can be

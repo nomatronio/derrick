@@ -14,7 +14,7 @@ import (
 
 // HashicorpWaypointRefTask Task references a Task message by its id or the main run job id it queued
 //
-// swagger:model hashicorp.waypoint.Ref.Task
+// swagger:model nomatron.derrick.Ref.Task
 type HashicorpWaypointRefTask struct {
 
 	// the id of the tracktask record

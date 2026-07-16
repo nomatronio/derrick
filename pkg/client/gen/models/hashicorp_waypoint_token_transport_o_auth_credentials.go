@@ -16,7 +16,7 @@ import (
 // to generate on OAuth token for authenticating with the server rather
 // than just submitting the waypoint token directly.
 //
-// swagger:model hashicorp.waypoint.TokenTransport.OAuthCredentials
+// swagger:model nomatron.derrick.TokenTransport.OAuthCredentials
 type HashicorpWaypointTokenTransportOAuthCredentials struct {
 
 	// The OAuth client id to submit

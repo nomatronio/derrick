@@ -7,5 +7,5 @@ package models
 
 // HashicorpWaypointRunnerJobStreamRequestHeartbeat hashicorp waypoint runner job stream request heartbeat
 //
-// swagger:model hashicorp.waypoint.RunnerJobStreamRequest.Heartbeat
+// swagger:model nomatron.derrick.RunnerJobStreamRequest.Heartbeat
 type HashicorpWaypointRunnerJobStreamRequestHeartbeat interface{}

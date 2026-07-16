@@ -21,7 +21,7 @@ import (
 // Waypoint will generate a trigger based on the configuration here and return
 // a URL to make requests with.
 //
-// swagger:model hashicorp.waypoint.Trigger
+// swagger:model nomatron.derrick.Trigger
 type HashicorpWaypointTrigger struct {
 
 	// time of last execution.

@@ -6,10 +6,10 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
-	pb "github.com/hashicorp/waypoint/pkg/server/gen"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
+	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
 type JobCancelCommand struct {
@@ -80,7 +80,7 @@ func (c *JobCancelCommand) Run(args []string) int {
 		}
 		s.Update("Marked job %q for cancellation", jobId)
 		if job.State == pb.Job_RUNNING {
-			c.ui.Output("Waypoint will gracefully cancel the requested job and wait for any\ndownstream listeners to close the connection. This could take a while.")
+			c.ui.Output("Derrick will gracefully cancel the requested job and wait for any\ndownstream listeners to close the connection. This could take a while.")
 		}
 	} else {
 		s.Update("Forcefully marked job %q for cancellation", jobId)
@@ -112,9 +112,9 @@ func (c *JobCancelCommand) Synopsis() string {
 
 func (c *JobCancelCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint job cancel [options] <job-id>
+Usage: derrick job cancel [options] <job-id>
 
-  Cancel a running job by id from Waypoint server.
+  Cancel a running job by id from Derrick server.
 
 ` + c.Flags().Help())
 }

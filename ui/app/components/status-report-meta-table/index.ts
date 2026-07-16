@@ -2,17 +2,17 @@ import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
-import ApiService from 'waypoint/services/api';
-import FlashMessagesService from 'waypoint/services/pds-flash-messages';
-import type ProjectService from 'waypoint/services/project';
+import ApiService from 'derrick/services/api';
+import FlashMessagesService from 'derrick/services/pds-flash-messages';
+import type ProjectService from 'derrick/services/project';
 import {
   Ref,
   ExpediteStatusReportRequest,
   GetJobStreamRequest,
   GetJobStreamResponse,
   Job,
-} from 'waypoint-pb';
-import { DeploymentExtended } from 'waypoint/services/api';
+} from 'derrick-pb';
+import { DeploymentExtended } from 'derrick/services/api';
 
 interface Args {
   model: DeploymentExtended;

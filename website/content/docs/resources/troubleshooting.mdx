@@ -2,16 +2,16 @@
 layout: docs
 page_title: Tips and Troubleshooting
 description: |-
-  Waypoint is a work in progress, and this page provides tips for how to troubleshoot any issues that you might encounter while deploying applications.
+  Derrick is a work in progress, and this page provides tips for how to troubleshoot any issues that you might encounter while deploying applications.
 ---
 
 # Tips and Troubleshooting
 
-## Remove the Waypoint Server
+## Remove the Derrick Server
 
-The Waypoint Server creates several resources in Docker and Kubernetes that should be removed to either reinstall Waypoint or to completely remove it from a system.
+The Derrick Server creates several resources in Docker and Kubernetes that should be removed to either reinstall Derrick or to completely remove it from a system.
 
-Run `waypoint destroy` on your workspaces prior to removing the server to prevent hanging resources.
+Run `derrick destroy` on your workspaces prior to removing the server to prevent hanging resources.
 
 ### Uninstall
 
@@ -19,8 +19,8 @@ Starting in 0.2.1, the `server uninstall` command will remove the server and sup
 containers and services that are created via `install`. By default, it also creates
 a snapshot and deletes the server context.
 
-For Docker, `uninstall` removes the Waypoint server-specific volumes, but refrains from
-doing a global volume prune. If you created deployments with Waypoint, there will likely
+For Docker, `uninstall` removes the Derrick server-specific volumes, but refrains from
+doing a global volume prune. If you created deployments with Derrick, there will likely
 be volumes left over from those deployments. You can remove these volumes individually,
 or globally via:
 
@@ -32,7 +32,7 @@ If the uninstall fails, see below for manual removal.
 
 ### Manual removal
 
-#### Waypoint Server in Docker
+#### Derrick Server in Docker
 
 Ensure that you have the latest `hashicorp/waypoint` Docker image.
 
@@ -40,25 +40,25 @@ Ensure that you have the latest `hashicorp/waypoint` Docker image.
 $ docker pull hashicorp/waypoint:latest
 ```
 
-[`waypoint install`] for Docker creates a container and a volume. These resources should be removed when Waypoint Server is no longer needed. These are some example `docker` commands that should clean up after a Waypoint Server installation.
+[`derrick install`] for Docker creates a container and a volume. These resources should be removed when Derrick Server is no longer needed. These are some example `docker` commands that should clean up after a Derrick Server installation.
 
 ```shell-session
-$ docker stop waypoint-server
-$ docker rm waypoint-server
+$ docker stop derrick-server
+$ docker rm derrick-server
 $ docker volume prune -f
 ```
 
-#### Waypoint Server in Kubernetes
+#### Derrick Server in Kubernetes
 
-[`waypoint install`] for Kubernetes installs the Waypoint Helm chart to your Kubernetes cluster.
+[`derrick install`] for Kubernetes installs the Derrick Helm chart to your Kubernetes cluster.
 To delete the resources created by the Helm chart installation, the commands below will help with
 the cleanup of the server and static runner:
 
-[`waypoint install`]: /waypoint/commands/install
+[`derrick install`]: /waypoint/commands/install
 
 ```shell-session
-$ helm uninstall waypoint
-$ helm uninstall waypoint-static
+$ helm uninstall derrick
+$ helm uninstall derrick-static
 $ kubectl delete pvc data-waypoint-server-0
 $ kubectl delete pvc data-default-waypoint-static-runner-0
 ```
@@ -86,17 +86,17 @@ Locate the volumes named starting with `pack-cache-` and remove them with `docke
 
 ## Remote Operations Failure
 
-If your Waypoint operation fails, task introspection can help
+If your Derrick operation fails, task introspection can help
 troubleshoot the issue. Logs from the on-demand runner may not be readily available
 from the platform in which the runners are launched, and task introspection can
 get the information needed to troubleshoot.
 
-In the example below, after a build failure, `waypoint task inspect` was used
+In the example below, after a build failure, `derrick task inspect` was used
 with the task ID. The Run Job results show that there was an error with the Docker
 plugin which required arguments which were missing:
 
 ```terminal-output
-waypoint task inspect 01G669RE32WM0JBBGZW3JETYSJ
+derrick task inspect 01G669RE32WM0JBBGZW3JETYSJ
 
 » On-Demand Runner Task Configuration
       Task ID: 01G669RE32WM0JBBGZW3JETYSJ
@@ -117,7 +117,7 @@ waypoint task inspect 01G669RE32WM0JBBGZW3JETYSJ
   Job Results:
            State: Error
    Complete Time: 33 minutes ago
-  Error Messsage: There was an error while executing a Waypoint plugin for this operation!
+  Error Messsage: There was an error while executing a Derrick plugin for this operation!
 
 One or more required arguments for the plugin was not satisfied. This is usually due to a missing or incompatible set of plugins. For example, only certain build plugins are only compatible with certain registries, and so on. Please inspect the missing argument, the set
 of plugins you are using, and the documentation to determine if your plugin combination is valid.
@@ -171,22 +171,22 @@ Plugin function: github.com/hashicorp/waypoint/builtin/pack.(*Builder).BuildODR-
 
 # Investigating Deployed Applications
 
-Waypoint includes several commands to support debugging and monitoring while
+Derrick includes several commands to support debugging and monitoring while
 developing your application.
 
 ## Exec Into the Application Container
 
-After deploying your application, you can use `waypoint exec` to run
-commands in the context of the most recent deployment. Typically, `waypoint exec` will be used for running database migrations and debugging. However, you
+After deploying your application, you can use `derrick exec` to run
+commands in the context of the most recent deployment. Typically, `derrick exec` will be used for running database migrations and debugging. However, you
 can use it for any purpose.
 
 Use the `exec` command to open a shell prompt.
 
 ```shell-session
-$ waypoint exec /bin/bash
+$ derrick exec /bin/bash
 ```
 
-Since you are in the deployment directory, you will observe that Waypoint
+Since you are in the deployment directory, you will observe that Derrick
 automatically executes against the currently deployed application.
 
 From within the Docker container, validate that this is the actual application
@@ -211,14 +211,14 @@ Type `exit` to leave the interactive Docker session.
 $ exit
 ```
 
-## View Waypoint Application and Entrypoint Logs
+## View Derrick Application and Entrypoint Logs
 
 In the application's directory, run the `logs` command to observe the running
 logs for your deployment. This will include logs from the
 [entrypoint](/waypoint/docs/entrypoint) if it is in use.
 
 ```shell-session
-$ waypoint logs
+$ derrick logs
 ```
 
 You will observe output similar to the following. These logs are from the
@@ -238,9 +238,9 @@ You may increase the verbosity of entrypoint logs by setting the
 `WAYPOINT_LOG_LEVEL` environment variable. See the documentation on
 [entrypoint logs](/waypoint/docs/entrypoint#logging) for more information.
 
-## Access the Waypoint web UI
+## Access the Derrick web UI
 
-The Waypoint server includes a web-based user interface that you can use to view
+The Derrick server includes a web-based user interface that you can use to view
 builds, deployments, and releases for projects and applications.
 
 <Tabs>
@@ -251,7 +251,7 @@ the browser and authenticate your session. This command will work if a graphical
 web browser is available on the machine where the command is being run.
 
 ```shell-session
-$ waypoint ui -authenticate
+$ derrick ui -authenticate
 ```
 
 </Tab>
@@ -259,23 +259,23 @@ $ waypoint ui -authenticate
 
 If you are running commands on a remote server or within a virtual environment
 like WSL2 for Windows, you must generate a token that can be used to
-authenticate to the Waypoint web UI.
+authenticate to the Derrick web UI.
 
 ```shell-session
-$ waypoint user token
+$ derrick user token
 ```
 
 ~> **NOTE**: The token is approximately 100 characters long and will not wrap if
 your terminal window is smaller than the length of the token. If authentication
 fails, expand your terminal window until you can view the entire token.
 
-Visit the Waypoint UI at port `9702` on the URL of the machine where you are
-running the Waypoint server. Paste the token into the authentication field.
+Visit the Derrick UI at port `9702` on the URL of the machine where you are
+running the Derrick server. Paste the token into the authentication field.
 
 </Tab>
 </Tabs>
 
-~> **NOTE**: Waypoint currently uses self-signed certificates for TLS. Your web
+~> **NOTE**: Derrick currently uses self-signed certificates for TLS. Your web
 browser will require you to bypass a certificate warning to use the UI.
 
 Review the application metadata and associated operations and logs in the browser.

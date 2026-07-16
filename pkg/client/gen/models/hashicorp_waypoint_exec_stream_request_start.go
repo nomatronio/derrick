@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointExecStreamRequestStart hashicorp waypoint exec stream request start
 //
-// swagger:model hashicorp.waypoint.ExecStreamRequest.Start
+// swagger:model nomatron.derrick.ExecStreamRequest.Start
 type HashicorpWaypointExecStreamRequestStart struct {
 
 	// Args including the command at args[0] to execute.

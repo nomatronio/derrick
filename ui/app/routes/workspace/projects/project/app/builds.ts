@@ -1,5 +1,5 @@
 import Route from '@ember/routing/route';
-import { Breadcrumb } from 'waypoint/services/breadcrumbs';
+import { Breadcrumb } from 'derrick/services/breadcrumbs';
 import { Model as AppRouteModel } from '../app';
 
 type Model = {

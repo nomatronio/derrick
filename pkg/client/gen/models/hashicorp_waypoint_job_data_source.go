@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointJobDataSource hashicorp waypoint job data source
 //
-// swagger:model hashicorp.waypoint.Job.DataSource
+// swagger:model nomatron.derrick.Job.DataSource
 type HashicorpWaypointJobDataSource struct {
 
 	// git will check out the data from a Git repository.

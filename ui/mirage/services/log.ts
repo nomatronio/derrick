@@ -1,4 +1,4 @@
-import { LogBatch } from 'waypoint-pb';
+import { LogBatch } from 'derrick-pb';
 import { Timestamp } from 'google-protobuf/google/protobuf/timestamp_pb';
 import { Response } from 'miragejs';
 import { RouteHandler } from '../types';

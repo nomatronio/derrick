@@ -15,7 +15,7 @@ import (
 
 // HashicorpWaypointUIReleaseBundle A release packaged alongside prefetched related messages.
 //
-// swagger:model hashicorp.waypoint.UI.ReleaseBundle
+// swagger:model nomatron.derrick.UI.ReleaseBundle
 type HashicorpWaypointUIReleaseBundle struct {
 
 	// The most recent status report generated for this release.

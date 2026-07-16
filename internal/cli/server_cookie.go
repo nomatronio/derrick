@@ -6,9 +6,9 @@ import (
 	"github.com/posener/complete"
 	empty "google.golang.org/protobuf/types/known/emptypb"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
 )
 
 type ServerCookieCommand struct {
@@ -60,14 +60,14 @@ func (c *ServerCookieCommand) Synopsis() string {
 
 func (c *ServerCookieCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint server cookie [options]
+Usage: derrick server cookie [options]
 
   Output the server cookie value.
 
   The server cookie is used in API calls to superficially ensure that
   you're communicating with the proper cluster. This isn't mean to be a
   security mechanism. This is an optional way to prevent errant API calls
-  to the incorrect Waypoint cluster (if you're running multiple).
+  to the incorrect Derrick cluster (if you're running multiple).
 
   Some unauthenticated API endpoints require the cookie value be set to
   protect against random noise, such as the runner registration endpoint.

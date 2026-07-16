@@ -4,9 +4,9 @@ import (
 	"github.com/olekukonko/tablewriter"
 	"github.com/posener/complete"
 
-	"github.com/hashicorp/waypoint-plugin-sdk/terminal"
-	"github.com/hashicorp/waypoint/internal/clierrors"
-	"github.com/hashicorp/waypoint/internal/pkg/flag"
+	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/clierrors"
+	"github.com/nomatronio/derrick/internal/pkg/flag"
 )
 
 type ContextListCommand struct {
@@ -106,7 +106,7 @@ func (c *ContextListCommand) Synopsis() string {
 
 func (c *ContextListCommand) Help() string {
 	return formatHelp(`
-Usage: waypoint context list [options]
+Usage: derrick context list [options]
 
   Lists the contexts available to the CLI.
 
