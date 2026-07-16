@@ -13,7 +13,13 @@
 
 var jspb = require('google-protobuf');
 var goog = jspb;
-var global = Function('return this')();
+var global =
+    (typeof globalThis !== 'undefined' && globalThis) ||
+    (typeof window !== 'undefined' && window) ||
+    (typeof global !== 'undefined' && global) ||
+    (typeof self !== 'undefined' && self) ||
+    (function () { return this; }).call(null) ||
+    Function('return this')();
 
 var google_api_annotations_pb = require('../../google/api/annotations_pb.js');
 goog.object.extend(proto, google_api_annotations_pb);
@@ -166,9 +172,9 @@ proto.google.api.Authentication.prototype.toObject = function(opt_includeInstanc
  */
 proto.google.api.Authentication.toObject = function(includeInstance, msg) {
   var f, obj = {
-    rulesList: jspb.Message.toObjectList(msg.getRulesList(),
+rulesList: jspb.Message.toObjectList(msg.getRulesList(),
     proto.google.api.AuthenticationRule.toObject, includeInstance),
-    providersList: jspb.Message.toObjectList(msg.getProvidersList(),
+providersList: jspb.Message.toObjectList(msg.getProvidersList(),
     proto.google.api.AuthProvider.toObject, includeInstance)
   };
 
@@ -379,10 +385,10 @@ proto.google.api.AuthenticationRule.prototype.toObject = function(opt_includeIns
  */
 proto.google.api.AuthenticationRule.toObject = function(includeInstance, msg) {
   var f, obj = {
-    selector: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    oauth: (f = msg.getOauth()) && proto.google.api.OAuthRequirements.toObject(includeInstance, f),
-    allowWithoutCredential: jspb.Message.getBooleanFieldWithDefault(msg, 5, false),
-    requirementsList: jspb.Message.toObjectList(msg.getRequirementsList(),
+selector: jspb.Message.getFieldWithDefault(msg, 1, ""),
+oauth: (f = msg.getOauth()) && proto.google.api.OAuthRequirements.toObject(includeInstance, f),
+allowWithoutCredential: jspb.Message.getBooleanFieldWithDefault(msg, 5, false),
+requirementsList: jspb.Message.toObjectList(msg.getRequirementsList(),
     proto.google.api.AuthRequirement.toObject, includeInstance)
   };
 
@@ -643,11 +649,11 @@ proto.google.api.AuthProvider.prototype.toObject = function(opt_includeInstance)
  */
 proto.google.api.AuthProvider.toObject = function(includeInstance, msg) {
   var f, obj = {
-    id: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    issuer: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    jwksUri: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    audiences: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    authorizationUrl: jspb.Message.getFieldWithDefault(msg, 5, "")
+id: jspb.Message.getFieldWithDefault(msg, 1, ""),
+issuer: jspb.Message.getFieldWithDefault(msg, 2, ""),
+jwksUri: jspb.Message.getFieldWithDefault(msg, 3, ""),
+audiences: jspb.Message.getFieldWithDefault(msg, 4, ""),
+authorizationUrl: jspb.Message.getFieldWithDefault(msg, 5, "")
   };
 
   if (includeInstance) {
@@ -893,7 +899,7 @@ proto.google.api.OAuthRequirements.prototype.toObject = function(opt_includeInst
  */
 proto.google.api.OAuthRequirements.toObject = function(includeInstance, msg) {
   var f, obj = {
-    canonicalScopes: jspb.Message.getFieldWithDefault(msg, 1, "")
+canonicalScopes: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -1023,8 +1029,8 @@ proto.google.api.AuthRequirement.prototype.toObject = function(opt_includeInstan
  */
 proto.google.api.AuthRequirement.toObject = function(includeInstance, msg) {
   var f, obj = {
-    providerId: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    audiences: jspb.Message.getFieldWithDefault(msg, 2, "")
+providerId: jspb.Message.getFieldWithDefault(msg, 1, ""),
+audiences: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
 
   if (includeInstance) {

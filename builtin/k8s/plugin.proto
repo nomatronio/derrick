@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package k8s;
 
-option go_package = "waypoint/builtin/k8s";
+option go_package = "github.com/nomatronio/derrick/builtin/k8s";
 
 import "opaqueany/any.proto";
 

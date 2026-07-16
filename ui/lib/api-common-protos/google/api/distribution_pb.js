@@ -13,7 +13,13 @@
 
 var jspb = require('google-protobuf');
 var goog = jspb;
-var global = Function('return this')();
+var global =
+    (typeof globalThis !== 'undefined' && globalThis) ||
+    (typeof window !== 'undefined' && window) ||
+    (typeof global !== 'undefined' && global) ||
+    (typeof self !== 'undefined' && self) ||
+    (function () { return this; }).call(null) ||
+    Function('return this')();
 
 var google_protobuf_any_pb = require('google-protobuf/google/protobuf/any_pb.js');
 goog.object.extend(proto, google_protobuf_any_pb);
@@ -213,13 +219,13 @@ proto.google.api.Distribution.prototype.toObject = function(opt_includeInstance)
  */
 proto.google.api.Distribution.toObject = function(includeInstance, msg) {
   var f, obj = {
-    count: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    mean: jspb.Message.getFloatingPointFieldWithDefault(msg, 2, 0.0),
-    sumOfSquaredDeviation: jspb.Message.getFloatingPointFieldWithDefault(msg, 3, 0.0),
-    range: (f = msg.getRange()) && proto.google.api.Distribution.Range.toObject(includeInstance, f),
-    bucketOptions: (f = msg.getBucketOptions()) && proto.google.api.Distribution.BucketOptions.toObject(includeInstance, f),
-    bucketCountsList: (f = jspb.Message.getRepeatedField(msg, 7)) == null ? undefined : f,
-    exemplarsList: jspb.Message.toObjectList(msg.getExemplarsList(),
+count: jspb.Message.getFieldWithDefault(msg, 1, 0),
+mean: jspb.Message.getFloatingPointFieldWithDefault(msg, 2, 0.0),
+sumOfSquaredDeviation: jspb.Message.getFloatingPointFieldWithDefault(msg, 3, 0.0),
+range: (f = msg.getRange()) && proto.google.api.Distribution.Range.toObject(includeInstance, f),
+bucketOptions: (f = msg.getBucketOptions()) && proto.google.api.Distribution.BucketOptions.toObject(includeInstance, f),
+bucketCountsList: (f = jspb.Message.getRepeatedField(msg, 7)) == null ? undefined : f,
+exemplarsList: jspb.Message.toObjectList(msg.getExemplarsList(),
     proto.google.api.Distribution.Exemplar.toObject, includeInstance)
   };
 
@@ -406,8 +412,8 @@ proto.google.api.Distribution.Range.prototype.toObject = function(opt_includeIns
  */
 proto.google.api.Distribution.Range.toObject = function(includeInstance, msg) {
   var f, obj = {
-    min: jspb.Message.getFloatingPointFieldWithDefault(msg, 1, 0.0),
-    max: jspb.Message.getFloatingPointFieldWithDefault(msg, 2, 0.0)
+min: jspb.Message.getFloatingPointFieldWithDefault(msg, 1, 0.0),
+max: jspb.Message.getFloatingPointFieldWithDefault(msg, 2, 0.0)
   };
 
   if (includeInstance) {
@@ -593,9 +599,9 @@ proto.google.api.Distribution.BucketOptions.prototype.toObject = function(opt_in
  */
 proto.google.api.Distribution.BucketOptions.toObject = function(includeInstance, msg) {
   var f, obj = {
-    linearBuckets: (f = msg.getLinearBuckets()) && proto.google.api.Distribution.BucketOptions.Linear.toObject(includeInstance, f),
-    exponentialBuckets: (f = msg.getExponentialBuckets()) && proto.google.api.Distribution.BucketOptions.Exponential.toObject(includeInstance, f),
-    explicitBuckets: (f = msg.getExplicitBuckets()) && proto.google.api.Distribution.BucketOptions.Explicit.toObject(includeInstance, f)
+linearBuckets: (f = msg.getLinearBuckets()) && proto.google.api.Distribution.BucketOptions.Linear.toObject(includeInstance, f),
+exponentialBuckets: (f = msg.getExponentialBuckets()) && proto.google.api.Distribution.BucketOptions.Exponential.toObject(includeInstance, f),
+explicitBuckets: (f = msg.getExplicitBuckets()) && proto.google.api.Distribution.BucketOptions.Explicit.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -735,9 +741,9 @@ proto.google.api.Distribution.BucketOptions.Linear.prototype.toObject = function
  */
 proto.google.api.Distribution.BucketOptions.Linear.toObject = function(includeInstance, msg) {
   var f, obj = {
-    numFiniteBuckets: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    width: jspb.Message.getFloatingPointFieldWithDefault(msg, 2, 0.0),
-    offset: jspb.Message.getFloatingPointFieldWithDefault(msg, 3, 0.0)
+numFiniteBuckets: jspb.Message.getFieldWithDefault(msg, 1, 0),
+width: jspb.Message.getFloatingPointFieldWithDefault(msg, 2, 0.0),
+offset: jspb.Message.getFloatingPointFieldWithDefault(msg, 3, 0.0)
   };
 
   if (includeInstance) {
@@ -925,9 +931,9 @@ proto.google.api.Distribution.BucketOptions.Exponential.prototype.toObject = fun
  */
 proto.google.api.Distribution.BucketOptions.Exponential.toObject = function(includeInstance, msg) {
   var f, obj = {
-    numFiniteBuckets: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    growthFactor: jspb.Message.getFloatingPointFieldWithDefault(msg, 2, 0.0),
-    scale: jspb.Message.getFloatingPointFieldWithDefault(msg, 3, 0.0)
+numFiniteBuckets: jspb.Message.getFieldWithDefault(msg, 1, 0),
+growthFactor: jspb.Message.getFloatingPointFieldWithDefault(msg, 2, 0.0),
+scale: jspb.Message.getFloatingPointFieldWithDefault(msg, 3, 0.0)
   };
 
   if (includeInstance) {
@@ -1122,7 +1128,7 @@ proto.google.api.Distribution.BucketOptions.Explicit.prototype.toObject = functi
  */
 proto.google.api.Distribution.BucketOptions.Explicit.toObject = function(includeInstance, msg) {
   var f, obj = {
-    boundsList: (f = jspb.Message.getRepeatedFloatingPointField(msg, 1)) == null ? undefined : f
+boundsList: (f = jspb.Message.getRepeatedFloatingPointField(msg, 1)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -1391,9 +1397,9 @@ proto.google.api.Distribution.Exemplar.prototype.toObject = function(opt_include
  */
 proto.google.api.Distribution.Exemplar.toObject = function(includeInstance, msg) {
   var f, obj = {
-    value: jspb.Message.getFloatingPointFieldWithDefault(msg, 1, 0.0),
-    timestamp: (f = msg.getTimestamp()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
-    attachmentsList: jspb.Message.toObjectList(msg.getAttachmentsList(),
+value: jspb.Message.getFloatingPointFieldWithDefault(msg, 1, 0.0),
+timestamp: (f = msg.getTimestamp()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
+attachmentsList: jspb.Message.toObjectList(msg.getAttachmentsList(),
     google_protobuf_any_pb.Any.toObject, includeInstance)
   };
 

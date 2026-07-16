@@ -13,7 +13,13 @@
 
 var jspb = require('google-protobuf');
 var goog = jspb;
-var global = Function('return this')();
+var global =
+    (typeof globalThis !== 'undefined' && globalThis) ||
+    (typeof window !== 'undefined' && window) ||
+    (typeof global !== 'undefined' && global) ||
+    (typeof self !== 'undefined' && self) ||
+    (function () { return this; }).call(null) ||
+    Function('return this')();
 
 var google_api_annotations_pb = require('../../google/api/annotations_pb.js');
 goog.object.extend(proto, google_api_annotations_pb);
@@ -118,38 +124,38 @@ proto.google.api.Service.prototype.toObject = function(opt_includeInstance) {
  */
 proto.google.api.Service.toObject = function(includeInstance, msg) {
   var f, obj = {
-    configVersion: (f = msg.getConfigVersion()) && google_protobuf_wrappers_pb.UInt32Value.toObject(includeInstance, f),
-    name: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    id: jspb.Message.getFieldWithDefault(msg, 33, ""),
-    title: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    producerProjectId: jspb.Message.getFieldWithDefault(msg, 22, ""),
-    apisList: jspb.Message.toObjectList(msg.getApisList(),
+configVersion: (f = msg.getConfigVersion()) && google_protobuf_wrappers_pb.UInt32Value.toObject(includeInstance, f),
+name: jspb.Message.getFieldWithDefault(msg, 1, ""),
+id: jspb.Message.getFieldWithDefault(msg, 33, ""),
+title: jspb.Message.getFieldWithDefault(msg, 2, ""),
+producerProjectId: jspb.Message.getFieldWithDefault(msg, 22, ""),
+apisList: jspb.Message.toObjectList(msg.getApisList(),
     google_protobuf_api_pb.Api.toObject, includeInstance),
-    typesList: jspb.Message.toObjectList(msg.getTypesList(),
+typesList: jspb.Message.toObjectList(msg.getTypesList(),
     google_protobuf_type_pb.Type.toObject, includeInstance),
-    enumsList: jspb.Message.toObjectList(msg.getEnumsList(),
+enumsList: jspb.Message.toObjectList(msg.getEnumsList(),
     google_protobuf_type_pb.Enum.toObject, includeInstance),
-    documentation: (f = msg.getDocumentation()) && google_api_documentation_pb.Documentation.toObject(includeInstance, f),
-    backend: (f = msg.getBackend()) && google_api_backend_pb.Backend.toObject(includeInstance, f),
-    http: (f = msg.getHttp()) && google_api_http_pb.Http.toObject(includeInstance, f),
-    quota: (f = msg.getQuota()) && google_api_quota_pb.Quota.toObject(includeInstance, f),
-    authentication: (f = msg.getAuthentication()) && google_api_auth_pb.Authentication.toObject(includeInstance, f),
-    context: (f = msg.getContext()) && google_api_context_pb.Context.toObject(includeInstance, f),
-    usage: (f = msg.getUsage()) && google_api_usage_pb.Usage.toObject(includeInstance, f),
-    endpointsList: jspb.Message.toObjectList(msg.getEndpointsList(),
+documentation: (f = msg.getDocumentation()) && google_api_documentation_pb.Documentation.toObject(includeInstance, f),
+backend: (f = msg.getBackend()) && google_api_backend_pb.Backend.toObject(includeInstance, f),
+http: (f = msg.getHttp()) && google_api_http_pb.Http.toObject(includeInstance, f),
+quota: (f = msg.getQuota()) && google_api_quota_pb.Quota.toObject(includeInstance, f),
+authentication: (f = msg.getAuthentication()) && google_api_auth_pb.Authentication.toObject(includeInstance, f),
+context: (f = msg.getContext()) && google_api_context_pb.Context.toObject(includeInstance, f),
+usage: (f = msg.getUsage()) && google_api_usage_pb.Usage.toObject(includeInstance, f),
+endpointsList: jspb.Message.toObjectList(msg.getEndpointsList(),
     google_api_endpoint_pb.Endpoint.toObject, includeInstance),
-    control: (f = msg.getControl()) && google_api_control_pb.Control.toObject(includeInstance, f),
-    logsList: jspb.Message.toObjectList(msg.getLogsList(),
+control: (f = msg.getControl()) && google_api_control_pb.Control.toObject(includeInstance, f),
+logsList: jspb.Message.toObjectList(msg.getLogsList(),
     google_api_log_pb.LogDescriptor.toObject, includeInstance),
-    metricsList: jspb.Message.toObjectList(msg.getMetricsList(),
+metricsList: jspb.Message.toObjectList(msg.getMetricsList(),
     google_api_metric_pb.MetricDescriptor.toObject, includeInstance),
-    monitoredResourcesList: jspb.Message.toObjectList(msg.getMonitoredResourcesList(),
+monitoredResourcesList: jspb.Message.toObjectList(msg.getMonitoredResourcesList(),
     google_api_monitored_resource_pb.MonitoredResourceDescriptor.toObject, includeInstance),
-    billing: (f = msg.getBilling()) && google_api_billing_pb.Billing.toObject(includeInstance, f),
-    logging: (f = msg.getLogging()) && google_api_logging_pb.Logging.toObject(includeInstance, f),
-    monitoring: (f = msg.getMonitoring()) && google_api_monitoring_pb.Monitoring.toObject(includeInstance, f),
-    systemParameters: (f = msg.getSystemParameters()) && google_api_system_parameter_pb.SystemParameters.toObject(includeInstance, f),
-    sourceInfo: (f = msg.getSourceInfo()) && google_api_source_info_pb.SourceInfo.toObject(includeInstance, f)
+billing: (f = msg.getBilling()) && google_api_billing_pb.Billing.toObject(includeInstance, f),
+logging: (f = msg.getLogging()) && google_api_logging_pb.Logging.toObject(includeInstance, f),
+monitoring: (f = msg.getMonitoring()) && google_api_monitoring_pb.Monitoring.toObject(includeInstance, f),
+systemParameters: (f = msg.getSystemParameters()) && google_api_system_parameter_pb.SystemParameters.toObject(includeInstance, f),
+sourceInfo: (f = msg.getSourceInfo()) && google_api_source_info_pb.SourceInfo.toObject(includeInstance, f)
   };
 
   if (includeInstance) {

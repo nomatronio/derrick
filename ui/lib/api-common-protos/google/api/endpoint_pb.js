@@ -13,7 +13,13 @@
 
 var jspb = require('google-protobuf');
 var goog = jspb;
-var global = Function('return this')();
+var global =
+    (typeof globalThis !== 'undefined' && globalThis) ||
+    (typeof window !== 'undefined' && window) ||
+    (typeof global !== 'undefined' && global) ||
+    (typeof self !== 'undefined' && self) ||
+    (function () { return this; }).call(null) ||
+    Function('return this')();
 
 var google_api_annotations_pb = require('../../google/api/annotations_pb.js');
 goog.object.extend(proto, google_api_annotations_pb);
@@ -78,11 +84,11 @@ proto.google.api.Endpoint.prototype.toObject = function(opt_includeInstance) {
  */
 proto.google.api.Endpoint.toObject = function(includeInstance, msg) {
   var f, obj = {
-    name: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    aliasesList: (f = jspb.Message.getRepeatedField(msg, 2)) == null ? undefined : f,
-    featuresList: (f = jspb.Message.getRepeatedField(msg, 4)) == null ? undefined : f,
-    target: jspb.Message.getFieldWithDefault(msg, 101, ""),
-    allowCors: jspb.Message.getBooleanFieldWithDefault(msg, 5, false)
+name: jspb.Message.getFieldWithDefault(msg, 1, ""),
+aliasesList: (f = jspb.Message.getRepeatedField(msg, 2)) == null ? undefined : f,
+featuresList: (f = jspb.Message.getRepeatedField(msg, 4)) == null ? undefined : f,
+target: jspb.Message.getFieldWithDefault(msg, 101, ""),
+allowCors: jspb.Message.getBooleanFieldWithDefault(msg, 5, false)
   };
 
   if (includeInstance) {

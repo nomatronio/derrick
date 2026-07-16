@@ -13,7 +13,13 @@
 
 var jspb = require('google-protobuf');
 var goog = jspb;
-var global = Function('return this')();
+var global =
+    (typeof globalThis !== 'undefined' && globalThis) ||
+    (typeof window !== 'undefined' && window) ||
+    (typeof global !== 'undefined' && global) ||
+    (typeof self !== 'undefined' && self) ||
+    (function () { return this; }).call(null) ||
+    Function('return this')();
 
 var google_api_label_pb = require('../../google/api/label_pb.js');
 goog.object.extend(proto, google_api_label_pb);
@@ -124,11 +130,11 @@ proto.google.api.MonitoredResourceDescriptor.prototype.toObject = function(opt_i
  */
 proto.google.api.MonitoredResourceDescriptor.toObject = function(includeInstance, msg) {
   var f, obj = {
-    name: jspb.Message.getFieldWithDefault(msg, 5, ""),
-    type: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    displayName: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    description: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    labelsList: jspb.Message.toObjectList(msg.getLabelsList(),
+name: jspb.Message.getFieldWithDefault(msg, 5, ""),
+type: jspb.Message.getFieldWithDefault(msg, 1, ""),
+displayName: jspb.Message.getFieldWithDefault(msg, 2, ""),
+description: jspb.Message.getFieldWithDefault(msg, 3, ""),
+labelsList: jspb.Message.toObjectList(msg.getLabelsList(),
     google_api_label_pb.LabelDescriptor.toObject, includeInstance)
   };
 
@@ -397,8 +403,8 @@ proto.google.api.MonitoredResource.prototype.toObject = function(opt_includeInst
  */
 proto.google.api.MonitoredResource.toObject = function(includeInstance, msg) {
   var f, obj = {
-    type: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    labelsMap: (f = msg.getLabelsMap()) ? f.toObject(includeInstance, undefined) : []
+type: jspb.Message.getFieldWithDefault(msg, 1, ""),
+labelsMap: (f = msg.getLabelsMap()) ? f.toObject(includeInstance, undefined) : []
   };
 
   if (includeInstance) {
@@ -525,7 +531,8 @@ proto.google.api.MonitoredResource.prototype.getLabelsMap = function(opt_noLazyC
  */
 proto.google.api.MonitoredResource.prototype.clearLabelsMap = function() {
   this.getLabelsMap().clear();
-  return this;};
+  return this;
+};
 
 
 
@@ -560,8 +567,8 @@ proto.google.api.MonitoredResourceMetadata.prototype.toObject = function(opt_inc
  */
 proto.google.api.MonitoredResourceMetadata.toObject = function(includeInstance, msg) {
   var f, obj = {
-    systemLabels: (f = msg.getSystemLabels()) && google_protobuf_struct_pb.Struct.toObject(includeInstance, f),
-    userLabelsMap: (f = msg.getUserLabelsMap()) ? f.toObject(includeInstance, undefined) : []
+systemLabels: (f = msg.getSystemLabels()) && google_protobuf_struct_pb.Struct.toObject(includeInstance, f),
+userLabelsMap: (f = msg.getUserLabelsMap()) ? f.toObject(includeInstance, undefined) : []
   };
 
   if (includeInstance) {
@@ -709,7 +716,8 @@ proto.google.api.MonitoredResourceMetadata.prototype.getUserLabelsMap = function
  */
 proto.google.api.MonitoredResourceMetadata.prototype.clearUserLabelsMap = function() {
   this.getUserLabelsMap().clear();
-  return this;};
+  return this;
+};
 
 
 goog.object.extend(exports, proto.google.api);

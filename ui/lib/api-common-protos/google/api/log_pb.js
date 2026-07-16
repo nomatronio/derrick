@@ -13,7 +13,13 @@
 
 var jspb = require('google-protobuf');
 var goog = jspb;
-var global = Function('return this')();
+var global =
+    (typeof globalThis !== 'undefined' && globalThis) ||
+    (typeof window !== 'undefined' && window) ||
+    (typeof global !== 'undefined' && global) ||
+    (typeof self !== 'undefined' && self) ||
+    (function () { return this; }).call(null) ||
+    Function('return this')();
 
 var google_api_label_pb = require('../../google/api/label_pb.js');
 goog.object.extend(proto, google_api_label_pb);
@@ -78,11 +84,11 @@ proto.google.api.LogDescriptor.prototype.toObject = function(opt_includeInstance
  */
 proto.google.api.LogDescriptor.toObject = function(includeInstance, msg) {
   var f, obj = {
-    name: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    labelsList: jspb.Message.toObjectList(msg.getLabelsList(),
+name: jspb.Message.getFieldWithDefault(msg, 1, ""),
+labelsList: jspb.Message.toObjectList(msg.getLabelsList(),
     google_api_label_pb.LabelDescriptor.toObject, includeInstance),
-    description: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    displayName: jspb.Message.getFieldWithDefault(msg, 4, "")
+description: jspb.Message.getFieldWithDefault(msg, 3, ""),
+displayName: jspb.Message.getFieldWithDefault(msg, 4, "")
   };
 
   if (includeInstance) {

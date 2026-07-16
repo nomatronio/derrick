@@ -28,7 +28,7 @@ func TestServiceGetLogStreamCases(t *testing.T, factory Factory) {
 	type Req = pb.UpsertDeploymentRequest
 
 	type instLog struct {
-		pb.Waypoint_EntrypointLogStreamClient
+		pb.Derrick_EntrypointLogStreamClient
 
 		id string
 	}
@@ -36,7 +36,7 @@ func TestServiceGetLogStreamCases(t *testing.T, factory Factory) {
 	mkinsts := func(
 		t *testing.T, ctx context.Context, client pb.DerrickClient, cnt int,
 	) ([]*instLog, *pb.Deployment) {
-		// pb.Waypoint_EntrypointLogStreamClient, string) {
+		// pb.Derrick_EntrypointLogStreamClient, string) {
 		// Register our instances
 		resp, err := client.UpsertDeployment(ctx, &pb.UpsertDeploymentRequest{
 			Deployment: serverptypes.TestValidDeployment(t, &pb.Deployment{
@@ -67,7 +67,7 @@ func TestServiceGetLogStreamCases(t *testing.T, factory Factory) {
 			require.NoError(t, err)
 
 			out = append(out, &instLog{
-				Waypoint_EntrypointLogStreamClient: logSendClient,
+				Derrick_EntrypointLogStreamClient: logSendClient,
 				id:                                 id,
 			})
 		}

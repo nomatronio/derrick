@@ -13,7 +13,13 @@
 
 var jspb = require('google-protobuf');
 var goog = jspb;
-var global = Function('return this')();
+var global =
+    (typeof globalThis !== 'undefined' && globalThis) ||
+    (typeof window !== 'undefined' && window) ||
+    (typeof global !== 'undefined' && global) ||
+    (typeof self !== 'undefined' && self) ||
+    (function () { return this; }).call(null) ||
+    Function('return this')();
 
 goog.exportSymbol('proto.google.api.Documentation', null, global);
 goog.exportSymbol('proto.google.api.DocumentationRule', null, global);
@@ -120,13 +126,13 @@ proto.google.api.Documentation.prototype.toObject = function(opt_includeInstance
  */
 proto.google.api.Documentation.toObject = function(includeInstance, msg) {
   var f, obj = {
-    summary: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    pagesList: jspb.Message.toObjectList(msg.getPagesList(),
+summary: jspb.Message.getFieldWithDefault(msg, 1, ""),
+pagesList: jspb.Message.toObjectList(msg.getPagesList(),
     proto.google.api.Page.toObject, includeInstance),
-    rulesList: jspb.Message.toObjectList(msg.getRulesList(),
+rulesList: jspb.Message.toObjectList(msg.getRulesList(),
     proto.google.api.DocumentationRule.toObject, includeInstance),
-    documentationRootUrl: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    overview: jspb.Message.getFieldWithDefault(msg, 2, "")
+documentationRootUrl: jspb.Message.getFieldWithDefault(msg, 4, ""),
+overview: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
 
   if (includeInstance) {
@@ -416,9 +422,9 @@ proto.google.api.DocumentationRule.prototype.toObject = function(opt_includeInst
  */
 proto.google.api.DocumentationRule.toObject = function(includeInstance, msg) {
   var f, obj = {
-    selector: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    description: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    deprecationDescription: jspb.Message.getFieldWithDefault(msg, 3, "")
+selector: jspb.Message.getFieldWithDefault(msg, 1, ""),
+description: jspb.Message.getFieldWithDefault(msg, 2, ""),
+deprecationDescription: jspb.Message.getFieldWithDefault(msg, 3, "")
   };
 
   if (includeInstance) {
@@ -613,9 +619,9 @@ proto.google.api.Page.prototype.toObject = function(opt_includeInstance) {
  */
 proto.google.api.Page.toObject = function(includeInstance, msg) {
   var f, obj = {
-    name: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    content: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    subpagesList: jspb.Message.toObjectList(msg.getSubpagesList(),
+name: jspb.Message.getFieldWithDefault(msg, 1, ""),
+content: jspb.Message.getFieldWithDefault(msg, 2, ""),
+subpagesList: jspb.Message.toObjectList(msg.getSubpagesList(),
     proto.google.api.Page.toObject, includeInstance)
   };
 

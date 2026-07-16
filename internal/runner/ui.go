@@ -18,7 +18,7 @@ type runnerUI struct {
 	ctx    context.Context
 	cancel func()
 	mu     *sync.Mutex
-	evc    pb.Waypoint_RunnerJobStreamClient
+	evc    pb.Derrick_RunnerJobStreamClient
 
 	// stepIdx keeps track of the current step "ID" used when talking to
 	// the server. Each new stepgroup step gets a new monotonically increasing

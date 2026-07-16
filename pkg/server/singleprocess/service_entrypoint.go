@@ -25,7 +25,7 @@ import (
 // TODO: test
 func (s *Service) EntrypointConfig(
 	req *pb.EntrypointConfigRequest,
-	srv pb.Waypoint_EntrypointConfigServer,
+	srv pb.Derrick_EntrypointConfigServer,
 ) error {
 	log := hclog.FromContext(srv.Context())
 	ctx := srv.Context()
@@ -270,7 +270,7 @@ func (s *Service) EntrypointConfig(
 
 // TODO: test
 func (s *Service) EntrypointLogStream(
-	server pb.Waypoint_EntrypointLogStreamServer,
+	server pb.Derrick_EntrypointLogStreamServer,
 ) error {
 	ctx := server.Context()
 
@@ -360,7 +360,7 @@ func (s *Service) EntrypointLogStream(
 }
 
 func (s *Service) EntrypointExecStream(
-	server pb.Waypoint_EntrypointExecStreamServer,
+	server pb.Derrick_EntrypointExecStreamServer,
 ) error {
 	ctx := server.Context()
 	log := hclog.FromContext(server.Context())
@@ -588,7 +588,7 @@ func (s *Service) EntrypointExecStream(
 
 func (s *Service) handleClientExecRequest(
 	log hclog.Logger,
-	srv pb.Waypoint_EntrypointExecStreamServer,
+	srv pb.Derrick_EntrypointExecStreamServer,
 	req *pb.ExecStreamRequest,
 ) error {
 	log.Debug("event received from client", "event", req.Event)

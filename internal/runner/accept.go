@@ -141,7 +141,7 @@ func (r *Runner) accept(ctx context.Context, id string) error {
 	retry := false
 
 	// State we want to initialize outside the retry label.
-	var client pb.Waypoint_RunnerJobStreamClient
+	var client pb.Derrick_RunnerJobStreamClient
 	var streamCtx context.Context
 	var streamCancel context.CancelFunc
 	var streamCtxLock sync.Mutex
@@ -542,7 +542,7 @@ func (r *Runner) prepareAndExecuteJob(
 	log hclog.Logger,
 	ui terminal.UI,
 	sendMutex *sync.Mutex,
-	client pb.Waypoint_RunnerJobStreamClient,
+	client pb.Derrick_RunnerJobStreamClient,
 	assignment *pb.RunnerJobStreamResponse_JobAssignment,
 ) (*pb.Job_Result, error) {
 	job := assignment.Job

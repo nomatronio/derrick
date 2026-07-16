@@ -213,7 +213,7 @@ func (c *App) Release(ctx context.Context, op *pb.Job_ReleaseOp) (*pb.Job_Releas
 	return result.Release, nil
 }
 
-func (a *App) Logs(ctx context.Context, deploySeq string) (pb.Waypoint_GetLogStreamClient, error) {
+func (a *App) Logs(ctx context.Context, deploySeq string) (pb.Derrick_GetLogStreamClient, error) {
 	log := a.project.logger.Named("logs")
 
 	// Depending on which deployments are at play, and which plugins those deployments

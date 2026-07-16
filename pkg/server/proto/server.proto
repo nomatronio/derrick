@@ -340,11 +340,11 @@ service Derrick {
   rpc EntrypointExecStream(stream EntrypointExecRequest) returns (stream EntrypointExecResponse);
 
   //----------------------------------------------------------------------
-  // Waypoint.hcl functions. These endpoints don't modify any server state,
+  // Derrick.hcl functions. These endpoints don't modify any server state,
   // they're conveniences to build tools on top of Waypoint.
   //----------------------------------------------------------------------
 
-  // DerrickHclFmt formats a waypoint.hcl file. This must be in HCL format.
+  // DerrickHclFmt formats a derrick.hcl file. This must be in HCL format.
   // JSON formatting is not supported.
   rpc DerrickHclFmt(DerrickHclFmtRequest) returns (DerrickHclFmtResponse);
 
@@ -808,10 +808,10 @@ message Project {
   // poll operations and their success/failure by using the ListJobs API.
   Poll data_source_poll = 7;
 
-  // The contents of a default waypoint.hcl file. This will be used ONLY IF
-  // this project does not have a waypoint.hcl file when an operation is
+  // The contents of a default derrick.hcl file. This will be used ONLY IF
+  // this project does not have a derrick.hcl file when an operation is
   // executed. When this is used, local operations can't be run any more
-  // since the CLI usually determines the project based on the waypoint.hcl
+  // since the CLI usually determines the project based on the derrick.hcl
   // file. The CLI may still be used for remote operations by executing
   // i.e. derrick up <project>
   bytes derrick_hcl = 5;
@@ -1816,10 +1816,10 @@ message Job {
   DataSource data_source = 6;
   map<string, string> data_source_overrides = 7;
 
-  // Waypoint.hcl file contents. This is OPTIONAL and not typically supplied.
-  // If this is not provided, the job will source the waypoint.hcl file
+  // Derrick.hcl file contents. This is OPTIONAL and not typically supplied.
+  // If this is not provided, the job will source the derrick.hcl file
   // from the server or the data source. This can be used to override those
-  // and force a specific waypoint.hcl to be used.
+  // and force a specific derrick.hcl to be used.
   Hcl derrick_hcl = 12;
 
   // variables store the key/value pairs of parsed variables; the parse
@@ -1880,12 +1880,12 @@ message Job {
   DataSource.Ref data_source_ref = 110;
 
   // Variable refs store the final value used on the operation for each variable
-  // defined in the waypoint.hcl. Any variables with `sensitive` set in the
-  // waypoint.hcl will have a value hashed with SHA256 so the user can verify
+  // defined in the derrick.hcl. Any variables with `sensitive` set in the
+  // derrick.hcl will have a value hashed with SHA256 so the user can verify
   // the value used.
   map<string, Variable.FinalValue> variable_final_values = 113;
 
-  // Config is information about the Derrick configuration (waypoint.hcl)
+  // Config is information about the Derrick configuration (derrick.hcl)
   // for this job. This is only available once the configuration is loaded.
   // If this is nil and the job is RUNNING, then it may not be loaded yet.
   // API users can wait on the Job event on the JobStream to listen for
@@ -1961,15 +1961,15 @@ message Job {
       // Unknown should never be set, but represents a zero value.
       UNKNOWN = 0;
 
-      // File is when the waypoint.hcl was loaded from a file either
+      // File is when the derrick.hcl was loaded from a file either
       // on disk (local actions) or the attached repository (GitOps).
       FILE = 1;
 
-      // Server is when the waypoint.hcl was loaded from the server
+      // Server is when the derrick.hcl was loaded from the server
       // from being written directly in the project settings.
       SERVER = 2;
 
-      // Job is when the waypoint.hcl was loaded directly from the job by
+      // Job is when the derrick.hcl was loaded directly from the job by
       // being embedded in the "derrick_hcl" field (tag 12).
       JOB = 3;
     }
@@ -2877,7 +2877,7 @@ message RunnerJobStreamRequest {
     GetJobStreamResponse.Download download = 7;
 
     // The config_load event is sent after the Derrick configuration
-    // (waypoint.hcl) is loaded. This includes information about the loaded
+    // (derrick.hcl) is loaded. This includes information about the loaded
     // configuration that the frontends can use.
     //
     // This can be sent multiple times to update the configuration information
@@ -4808,7 +4808,7 @@ message Pipeline {
   // is here to represent that. If we ever decide NOT to do that, we can just
   // remove the "oneof" which is backwards compatible.
   oneof owner {
-    // This pipeline is created from a waypoint.hcl file that is synced via VCS.
+    // This pipeline is created from a derrick.hcl file that is synced via VCS.
     Ref.Project project = 3;
   }
 
@@ -4825,7 +4825,7 @@ message Pipeline {
   // the root step, mermaid-formatted graph output, and more.
   //
   // These requirements are usually hidden from users through nicer user
-  // experiences for editing: waypoint.hcl syntax (which implicitly creates
+  // experiences for editing: derrick.hcl syntax (which implicitly creates
   // ordering and root steps), UIs, etc. All these requirements are noted for
   // _internal_ users who are modifying pipelines via the API. For those
   // internal users, they must manage the tedium of adhering to these requirements.
@@ -5417,7 +5417,7 @@ message Snapshot {
 }
 
 /********************************************************************
-* Waypoint.hcl Helpers
+* Derrick.hcl Helpers
 ********************************************************************/
 
 // Hcl is a message used to encapsulate the contents of an HCL

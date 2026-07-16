@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option go_package = "waypoint/builtin/pack";
+option go_package = "github.com/nomatronio/derrick/builtin/pack";
 
 package pack;
 

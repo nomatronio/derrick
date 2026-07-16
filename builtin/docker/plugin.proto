@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package docker;
 
-option go_package = "waypoint/builtin/docker";
+option go_package = "github.com/nomatronio/derrick/builtin/docker";
 
 import "google/protobuf/empty.proto";
 

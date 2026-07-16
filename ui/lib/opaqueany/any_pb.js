@@ -13,7 +13,13 @@
 
 var jspb = require('google-protobuf');
 var goog = jspb;
-var global = Function('return this')();
+var global =
+    (typeof globalThis !== 'undefined' && globalThis) ||
+    (typeof window !== 'undefined' && window) ||
+    (typeof global !== 'undefined' && global) ||
+    (typeof self !== 'undefined' && self) ||
+    (function () { return this; }).call(null) ||
+    Function('return this')();
 
 goog.exportSymbol('proto.opaqueany.Any', null, global);
 /**
@@ -69,8 +75,8 @@ proto.opaqueany.Any.prototype.toObject = function(opt_includeInstance) {
  */
 proto.opaqueany.Any.toObject = function(includeInstance, msg) {
   var f, obj = {
-    typeUrl: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    value: msg.getValue_asB64()
+typeUrl: jspb.Message.getFieldWithDefault(msg, 1, ""),
+value: msg.getValue_asB64()
   };
 
   if (includeInstance) {

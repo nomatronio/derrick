@@ -27,7 +27,7 @@
       "waypoint/tests/*": ["tests/*"],
       "waypoint/*": ["app/*"],
       // Ensure that types from libraries are included
-      "lib/waypoint-client": ["lib/waypoint-client/*"],
+      "lib/derrick-client": ["lib/derrick-client/*"],
       "*": ["types/*"]
     }
   },

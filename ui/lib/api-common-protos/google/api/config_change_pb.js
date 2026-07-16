@@ -13,7 +13,13 @@
 
 var jspb = require('google-protobuf');
 var goog = jspb;
-var global = Function('return this')();
+var global =
+    (typeof globalThis !== 'undefined' && globalThis) ||
+    (typeof window !== 'undefined' && window) ||
+    (typeof global !== 'undefined' && global) ||
+    (typeof self !== 'undefined' && self) ||
+    (function () { return this; }).call(null) ||
+    Function('return this')();
 
 goog.exportSymbol('proto.google.api.Advice', null, global);
 goog.exportSymbol('proto.google.api.ChangeType', null, global);
@@ -99,11 +105,11 @@ proto.google.api.ConfigChange.prototype.toObject = function(opt_includeInstance)
  */
 proto.google.api.ConfigChange.toObject = function(includeInstance, msg) {
   var f, obj = {
-    element: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    oldValue: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    newValue: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    changeType: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    advicesList: jspb.Message.toObjectList(msg.getAdvicesList(),
+element: jspb.Message.getFieldWithDefault(msg, 1, ""),
+oldValue: jspb.Message.getFieldWithDefault(msg, 2, ""),
+newValue: jspb.Message.getFieldWithDefault(msg, 3, ""),
+changeType: jspb.Message.getFieldWithDefault(msg, 4, 0),
+advicesList: jspb.Message.toObjectList(msg.getAdvicesList(),
     proto.google.api.Advice.toObject, includeInstance)
   };
 
@@ -372,7 +378,7 @@ proto.google.api.Advice.prototype.toObject = function(opt_includeInstance) {
  */
 proto.google.api.Advice.toObject = function(includeInstance, msg) {
   var f, obj = {
-    description: jspb.Message.getFieldWithDefault(msg, 2, "")
+description: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
 
   if (includeInstance) {

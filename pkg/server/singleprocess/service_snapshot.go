@@ -18,7 +18,7 @@ import (
 
 func (s *Service) CreateSnapshot(
 	req *empty.Empty,
-	srv pb.Waypoint_CreateSnapshotServer,
+	srv pb.Derrick_CreateSnapshotServer,
 ) error {
 	ctx := srv.Context()
 	// Always send the open message. In the future we'll send some metadata here.
@@ -48,7 +48,7 @@ func (s *Service) CreateSnapshot(
 }
 
 func (s *Service) RestoreSnapshot(
-	srv pb.Waypoint_RestoreSnapshotServer,
+	srv pb.Derrick_RestoreSnapshotServer,
 ) error {
 	ctx := srv.Context()
 	log := hclog.FromContext(srv.Context())
@@ -189,7 +189,7 @@ func (s *Service) RestoreSnapshot(
 }
 
 type snapshotWriter struct {
-	srv pb.Waypoint_CreateSnapshotServer
+	srv pb.Derrick_CreateSnapshotServer
 }
 
 func (w *snapshotWriter) Write(p []byte) (int, error) {

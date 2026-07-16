@@ -26,7 +26,7 @@ import (
 type reattachClient struct {
 	// Set these
 	ctx    context.Context
-	client pb.Waypoint_RunnerJobStreamClient
+	client pb.Derrick_RunnerJobStreamClient
 	log    hclog.Logger
 	runner *Runner
 	jobId  string
@@ -37,14 +37,14 @@ type reattachClient struct {
 }
 
 func (c *reattachClient) Send(req *pb.RunnerJobStreamRequest) error {
-	return c.do(func(client pb.Waypoint_RunnerJobStreamClient) error {
+	return c.do(func(client pb.Derrick_RunnerJobStreamClient) error {
 		return client.Send(req)
 	})
 }
 
 func (c *reattachClient) Recv() (*pb.RunnerJobStreamResponse, error) {
 	var resp *pb.RunnerJobStreamResponse
-	err := c.do(func(client pb.Waypoint_RunnerJobStreamClient) error {
+	err := c.do(func(client pb.Derrick_RunnerJobStreamClient) error {
 		var err error
 		resp, err = client.Recv()
 		return err
@@ -55,7 +55,7 @@ func (c *reattachClient) Recv() (*pb.RunnerJobStreamResponse, error) {
 
 func (c *reattachClient) Header() (metadata.MD, error) {
 	var resp metadata.MD
-	err := c.do(func(client pb.Waypoint_RunnerJobStreamClient) error {
+	err := c.do(func(client pb.Derrick_RunnerJobStreamClient) error {
 		var err error
 		resp, err = client.Header()
 		return err
@@ -66,7 +66,7 @@ func (c *reattachClient) Header() (metadata.MD, error) {
 
 func (c *reattachClient) Trailer() metadata.MD {
 	var resp metadata.MD
-	err := c.do(func(client pb.Waypoint_RunnerJobStreamClient) error {
+	err := c.do(func(client pb.Derrick_RunnerJobStreamClient) error {
 		resp = client.Trailer()
 		return nil
 	})
@@ -80,7 +80,7 @@ func (c *reattachClient) Trailer() metadata.MD {
 
 func (c *reattachClient) Context() context.Context {
 	var resp context.Context
-	err := c.do(func(client pb.Waypoint_RunnerJobStreamClient) error {
+	err := c.do(func(client pb.Derrick_RunnerJobStreamClient) error {
 		resp = client.Context()
 		return nil
 	})
@@ -93,24 +93,24 @@ func (c *reattachClient) Context() context.Context {
 }
 
 func (c *reattachClient) CloseSend() error {
-	return c.do(func(client pb.Waypoint_RunnerJobStreamClient) error {
+	return c.do(func(client pb.Derrick_RunnerJobStreamClient) error {
 		return client.CloseSend()
 	})
 }
 
 func (c *reattachClient) SendMsg(m interface{}) error {
-	return c.do(func(client pb.Waypoint_RunnerJobStreamClient) error {
+	return c.do(func(client pb.Derrick_RunnerJobStreamClient) error {
 		return client.SendMsg(m)
 	})
 }
 
 func (c *reattachClient) RecvMsg(m interface{}) error {
-	return c.do(func(client pb.Waypoint_RunnerJobStreamClient) error {
+	return c.do(func(client pb.Derrick_RunnerJobStreamClient) error {
 		return client.RecvMsg(m)
 	})
 }
 
-func (c *reattachClient) do(f func(client pb.Waypoint_RunnerJobStreamClient) error) error {
+func (c *reattachClient) do(f func(client pb.Derrick_RunnerJobStreamClient) error) error {
 	// Shorthand for common attribute access
 	log := c.log
 	r := c.runner
@@ -265,4 +265,4 @@ func (c *reattachClient) do(f func(client pb.Waypoint_RunnerJobStreamClient) err
 	}
 }
 
-var _ pb.Waypoint_RunnerJobStreamClient = (*reattachClient)(nil)
+var _ pb.Derrick_RunnerJobStreamClient = (*reattachClient)(nil)

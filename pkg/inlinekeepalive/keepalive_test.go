@@ -198,7 +198,7 @@ type serverImpl struct {
 
 // Using RunnerConfig as an arbitrary bi-directional stream.
 func (s *serverImpl) RunnerConfig(
-	srv pb.Waypoint_RunnerConfigServer,
+	srv pb.Derrick_RunnerConfigServer,
 ) error {
 	// Send down responses as we receive them
 	go func() {

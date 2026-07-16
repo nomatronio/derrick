@@ -149,7 +149,7 @@ type streamRec struct {
 
 func (s *Service) GetLogStream(
 	req *pb.GetLogStreamRequest,
-	srv pb.Waypoint_GetLogStreamServer,
+	srv pb.Derrick_GetLogStreamServer,
 ) error {
 	ctx := srv.Context()
 	log := hclog.FromContext(srv.Context())

@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package google.cloudrun;
 
-option go_package = "waypoint/builtin/google/cloudrun";
+option go_package = "github.com/nomatronio/derrick/builtin/google/cloudrun";
 
 import "any.proto";
 

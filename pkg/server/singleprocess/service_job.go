@@ -684,7 +684,7 @@ func (s *Service) ValidateJob(
 
 func (s *Service) GetJobStream(
 	req *pb.GetJobStreamRequest,
-	server pb.Waypoint_GetJobStreamServer,
+	server pb.Derrick_GetJobStreamServer,
 ) error {
 	log := hclog.FromContext(server.Context())
 	ctx := server.Context()
@@ -900,7 +900,7 @@ func (s *Service) getJobStreamOutputInit(
 	ctx context.Context,
 	log hclog.Logger,
 	job *serverstate.Job,
-	server pb.Waypoint_GetJobStreamServer,
+	server pb.Derrick_GetJobStreamServer,
 ) (<-chan []*pb.GetJobStreamResponse_Terminal_Event, error) {
 	// Start a log stream reader for this job
 	lsReader, err := s.logStreamProvider.StartReader(ctx, log, job)

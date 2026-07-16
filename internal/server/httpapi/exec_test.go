@@ -102,7 +102,7 @@ func (v *execImpl) GetVersionInfo(_ context.Context, _ *empty.Empty) (*pb.GetVer
 	}, nil
 }
 
-func (v *execImpl) StartExecStream(srv pb.Waypoint_StartExecStreamServer) error {
+func (v *execImpl) StartExecStream(srv pb.Derrick_StartExecStreamServer) error {
 	// Send down all our responses
 	for _, resp := range v.Send {
 		if err := srv.Send(resp); err != nil {

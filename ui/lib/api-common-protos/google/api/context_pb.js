@@ -13,7 +13,13 @@
 
 var jspb = require('google-protobuf');
 var goog = jspb;
-var global = Function('return this')();
+var global =
+    (typeof globalThis !== 'undefined' && globalThis) ||
+    (typeof window !== 'undefined' && window) ||
+    (typeof global !== 'undefined' && global) ||
+    (typeof self !== 'undefined' && self) ||
+    (function () { return this; }).call(null) ||
+    Function('return this')();
 
 goog.exportSymbol('proto.google.api.Context', null, global);
 goog.exportSymbol('proto.google.api.ContextRule', null, global);
@@ -98,7 +104,7 @@ proto.google.api.Context.prototype.toObject = function(opt_includeInstance) {
  */
 proto.google.api.Context.toObject = function(includeInstance, msg) {
   var f, obj = {
-    rulesList: jspb.Message.toObjectList(msg.getRulesList(),
+rulesList: jspb.Message.toObjectList(msg.getRulesList(),
     proto.google.api.ContextRule.toObject, includeInstance)
   };
 
@@ -258,9 +264,9 @@ proto.google.api.ContextRule.prototype.toObject = function(opt_includeInstance) 
  */
 proto.google.api.ContextRule.toObject = function(includeInstance, msg) {
   var f, obj = {
-    selector: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    requestedList: (f = jspb.Message.getRepeatedField(msg, 2)) == null ? undefined : f,
-    providedList: (f = jspb.Message.getRepeatedField(msg, 3)) == null ? undefined : f
+selector: jspb.Message.getFieldWithDefault(msg, 1, ""),
+requestedList: (f = jspb.Message.getRepeatedField(msg, 2)) == null ? undefined : f,
+providedList: (f = jspb.Message.getRepeatedField(msg, 3)) == null ? undefined : f
   };
 
   if (includeInstance) {

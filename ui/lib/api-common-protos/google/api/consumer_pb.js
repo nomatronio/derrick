@@ -13,7 +13,13 @@
 
 var jspb = require('google-protobuf');
 var goog = jspb;
-var global = Function('return this')();
+var global =
+    (typeof globalThis !== 'undefined' && globalThis) ||
+    (typeof window !== 'undefined' && window) ||
+    (typeof global !== 'undefined' && global) ||
+    (typeof self !== 'undefined' && self) ||
+    (function () { return this; }).call(null) ||
+    Function('return this')();
 
 goog.exportSymbol('proto.google.api.ProjectProperties', null, global);
 goog.exportSymbol('proto.google.api.Property', null, global);
@@ -99,7 +105,7 @@ proto.google.api.ProjectProperties.prototype.toObject = function(opt_includeInst
  */
 proto.google.api.ProjectProperties.toObject = function(includeInstance, msg) {
   var f, obj = {
-    propertiesList: jspb.Message.toObjectList(msg.getPropertiesList(),
+propertiesList: jspb.Message.toObjectList(msg.getPropertiesList(),
     proto.google.api.Property.toObject, includeInstance)
   };
 
@@ -252,9 +258,9 @@ proto.google.api.Property.prototype.toObject = function(opt_includeInstance) {
  */
 proto.google.api.Property.toObject = function(includeInstance, msg) {
   var f, obj = {
-    name: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    type: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    description: jspb.Message.getFieldWithDefault(msg, 3, "")
+name: jspb.Message.getFieldWithDefault(msg, 1, ""),
+type: jspb.Message.getFieldWithDefault(msg, 2, 0),
+description: jspb.Message.getFieldWithDefault(msg, 3, "")
   };
 
   if (includeInstance) {

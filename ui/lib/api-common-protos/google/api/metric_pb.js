@@ -13,7 +13,13 @@
 
 var jspb = require('google-protobuf');
 var goog = jspb;
-var global = Function('return this')();
+var global =
+    (typeof globalThis !== 'undefined' && globalThis) ||
+    (typeof window !== 'undefined' && window) ||
+    (typeof global !== 'undefined' && global) ||
+    (typeof self !== 'undefined' && self) ||
+    (function () { return this; }).call(null) ||
+    Function('return this')();
 
 var google_api_label_pb = require('../../google/api/label_pb.js');
 goog.object.extend(proto, google_api_label_pb);
@@ -102,15 +108,15 @@ proto.google.api.MetricDescriptor.prototype.toObject = function(opt_includeInsta
  */
 proto.google.api.MetricDescriptor.toObject = function(includeInstance, msg) {
   var f, obj = {
-    name: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    type: jspb.Message.getFieldWithDefault(msg, 8, ""),
-    labelsList: jspb.Message.toObjectList(msg.getLabelsList(),
+name: jspb.Message.getFieldWithDefault(msg, 1, ""),
+type: jspb.Message.getFieldWithDefault(msg, 8, ""),
+labelsList: jspb.Message.toObjectList(msg.getLabelsList(),
     google_api_label_pb.LabelDescriptor.toObject, includeInstance),
-    metricKind: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    valueType: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    unit: jspb.Message.getFieldWithDefault(msg, 5, ""),
-    description: jspb.Message.getFieldWithDefault(msg, 6, ""),
-    displayName: jspb.Message.getFieldWithDefault(msg, 7, "")
+metricKind: jspb.Message.getFieldWithDefault(msg, 3, 0),
+valueType: jspb.Message.getFieldWithDefault(msg, 4, 0),
+unit: jspb.Message.getFieldWithDefault(msg, 5, ""),
+description: jspb.Message.getFieldWithDefault(msg, 6, ""),
+displayName: jspb.Message.getFieldWithDefault(msg, 7, "")
   };
 
   if (includeInstance) {
@@ -488,8 +494,8 @@ proto.google.api.Metric.prototype.toObject = function(opt_includeInstance) {
  */
 proto.google.api.Metric.toObject = function(includeInstance, msg) {
   var f, obj = {
-    type: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    labelsMap: (f = msg.getLabelsMap()) ? f.toObject(includeInstance, undefined) : []
+type: jspb.Message.getFieldWithDefault(msg, 3, ""),
+labelsMap: (f = msg.getLabelsMap()) ? f.toObject(includeInstance, undefined) : []
   };
 
   if (includeInstance) {
@@ -616,7 +622,8 @@ proto.google.api.Metric.prototype.getLabelsMap = function(opt_noLazyCreate) {
  */
 proto.google.api.Metric.prototype.clearLabelsMap = function() {
   this.getLabelsMap().clear();
-  return this;};
+  return this;
+};
 
 
 goog.object.extend(exports, proto.google.api);

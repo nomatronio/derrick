@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package nomad;
 
-option go_package = "waypoint/builtin/nomad";
+option go_package = "github.com/nomatronio/derrick/builtin/nomad";
 
 import "opaqueany/any.proto";
 

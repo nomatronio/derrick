@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package jobspec;
 
-option go_package = "waypoint/builtin/nomad/jobspec";
+option go_package = "github.com/nomatronio/derrick/builtin/nomad/jobspec";
 
 import "opaqueany/any.proto";
 

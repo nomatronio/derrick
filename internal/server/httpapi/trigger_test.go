@@ -185,7 +185,7 @@ func (v *triggerBadImpl) RunTrigger(ctx context.Context,
 	}, nil
 }
 
-func (v *triggerImpl) GetJobStream(req *pb.GetJobStreamRequest, srv pb.Waypoint_GetJobStreamServer) error {
+func (v *triggerImpl) GetJobStream(req *pb.GetJobStreamRequest, srv pb.Derrick_GetJobStreamServer) error {
 	// send the beginning jobstream messages
 
 	// We expect a start msg before reading the rest of the stream
@@ -278,7 +278,7 @@ func (v *triggerImpl) GetJobStream(req *pb.GetJobStreamRequest, srv pb.Waypoint_
 	return nil
 }
 
-func (v *triggerBadImpl) GetJobStream(req *pb.GetJobStreamRequest, srv pb.Waypoint_GetJobStreamServer) error {
+func (v *triggerBadImpl) GetJobStream(req *pb.GetJobStreamRequest, srv pb.Derrick_GetJobStreamServer) error {
 	// send the beginning jobstream messages
 
 	// We expect a start msg before reading the rest of the stream

@@ -4,343 +4,343 @@ config_version: 3
 #
 # Name of the service configuration.
 #
-name: hashicorp.waypoint
+name: nomatron.derrick
 
 #
 # API title to appear in the user interface (Google Cloud Console).
 #
-title: Waypoint gRPC API
+title: Derrick gRPC API
 apis:
-- name: hashicorp.waypoint.Waypoint
+- name: nomatron.derrick.Derrick
 
 http:
   rules:
 
   # Unauthenticated endpoints
-  - selector: hashicorp.waypoint.Waypoint.GetVersionInfo
+  - selector: nomatron.derrick.Derrick.GetVersionInfo
     get: /version
 
-  - selector: hashicorp.waypoint.Waypoint.ListOIDCAuthMethods
+  - selector: nomatron.derrick.Derrick.ListOIDCAuthMethods
     get: /oidc/methods
 
-  - selector: hashicorp.waypoint.Waypoint.GetOIDCAuthURL
+  - selector: nomatron.derrick.Derrick.GetOIDCAuthURL
     post: /oidc/{auth_method.name}/url
     body: "*"
 
-  - selector: hashicorp.waypoint.Waypoint.CompleteOIDCAuth
+  - selector: nomatron.derrick.Derrick.CompleteOIDCAuth
     post: /oidc/{auth_method.name}/complete
     body: "*"
 
-  - selector: hashicorp.waypoint.Waypoint.NoAuthRunTrigger
+  - selector: nomatron.derrick.Derrick.NoAuthRunTrigger
     post: /triggers/no-auth/{ref.id}/run
     body: "*"
 
   # Users
-  - selector: hashicorp.waypoint.Waypoint.GetUser
+  - selector: nomatron.derrick.Derrick.GetUser
     get: /user/by-id/{user.id.id}
 
-  - selector: hashicorp.waypoint.Waypoint.GetUser
+  - selector: nomatron.derrick.Derrick.GetUser
     get: /user/by-username/{user.username.username}
 
-  - selector: hashicorp.waypoint.Waypoint.ListUsers
+  - selector: nomatron.derrick.Derrick.ListUsers
     get: /users
 
-  - selector: hashicorp.waypoint.Waypoint.UpdateUser
+  - selector: nomatron.derrick.Derrick.UpdateUser
     put: /user/{user.id}
     body: "*"
 
-  - selector: hashicorp.waypoint.Waypoint.DeleteUser
+  - selector: nomatron.derrick.Derrick.DeleteUser
     delete: /user/by-id/{user.id.id}
 
-  - selector: hashicorp.waypoint.Waypoint.DeleteUser
+  - selector: nomatron.derrick.Derrick.DeleteUser
     delete: /user/by-username/{user.username.username}
 
-  - selector: hashicorp.waypoint.Waypoint.UpsertAuthMethod
+  - selector: nomatron.derrick.Derrick.UpsertAuthMethod
     post: /auth-method
     body: "*"
 
   # Auth methods
-  - selector: hashicorp.waypoint.Waypoint.GetAuthMethod
+  - selector: nomatron.derrick.Derrick.GetAuthMethod
     get: /auth-method/{auth_method.name}
 
-  - selector: hashicorp.waypoint.Waypoint.ListAuthMethods
+  - selector: nomatron.derrick.Derrick.ListAuthMethods
     get: /auth-methods
 
-  - selector: hashicorp.waypoint.Waypoint.DeleteAuthMethod
+  - selector: nomatron.derrick.Derrick.DeleteAuthMethod
     delete: /auth-method/{auth_method.name}
 
 
   # Workspaces
-  - selector: hashicorp.waypoint.Waypoint.ListWorkspaces
+  - selector: nomatron.derrick.Derrick.ListWorkspaces
     get: /workspaces
     additional_bindings:
       - get: /project/{project.project}/workspaces
       - get: /project/{application.project}/application/{application.application}/workspaces
 
-  - selector: hashicorp.waypoint.Waypoint.GetWorkspace
+  - selector: nomatron.derrick.Derrick.GetWorkspace
     get: /workspace/{workspace.workspace}
     
-  - selector: hashicorp.waypoint.Waypoint.UpsertWorkspace
+  - selector: nomatron.derrick.Derrick.UpsertWorkspace
     post: /workspace
     body: "*"
 
   # Projects
-  - selector: hashicorp.waypoint.Waypoint.UpsertProject
+  - selector: nomatron.derrick.Derrick.UpsertProject
     post: /project
     body: "*"
 
-  - selector: hashicorp.waypoint.Waypoint.GetProject
+  - selector: nomatron.derrick.Derrick.GetProject
     get: /project/{project.project}
 
-  - selector: hashicorp.waypoint.Waypoint.ListProjects
+  - selector: nomatron.derrick.Derrick.ListProjects
     get: /projects
 
-  - selector: hashicorp.waypoint.Waypoint.DestroyProject
+  - selector: nomatron.derrick.Derrick.DestroyProject
     delete: /project/{project.project}
 
   # Applications
-  - selector: hashicorp.waypoint.Waypoint.GetApplication
+  - selector: nomatron.derrick.Derrick.GetApplication
     get: /project/{application.project}/application/{application.application}
 
-  - selector: hashicorp.waypoint.Waypoint.UpsertApplication
+  - selector: nomatron.derrick.Derrick.UpsertApplication
     post: /project/{project.project}/application
     body: "*"
 
   # Builds
-  - selector: hashicorp.waypoint.Waypoint.ListBuilds
+  - selector: nomatron.derrick.Derrick.ListBuilds
     get: /project/{application.project}/application/{application.application}/builds
 
-  - selector: hashicorp.waypoint.Waypoint.ListBuilds
+  - selector: nomatron.derrick.Derrick.ListBuilds
     get: /project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/builds
 
-  - selector: hashicorp.waypoint.Waypoint.GetBuild
+  - selector: nomatron.derrick.Derrick.GetBuild
     get: /build/{ref.id}
 
-  - selector: hashicorp.waypoint.Waypoint.GetBuild
+  - selector: nomatron.derrick.Derrick.GetBuild
     get: /project/{ref.sequence.application.project}/application/{ref.sequence.application.application}/build/{ref.sequence.number}
 
-  - selector: hashicorp.waypoint.Waypoint.GetLatestBuild
+  - selector: nomatron.derrick.Derrick.GetLatestBuild
     get: /project/{application.project}/application/{application.application}/build/latest
 
-  - selector: hashicorp.waypoint.Waypoint.GetLatestBuild
+  - selector: nomatron.derrick.Derrick.GetLatestBuild
     get: /project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/build/latest
 
   # Pushed artifacts
-  - selector: hashicorp.waypoint.Waypoint.ListPushedArtifacts
+  - selector: nomatron.derrick.Derrick.ListPushedArtifacts
     get: /project/{application.project}/application/{application.application}/artifacts
 
-  - selector: hashicorp.waypoint.Waypoint.ListPushedArtifacts
+  - selector: nomatron.derrick.Derrick.ListPushedArtifacts
     get: /project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/artifacts
 
-  - selector: hashicorp.waypoint.Waypoint.GetPushedArtifact
+  - selector: nomatron.derrick.Derrick.GetPushedArtifact
     get: /artifact/{ref.id}
 
-  - selector: hashicorp.waypoint.Waypoint.GetPushedArtifact
+  - selector: nomatron.derrick.Derrick.GetPushedArtifact
     get: /project/{ref.sequence.application.project}/application/{ref.sequence.application.application}/artifact/{ref.sequence.number}
 
-  - selector: hashicorp.waypoint.Waypoint.GetLatestPushedArtifact
+  - selector: nomatron.derrick.Derrick.GetLatestPushedArtifact
     get: /project/{application.project}/application/{application.application}/artifact/latest
 
-  - selector: hashicorp.waypoint.Waypoint.GetLatestPushedArtifact
+  - selector: nomatron.derrick.Derrick.GetLatestPushedArtifact
     get: /project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/artifact/latest
 
   # Deployments
-  - selector: hashicorp.waypoint.Waypoint.ListDeployments
+  - selector: nomatron.derrick.Derrick.ListDeployments
     get: /project/{application.project}/application/{application.application}/deployments
 
-  - selector: hashicorp.waypoint.Waypoint.ListDeployments
+  - selector: nomatron.derrick.Derrick.ListDeployments
     get: /project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/deployments
 
-  - selector: hashicorp.waypoint.Waypoint.GetDeployment
+  - selector: nomatron.derrick.Derrick.GetDeployment
     get: /deployment/{ref.id}
 
-  - selector: hashicorp.waypoint.Waypoint.GetDeployment
+  - selector: nomatron.derrick.Derrick.GetDeployment
     get: /project/{ref.sequence.application.project}/application/{ref.sequence.application.application}/deployment/{ref.sequence.number}
 
   # Instances
-  - selector: hashicorp.waypoint.Waypoint.ListInstances
+  - selector: nomatron.derrick.Derrick.ListInstances
     get: /instances/{deployment_id}
 
-  - selector: hashicorp.waypoint.Waypoint.ListInstances
+  - selector: nomatron.derrick.Derrick.ListInstances
     get: /project/{application.application.project}/application/{application.application.application}/instances
 
-  - selector: hashicorp.waypoint.Waypoint.ListInstances
+  - selector: nomatron.derrick.Derrick.ListInstances
     get: /project/{application.application.project}/application/{application.application.application}/workspace/{application.workspace.workspace}/instances
 
   # Releases
-  - selector: hashicorp.waypoint.Waypoint.ListReleases
+  - selector: nomatron.derrick.Derrick.ListReleases
     get: /project/{application.project}/application/{application.application}/releases
 
-  - selector: hashicorp.waypoint.Waypoint.ListReleases
+  - selector: nomatron.derrick.Derrick.ListReleases
     get: /project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/releases
 
-  - selector: hashicorp.waypoint.Waypoint.GetRelease
+  - selector: nomatron.derrick.Derrick.GetRelease
     get: /release/{ref.id}
 
-  - selector: hashicorp.waypoint.Waypoint.GetRelease
+  - selector: nomatron.derrick.Derrick.GetRelease
     get: /project/{ref.sequence.application.project}/application/{ref.sequence.application.application}/release/{ref.sequence.number}
 
-  - selector: hashicorp.waypoint.Waypoint.GetLatestRelease
+  - selector: nomatron.derrick.Derrick.GetLatestRelease
     get: /project/{application.project}/application/{application.application}/release/latest
 
-  - selector: hashicorp.waypoint.Waypoint.GetLatestRelease
+  - selector: nomatron.derrick.Derrick.GetLatestRelease
     get: /project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/release/latest
 
   # Status reports
-  - selector: hashicorp.waypoint.Waypoint.ListStatusReports
+  - selector: nomatron.derrick.Derrick.ListStatusReports
     get: /project/{application.project}/application/{application.application}/status-reports
 
-  - selector: hashicorp.waypoint.Waypoint.ListStatusReports
+  - selector: nomatron.derrick.Derrick.ListStatusReports
     get: /project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/status-reports
 
-  - selector: hashicorp.waypoint.Waypoint.GetStatusReport
+  - selector: nomatron.derrick.Derrick.GetStatusReport
     get: /release/by-id/{ref.id}
 
-  - selector: hashicorp.waypoint.Waypoint.GetLatestStatusReport
+  - selector: nomatron.derrick.Derrick.GetLatestStatusReport
     get: /project/{application.project}/application/{application.application}/status-report/latest
 
-  - selector: hashicorp.waypoint.Waypoint.GetLatestStatusReport
+  - selector: nomatron.derrick.Derrick.GetLatestStatusReport
     get: /project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/status-report/latest
 
-  - selector: hashicorp.waypoint.Waypoint.ExpediteStatusReport
+  - selector: nomatron.derrick.Derrick.ExpediteStatusReport
     put: /deployment/{deployment.id}/status-report
     body: "*"
 
-  - selector: hashicorp.waypoint.Waypoint.ExpediteStatusReport
+  - selector: nomatron.derrick.Derrick.ExpediteStatusReport
     put: /release/{release.id}/status-report
     body: "*"
 
-  - selector: hashicorp.waypoint.Waypoint.ExpediteStatusReport
+  - selector: nomatron.derrick.Derrick.ExpediteStatusReport
     put: /project/{deployment.sequence.application.project}/application/{deployment.sequence.application.application}/deployment/{deployment.sequence.number}/status-report
     body: "*"
 
-  - selector: hashicorp.waypoint.Waypoint.ExpediteStatusReport
+  - selector: nomatron.derrick.Derrick.ExpediteStatusReport
     put: /project/{release.sequence.application.project}/application/{release.sequence.application.application}/release/{release.sequence.number}/status-report
     body: "*"
 
   # Logs
-  - selector: hashicorp.waypoint.Waypoint.GetLogStream
+  - selector: nomatron.derrick.Derrick.GetLogStream
     post: /deployment/{deployment_id}/logs
     body: "*"
 
-  - selector: hashicorp.waypoint.Waypoint.GetLogStream
+  - selector: nomatron.derrick.Derrick.GetLogStream
     post: /project/{application.application.project}/application/{application.application.application}/logs
     body: "*"
 
-  - selector: hashicorp.waypoint.Waypoint.GetLogStream
+  - selector: nomatron.derrick.Derrick.GetLogStream
     post: /project/{application.application.project}/application/{application.application.application}/workspace/{application.workspace.workspace}/logs
     body: "*"
 
   # Exec
-  - selector: hashicorp.waypoint.Waypoint.StartExecStream
+  - selector: nomatron.derrick.Derrick.StartExecStream
     post: /exec
     body: "*"
 
   # Config
-  - selector: hashicorp.waypoint.Waypoint.GetConfig
+  - selector: nomatron.derrick.Derrick.GetConfig
     get: /project/{application.project}/application/{application.application}/config
 
     # by project
-  - selector: hashicorp.waypoint.Waypoint.GetConfig
+  - selector: nomatron.derrick.Derrick.GetConfig
     get: /project/{project.project}/config
 
     # by application
-  - selector: hashicorp.waypoint.Waypoint.GetConfig
+  - selector: nomatron.derrick.Derrick.GetConfig
     get: /project/{application.project}/{application.application}/config
 
     # NOTE(izaak): it's not clear to me how to formulate the proto request to get globally scoped config vars,
     # so omitting that for now
 
-  - selector: hashicorp.waypoint.Waypoint.SetConfig
+  - selector: nomatron.derrick.Derrick.SetConfig
     put: /project/config
     body: "*"
 
-  - selector: hashicorp.waypoint.Waypoint.DeleteConfig
+  - selector: nomatron.derrick.Derrick.DeleteConfig
     put: /project/config/delete
     body: "*"
 
-  - selector: hashicorp.waypoint.Waypoint.SetConfigSource
+  - selector: nomatron.derrick.Derrick.SetConfigSource
     put: /config-source
     body: "*"
 
-  - selector: hashicorp.waypoint.Waypoint.DeleteConfigSource
+  - selector: nomatron.derrick.Derrick.DeleteConfigSource
     put: /config-source/delete
     body: "*"
 
-  - selector: hashicorp.waypoint.Waypoint.GetConfigSource
+  - selector: nomatron.derrick.Derrick.GetConfigSource
     get: /config-source
 
   # Hostname
-  - selector: hashicorp.waypoint.Waypoint.CreateHostname
+  - selector: nomatron.derrick.Derrick.CreateHostname
     post: /project/{target.application.application.project}/application/{target.application.application.application}/hostname
     body: "*"
 
-  - selector: hashicorp.waypoint.Waypoint.CreateHostname
+  - selector: nomatron.derrick.Derrick.CreateHostname
     post: /project/{target.application.application.project}/application/{target.application.application.application}/workspace/{target.application.workspace.workspace}/hostname
     body: "*"
 
-  - selector: hashicorp.waypoint.Waypoint.DeleteHostname
+  - selector: nomatron.derrick.Derrick.DeleteHostname
     delete: /hostname/{hostname}
 
-  - selector: hashicorp.waypoint.Waypoint.ListHostnames
+  - selector: nomatron.derrick.Derrick.ListHostnames
     get: /project/{target.application.application.project}/application/{target.application.application.application}/hostnames
 
-  - selector: hashicorp.waypoint.Waypoint.ListHostnames
+  - selector: nomatron.derrick.Derrick.ListHostnames
     get: /project/{target.application.application.project}/application/{target.application.application.application}/workspace/{target.application.workspace.workspace}/hostnames
 
     # Jobs
-  - selector: hashicorp.waypoint.Waypoint.QueueJob
+  - selector: nomatron.derrick.Derrick.QueueJob
     post: /jobs/queue
     body: "*"
 
-  - selector: hashicorp.waypoint.Waypoint.CancelJob
+  - selector: nomatron.derrick.Derrick.CancelJob
     put: /jobs/cancel/{job_id}
     body: "*"
 
-  - selector: hashicorp.waypoint.Waypoint.GetJob
+  - selector: nomatron.derrick.Derrick.GetJob
     get: /jobs/{job_id}
 
-  - selector: hashicorp.waypoint.Waypoint.ListJobs
+  - selector: nomatron.derrick.Derrick.ListJobs
     get: /jobs/workspace/{workspace.workspace}
 
-  - selector: hashicorp.waypoint.Waypoint.ListJobs
+  - selector: nomatron.derrick.Derrick.ListJobs
     get: /jobs/workspace/{workspace.workspace}/state/{jobState}
 
-  - selector: hashicorp.waypoint.Waypoint.ListJobs
+  - selector: nomatron.derrick.Derrick.ListJobs
     get: /jobs/project/{project.project}
 
-  - selector: hashicorp.waypoint.Waypoint.ListJobs
+  - selector: nomatron.derrick.Derrick.ListJobs
     get: /jobs/state/{jobState}
 
-  - selector: hashicorp.waypoint.Waypoint.ListJobs
+  - selector: nomatron.derrick.Derrick.ListJobs
     get: /jobs/runner/by-id/{targetRunner.id.id}
 
-  - selector: hashicorp.waypoint.Waypoint.ValidateJob
+  - selector: nomatron.derrick.Derrick.ValidateJob
     post: /jobs/validateJob
     body: "*"
 
-  - selector: hashicorp.waypoint.Waypoint.GetJobStream
+  - selector: nomatron.derrick.Derrick.GetJobStream
     get: /jobs/stream/{job_id}
 
   # Runners
-  - selector: hashicorp.waypoint.Waypoint.GetRunner
+  - selector: nomatron.derrick.Derrick.GetRunner
     get: /runner/{runner_id}
 
-  - selector: hashicorp.waypoint.Waypoint.ListRunners
+  - selector: nomatron.derrick.Derrick.ListRunners
     get: /runners
 
-  - selector: hashicorp.waypoint.Waypoint.AdoptRunner
+  - selector: nomatron.derrick.Derrick.AdoptRunner
     post: /runner/{runner_id}/adopt
     body: "*"
 
-  - selector: hashicorp.waypoint.Waypoint.ForgetRunner
+  - selector: nomatron.derrick.Derrick.ForgetRunner
     post: /runner/{runner_id}/forget
 
   # Server config
-  - selector: hashicorp.waypoint.Waypoint.GetServerConfig
+  - selector: nomatron.derrick.Derrick.GetServerConfig
     get: /server/config
 
-  - selector: hashicorp.waypoint.Waypoint.SetServerConfig
+  - selector: nomatron.derrick.Derrick.SetServerConfig
     post: /server/config
     body: "*"
 
@@ -348,23 +348,23 @@ http:
 
   # Tokens
   # BootstrapToken: TODO
-  - selector: hashicorp.waypoint.Waypoint.DecodeToken
+  - selector: nomatron.derrick.Derrick.DecodeToken
     post: /token/decode
     body: "*"
 
-  - selector: hashicorp.waypoint.Waypoint.GenerateInviteToken
+  - selector: nomatron.derrick.Derrick.GenerateInviteToken
     post: /token/invite
     body: "*"
 
-  - selector: hashicorp.waypoint.Waypoint.GenerateLoginToken
+  - selector: nomatron.derrick.Derrick.GenerateLoginToken
     post: /token/login
     body: "*"
 
-  - selector: hashicorp.waypoint.Waypoint.GenerateRunnerToken
+  - selector: nomatron.derrick.Derrick.GenerateRunnerToken
     post: /token/runner
     body: "*"
 
-  - selector: hashicorp.waypoint.Waypoint.ConvertInviteToken
+  - selector: nomatron.derrick.Derrick.ConvertInviteToken
     post: /token/exchange
     body: "*"
 
@@ -374,108 +374,108 @@ http:
   # Omitted from HTTP spec due to only being called by the CEB over GRPC:
   # EntrypointConfig, EntrypointLogStream, EntrypointExecStream
 
-  - selector: hashicorp.waypoint.Waypoint.WaypointHclFmt
+  - selector: nomatron.derrick.Derrick.DerrickHclFmt
     post: /hcl/format
     body: "*"
 
-  - selector: hashicorp.waypoint.Waypoint.UpsertOnDemandRunnerConfig
+  - selector: nomatron.derrick.Derrick.UpsertOnDemandRunnerConfig
     post: /runner/on-demand
     body: "*"
 
-  - selector: hashicorp.waypoint.Waypoint.GetOnDemandRunnerConfig
+  - selector: nomatron.derrick.Derrick.GetOnDemandRunnerConfig
     get: /on-demand-runner/by-id/{config.id}
 
-  - selector: hashicorp.waypoint.Waypoint.GetOnDemandRunnerConfig
+  - selector: nomatron.derrick.Derrick.GetOnDemandRunnerConfig
     get: /on-demand-runner/by-name/{config.name}
 
-  - selector: hashicorp.waypoint.Waypoint.ListOnDemandRunnerConfigs
+  - selector: nomatron.derrick.Derrick.ListOnDemandRunnerConfigs
     get: /on-demand-runners
 
   # Internal metadata endpoints intentionally omitted
 
   # Tasks
-  - selector: hashicorp.waypoint.Waypoint.GetTask
+  - selector: nomatron.derrick.Derrick.GetTask
     get: /task/{ref.id}
 
-  - selector: hashicorp.waypoint.Waypoint.GetTask
+  - selector: nomatron.derrick.Derrick.GetTask
     get: /task/by-job/{ref.job_id}
 
-  - selector: hashicorp.waypoint.Waypoint.ListTask
+  - selector: nomatron.derrick.Derrick.ListTask
     get: /tasks
 
-  - selector: hashicorp.waypoint.Waypoint.CancelTask
+  - selector: nomatron.derrick.Derrick.CancelTask
     put: /task/{ref.id}/cancel
     body: "*"
 
-  - selector: hashicorp.waypoint.Waypoint.CancelTask
+  - selector: nomatron.derrick.Derrick.CancelTask
     put: /task/by-job/{ref.job_id}/cancel
     body: "*"
 
   # Triggers
-  - selector: hashicorp.waypoint.Waypoint.UpsertTrigger
+  - selector: nomatron.derrick.Derrick.UpsertTrigger
     post: /triggers
     body: "*"
 
-  - selector: hashicorp.waypoint.Waypoint.GetTrigger
+  - selector: nomatron.derrick.Derrick.GetTrigger
     get: /trigger/{ref.id}
 
-  - selector: hashicorp.waypoint.Waypoint.GetTrigger
+  - selector: nomatron.derrick.Derrick.GetTrigger
     delete: /trigger/{ref.id}
 
-  - selector: hashicorp.waypoint.Waypoint.ListTriggers
+  - selector: nomatron.derrick.Derrick.ListTriggers
     get: /triggers
 
-  - selector: hashicorp.waypoint.Waypoint.ListTriggers
+  - selector: nomatron.derrick.Derrick.ListTriggers
     get: /project/{project.project}/triggers
 
-  - selector: hashicorp.waypoint.Waypoint.ListTriggers
+  - selector: nomatron.derrick.Derrick.ListTriggers
     get: /project/{application.project}/application/{application.application}/triggers
 
-  - selector: hashicorp.waypoint.Waypoint.ListTriggers
+  - selector: nomatron.derrick.Derrick.ListTriggers
     get: /project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/triggers
 
-  - selector: hashicorp.waypoint.Waypoint.RunTrigger
+  - selector: nomatron.derrick.Derrick.RunTrigger
     put: /trigger/{ref.id}
     body: "*"
 
     # Pipelines
 
-  - selector: hashicorp.waypoint.Waypoint.ListPipelines
+  - selector: nomatron.derrick.Derrick.ListPipelines
     get: /project/{project.project}/pipelines
 
-  - selector: hashicorp.waypoint.Waypoint.GetPipeline
+  - selector: nomatron.derrick.Derrick.GetPipeline
     get: /project/{pipeline.owner.project.project}/pipeline/{pipeline.owner.pipeline_name}
 
-  - selector: hashicorp.waypoint.Waypoint.GetPipeline
+  - selector: nomatron.derrick.Derrick.GetPipeline
     get: /pipeline/{pipeline.id}
 
-  - selector: hashicorp.waypoint.Waypoint.RunPipeline
+  - selector: nomatron.derrick.Derrick.RunPipeline
     post: /project/{pipeline.owner.project.project}/pipeline/{pipeline.owner.pipeline_name}/run
     body: "*"
 
-  - selector: hashicorp.waypoint.Waypoint.RunPipeline
+  - selector: nomatron.derrick.Derrick.RunPipeline
     post: /pipeline/{pipeline.id}/run
     body: "*"
 
-  - selector: hashicorp.waypoint.Waypoint.GetPipelineRun
+  - selector: nomatron.derrick.Derrick.GetPipelineRun
     get: /project/{pipeline.owner.project.project}/pipeline/{pipeline.owner.pipeline_name}/run/{sequence}
 
-  - selector: hashicorp.waypoint.Waypoint.GetPipelineRun
+  - selector: nomatron.derrick.Derrick.GetPipelineRun
     get: /pipeline/{pipeline.id}/run/{sequence}
 
-  - selector: hashicorp.waypoint.Waypoint.GetLatestPipelineRun
+  - selector: nomatron.derrick.Derrick.GetLatestPipelineRun
     get: /project/{pipeline.owner.project.project}/pipeline/{pipeline.owner.pipeline_name}/latest-run
 
-  - selector: hashicorp.waypoint.Waypoint.GetLatestPipelineRun
+  - selector: nomatron.derrick.Derrick.GetLatestPipelineRun
     get: /pipeline/{pipeline.id}/latest-run
 
-  - selector: hashicorp.waypoint.Waypoint.ListPipelineRuns
+  - selector: nomatron.derrick.Derrick.ListPipelineRuns
     get: /project/{pipeline.owner.project.project}/pipeline/{pipeline.owner.pipeline_name}/runs
 
-  - selector: hashicorp.waypoint.Waypoint.ListPipelineRuns
+  - selector: nomatron.derrick.Derrick.ListPipelineRuns
     get: /pipeline/{pipeline.id}/runs
 
-  - selector: hashicorp.waypoint.Waypoint.ConfigSyncPipeline
+  - selector: nomatron.derrick.Derrick.ConfigSyncPipeline
     post: /project/{project.project}/config-sync-pipeline
     body: "*"
 
@@ -484,16 +484,16 @@ http:
     #############################################################################
 
     # Projects
-  - selector: hashicorp.waypoint.Waypoint.UI_ListProjects
+  - selector: nomatron.derrick.Derrick.UI_ListProjects
     get: /v1/ui/projects
 
-  - selector: hashicorp.waypoint.Waypoint.UI_GetProject
+  - selector: nomatron.derrick.Derrick.UI_GetProject
     get: /ui/project/{project.project}
 
     # Deployments
-  - selector: hashicorp.waypoint.Waypoint.UI_ListDeployments
+  - selector: nomatron.derrick.Derrick.UI_ListDeployments
     get: /ui/project/{application.project}/application/{application.application}/deployments
 
     # Releases
-  - selector: hashicorp.waypoint.Waypoint.UI_ListReleases
+  - selector: nomatron.derrick.Derrick.UI_ListReleases
     get: /ui/project/{application.project}/application/{application.application}/releases

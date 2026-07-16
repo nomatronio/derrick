@@ -1,9 +1,9 @@
 import * as jspb from 'google-protobuf'
 
-import * as google_protobuf_empty_pb from 'google-protobuf/google/protobuf/empty_pb';
-import * as google_protobuf_timestamp_pb from 'google-protobuf/google/protobuf/timestamp_pb';
-import * as google_rpc_status_pb from 'api-common-protos/google/rpc/status_pb';
-import * as any_pb from 'opaqueany/any_pb';
+import * as google_protobuf_empty_pb from 'google-protobuf/google/protobuf/empty_pb'; // proto import: "google/protobuf/empty.proto"
+import * as google_protobuf_timestamp_pb from 'google-protobuf/google/protobuf/timestamp_pb'; // proto import: "google/protobuf/timestamp.proto"
+import * as google_rpc_status_pb from 'api-common-protos/google/rpc/status_pb'; // proto import: "google/rpc/status.proto"
+import * as any_pb from 'opaqueany/any_pb'; // proto import: "any.proto"
 
 
 export class UI extends jspb.Message {
@@ -9500,6 +9500,40 @@ export namespace ConfigSetResponse {
   }
 }
 
+export class ConfigDeleteRequest extends jspb.Message {
+  getVariablesList(): Array<ConfigVar>;
+  setVariablesList(value: Array<ConfigVar>): ConfigDeleteRequest;
+  clearVariablesList(): ConfigDeleteRequest;
+  addVariables(value?: ConfigVar, index?: number): ConfigVar;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): ConfigDeleteRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: ConfigDeleteRequest): ConfigDeleteRequest.AsObject;
+  static serializeBinaryToWriter(message: ConfigDeleteRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ConfigDeleteRequest;
+  static deserializeBinaryFromReader(message: ConfigDeleteRequest, reader: jspb.BinaryReader): ConfigDeleteRequest;
+}
+
+export namespace ConfigDeleteRequest {
+  export type AsObject = {
+    variablesList: Array<ConfigVar.AsObject>,
+  }
+}
+
+export class ConfigDeleteResponse extends jspb.Message {
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): ConfigDeleteResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: ConfigDeleteResponse): ConfigDeleteResponse.AsObject;
+  static serializeBinaryToWriter(message: ConfigDeleteResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ConfigDeleteResponse;
+  static deserializeBinaryFromReader(message: ConfigDeleteResponse, reader: jspb.BinaryReader): ConfigDeleteResponse;
+}
+
+export namespace ConfigDeleteResponse {
+  export type AsObject = {
+  }
+}
+
 export class ConfigGetRequest extends jspb.Message {
   getApplication(): Ref.Application | undefined;
   setApplication(value?: Ref.Application): ConfigGetRequest;
@@ -9657,6 +9691,26 @@ export namespace SetConfigSourceRequest {
   }
 }
 
+export class DeleteConfigSourceRequest extends jspb.Message {
+  getConfigSource(): ConfigSource | undefined;
+  setConfigSource(value?: ConfigSource): DeleteConfigSourceRequest;
+  hasConfigSource(): boolean;
+  clearConfigSource(): DeleteConfigSourceRequest;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): DeleteConfigSourceRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: DeleteConfigSourceRequest): DeleteConfigSourceRequest.AsObject;
+  static serializeBinaryToWriter(message: DeleteConfigSourceRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): DeleteConfigSourceRequest;
+  static deserializeBinaryFromReader(message: DeleteConfigSourceRequest, reader: jspb.BinaryReader): DeleteConfigSourceRequest;
+}
+
+export namespace DeleteConfigSourceRequest {
+  export type AsObject = {
+    configSource?: ConfigSource.AsObject,
+  }
+}
+
 export class GetConfigSourceRequest extends jspb.Message {
   getGlobal(): Ref.Global | undefined;
   setGlobal(value?: Ref.Global): GetConfigSourceRequest;
@@ -9672,6 +9726,9 @@ export class GetConfigSourceRequest extends jspb.Message {
   setApplication(value?: Ref.Application): GetConfigSourceRequest;
   hasApplication(): boolean;
   clearApplication(): GetConfigSourceRequest;
+
+  getAll(): boolean;
+  setAll(value: boolean): GetConfigSourceRequest;
 
   getWorkspace(): Ref.Workspace | undefined;
   setWorkspace(value?: Ref.Workspace): GetConfigSourceRequest;
@@ -9696,6 +9753,7 @@ export namespace GetConfigSourceRequest {
     global?: Ref.Global.AsObject,
     project?: Ref.Project.AsObject,
     application?: Ref.Application.AsObject,
+    all: boolean,
     workspace?: Ref.Workspace.AsObject,
     type: string,
   }
@@ -9705,6 +9763,7 @@ export namespace GetConfigSourceRequest {
     GLOBAL = 50,
     PROJECT = 51,
     APPLICATION = 52,
+    ALL = 53,
   }
 }
 

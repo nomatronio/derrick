@@ -32,7 +32,7 @@ var _ = runtime.String
 var _ = utilities.NewDoubleArray
 var _ = metadata.Join
 
-func request_Waypoint_GetVersionInfo_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_GetVersionInfo_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq emptypb.Empty
 	var metadata runtime.ServerMetadata
 
@@ -41,7 +41,7 @@ func request_Waypoint_GetVersionInfo_0(ctx context.Context, marshaler runtime.Ma
 
 }
 
-func local_request_Waypoint_GetVersionInfo_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_GetVersionInfo_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq emptypb.Empty
 	var metadata runtime.ServerMetadata
 
@@ -50,7 +50,7 @@ func local_request_Waypoint_GetVersionInfo_0(ctx context.Context, marshaler runt
 
 }
 
-func request_Waypoint_ListOIDCAuthMethods_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_ListOIDCAuthMethods_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq emptypb.Empty
 	var metadata runtime.ServerMetadata
 
@@ -59,7 +59,7 @@ func request_Waypoint_ListOIDCAuthMethods_0(ctx context.Context, marshaler runti
 
 }
 
-func local_request_Waypoint_ListOIDCAuthMethods_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_ListOIDCAuthMethods_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq emptypb.Empty
 	var metadata runtime.ServerMetadata
 
@@ -68,7 +68,7 @@ func local_request_Waypoint_ListOIDCAuthMethods_0(ctx context.Context, marshaler
 
 }
 
-func request_Waypoint_GetOIDCAuthURL_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_GetOIDCAuthURL_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetOIDCAuthURLRequest
 	var metadata runtime.ServerMetadata
 
@@ -102,7 +102,7 @@ func request_Waypoint_GetOIDCAuthURL_0(ctx context.Context, marshaler runtime.Ma
 
 }
 
-func local_request_Waypoint_GetOIDCAuthURL_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_GetOIDCAuthURL_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetOIDCAuthURLRequest
 	var metadata runtime.ServerMetadata
 
@@ -136,7 +136,7 @@ func local_request_Waypoint_GetOIDCAuthURL_0(ctx context.Context, marshaler runt
 
 }
 
-func request_Waypoint_CompleteOIDCAuth_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_CompleteOIDCAuth_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq CompleteOIDCAuthRequest
 	var metadata runtime.ServerMetadata
 
@@ -170,7 +170,7 @@ func request_Waypoint_CompleteOIDCAuth_0(ctx context.Context, marshaler runtime.
 
 }
 
-func local_request_Waypoint_CompleteOIDCAuth_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_CompleteOIDCAuth_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq CompleteOIDCAuthRequest
 	var metadata runtime.ServerMetadata
 
@@ -204,7 +204,7 @@ func local_request_Waypoint_CompleteOIDCAuth_0(ctx context.Context, marshaler ru
 
 }
 
-func request_Waypoint_NoAuthRunTrigger_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_NoAuthRunTrigger_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq RunTriggerRequest
 	var metadata runtime.ServerMetadata
 
@@ -238,7 +238,7 @@ func request_Waypoint_NoAuthRunTrigger_0(ctx context.Context, marshaler runtime.
 
 }
 
-func local_request_Waypoint_NoAuthRunTrigger_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_NoAuthRunTrigger_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq RunTriggerRequest
 	var metadata runtime.ServerMetadata
 
@@ -273,10 +273,10 @@ func local_request_Waypoint_NoAuthRunTrigger_0(ctx context.Context, marshaler ru
 }
 
 var (
-	filter_Waypoint_GetUser_0 = &utilities.DoubleArray{Encoding: map[string]int{"user": 0, "id": 1}, Base: []int{1, 1, 2, 2, 0}, Check: []int{0, 1, 2, 3, 4}}
+	filter_Derrick_GetUser_0 = &utilities.DoubleArray{Encoding: map[string]int{"user": 0, "id": 1}, Base: []int{1, 1, 2, 2, 0}, Check: []int{0, 1, 2, 3, 4}}
 )
 
-func request_Waypoint_GetUser_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_GetUser_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetUserRequest
 	var metadata runtime.ServerMetadata
 
@@ -300,7 +300,7 @@ func request_Waypoint_GetUser_0(ctx context.Context, marshaler runtime.Marshaler
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetUser_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetUser_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -309,7 +309,7 @@ func request_Waypoint_GetUser_0(ctx context.Context, marshaler runtime.Marshaler
 
 }
 
-func local_request_Waypoint_GetUser_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_GetUser_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetUserRequest
 	var metadata runtime.ServerMetadata
 
@@ -333,7 +333,7 @@ func local_request_Waypoint_GetUser_0(ctx context.Context, marshaler runtime.Mar
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetUser_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetUser_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -343,10 +343,10 @@ func local_request_Waypoint_GetUser_0(ctx context.Context, marshaler runtime.Mar
 }
 
 var (
-	filter_Waypoint_GetUser_1 = &utilities.DoubleArray{Encoding: map[string]int{"user": 0, "username": 1}, Base: []int{1, 1, 2, 2, 0}, Check: []int{0, 1, 2, 3, 4}}
+	filter_Derrick_GetUser_1 = &utilities.DoubleArray{Encoding: map[string]int{"user": 0, "username": 1}, Base: []int{1, 1, 2, 2, 0}, Check: []int{0, 1, 2, 3, 4}}
 )
 
-func request_Waypoint_GetUser_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_GetUser_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetUserRequest
 	var metadata runtime.ServerMetadata
 
@@ -370,7 +370,7 @@ func request_Waypoint_GetUser_1(ctx context.Context, marshaler runtime.Marshaler
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetUser_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetUser_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -379,7 +379,7 @@ func request_Waypoint_GetUser_1(ctx context.Context, marshaler runtime.Marshaler
 
 }
 
-func local_request_Waypoint_GetUser_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_GetUser_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetUserRequest
 	var metadata runtime.ServerMetadata
 
@@ -403,7 +403,7 @@ func local_request_Waypoint_GetUser_1(ctx context.Context, marshaler runtime.Mar
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetUser_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetUser_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -412,7 +412,7 @@ func local_request_Waypoint_GetUser_1(ctx context.Context, marshaler runtime.Mar
 
 }
 
-func request_Waypoint_ListUsers_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_ListUsers_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq emptypb.Empty
 	var metadata runtime.ServerMetadata
 
@@ -421,7 +421,7 @@ func request_Waypoint_ListUsers_0(ctx context.Context, marshaler runtime.Marshal
 
 }
 
-func local_request_Waypoint_ListUsers_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_ListUsers_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq emptypb.Empty
 	var metadata runtime.ServerMetadata
 
@@ -430,7 +430,7 @@ func local_request_Waypoint_ListUsers_0(ctx context.Context, marshaler runtime.M
 
 }
 
-func request_Waypoint_UpdateUser_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_UpdateUser_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq UpdateUserRequest
 	var metadata runtime.ServerMetadata
 
@@ -464,7 +464,7 @@ func request_Waypoint_UpdateUser_0(ctx context.Context, marshaler runtime.Marsha
 
 }
 
-func local_request_Waypoint_UpdateUser_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_UpdateUser_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq UpdateUserRequest
 	var metadata runtime.ServerMetadata
 
@@ -499,10 +499,10 @@ func local_request_Waypoint_UpdateUser_0(ctx context.Context, marshaler runtime.
 }
 
 var (
-	filter_Waypoint_DeleteUser_0 = &utilities.DoubleArray{Encoding: map[string]int{"user": 0, "id": 1}, Base: []int{1, 1, 2, 2, 0}, Check: []int{0, 1, 2, 3, 4}}
+	filter_Derrick_DeleteUser_0 = &utilities.DoubleArray{Encoding: map[string]int{"user": 0, "id": 1}, Base: []int{1, 1, 2, 2, 0}, Check: []int{0, 1, 2, 3, 4}}
 )
 
-func request_Waypoint_DeleteUser_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_DeleteUser_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq DeleteUserRequest
 	var metadata runtime.ServerMetadata
 
@@ -526,7 +526,7 @@ func request_Waypoint_DeleteUser_0(ctx context.Context, marshaler runtime.Marsha
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_DeleteUser_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_DeleteUser_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -535,7 +535,7 @@ func request_Waypoint_DeleteUser_0(ctx context.Context, marshaler runtime.Marsha
 
 }
 
-func local_request_Waypoint_DeleteUser_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_DeleteUser_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq DeleteUserRequest
 	var metadata runtime.ServerMetadata
 
@@ -559,7 +559,7 @@ func local_request_Waypoint_DeleteUser_0(ctx context.Context, marshaler runtime.
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_DeleteUser_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_DeleteUser_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -569,10 +569,10 @@ func local_request_Waypoint_DeleteUser_0(ctx context.Context, marshaler runtime.
 }
 
 var (
-	filter_Waypoint_DeleteUser_1 = &utilities.DoubleArray{Encoding: map[string]int{"user": 0, "username": 1}, Base: []int{1, 1, 2, 2, 0}, Check: []int{0, 1, 2, 3, 4}}
+	filter_Derrick_DeleteUser_1 = &utilities.DoubleArray{Encoding: map[string]int{"user": 0, "username": 1}, Base: []int{1, 1, 2, 2, 0}, Check: []int{0, 1, 2, 3, 4}}
 )
 
-func request_Waypoint_DeleteUser_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_DeleteUser_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq DeleteUserRequest
 	var metadata runtime.ServerMetadata
 
@@ -596,7 +596,7 @@ func request_Waypoint_DeleteUser_1(ctx context.Context, marshaler runtime.Marsha
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_DeleteUser_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_DeleteUser_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -605,7 +605,7 @@ func request_Waypoint_DeleteUser_1(ctx context.Context, marshaler runtime.Marsha
 
 }
 
-func local_request_Waypoint_DeleteUser_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_DeleteUser_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq DeleteUserRequest
 	var metadata runtime.ServerMetadata
 
@@ -629,7 +629,7 @@ func local_request_Waypoint_DeleteUser_1(ctx context.Context, marshaler runtime.
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_DeleteUser_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_DeleteUser_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -638,7 +638,7 @@ func local_request_Waypoint_DeleteUser_1(ctx context.Context, marshaler runtime.
 
 }
 
-func request_Waypoint_UpsertAuthMethod_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_UpsertAuthMethod_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq UpsertAuthMethodRequest
 	var metadata runtime.ServerMetadata
 
@@ -655,7 +655,7 @@ func request_Waypoint_UpsertAuthMethod_0(ctx context.Context, marshaler runtime.
 
 }
 
-func local_request_Waypoint_UpsertAuthMethod_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_UpsertAuthMethod_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq UpsertAuthMethodRequest
 	var metadata runtime.ServerMetadata
 
@@ -673,10 +673,10 @@ func local_request_Waypoint_UpsertAuthMethod_0(ctx context.Context, marshaler ru
 }
 
 var (
-	filter_Waypoint_GetAuthMethod_0 = &utilities.DoubleArray{Encoding: map[string]int{"auth_method": 0, "name": 1}, Base: []int{1, 1, 1, 0}, Check: []int{0, 1, 2, 3}}
+	filter_Derrick_GetAuthMethod_0 = &utilities.DoubleArray{Encoding: map[string]int{"auth_method": 0, "name": 1}, Base: []int{1, 1, 1, 0}, Check: []int{0, 1, 2, 3}}
 )
 
-func request_Waypoint_GetAuthMethod_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_GetAuthMethod_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetAuthMethodRequest
 	var metadata runtime.ServerMetadata
 
@@ -700,7 +700,7 @@ func request_Waypoint_GetAuthMethod_0(ctx context.Context, marshaler runtime.Mar
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetAuthMethod_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetAuthMethod_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -709,7 +709,7 @@ func request_Waypoint_GetAuthMethod_0(ctx context.Context, marshaler runtime.Mar
 
 }
 
-func local_request_Waypoint_GetAuthMethod_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_GetAuthMethod_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetAuthMethodRequest
 	var metadata runtime.ServerMetadata
 
@@ -733,7 +733,7 @@ func local_request_Waypoint_GetAuthMethod_0(ctx context.Context, marshaler runti
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetAuthMethod_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetAuthMethod_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -742,7 +742,7 @@ func local_request_Waypoint_GetAuthMethod_0(ctx context.Context, marshaler runti
 
 }
 
-func request_Waypoint_ListAuthMethods_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_ListAuthMethods_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq emptypb.Empty
 	var metadata runtime.ServerMetadata
 
@@ -751,7 +751,7 @@ func request_Waypoint_ListAuthMethods_0(ctx context.Context, marshaler runtime.M
 
 }
 
-func local_request_Waypoint_ListAuthMethods_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_ListAuthMethods_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq emptypb.Empty
 	var metadata runtime.ServerMetadata
 
@@ -761,10 +761,10 @@ func local_request_Waypoint_ListAuthMethods_0(ctx context.Context, marshaler run
 }
 
 var (
-	filter_Waypoint_DeleteAuthMethod_0 = &utilities.DoubleArray{Encoding: map[string]int{"auth_method": 0, "name": 1}, Base: []int{1, 1, 1, 0}, Check: []int{0, 1, 2, 3}}
+	filter_Derrick_DeleteAuthMethod_0 = &utilities.DoubleArray{Encoding: map[string]int{"auth_method": 0, "name": 1}, Base: []int{1, 1, 1, 0}, Check: []int{0, 1, 2, 3}}
 )
 
-func request_Waypoint_DeleteAuthMethod_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_DeleteAuthMethod_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq DeleteAuthMethodRequest
 	var metadata runtime.ServerMetadata
 
@@ -788,7 +788,7 @@ func request_Waypoint_DeleteAuthMethod_0(ctx context.Context, marshaler runtime.
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_DeleteAuthMethod_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_DeleteAuthMethod_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -797,7 +797,7 @@ func request_Waypoint_DeleteAuthMethod_0(ctx context.Context, marshaler runtime.
 
 }
 
-func local_request_Waypoint_DeleteAuthMethod_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_DeleteAuthMethod_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq DeleteAuthMethodRequest
 	var metadata runtime.ServerMetadata
 
@@ -821,7 +821,7 @@ func local_request_Waypoint_DeleteAuthMethod_0(ctx context.Context, marshaler ru
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_DeleteAuthMethod_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_DeleteAuthMethod_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -831,17 +831,17 @@ func local_request_Waypoint_DeleteAuthMethod_0(ctx context.Context, marshaler ru
 }
 
 var (
-	filter_Waypoint_ListWorkspaces_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
+	filter_Derrick_ListWorkspaces_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
 )
 
-func request_Waypoint_ListWorkspaces_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_ListWorkspaces_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListWorkspacesRequest
 	var metadata runtime.ServerMetadata
 
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListWorkspaces_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListWorkspaces_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -850,14 +850,14 @@ func request_Waypoint_ListWorkspaces_0(ctx context.Context, marshaler runtime.Ma
 
 }
 
-func local_request_Waypoint_ListWorkspaces_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_ListWorkspaces_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListWorkspacesRequest
 	var metadata runtime.ServerMetadata
 
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListWorkspaces_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListWorkspaces_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -867,10 +867,10 @@ func local_request_Waypoint_ListWorkspaces_0(ctx context.Context, marshaler runt
 }
 
 var (
-	filter_Waypoint_ListWorkspaces_1 = &utilities.DoubleArray{Encoding: map[string]int{"project": 0}, Base: []int{1, 2, 2, 0}, Check: []int{0, 1, 2, 3}}
+	filter_Derrick_ListWorkspaces_1 = &utilities.DoubleArray{Encoding: map[string]int{"project": 0}, Base: []int{1, 2, 2, 0}, Check: []int{0, 1, 2, 3}}
 )
 
-func request_Waypoint_ListWorkspaces_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_ListWorkspaces_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListWorkspacesRequest
 	var metadata runtime.ServerMetadata
 
@@ -894,7 +894,7 @@ func request_Waypoint_ListWorkspaces_1(ctx context.Context, marshaler runtime.Ma
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListWorkspaces_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListWorkspaces_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -903,7 +903,7 @@ func request_Waypoint_ListWorkspaces_1(ctx context.Context, marshaler runtime.Ma
 
 }
 
-func local_request_Waypoint_ListWorkspaces_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_ListWorkspaces_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListWorkspacesRequest
 	var metadata runtime.ServerMetadata
 
@@ -927,7 +927,7 @@ func local_request_Waypoint_ListWorkspaces_1(ctx context.Context, marshaler runt
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListWorkspaces_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListWorkspaces_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -937,10 +937,10 @@ func local_request_Waypoint_ListWorkspaces_1(ctx context.Context, marshaler runt
 }
 
 var (
-	filter_Waypoint_ListWorkspaces_2 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1}, Base: []int{1, 3, 1, 0, 3, 0}, Check: []int{0, 1, 2, 3, 2, 5}}
+	filter_Derrick_ListWorkspaces_2 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1}, Base: []int{1, 3, 1, 0, 3, 0}, Check: []int{0, 1, 2, 3, 2, 5}}
 )
 
-func request_Waypoint_ListWorkspaces_2(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_ListWorkspaces_2(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListWorkspacesRequest
 	var metadata runtime.ServerMetadata
 
@@ -974,7 +974,7 @@ func request_Waypoint_ListWorkspaces_2(ctx context.Context, marshaler runtime.Ma
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListWorkspaces_2); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListWorkspaces_2); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -983,7 +983,7 @@ func request_Waypoint_ListWorkspaces_2(ctx context.Context, marshaler runtime.Ma
 
 }
 
-func local_request_Waypoint_ListWorkspaces_2(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_ListWorkspaces_2(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListWorkspacesRequest
 	var metadata runtime.ServerMetadata
 
@@ -1017,7 +1017,7 @@ func local_request_Waypoint_ListWorkspaces_2(ctx context.Context, marshaler runt
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListWorkspaces_2); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListWorkspaces_2); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -1027,10 +1027,10 @@ func local_request_Waypoint_ListWorkspaces_2(ctx context.Context, marshaler runt
 }
 
 var (
-	filter_Waypoint_GetWorkspace_0 = &utilities.DoubleArray{Encoding: map[string]int{"workspace": 0}, Base: []int{1, 2, 2, 0}, Check: []int{0, 1, 2, 3}}
+	filter_Derrick_GetWorkspace_0 = &utilities.DoubleArray{Encoding: map[string]int{"workspace": 0}, Base: []int{1, 2, 2, 0}, Check: []int{0, 1, 2, 3}}
 )
 
-func request_Waypoint_GetWorkspace_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_GetWorkspace_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetWorkspaceRequest
 	var metadata runtime.ServerMetadata
 
@@ -1054,7 +1054,7 @@ func request_Waypoint_GetWorkspace_0(ctx context.Context, marshaler runtime.Mars
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetWorkspace_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetWorkspace_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -1063,7 +1063,7 @@ func request_Waypoint_GetWorkspace_0(ctx context.Context, marshaler runtime.Mars
 
 }
 
-func local_request_Waypoint_GetWorkspace_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_GetWorkspace_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetWorkspaceRequest
 	var metadata runtime.ServerMetadata
 
@@ -1087,7 +1087,7 @@ func local_request_Waypoint_GetWorkspace_0(ctx context.Context, marshaler runtim
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetWorkspace_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetWorkspace_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -1096,7 +1096,7 @@ func local_request_Waypoint_GetWorkspace_0(ctx context.Context, marshaler runtim
 
 }
 
-func request_Waypoint_UpsertWorkspace_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_UpsertWorkspace_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq UpsertWorkspaceRequest
 	var metadata runtime.ServerMetadata
 
@@ -1113,7 +1113,7 @@ func request_Waypoint_UpsertWorkspace_0(ctx context.Context, marshaler runtime.M
 
 }
 
-func local_request_Waypoint_UpsertWorkspace_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_UpsertWorkspace_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq UpsertWorkspaceRequest
 	var metadata runtime.ServerMetadata
 
@@ -1130,7 +1130,7 @@ func local_request_Waypoint_UpsertWorkspace_0(ctx context.Context, marshaler run
 
 }
 
-func request_Waypoint_UpsertProject_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_UpsertProject_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq UpsertProjectRequest
 	var metadata runtime.ServerMetadata
 
@@ -1147,7 +1147,7 @@ func request_Waypoint_UpsertProject_0(ctx context.Context, marshaler runtime.Mar
 
 }
 
-func local_request_Waypoint_UpsertProject_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_UpsertProject_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq UpsertProjectRequest
 	var metadata runtime.ServerMetadata
 
@@ -1165,10 +1165,10 @@ func local_request_Waypoint_UpsertProject_0(ctx context.Context, marshaler runti
 }
 
 var (
-	filter_Waypoint_GetProject_0 = &utilities.DoubleArray{Encoding: map[string]int{"project": 0}, Base: []int{1, 2, 2, 0}, Check: []int{0, 1, 2, 3}}
+	filter_Derrick_GetProject_0 = &utilities.DoubleArray{Encoding: map[string]int{"project": 0}, Base: []int{1, 2, 2, 0}, Check: []int{0, 1, 2, 3}}
 )
 
-func request_Waypoint_GetProject_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_GetProject_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetProjectRequest
 	var metadata runtime.ServerMetadata
 
@@ -1192,7 +1192,7 @@ func request_Waypoint_GetProject_0(ctx context.Context, marshaler runtime.Marsha
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetProject_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetProject_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -1201,7 +1201,7 @@ func request_Waypoint_GetProject_0(ctx context.Context, marshaler runtime.Marsha
 
 }
 
-func local_request_Waypoint_GetProject_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_GetProject_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetProjectRequest
 	var metadata runtime.ServerMetadata
 
@@ -1225,7 +1225,7 @@ func local_request_Waypoint_GetProject_0(ctx context.Context, marshaler runtime.
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetProject_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetProject_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -1235,17 +1235,17 @@ func local_request_Waypoint_GetProject_0(ctx context.Context, marshaler runtime.
 }
 
 var (
-	filter_Waypoint_ListProjects_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
+	filter_Derrick_ListProjects_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
 )
 
-func request_Waypoint_ListProjects_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_ListProjects_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListProjectsRequest
 	var metadata runtime.ServerMetadata
 
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListProjects_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListProjects_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -1254,14 +1254,14 @@ func request_Waypoint_ListProjects_0(ctx context.Context, marshaler runtime.Mars
 
 }
 
-func local_request_Waypoint_ListProjects_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_ListProjects_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListProjectsRequest
 	var metadata runtime.ServerMetadata
 
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListProjects_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListProjects_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -1271,10 +1271,10 @@ func local_request_Waypoint_ListProjects_0(ctx context.Context, marshaler runtim
 }
 
 var (
-	filter_Waypoint_DestroyProject_0 = &utilities.DoubleArray{Encoding: map[string]int{"project": 0}, Base: []int{1, 2, 2, 0}, Check: []int{0, 1, 2, 3}}
+	filter_Derrick_DestroyProject_0 = &utilities.DoubleArray{Encoding: map[string]int{"project": 0}, Base: []int{1, 2, 2, 0}, Check: []int{0, 1, 2, 3}}
 )
 
-func request_Waypoint_DestroyProject_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_DestroyProject_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq DestroyProjectRequest
 	var metadata runtime.ServerMetadata
 
@@ -1298,7 +1298,7 @@ func request_Waypoint_DestroyProject_0(ctx context.Context, marshaler runtime.Ma
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_DestroyProject_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_DestroyProject_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -1307,7 +1307,7 @@ func request_Waypoint_DestroyProject_0(ctx context.Context, marshaler runtime.Ma
 
 }
 
-func local_request_Waypoint_DestroyProject_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_DestroyProject_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq DestroyProjectRequest
 	var metadata runtime.ServerMetadata
 
@@ -1331,7 +1331,7 @@ func local_request_Waypoint_DestroyProject_0(ctx context.Context, marshaler runt
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_DestroyProject_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_DestroyProject_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -1341,10 +1341,10 @@ func local_request_Waypoint_DestroyProject_0(ctx context.Context, marshaler runt
 }
 
 var (
-	filter_Waypoint_GetApplication_0 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1}, Base: []int{1, 3, 1, 0, 3, 0}, Check: []int{0, 1, 2, 3, 2, 5}}
+	filter_Derrick_GetApplication_0 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1}, Base: []int{1, 3, 1, 0, 3, 0}, Check: []int{0, 1, 2, 3, 2, 5}}
 )
 
-func request_Waypoint_GetApplication_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_GetApplication_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetApplicationRequest
 	var metadata runtime.ServerMetadata
 
@@ -1378,7 +1378,7 @@ func request_Waypoint_GetApplication_0(ctx context.Context, marshaler runtime.Ma
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetApplication_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetApplication_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -1387,7 +1387,7 @@ func request_Waypoint_GetApplication_0(ctx context.Context, marshaler runtime.Ma
 
 }
 
-func local_request_Waypoint_GetApplication_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_GetApplication_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetApplicationRequest
 	var metadata runtime.ServerMetadata
 
@@ -1421,7 +1421,7 @@ func local_request_Waypoint_GetApplication_0(ctx context.Context, marshaler runt
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetApplication_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetApplication_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -1430,7 +1430,7 @@ func local_request_Waypoint_GetApplication_0(ctx context.Context, marshaler runt
 
 }
 
-func request_Waypoint_UpsertApplication_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_UpsertApplication_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq UpsertApplicationRequest
 	var metadata runtime.ServerMetadata
 
@@ -1464,7 +1464,7 @@ func request_Waypoint_UpsertApplication_0(ctx context.Context, marshaler runtime
 
 }
 
-func local_request_Waypoint_UpsertApplication_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_UpsertApplication_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq UpsertApplicationRequest
 	var metadata runtime.ServerMetadata
 
@@ -1499,10 +1499,10 @@ func local_request_Waypoint_UpsertApplication_0(ctx context.Context, marshaler r
 }
 
 var (
-	filter_Waypoint_ListBuilds_0 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1}, Base: []int{1, 3, 1, 0, 3, 0}, Check: []int{0, 1, 2, 3, 2, 5}}
+	filter_Derrick_ListBuilds_0 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1}, Base: []int{1, 3, 1, 0, 3, 0}, Check: []int{0, 1, 2, 3, 2, 5}}
 )
 
-func request_Waypoint_ListBuilds_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_ListBuilds_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListBuildsRequest
 	var metadata runtime.ServerMetadata
 
@@ -1536,7 +1536,7 @@ func request_Waypoint_ListBuilds_0(ctx context.Context, marshaler runtime.Marsha
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListBuilds_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListBuilds_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -1545,7 +1545,7 @@ func request_Waypoint_ListBuilds_0(ctx context.Context, marshaler runtime.Marsha
 
 }
 
-func local_request_Waypoint_ListBuilds_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_ListBuilds_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListBuildsRequest
 	var metadata runtime.ServerMetadata
 
@@ -1579,7 +1579,7 @@ func local_request_Waypoint_ListBuilds_0(ctx context.Context, marshaler runtime.
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListBuilds_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListBuilds_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -1589,10 +1589,10 @@ func local_request_Waypoint_ListBuilds_0(ctx context.Context, marshaler runtime.
 }
 
 var (
-	filter_Waypoint_ListBuilds_1 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1, "workspace": 2}, Base: []int{1, 4, 1, 5, 0, 3, 0, 5, 0}, Check: []int{0, 1, 2, 1, 3, 2, 6, 4, 8}}
+	filter_Derrick_ListBuilds_1 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1, "workspace": 2}, Base: []int{1, 4, 1, 5, 0, 3, 0, 5, 0}, Check: []int{0, 1, 2, 1, 3, 2, 6, 4, 8}}
 )
 
-func request_Waypoint_ListBuilds_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_ListBuilds_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListBuildsRequest
 	var metadata runtime.ServerMetadata
 
@@ -1636,7 +1636,7 @@ func request_Waypoint_ListBuilds_1(ctx context.Context, marshaler runtime.Marsha
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListBuilds_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListBuilds_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -1645,7 +1645,7 @@ func request_Waypoint_ListBuilds_1(ctx context.Context, marshaler runtime.Marsha
 
 }
 
-func local_request_Waypoint_ListBuilds_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_ListBuilds_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListBuildsRequest
 	var metadata runtime.ServerMetadata
 
@@ -1689,7 +1689,7 @@ func local_request_Waypoint_ListBuilds_1(ctx context.Context, marshaler runtime.
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListBuilds_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListBuilds_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -1699,10 +1699,10 @@ func local_request_Waypoint_ListBuilds_1(ctx context.Context, marshaler runtime.
 }
 
 var (
-	filter_Waypoint_GetBuild_0 = &utilities.DoubleArray{Encoding: map[string]int{"ref": 0, "id": 1}, Base: []int{1, 1, 1, 0}, Check: []int{0, 1, 2, 3}}
+	filter_Derrick_GetBuild_0 = &utilities.DoubleArray{Encoding: map[string]int{"ref": 0, "id": 1}, Base: []int{1, 1, 1, 0}, Check: []int{0, 1, 2, 3}}
 )
 
-func request_Waypoint_GetBuild_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_GetBuild_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetBuildRequest
 	var metadata runtime.ServerMetadata
 
@@ -1726,7 +1726,7 @@ func request_Waypoint_GetBuild_0(ctx context.Context, marshaler runtime.Marshale
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetBuild_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetBuild_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -1735,7 +1735,7 @@ func request_Waypoint_GetBuild_0(ctx context.Context, marshaler runtime.Marshale
 
 }
 
-func local_request_Waypoint_GetBuild_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_GetBuild_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetBuildRequest
 	var metadata runtime.ServerMetadata
 
@@ -1759,7 +1759,7 @@ func local_request_Waypoint_GetBuild_0(ctx context.Context, marshaler runtime.Ma
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetBuild_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetBuild_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -1769,10 +1769,10 @@ func local_request_Waypoint_GetBuild_0(ctx context.Context, marshaler runtime.Ma
 }
 
 var (
-	filter_Waypoint_GetBuild_1 = &utilities.DoubleArray{Encoding: map[string]int{"ref": 0, "sequence": 1, "application": 2, "project": 3, "number": 4}, Base: []int{1, 9, 1, 2, 1, 5, 0, 5, 4, 0, 7, 7, 0}, Check: []int{0, 1, 2, 3, 4, 2, 5, 6, 8, 9, 2, 11, 12}}
+	filter_Derrick_GetBuild_1 = &utilities.DoubleArray{Encoding: map[string]int{"ref": 0, "sequence": 1, "application": 2, "project": 3, "number": 4}, Base: []int{1, 9, 1, 2, 1, 5, 0, 5, 4, 0, 7, 7, 0}, Check: []int{0, 1, 2, 3, 4, 2, 5, 6, 8, 9, 2, 11, 12}}
 )
 
-func request_Waypoint_GetBuild_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_GetBuild_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetBuildRequest
 	var metadata runtime.ServerMetadata
 
@@ -1816,7 +1816,7 @@ func request_Waypoint_GetBuild_1(ctx context.Context, marshaler runtime.Marshale
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetBuild_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetBuild_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -1825,7 +1825,7 @@ func request_Waypoint_GetBuild_1(ctx context.Context, marshaler runtime.Marshale
 
 }
 
-func local_request_Waypoint_GetBuild_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_GetBuild_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetBuildRequest
 	var metadata runtime.ServerMetadata
 
@@ -1869,7 +1869,7 @@ func local_request_Waypoint_GetBuild_1(ctx context.Context, marshaler runtime.Ma
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetBuild_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetBuild_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -1879,10 +1879,10 @@ func local_request_Waypoint_GetBuild_1(ctx context.Context, marshaler runtime.Ma
 }
 
 var (
-	filter_Waypoint_GetLatestBuild_0 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1}, Base: []int{1, 3, 1, 0, 3, 0}, Check: []int{0, 1, 2, 3, 2, 5}}
+	filter_Derrick_GetLatestBuild_0 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1}, Base: []int{1, 3, 1, 0, 3, 0}, Check: []int{0, 1, 2, 3, 2, 5}}
 )
 
-func request_Waypoint_GetLatestBuild_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_GetLatestBuild_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetLatestBuildRequest
 	var metadata runtime.ServerMetadata
 
@@ -1916,7 +1916,7 @@ func request_Waypoint_GetLatestBuild_0(ctx context.Context, marshaler runtime.Ma
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetLatestBuild_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetLatestBuild_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -1925,7 +1925,7 @@ func request_Waypoint_GetLatestBuild_0(ctx context.Context, marshaler runtime.Ma
 
 }
 
-func local_request_Waypoint_GetLatestBuild_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_GetLatestBuild_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetLatestBuildRequest
 	var metadata runtime.ServerMetadata
 
@@ -1959,7 +1959,7 @@ func local_request_Waypoint_GetLatestBuild_0(ctx context.Context, marshaler runt
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetLatestBuild_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetLatestBuild_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -1969,10 +1969,10 @@ func local_request_Waypoint_GetLatestBuild_0(ctx context.Context, marshaler runt
 }
 
 var (
-	filter_Waypoint_GetLatestBuild_1 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1, "workspace": 2}, Base: []int{1, 4, 1, 5, 0, 3, 0, 5, 0}, Check: []int{0, 1, 2, 1, 3, 2, 6, 4, 8}}
+	filter_Derrick_GetLatestBuild_1 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1, "workspace": 2}, Base: []int{1, 4, 1, 5, 0, 3, 0, 5, 0}, Check: []int{0, 1, 2, 1, 3, 2, 6, 4, 8}}
 )
 
-func request_Waypoint_GetLatestBuild_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_GetLatestBuild_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetLatestBuildRequest
 	var metadata runtime.ServerMetadata
 
@@ -2016,7 +2016,7 @@ func request_Waypoint_GetLatestBuild_1(ctx context.Context, marshaler runtime.Ma
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetLatestBuild_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetLatestBuild_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -2025,7 +2025,7 @@ func request_Waypoint_GetLatestBuild_1(ctx context.Context, marshaler runtime.Ma
 
 }
 
-func local_request_Waypoint_GetLatestBuild_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_GetLatestBuild_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetLatestBuildRequest
 	var metadata runtime.ServerMetadata
 
@@ -2069,7 +2069,7 @@ func local_request_Waypoint_GetLatestBuild_1(ctx context.Context, marshaler runt
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetLatestBuild_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetLatestBuild_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -2079,10 +2079,10 @@ func local_request_Waypoint_GetLatestBuild_1(ctx context.Context, marshaler runt
 }
 
 var (
-	filter_Waypoint_ListPushedArtifacts_0 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1}, Base: []int{1, 3, 1, 0, 3, 0}, Check: []int{0, 1, 2, 3, 2, 5}}
+	filter_Derrick_ListPushedArtifacts_0 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1}, Base: []int{1, 3, 1, 0, 3, 0}, Check: []int{0, 1, 2, 3, 2, 5}}
 )
 
-func request_Waypoint_ListPushedArtifacts_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_ListPushedArtifacts_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListPushedArtifactsRequest
 	var metadata runtime.ServerMetadata
 
@@ -2116,7 +2116,7 @@ func request_Waypoint_ListPushedArtifacts_0(ctx context.Context, marshaler runti
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListPushedArtifacts_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListPushedArtifacts_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -2125,7 +2125,7 @@ func request_Waypoint_ListPushedArtifacts_0(ctx context.Context, marshaler runti
 
 }
 
-func local_request_Waypoint_ListPushedArtifacts_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_ListPushedArtifacts_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListPushedArtifactsRequest
 	var metadata runtime.ServerMetadata
 
@@ -2159,7 +2159,7 @@ func local_request_Waypoint_ListPushedArtifacts_0(ctx context.Context, marshaler
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListPushedArtifacts_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListPushedArtifacts_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -2169,10 +2169,10 @@ func local_request_Waypoint_ListPushedArtifacts_0(ctx context.Context, marshaler
 }
 
 var (
-	filter_Waypoint_ListPushedArtifacts_1 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1, "workspace": 2}, Base: []int{1, 4, 1, 5, 0, 3, 0, 5, 0}, Check: []int{0, 1, 2, 1, 3, 2, 6, 4, 8}}
+	filter_Derrick_ListPushedArtifacts_1 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1, "workspace": 2}, Base: []int{1, 4, 1, 5, 0, 3, 0, 5, 0}, Check: []int{0, 1, 2, 1, 3, 2, 6, 4, 8}}
 )
 
-func request_Waypoint_ListPushedArtifacts_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_ListPushedArtifacts_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListPushedArtifactsRequest
 	var metadata runtime.ServerMetadata
 
@@ -2216,7 +2216,7 @@ func request_Waypoint_ListPushedArtifacts_1(ctx context.Context, marshaler runti
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListPushedArtifacts_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListPushedArtifacts_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -2225,7 +2225,7 @@ func request_Waypoint_ListPushedArtifacts_1(ctx context.Context, marshaler runti
 
 }
 
-func local_request_Waypoint_ListPushedArtifacts_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_ListPushedArtifacts_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListPushedArtifactsRequest
 	var metadata runtime.ServerMetadata
 
@@ -2269,7 +2269,7 @@ func local_request_Waypoint_ListPushedArtifacts_1(ctx context.Context, marshaler
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListPushedArtifacts_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListPushedArtifacts_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -2279,10 +2279,10 @@ func local_request_Waypoint_ListPushedArtifacts_1(ctx context.Context, marshaler
 }
 
 var (
-	filter_Waypoint_GetPushedArtifact_0 = &utilities.DoubleArray{Encoding: map[string]int{"ref": 0, "id": 1}, Base: []int{1, 1, 1, 0}, Check: []int{0, 1, 2, 3}}
+	filter_Derrick_GetPushedArtifact_0 = &utilities.DoubleArray{Encoding: map[string]int{"ref": 0, "id": 1}, Base: []int{1, 1, 1, 0}, Check: []int{0, 1, 2, 3}}
 )
 
-func request_Waypoint_GetPushedArtifact_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_GetPushedArtifact_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetPushedArtifactRequest
 	var metadata runtime.ServerMetadata
 
@@ -2306,7 +2306,7 @@ func request_Waypoint_GetPushedArtifact_0(ctx context.Context, marshaler runtime
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetPushedArtifact_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetPushedArtifact_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -2315,7 +2315,7 @@ func request_Waypoint_GetPushedArtifact_0(ctx context.Context, marshaler runtime
 
 }
 
-func local_request_Waypoint_GetPushedArtifact_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_GetPushedArtifact_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetPushedArtifactRequest
 	var metadata runtime.ServerMetadata
 
@@ -2339,7 +2339,7 @@ func local_request_Waypoint_GetPushedArtifact_0(ctx context.Context, marshaler r
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetPushedArtifact_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetPushedArtifact_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -2349,10 +2349,10 @@ func local_request_Waypoint_GetPushedArtifact_0(ctx context.Context, marshaler r
 }
 
 var (
-	filter_Waypoint_GetPushedArtifact_1 = &utilities.DoubleArray{Encoding: map[string]int{"ref": 0, "sequence": 1, "application": 2, "project": 3, "number": 4}, Base: []int{1, 9, 1, 2, 1, 5, 0, 5, 4, 0, 7, 7, 0}, Check: []int{0, 1, 2, 3, 4, 2, 5, 6, 8, 9, 2, 11, 12}}
+	filter_Derrick_GetPushedArtifact_1 = &utilities.DoubleArray{Encoding: map[string]int{"ref": 0, "sequence": 1, "application": 2, "project": 3, "number": 4}, Base: []int{1, 9, 1, 2, 1, 5, 0, 5, 4, 0, 7, 7, 0}, Check: []int{0, 1, 2, 3, 4, 2, 5, 6, 8, 9, 2, 11, 12}}
 )
 
-func request_Waypoint_GetPushedArtifact_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_GetPushedArtifact_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetPushedArtifactRequest
 	var metadata runtime.ServerMetadata
 
@@ -2396,7 +2396,7 @@ func request_Waypoint_GetPushedArtifact_1(ctx context.Context, marshaler runtime
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetPushedArtifact_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetPushedArtifact_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -2405,7 +2405,7 @@ func request_Waypoint_GetPushedArtifact_1(ctx context.Context, marshaler runtime
 
 }
 
-func local_request_Waypoint_GetPushedArtifact_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_GetPushedArtifact_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetPushedArtifactRequest
 	var metadata runtime.ServerMetadata
 
@@ -2449,7 +2449,7 @@ func local_request_Waypoint_GetPushedArtifact_1(ctx context.Context, marshaler r
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetPushedArtifact_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetPushedArtifact_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -2459,10 +2459,10 @@ func local_request_Waypoint_GetPushedArtifact_1(ctx context.Context, marshaler r
 }
 
 var (
-	filter_Waypoint_GetLatestPushedArtifact_0 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1}, Base: []int{1, 3, 1, 0, 3, 0}, Check: []int{0, 1, 2, 3, 2, 5}}
+	filter_Derrick_GetLatestPushedArtifact_0 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1}, Base: []int{1, 3, 1, 0, 3, 0}, Check: []int{0, 1, 2, 3, 2, 5}}
 )
 
-func request_Waypoint_GetLatestPushedArtifact_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_GetLatestPushedArtifact_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetLatestPushedArtifactRequest
 	var metadata runtime.ServerMetadata
 
@@ -2496,7 +2496,7 @@ func request_Waypoint_GetLatestPushedArtifact_0(ctx context.Context, marshaler r
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetLatestPushedArtifact_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetLatestPushedArtifact_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -2505,7 +2505,7 @@ func request_Waypoint_GetLatestPushedArtifact_0(ctx context.Context, marshaler r
 
 }
 
-func local_request_Waypoint_GetLatestPushedArtifact_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_GetLatestPushedArtifact_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetLatestPushedArtifactRequest
 	var metadata runtime.ServerMetadata
 
@@ -2539,7 +2539,7 @@ func local_request_Waypoint_GetLatestPushedArtifact_0(ctx context.Context, marsh
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetLatestPushedArtifact_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetLatestPushedArtifact_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -2549,10 +2549,10 @@ func local_request_Waypoint_GetLatestPushedArtifact_0(ctx context.Context, marsh
 }
 
 var (
-	filter_Waypoint_GetLatestPushedArtifact_1 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1, "workspace": 2}, Base: []int{1, 4, 1, 5, 0, 3, 0, 5, 0}, Check: []int{0, 1, 2, 1, 3, 2, 6, 4, 8}}
+	filter_Derrick_GetLatestPushedArtifact_1 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1, "workspace": 2}, Base: []int{1, 4, 1, 5, 0, 3, 0, 5, 0}, Check: []int{0, 1, 2, 1, 3, 2, 6, 4, 8}}
 )
 
-func request_Waypoint_GetLatestPushedArtifact_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_GetLatestPushedArtifact_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetLatestPushedArtifactRequest
 	var metadata runtime.ServerMetadata
 
@@ -2596,7 +2596,7 @@ func request_Waypoint_GetLatestPushedArtifact_1(ctx context.Context, marshaler r
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetLatestPushedArtifact_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetLatestPushedArtifact_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -2605,7 +2605,7 @@ func request_Waypoint_GetLatestPushedArtifact_1(ctx context.Context, marshaler r
 
 }
 
-func local_request_Waypoint_GetLatestPushedArtifact_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_GetLatestPushedArtifact_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetLatestPushedArtifactRequest
 	var metadata runtime.ServerMetadata
 
@@ -2649,7 +2649,7 @@ func local_request_Waypoint_GetLatestPushedArtifact_1(ctx context.Context, marsh
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetLatestPushedArtifact_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetLatestPushedArtifact_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -2659,10 +2659,10 @@ func local_request_Waypoint_GetLatestPushedArtifact_1(ctx context.Context, marsh
 }
 
 var (
-	filter_Waypoint_ListDeployments_0 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1}, Base: []int{1, 3, 1, 0, 3, 0}, Check: []int{0, 1, 2, 3, 2, 5}}
+	filter_Derrick_ListDeployments_0 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1}, Base: []int{1, 3, 1, 0, 3, 0}, Check: []int{0, 1, 2, 3, 2, 5}}
 )
 
-func request_Waypoint_ListDeployments_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_ListDeployments_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListDeploymentsRequest
 	var metadata runtime.ServerMetadata
 
@@ -2696,7 +2696,7 @@ func request_Waypoint_ListDeployments_0(ctx context.Context, marshaler runtime.M
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListDeployments_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListDeployments_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -2705,7 +2705,7 @@ func request_Waypoint_ListDeployments_0(ctx context.Context, marshaler runtime.M
 
 }
 
-func local_request_Waypoint_ListDeployments_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_ListDeployments_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListDeploymentsRequest
 	var metadata runtime.ServerMetadata
 
@@ -2739,7 +2739,7 @@ func local_request_Waypoint_ListDeployments_0(ctx context.Context, marshaler run
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListDeployments_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListDeployments_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -2749,10 +2749,10 @@ func local_request_Waypoint_ListDeployments_0(ctx context.Context, marshaler run
 }
 
 var (
-	filter_Waypoint_ListDeployments_1 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1, "workspace": 2}, Base: []int{1, 4, 1, 5, 0, 3, 0, 5, 0}, Check: []int{0, 1, 2, 1, 3, 2, 6, 4, 8}}
+	filter_Derrick_ListDeployments_1 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1, "workspace": 2}, Base: []int{1, 4, 1, 5, 0, 3, 0, 5, 0}, Check: []int{0, 1, 2, 1, 3, 2, 6, 4, 8}}
 )
 
-func request_Waypoint_ListDeployments_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_ListDeployments_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListDeploymentsRequest
 	var metadata runtime.ServerMetadata
 
@@ -2796,7 +2796,7 @@ func request_Waypoint_ListDeployments_1(ctx context.Context, marshaler runtime.M
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListDeployments_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListDeployments_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -2805,7 +2805,7 @@ func request_Waypoint_ListDeployments_1(ctx context.Context, marshaler runtime.M
 
 }
 
-func local_request_Waypoint_ListDeployments_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_ListDeployments_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListDeploymentsRequest
 	var metadata runtime.ServerMetadata
 
@@ -2849,7 +2849,7 @@ func local_request_Waypoint_ListDeployments_1(ctx context.Context, marshaler run
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListDeployments_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListDeployments_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -2859,10 +2859,10 @@ func local_request_Waypoint_ListDeployments_1(ctx context.Context, marshaler run
 }
 
 var (
-	filter_Waypoint_GetDeployment_0 = &utilities.DoubleArray{Encoding: map[string]int{"ref": 0, "id": 1}, Base: []int{1, 1, 1, 0}, Check: []int{0, 1, 2, 3}}
+	filter_Derrick_GetDeployment_0 = &utilities.DoubleArray{Encoding: map[string]int{"ref": 0, "id": 1}, Base: []int{1, 1, 1, 0}, Check: []int{0, 1, 2, 3}}
 )
 
-func request_Waypoint_GetDeployment_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_GetDeployment_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetDeploymentRequest
 	var metadata runtime.ServerMetadata
 
@@ -2886,7 +2886,7 @@ func request_Waypoint_GetDeployment_0(ctx context.Context, marshaler runtime.Mar
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetDeployment_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetDeployment_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -2895,7 +2895,7 @@ func request_Waypoint_GetDeployment_0(ctx context.Context, marshaler runtime.Mar
 
 }
 
-func local_request_Waypoint_GetDeployment_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_GetDeployment_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetDeploymentRequest
 	var metadata runtime.ServerMetadata
 
@@ -2919,7 +2919,7 @@ func local_request_Waypoint_GetDeployment_0(ctx context.Context, marshaler runti
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetDeployment_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetDeployment_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -2929,10 +2929,10 @@ func local_request_Waypoint_GetDeployment_0(ctx context.Context, marshaler runti
 }
 
 var (
-	filter_Waypoint_GetDeployment_1 = &utilities.DoubleArray{Encoding: map[string]int{"ref": 0, "sequence": 1, "application": 2, "project": 3, "number": 4}, Base: []int{1, 9, 1, 2, 1, 5, 0, 5, 4, 0, 7, 7, 0}, Check: []int{0, 1, 2, 3, 4, 2, 5, 6, 8, 9, 2, 11, 12}}
+	filter_Derrick_GetDeployment_1 = &utilities.DoubleArray{Encoding: map[string]int{"ref": 0, "sequence": 1, "application": 2, "project": 3, "number": 4}, Base: []int{1, 9, 1, 2, 1, 5, 0, 5, 4, 0, 7, 7, 0}, Check: []int{0, 1, 2, 3, 4, 2, 5, 6, 8, 9, 2, 11, 12}}
 )
 
-func request_Waypoint_GetDeployment_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_GetDeployment_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetDeploymentRequest
 	var metadata runtime.ServerMetadata
 
@@ -2976,7 +2976,7 @@ func request_Waypoint_GetDeployment_1(ctx context.Context, marshaler runtime.Mar
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetDeployment_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetDeployment_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -2985,7 +2985,7 @@ func request_Waypoint_GetDeployment_1(ctx context.Context, marshaler runtime.Mar
 
 }
 
-func local_request_Waypoint_GetDeployment_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_GetDeployment_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetDeploymentRequest
 	var metadata runtime.ServerMetadata
 
@@ -3029,7 +3029,7 @@ func local_request_Waypoint_GetDeployment_1(ctx context.Context, marshaler runti
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetDeployment_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetDeployment_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -3039,10 +3039,10 @@ func local_request_Waypoint_GetDeployment_1(ctx context.Context, marshaler runti
 }
 
 var (
-	filter_Waypoint_ListInstances_0 = &utilities.DoubleArray{Encoding: map[string]int{"deployment_id": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
+	filter_Derrick_ListInstances_0 = &utilities.DoubleArray{Encoding: map[string]int{"deployment_id": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
 )
 
-func request_Waypoint_ListInstances_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_ListInstances_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListInstancesRequest
 	var metadata runtime.ServerMetadata
 
@@ -3071,7 +3071,7 @@ func request_Waypoint_ListInstances_0(ctx context.Context, marshaler runtime.Mar
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListInstances_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListInstances_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -3080,7 +3080,7 @@ func request_Waypoint_ListInstances_0(ctx context.Context, marshaler runtime.Mar
 
 }
 
-func local_request_Waypoint_ListInstances_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_ListInstances_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListInstancesRequest
 	var metadata runtime.ServerMetadata
 
@@ -3109,7 +3109,7 @@ func local_request_Waypoint_ListInstances_0(ctx context.Context, marshaler runti
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListInstances_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListInstances_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -3119,10 +3119,10 @@ func local_request_Waypoint_ListInstances_0(ctx context.Context, marshaler runti
 }
 
 var (
-	filter_Waypoint_ListInstances_1 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1}, Base: []int{1, 5, 3, 2, 0, 5, 5, 0}, Check: []int{0, 1, 2, 3, 4, 2, 6, 7}}
+	filter_Derrick_ListInstances_1 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1}, Base: []int{1, 5, 3, 2, 0, 5, 5, 0}, Check: []int{0, 1, 2, 3, 4, 2, 6, 7}}
 )
 
-func request_Waypoint_ListInstances_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_ListInstances_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListInstancesRequest
 	var metadata runtime.ServerMetadata
 
@@ -3156,7 +3156,7 @@ func request_Waypoint_ListInstances_1(ctx context.Context, marshaler runtime.Mar
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListInstances_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListInstances_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -3165,7 +3165,7 @@ func request_Waypoint_ListInstances_1(ctx context.Context, marshaler runtime.Mar
 
 }
 
-func local_request_Waypoint_ListInstances_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_ListInstances_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListInstancesRequest
 	var metadata runtime.ServerMetadata
 
@@ -3199,7 +3199,7 @@ func local_request_Waypoint_ListInstances_1(ctx context.Context, marshaler runti
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListInstances_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListInstances_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -3209,10 +3209,10 @@ func local_request_Waypoint_ListInstances_1(ctx context.Context, marshaler runti
 }
 
 var (
-	filter_Waypoint_ListInstances_2 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1, "workspace": 2}, Base: []int{1, 6, 3, 1, 0, 5, 4, 0, 7, 7, 0}, Check: []int{0, 1, 2, 3, 4, 2, 6, 7, 2, 9, 10}}
+	filter_Derrick_ListInstances_2 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1, "workspace": 2}, Base: []int{1, 6, 3, 1, 0, 5, 4, 0, 7, 7, 0}, Check: []int{0, 1, 2, 3, 4, 2, 6, 7, 2, 9, 10}}
 )
 
-func request_Waypoint_ListInstances_2(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_ListInstances_2(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListInstancesRequest
 	var metadata runtime.ServerMetadata
 
@@ -3256,7 +3256,7 @@ func request_Waypoint_ListInstances_2(ctx context.Context, marshaler runtime.Mar
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListInstances_2); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListInstances_2); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -3265,7 +3265,7 @@ func request_Waypoint_ListInstances_2(ctx context.Context, marshaler runtime.Mar
 
 }
 
-func local_request_Waypoint_ListInstances_2(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_ListInstances_2(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListInstancesRequest
 	var metadata runtime.ServerMetadata
 
@@ -3309,7 +3309,7 @@ func local_request_Waypoint_ListInstances_2(ctx context.Context, marshaler runti
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListInstances_2); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListInstances_2); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -3319,10 +3319,10 @@ func local_request_Waypoint_ListInstances_2(ctx context.Context, marshaler runti
 }
 
 var (
-	filter_Waypoint_ListReleases_0 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1}, Base: []int{1, 3, 1, 0, 3, 0}, Check: []int{0, 1, 2, 3, 2, 5}}
+	filter_Derrick_ListReleases_0 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1}, Base: []int{1, 3, 1, 0, 3, 0}, Check: []int{0, 1, 2, 3, 2, 5}}
 )
 
-func request_Waypoint_ListReleases_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_ListReleases_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListReleasesRequest
 	var metadata runtime.ServerMetadata
 
@@ -3356,7 +3356,7 @@ func request_Waypoint_ListReleases_0(ctx context.Context, marshaler runtime.Mars
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListReleases_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListReleases_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -3365,7 +3365,7 @@ func request_Waypoint_ListReleases_0(ctx context.Context, marshaler runtime.Mars
 
 }
 
-func local_request_Waypoint_ListReleases_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_ListReleases_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListReleasesRequest
 	var metadata runtime.ServerMetadata
 
@@ -3399,7 +3399,7 @@ func local_request_Waypoint_ListReleases_0(ctx context.Context, marshaler runtim
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListReleases_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListReleases_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -3409,10 +3409,10 @@ func local_request_Waypoint_ListReleases_0(ctx context.Context, marshaler runtim
 }
 
 var (
-	filter_Waypoint_ListReleases_1 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1, "workspace": 2}, Base: []int{1, 4, 1, 5, 0, 3, 0, 5, 0}, Check: []int{0, 1, 2, 1, 3, 2, 6, 4, 8}}
+	filter_Derrick_ListReleases_1 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1, "workspace": 2}, Base: []int{1, 4, 1, 5, 0, 3, 0, 5, 0}, Check: []int{0, 1, 2, 1, 3, 2, 6, 4, 8}}
 )
 
-func request_Waypoint_ListReleases_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_ListReleases_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListReleasesRequest
 	var metadata runtime.ServerMetadata
 
@@ -3456,7 +3456,7 @@ func request_Waypoint_ListReleases_1(ctx context.Context, marshaler runtime.Mars
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListReleases_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListReleases_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -3465,7 +3465,7 @@ func request_Waypoint_ListReleases_1(ctx context.Context, marshaler runtime.Mars
 
 }
 
-func local_request_Waypoint_ListReleases_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_ListReleases_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListReleasesRequest
 	var metadata runtime.ServerMetadata
 
@@ -3509,7 +3509,7 @@ func local_request_Waypoint_ListReleases_1(ctx context.Context, marshaler runtim
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListReleases_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListReleases_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -3519,10 +3519,10 @@ func local_request_Waypoint_ListReleases_1(ctx context.Context, marshaler runtim
 }
 
 var (
-	filter_Waypoint_GetRelease_0 = &utilities.DoubleArray{Encoding: map[string]int{"ref": 0, "id": 1}, Base: []int{1, 1, 1, 0}, Check: []int{0, 1, 2, 3}}
+	filter_Derrick_GetRelease_0 = &utilities.DoubleArray{Encoding: map[string]int{"ref": 0, "id": 1}, Base: []int{1, 1, 1, 0}, Check: []int{0, 1, 2, 3}}
 )
 
-func request_Waypoint_GetRelease_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_GetRelease_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetReleaseRequest
 	var metadata runtime.ServerMetadata
 
@@ -3546,7 +3546,7 @@ func request_Waypoint_GetRelease_0(ctx context.Context, marshaler runtime.Marsha
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetRelease_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetRelease_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -3555,7 +3555,7 @@ func request_Waypoint_GetRelease_0(ctx context.Context, marshaler runtime.Marsha
 
 }
 
-func local_request_Waypoint_GetRelease_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_GetRelease_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetReleaseRequest
 	var metadata runtime.ServerMetadata
 
@@ -3579,7 +3579,7 @@ func local_request_Waypoint_GetRelease_0(ctx context.Context, marshaler runtime.
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetRelease_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetRelease_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -3589,10 +3589,10 @@ func local_request_Waypoint_GetRelease_0(ctx context.Context, marshaler runtime.
 }
 
 var (
-	filter_Waypoint_GetRelease_1 = &utilities.DoubleArray{Encoding: map[string]int{"ref": 0, "sequence": 1, "application": 2, "project": 3, "number": 4}, Base: []int{1, 9, 1, 2, 1, 5, 0, 5, 4, 0, 7, 7, 0}, Check: []int{0, 1, 2, 3, 4, 2, 5, 6, 8, 9, 2, 11, 12}}
+	filter_Derrick_GetRelease_1 = &utilities.DoubleArray{Encoding: map[string]int{"ref": 0, "sequence": 1, "application": 2, "project": 3, "number": 4}, Base: []int{1, 9, 1, 2, 1, 5, 0, 5, 4, 0, 7, 7, 0}, Check: []int{0, 1, 2, 3, 4, 2, 5, 6, 8, 9, 2, 11, 12}}
 )
 
-func request_Waypoint_GetRelease_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_GetRelease_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetReleaseRequest
 	var metadata runtime.ServerMetadata
 
@@ -3636,7 +3636,7 @@ func request_Waypoint_GetRelease_1(ctx context.Context, marshaler runtime.Marsha
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetRelease_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetRelease_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -3645,7 +3645,7 @@ func request_Waypoint_GetRelease_1(ctx context.Context, marshaler runtime.Marsha
 
 }
 
-func local_request_Waypoint_GetRelease_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_GetRelease_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetReleaseRequest
 	var metadata runtime.ServerMetadata
 
@@ -3689,7 +3689,7 @@ func local_request_Waypoint_GetRelease_1(ctx context.Context, marshaler runtime.
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetRelease_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetRelease_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -3699,10 +3699,10 @@ func local_request_Waypoint_GetRelease_1(ctx context.Context, marshaler runtime.
 }
 
 var (
-	filter_Waypoint_GetLatestRelease_0 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1}, Base: []int{1, 3, 1, 0, 3, 0}, Check: []int{0, 1, 2, 3, 2, 5}}
+	filter_Derrick_GetLatestRelease_0 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1}, Base: []int{1, 3, 1, 0, 3, 0}, Check: []int{0, 1, 2, 3, 2, 5}}
 )
 
-func request_Waypoint_GetLatestRelease_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_GetLatestRelease_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetLatestReleaseRequest
 	var metadata runtime.ServerMetadata
 
@@ -3736,7 +3736,7 @@ func request_Waypoint_GetLatestRelease_0(ctx context.Context, marshaler runtime.
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetLatestRelease_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetLatestRelease_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -3745,7 +3745,7 @@ func request_Waypoint_GetLatestRelease_0(ctx context.Context, marshaler runtime.
 
 }
 
-func local_request_Waypoint_GetLatestRelease_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_GetLatestRelease_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetLatestReleaseRequest
 	var metadata runtime.ServerMetadata
 
@@ -3779,7 +3779,7 @@ func local_request_Waypoint_GetLatestRelease_0(ctx context.Context, marshaler ru
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetLatestRelease_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetLatestRelease_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -3789,10 +3789,10 @@ func local_request_Waypoint_GetLatestRelease_0(ctx context.Context, marshaler ru
 }
 
 var (
-	filter_Waypoint_GetLatestRelease_1 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1, "workspace": 2}, Base: []int{1, 4, 1, 5, 0, 3, 0, 5, 0}, Check: []int{0, 1, 2, 1, 3, 2, 6, 4, 8}}
+	filter_Derrick_GetLatestRelease_1 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1, "workspace": 2}, Base: []int{1, 4, 1, 5, 0, 3, 0, 5, 0}, Check: []int{0, 1, 2, 1, 3, 2, 6, 4, 8}}
 )
 
-func request_Waypoint_GetLatestRelease_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_GetLatestRelease_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetLatestReleaseRequest
 	var metadata runtime.ServerMetadata
 
@@ -3836,7 +3836,7 @@ func request_Waypoint_GetLatestRelease_1(ctx context.Context, marshaler runtime.
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetLatestRelease_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetLatestRelease_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -3845,7 +3845,7 @@ func request_Waypoint_GetLatestRelease_1(ctx context.Context, marshaler runtime.
 
 }
 
-func local_request_Waypoint_GetLatestRelease_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_GetLatestRelease_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetLatestReleaseRequest
 	var metadata runtime.ServerMetadata
 
@@ -3889,7 +3889,7 @@ func local_request_Waypoint_GetLatestRelease_1(ctx context.Context, marshaler ru
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetLatestRelease_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetLatestRelease_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -3899,10 +3899,10 @@ func local_request_Waypoint_GetLatestRelease_1(ctx context.Context, marshaler ru
 }
 
 var (
-	filter_Waypoint_GetStatusReport_0 = &utilities.DoubleArray{Encoding: map[string]int{"ref": 0, "id": 1}, Base: []int{1, 1, 1, 0}, Check: []int{0, 1, 2, 3}}
+	filter_Derrick_GetStatusReport_0 = &utilities.DoubleArray{Encoding: map[string]int{"ref": 0, "id": 1}, Base: []int{1, 1, 1, 0}, Check: []int{0, 1, 2, 3}}
 )
 
-func request_Waypoint_GetStatusReport_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_GetStatusReport_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetStatusReportRequest
 	var metadata runtime.ServerMetadata
 
@@ -3926,7 +3926,7 @@ func request_Waypoint_GetStatusReport_0(ctx context.Context, marshaler runtime.M
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetStatusReport_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetStatusReport_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -3935,7 +3935,7 @@ func request_Waypoint_GetStatusReport_0(ctx context.Context, marshaler runtime.M
 
 }
 
-func local_request_Waypoint_GetStatusReport_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_GetStatusReport_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetStatusReportRequest
 	var metadata runtime.ServerMetadata
 
@@ -3959,7 +3959,7 @@ func local_request_Waypoint_GetStatusReport_0(ctx context.Context, marshaler run
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetStatusReport_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetStatusReport_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -3969,10 +3969,10 @@ func local_request_Waypoint_GetStatusReport_0(ctx context.Context, marshaler run
 }
 
 var (
-	filter_Waypoint_GetLatestStatusReport_0 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1}, Base: []int{1, 3, 1, 0, 3, 0}, Check: []int{0, 1, 2, 3, 2, 5}}
+	filter_Derrick_GetLatestStatusReport_0 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1}, Base: []int{1, 3, 1, 0, 3, 0}, Check: []int{0, 1, 2, 3, 2, 5}}
 )
 
-func request_Waypoint_GetLatestStatusReport_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_GetLatestStatusReport_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetLatestStatusReportRequest
 	var metadata runtime.ServerMetadata
 
@@ -4006,7 +4006,7 @@ func request_Waypoint_GetLatestStatusReport_0(ctx context.Context, marshaler run
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetLatestStatusReport_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetLatestStatusReport_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -4015,7 +4015,7 @@ func request_Waypoint_GetLatestStatusReport_0(ctx context.Context, marshaler run
 
 }
 
-func local_request_Waypoint_GetLatestStatusReport_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_GetLatestStatusReport_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetLatestStatusReportRequest
 	var metadata runtime.ServerMetadata
 
@@ -4049,7 +4049,7 @@ func local_request_Waypoint_GetLatestStatusReport_0(ctx context.Context, marshal
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetLatestStatusReport_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetLatestStatusReport_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -4059,10 +4059,10 @@ func local_request_Waypoint_GetLatestStatusReport_0(ctx context.Context, marshal
 }
 
 var (
-	filter_Waypoint_GetLatestStatusReport_1 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1, "workspace": 2}, Base: []int{1, 4, 1, 5, 0, 3, 0, 5, 0}, Check: []int{0, 1, 2, 1, 3, 2, 6, 4, 8}}
+	filter_Derrick_GetLatestStatusReport_1 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1, "workspace": 2}, Base: []int{1, 4, 1, 5, 0, 3, 0, 5, 0}, Check: []int{0, 1, 2, 1, 3, 2, 6, 4, 8}}
 )
 
-func request_Waypoint_GetLatestStatusReport_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_GetLatestStatusReport_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetLatestStatusReportRequest
 	var metadata runtime.ServerMetadata
 
@@ -4106,7 +4106,7 @@ func request_Waypoint_GetLatestStatusReport_1(ctx context.Context, marshaler run
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetLatestStatusReport_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetLatestStatusReport_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -4115,7 +4115,7 @@ func request_Waypoint_GetLatestStatusReport_1(ctx context.Context, marshaler run
 
 }
 
-func local_request_Waypoint_GetLatestStatusReport_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_GetLatestStatusReport_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetLatestStatusReportRequest
 	var metadata runtime.ServerMetadata
 
@@ -4159,7 +4159,7 @@ func local_request_Waypoint_GetLatestStatusReport_1(ctx context.Context, marshal
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetLatestStatusReport_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetLatestStatusReport_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -4169,10 +4169,10 @@ func local_request_Waypoint_GetLatestStatusReport_1(ctx context.Context, marshal
 }
 
 var (
-	filter_Waypoint_ListStatusReports_0 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1}, Base: []int{1, 3, 1, 0, 3, 0}, Check: []int{0, 1, 2, 3, 2, 5}}
+	filter_Derrick_ListStatusReports_0 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1}, Base: []int{1, 3, 1, 0, 3, 0}, Check: []int{0, 1, 2, 3, 2, 5}}
 )
 
-func request_Waypoint_ListStatusReports_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_ListStatusReports_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListStatusReportsRequest
 	var metadata runtime.ServerMetadata
 
@@ -4206,7 +4206,7 @@ func request_Waypoint_ListStatusReports_0(ctx context.Context, marshaler runtime
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListStatusReports_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListStatusReports_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -4215,7 +4215,7 @@ func request_Waypoint_ListStatusReports_0(ctx context.Context, marshaler runtime
 
 }
 
-func local_request_Waypoint_ListStatusReports_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_ListStatusReports_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListStatusReportsRequest
 	var metadata runtime.ServerMetadata
 
@@ -4249,7 +4249,7 @@ func local_request_Waypoint_ListStatusReports_0(ctx context.Context, marshaler r
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListStatusReports_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListStatusReports_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -4259,10 +4259,10 @@ func local_request_Waypoint_ListStatusReports_0(ctx context.Context, marshaler r
 }
 
 var (
-	filter_Waypoint_ListStatusReports_1 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1, "workspace": 2}, Base: []int{1, 4, 1, 5, 0, 3, 0, 5, 0}, Check: []int{0, 1, 2, 1, 3, 2, 6, 4, 8}}
+	filter_Derrick_ListStatusReports_1 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1, "workspace": 2}, Base: []int{1, 4, 1, 5, 0, 3, 0, 5, 0}, Check: []int{0, 1, 2, 1, 3, 2, 6, 4, 8}}
 )
 
-func request_Waypoint_ListStatusReports_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_ListStatusReports_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListStatusReportsRequest
 	var metadata runtime.ServerMetadata
 
@@ -4306,7 +4306,7 @@ func request_Waypoint_ListStatusReports_1(ctx context.Context, marshaler runtime
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListStatusReports_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListStatusReports_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -4315,7 +4315,7 @@ func request_Waypoint_ListStatusReports_1(ctx context.Context, marshaler runtime
 
 }
 
-func local_request_Waypoint_ListStatusReports_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_ListStatusReports_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListStatusReportsRequest
 	var metadata runtime.ServerMetadata
 
@@ -4359,7 +4359,7 @@ func local_request_Waypoint_ListStatusReports_1(ctx context.Context, marshaler r
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListStatusReports_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListStatusReports_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -4368,7 +4368,7 @@ func local_request_Waypoint_ListStatusReports_1(ctx context.Context, marshaler r
 
 }
 
-func request_Waypoint_ExpediteStatusReport_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_ExpediteStatusReport_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ExpediteStatusReportRequest
 	var metadata runtime.ServerMetadata
 
@@ -4402,7 +4402,7 @@ func request_Waypoint_ExpediteStatusReport_0(ctx context.Context, marshaler runt
 
 }
 
-func local_request_Waypoint_ExpediteStatusReport_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_ExpediteStatusReport_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ExpediteStatusReportRequest
 	var metadata runtime.ServerMetadata
 
@@ -4436,7 +4436,7 @@ func local_request_Waypoint_ExpediteStatusReport_0(ctx context.Context, marshale
 
 }
 
-func request_Waypoint_ExpediteStatusReport_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_ExpediteStatusReport_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ExpediteStatusReportRequest
 	var metadata runtime.ServerMetadata
 
@@ -4470,7 +4470,7 @@ func request_Waypoint_ExpediteStatusReport_1(ctx context.Context, marshaler runt
 
 }
 
-func local_request_Waypoint_ExpediteStatusReport_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_ExpediteStatusReport_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ExpediteStatusReportRequest
 	var metadata runtime.ServerMetadata
 
@@ -4504,7 +4504,7 @@ func local_request_Waypoint_ExpediteStatusReport_1(ctx context.Context, marshale
 
 }
 
-func request_Waypoint_ExpediteStatusReport_2(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_ExpediteStatusReport_2(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ExpediteStatusReportRequest
 	var metadata runtime.ServerMetadata
 
@@ -4558,7 +4558,7 @@ func request_Waypoint_ExpediteStatusReport_2(ctx context.Context, marshaler runt
 
 }
 
-func local_request_Waypoint_ExpediteStatusReport_2(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_ExpediteStatusReport_2(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ExpediteStatusReportRequest
 	var metadata runtime.ServerMetadata
 
@@ -4612,7 +4612,7 @@ func local_request_Waypoint_ExpediteStatusReport_2(ctx context.Context, marshale
 
 }
 
-func request_Waypoint_ExpediteStatusReport_3(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_ExpediteStatusReport_3(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ExpediteStatusReportRequest
 	var metadata runtime.ServerMetadata
 
@@ -4666,7 +4666,7 @@ func request_Waypoint_ExpediteStatusReport_3(ctx context.Context, marshaler runt
 
 }
 
-func local_request_Waypoint_ExpediteStatusReport_3(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_ExpediteStatusReport_3(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ExpediteStatusReportRequest
 	var metadata runtime.ServerMetadata
 
@@ -4720,7 +4720,7 @@ func local_request_Waypoint_ExpediteStatusReport_3(ctx context.Context, marshale
 
 }
 
-func request_Waypoint_GetLogStream_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (Waypoint_GetLogStreamClient, runtime.ServerMetadata, error) {
+func request_Derrick_GetLogStream_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (Derrick_GetLogStreamClient, runtime.ServerMetadata, error) {
 	var protoReq GetLogStreamRequest
 	var metadata runtime.ServerMetadata
 
@@ -4767,7 +4767,7 @@ func request_Waypoint_GetLogStream_0(ctx context.Context, marshaler runtime.Mars
 
 }
 
-func request_Waypoint_GetLogStream_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (Waypoint_GetLogStreamClient, runtime.ServerMetadata, error) {
+func request_Derrick_GetLogStream_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (Derrick_GetLogStreamClient, runtime.ServerMetadata, error) {
 	var protoReq GetLogStreamRequest
 	var metadata runtime.ServerMetadata
 
@@ -4819,7 +4819,7 @@ func request_Waypoint_GetLogStream_1(ctx context.Context, marshaler runtime.Mars
 
 }
 
-func request_Waypoint_GetLogStream_2(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (Waypoint_GetLogStreamClient, runtime.ServerMetadata, error) {
+func request_Derrick_GetLogStream_2(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (Derrick_GetLogStreamClient, runtime.ServerMetadata, error) {
 	var protoReq GetLogStreamRequest
 	var metadata runtime.ServerMetadata
 
@@ -4881,7 +4881,7 @@ func request_Waypoint_GetLogStream_2(ctx context.Context, marshaler runtime.Mars
 
 }
 
-func request_Waypoint_StartExecStream_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (Waypoint_StartExecStreamClient, runtime.ServerMetadata, error) {
+func request_Derrick_StartExecStream_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (Derrick_StartExecStreamClient, runtime.ServerMetadata, error) {
 	var metadata runtime.ServerMetadata
 	stream, err := client.StartExecStream(ctx)
 	if err != nil {
@@ -4924,7 +4924,7 @@ func request_Waypoint_StartExecStream_0(ctx context.Context, marshaler runtime.M
 	return stream, metadata, nil
 }
 
-func request_Waypoint_SetConfig_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_SetConfig_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ConfigSetRequest
 	var metadata runtime.ServerMetadata
 
@@ -4941,7 +4941,7 @@ func request_Waypoint_SetConfig_0(ctx context.Context, marshaler runtime.Marshal
 
 }
 
-func local_request_Waypoint_SetConfig_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_SetConfig_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ConfigSetRequest
 	var metadata runtime.ServerMetadata
 
@@ -4958,7 +4958,7 @@ func local_request_Waypoint_SetConfig_0(ctx context.Context, marshaler runtime.M
 
 }
 
-func request_Waypoint_DeleteConfig_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_DeleteConfig_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ConfigDeleteRequest
 	var metadata runtime.ServerMetadata
 
@@ -4975,7 +4975,7 @@ func request_Waypoint_DeleteConfig_0(ctx context.Context, marshaler runtime.Mars
 
 }
 
-func local_request_Waypoint_DeleteConfig_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_DeleteConfig_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ConfigDeleteRequest
 	var metadata runtime.ServerMetadata
 
@@ -4993,10 +4993,10 @@ func local_request_Waypoint_DeleteConfig_0(ctx context.Context, marshaler runtim
 }
 
 var (
-	filter_Waypoint_GetConfig_0 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1}, Base: []int{1, 3, 1, 0, 3, 0}, Check: []int{0, 1, 2, 3, 2, 5}}
+	filter_Derrick_GetConfig_0 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1}, Base: []int{1, 3, 1, 0, 3, 0}, Check: []int{0, 1, 2, 3, 2, 5}}
 )
 
-func request_Waypoint_GetConfig_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_GetConfig_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ConfigGetRequest
 	var metadata runtime.ServerMetadata
 
@@ -5030,7 +5030,7 @@ func request_Waypoint_GetConfig_0(ctx context.Context, marshaler runtime.Marshal
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetConfig_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetConfig_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -5039,7 +5039,7 @@ func request_Waypoint_GetConfig_0(ctx context.Context, marshaler runtime.Marshal
 
 }
 
-func local_request_Waypoint_GetConfig_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_GetConfig_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ConfigGetRequest
 	var metadata runtime.ServerMetadata
 
@@ -5073,7 +5073,7 @@ func local_request_Waypoint_GetConfig_0(ctx context.Context, marshaler runtime.M
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetConfig_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetConfig_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -5083,10 +5083,10 @@ func local_request_Waypoint_GetConfig_0(ctx context.Context, marshaler runtime.M
 }
 
 var (
-	filter_Waypoint_GetConfig_1 = &utilities.DoubleArray{Encoding: map[string]int{"project": 0}, Base: []int{1, 2, 2, 0}, Check: []int{0, 1, 2, 3}}
+	filter_Derrick_GetConfig_1 = &utilities.DoubleArray{Encoding: map[string]int{"project": 0}, Base: []int{1, 2, 2, 0}, Check: []int{0, 1, 2, 3}}
 )
 
-func request_Waypoint_GetConfig_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_GetConfig_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ConfigGetRequest
 	var metadata runtime.ServerMetadata
 
@@ -5110,7 +5110,7 @@ func request_Waypoint_GetConfig_1(ctx context.Context, marshaler runtime.Marshal
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetConfig_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetConfig_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -5119,7 +5119,7 @@ func request_Waypoint_GetConfig_1(ctx context.Context, marshaler runtime.Marshal
 
 }
 
-func local_request_Waypoint_GetConfig_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_GetConfig_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ConfigGetRequest
 	var metadata runtime.ServerMetadata
 
@@ -5143,7 +5143,7 @@ func local_request_Waypoint_GetConfig_1(ctx context.Context, marshaler runtime.M
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetConfig_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetConfig_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -5153,10 +5153,10 @@ func local_request_Waypoint_GetConfig_1(ctx context.Context, marshaler runtime.M
 }
 
 var (
-	filter_Waypoint_GetConfig_2 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1}, Base: []int{1, 3, 1, 0, 3, 0}, Check: []int{0, 1, 2, 3, 2, 5}}
+	filter_Derrick_GetConfig_2 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1}, Base: []int{1, 3, 1, 0, 3, 0}, Check: []int{0, 1, 2, 3, 2, 5}}
 )
 
-func request_Waypoint_GetConfig_2(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_GetConfig_2(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ConfigGetRequest
 	var metadata runtime.ServerMetadata
 
@@ -5190,7 +5190,7 @@ func request_Waypoint_GetConfig_2(ctx context.Context, marshaler runtime.Marshal
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetConfig_2); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetConfig_2); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -5199,7 +5199,7 @@ func request_Waypoint_GetConfig_2(ctx context.Context, marshaler runtime.Marshal
 
 }
 
-func local_request_Waypoint_GetConfig_2(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_GetConfig_2(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ConfigGetRequest
 	var metadata runtime.ServerMetadata
 
@@ -5233,7 +5233,7 @@ func local_request_Waypoint_GetConfig_2(ctx context.Context, marshaler runtime.M
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetConfig_2); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetConfig_2); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -5242,7 +5242,7 @@ func local_request_Waypoint_GetConfig_2(ctx context.Context, marshaler runtime.M
 
 }
 
-func request_Waypoint_SetConfigSource_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_SetConfigSource_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq SetConfigSourceRequest
 	var metadata runtime.ServerMetadata
 
@@ -5259,7 +5259,7 @@ func request_Waypoint_SetConfigSource_0(ctx context.Context, marshaler runtime.M
 
 }
 
-func local_request_Waypoint_SetConfigSource_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_SetConfigSource_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq SetConfigSourceRequest
 	var metadata runtime.ServerMetadata
 
@@ -5276,7 +5276,7 @@ func local_request_Waypoint_SetConfigSource_0(ctx context.Context, marshaler run
 
 }
 
-func request_Waypoint_DeleteConfigSource_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_DeleteConfigSource_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq DeleteConfigSourceRequest
 	var metadata runtime.ServerMetadata
 
@@ -5293,7 +5293,7 @@ func request_Waypoint_DeleteConfigSource_0(ctx context.Context, marshaler runtim
 
 }
 
-func local_request_Waypoint_DeleteConfigSource_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_DeleteConfigSource_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq DeleteConfigSourceRequest
 	var metadata runtime.ServerMetadata
 
@@ -5311,17 +5311,17 @@ func local_request_Waypoint_DeleteConfigSource_0(ctx context.Context, marshaler 
 }
 
 var (
-	filter_Waypoint_GetConfigSource_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
+	filter_Derrick_GetConfigSource_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
 )
 
-func request_Waypoint_GetConfigSource_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_GetConfigSource_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetConfigSourceRequest
 	var metadata runtime.ServerMetadata
 
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetConfigSource_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetConfigSource_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -5330,14 +5330,14 @@ func request_Waypoint_GetConfigSource_0(ctx context.Context, marshaler runtime.M
 
 }
 
-func local_request_Waypoint_GetConfigSource_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_GetConfigSource_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetConfigSourceRequest
 	var metadata runtime.ServerMetadata
 
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetConfigSource_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetConfigSource_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -5346,7 +5346,7 @@ func local_request_Waypoint_GetConfigSource_0(ctx context.Context, marshaler run
 
 }
 
-func request_Waypoint_CreateHostname_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_CreateHostname_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq CreateHostnameRequest
 	var metadata runtime.ServerMetadata
 
@@ -5390,7 +5390,7 @@ func request_Waypoint_CreateHostname_0(ctx context.Context, marshaler runtime.Ma
 
 }
 
-func local_request_Waypoint_CreateHostname_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_CreateHostname_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq CreateHostnameRequest
 	var metadata runtime.ServerMetadata
 
@@ -5434,7 +5434,7 @@ func local_request_Waypoint_CreateHostname_0(ctx context.Context, marshaler runt
 
 }
 
-func request_Waypoint_CreateHostname_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_CreateHostname_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq CreateHostnameRequest
 	var metadata runtime.ServerMetadata
 
@@ -5488,7 +5488,7 @@ func request_Waypoint_CreateHostname_1(ctx context.Context, marshaler runtime.Ma
 
 }
 
-func local_request_Waypoint_CreateHostname_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_CreateHostname_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq CreateHostnameRequest
 	var metadata runtime.ServerMetadata
 
@@ -5542,7 +5542,7 @@ func local_request_Waypoint_CreateHostname_1(ctx context.Context, marshaler runt
 
 }
 
-func request_Waypoint_DeleteHostname_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_DeleteHostname_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq DeleteHostnameRequest
 	var metadata runtime.ServerMetadata
 
@@ -5568,7 +5568,7 @@ func request_Waypoint_DeleteHostname_0(ctx context.Context, marshaler runtime.Ma
 
 }
 
-func local_request_Waypoint_DeleteHostname_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_DeleteHostname_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq DeleteHostnameRequest
 	var metadata runtime.ServerMetadata
 
@@ -5595,10 +5595,10 @@ func local_request_Waypoint_DeleteHostname_0(ctx context.Context, marshaler runt
 }
 
 var (
-	filter_Waypoint_ListHostnames_0 = &utilities.DoubleArray{Encoding: map[string]int{"target": 0, "application": 1, "project": 2}, Base: []int{1, 5, 2, 3, 2, 0, 6, 6, 6, 0}, Check: []int{0, 1, 2, 3, 4, 5, 2, 7, 8, 9}}
+	filter_Derrick_ListHostnames_0 = &utilities.DoubleArray{Encoding: map[string]int{"target": 0, "application": 1, "project": 2}, Base: []int{1, 5, 2, 3, 2, 0, 6, 6, 6, 0}, Check: []int{0, 1, 2, 3, 4, 5, 2, 7, 8, 9}}
 )
 
-func request_Waypoint_ListHostnames_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_ListHostnames_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListHostnamesRequest
 	var metadata runtime.ServerMetadata
 
@@ -5632,7 +5632,7 @@ func request_Waypoint_ListHostnames_0(ctx context.Context, marshaler runtime.Mar
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListHostnames_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListHostnames_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -5641,7 +5641,7 @@ func request_Waypoint_ListHostnames_0(ctx context.Context, marshaler runtime.Mar
 
 }
 
-func local_request_Waypoint_ListHostnames_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_ListHostnames_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListHostnamesRequest
 	var metadata runtime.ServerMetadata
 
@@ -5675,7 +5675,7 @@ func local_request_Waypoint_ListHostnames_0(ctx context.Context, marshaler runti
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListHostnames_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListHostnames_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -5685,10 +5685,10 @@ func local_request_Waypoint_ListHostnames_0(ctx context.Context, marshaler runti
 }
 
 var (
-	filter_Waypoint_ListHostnames_1 = &utilities.DoubleArray{Encoding: map[string]int{"target": 0, "application": 1, "project": 2, "workspace": 3}, Base: []int{1, 9, 2, 3, 1, 0, 6, 6, 5, 0, 8, 9, 9, 0}, Check: []int{0, 1, 2, 3, 4, 5, 2, 7, 8, 9, 2, 11, 12, 13}}
+	filter_Derrick_ListHostnames_1 = &utilities.DoubleArray{Encoding: map[string]int{"target": 0, "application": 1, "project": 2, "workspace": 3}, Base: []int{1, 9, 2, 3, 1, 0, 6, 6, 5, 0, 8, 9, 9, 0}, Check: []int{0, 1, 2, 3, 4, 5, 2, 7, 8, 9, 2, 11, 12, 13}}
 )
 
-func request_Waypoint_ListHostnames_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_ListHostnames_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListHostnamesRequest
 	var metadata runtime.ServerMetadata
 
@@ -5732,7 +5732,7 @@ func request_Waypoint_ListHostnames_1(ctx context.Context, marshaler runtime.Mar
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListHostnames_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListHostnames_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -5741,7 +5741,7 @@ func request_Waypoint_ListHostnames_1(ctx context.Context, marshaler runtime.Mar
 
 }
 
-func local_request_Waypoint_ListHostnames_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_ListHostnames_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListHostnamesRequest
 	var metadata runtime.ServerMetadata
 
@@ -5785,7 +5785,7 @@ func local_request_Waypoint_ListHostnames_1(ctx context.Context, marshaler runti
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListHostnames_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListHostnames_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -5794,7 +5794,7 @@ func local_request_Waypoint_ListHostnames_1(ctx context.Context, marshaler runti
 
 }
 
-func request_Waypoint_QueueJob_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_QueueJob_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq QueueJobRequest
 	var metadata runtime.ServerMetadata
 
@@ -5811,7 +5811,7 @@ func request_Waypoint_QueueJob_0(ctx context.Context, marshaler runtime.Marshale
 
 }
 
-func local_request_Waypoint_QueueJob_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_QueueJob_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq QueueJobRequest
 	var metadata runtime.ServerMetadata
 
@@ -5828,7 +5828,7 @@ func local_request_Waypoint_QueueJob_0(ctx context.Context, marshaler runtime.Ma
 
 }
 
-func request_Waypoint_CancelJob_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_CancelJob_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq CancelJobRequest
 	var metadata runtime.ServerMetadata
 
@@ -5862,7 +5862,7 @@ func request_Waypoint_CancelJob_0(ctx context.Context, marshaler runtime.Marshal
 
 }
 
-func local_request_Waypoint_CancelJob_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_CancelJob_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq CancelJobRequest
 	var metadata runtime.ServerMetadata
 
@@ -5896,7 +5896,7 @@ func local_request_Waypoint_CancelJob_0(ctx context.Context, marshaler runtime.M
 
 }
 
-func request_Waypoint_GetJob_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_GetJob_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetJobRequest
 	var metadata runtime.ServerMetadata
 
@@ -5922,7 +5922,7 @@ func request_Waypoint_GetJob_0(ctx context.Context, marshaler runtime.Marshaler,
 
 }
 
-func local_request_Waypoint_GetJob_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_GetJob_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetJobRequest
 	var metadata runtime.ServerMetadata
 
@@ -5949,10 +5949,10 @@ func local_request_Waypoint_GetJob_0(ctx context.Context, marshaler runtime.Mars
 }
 
 var (
-	filter_Waypoint_ListJobs_0 = &utilities.DoubleArray{Encoding: map[string]int{"workspace": 0}, Base: []int{1, 2, 2, 0}, Check: []int{0, 1, 2, 3}}
+	filter_Derrick_ListJobs_0 = &utilities.DoubleArray{Encoding: map[string]int{"workspace": 0}, Base: []int{1, 2, 2, 0}, Check: []int{0, 1, 2, 3}}
 )
 
-func request_Waypoint_ListJobs_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_ListJobs_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListJobsRequest
 	var metadata runtime.ServerMetadata
 
@@ -5976,7 +5976,7 @@ func request_Waypoint_ListJobs_0(ctx context.Context, marshaler runtime.Marshale
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListJobs_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListJobs_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -5985,7 +5985,7 @@ func request_Waypoint_ListJobs_0(ctx context.Context, marshaler runtime.Marshale
 
 }
 
-func local_request_Waypoint_ListJobs_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_ListJobs_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListJobsRequest
 	var metadata runtime.ServerMetadata
 
@@ -6009,7 +6009,7 @@ func local_request_Waypoint_ListJobs_0(ctx context.Context, marshaler runtime.Ma
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListJobs_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListJobs_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -6019,10 +6019,10 @@ func local_request_Waypoint_ListJobs_0(ctx context.Context, marshaler runtime.Ma
 }
 
 var (
-	filter_Waypoint_ListJobs_1 = &utilities.DoubleArray{Encoding: map[string]int{"workspace": 0, "jobState": 1}, Base: []int{1, 3, 3, 2, 0, 0}, Check: []int{0, 1, 1, 2, 4, 3}}
+	filter_Derrick_ListJobs_1 = &utilities.DoubleArray{Encoding: map[string]int{"workspace": 0, "jobState": 1}, Base: []int{1, 3, 3, 2, 0, 0}, Check: []int{0, 1, 1, 2, 4, 3}}
 )
 
-func request_Waypoint_ListJobs_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_ListJobs_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListJobsRequest
 	var metadata runtime.ServerMetadata
 
@@ -6063,7 +6063,7 @@ func request_Waypoint_ListJobs_1(ctx context.Context, marshaler runtime.Marshale
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListJobs_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListJobs_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -6072,7 +6072,7 @@ func request_Waypoint_ListJobs_1(ctx context.Context, marshaler runtime.Marshale
 
 }
 
-func local_request_Waypoint_ListJobs_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_ListJobs_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListJobsRequest
 	var metadata runtime.ServerMetadata
 
@@ -6113,7 +6113,7 @@ func local_request_Waypoint_ListJobs_1(ctx context.Context, marshaler runtime.Ma
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListJobs_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListJobs_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -6123,10 +6123,10 @@ func local_request_Waypoint_ListJobs_1(ctx context.Context, marshaler runtime.Ma
 }
 
 var (
-	filter_Waypoint_ListJobs_2 = &utilities.DoubleArray{Encoding: map[string]int{"project": 0}, Base: []int{1, 2, 2, 0}, Check: []int{0, 1, 2, 3}}
+	filter_Derrick_ListJobs_2 = &utilities.DoubleArray{Encoding: map[string]int{"project": 0}, Base: []int{1, 2, 2, 0}, Check: []int{0, 1, 2, 3}}
 )
 
-func request_Waypoint_ListJobs_2(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_ListJobs_2(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListJobsRequest
 	var metadata runtime.ServerMetadata
 
@@ -6150,7 +6150,7 @@ func request_Waypoint_ListJobs_2(ctx context.Context, marshaler runtime.Marshale
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListJobs_2); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListJobs_2); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -6159,7 +6159,7 @@ func request_Waypoint_ListJobs_2(ctx context.Context, marshaler runtime.Marshale
 
 }
 
-func local_request_Waypoint_ListJobs_2(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_ListJobs_2(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListJobsRequest
 	var metadata runtime.ServerMetadata
 
@@ -6183,7 +6183,7 @@ func local_request_Waypoint_ListJobs_2(ctx context.Context, marshaler runtime.Ma
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListJobs_2); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListJobs_2); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -6193,10 +6193,10 @@ func local_request_Waypoint_ListJobs_2(ctx context.Context, marshaler runtime.Ma
 }
 
 var (
-	filter_Waypoint_ListJobs_3 = &utilities.DoubleArray{Encoding: map[string]int{"jobState": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
+	filter_Derrick_ListJobs_3 = &utilities.DoubleArray{Encoding: map[string]int{"jobState": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
 )
 
-func request_Waypoint_ListJobs_3(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_ListJobs_3(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListJobsRequest
 	var metadata runtime.ServerMetadata
 
@@ -6227,7 +6227,7 @@ func request_Waypoint_ListJobs_3(ctx context.Context, marshaler runtime.Marshale
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListJobs_3); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListJobs_3); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -6236,7 +6236,7 @@ func request_Waypoint_ListJobs_3(ctx context.Context, marshaler runtime.Marshale
 
 }
 
-func local_request_Waypoint_ListJobs_3(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_ListJobs_3(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListJobsRequest
 	var metadata runtime.ServerMetadata
 
@@ -6267,7 +6267,7 @@ func local_request_Waypoint_ListJobs_3(ctx context.Context, marshaler runtime.Ma
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListJobs_3); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListJobs_3); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -6277,10 +6277,10 @@ func local_request_Waypoint_ListJobs_3(ctx context.Context, marshaler runtime.Ma
 }
 
 var (
-	filter_Waypoint_ListJobs_4 = &utilities.DoubleArray{Encoding: map[string]int{"targetRunner": 0, "id": 1}, Base: []int{1, 1, 2, 2, 0}, Check: []int{0, 1, 2, 3, 4}}
+	filter_Derrick_ListJobs_4 = &utilities.DoubleArray{Encoding: map[string]int{"targetRunner": 0, "id": 1}, Base: []int{1, 1, 2, 2, 0}, Check: []int{0, 1, 2, 3, 4}}
 )
 
-func request_Waypoint_ListJobs_4(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_ListJobs_4(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListJobsRequest
 	var metadata runtime.ServerMetadata
 
@@ -6304,7 +6304,7 @@ func request_Waypoint_ListJobs_4(ctx context.Context, marshaler runtime.Marshale
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListJobs_4); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListJobs_4); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -6313,7 +6313,7 @@ func request_Waypoint_ListJobs_4(ctx context.Context, marshaler runtime.Marshale
 
 }
 
-func local_request_Waypoint_ListJobs_4(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_ListJobs_4(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListJobsRequest
 	var metadata runtime.ServerMetadata
 
@@ -6337,7 +6337,7 @@ func local_request_Waypoint_ListJobs_4(ctx context.Context, marshaler runtime.Ma
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListJobs_4); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListJobs_4); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -6346,7 +6346,7 @@ func local_request_Waypoint_ListJobs_4(ctx context.Context, marshaler runtime.Ma
 
 }
 
-func request_Waypoint_ValidateJob_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_ValidateJob_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ValidateJobRequest
 	var metadata runtime.ServerMetadata
 
@@ -6363,7 +6363,7 @@ func request_Waypoint_ValidateJob_0(ctx context.Context, marshaler runtime.Marsh
 
 }
 
-func local_request_Waypoint_ValidateJob_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_ValidateJob_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ValidateJobRequest
 	var metadata runtime.ServerMetadata
 
@@ -6380,7 +6380,7 @@ func local_request_Waypoint_ValidateJob_0(ctx context.Context, marshaler runtime
 
 }
 
-func request_Waypoint_GetJobStream_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (Waypoint_GetJobStreamClient, runtime.ServerMetadata, error) {
+func request_Derrick_GetJobStream_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (Derrick_GetJobStreamClient, runtime.ServerMetadata, error) {
 	var protoReq GetJobStreamRequest
 	var metadata runtime.ServerMetadata
 
@@ -6414,7 +6414,7 @@ func request_Waypoint_GetJobStream_0(ctx context.Context, marshaler runtime.Mars
 
 }
 
-func request_Waypoint_GetRunner_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_GetRunner_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetRunnerRequest
 	var metadata runtime.ServerMetadata
 
@@ -6440,7 +6440,7 @@ func request_Waypoint_GetRunner_0(ctx context.Context, marshaler runtime.Marshal
 
 }
 
-func local_request_Waypoint_GetRunner_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_GetRunner_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetRunnerRequest
 	var metadata runtime.ServerMetadata
 
@@ -6466,7 +6466,7 @@ func local_request_Waypoint_GetRunner_0(ctx context.Context, marshaler runtime.M
 
 }
 
-func request_Waypoint_ListRunners_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_ListRunners_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListRunnersRequest
 	var metadata runtime.ServerMetadata
 
@@ -6475,7 +6475,7 @@ func request_Waypoint_ListRunners_0(ctx context.Context, marshaler runtime.Marsh
 
 }
 
-func local_request_Waypoint_ListRunners_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_ListRunners_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListRunnersRequest
 	var metadata runtime.ServerMetadata
 
@@ -6484,7 +6484,7 @@ func local_request_Waypoint_ListRunners_0(ctx context.Context, marshaler runtime
 
 }
 
-func request_Waypoint_AdoptRunner_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_AdoptRunner_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq AdoptRunnerRequest
 	var metadata runtime.ServerMetadata
 
@@ -6518,7 +6518,7 @@ func request_Waypoint_AdoptRunner_0(ctx context.Context, marshaler runtime.Marsh
 
 }
 
-func local_request_Waypoint_AdoptRunner_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_AdoptRunner_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq AdoptRunnerRequest
 	var metadata runtime.ServerMetadata
 
@@ -6552,7 +6552,7 @@ func local_request_Waypoint_AdoptRunner_0(ctx context.Context, marshaler runtime
 
 }
 
-func request_Waypoint_ForgetRunner_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_ForgetRunner_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ForgetRunnerRequest
 	var metadata runtime.ServerMetadata
 
@@ -6578,7 +6578,7 @@ func request_Waypoint_ForgetRunner_0(ctx context.Context, marshaler runtime.Mars
 
 }
 
-func local_request_Waypoint_ForgetRunner_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_ForgetRunner_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ForgetRunnerRequest
 	var metadata runtime.ServerMetadata
 
@@ -6604,7 +6604,7 @@ func local_request_Waypoint_ForgetRunner_0(ctx context.Context, marshaler runtim
 
 }
 
-func request_Waypoint_GetServerConfig_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_GetServerConfig_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq emptypb.Empty
 	var metadata runtime.ServerMetadata
 
@@ -6613,7 +6613,7 @@ func request_Waypoint_GetServerConfig_0(ctx context.Context, marshaler runtime.M
 
 }
 
-func local_request_Waypoint_GetServerConfig_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_GetServerConfig_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq emptypb.Empty
 	var metadata runtime.ServerMetadata
 
@@ -6622,7 +6622,7 @@ func local_request_Waypoint_GetServerConfig_0(ctx context.Context, marshaler run
 
 }
 
-func request_Waypoint_SetServerConfig_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_SetServerConfig_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq SetServerConfigRequest
 	var metadata runtime.ServerMetadata
 
@@ -6639,7 +6639,7 @@ func request_Waypoint_SetServerConfig_0(ctx context.Context, marshaler runtime.M
 
 }
 
-func local_request_Waypoint_SetServerConfig_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_SetServerConfig_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq SetServerConfigRequest
 	var metadata runtime.ServerMetadata
 
@@ -6656,7 +6656,7 @@ func local_request_Waypoint_SetServerConfig_0(ctx context.Context, marshaler run
 
 }
 
-func request_Waypoint_DecodeToken_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_DecodeToken_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq DecodeTokenRequest
 	var metadata runtime.ServerMetadata
 
@@ -6673,7 +6673,7 @@ func request_Waypoint_DecodeToken_0(ctx context.Context, marshaler runtime.Marsh
 
 }
 
-func local_request_Waypoint_DecodeToken_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_DecodeToken_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq DecodeTokenRequest
 	var metadata runtime.ServerMetadata
 
@@ -6690,7 +6690,7 @@ func local_request_Waypoint_DecodeToken_0(ctx context.Context, marshaler runtime
 
 }
 
-func request_Waypoint_GenerateInviteToken_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_GenerateInviteToken_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq InviteTokenRequest
 	var metadata runtime.ServerMetadata
 
@@ -6707,7 +6707,7 @@ func request_Waypoint_GenerateInviteToken_0(ctx context.Context, marshaler runti
 
 }
 
-func local_request_Waypoint_GenerateInviteToken_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_GenerateInviteToken_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq InviteTokenRequest
 	var metadata runtime.ServerMetadata
 
@@ -6724,7 +6724,7 @@ func local_request_Waypoint_GenerateInviteToken_0(ctx context.Context, marshaler
 
 }
 
-func request_Waypoint_GenerateLoginToken_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_GenerateLoginToken_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq LoginTokenRequest
 	var metadata runtime.ServerMetadata
 
@@ -6741,7 +6741,7 @@ func request_Waypoint_GenerateLoginToken_0(ctx context.Context, marshaler runtim
 
 }
 
-func local_request_Waypoint_GenerateLoginToken_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_GenerateLoginToken_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq LoginTokenRequest
 	var metadata runtime.ServerMetadata
 
@@ -6758,7 +6758,7 @@ func local_request_Waypoint_GenerateLoginToken_0(ctx context.Context, marshaler 
 
 }
 
-func request_Waypoint_GenerateRunnerToken_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_GenerateRunnerToken_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GenerateRunnerTokenRequest
 	var metadata runtime.ServerMetadata
 
@@ -6775,7 +6775,7 @@ func request_Waypoint_GenerateRunnerToken_0(ctx context.Context, marshaler runti
 
 }
 
-func local_request_Waypoint_GenerateRunnerToken_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_GenerateRunnerToken_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GenerateRunnerTokenRequest
 	var metadata runtime.ServerMetadata
 
@@ -6792,7 +6792,7 @@ func local_request_Waypoint_GenerateRunnerToken_0(ctx context.Context, marshaler
 
 }
 
-func request_Waypoint_ConvertInviteToken_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_ConvertInviteToken_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ConvertInviteTokenRequest
 	var metadata runtime.ServerMetadata
 
@@ -6809,7 +6809,7 @@ func request_Waypoint_ConvertInviteToken_0(ctx context.Context, marshaler runtim
 
 }
 
-func local_request_Waypoint_ConvertInviteToken_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_ConvertInviteToken_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ConvertInviteTokenRequest
 	var metadata runtime.ServerMetadata
 
@@ -6826,7 +6826,7 @@ func local_request_Waypoint_ConvertInviteToken_0(ctx context.Context, marshaler 
 
 }
 
-func request_Waypoint_DerrickHclFmt_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_DerrickHclFmt_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq DerrickHclFmtRequest
 	var metadata runtime.ServerMetadata
 
@@ -6843,7 +6843,7 @@ func request_Waypoint_DerrickHclFmt_0(ctx context.Context, marshaler runtime.Mar
 
 }
 
-func local_request_Waypoint_DerrickHclFmt_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_DerrickHclFmt_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq DerrickHclFmtRequest
 	var metadata runtime.ServerMetadata
 
@@ -6860,7 +6860,7 @@ func local_request_Waypoint_DerrickHclFmt_0(ctx context.Context, marshaler runti
 
 }
 
-func request_Waypoint_UpsertOnDemandRunnerConfig_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_UpsertOnDemandRunnerConfig_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq UpsertOnDemandRunnerConfigRequest
 	var metadata runtime.ServerMetadata
 
@@ -6877,7 +6877,7 @@ func request_Waypoint_UpsertOnDemandRunnerConfig_0(ctx context.Context, marshale
 
 }
 
-func local_request_Waypoint_UpsertOnDemandRunnerConfig_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_UpsertOnDemandRunnerConfig_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq UpsertOnDemandRunnerConfigRequest
 	var metadata runtime.ServerMetadata
 
@@ -6895,10 +6895,10 @@ func local_request_Waypoint_UpsertOnDemandRunnerConfig_0(ctx context.Context, ma
 }
 
 var (
-	filter_Waypoint_GetOnDemandRunnerConfig_0 = &utilities.DoubleArray{Encoding: map[string]int{"config": 0, "id": 1}, Base: []int{1, 1, 1, 0}, Check: []int{0, 1, 2, 3}}
+	filter_Derrick_GetOnDemandRunnerConfig_0 = &utilities.DoubleArray{Encoding: map[string]int{"config": 0, "id": 1}, Base: []int{1, 1, 1, 0}, Check: []int{0, 1, 2, 3}}
 )
 
-func request_Waypoint_GetOnDemandRunnerConfig_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_GetOnDemandRunnerConfig_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetOnDemandRunnerConfigRequest
 	var metadata runtime.ServerMetadata
 
@@ -6922,7 +6922,7 @@ func request_Waypoint_GetOnDemandRunnerConfig_0(ctx context.Context, marshaler r
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetOnDemandRunnerConfig_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetOnDemandRunnerConfig_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -6931,7 +6931,7 @@ func request_Waypoint_GetOnDemandRunnerConfig_0(ctx context.Context, marshaler r
 
 }
 
-func local_request_Waypoint_GetOnDemandRunnerConfig_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_GetOnDemandRunnerConfig_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetOnDemandRunnerConfigRequest
 	var metadata runtime.ServerMetadata
 
@@ -6955,7 +6955,7 @@ func local_request_Waypoint_GetOnDemandRunnerConfig_0(ctx context.Context, marsh
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetOnDemandRunnerConfig_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetOnDemandRunnerConfig_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -6965,10 +6965,10 @@ func local_request_Waypoint_GetOnDemandRunnerConfig_0(ctx context.Context, marsh
 }
 
 var (
-	filter_Waypoint_GetOnDemandRunnerConfig_1 = &utilities.DoubleArray{Encoding: map[string]int{"config": 0, "name": 1}, Base: []int{1, 1, 1, 0}, Check: []int{0, 1, 2, 3}}
+	filter_Derrick_GetOnDemandRunnerConfig_1 = &utilities.DoubleArray{Encoding: map[string]int{"config": 0, "name": 1}, Base: []int{1, 1, 1, 0}, Check: []int{0, 1, 2, 3}}
 )
 
-func request_Waypoint_GetOnDemandRunnerConfig_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_GetOnDemandRunnerConfig_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetOnDemandRunnerConfigRequest
 	var metadata runtime.ServerMetadata
 
@@ -6992,7 +6992,7 @@ func request_Waypoint_GetOnDemandRunnerConfig_1(ctx context.Context, marshaler r
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetOnDemandRunnerConfig_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetOnDemandRunnerConfig_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -7001,7 +7001,7 @@ func request_Waypoint_GetOnDemandRunnerConfig_1(ctx context.Context, marshaler r
 
 }
 
-func local_request_Waypoint_GetOnDemandRunnerConfig_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_GetOnDemandRunnerConfig_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetOnDemandRunnerConfigRequest
 	var metadata runtime.ServerMetadata
 
@@ -7025,7 +7025,7 @@ func local_request_Waypoint_GetOnDemandRunnerConfig_1(ctx context.Context, marsh
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetOnDemandRunnerConfig_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetOnDemandRunnerConfig_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -7034,7 +7034,7 @@ func local_request_Waypoint_GetOnDemandRunnerConfig_1(ctx context.Context, marsh
 
 }
 
-func request_Waypoint_ListOnDemandRunnerConfigs_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_ListOnDemandRunnerConfigs_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq emptypb.Empty
 	var metadata runtime.ServerMetadata
 
@@ -7043,7 +7043,7 @@ func request_Waypoint_ListOnDemandRunnerConfigs_0(ctx context.Context, marshaler
 
 }
 
-func local_request_Waypoint_ListOnDemandRunnerConfigs_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_ListOnDemandRunnerConfigs_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq emptypb.Empty
 	var metadata runtime.ServerMetadata
 
@@ -7053,10 +7053,10 @@ func local_request_Waypoint_ListOnDemandRunnerConfigs_0(ctx context.Context, mar
 }
 
 var (
-	filter_Waypoint_GetTask_0 = &utilities.DoubleArray{Encoding: map[string]int{"ref": 0, "id": 1}, Base: []int{1, 1, 1, 0}, Check: []int{0, 1, 2, 3}}
+	filter_Derrick_GetTask_0 = &utilities.DoubleArray{Encoding: map[string]int{"ref": 0, "id": 1}, Base: []int{1, 1, 1, 0}, Check: []int{0, 1, 2, 3}}
 )
 
-func request_Waypoint_GetTask_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_GetTask_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetTaskRequest
 	var metadata runtime.ServerMetadata
 
@@ -7080,7 +7080,7 @@ func request_Waypoint_GetTask_0(ctx context.Context, marshaler runtime.Marshaler
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetTask_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetTask_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -7089,7 +7089,7 @@ func request_Waypoint_GetTask_0(ctx context.Context, marshaler runtime.Marshaler
 
 }
 
-func local_request_Waypoint_GetTask_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_GetTask_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetTaskRequest
 	var metadata runtime.ServerMetadata
 
@@ -7113,7 +7113,7 @@ func local_request_Waypoint_GetTask_0(ctx context.Context, marshaler runtime.Mar
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetTask_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetTask_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -7123,10 +7123,10 @@ func local_request_Waypoint_GetTask_0(ctx context.Context, marshaler runtime.Mar
 }
 
 var (
-	filter_Waypoint_GetTask_1 = &utilities.DoubleArray{Encoding: map[string]int{"ref": 0, "job_id": 1}, Base: []int{1, 1, 1, 0}, Check: []int{0, 1, 2, 3}}
+	filter_Derrick_GetTask_1 = &utilities.DoubleArray{Encoding: map[string]int{"ref": 0, "job_id": 1}, Base: []int{1, 1, 1, 0}, Check: []int{0, 1, 2, 3}}
 )
 
-func request_Waypoint_GetTask_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_GetTask_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetTaskRequest
 	var metadata runtime.ServerMetadata
 
@@ -7150,7 +7150,7 @@ func request_Waypoint_GetTask_1(ctx context.Context, marshaler runtime.Marshaler
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetTask_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetTask_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -7159,7 +7159,7 @@ func request_Waypoint_GetTask_1(ctx context.Context, marshaler runtime.Marshaler
 
 }
 
-func local_request_Waypoint_GetTask_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_GetTask_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetTaskRequest
 	var metadata runtime.ServerMetadata
 
@@ -7183,7 +7183,7 @@ func local_request_Waypoint_GetTask_1(ctx context.Context, marshaler runtime.Mar
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetTask_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetTask_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -7193,17 +7193,17 @@ func local_request_Waypoint_GetTask_1(ctx context.Context, marshaler runtime.Mar
 }
 
 var (
-	filter_Waypoint_ListTask_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
+	filter_Derrick_ListTask_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
 )
 
-func request_Waypoint_ListTask_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_ListTask_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListTaskRequest
 	var metadata runtime.ServerMetadata
 
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListTask_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListTask_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -7212,14 +7212,14 @@ func request_Waypoint_ListTask_0(ctx context.Context, marshaler runtime.Marshale
 
 }
 
-func local_request_Waypoint_ListTask_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_ListTask_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListTaskRequest
 	var metadata runtime.ServerMetadata
 
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListTask_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListTask_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -7228,7 +7228,7 @@ func local_request_Waypoint_ListTask_0(ctx context.Context, marshaler runtime.Ma
 
 }
 
-func request_Waypoint_CancelTask_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_CancelTask_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq CancelTaskRequest
 	var metadata runtime.ServerMetadata
 
@@ -7262,7 +7262,7 @@ func request_Waypoint_CancelTask_0(ctx context.Context, marshaler runtime.Marsha
 
 }
 
-func local_request_Waypoint_CancelTask_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_CancelTask_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq CancelTaskRequest
 	var metadata runtime.ServerMetadata
 
@@ -7296,7 +7296,7 @@ func local_request_Waypoint_CancelTask_0(ctx context.Context, marshaler runtime.
 
 }
 
-func request_Waypoint_CancelTask_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_CancelTask_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq CancelTaskRequest
 	var metadata runtime.ServerMetadata
 
@@ -7330,7 +7330,7 @@ func request_Waypoint_CancelTask_1(ctx context.Context, marshaler runtime.Marsha
 
 }
 
-func local_request_Waypoint_CancelTask_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_CancelTask_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq CancelTaskRequest
 	var metadata runtime.ServerMetadata
 
@@ -7364,7 +7364,7 @@ func local_request_Waypoint_CancelTask_1(ctx context.Context, marshaler runtime.
 
 }
 
-func request_Waypoint_UpsertTrigger_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_UpsertTrigger_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq UpsertTriggerRequest
 	var metadata runtime.ServerMetadata
 
@@ -7381,7 +7381,7 @@ func request_Waypoint_UpsertTrigger_0(ctx context.Context, marshaler runtime.Mar
 
 }
 
-func local_request_Waypoint_UpsertTrigger_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_UpsertTrigger_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq UpsertTriggerRequest
 	var metadata runtime.ServerMetadata
 
@@ -7399,10 +7399,10 @@ func local_request_Waypoint_UpsertTrigger_0(ctx context.Context, marshaler runti
 }
 
 var (
-	filter_Waypoint_GetTrigger_0 = &utilities.DoubleArray{Encoding: map[string]int{"ref": 0, "id": 1}, Base: []int{1, 1, 1, 0}, Check: []int{0, 1, 2, 3}}
+	filter_Derrick_GetTrigger_0 = &utilities.DoubleArray{Encoding: map[string]int{"ref": 0, "id": 1}, Base: []int{1, 1, 1, 0}, Check: []int{0, 1, 2, 3}}
 )
 
-func request_Waypoint_GetTrigger_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_GetTrigger_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetTriggerRequest
 	var metadata runtime.ServerMetadata
 
@@ -7426,7 +7426,7 @@ func request_Waypoint_GetTrigger_0(ctx context.Context, marshaler runtime.Marsha
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetTrigger_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetTrigger_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -7435,7 +7435,7 @@ func request_Waypoint_GetTrigger_0(ctx context.Context, marshaler runtime.Marsha
 
 }
 
-func local_request_Waypoint_GetTrigger_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_GetTrigger_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetTriggerRequest
 	var metadata runtime.ServerMetadata
 
@@ -7459,7 +7459,7 @@ func local_request_Waypoint_GetTrigger_0(ctx context.Context, marshaler runtime.
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetTrigger_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetTrigger_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -7469,10 +7469,10 @@ func local_request_Waypoint_GetTrigger_0(ctx context.Context, marshaler runtime.
 }
 
 var (
-	filter_Waypoint_GetTrigger_1 = &utilities.DoubleArray{Encoding: map[string]int{"ref": 0, "id": 1}, Base: []int{1, 1, 1, 0}, Check: []int{0, 1, 2, 3}}
+	filter_Derrick_GetTrigger_1 = &utilities.DoubleArray{Encoding: map[string]int{"ref": 0, "id": 1}, Base: []int{1, 1, 1, 0}, Check: []int{0, 1, 2, 3}}
 )
 
-func request_Waypoint_GetTrigger_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_GetTrigger_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetTriggerRequest
 	var metadata runtime.ServerMetadata
 
@@ -7496,7 +7496,7 @@ func request_Waypoint_GetTrigger_1(ctx context.Context, marshaler runtime.Marsha
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetTrigger_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetTrigger_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -7505,7 +7505,7 @@ func request_Waypoint_GetTrigger_1(ctx context.Context, marshaler runtime.Marsha
 
 }
 
-func local_request_Waypoint_GetTrigger_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_GetTrigger_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetTriggerRequest
 	var metadata runtime.ServerMetadata
 
@@ -7529,7 +7529,7 @@ func local_request_Waypoint_GetTrigger_1(ctx context.Context, marshaler runtime.
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetTrigger_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetTrigger_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -7539,17 +7539,17 @@ func local_request_Waypoint_GetTrigger_1(ctx context.Context, marshaler runtime.
 }
 
 var (
-	filter_Waypoint_ListTriggers_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
+	filter_Derrick_ListTriggers_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
 )
 
-func request_Waypoint_ListTriggers_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_ListTriggers_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListTriggerRequest
 	var metadata runtime.ServerMetadata
 
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListTriggers_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListTriggers_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -7558,14 +7558,14 @@ func request_Waypoint_ListTriggers_0(ctx context.Context, marshaler runtime.Mars
 
 }
 
-func local_request_Waypoint_ListTriggers_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_ListTriggers_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListTriggerRequest
 	var metadata runtime.ServerMetadata
 
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListTriggers_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListTriggers_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -7575,10 +7575,10 @@ func local_request_Waypoint_ListTriggers_0(ctx context.Context, marshaler runtim
 }
 
 var (
-	filter_Waypoint_ListTriggers_1 = &utilities.DoubleArray{Encoding: map[string]int{"project": 0}, Base: []int{1, 2, 2, 0}, Check: []int{0, 1, 2, 3}}
+	filter_Derrick_ListTriggers_1 = &utilities.DoubleArray{Encoding: map[string]int{"project": 0}, Base: []int{1, 2, 2, 0}, Check: []int{0, 1, 2, 3}}
 )
 
-func request_Waypoint_ListTriggers_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_ListTriggers_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListTriggerRequest
 	var metadata runtime.ServerMetadata
 
@@ -7602,7 +7602,7 @@ func request_Waypoint_ListTriggers_1(ctx context.Context, marshaler runtime.Mars
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListTriggers_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListTriggers_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -7611,7 +7611,7 @@ func request_Waypoint_ListTriggers_1(ctx context.Context, marshaler runtime.Mars
 
 }
 
-func local_request_Waypoint_ListTriggers_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_ListTriggers_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListTriggerRequest
 	var metadata runtime.ServerMetadata
 
@@ -7635,7 +7635,7 @@ func local_request_Waypoint_ListTriggers_1(ctx context.Context, marshaler runtim
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListTriggers_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListTriggers_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -7645,10 +7645,10 @@ func local_request_Waypoint_ListTriggers_1(ctx context.Context, marshaler runtim
 }
 
 var (
-	filter_Waypoint_ListTriggers_2 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1}, Base: []int{1, 3, 1, 0, 3, 0}, Check: []int{0, 1, 2, 3, 2, 5}}
+	filter_Derrick_ListTriggers_2 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1}, Base: []int{1, 3, 1, 0, 3, 0}, Check: []int{0, 1, 2, 3, 2, 5}}
 )
 
-func request_Waypoint_ListTriggers_2(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_ListTriggers_2(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListTriggerRequest
 	var metadata runtime.ServerMetadata
 
@@ -7682,7 +7682,7 @@ func request_Waypoint_ListTriggers_2(ctx context.Context, marshaler runtime.Mars
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListTriggers_2); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListTriggers_2); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -7691,7 +7691,7 @@ func request_Waypoint_ListTriggers_2(ctx context.Context, marshaler runtime.Mars
 
 }
 
-func local_request_Waypoint_ListTriggers_2(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_ListTriggers_2(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListTriggerRequest
 	var metadata runtime.ServerMetadata
 
@@ -7725,7 +7725,7 @@ func local_request_Waypoint_ListTriggers_2(ctx context.Context, marshaler runtim
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListTriggers_2); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListTriggers_2); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -7735,10 +7735,10 @@ func local_request_Waypoint_ListTriggers_2(ctx context.Context, marshaler runtim
 }
 
 var (
-	filter_Waypoint_ListTriggers_3 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1, "workspace": 2}, Base: []int{1, 4, 1, 5, 0, 3, 0, 5, 0}, Check: []int{0, 1, 2, 1, 3, 2, 6, 4, 8}}
+	filter_Derrick_ListTriggers_3 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1, "workspace": 2}, Base: []int{1, 4, 1, 5, 0, 3, 0, 5, 0}, Check: []int{0, 1, 2, 1, 3, 2, 6, 4, 8}}
 )
 
-func request_Waypoint_ListTriggers_3(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_ListTriggers_3(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListTriggerRequest
 	var metadata runtime.ServerMetadata
 
@@ -7782,7 +7782,7 @@ func request_Waypoint_ListTriggers_3(ctx context.Context, marshaler runtime.Mars
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListTriggers_3); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListTriggers_3); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -7791,7 +7791,7 @@ func request_Waypoint_ListTriggers_3(ctx context.Context, marshaler runtime.Mars
 
 }
 
-func local_request_Waypoint_ListTriggers_3(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_ListTriggers_3(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListTriggerRequest
 	var metadata runtime.ServerMetadata
 
@@ -7835,7 +7835,7 @@ func local_request_Waypoint_ListTriggers_3(ctx context.Context, marshaler runtim
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListTriggers_3); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListTriggers_3); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -7844,7 +7844,7 @@ func local_request_Waypoint_ListTriggers_3(ctx context.Context, marshaler runtim
 
 }
 
-func request_Waypoint_RunTrigger_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_RunTrigger_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq RunTriggerRequest
 	var metadata runtime.ServerMetadata
 
@@ -7878,7 +7878,7 @@ func request_Waypoint_RunTrigger_0(ctx context.Context, marshaler runtime.Marsha
 
 }
 
-func local_request_Waypoint_RunTrigger_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_RunTrigger_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq RunTriggerRequest
 	var metadata runtime.ServerMetadata
 
@@ -7912,7 +7912,7 @@ func local_request_Waypoint_RunTrigger_0(ctx context.Context, marshaler runtime.
 
 }
 
-func request_Waypoint_RunPipeline_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_RunPipeline_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq RunPipelineRequest
 	var metadata runtime.ServerMetadata
 
@@ -7956,7 +7956,7 @@ func request_Waypoint_RunPipeline_0(ctx context.Context, marshaler runtime.Marsh
 
 }
 
-func local_request_Waypoint_RunPipeline_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_RunPipeline_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq RunPipelineRequest
 	var metadata runtime.ServerMetadata
 
@@ -8000,7 +8000,7 @@ func local_request_Waypoint_RunPipeline_0(ctx context.Context, marshaler runtime
 
 }
 
-func request_Waypoint_RunPipeline_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_RunPipeline_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq RunPipelineRequest
 	var metadata runtime.ServerMetadata
 
@@ -8034,7 +8034,7 @@ func request_Waypoint_RunPipeline_1(ctx context.Context, marshaler runtime.Marsh
 
 }
 
-func local_request_Waypoint_RunPipeline_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_RunPipeline_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq RunPipelineRequest
 	var metadata runtime.ServerMetadata
 
@@ -8069,10 +8069,10 @@ func local_request_Waypoint_RunPipeline_1(ctx context.Context, marshaler runtime
 }
 
 var (
-	filter_Waypoint_GetPipeline_0 = &utilities.DoubleArray{Encoding: map[string]int{"pipeline": 0, "owner": 1, "project": 2, "pipeline_name": 3}, Base: []int{1, 5, 1, 2, 1, 0, 4, 4, 0}, Check: []int{0, 1, 2, 3, 4, 5, 2, 7, 8}}
+	filter_Derrick_GetPipeline_0 = &utilities.DoubleArray{Encoding: map[string]int{"pipeline": 0, "owner": 1, "project": 2, "pipeline_name": 3}, Base: []int{1, 5, 1, 2, 1, 0, 4, 4, 0}, Check: []int{0, 1, 2, 3, 4, 5, 2, 7, 8}}
 )
 
-func request_Waypoint_GetPipeline_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_GetPipeline_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetPipelineRequest
 	var metadata runtime.ServerMetadata
 
@@ -8106,7 +8106,7 @@ func request_Waypoint_GetPipeline_0(ctx context.Context, marshaler runtime.Marsh
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetPipeline_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetPipeline_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -8115,7 +8115,7 @@ func request_Waypoint_GetPipeline_0(ctx context.Context, marshaler runtime.Marsh
 
 }
 
-func local_request_Waypoint_GetPipeline_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_GetPipeline_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetPipelineRequest
 	var metadata runtime.ServerMetadata
 
@@ -8149,7 +8149,7 @@ func local_request_Waypoint_GetPipeline_0(ctx context.Context, marshaler runtime
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetPipeline_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetPipeline_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -8159,10 +8159,10 @@ func local_request_Waypoint_GetPipeline_0(ctx context.Context, marshaler runtime
 }
 
 var (
-	filter_Waypoint_GetPipeline_1 = &utilities.DoubleArray{Encoding: map[string]int{"pipeline": 0, "id": 1}, Base: []int{1, 1, 1, 0}, Check: []int{0, 1, 2, 3}}
+	filter_Derrick_GetPipeline_1 = &utilities.DoubleArray{Encoding: map[string]int{"pipeline": 0, "id": 1}, Base: []int{1, 1, 1, 0}, Check: []int{0, 1, 2, 3}}
 )
 
-func request_Waypoint_GetPipeline_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_GetPipeline_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetPipelineRequest
 	var metadata runtime.ServerMetadata
 
@@ -8186,7 +8186,7 @@ func request_Waypoint_GetPipeline_1(ctx context.Context, marshaler runtime.Marsh
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetPipeline_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetPipeline_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -8195,7 +8195,7 @@ func request_Waypoint_GetPipeline_1(ctx context.Context, marshaler runtime.Marsh
 
 }
 
-func local_request_Waypoint_GetPipeline_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_GetPipeline_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetPipelineRequest
 	var metadata runtime.ServerMetadata
 
@@ -8219,7 +8219,7 @@ func local_request_Waypoint_GetPipeline_1(ctx context.Context, marshaler runtime
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetPipeline_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetPipeline_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -8229,10 +8229,10 @@ func local_request_Waypoint_GetPipeline_1(ctx context.Context, marshaler runtime
 }
 
 var (
-	filter_Waypoint_GetPipelineRun_0 = &utilities.DoubleArray{Encoding: map[string]int{"pipeline": 0, "owner": 1, "project": 2, "pipeline_name": 3, "sequence": 4}, Base: []int{1, 6, 1, 2, 1, 5, 0, 5, 4, 0, 0}, Check: []int{0, 1, 2, 3, 4, 1, 5, 2, 8, 9, 6}}
+	filter_Derrick_GetPipelineRun_0 = &utilities.DoubleArray{Encoding: map[string]int{"pipeline": 0, "owner": 1, "project": 2, "pipeline_name": 3, "sequence": 4}, Base: []int{1, 6, 1, 2, 1, 5, 0, 5, 4, 0, 0}, Check: []int{0, 1, 2, 3, 4, 1, 5, 2, 8, 9, 6}}
 )
 
-func request_Waypoint_GetPipelineRun_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_GetPipelineRun_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetPipelineRunRequest
 	var metadata runtime.ServerMetadata
 
@@ -8276,7 +8276,7 @@ func request_Waypoint_GetPipelineRun_0(ctx context.Context, marshaler runtime.Ma
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetPipelineRun_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetPipelineRun_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -8285,7 +8285,7 @@ func request_Waypoint_GetPipelineRun_0(ctx context.Context, marshaler runtime.Ma
 
 }
 
-func local_request_Waypoint_GetPipelineRun_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_GetPipelineRun_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetPipelineRunRequest
 	var metadata runtime.ServerMetadata
 
@@ -8329,7 +8329,7 @@ func local_request_Waypoint_GetPipelineRun_0(ctx context.Context, marshaler runt
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetPipelineRun_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetPipelineRun_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -8339,10 +8339,10 @@ func local_request_Waypoint_GetPipelineRun_0(ctx context.Context, marshaler runt
 }
 
 var (
-	filter_Waypoint_GetPipelineRun_1 = &utilities.DoubleArray{Encoding: map[string]int{"pipeline": 0, "id": 1, "sequence": 2}, Base: []int{1, 1, 1, 2, 0, 0}, Check: []int{0, 1, 2, 1, 3, 4}}
+	filter_Derrick_GetPipelineRun_1 = &utilities.DoubleArray{Encoding: map[string]int{"pipeline": 0, "id": 1, "sequence": 2}, Base: []int{1, 1, 1, 2, 0, 0}, Check: []int{0, 1, 2, 1, 3, 4}}
 )
 
-func request_Waypoint_GetPipelineRun_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_GetPipelineRun_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetPipelineRunRequest
 	var metadata runtime.ServerMetadata
 
@@ -8376,7 +8376,7 @@ func request_Waypoint_GetPipelineRun_1(ctx context.Context, marshaler runtime.Ma
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetPipelineRun_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetPipelineRun_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -8385,7 +8385,7 @@ func request_Waypoint_GetPipelineRun_1(ctx context.Context, marshaler runtime.Ma
 
 }
 
-func local_request_Waypoint_GetPipelineRun_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_GetPipelineRun_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetPipelineRunRequest
 	var metadata runtime.ServerMetadata
 
@@ -8419,7 +8419,7 @@ func local_request_Waypoint_GetPipelineRun_1(ctx context.Context, marshaler runt
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetPipelineRun_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetPipelineRun_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -8429,10 +8429,10 @@ func local_request_Waypoint_GetPipelineRun_1(ctx context.Context, marshaler runt
 }
 
 var (
-	filter_Waypoint_GetLatestPipelineRun_0 = &utilities.DoubleArray{Encoding: map[string]int{"pipeline": 0, "owner": 1, "project": 2, "pipeline_name": 3}, Base: []int{1, 5, 1, 2, 1, 0, 4, 4, 0}, Check: []int{0, 1, 2, 3, 4, 5, 2, 7, 8}}
+	filter_Derrick_GetLatestPipelineRun_0 = &utilities.DoubleArray{Encoding: map[string]int{"pipeline": 0, "owner": 1, "project": 2, "pipeline_name": 3}, Base: []int{1, 5, 1, 2, 1, 0, 4, 4, 0}, Check: []int{0, 1, 2, 3, 4, 5, 2, 7, 8}}
 )
 
-func request_Waypoint_GetLatestPipelineRun_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_GetLatestPipelineRun_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetPipelineRequest
 	var metadata runtime.ServerMetadata
 
@@ -8466,7 +8466,7 @@ func request_Waypoint_GetLatestPipelineRun_0(ctx context.Context, marshaler runt
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetLatestPipelineRun_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetLatestPipelineRun_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -8475,7 +8475,7 @@ func request_Waypoint_GetLatestPipelineRun_0(ctx context.Context, marshaler runt
 
 }
 
-func local_request_Waypoint_GetLatestPipelineRun_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_GetLatestPipelineRun_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetPipelineRequest
 	var metadata runtime.ServerMetadata
 
@@ -8509,7 +8509,7 @@ func local_request_Waypoint_GetLatestPipelineRun_0(ctx context.Context, marshale
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetLatestPipelineRun_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetLatestPipelineRun_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -8519,10 +8519,10 @@ func local_request_Waypoint_GetLatestPipelineRun_0(ctx context.Context, marshale
 }
 
 var (
-	filter_Waypoint_GetLatestPipelineRun_1 = &utilities.DoubleArray{Encoding: map[string]int{"pipeline": 0, "id": 1}, Base: []int{1, 1, 1, 0}, Check: []int{0, 1, 2, 3}}
+	filter_Derrick_GetLatestPipelineRun_1 = &utilities.DoubleArray{Encoding: map[string]int{"pipeline": 0, "id": 1}, Base: []int{1, 1, 1, 0}, Check: []int{0, 1, 2, 3}}
 )
 
-func request_Waypoint_GetLatestPipelineRun_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_GetLatestPipelineRun_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetPipelineRequest
 	var metadata runtime.ServerMetadata
 
@@ -8546,7 +8546,7 @@ func request_Waypoint_GetLatestPipelineRun_1(ctx context.Context, marshaler runt
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetLatestPipelineRun_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetLatestPipelineRun_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -8555,7 +8555,7 @@ func request_Waypoint_GetLatestPipelineRun_1(ctx context.Context, marshaler runt
 
 }
 
-func local_request_Waypoint_GetLatestPipelineRun_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_GetLatestPipelineRun_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetPipelineRequest
 	var metadata runtime.ServerMetadata
 
@@ -8579,7 +8579,7 @@ func local_request_Waypoint_GetLatestPipelineRun_1(ctx context.Context, marshale
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_GetLatestPipelineRun_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_GetLatestPipelineRun_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -8589,10 +8589,10 @@ func local_request_Waypoint_GetLatestPipelineRun_1(ctx context.Context, marshale
 }
 
 var (
-	filter_Waypoint_ListPipelines_0 = &utilities.DoubleArray{Encoding: map[string]int{"project": 0}, Base: []int{1, 2, 2, 0}, Check: []int{0, 1, 2, 3}}
+	filter_Derrick_ListPipelines_0 = &utilities.DoubleArray{Encoding: map[string]int{"project": 0}, Base: []int{1, 2, 2, 0}, Check: []int{0, 1, 2, 3}}
 )
 
-func request_Waypoint_ListPipelines_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_ListPipelines_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListPipelinesRequest
 	var metadata runtime.ServerMetadata
 
@@ -8616,7 +8616,7 @@ func request_Waypoint_ListPipelines_0(ctx context.Context, marshaler runtime.Mar
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListPipelines_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListPipelines_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -8625,7 +8625,7 @@ func request_Waypoint_ListPipelines_0(ctx context.Context, marshaler runtime.Mar
 
 }
 
-func local_request_Waypoint_ListPipelines_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_ListPipelines_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListPipelinesRequest
 	var metadata runtime.ServerMetadata
 
@@ -8649,7 +8649,7 @@ func local_request_Waypoint_ListPipelines_0(ctx context.Context, marshaler runti
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListPipelines_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListPipelines_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -8659,10 +8659,10 @@ func local_request_Waypoint_ListPipelines_0(ctx context.Context, marshaler runti
 }
 
 var (
-	filter_Waypoint_ListPipelineRuns_0 = &utilities.DoubleArray{Encoding: map[string]int{"pipeline": 0, "owner": 1, "project": 2, "pipeline_name": 3}, Base: []int{1, 5, 1, 2, 1, 0, 4, 4, 0}, Check: []int{0, 1, 2, 3, 4, 5, 2, 7, 8}}
+	filter_Derrick_ListPipelineRuns_0 = &utilities.DoubleArray{Encoding: map[string]int{"pipeline": 0, "owner": 1, "project": 2, "pipeline_name": 3}, Base: []int{1, 5, 1, 2, 1, 0, 4, 4, 0}, Check: []int{0, 1, 2, 3, 4, 5, 2, 7, 8}}
 )
 
-func request_Waypoint_ListPipelineRuns_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_ListPipelineRuns_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListPipelineRunsRequest
 	var metadata runtime.ServerMetadata
 
@@ -8696,7 +8696,7 @@ func request_Waypoint_ListPipelineRuns_0(ctx context.Context, marshaler runtime.
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListPipelineRuns_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListPipelineRuns_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -8705,7 +8705,7 @@ func request_Waypoint_ListPipelineRuns_0(ctx context.Context, marshaler runtime.
 
 }
 
-func local_request_Waypoint_ListPipelineRuns_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_ListPipelineRuns_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListPipelineRunsRequest
 	var metadata runtime.ServerMetadata
 
@@ -8739,7 +8739,7 @@ func local_request_Waypoint_ListPipelineRuns_0(ctx context.Context, marshaler ru
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListPipelineRuns_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListPipelineRuns_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -8749,10 +8749,10 @@ func local_request_Waypoint_ListPipelineRuns_0(ctx context.Context, marshaler ru
 }
 
 var (
-	filter_Waypoint_ListPipelineRuns_1 = &utilities.DoubleArray{Encoding: map[string]int{"pipeline": 0, "id": 1}, Base: []int{1, 1, 1, 0}, Check: []int{0, 1, 2, 3}}
+	filter_Derrick_ListPipelineRuns_1 = &utilities.DoubleArray{Encoding: map[string]int{"pipeline": 0, "id": 1}, Base: []int{1, 1, 1, 0}, Check: []int{0, 1, 2, 3}}
 )
 
-func request_Waypoint_ListPipelineRuns_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_ListPipelineRuns_1(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListPipelineRunsRequest
 	var metadata runtime.ServerMetadata
 
@@ -8776,7 +8776,7 @@ func request_Waypoint_ListPipelineRuns_1(ctx context.Context, marshaler runtime.
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListPipelineRuns_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListPipelineRuns_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -8785,7 +8785,7 @@ func request_Waypoint_ListPipelineRuns_1(ctx context.Context, marshaler runtime.
 
 }
 
-func local_request_Waypoint_ListPipelineRuns_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_ListPipelineRuns_1(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListPipelineRunsRequest
 	var metadata runtime.ServerMetadata
 
@@ -8809,7 +8809,7 @@ func local_request_Waypoint_ListPipelineRuns_1(ctx context.Context, marshaler ru
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_ListPipelineRuns_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_ListPipelineRuns_1); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -8818,7 +8818,7 @@ func local_request_Waypoint_ListPipelineRuns_1(ctx context.Context, marshaler ru
 
 }
 
-func request_Waypoint_ConfigSyncPipeline_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_ConfigSyncPipeline_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ConfigSyncPipelineRequest
 	var metadata runtime.ServerMetadata
 
@@ -8852,7 +8852,7 @@ func request_Waypoint_ConfigSyncPipeline_0(ctx context.Context, marshaler runtim
 
 }
 
-func local_request_Waypoint_ConfigSyncPipeline_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_ConfigSyncPipeline_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ConfigSyncPipelineRequest
 	var metadata runtime.ServerMetadata
 
@@ -8887,17 +8887,17 @@ func local_request_Waypoint_ConfigSyncPipeline_0(ctx context.Context, marshaler 
 }
 
 var (
-	filter_Waypoint_UI_ListProjects_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
+	filter_Derrick_UI_ListProjects_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
 )
 
-func request_Waypoint_UI_ListProjects_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_UI_ListProjects_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq UI_ListProjectsRequest
 	var metadata runtime.ServerMetadata
 
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_UI_ListProjects_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_UI_ListProjects_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -8906,14 +8906,14 @@ func request_Waypoint_UI_ListProjects_0(ctx context.Context, marshaler runtime.M
 
 }
 
-func local_request_Waypoint_UI_ListProjects_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_UI_ListProjects_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq UI_ListProjectsRequest
 	var metadata runtime.ServerMetadata
 
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_UI_ListProjects_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_UI_ListProjects_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -8923,10 +8923,10 @@ func local_request_Waypoint_UI_ListProjects_0(ctx context.Context, marshaler run
 }
 
 var (
-	filter_Waypoint_UI_GetProject_0 = &utilities.DoubleArray{Encoding: map[string]int{"project": 0}, Base: []int{1, 2, 2, 0}, Check: []int{0, 1, 2, 3}}
+	filter_Derrick_UI_GetProject_0 = &utilities.DoubleArray{Encoding: map[string]int{"project": 0}, Base: []int{1, 2, 2, 0}, Check: []int{0, 1, 2, 3}}
 )
 
-func request_Waypoint_UI_GetProject_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_UI_GetProject_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq UI_GetProjectRequest
 	var metadata runtime.ServerMetadata
 
@@ -8950,7 +8950,7 @@ func request_Waypoint_UI_GetProject_0(ctx context.Context, marshaler runtime.Mar
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_UI_GetProject_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_UI_GetProject_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -8959,7 +8959,7 @@ func request_Waypoint_UI_GetProject_0(ctx context.Context, marshaler runtime.Mar
 
 }
 
-func local_request_Waypoint_UI_GetProject_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_UI_GetProject_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq UI_GetProjectRequest
 	var metadata runtime.ServerMetadata
 
@@ -8983,7 +8983,7 @@ func local_request_Waypoint_UI_GetProject_0(ctx context.Context, marshaler runti
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_UI_GetProject_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_UI_GetProject_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -8993,10 +8993,10 @@ func local_request_Waypoint_UI_GetProject_0(ctx context.Context, marshaler runti
 }
 
 var (
-	filter_Waypoint_UI_ListDeployments_0 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1}, Base: []int{1, 3, 1, 0, 3, 0}, Check: []int{0, 1, 2, 3, 2, 5}}
+	filter_Derrick_UI_ListDeployments_0 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1}, Base: []int{1, 3, 1, 0, 3, 0}, Check: []int{0, 1, 2, 3, 2, 5}}
 )
 
-func request_Waypoint_UI_ListDeployments_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_UI_ListDeployments_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq UI_ListDeploymentsRequest
 	var metadata runtime.ServerMetadata
 
@@ -9030,7 +9030,7 @@ func request_Waypoint_UI_ListDeployments_0(ctx context.Context, marshaler runtim
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_UI_ListDeployments_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_UI_ListDeployments_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -9039,7 +9039,7 @@ func request_Waypoint_UI_ListDeployments_0(ctx context.Context, marshaler runtim
 
 }
 
-func local_request_Waypoint_UI_ListDeployments_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_UI_ListDeployments_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq UI_ListDeploymentsRequest
 	var metadata runtime.ServerMetadata
 
@@ -9073,7 +9073,7 @@ func local_request_Waypoint_UI_ListDeployments_0(ctx context.Context, marshaler 
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_UI_ListDeployments_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_UI_ListDeployments_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -9083,10 +9083,10 @@ func local_request_Waypoint_UI_ListDeployments_0(ctx context.Context, marshaler 
 }
 
 var (
-	filter_Waypoint_UI_ListReleases_0 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1}, Base: []int{1, 3, 1, 0, 3, 0}, Check: []int{0, 1, 2, 3, 2, 5}}
+	filter_Derrick_UI_ListReleases_0 = &utilities.DoubleArray{Encoding: map[string]int{"application": 0, "project": 1}, Base: []int{1, 3, 1, 0, 3, 0}, Check: []int{0, 1, 2, 3, 2, 5}}
 )
 
-func request_Waypoint_UI_ListReleases_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Derrick_UI_ListReleases_0(ctx context.Context, marshaler runtime.Marshaler, client DerrickClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq UI_ListReleasesRequest
 	var metadata runtime.ServerMetadata
 
@@ -9120,7 +9120,7 @@ func request_Waypoint_UI_ListReleases_0(ctx context.Context, marshaler runtime.M
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_UI_ListReleases_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_UI_ListReleases_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -9129,7 +9129,7 @@ func request_Waypoint_UI_ListReleases_0(ctx context.Context, marshaler runtime.M
 
 }
 
-func local_request_Waypoint_UI_ListReleases_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Derrick_UI_ListReleases_0(ctx context.Context, marshaler runtime.Marshaler, server DerrickServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq UI_ListReleasesRequest
 	var metadata runtime.ServerMetadata
 
@@ -9163,7 +9163,7 @@ func local_request_Waypoint_UI_ListReleases_0(ctx context.Context, marshaler run
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Waypoint_UI_ListReleases_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Derrick_UI_ListReleases_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -9172,25 +9172,25 @@ func local_request_Waypoint_UI_ListReleases_0(ctx context.Context, marshaler run
 
 }
 
-// RegisterWaypointHandlerServer registers the http handlers for service Waypoint to "mux".
+// RegisterDerrickHandlerServer registers the http handlers for service Derrick to "mux".
 // UnaryRPC     :call DerrickServer directly.
 // StreamingRPC :currently unsupported pending https://github.com/grpc/grpc-go/issues/906.
-// Note that using this registration option will cause many gRPC library features to stop working. Consider using RegisterWaypointHandlerFromEndpoint instead.
-func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, server DerrickServer) error {
+// Note that using this registration option will cause many gRPC library features to stop working. Consider using RegisterDerrickHandlerFromEndpoint instead.
+func RegisterDerrickHandlerServer(ctx context.Context, mux *runtime.ServeMux, server DerrickServer) error {
 
-	mux.Handle("GET", pattern_Waypoint_GetVersionInfo_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetVersionInfo_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetVersionInfo", runtime.WithHTTPPathPattern("/version"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetVersionInfo", runtime.WithHTTPPathPattern("/version"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_GetVersionInfo_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_GetVersionInfo_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -9198,23 +9198,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_GetVersionInfo_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetVersionInfo_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListOIDCAuthMethods_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListOIDCAuthMethods_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListOIDCAuthMethods", runtime.WithHTTPPathPattern("/oidc/methods"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListOIDCAuthMethods", runtime.WithHTTPPathPattern("/oidc/methods"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_ListOIDCAuthMethods_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_ListOIDCAuthMethods_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -9222,23 +9222,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_ListOIDCAuthMethods_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListOIDCAuthMethods_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_GetOIDCAuthURL_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_GetOIDCAuthURL_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetOIDCAuthURL", runtime.WithHTTPPathPattern("/oidc/{auth_method.name}/url"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetOIDCAuthURL", runtime.WithHTTPPathPattern("/oidc/{auth_method.name}/url"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_GetOIDCAuthURL_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_GetOIDCAuthURL_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -9246,23 +9246,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_GetOIDCAuthURL_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetOIDCAuthURL_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_CompleteOIDCAuth_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_CompleteOIDCAuth_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/CompleteOIDCAuth", runtime.WithHTTPPathPattern("/oidc/{auth_method.name}/complete"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/CompleteOIDCAuth", runtime.WithHTTPPathPattern("/oidc/{auth_method.name}/complete"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_CompleteOIDCAuth_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_CompleteOIDCAuth_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -9270,23 +9270,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_CompleteOIDCAuth_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_CompleteOIDCAuth_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_NoAuthRunTrigger_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_NoAuthRunTrigger_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/NoAuthRunTrigger", runtime.WithHTTPPathPattern("/triggers/no-auth/{ref.id}/run"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/NoAuthRunTrigger", runtime.WithHTTPPathPattern("/triggers/no-auth/{ref.id}/run"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_NoAuthRunTrigger_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_NoAuthRunTrigger_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -9294,23 +9294,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_NoAuthRunTrigger_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_NoAuthRunTrigger_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetUser_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetUser_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetUser", runtime.WithHTTPPathPattern("/user/by-id/{user.id.id}"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetUser", runtime.WithHTTPPathPattern("/user/by-id/{user.id.id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_GetUser_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_GetUser_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -9318,23 +9318,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_GetUser_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetUser_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetUser_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetUser_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetUser", runtime.WithHTTPPathPattern("/user/by-username/{user.username.username}"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetUser", runtime.WithHTTPPathPattern("/user/by-username/{user.username.username}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_GetUser_1(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_GetUser_1(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -9342,23 +9342,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_GetUser_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetUser_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListUsers_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListUsers_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListUsers", runtime.WithHTTPPathPattern("/users"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListUsers", runtime.WithHTTPPathPattern("/users"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_ListUsers_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_ListUsers_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -9366,23 +9366,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_ListUsers_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListUsers_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("PUT", pattern_Waypoint_UpdateUser_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("PUT", pattern_Derrick_UpdateUser_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/UpdateUser", runtime.WithHTTPPathPattern("/user/{user.id}"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/UpdateUser", runtime.WithHTTPPathPattern("/user/{user.id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_UpdateUser_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_UpdateUser_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -9390,23 +9390,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_UpdateUser_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_UpdateUser_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("DELETE", pattern_Waypoint_DeleteUser_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("DELETE", pattern_Derrick_DeleteUser_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/DeleteUser", runtime.WithHTTPPathPattern("/user/by-id/{user.id.id}"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/DeleteUser", runtime.WithHTTPPathPattern("/user/by-id/{user.id.id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_DeleteUser_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_DeleteUser_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -9414,23 +9414,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_DeleteUser_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_DeleteUser_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("DELETE", pattern_Waypoint_DeleteUser_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("DELETE", pattern_Derrick_DeleteUser_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/DeleteUser", runtime.WithHTTPPathPattern("/user/by-username/{user.username.username}"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/DeleteUser", runtime.WithHTTPPathPattern("/user/by-username/{user.username.username}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_DeleteUser_1(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_DeleteUser_1(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -9438,23 +9438,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_DeleteUser_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_DeleteUser_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_UpsertAuthMethod_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_UpsertAuthMethod_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/UpsertAuthMethod", runtime.WithHTTPPathPattern("/auth-method"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/UpsertAuthMethod", runtime.WithHTTPPathPattern("/auth-method"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_UpsertAuthMethod_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_UpsertAuthMethod_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -9462,23 +9462,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_UpsertAuthMethod_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_UpsertAuthMethod_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetAuthMethod_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetAuthMethod_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetAuthMethod", runtime.WithHTTPPathPattern("/auth-method/{auth_method.name}"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetAuthMethod", runtime.WithHTTPPathPattern("/auth-method/{auth_method.name}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_GetAuthMethod_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_GetAuthMethod_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -9486,23 +9486,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_GetAuthMethod_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetAuthMethod_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListAuthMethods_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListAuthMethods_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListAuthMethods", runtime.WithHTTPPathPattern("/auth-methods"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListAuthMethods", runtime.WithHTTPPathPattern("/auth-methods"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_ListAuthMethods_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_ListAuthMethods_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -9510,23 +9510,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_ListAuthMethods_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListAuthMethods_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("DELETE", pattern_Waypoint_DeleteAuthMethod_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("DELETE", pattern_Derrick_DeleteAuthMethod_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/DeleteAuthMethod", runtime.WithHTTPPathPattern("/auth-method/{auth_method.name}"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/DeleteAuthMethod", runtime.WithHTTPPathPattern("/auth-method/{auth_method.name}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_DeleteAuthMethod_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_DeleteAuthMethod_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -9534,23 +9534,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_DeleteAuthMethod_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_DeleteAuthMethod_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListWorkspaces_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListWorkspaces_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListWorkspaces", runtime.WithHTTPPathPattern("/workspaces"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListWorkspaces", runtime.WithHTTPPathPattern("/workspaces"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_ListWorkspaces_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_ListWorkspaces_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -9558,23 +9558,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_ListWorkspaces_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListWorkspaces_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListWorkspaces_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListWorkspaces_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListWorkspaces", runtime.WithHTTPPathPattern("/project/{project.project}/workspaces"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListWorkspaces", runtime.WithHTTPPathPattern("/project/{project.project}/workspaces"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_ListWorkspaces_1(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_ListWorkspaces_1(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -9582,23 +9582,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_ListWorkspaces_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListWorkspaces_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListWorkspaces_2, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListWorkspaces_2, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListWorkspaces", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/workspaces"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListWorkspaces", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/workspaces"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_ListWorkspaces_2(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_ListWorkspaces_2(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -9606,23 +9606,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_ListWorkspaces_2(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListWorkspaces_2(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetWorkspace_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetWorkspace_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetWorkspace", runtime.WithHTTPPathPattern("/workspace/{workspace.workspace}"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetWorkspace", runtime.WithHTTPPathPattern("/workspace/{workspace.workspace}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_GetWorkspace_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_GetWorkspace_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -9630,23 +9630,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_GetWorkspace_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetWorkspace_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_UpsertWorkspace_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_UpsertWorkspace_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/UpsertWorkspace", runtime.WithHTTPPathPattern("/workspace"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/UpsertWorkspace", runtime.WithHTTPPathPattern("/workspace"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_UpsertWorkspace_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_UpsertWorkspace_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -9654,23 +9654,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_UpsertWorkspace_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_UpsertWorkspace_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_UpsertProject_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_UpsertProject_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/UpsertProject", runtime.WithHTTPPathPattern("/project"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/UpsertProject", runtime.WithHTTPPathPattern("/project"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_UpsertProject_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_UpsertProject_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -9678,23 +9678,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_UpsertProject_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_UpsertProject_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetProject_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetProject_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetProject", runtime.WithHTTPPathPattern("/project/{project.project}"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetProject", runtime.WithHTTPPathPattern("/project/{project.project}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_GetProject_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_GetProject_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -9702,23 +9702,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_GetProject_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetProject_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListProjects_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListProjects_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListProjects", runtime.WithHTTPPathPattern("/projects"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListProjects", runtime.WithHTTPPathPattern("/projects"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_ListProjects_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_ListProjects_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -9726,23 +9726,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_ListProjects_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListProjects_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("DELETE", pattern_Waypoint_DestroyProject_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("DELETE", pattern_Derrick_DestroyProject_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/DestroyProject", runtime.WithHTTPPathPattern("/project/{project.project}"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/DestroyProject", runtime.WithHTTPPathPattern("/project/{project.project}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_DestroyProject_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_DestroyProject_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -9750,23 +9750,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_DestroyProject_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_DestroyProject_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetApplication_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetApplication_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetApplication", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetApplication", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_GetApplication_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_GetApplication_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -9774,23 +9774,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_GetApplication_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetApplication_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_UpsertApplication_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_UpsertApplication_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/UpsertApplication", runtime.WithHTTPPathPattern("/project/{project.project}/application"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/UpsertApplication", runtime.WithHTTPPathPattern("/project/{project.project}/application"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_UpsertApplication_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_UpsertApplication_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -9798,23 +9798,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_UpsertApplication_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_UpsertApplication_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListBuilds_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListBuilds_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListBuilds", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/builds"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListBuilds", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/builds"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_ListBuilds_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_ListBuilds_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -9822,23 +9822,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_ListBuilds_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListBuilds_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListBuilds_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListBuilds_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListBuilds", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/builds"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListBuilds", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/builds"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_ListBuilds_1(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_ListBuilds_1(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -9846,23 +9846,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_ListBuilds_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListBuilds_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetBuild_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetBuild_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetBuild", runtime.WithHTTPPathPattern("/build/{ref.id}"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetBuild", runtime.WithHTTPPathPattern("/build/{ref.id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_GetBuild_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_GetBuild_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -9870,23 +9870,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_GetBuild_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetBuild_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetBuild_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetBuild_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetBuild", runtime.WithHTTPPathPattern("/project/{ref.sequence.application.project}/application/{ref.sequence.application.application}/build/{ref.sequence.number}"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetBuild", runtime.WithHTTPPathPattern("/project/{ref.sequence.application.project}/application/{ref.sequence.application.application}/build/{ref.sequence.number}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_GetBuild_1(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_GetBuild_1(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -9894,23 +9894,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_GetBuild_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetBuild_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetLatestBuild_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetLatestBuild_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetLatestBuild", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/build/latest"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetLatestBuild", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/build/latest"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_GetLatestBuild_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_GetLatestBuild_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -9918,23 +9918,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_GetLatestBuild_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetLatestBuild_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetLatestBuild_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetLatestBuild_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetLatestBuild", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/build/latest"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetLatestBuild", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/build/latest"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_GetLatestBuild_1(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_GetLatestBuild_1(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -9942,23 +9942,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_GetLatestBuild_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetLatestBuild_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListPushedArtifacts_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListPushedArtifacts_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListPushedArtifacts", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/artifacts"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListPushedArtifacts", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/artifacts"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_ListPushedArtifacts_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_ListPushedArtifacts_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -9966,23 +9966,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_ListPushedArtifacts_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListPushedArtifacts_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListPushedArtifacts_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListPushedArtifacts_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListPushedArtifacts", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/artifacts"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListPushedArtifacts", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/artifacts"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_ListPushedArtifacts_1(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_ListPushedArtifacts_1(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -9990,23 +9990,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_ListPushedArtifacts_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListPushedArtifacts_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetPushedArtifact_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetPushedArtifact_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetPushedArtifact", runtime.WithHTTPPathPattern("/artifact/{ref.id}"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetPushedArtifact", runtime.WithHTTPPathPattern("/artifact/{ref.id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_GetPushedArtifact_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_GetPushedArtifact_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -10014,23 +10014,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_GetPushedArtifact_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetPushedArtifact_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetPushedArtifact_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetPushedArtifact_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetPushedArtifact", runtime.WithHTTPPathPattern("/project/{ref.sequence.application.project}/application/{ref.sequence.application.application}/artifact/{ref.sequence.number}"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetPushedArtifact", runtime.WithHTTPPathPattern("/project/{ref.sequence.application.project}/application/{ref.sequence.application.application}/artifact/{ref.sequence.number}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_GetPushedArtifact_1(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_GetPushedArtifact_1(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -10038,23 +10038,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_GetPushedArtifact_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetPushedArtifact_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetLatestPushedArtifact_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetLatestPushedArtifact_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetLatestPushedArtifact", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/artifact/latest"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetLatestPushedArtifact", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/artifact/latest"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_GetLatestPushedArtifact_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_GetLatestPushedArtifact_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -10062,23 +10062,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_GetLatestPushedArtifact_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetLatestPushedArtifact_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetLatestPushedArtifact_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetLatestPushedArtifact_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetLatestPushedArtifact", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/artifact/latest"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetLatestPushedArtifact", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/artifact/latest"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_GetLatestPushedArtifact_1(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_GetLatestPushedArtifact_1(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -10086,23 +10086,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_GetLatestPushedArtifact_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetLatestPushedArtifact_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListDeployments_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListDeployments_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListDeployments", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/deployments"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListDeployments", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/deployments"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_ListDeployments_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_ListDeployments_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -10110,23 +10110,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_ListDeployments_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListDeployments_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListDeployments_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListDeployments_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListDeployments", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/deployments"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListDeployments", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/deployments"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_ListDeployments_1(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_ListDeployments_1(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -10134,23 +10134,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_ListDeployments_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListDeployments_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetDeployment_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetDeployment_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetDeployment", runtime.WithHTTPPathPattern("/deployment/{ref.id}"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetDeployment", runtime.WithHTTPPathPattern("/deployment/{ref.id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_GetDeployment_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_GetDeployment_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -10158,23 +10158,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_GetDeployment_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetDeployment_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetDeployment_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetDeployment_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetDeployment", runtime.WithHTTPPathPattern("/project/{ref.sequence.application.project}/application/{ref.sequence.application.application}/deployment/{ref.sequence.number}"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetDeployment", runtime.WithHTTPPathPattern("/project/{ref.sequence.application.project}/application/{ref.sequence.application.application}/deployment/{ref.sequence.number}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_GetDeployment_1(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_GetDeployment_1(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -10182,23 +10182,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_GetDeployment_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetDeployment_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListInstances_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListInstances_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListInstances", runtime.WithHTTPPathPattern("/instances/{deployment_id}"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListInstances", runtime.WithHTTPPathPattern("/instances/{deployment_id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_ListInstances_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_ListInstances_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -10206,23 +10206,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_ListInstances_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListInstances_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListInstances_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListInstances_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListInstances", runtime.WithHTTPPathPattern("/project/{application.application.project}/application/{application.application.application}/instances"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListInstances", runtime.WithHTTPPathPattern("/project/{application.application.project}/application/{application.application.application}/instances"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_ListInstances_1(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_ListInstances_1(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -10230,23 +10230,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_ListInstances_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListInstances_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListInstances_2, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListInstances_2, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListInstances", runtime.WithHTTPPathPattern("/project/{application.application.project}/application/{application.application.application}/workspace/{application.workspace.workspace}/instances"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListInstances", runtime.WithHTTPPathPattern("/project/{application.application.project}/application/{application.application.application}/workspace/{application.workspace.workspace}/instances"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_ListInstances_2(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_ListInstances_2(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -10254,23 +10254,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_ListInstances_2(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListInstances_2(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListReleases_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListReleases_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListReleases", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/releases"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListReleases", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/releases"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_ListReleases_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_ListReleases_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -10278,23 +10278,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_ListReleases_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListReleases_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListReleases_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListReleases_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListReleases", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/releases"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListReleases", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/releases"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_ListReleases_1(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_ListReleases_1(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -10302,23 +10302,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_ListReleases_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListReleases_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetRelease_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetRelease_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetRelease", runtime.WithHTTPPathPattern("/release/{ref.id}"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetRelease", runtime.WithHTTPPathPattern("/release/{ref.id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_GetRelease_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_GetRelease_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -10326,23 +10326,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_GetRelease_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetRelease_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetRelease_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetRelease_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetRelease", runtime.WithHTTPPathPattern("/project/{ref.sequence.application.project}/application/{ref.sequence.application.application}/release/{ref.sequence.number}"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetRelease", runtime.WithHTTPPathPattern("/project/{ref.sequence.application.project}/application/{ref.sequence.application.application}/release/{ref.sequence.number}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_GetRelease_1(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_GetRelease_1(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -10350,23 +10350,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_GetRelease_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetRelease_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetLatestRelease_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetLatestRelease_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetLatestRelease", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/release/latest"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetLatestRelease", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/release/latest"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_GetLatestRelease_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_GetLatestRelease_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -10374,23 +10374,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_GetLatestRelease_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetLatestRelease_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetLatestRelease_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetLatestRelease_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetLatestRelease", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/release/latest"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetLatestRelease", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/release/latest"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_GetLatestRelease_1(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_GetLatestRelease_1(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -10398,23 +10398,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_GetLatestRelease_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetLatestRelease_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetStatusReport_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetStatusReport_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetStatusReport", runtime.WithHTTPPathPattern("/release/by-id/{ref.id}"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetStatusReport", runtime.WithHTTPPathPattern("/release/by-id/{ref.id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_GetStatusReport_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_GetStatusReport_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -10422,23 +10422,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_GetStatusReport_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetStatusReport_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetLatestStatusReport_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetLatestStatusReport_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetLatestStatusReport", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/status-report/latest"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetLatestStatusReport", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/status-report/latest"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_GetLatestStatusReport_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_GetLatestStatusReport_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -10446,23 +10446,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_GetLatestStatusReport_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetLatestStatusReport_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetLatestStatusReport_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetLatestStatusReport_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetLatestStatusReport", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/status-report/latest"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetLatestStatusReport", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/status-report/latest"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_GetLatestStatusReport_1(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_GetLatestStatusReport_1(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -10470,23 +10470,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_GetLatestStatusReport_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetLatestStatusReport_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListStatusReports_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListStatusReports_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListStatusReports", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/status-reports"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListStatusReports", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/status-reports"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_ListStatusReports_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_ListStatusReports_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -10494,23 +10494,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_ListStatusReports_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListStatusReports_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListStatusReports_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListStatusReports_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListStatusReports", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/status-reports"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListStatusReports", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/status-reports"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_ListStatusReports_1(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_ListStatusReports_1(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -10518,23 +10518,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_ListStatusReports_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListStatusReports_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("PUT", pattern_Waypoint_ExpediteStatusReport_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("PUT", pattern_Derrick_ExpediteStatusReport_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ExpediteStatusReport", runtime.WithHTTPPathPattern("/deployment/{deployment.id}/status-report"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/ExpediteStatusReport", runtime.WithHTTPPathPattern("/deployment/{deployment.id}/status-report"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_ExpediteStatusReport_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_ExpediteStatusReport_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -10542,23 +10542,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_ExpediteStatusReport_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ExpediteStatusReport_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("PUT", pattern_Waypoint_ExpediteStatusReport_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("PUT", pattern_Derrick_ExpediteStatusReport_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ExpediteStatusReport", runtime.WithHTTPPathPattern("/release/{release.id}/status-report"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/ExpediteStatusReport", runtime.WithHTTPPathPattern("/release/{release.id}/status-report"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_ExpediteStatusReport_1(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_ExpediteStatusReport_1(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -10566,23 +10566,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_ExpediteStatusReport_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ExpediteStatusReport_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("PUT", pattern_Waypoint_ExpediteStatusReport_2, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("PUT", pattern_Derrick_ExpediteStatusReport_2, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ExpediteStatusReport", runtime.WithHTTPPathPattern("/project/{deployment.sequence.application.project}/application/{deployment.sequence.application.application}/deployment/{deployment.sequence.number}/status-report"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/ExpediteStatusReport", runtime.WithHTTPPathPattern("/project/{deployment.sequence.application.project}/application/{deployment.sequence.application.application}/deployment/{deployment.sequence.number}/status-report"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_ExpediteStatusReport_2(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_ExpediteStatusReport_2(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -10590,23 +10590,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_ExpediteStatusReport_2(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ExpediteStatusReport_2(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("PUT", pattern_Waypoint_ExpediteStatusReport_3, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("PUT", pattern_Derrick_ExpediteStatusReport_3, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ExpediteStatusReport", runtime.WithHTTPPathPattern("/project/{release.sequence.application.project}/application/{release.sequence.application.application}/release/{release.sequence.number}/status-report"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/ExpediteStatusReport", runtime.WithHTTPPathPattern("/project/{release.sequence.application.project}/application/{release.sequence.application.application}/release/{release.sequence.number}/status-report"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_ExpediteStatusReport_3(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_ExpediteStatusReport_3(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -10614,51 +10614,51 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_ExpediteStatusReport_3(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ExpediteStatusReport_3(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_GetLogStream_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_GetLogStream_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		err := status.Error(codes.Unimplemented, "streaming calls are not yet supported in the in-process transport")
 		_, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 		return
 	})
 
-	mux.Handle("POST", pattern_Waypoint_GetLogStream_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_GetLogStream_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		err := status.Error(codes.Unimplemented, "streaming calls are not yet supported in the in-process transport")
 		_, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 		return
 	})
 
-	mux.Handle("POST", pattern_Waypoint_GetLogStream_2, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_GetLogStream_2, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		err := status.Error(codes.Unimplemented, "streaming calls are not yet supported in the in-process transport")
 		_, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 		return
 	})
 
-	mux.Handle("POST", pattern_Waypoint_StartExecStream_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_StartExecStream_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		err := status.Error(codes.Unimplemented, "streaming calls are not yet supported in the in-process transport")
 		_, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 		return
 	})
 
-	mux.Handle("PUT", pattern_Waypoint_SetConfig_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("PUT", pattern_Derrick_SetConfig_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/SetConfig", runtime.WithHTTPPathPattern("/project/config"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/SetConfig", runtime.WithHTTPPathPattern("/project/config"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_SetConfig_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_SetConfig_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -10666,23 +10666,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_SetConfig_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_SetConfig_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("PUT", pattern_Waypoint_DeleteConfig_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("PUT", pattern_Derrick_DeleteConfig_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/DeleteConfig", runtime.WithHTTPPathPattern("/project/config/delete"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/DeleteConfig", runtime.WithHTTPPathPattern("/project/config/delete"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_DeleteConfig_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_DeleteConfig_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -10690,23 +10690,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_DeleteConfig_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_DeleteConfig_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetConfig_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetConfig_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetConfig", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/config"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetConfig", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/config"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_GetConfig_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_GetConfig_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -10714,23 +10714,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_GetConfig_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetConfig_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetConfig_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetConfig_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetConfig", runtime.WithHTTPPathPattern("/project/{project.project}/config"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetConfig", runtime.WithHTTPPathPattern("/project/{project.project}/config"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_GetConfig_1(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_GetConfig_1(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -10738,23 +10738,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_GetConfig_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetConfig_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetConfig_2, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetConfig_2, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetConfig", runtime.WithHTTPPathPattern("/project/{application.project}/{application.application}/config"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetConfig", runtime.WithHTTPPathPattern("/project/{application.project}/{application.application}/config"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_GetConfig_2(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_GetConfig_2(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -10762,23 +10762,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_GetConfig_2(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetConfig_2(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("PUT", pattern_Waypoint_SetConfigSource_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("PUT", pattern_Derrick_SetConfigSource_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/SetConfigSource", runtime.WithHTTPPathPattern("/config-source"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/SetConfigSource", runtime.WithHTTPPathPattern("/config-source"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_SetConfigSource_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_SetConfigSource_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -10786,23 +10786,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_SetConfigSource_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_SetConfigSource_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("PUT", pattern_Waypoint_DeleteConfigSource_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("PUT", pattern_Derrick_DeleteConfigSource_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/DeleteConfigSource", runtime.WithHTTPPathPattern("/config-source/delete"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/DeleteConfigSource", runtime.WithHTTPPathPattern("/config-source/delete"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_DeleteConfigSource_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_DeleteConfigSource_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -10810,23 +10810,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_DeleteConfigSource_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_DeleteConfigSource_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetConfigSource_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetConfigSource_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetConfigSource", runtime.WithHTTPPathPattern("/config-source"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetConfigSource", runtime.WithHTTPPathPattern("/config-source"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_GetConfigSource_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_GetConfigSource_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -10834,23 +10834,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_GetConfigSource_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetConfigSource_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_CreateHostname_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_CreateHostname_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/CreateHostname", runtime.WithHTTPPathPattern("/project/{target.application.application.project}/application/{target.application.application.application}/hostname"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/CreateHostname", runtime.WithHTTPPathPattern("/project/{target.application.application.project}/application/{target.application.application.application}/hostname"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_CreateHostname_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_CreateHostname_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -10858,23 +10858,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_CreateHostname_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_CreateHostname_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_CreateHostname_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_CreateHostname_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/CreateHostname", runtime.WithHTTPPathPattern("/project/{target.application.application.project}/application/{target.application.application.application}/workspace/{target.application.workspace.workspace}/hostname"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/CreateHostname", runtime.WithHTTPPathPattern("/project/{target.application.application.project}/application/{target.application.application.application}/workspace/{target.application.workspace.workspace}/hostname"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_CreateHostname_1(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_CreateHostname_1(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -10882,23 +10882,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_CreateHostname_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_CreateHostname_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("DELETE", pattern_Waypoint_DeleteHostname_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("DELETE", pattern_Derrick_DeleteHostname_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/DeleteHostname", runtime.WithHTTPPathPattern("/hostname/{hostname}"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/DeleteHostname", runtime.WithHTTPPathPattern("/hostname/{hostname}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_DeleteHostname_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_DeleteHostname_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -10906,23 +10906,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_DeleteHostname_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_DeleteHostname_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListHostnames_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListHostnames_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListHostnames", runtime.WithHTTPPathPattern("/project/{target.application.application.project}/application/{target.application.application.application}/hostnames"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListHostnames", runtime.WithHTTPPathPattern("/project/{target.application.application.project}/application/{target.application.application.application}/hostnames"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_ListHostnames_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_ListHostnames_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -10930,23 +10930,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_ListHostnames_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListHostnames_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListHostnames_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListHostnames_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListHostnames", runtime.WithHTTPPathPattern("/project/{target.application.application.project}/application/{target.application.application.application}/workspace/{target.application.workspace.workspace}/hostnames"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListHostnames", runtime.WithHTTPPathPattern("/project/{target.application.application.project}/application/{target.application.application.application}/workspace/{target.application.workspace.workspace}/hostnames"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_ListHostnames_1(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_ListHostnames_1(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -10954,23 +10954,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_ListHostnames_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListHostnames_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_QueueJob_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_QueueJob_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/QueueJob", runtime.WithHTTPPathPattern("/jobs/queue"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/QueueJob", runtime.WithHTTPPathPattern("/jobs/queue"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_QueueJob_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_QueueJob_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -10978,23 +10978,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_QueueJob_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_QueueJob_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("PUT", pattern_Waypoint_CancelJob_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("PUT", pattern_Derrick_CancelJob_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/CancelJob", runtime.WithHTTPPathPattern("/jobs/cancel/{job_id}"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/CancelJob", runtime.WithHTTPPathPattern("/jobs/cancel/{job_id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_CancelJob_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_CancelJob_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -11002,23 +11002,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_CancelJob_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_CancelJob_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetJob_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetJob_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetJob", runtime.WithHTTPPathPattern("/jobs/{job_id}"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetJob", runtime.WithHTTPPathPattern("/jobs/{job_id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_GetJob_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_GetJob_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -11026,23 +11026,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_GetJob_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetJob_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListJobs_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListJobs_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListJobs", runtime.WithHTTPPathPattern("/jobs/workspace/{workspace.workspace}"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListJobs", runtime.WithHTTPPathPattern("/jobs/workspace/{workspace.workspace}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_ListJobs_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_ListJobs_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -11050,23 +11050,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_ListJobs_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListJobs_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListJobs_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListJobs_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListJobs", runtime.WithHTTPPathPattern("/jobs/workspace/{workspace.workspace}/state/{jobState}"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListJobs", runtime.WithHTTPPathPattern("/jobs/workspace/{workspace.workspace}/state/{jobState}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_ListJobs_1(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_ListJobs_1(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -11074,23 +11074,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_ListJobs_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListJobs_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListJobs_2, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListJobs_2, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListJobs", runtime.WithHTTPPathPattern("/jobs/project/{project.project}"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListJobs", runtime.WithHTTPPathPattern("/jobs/project/{project.project}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_ListJobs_2(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_ListJobs_2(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -11098,23 +11098,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_ListJobs_2(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListJobs_2(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListJobs_3, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListJobs_3, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListJobs", runtime.WithHTTPPathPattern("/jobs/state/{jobState}"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListJobs", runtime.WithHTTPPathPattern("/jobs/state/{jobState}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_ListJobs_3(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_ListJobs_3(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -11122,23 +11122,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_ListJobs_3(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListJobs_3(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListJobs_4, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListJobs_4, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListJobs", runtime.WithHTTPPathPattern("/jobs/runner/by-id/{targetRunner.id.id}"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListJobs", runtime.WithHTTPPathPattern("/jobs/runner/by-id/{targetRunner.id.id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_ListJobs_4(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_ListJobs_4(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -11146,23 +11146,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_ListJobs_4(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListJobs_4(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_ValidateJob_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_ValidateJob_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ValidateJob", runtime.WithHTTPPathPattern("/jobs/validateJob"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/ValidateJob", runtime.WithHTTPPathPattern("/jobs/validateJob"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_ValidateJob_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_ValidateJob_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -11170,30 +11170,30 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_ValidateJob_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ValidateJob_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetJobStream_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetJobStream_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		err := status.Error(codes.Unimplemented, "streaming calls are not yet supported in the in-process transport")
 		_, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 		return
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetRunner_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetRunner_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetRunner", runtime.WithHTTPPathPattern("/runner/{runner_id}"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetRunner", runtime.WithHTTPPathPattern("/runner/{runner_id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_GetRunner_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_GetRunner_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -11201,23 +11201,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_GetRunner_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetRunner_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListRunners_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListRunners_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListRunners", runtime.WithHTTPPathPattern("/runners"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListRunners", runtime.WithHTTPPathPattern("/runners"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_ListRunners_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_ListRunners_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -11225,23 +11225,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_ListRunners_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListRunners_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_AdoptRunner_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_AdoptRunner_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/AdoptRunner", runtime.WithHTTPPathPattern("/runner/{runner_id}/adopt"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/AdoptRunner", runtime.WithHTTPPathPattern("/runner/{runner_id}/adopt"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_AdoptRunner_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_AdoptRunner_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -11249,23 +11249,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_AdoptRunner_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_AdoptRunner_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_ForgetRunner_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_ForgetRunner_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ForgetRunner", runtime.WithHTTPPathPattern("/runner/{runner_id}/forget"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/ForgetRunner", runtime.WithHTTPPathPattern("/runner/{runner_id}/forget"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_ForgetRunner_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_ForgetRunner_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -11273,23 +11273,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_ForgetRunner_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ForgetRunner_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetServerConfig_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetServerConfig_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetServerConfig", runtime.WithHTTPPathPattern("/server/config"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetServerConfig", runtime.WithHTTPPathPattern("/server/config"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_GetServerConfig_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_GetServerConfig_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -11297,23 +11297,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_GetServerConfig_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetServerConfig_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_SetServerConfig_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_SetServerConfig_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/SetServerConfig", runtime.WithHTTPPathPattern("/server/config"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/SetServerConfig", runtime.WithHTTPPathPattern("/server/config"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_SetServerConfig_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_SetServerConfig_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -11321,23 +11321,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_SetServerConfig_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_SetServerConfig_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_DecodeToken_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_DecodeToken_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/DecodeToken", runtime.WithHTTPPathPattern("/token/decode"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/DecodeToken", runtime.WithHTTPPathPattern("/token/decode"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_DecodeToken_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_DecodeToken_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -11345,23 +11345,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_DecodeToken_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_DecodeToken_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_GenerateInviteToken_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_GenerateInviteToken_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GenerateInviteToken", runtime.WithHTTPPathPattern("/token/invite"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/GenerateInviteToken", runtime.WithHTTPPathPattern("/token/invite"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_GenerateInviteToken_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_GenerateInviteToken_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -11369,23 +11369,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_GenerateInviteToken_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GenerateInviteToken_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_GenerateLoginToken_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_GenerateLoginToken_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GenerateLoginToken", runtime.WithHTTPPathPattern("/token/login"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/GenerateLoginToken", runtime.WithHTTPPathPattern("/token/login"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_GenerateLoginToken_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_GenerateLoginToken_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -11393,23 +11393,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_GenerateLoginToken_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GenerateLoginToken_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_GenerateRunnerToken_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_GenerateRunnerToken_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GenerateRunnerToken", runtime.WithHTTPPathPattern("/token/runner"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/GenerateRunnerToken", runtime.WithHTTPPathPattern("/token/runner"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_GenerateRunnerToken_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_GenerateRunnerToken_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -11417,23 +11417,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_GenerateRunnerToken_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GenerateRunnerToken_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_ConvertInviteToken_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_ConvertInviteToken_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ConvertInviteToken", runtime.WithHTTPPathPattern("/token/exchange"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/ConvertInviteToken", runtime.WithHTTPPathPattern("/token/exchange"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_ConvertInviteToken_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_ConvertInviteToken_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -11441,23 +11441,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_ConvertInviteToken_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ConvertInviteToken_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_DerrickHclFmt_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_DerrickHclFmt_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/DerrickHclFmt", runtime.WithHTTPPathPattern("/hcl/format"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/DerrickHclFmt", runtime.WithHTTPPathPattern("/hcl/format"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_DerrickHclFmt_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_DerrickHclFmt_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -11465,23 +11465,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_DerrickHclFmt_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_DerrickHclFmt_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_UpsertOnDemandRunnerConfig_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_UpsertOnDemandRunnerConfig_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/UpsertOnDemandRunnerConfig", runtime.WithHTTPPathPattern("/runner/on-demand"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/UpsertOnDemandRunnerConfig", runtime.WithHTTPPathPattern("/runner/on-demand"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_UpsertOnDemandRunnerConfig_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_UpsertOnDemandRunnerConfig_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -11489,23 +11489,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_UpsertOnDemandRunnerConfig_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_UpsertOnDemandRunnerConfig_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetOnDemandRunnerConfig_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetOnDemandRunnerConfig_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetOnDemandRunnerConfig", runtime.WithHTTPPathPattern("/on-demand-runner/by-id/{config.id}"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetOnDemandRunnerConfig", runtime.WithHTTPPathPattern("/on-demand-runner/by-id/{config.id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_GetOnDemandRunnerConfig_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_GetOnDemandRunnerConfig_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -11513,23 +11513,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_GetOnDemandRunnerConfig_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetOnDemandRunnerConfig_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetOnDemandRunnerConfig_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetOnDemandRunnerConfig_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetOnDemandRunnerConfig", runtime.WithHTTPPathPattern("/on-demand-runner/by-name/{config.name}"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetOnDemandRunnerConfig", runtime.WithHTTPPathPattern("/on-demand-runner/by-name/{config.name}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_GetOnDemandRunnerConfig_1(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_GetOnDemandRunnerConfig_1(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -11537,23 +11537,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_GetOnDemandRunnerConfig_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetOnDemandRunnerConfig_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListOnDemandRunnerConfigs_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListOnDemandRunnerConfigs_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListOnDemandRunnerConfigs", runtime.WithHTTPPathPattern("/on-demand-runners"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListOnDemandRunnerConfigs", runtime.WithHTTPPathPattern("/on-demand-runners"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_ListOnDemandRunnerConfigs_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_ListOnDemandRunnerConfigs_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -11561,23 +11561,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_ListOnDemandRunnerConfigs_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListOnDemandRunnerConfigs_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetTask_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetTask_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetTask", runtime.WithHTTPPathPattern("/task/{ref.id}"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetTask", runtime.WithHTTPPathPattern("/task/{ref.id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_GetTask_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_GetTask_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -11585,23 +11585,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_GetTask_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetTask_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetTask_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetTask_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetTask", runtime.WithHTTPPathPattern("/task/by-job/{ref.job_id}"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetTask", runtime.WithHTTPPathPattern("/task/by-job/{ref.job_id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_GetTask_1(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_GetTask_1(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -11609,23 +11609,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_GetTask_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetTask_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListTask_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListTask_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListTask", runtime.WithHTTPPathPattern("/tasks"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListTask", runtime.WithHTTPPathPattern("/tasks"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_ListTask_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_ListTask_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -11633,23 +11633,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_ListTask_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListTask_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("PUT", pattern_Waypoint_CancelTask_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("PUT", pattern_Derrick_CancelTask_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/CancelTask", runtime.WithHTTPPathPattern("/task/{ref.id}/cancel"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/CancelTask", runtime.WithHTTPPathPattern("/task/{ref.id}/cancel"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_CancelTask_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_CancelTask_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -11657,23 +11657,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_CancelTask_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_CancelTask_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("PUT", pattern_Waypoint_CancelTask_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("PUT", pattern_Derrick_CancelTask_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/CancelTask", runtime.WithHTTPPathPattern("/task/by-job/{ref.job_id}/cancel"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/CancelTask", runtime.WithHTTPPathPattern("/task/by-job/{ref.job_id}/cancel"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_CancelTask_1(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_CancelTask_1(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -11681,23 +11681,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_CancelTask_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_CancelTask_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_UpsertTrigger_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_UpsertTrigger_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/UpsertTrigger", runtime.WithHTTPPathPattern("/triggers"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/UpsertTrigger", runtime.WithHTTPPathPattern("/triggers"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_UpsertTrigger_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_UpsertTrigger_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -11705,23 +11705,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_UpsertTrigger_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_UpsertTrigger_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetTrigger_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetTrigger_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetTrigger", runtime.WithHTTPPathPattern("/trigger/{ref.id}"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetTrigger", runtime.WithHTTPPathPattern("/trigger/{ref.id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_GetTrigger_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_GetTrigger_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -11729,23 +11729,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_GetTrigger_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetTrigger_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("DELETE", pattern_Waypoint_GetTrigger_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("DELETE", pattern_Derrick_GetTrigger_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetTrigger", runtime.WithHTTPPathPattern("/trigger/{ref.id}"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetTrigger", runtime.WithHTTPPathPattern("/trigger/{ref.id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_GetTrigger_1(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_GetTrigger_1(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -11753,23 +11753,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_GetTrigger_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetTrigger_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListTriggers_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListTriggers_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListTriggers", runtime.WithHTTPPathPattern("/triggers"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListTriggers", runtime.WithHTTPPathPattern("/triggers"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_ListTriggers_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_ListTriggers_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -11777,23 +11777,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_ListTriggers_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListTriggers_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListTriggers_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListTriggers_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListTriggers", runtime.WithHTTPPathPattern("/project/{project.project}/triggers"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListTriggers", runtime.WithHTTPPathPattern("/project/{project.project}/triggers"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_ListTriggers_1(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_ListTriggers_1(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -11801,23 +11801,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_ListTriggers_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListTriggers_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListTriggers_2, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListTriggers_2, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListTriggers", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/triggers"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListTriggers", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/triggers"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_ListTriggers_2(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_ListTriggers_2(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -11825,23 +11825,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_ListTriggers_2(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListTriggers_2(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListTriggers_3, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListTriggers_3, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListTriggers", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/triggers"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListTriggers", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/triggers"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_ListTriggers_3(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_ListTriggers_3(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -11849,23 +11849,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_ListTriggers_3(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListTriggers_3(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("PUT", pattern_Waypoint_RunTrigger_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("PUT", pattern_Derrick_RunTrigger_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/RunTrigger", runtime.WithHTTPPathPattern("/trigger/{ref.id}"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/RunTrigger", runtime.WithHTTPPathPattern("/trigger/{ref.id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_RunTrigger_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_RunTrigger_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -11873,23 +11873,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_RunTrigger_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_RunTrigger_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_RunPipeline_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_RunPipeline_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/RunPipeline", runtime.WithHTTPPathPattern("/project/{pipeline.owner.project.project}/pipeline/{pipeline.owner.pipeline_name}/run"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/RunPipeline", runtime.WithHTTPPathPattern("/project/{pipeline.owner.project.project}/pipeline/{pipeline.owner.pipeline_name}/run"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_RunPipeline_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_RunPipeline_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -11897,23 +11897,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_RunPipeline_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_RunPipeline_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_RunPipeline_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_RunPipeline_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/RunPipeline", runtime.WithHTTPPathPattern("/pipeline/{pipeline.id}/run"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/RunPipeline", runtime.WithHTTPPathPattern("/pipeline/{pipeline.id}/run"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_RunPipeline_1(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_RunPipeline_1(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -11921,23 +11921,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_RunPipeline_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_RunPipeline_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetPipeline_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetPipeline_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetPipeline", runtime.WithHTTPPathPattern("/project/{pipeline.owner.project.project}/pipeline/{pipeline.owner.pipeline_name}"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetPipeline", runtime.WithHTTPPathPattern("/project/{pipeline.owner.project.project}/pipeline/{pipeline.owner.pipeline_name}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_GetPipeline_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_GetPipeline_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -11945,23 +11945,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_GetPipeline_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetPipeline_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetPipeline_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetPipeline_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetPipeline", runtime.WithHTTPPathPattern("/pipeline/{pipeline.id}"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetPipeline", runtime.WithHTTPPathPattern("/pipeline/{pipeline.id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_GetPipeline_1(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_GetPipeline_1(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -11969,23 +11969,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_GetPipeline_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetPipeline_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetPipelineRun_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetPipelineRun_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetPipelineRun", runtime.WithHTTPPathPattern("/project/{pipeline.owner.project.project}/pipeline/{pipeline.owner.pipeline_name}/run/{sequence}"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetPipelineRun", runtime.WithHTTPPathPattern("/project/{pipeline.owner.project.project}/pipeline/{pipeline.owner.pipeline_name}/run/{sequence}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_GetPipelineRun_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_GetPipelineRun_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -11993,23 +11993,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_GetPipelineRun_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetPipelineRun_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetPipelineRun_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetPipelineRun_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetPipelineRun", runtime.WithHTTPPathPattern("/pipeline/{pipeline.id}/run/{sequence}"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetPipelineRun", runtime.WithHTTPPathPattern("/pipeline/{pipeline.id}/run/{sequence}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_GetPipelineRun_1(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_GetPipelineRun_1(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -12017,23 +12017,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_GetPipelineRun_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetPipelineRun_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetLatestPipelineRun_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetLatestPipelineRun_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetLatestPipelineRun", runtime.WithHTTPPathPattern("/project/{pipeline.owner.project.project}/pipeline/{pipeline.owner.pipeline_name}/latest-run"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetLatestPipelineRun", runtime.WithHTTPPathPattern("/project/{pipeline.owner.project.project}/pipeline/{pipeline.owner.pipeline_name}/latest-run"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_GetLatestPipelineRun_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_GetLatestPipelineRun_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -12041,23 +12041,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_GetLatestPipelineRun_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetLatestPipelineRun_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetLatestPipelineRun_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetLatestPipelineRun_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetLatestPipelineRun", runtime.WithHTTPPathPattern("/pipeline/{pipeline.id}/latest-run"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetLatestPipelineRun", runtime.WithHTTPPathPattern("/pipeline/{pipeline.id}/latest-run"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_GetLatestPipelineRun_1(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_GetLatestPipelineRun_1(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -12065,23 +12065,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_GetLatestPipelineRun_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetLatestPipelineRun_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListPipelines_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListPipelines_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListPipelines", runtime.WithHTTPPathPattern("/project/{project.project}/pipelines"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListPipelines", runtime.WithHTTPPathPattern("/project/{project.project}/pipelines"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_ListPipelines_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_ListPipelines_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -12089,23 +12089,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_ListPipelines_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListPipelines_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListPipelineRuns_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListPipelineRuns_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListPipelineRuns", runtime.WithHTTPPathPattern("/project/{pipeline.owner.project.project}/pipeline/{pipeline.owner.pipeline_name}/runs"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListPipelineRuns", runtime.WithHTTPPathPattern("/project/{pipeline.owner.project.project}/pipeline/{pipeline.owner.pipeline_name}/runs"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_ListPipelineRuns_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_ListPipelineRuns_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -12113,23 +12113,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_ListPipelineRuns_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListPipelineRuns_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListPipelineRuns_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListPipelineRuns_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListPipelineRuns", runtime.WithHTTPPathPattern("/pipeline/{pipeline.id}/runs"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListPipelineRuns", runtime.WithHTTPPathPattern("/pipeline/{pipeline.id}/runs"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_ListPipelineRuns_1(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_ListPipelineRuns_1(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -12137,23 +12137,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_ListPipelineRuns_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListPipelineRuns_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_ConfigSyncPipeline_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_ConfigSyncPipeline_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ConfigSyncPipeline", runtime.WithHTTPPathPattern("/project/{project.project}/config-sync-pipeline"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/ConfigSyncPipeline", runtime.WithHTTPPathPattern("/project/{project.project}/config-sync-pipeline"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_ConfigSyncPipeline_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_ConfigSyncPipeline_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -12161,23 +12161,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_ConfigSyncPipeline_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ConfigSyncPipeline_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_UI_ListProjects_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_UI_ListProjects_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/UI_ListProjects", runtime.WithHTTPPathPattern("/v1/ui/projects"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/UI_ListProjects", runtime.WithHTTPPathPattern("/v1/ui/projects"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_UI_ListProjects_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_UI_ListProjects_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -12185,23 +12185,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_UI_ListProjects_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_UI_ListProjects_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_UI_GetProject_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_UI_GetProject_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/UI_GetProject", runtime.WithHTTPPathPattern("/ui/project/{project.project}"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/UI_GetProject", runtime.WithHTTPPathPattern("/ui/project/{project.project}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_UI_GetProject_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_UI_GetProject_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -12209,23 +12209,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_UI_GetProject_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_UI_GetProject_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_UI_ListDeployments_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_UI_ListDeployments_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/UI_ListDeployments", runtime.WithHTTPPathPattern("/ui/project/{application.project}/application/{application.application}/deployments"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/UI_ListDeployments", runtime.WithHTTPPathPattern("/ui/project/{application.project}/application/{application.application}/deployments"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_UI_ListDeployments_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_UI_ListDeployments_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -12233,23 +12233,23 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_UI_ListDeployments_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_UI_ListDeployments_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_UI_ListReleases_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_UI_ListReleases_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Waypoint/UI_ListReleases", runtime.WithHTTPPathPattern("/ui/project/{application.project}/application/{application.application}/releases"))
+		ctx, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/nomatron.derrick.Derrick/UI_ListReleases", runtime.WithHTTPPathPattern("/ui/project/{application.project}/application/{application.application}/releases"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Waypoint_UI_ListReleases_0(ctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Derrick_UI_ListReleases_0(ctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -12257,16 +12257,16 @@ func RegisterWaypointHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Waypoint_UI_ListReleases_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_UI_ListReleases_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
 	return nil
 }
 
-// RegisterWaypointHandlerFromEndpoint is same as RegisterWaypointHandler but
+// RegisterDerrickHandlerFromEndpoint is same as RegisterDerrickHandler but
 // automatically dials to "endpoint" and closes the connection when "ctx" gets done.
-func RegisterWaypointHandlerFromEndpoint(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) (err error) {
+func RegisterDerrickHandlerFromEndpoint(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) (err error) {
 	conn, err := grpc.Dial(endpoint, opts...)
 	if err != nil {
 		return err
@@ -12286,2791 +12286,2791 @@ func RegisterWaypointHandlerFromEndpoint(ctx context.Context, mux *runtime.Serve
 		}()
 	}()
 
-	return RegisterWaypointHandler(ctx, mux, conn)
+	return RegisterDerrickHandler(ctx, mux, conn)
 }
 
-// RegisterWaypointHandler registers the http handlers for service Waypoint to "mux".
+// RegisterDerrickHandler registers the http handlers for service Derrick to "mux".
 // The handlers forward requests to the grpc endpoint over "conn".
-func RegisterWaypointHandler(ctx context.Context, mux *runtime.ServeMux, conn *grpc.ClientConn) error {
-	return RegisterWaypointHandlerClient(ctx, mux, NewDerrickClient(conn))
+func RegisterDerrickHandler(ctx context.Context, mux *runtime.ServeMux, conn *grpc.ClientConn) error {
+	return RegisterDerrickHandlerClient(ctx, mux, NewDerrickClient(conn))
 }
 
-// RegisterWaypointHandlerClient registers the http handlers for service Waypoint
+// RegisterDerrickHandlerClient registers the http handlers for service Derrick
 // to "mux". The handlers forward requests to the grpc endpoint over the given implementation of "DerrickClient".
 // Note: the gRPC framework executes interceptors within the gRPC handler. If the passed in "DerrickClient"
 // doesn't go through the normal gRPC flow (creating a gRPC client etc.) then it will be up to the passed in
 // "DerrickClient" to call the correct interceptors.
-func RegisterWaypointHandlerClient(ctx context.Context, mux *runtime.ServeMux, client DerrickClient) error {
+func RegisterDerrickHandlerClient(ctx context.Context, mux *runtime.ServeMux, client DerrickClient) error {
 
-	mux.Handle("GET", pattern_Waypoint_GetVersionInfo_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetVersionInfo_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetVersionInfo", runtime.WithHTTPPathPattern("/version"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetVersionInfo", runtime.WithHTTPPathPattern("/version"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GetVersionInfo_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GetVersionInfo_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GetVersionInfo_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetVersionInfo_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListOIDCAuthMethods_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListOIDCAuthMethods_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListOIDCAuthMethods", runtime.WithHTTPPathPattern("/oidc/methods"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListOIDCAuthMethods", runtime.WithHTTPPathPattern("/oidc/methods"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_ListOIDCAuthMethods_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_ListOIDCAuthMethods_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_ListOIDCAuthMethods_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListOIDCAuthMethods_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_GetOIDCAuthURL_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_GetOIDCAuthURL_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetOIDCAuthURL", runtime.WithHTTPPathPattern("/oidc/{auth_method.name}/url"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetOIDCAuthURL", runtime.WithHTTPPathPattern("/oidc/{auth_method.name}/url"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GetOIDCAuthURL_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GetOIDCAuthURL_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GetOIDCAuthURL_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetOIDCAuthURL_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_CompleteOIDCAuth_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_CompleteOIDCAuth_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/CompleteOIDCAuth", runtime.WithHTTPPathPattern("/oidc/{auth_method.name}/complete"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/CompleteOIDCAuth", runtime.WithHTTPPathPattern("/oidc/{auth_method.name}/complete"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_CompleteOIDCAuth_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_CompleteOIDCAuth_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_CompleteOIDCAuth_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_CompleteOIDCAuth_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_NoAuthRunTrigger_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_NoAuthRunTrigger_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/NoAuthRunTrigger", runtime.WithHTTPPathPattern("/triggers/no-auth/{ref.id}/run"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/NoAuthRunTrigger", runtime.WithHTTPPathPattern("/triggers/no-auth/{ref.id}/run"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_NoAuthRunTrigger_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_NoAuthRunTrigger_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_NoAuthRunTrigger_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_NoAuthRunTrigger_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetUser_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetUser_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetUser", runtime.WithHTTPPathPattern("/user/by-id/{user.id.id}"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetUser", runtime.WithHTTPPathPattern("/user/by-id/{user.id.id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GetUser_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GetUser_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GetUser_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetUser_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetUser_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetUser_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetUser", runtime.WithHTTPPathPattern("/user/by-username/{user.username.username}"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetUser", runtime.WithHTTPPathPattern("/user/by-username/{user.username.username}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GetUser_1(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GetUser_1(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GetUser_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetUser_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListUsers_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListUsers_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListUsers", runtime.WithHTTPPathPattern("/users"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListUsers", runtime.WithHTTPPathPattern("/users"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_ListUsers_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_ListUsers_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_ListUsers_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListUsers_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("PUT", pattern_Waypoint_UpdateUser_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("PUT", pattern_Derrick_UpdateUser_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/UpdateUser", runtime.WithHTTPPathPattern("/user/{user.id}"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/UpdateUser", runtime.WithHTTPPathPattern("/user/{user.id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_UpdateUser_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_UpdateUser_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_UpdateUser_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_UpdateUser_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("DELETE", pattern_Waypoint_DeleteUser_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("DELETE", pattern_Derrick_DeleteUser_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/DeleteUser", runtime.WithHTTPPathPattern("/user/by-id/{user.id.id}"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/DeleteUser", runtime.WithHTTPPathPattern("/user/by-id/{user.id.id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_DeleteUser_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_DeleteUser_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_DeleteUser_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_DeleteUser_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("DELETE", pattern_Waypoint_DeleteUser_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("DELETE", pattern_Derrick_DeleteUser_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/DeleteUser", runtime.WithHTTPPathPattern("/user/by-username/{user.username.username}"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/DeleteUser", runtime.WithHTTPPathPattern("/user/by-username/{user.username.username}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_DeleteUser_1(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_DeleteUser_1(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_DeleteUser_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_DeleteUser_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_UpsertAuthMethod_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_UpsertAuthMethod_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/UpsertAuthMethod", runtime.WithHTTPPathPattern("/auth-method"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/UpsertAuthMethod", runtime.WithHTTPPathPattern("/auth-method"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_UpsertAuthMethod_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_UpsertAuthMethod_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_UpsertAuthMethod_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_UpsertAuthMethod_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetAuthMethod_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetAuthMethod_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetAuthMethod", runtime.WithHTTPPathPattern("/auth-method/{auth_method.name}"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetAuthMethod", runtime.WithHTTPPathPattern("/auth-method/{auth_method.name}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GetAuthMethod_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GetAuthMethod_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GetAuthMethod_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetAuthMethod_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListAuthMethods_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListAuthMethods_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListAuthMethods", runtime.WithHTTPPathPattern("/auth-methods"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListAuthMethods", runtime.WithHTTPPathPattern("/auth-methods"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_ListAuthMethods_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_ListAuthMethods_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_ListAuthMethods_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListAuthMethods_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("DELETE", pattern_Waypoint_DeleteAuthMethod_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("DELETE", pattern_Derrick_DeleteAuthMethod_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/DeleteAuthMethod", runtime.WithHTTPPathPattern("/auth-method/{auth_method.name}"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/DeleteAuthMethod", runtime.WithHTTPPathPattern("/auth-method/{auth_method.name}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_DeleteAuthMethod_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_DeleteAuthMethod_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_DeleteAuthMethod_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_DeleteAuthMethod_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListWorkspaces_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListWorkspaces_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListWorkspaces", runtime.WithHTTPPathPattern("/workspaces"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListWorkspaces", runtime.WithHTTPPathPattern("/workspaces"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_ListWorkspaces_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_ListWorkspaces_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_ListWorkspaces_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListWorkspaces_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListWorkspaces_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListWorkspaces_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListWorkspaces", runtime.WithHTTPPathPattern("/project/{project.project}/workspaces"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListWorkspaces", runtime.WithHTTPPathPattern("/project/{project.project}/workspaces"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_ListWorkspaces_1(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_ListWorkspaces_1(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_ListWorkspaces_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListWorkspaces_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListWorkspaces_2, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListWorkspaces_2, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListWorkspaces", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/workspaces"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListWorkspaces", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/workspaces"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_ListWorkspaces_2(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_ListWorkspaces_2(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_ListWorkspaces_2(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListWorkspaces_2(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetWorkspace_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetWorkspace_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetWorkspace", runtime.WithHTTPPathPattern("/workspace/{workspace.workspace}"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetWorkspace", runtime.WithHTTPPathPattern("/workspace/{workspace.workspace}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GetWorkspace_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GetWorkspace_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GetWorkspace_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetWorkspace_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_UpsertWorkspace_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_UpsertWorkspace_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/UpsertWorkspace", runtime.WithHTTPPathPattern("/workspace"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/UpsertWorkspace", runtime.WithHTTPPathPattern("/workspace"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_UpsertWorkspace_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_UpsertWorkspace_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_UpsertWorkspace_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_UpsertWorkspace_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_UpsertProject_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_UpsertProject_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/UpsertProject", runtime.WithHTTPPathPattern("/project"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/UpsertProject", runtime.WithHTTPPathPattern("/project"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_UpsertProject_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_UpsertProject_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_UpsertProject_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_UpsertProject_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetProject_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetProject_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetProject", runtime.WithHTTPPathPattern("/project/{project.project}"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetProject", runtime.WithHTTPPathPattern("/project/{project.project}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GetProject_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GetProject_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GetProject_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetProject_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListProjects_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListProjects_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListProjects", runtime.WithHTTPPathPattern("/projects"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListProjects", runtime.WithHTTPPathPattern("/projects"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_ListProjects_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_ListProjects_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_ListProjects_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListProjects_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("DELETE", pattern_Waypoint_DestroyProject_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("DELETE", pattern_Derrick_DestroyProject_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/DestroyProject", runtime.WithHTTPPathPattern("/project/{project.project}"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/DestroyProject", runtime.WithHTTPPathPattern("/project/{project.project}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_DestroyProject_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_DestroyProject_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_DestroyProject_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_DestroyProject_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetApplication_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetApplication_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetApplication", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetApplication", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GetApplication_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GetApplication_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GetApplication_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetApplication_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_UpsertApplication_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_UpsertApplication_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/UpsertApplication", runtime.WithHTTPPathPattern("/project/{project.project}/application"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/UpsertApplication", runtime.WithHTTPPathPattern("/project/{project.project}/application"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_UpsertApplication_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_UpsertApplication_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_UpsertApplication_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_UpsertApplication_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListBuilds_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListBuilds_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListBuilds", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/builds"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListBuilds", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/builds"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_ListBuilds_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_ListBuilds_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_ListBuilds_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListBuilds_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListBuilds_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListBuilds_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListBuilds", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/builds"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListBuilds", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/builds"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_ListBuilds_1(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_ListBuilds_1(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_ListBuilds_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListBuilds_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetBuild_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetBuild_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetBuild", runtime.WithHTTPPathPattern("/build/{ref.id}"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetBuild", runtime.WithHTTPPathPattern("/build/{ref.id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GetBuild_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GetBuild_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GetBuild_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetBuild_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetBuild_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetBuild_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetBuild", runtime.WithHTTPPathPattern("/project/{ref.sequence.application.project}/application/{ref.sequence.application.application}/build/{ref.sequence.number}"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetBuild", runtime.WithHTTPPathPattern("/project/{ref.sequence.application.project}/application/{ref.sequence.application.application}/build/{ref.sequence.number}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GetBuild_1(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GetBuild_1(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GetBuild_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetBuild_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetLatestBuild_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetLatestBuild_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetLatestBuild", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/build/latest"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetLatestBuild", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/build/latest"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GetLatestBuild_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GetLatestBuild_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GetLatestBuild_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetLatestBuild_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetLatestBuild_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetLatestBuild_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetLatestBuild", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/build/latest"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetLatestBuild", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/build/latest"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GetLatestBuild_1(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GetLatestBuild_1(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GetLatestBuild_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetLatestBuild_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListPushedArtifacts_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListPushedArtifacts_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListPushedArtifacts", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/artifacts"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListPushedArtifacts", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/artifacts"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_ListPushedArtifacts_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_ListPushedArtifacts_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_ListPushedArtifacts_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListPushedArtifacts_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListPushedArtifacts_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListPushedArtifacts_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListPushedArtifacts", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/artifacts"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListPushedArtifacts", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/artifacts"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_ListPushedArtifacts_1(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_ListPushedArtifacts_1(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_ListPushedArtifacts_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListPushedArtifacts_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetPushedArtifact_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetPushedArtifact_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetPushedArtifact", runtime.WithHTTPPathPattern("/artifact/{ref.id}"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetPushedArtifact", runtime.WithHTTPPathPattern("/artifact/{ref.id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GetPushedArtifact_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GetPushedArtifact_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GetPushedArtifact_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetPushedArtifact_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetPushedArtifact_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetPushedArtifact_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetPushedArtifact", runtime.WithHTTPPathPattern("/project/{ref.sequence.application.project}/application/{ref.sequence.application.application}/artifact/{ref.sequence.number}"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetPushedArtifact", runtime.WithHTTPPathPattern("/project/{ref.sequence.application.project}/application/{ref.sequence.application.application}/artifact/{ref.sequence.number}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GetPushedArtifact_1(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GetPushedArtifact_1(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GetPushedArtifact_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetPushedArtifact_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetLatestPushedArtifact_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetLatestPushedArtifact_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetLatestPushedArtifact", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/artifact/latest"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetLatestPushedArtifact", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/artifact/latest"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GetLatestPushedArtifact_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GetLatestPushedArtifact_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GetLatestPushedArtifact_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetLatestPushedArtifact_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetLatestPushedArtifact_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetLatestPushedArtifact_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetLatestPushedArtifact", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/artifact/latest"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetLatestPushedArtifact", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/artifact/latest"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GetLatestPushedArtifact_1(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GetLatestPushedArtifact_1(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GetLatestPushedArtifact_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetLatestPushedArtifact_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListDeployments_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListDeployments_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListDeployments", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/deployments"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListDeployments", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/deployments"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_ListDeployments_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_ListDeployments_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_ListDeployments_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListDeployments_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListDeployments_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListDeployments_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListDeployments", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/deployments"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListDeployments", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/deployments"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_ListDeployments_1(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_ListDeployments_1(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_ListDeployments_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListDeployments_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetDeployment_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetDeployment_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetDeployment", runtime.WithHTTPPathPattern("/deployment/{ref.id}"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetDeployment", runtime.WithHTTPPathPattern("/deployment/{ref.id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GetDeployment_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GetDeployment_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GetDeployment_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetDeployment_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetDeployment_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetDeployment_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetDeployment", runtime.WithHTTPPathPattern("/project/{ref.sequence.application.project}/application/{ref.sequence.application.application}/deployment/{ref.sequence.number}"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetDeployment", runtime.WithHTTPPathPattern("/project/{ref.sequence.application.project}/application/{ref.sequence.application.application}/deployment/{ref.sequence.number}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GetDeployment_1(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GetDeployment_1(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GetDeployment_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetDeployment_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListInstances_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListInstances_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListInstances", runtime.WithHTTPPathPattern("/instances/{deployment_id}"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListInstances", runtime.WithHTTPPathPattern("/instances/{deployment_id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_ListInstances_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_ListInstances_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_ListInstances_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListInstances_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListInstances_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListInstances_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListInstances", runtime.WithHTTPPathPattern("/project/{application.application.project}/application/{application.application.application}/instances"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListInstances", runtime.WithHTTPPathPattern("/project/{application.application.project}/application/{application.application.application}/instances"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_ListInstances_1(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_ListInstances_1(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_ListInstances_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListInstances_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListInstances_2, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListInstances_2, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListInstances", runtime.WithHTTPPathPattern("/project/{application.application.project}/application/{application.application.application}/workspace/{application.workspace.workspace}/instances"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListInstances", runtime.WithHTTPPathPattern("/project/{application.application.project}/application/{application.application.application}/workspace/{application.workspace.workspace}/instances"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_ListInstances_2(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_ListInstances_2(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_ListInstances_2(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListInstances_2(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListReleases_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListReleases_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListReleases", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/releases"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListReleases", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/releases"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_ListReleases_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_ListReleases_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_ListReleases_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListReleases_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListReleases_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListReleases_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListReleases", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/releases"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListReleases", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/releases"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_ListReleases_1(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_ListReleases_1(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_ListReleases_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListReleases_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetRelease_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetRelease_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetRelease", runtime.WithHTTPPathPattern("/release/{ref.id}"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetRelease", runtime.WithHTTPPathPattern("/release/{ref.id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GetRelease_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GetRelease_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GetRelease_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetRelease_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetRelease_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetRelease_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetRelease", runtime.WithHTTPPathPattern("/project/{ref.sequence.application.project}/application/{ref.sequence.application.application}/release/{ref.sequence.number}"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetRelease", runtime.WithHTTPPathPattern("/project/{ref.sequence.application.project}/application/{ref.sequence.application.application}/release/{ref.sequence.number}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GetRelease_1(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GetRelease_1(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GetRelease_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetRelease_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetLatestRelease_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetLatestRelease_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetLatestRelease", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/release/latest"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetLatestRelease", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/release/latest"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GetLatestRelease_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GetLatestRelease_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GetLatestRelease_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetLatestRelease_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetLatestRelease_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetLatestRelease_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetLatestRelease", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/release/latest"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetLatestRelease", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/release/latest"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GetLatestRelease_1(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GetLatestRelease_1(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GetLatestRelease_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetLatestRelease_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetStatusReport_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetStatusReport_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetStatusReport", runtime.WithHTTPPathPattern("/release/by-id/{ref.id}"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetStatusReport", runtime.WithHTTPPathPattern("/release/by-id/{ref.id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GetStatusReport_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GetStatusReport_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GetStatusReport_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetStatusReport_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetLatestStatusReport_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetLatestStatusReport_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetLatestStatusReport", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/status-report/latest"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetLatestStatusReport", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/status-report/latest"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GetLatestStatusReport_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GetLatestStatusReport_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GetLatestStatusReport_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetLatestStatusReport_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetLatestStatusReport_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetLatestStatusReport_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetLatestStatusReport", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/status-report/latest"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetLatestStatusReport", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/status-report/latest"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GetLatestStatusReport_1(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GetLatestStatusReport_1(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GetLatestStatusReport_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetLatestStatusReport_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListStatusReports_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListStatusReports_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListStatusReports", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/status-reports"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListStatusReports", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/status-reports"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_ListStatusReports_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_ListStatusReports_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_ListStatusReports_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListStatusReports_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListStatusReports_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListStatusReports_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListStatusReports", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/status-reports"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListStatusReports", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/status-reports"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_ListStatusReports_1(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_ListStatusReports_1(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_ListStatusReports_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListStatusReports_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("PUT", pattern_Waypoint_ExpediteStatusReport_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("PUT", pattern_Derrick_ExpediteStatusReport_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ExpediteStatusReport", runtime.WithHTTPPathPattern("/deployment/{deployment.id}/status-report"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/ExpediteStatusReport", runtime.WithHTTPPathPattern("/deployment/{deployment.id}/status-report"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_ExpediteStatusReport_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_ExpediteStatusReport_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_ExpediteStatusReport_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ExpediteStatusReport_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("PUT", pattern_Waypoint_ExpediteStatusReport_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("PUT", pattern_Derrick_ExpediteStatusReport_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ExpediteStatusReport", runtime.WithHTTPPathPattern("/release/{release.id}/status-report"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/ExpediteStatusReport", runtime.WithHTTPPathPattern("/release/{release.id}/status-report"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_ExpediteStatusReport_1(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_ExpediteStatusReport_1(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_ExpediteStatusReport_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ExpediteStatusReport_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("PUT", pattern_Waypoint_ExpediteStatusReport_2, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("PUT", pattern_Derrick_ExpediteStatusReport_2, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ExpediteStatusReport", runtime.WithHTTPPathPattern("/project/{deployment.sequence.application.project}/application/{deployment.sequence.application.application}/deployment/{deployment.sequence.number}/status-report"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/ExpediteStatusReport", runtime.WithHTTPPathPattern("/project/{deployment.sequence.application.project}/application/{deployment.sequence.application.application}/deployment/{deployment.sequence.number}/status-report"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_ExpediteStatusReport_2(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_ExpediteStatusReport_2(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_ExpediteStatusReport_2(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ExpediteStatusReport_2(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("PUT", pattern_Waypoint_ExpediteStatusReport_3, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("PUT", pattern_Derrick_ExpediteStatusReport_3, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ExpediteStatusReport", runtime.WithHTTPPathPattern("/project/{release.sequence.application.project}/application/{release.sequence.application.application}/release/{release.sequence.number}/status-report"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/ExpediteStatusReport", runtime.WithHTTPPathPattern("/project/{release.sequence.application.project}/application/{release.sequence.application.application}/release/{release.sequence.number}/status-report"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_ExpediteStatusReport_3(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_ExpediteStatusReport_3(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_ExpediteStatusReport_3(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ExpediteStatusReport_3(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_GetLogStream_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_GetLogStream_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetLogStream", runtime.WithHTTPPathPattern("/deployment/{deployment_id}/logs"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetLogStream", runtime.WithHTTPPathPattern("/deployment/{deployment_id}/logs"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GetLogStream_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GetLogStream_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GetLogStream_0(ctx, mux, outboundMarshaler, w, req, func() (proto.Message, error) { return resp.Recv() }, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetLogStream_0(ctx, mux, outboundMarshaler, w, req, func() (proto.Message, error) { return resp.Recv() }, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_GetLogStream_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_GetLogStream_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetLogStream", runtime.WithHTTPPathPattern("/project/{application.application.project}/application/{application.application.application}/logs"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetLogStream", runtime.WithHTTPPathPattern("/project/{application.application.project}/application/{application.application.application}/logs"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GetLogStream_1(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GetLogStream_1(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GetLogStream_1(ctx, mux, outboundMarshaler, w, req, func() (proto.Message, error) { return resp.Recv() }, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetLogStream_1(ctx, mux, outboundMarshaler, w, req, func() (proto.Message, error) { return resp.Recv() }, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_GetLogStream_2, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_GetLogStream_2, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetLogStream", runtime.WithHTTPPathPattern("/project/{application.application.project}/application/{application.application.application}/workspace/{application.workspace.workspace}/logs"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetLogStream", runtime.WithHTTPPathPattern("/project/{application.application.project}/application/{application.application.application}/workspace/{application.workspace.workspace}/logs"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GetLogStream_2(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GetLogStream_2(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GetLogStream_2(ctx, mux, outboundMarshaler, w, req, func() (proto.Message, error) { return resp.Recv() }, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetLogStream_2(ctx, mux, outboundMarshaler, w, req, func() (proto.Message, error) { return resp.Recv() }, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_StartExecStream_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_StartExecStream_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/StartExecStream", runtime.WithHTTPPathPattern("/exec"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/StartExecStream", runtime.WithHTTPPathPattern("/exec"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_StartExecStream_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_StartExecStream_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_StartExecStream_0(ctx, mux, outboundMarshaler, w, req, func() (proto.Message, error) { return resp.Recv() }, mux.GetForwardResponseOptions()...)
+		forward_Derrick_StartExecStream_0(ctx, mux, outboundMarshaler, w, req, func() (proto.Message, error) { return resp.Recv() }, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("PUT", pattern_Waypoint_SetConfig_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("PUT", pattern_Derrick_SetConfig_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/SetConfig", runtime.WithHTTPPathPattern("/project/config"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/SetConfig", runtime.WithHTTPPathPattern("/project/config"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_SetConfig_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_SetConfig_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_SetConfig_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_SetConfig_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("PUT", pattern_Waypoint_DeleteConfig_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("PUT", pattern_Derrick_DeleteConfig_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/DeleteConfig", runtime.WithHTTPPathPattern("/project/config/delete"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/DeleteConfig", runtime.WithHTTPPathPattern("/project/config/delete"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_DeleteConfig_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_DeleteConfig_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_DeleteConfig_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_DeleteConfig_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetConfig_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetConfig_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetConfig", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/config"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetConfig", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/config"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GetConfig_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GetConfig_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GetConfig_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetConfig_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetConfig_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetConfig_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetConfig", runtime.WithHTTPPathPattern("/project/{project.project}/config"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetConfig", runtime.WithHTTPPathPattern("/project/{project.project}/config"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GetConfig_1(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GetConfig_1(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GetConfig_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetConfig_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetConfig_2, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetConfig_2, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetConfig", runtime.WithHTTPPathPattern("/project/{application.project}/{application.application}/config"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetConfig", runtime.WithHTTPPathPattern("/project/{application.project}/{application.application}/config"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GetConfig_2(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GetConfig_2(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GetConfig_2(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetConfig_2(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("PUT", pattern_Waypoint_SetConfigSource_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("PUT", pattern_Derrick_SetConfigSource_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/SetConfigSource", runtime.WithHTTPPathPattern("/config-source"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/SetConfigSource", runtime.WithHTTPPathPattern("/config-source"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_SetConfigSource_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_SetConfigSource_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_SetConfigSource_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_SetConfigSource_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("PUT", pattern_Waypoint_DeleteConfigSource_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("PUT", pattern_Derrick_DeleteConfigSource_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/DeleteConfigSource", runtime.WithHTTPPathPattern("/config-source/delete"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/DeleteConfigSource", runtime.WithHTTPPathPattern("/config-source/delete"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_DeleteConfigSource_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_DeleteConfigSource_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_DeleteConfigSource_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_DeleteConfigSource_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetConfigSource_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetConfigSource_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetConfigSource", runtime.WithHTTPPathPattern("/config-source"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetConfigSource", runtime.WithHTTPPathPattern("/config-source"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GetConfigSource_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GetConfigSource_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GetConfigSource_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetConfigSource_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_CreateHostname_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_CreateHostname_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/CreateHostname", runtime.WithHTTPPathPattern("/project/{target.application.application.project}/application/{target.application.application.application}/hostname"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/CreateHostname", runtime.WithHTTPPathPattern("/project/{target.application.application.project}/application/{target.application.application.application}/hostname"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_CreateHostname_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_CreateHostname_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_CreateHostname_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_CreateHostname_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_CreateHostname_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_CreateHostname_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/CreateHostname", runtime.WithHTTPPathPattern("/project/{target.application.application.project}/application/{target.application.application.application}/workspace/{target.application.workspace.workspace}/hostname"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/CreateHostname", runtime.WithHTTPPathPattern("/project/{target.application.application.project}/application/{target.application.application.application}/workspace/{target.application.workspace.workspace}/hostname"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_CreateHostname_1(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_CreateHostname_1(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_CreateHostname_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_CreateHostname_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("DELETE", pattern_Waypoint_DeleteHostname_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("DELETE", pattern_Derrick_DeleteHostname_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/DeleteHostname", runtime.WithHTTPPathPattern("/hostname/{hostname}"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/DeleteHostname", runtime.WithHTTPPathPattern("/hostname/{hostname}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_DeleteHostname_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_DeleteHostname_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_DeleteHostname_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_DeleteHostname_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListHostnames_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListHostnames_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListHostnames", runtime.WithHTTPPathPattern("/project/{target.application.application.project}/application/{target.application.application.application}/hostnames"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListHostnames", runtime.WithHTTPPathPattern("/project/{target.application.application.project}/application/{target.application.application.application}/hostnames"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_ListHostnames_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_ListHostnames_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_ListHostnames_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListHostnames_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListHostnames_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListHostnames_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListHostnames", runtime.WithHTTPPathPattern("/project/{target.application.application.project}/application/{target.application.application.application}/workspace/{target.application.workspace.workspace}/hostnames"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListHostnames", runtime.WithHTTPPathPattern("/project/{target.application.application.project}/application/{target.application.application.application}/workspace/{target.application.workspace.workspace}/hostnames"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_ListHostnames_1(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_ListHostnames_1(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_ListHostnames_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListHostnames_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_QueueJob_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_QueueJob_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/QueueJob", runtime.WithHTTPPathPattern("/jobs/queue"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/QueueJob", runtime.WithHTTPPathPattern("/jobs/queue"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_QueueJob_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_QueueJob_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_QueueJob_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_QueueJob_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("PUT", pattern_Waypoint_CancelJob_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("PUT", pattern_Derrick_CancelJob_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/CancelJob", runtime.WithHTTPPathPattern("/jobs/cancel/{job_id}"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/CancelJob", runtime.WithHTTPPathPattern("/jobs/cancel/{job_id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_CancelJob_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_CancelJob_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_CancelJob_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_CancelJob_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetJob_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetJob_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetJob", runtime.WithHTTPPathPattern("/jobs/{job_id}"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetJob", runtime.WithHTTPPathPattern("/jobs/{job_id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GetJob_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GetJob_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GetJob_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetJob_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListJobs_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListJobs_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListJobs", runtime.WithHTTPPathPattern("/jobs/workspace/{workspace.workspace}"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListJobs", runtime.WithHTTPPathPattern("/jobs/workspace/{workspace.workspace}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_ListJobs_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_ListJobs_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_ListJobs_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListJobs_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListJobs_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListJobs_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListJobs", runtime.WithHTTPPathPattern("/jobs/workspace/{workspace.workspace}/state/{jobState}"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListJobs", runtime.WithHTTPPathPattern("/jobs/workspace/{workspace.workspace}/state/{jobState}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_ListJobs_1(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_ListJobs_1(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_ListJobs_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListJobs_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListJobs_2, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListJobs_2, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListJobs", runtime.WithHTTPPathPattern("/jobs/project/{project.project}"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListJobs", runtime.WithHTTPPathPattern("/jobs/project/{project.project}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_ListJobs_2(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_ListJobs_2(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_ListJobs_2(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListJobs_2(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListJobs_3, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListJobs_3, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListJobs", runtime.WithHTTPPathPattern("/jobs/state/{jobState}"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListJobs", runtime.WithHTTPPathPattern("/jobs/state/{jobState}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_ListJobs_3(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_ListJobs_3(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_ListJobs_3(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListJobs_3(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListJobs_4, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListJobs_4, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListJobs", runtime.WithHTTPPathPattern("/jobs/runner/by-id/{targetRunner.id.id}"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListJobs", runtime.WithHTTPPathPattern("/jobs/runner/by-id/{targetRunner.id.id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_ListJobs_4(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_ListJobs_4(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_ListJobs_4(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListJobs_4(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_ValidateJob_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_ValidateJob_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ValidateJob", runtime.WithHTTPPathPattern("/jobs/validateJob"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/ValidateJob", runtime.WithHTTPPathPattern("/jobs/validateJob"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_ValidateJob_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_ValidateJob_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_ValidateJob_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ValidateJob_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetJobStream_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetJobStream_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetJobStream", runtime.WithHTTPPathPattern("/jobs/stream/{job_id}"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetJobStream", runtime.WithHTTPPathPattern("/jobs/stream/{job_id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GetJobStream_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GetJobStream_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GetJobStream_0(ctx, mux, outboundMarshaler, w, req, func() (proto.Message, error) { return resp.Recv() }, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetJobStream_0(ctx, mux, outboundMarshaler, w, req, func() (proto.Message, error) { return resp.Recv() }, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetRunner_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetRunner_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetRunner", runtime.WithHTTPPathPattern("/runner/{runner_id}"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetRunner", runtime.WithHTTPPathPattern("/runner/{runner_id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GetRunner_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GetRunner_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GetRunner_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetRunner_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListRunners_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListRunners_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListRunners", runtime.WithHTTPPathPattern("/runners"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListRunners", runtime.WithHTTPPathPattern("/runners"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_ListRunners_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_ListRunners_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_ListRunners_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListRunners_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_AdoptRunner_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_AdoptRunner_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/AdoptRunner", runtime.WithHTTPPathPattern("/runner/{runner_id}/adopt"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/AdoptRunner", runtime.WithHTTPPathPattern("/runner/{runner_id}/adopt"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_AdoptRunner_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_AdoptRunner_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_AdoptRunner_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_AdoptRunner_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_ForgetRunner_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_ForgetRunner_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ForgetRunner", runtime.WithHTTPPathPattern("/runner/{runner_id}/forget"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/ForgetRunner", runtime.WithHTTPPathPattern("/runner/{runner_id}/forget"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_ForgetRunner_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_ForgetRunner_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_ForgetRunner_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ForgetRunner_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetServerConfig_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetServerConfig_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetServerConfig", runtime.WithHTTPPathPattern("/server/config"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetServerConfig", runtime.WithHTTPPathPattern("/server/config"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GetServerConfig_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GetServerConfig_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GetServerConfig_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetServerConfig_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_SetServerConfig_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_SetServerConfig_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/SetServerConfig", runtime.WithHTTPPathPattern("/server/config"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/SetServerConfig", runtime.WithHTTPPathPattern("/server/config"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_SetServerConfig_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_SetServerConfig_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_SetServerConfig_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_SetServerConfig_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_DecodeToken_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_DecodeToken_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/DecodeToken", runtime.WithHTTPPathPattern("/token/decode"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/DecodeToken", runtime.WithHTTPPathPattern("/token/decode"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_DecodeToken_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_DecodeToken_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_DecodeToken_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_DecodeToken_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_GenerateInviteToken_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_GenerateInviteToken_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GenerateInviteToken", runtime.WithHTTPPathPattern("/token/invite"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GenerateInviteToken", runtime.WithHTTPPathPattern("/token/invite"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GenerateInviteToken_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GenerateInviteToken_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GenerateInviteToken_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GenerateInviteToken_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_GenerateLoginToken_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_GenerateLoginToken_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GenerateLoginToken", runtime.WithHTTPPathPattern("/token/login"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GenerateLoginToken", runtime.WithHTTPPathPattern("/token/login"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GenerateLoginToken_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GenerateLoginToken_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GenerateLoginToken_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GenerateLoginToken_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_GenerateRunnerToken_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_GenerateRunnerToken_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GenerateRunnerToken", runtime.WithHTTPPathPattern("/token/runner"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GenerateRunnerToken", runtime.WithHTTPPathPattern("/token/runner"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GenerateRunnerToken_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GenerateRunnerToken_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GenerateRunnerToken_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GenerateRunnerToken_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_ConvertInviteToken_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_ConvertInviteToken_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ConvertInviteToken", runtime.WithHTTPPathPattern("/token/exchange"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/ConvertInviteToken", runtime.WithHTTPPathPattern("/token/exchange"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_ConvertInviteToken_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_ConvertInviteToken_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_ConvertInviteToken_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ConvertInviteToken_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_DerrickHclFmt_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_DerrickHclFmt_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/DerrickHclFmt", runtime.WithHTTPPathPattern("/hcl/format"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/DerrickHclFmt", runtime.WithHTTPPathPattern("/hcl/format"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_DerrickHclFmt_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_DerrickHclFmt_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_DerrickHclFmt_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_DerrickHclFmt_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_UpsertOnDemandRunnerConfig_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_UpsertOnDemandRunnerConfig_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/UpsertOnDemandRunnerConfig", runtime.WithHTTPPathPattern("/runner/on-demand"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/UpsertOnDemandRunnerConfig", runtime.WithHTTPPathPattern("/runner/on-demand"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_UpsertOnDemandRunnerConfig_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_UpsertOnDemandRunnerConfig_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_UpsertOnDemandRunnerConfig_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_UpsertOnDemandRunnerConfig_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetOnDemandRunnerConfig_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetOnDemandRunnerConfig_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetOnDemandRunnerConfig", runtime.WithHTTPPathPattern("/on-demand-runner/by-id/{config.id}"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetOnDemandRunnerConfig", runtime.WithHTTPPathPattern("/on-demand-runner/by-id/{config.id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GetOnDemandRunnerConfig_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GetOnDemandRunnerConfig_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GetOnDemandRunnerConfig_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetOnDemandRunnerConfig_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetOnDemandRunnerConfig_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetOnDemandRunnerConfig_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetOnDemandRunnerConfig", runtime.WithHTTPPathPattern("/on-demand-runner/by-name/{config.name}"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetOnDemandRunnerConfig", runtime.WithHTTPPathPattern("/on-demand-runner/by-name/{config.name}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GetOnDemandRunnerConfig_1(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GetOnDemandRunnerConfig_1(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GetOnDemandRunnerConfig_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetOnDemandRunnerConfig_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListOnDemandRunnerConfigs_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListOnDemandRunnerConfigs_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListOnDemandRunnerConfigs", runtime.WithHTTPPathPattern("/on-demand-runners"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListOnDemandRunnerConfigs", runtime.WithHTTPPathPattern("/on-demand-runners"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_ListOnDemandRunnerConfigs_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_ListOnDemandRunnerConfigs_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_ListOnDemandRunnerConfigs_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListOnDemandRunnerConfigs_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetTask_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetTask_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetTask", runtime.WithHTTPPathPattern("/task/{ref.id}"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetTask", runtime.WithHTTPPathPattern("/task/{ref.id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GetTask_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GetTask_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GetTask_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetTask_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetTask_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetTask_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetTask", runtime.WithHTTPPathPattern("/task/by-job/{ref.job_id}"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetTask", runtime.WithHTTPPathPattern("/task/by-job/{ref.job_id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GetTask_1(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GetTask_1(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GetTask_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetTask_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListTask_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListTask_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListTask", runtime.WithHTTPPathPattern("/tasks"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListTask", runtime.WithHTTPPathPattern("/tasks"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_ListTask_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_ListTask_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_ListTask_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListTask_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("PUT", pattern_Waypoint_CancelTask_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("PUT", pattern_Derrick_CancelTask_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/CancelTask", runtime.WithHTTPPathPattern("/task/{ref.id}/cancel"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/CancelTask", runtime.WithHTTPPathPattern("/task/{ref.id}/cancel"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_CancelTask_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_CancelTask_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_CancelTask_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_CancelTask_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("PUT", pattern_Waypoint_CancelTask_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("PUT", pattern_Derrick_CancelTask_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/CancelTask", runtime.WithHTTPPathPattern("/task/by-job/{ref.job_id}/cancel"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/CancelTask", runtime.WithHTTPPathPattern("/task/by-job/{ref.job_id}/cancel"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_CancelTask_1(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_CancelTask_1(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_CancelTask_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_CancelTask_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_UpsertTrigger_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_UpsertTrigger_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/UpsertTrigger", runtime.WithHTTPPathPattern("/triggers"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/UpsertTrigger", runtime.WithHTTPPathPattern("/triggers"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_UpsertTrigger_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_UpsertTrigger_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_UpsertTrigger_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_UpsertTrigger_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetTrigger_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetTrigger_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetTrigger", runtime.WithHTTPPathPattern("/trigger/{ref.id}"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetTrigger", runtime.WithHTTPPathPattern("/trigger/{ref.id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GetTrigger_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GetTrigger_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GetTrigger_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetTrigger_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("DELETE", pattern_Waypoint_GetTrigger_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("DELETE", pattern_Derrick_GetTrigger_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetTrigger", runtime.WithHTTPPathPattern("/trigger/{ref.id}"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetTrigger", runtime.WithHTTPPathPattern("/trigger/{ref.id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GetTrigger_1(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GetTrigger_1(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GetTrigger_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetTrigger_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListTriggers_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListTriggers_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListTriggers", runtime.WithHTTPPathPattern("/triggers"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListTriggers", runtime.WithHTTPPathPattern("/triggers"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_ListTriggers_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_ListTriggers_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_ListTriggers_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListTriggers_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListTriggers_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListTriggers_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListTriggers", runtime.WithHTTPPathPattern("/project/{project.project}/triggers"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListTriggers", runtime.WithHTTPPathPattern("/project/{project.project}/triggers"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_ListTriggers_1(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_ListTriggers_1(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_ListTriggers_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListTriggers_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListTriggers_2, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListTriggers_2, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListTriggers", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/triggers"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListTriggers", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/triggers"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_ListTriggers_2(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_ListTriggers_2(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_ListTriggers_2(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListTriggers_2(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListTriggers_3, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListTriggers_3, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListTriggers", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/triggers"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListTriggers", runtime.WithHTTPPathPattern("/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/triggers"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_ListTriggers_3(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_ListTriggers_3(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_ListTriggers_3(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListTriggers_3(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("PUT", pattern_Waypoint_RunTrigger_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("PUT", pattern_Derrick_RunTrigger_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/RunTrigger", runtime.WithHTTPPathPattern("/trigger/{ref.id}"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/RunTrigger", runtime.WithHTTPPathPattern("/trigger/{ref.id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_RunTrigger_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_RunTrigger_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_RunTrigger_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_RunTrigger_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_RunPipeline_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_RunPipeline_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/RunPipeline", runtime.WithHTTPPathPattern("/project/{pipeline.owner.project.project}/pipeline/{pipeline.owner.pipeline_name}/run"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/RunPipeline", runtime.WithHTTPPathPattern("/project/{pipeline.owner.project.project}/pipeline/{pipeline.owner.pipeline_name}/run"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_RunPipeline_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_RunPipeline_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_RunPipeline_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_RunPipeline_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_RunPipeline_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_RunPipeline_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/RunPipeline", runtime.WithHTTPPathPattern("/pipeline/{pipeline.id}/run"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/RunPipeline", runtime.WithHTTPPathPattern("/pipeline/{pipeline.id}/run"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_RunPipeline_1(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_RunPipeline_1(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_RunPipeline_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_RunPipeline_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetPipeline_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetPipeline_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetPipeline", runtime.WithHTTPPathPattern("/project/{pipeline.owner.project.project}/pipeline/{pipeline.owner.pipeline_name}"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetPipeline", runtime.WithHTTPPathPattern("/project/{pipeline.owner.project.project}/pipeline/{pipeline.owner.pipeline_name}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GetPipeline_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GetPipeline_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GetPipeline_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetPipeline_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetPipeline_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetPipeline_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetPipeline", runtime.WithHTTPPathPattern("/pipeline/{pipeline.id}"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetPipeline", runtime.WithHTTPPathPattern("/pipeline/{pipeline.id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GetPipeline_1(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GetPipeline_1(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GetPipeline_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetPipeline_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetPipelineRun_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetPipelineRun_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetPipelineRun", runtime.WithHTTPPathPattern("/project/{pipeline.owner.project.project}/pipeline/{pipeline.owner.pipeline_name}/run/{sequence}"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetPipelineRun", runtime.WithHTTPPathPattern("/project/{pipeline.owner.project.project}/pipeline/{pipeline.owner.pipeline_name}/run/{sequence}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GetPipelineRun_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GetPipelineRun_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GetPipelineRun_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetPipelineRun_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetPipelineRun_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetPipelineRun_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetPipelineRun", runtime.WithHTTPPathPattern("/pipeline/{pipeline.id}/run/{sequence}"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetPipelineRun", runtime.WithHTTPPathPattern("/pipeline/{pipeline.id}/run/{sequence}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GetPipelineRun_1(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GetPipelineRun_1(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GetPipelineRun_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetPipelineRun_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetLatestPipelineRun_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetLatestPipelineRun_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetLatestPipelineRun", runtime.WithHTTPPathPattern("/project/{pipeline.owner.project.project}/pipeline/{pipeline.owner.pipeline_name}/latest-run"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetLatestPipelineRun", runtime.WithHTTPPathPattern("/project/{pipeline.owner.project.project}/pipeline/{pipeline.owner.pipeline_name}/latest-run"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GetLatestPipelineRun_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GetLatestPipelineRun_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GetLatestPipelineRun_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetLatestPipelineRun_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_GetLatestPipelineRun_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_GetLatestPipelineRun_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/GetLatestPipelineRun", runtime.WithHTTPPathPattern("/pipeline/{pipeline.id}/latest-run"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/GetLatestPipelineRun", runtime.WithHTTPPathPattern("/pipeline/{pipeline.id}/latest-run"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_GetLatestPipelineRun_1(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_GetLatestPipelineRun_1(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_GetLatestPipelineRun_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_GetLatestPipelineRun_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListPipelines_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListPipelines_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListPipelines", runtime.WithHTTPPathPattern("/project/{project.project}/pipelines"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListPipelines", runtime.WithHTTPPathPattern("/project/{project.project}/pipelines"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_ListPipelines_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_ListPipelines_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_ListPipelines_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListPipelines_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListPipelineRuns_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListPipelineRuns_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListPipelineRuns", runtime.WithHTTPPathPattern("/project/{pipeline.owner.project.project}/pipeline/{pipeline.owner.pipeline_name}/runs"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListPipelineRuns", runtime.WithHTTPPathPattern("/project/{pipeline.owner.project.project}/pipeline/{pipeline.owner.pipeline_name}/runs"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_ListPipelineRuns_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_ListPipelineRuns_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_ListPipelineRuns_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListPipelineRuns_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_ListPipelineRuns_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_ListPipelineRuns_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ListPipelineRuns", runtime.WithHTTPPathPattern("/pipeline/{pipeline.id}/runs"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/ListPipelineRuns", runtime.WithHTTPPathPattern("/pipeline/{pipeline.id}/runs"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_ListPipelineRuns_1(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_ListPipelineRuns_1(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_ListPipelineRuns_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ListPipelineRuns_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Waypoint_ConfigSyncPipeline_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Derrick_ConfigSyncPipeline_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/ConfigSyncPipeline", runtime.WithHTTPPathPattern("/project/{project.project}/config-sync-pipeline"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/ConfigSyncPipeline", runtime.WithHTTPPathPattern("/project/{project.project}/config-sync-pipeline"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_ConfigSyncPipeline_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_ConfigSyncPipeline_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_ConfigSyncPipeline_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_ConfigSyncPipeline_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_UI_ListProjects_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_UI_ListProjects_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/UI_ListProjects", runtime.WithHTTPPathPattern("/v1/ui/projects"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/UI_ListProjects", runtime.WithHTTPPathPattern("/v1/ui/projects"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_UI_ListProjects_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_UI_ListProjects_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_UI_ListProjects_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_UI_ListProjects_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_UI_GetProject_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_UI_GetProject_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/UI_GetProject", runtime.WithHTTPPathPattern("/ui/project/{project.project}"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/UI_GetProject", runtime.WithHTTPPathPattern("/ui/project/{project.project}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_UI_GetProject_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_UI_GetProject_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_UI_GetProject_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_UI_GetProject_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_UI_ListDeployments_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_UI_ListDeployments_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/UI_ListDeployments", runtime.WithHTTPPathPattern("/ui/project/{application.project}/application/{application.application}/deployments"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/UI_ListDeployments", runtime.WithHTTPPathPattern("/ui/project/{application.project}/application/{application.application}/deployments"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_UI_ListDeployments_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_UI_ListDeployments_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_UI_ListDeployments_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_UI_ListDeployments_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Waypoint_UI_ListReleases_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Derrick_UI_ListReleases_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
-		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Waypoint/UI_ListReleases", runtime.WithHTTPPathPattern("/ui/project/{application.project}/application/{application.application}/releases"))
+		ctx, err = runtime.AnnotateContext(ctx, mux, req, "/nomatron.derrick.Derrick/UI_ListReleases", runtime.WithHTTPPathPattern("/ui/project/{application.project}/application/{application.application}/releases"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Waypoint_UI_ListReleases_0(ctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Derrick_UI_ListReleases_0(ctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Waypoint_UI_ListReleases_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Derrick_UI_ListReleases_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
@@ -15078,533 +15078,533 @@ func RegisterWaypointHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 }
 
 var (
-	pattern_Waypoint_GetVersionInfo_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"version"}, ""))
+	pattern_Derrick_GetVersionInfo_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"version"}, ""))
 
-	pattern_Waypoint_ListOIDCAuthMethods_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"oidc", "methods"}, ""))
+	pattern_Derrick_ListOIDCAuthMethods_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"oidc", "methods"}, ""))
 
-	pattern_Waypoint_GetOIDCAuthURL_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2}, []string{"oidc", "auth_method.name", "url"}, ""))
+	pattern_Derrick_GetOIDCAuthURL_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2}, []string{"oidc", "auth_method.name", "url"}, ""))
 
-	pattern_Waypoint_CompleteOIDCAuth_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2}, []string{"oidc", "auth_method.name", "complete"}, ""))
+	pattern_Derrick_CompleteOIDCAuth_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2}, []string{"oidc", "auth_method.name", "complete"}, ""))
 
-	pattern_Waypoint_NoAuthRunTrigger_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"triggers", "no-auth", "ref.id", "run"}, ""))
+	pattern_Derrick_NoAuthRunTrigger_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"triggers", "no-auth", "ref.id", "run"}, ""))
 
-	pattern_Waypoint_GetUser_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"user", "by-id", "user.id.id"}, ""))
+	pattern_Derrick_GetUser_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"user", "by-id", "user.id.id"}, ""))
 
-	pattern_Waypoint_GetUser_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"user", "by-username", "user.username.username"}, ""))
+	pattern_Derrick_GetUser_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"user", "by-username", "user.username.username"}, ""))
 
-	pattern_Waypoint_ListUsers_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"users"}, ""))
+	pattern_Derrick_ListUsers_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"users"}, ""))
 
-	pattern_Waypoint_UpdateUser_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"user", "user.id"}, ""))
+	pattern_Derrick_UpdateUser_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"user", "user.id"}, ""))
 
-	pattern_Waypoint_DeleteUser_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"user", "by-id", "user.id.id"}, ""))
+	pattern_Derrick_DeleteUser_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"user", "by-id", "user.id.id"}, ""))
 
-	pattern_Waypoint_DeleteUser_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"user", "by-username", "user.username.username"}, ""))
+	pattern_Derrick_DeleteUser_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"user", "by-username", "user.username.username"}, ""))
 
-	pattern_Waypoint_UpsertAuthMethod_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"auth-method"}, ""))
+	pattern_Derrick_UpsertAuthMethod_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"auth-method"}, ""))
 
-	pattern_Waypoint_GetAuthMethod_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"auth-method", "auth_method.name"}, ""))
+	pattern_Derrick_GetAuthMethod_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"auth-method", "auth_method.name"}, ""))
 
-	pattern_Waypoint_ListAuthMethods_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"auth-methods"}, ""))
+	pattern_Derrick_ListAuthMethods_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"auth-methods"}, ""))
 
-	pattern_Waypoint_DeleteAuthMethod_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"auth-method", "auth_method.name"}, ""))
+	pattern_Derrick_DeleteAuthMethod_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"auth-method", "auth_method.name"}, ""))
 
-	pattern_Waypoint_ListWorkspaces_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"workspaces"}, ""))
+	pattern_Derrick_ListWorkspaces_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"workspaces"}, ""))
 
-	pattern_Waypoint_ListWorkspaces_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2}, []string{"project", "project.project", "workspaces"}, ""))
+	pattern_Derrick_ListWorkspaces_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2}, []string{"project", "project.project", "workspaces"}, ""))
 
-	pattern_Waypoint_ListWorkspaces_2 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4}, []string{"project", "application.project", "application", "application.application", "workspaces"}, ""))
+	pattern_Derrick_ListWorkspaces_2 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4}, []string{"project", "application.project", "application", "application.application", "workspaces"}, ""))
 
-	pattern_Waypoint_GetWorkspace_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"workspace", "workspace.workspace"}, ""))
+	pattern_Derrick_GetWorkspace_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"workspace", "workspace.workspace"}, ""))
 
-	pattern_Waypoint_UpsertWorkspace_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"workspace"}, ""))
+	pattern_Derrick_UpsertWorkspace_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"workspace"}, ""))
 
-	pattern_Waypoint_UpsertProject_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"project"}, ""))
+	pattern_Derrick_UpsertProject_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"project"}, ""))
 
-	pattern_Waypoint_GetProject_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"project", "project.project"}, ""))
+	pattern_Derrick_GetProject_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"project", "project.project"}, ""))
 
-	pattern_Waypoint_ListProjects_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"projects"}, ""))
+	pattern_Derrick_ListProjects_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"projects"}, ""))
 
-	pattern_Waypoint_DestroyProject_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"project", "project.project"}, ""))
+	pattern_Derrick_DestroyProject_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"project", "project.project"}, ""))
 
-	pattern_Waypoint_GetApplication_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3}, []string{"project", "application.project", "application", "application.application"}, ""))
+	pattern_Derrick_GetApplication_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3}, []string{"project", "application.project", "application", "application.application"}, ""))
 
-	pattern_Waypoint_UpsertApplication_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2}, []string{"project", "project.project", "application"}, ""))
+	pattern_Derrick_UpsertApplication_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2}, []string{"project", "project.project", "application"}, ""))
 
-	pattern_Waypoint_ListBuilds_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4}, []string{"project", "application.project", "application", "application.application", "builds"}, ""))
+	pattern_Derrick_ListBuilds_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4}, []string{"project", "application.project", "application", "application.application", "builds"}, ""))
 
-	pattern_Waypoint_ListBuilds_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 1, 0, 4, 1, 5, 5, 2, 6}, []string{"project", "application.project", "application", "application.application", "workspace", "workspace.workspace", "builds"}, ""))
+	pattern_Derrick_ListBuilds_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 1, 0, 4, 1, 5, 5, 2, 6}, []string{"project", "application.project", "application", "application.application", "workspace", "workspace.workspace", "builds"}, ""))
 
-	pattern_Waypoint_GetBuild_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"build", "ref.id"}, ""))
+	pattern_Derrick_GetBuild_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"build", "ref.id"}, ""))
 
-	pattern_Waypoint_GetBuild_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 1, 0, 4, 1, 5, 5}, []string{"project", "ref.sequence.application.project", "application", "ref.sequence.application.application", "build", "ref.sequence.number"}, ""))
+	pattern_Derrick_GetBuild_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 1, 0, 4, 1, 5, 5}, []string{"project", "ref.sequence.application.project", "application", "ref.sequence.application.application", "build", "ref.sequence.number"}, ""))
 
-	pattern_Waypoint_GetLatestBuild_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 2, 5}, []string{"project", "application.project", "application", "application.application", "build", "latest"}, ""))
+	pattern_Derrick_GetLatestBuild_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 2, 5}, []string{"project", "application.project", "application", "application.application", "build", "latest"}, ""))
 
-	pattern_Waypoint_GetLatestBuild_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 1, 0, 4, 1, 5, 5, 2, 6, 2, 7}, []string{"project", "application.project", "application", "application.application", "workspace", "workspace.workspace", "build", "latest"}, ""))
+	pattern_Derrick_GetLatestBuild_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 1, 0, 4, 1, 5, 5, 2, 6, 2, 7}, []string{"project", "application.project", "application", "application.application", "workspace", "workspace.workspace", "build", "latest"}, ""))
 
-	pattern_Waypoint_ListPushedArtifacts_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4}, []string{"project", "application.project", "application", "application.application", "artifacts"}, ""))
+	pattern_Derrick_ListPushedArtifacts_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4}, []string{"project", "application.project", "application", "application.application", "artifacts"}, ""))
 
-	pattern_Waypoint_ListPushedArtifacts_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 1, 0, 4, 1, 5, 5, 2, 6}, []string{"project", "application.project", "application", "application.application", "workspace", "workspace.workspace", "artifacts"}, ""))
+	pattern_Derrick_ListPushedArtifacts_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 1, 0, 4, 1, 5, 5, 2, 6}, []string{"project", "application.project", "application", "application.application", "workspace", "workspace.workspace", "artifacts"}, ""))
 
-	pattern_Waypoint_GetPushedArtifact_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"artifact", "ref.id"}, ""))
+	pattern_Derrick_GetPushedArtifact_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"artifact", "ref.id"}, ""))
 
-	pattern_Waypoint_GetPushedArtifact_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 1, 0, 4, 1, 5, 5}, []string{"project", "ref.sequence.application.project", "application", "ref.sequence.application.application", "artifact", "ref.sequence.number"}, ""))
+	pattern_Derrick_GetPushedArtifact_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 1, 0, 4, 1, 5, 5}, []string{"project", "ref.sequence.application.project", "application", "ref.sequence.application.application", "artifact", "ref.sequence.number"}, ""))
 
-	pattern_Waypoint_GetLatestPushedArtifact_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 2, 5}, []string{"project", "application.project", "application", "application.application", "artifact", "latest"}, ""))
+	pattern_Derrick_GetLatestPushedArtifact_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 2, 5}, []string{"project", "application.project", "application", "application.application", "artifact", "latest"}, ""))
 
-	pattern_Waypoint_GetLatestPushedArtifact_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 1, 0, 4, 1, 5, 5, 2, 6, 2, 7}, []string{"project", "application.project", "application", "application.application", "workspace", "workspace.workspace", "artifact", "latest"}, ""))
+	pattern_Derrick_GetLatestPushedArtifact_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 1, 0, 4, 1, 5, 5, 2, 6, 2, 7}, []string{"project", "application.project", "application", "application.application", "workspace", "workspace.workspace", "artifact", "latest"}, ""))
 
-	pattern_Waypoint_ListDeployments_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4}, []string{"project", "application.project", "application", "application.application", "deployments"}, ""))
+	pattern_Derrick_ListDeployments_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4}, []string{"project", "application.project", "application", "application.application", "deployments"}, ""))
 
-	pattern_Waypoint_ListDeployments_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 1, 0, 4, 1, 5, 5, 2, 6}, []string{"project", "application.project", "application", "application.application", "workspace", "workspace.workspace", "deployments"}, ""))
+	pattern_Derrick_ListDeployments_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 1, 0, 4, 1, 5, 5, 2, 6}, []string{"project", "application.project", "application", "application.application", "workspace", "workspace.workspace", "deployments"}, ""))
 
-	pattern_Waypoint_GetDeployment_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"deployment", "ref.id"}, ""))
+	pattern_Derrick_GetDeployment_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"deployment", "ref.id"}, ""))
 
-	pattern_Waypoint_GetDeployment_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 1, 0, 4, 1, 5, 5}, []string{"project", "ref.sequence.application.project", "application", "ref.sequence.application.application", "deployment", "ref.sequence.number"}, ""))
+	pattern_Derrick_GetDeployment_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 1, 0, 4, 1, 5, 5}, []string{"project", "ref.sequence.application.project", "application", "ref.sequence.application.application", "deployment", "ref.sequence.number"}, ""))
 
-	pattern_Waypoint_ListInstances_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"instances", "deployment_id"}, ""))
+	pattern_Derrick_ListInstances_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"instances", "deployment_id"}, ""))
 
-	pattern_Waypoint_ListInstances_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4}, []string{"project", "application.application.project", "application", "application.application.application", "instances"}, ""))
+	pattern_Derrick_ListInstances_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4}, []string{"project", "application.application.project", "application", "application.application.application", "instances"}, ""))
 
-	pattern_Waypoint_ListInstances_2 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 1, 0, 4, 1, 5, 5, 2, 6}, []string{"project", "application.application.project", "application", "application.application.application", "workspace", "application.workspace.workspace", "instances"}, ""))
+	pattern_Derrick_ListInstances_2 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 1, 0, 4, 1, 5, 5, 2, 6}, []string{"project", "application.application.project", "application", "application.application.application", "workspace", "application.workspace.workspace", "instances"}, ""))
 
-	pattern_Waypoint_ListReleases_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4}, []string{"project", "application.project", "application", "application.application", "releases"}, ""))
+	pattern_Derrick_ListReleases_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4}, []string{"project", "application.project", "application", "application.application", "releases"}, ""))
 
-	pattern_Waypoint_ListReleases_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 1, 0, 4, 1, 5, 5, 2, 6}, []string{"project", "application.project", "application", "application.application", "workspace", "workspace.workspace", "releases"}, ""))
+	pattern_Derrick_ListReleases_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 1, 0, 4, 1, 5, 5, 2, 6}, []string{"project", "application.project", "application", "application.application", "workspace", "workspace.workspace", "releases"}, ""))
 
-	pattern_Waypoint_GetRelease_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"release", "ref.id"}, ""))
+	pattern_Derrick_GetRelease_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"release", "ref.id"}, ""))
 
-	pattern_Waypoint_GetRelease_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 1, 0, 4, 1, 5, 5}, []string{"project", "ref.sequence.application.project", "application", "ref.sequence.application.application", "release", "ref.sequence.number"}, ""))
+	pattern_Derrick_GetRelease_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 1, 0, 4, 1, 5, 5}, []string{"project", "ref.sequence.application.project", "application", "ref.sequence.application.application", "release", "ref.sequence.number"}, ""))
 
-	pattern_Waypoint_GetLatestRelease_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 2, 5}, []string{"project", "application.project", "application", "application.application", "release", "latest"}, ""))
+	pattern_Derrick_GetLatestRelease_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 2, 5}, []string{"project", "application.project", "application", "application.application", "release", "latest"}, ""))
 
-	pattern_Waypoint_GetLatestRelease_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 1, 0, 4, 1, 5, 5, 2, 6, 2, 7}, []string{"project", "application.project", "application", "application.application", "workspace", "workspace.workspace", "release", "latest"}, ""))
+	pattern_Derrick_GetLatestRelease_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 1, 0, 4, 1, 5, 5, 2, 6, 2, 7}, []string{"project", "application.project", "application", "application.application", "workspace", "workspace.workspace", "release", "latest"}, ""))
 
-	pattern_Waypoint_GetStatusReport_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"release", "by-id", "ref.id"}, ""))
+	pattern_Derrick_GetStatusReport_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"release", "by-id", "ref.id"}, ""))
 
-	pattern_Waypoint_GetLatestStatusReport_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 2, 5}, []string{"project", "application.project", "application", "application.application", "status-report", "latest"}, ""))
+	pattern_Derrick_GetLatestStatusReport_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 2, 5}, []string{"project", "application.project", "application", "application.application", "status-report", "latest"}, ""))
 
-	pattern_Waypoint_GetLatestStatusReport_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 1, 0, 4, 1, 5, 5, 2, 6, 2, 7}, []string{"project", "application.project", "application", "application.application", "workspace", "workspace.workspace", "status-report", "latest"}, ""))
+	pattern_Derrick_GetLatestStatusReport_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 1, 0, 4, 1, 5, 5, 2, 6, 2, 7}, []string{"project", "application.project", "application", "application.application", "workspace", "workspace.workspace", "status-report", "latest"}, ""))
 
-	pattern_Waypoint_ListStatusReports_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4}, []string{"project", "application.project", "application", "application.application", "status-reports"}, ""))
+	pattern_Derrick_ListStatusReports_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4}, []string{"project", "application.project", "application", "application.application", "status-reports"}, ""))
 
-	pattern_Waypoint_ListStatusReports_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 1, 0, 4, 1, 5, 5, 2, 6}, []string{"project", "application.project", "application", "application.application", "workspace", "workspace.workspace", "status-reports"}, ""))
+	pattern_Derrick_ListStatusReports_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 1, 0, 4, 1, 5, 5, 2, 6}, []string{"project", "application.project", "application", "application.application", "workspace", "workspace.workspace", "status-reports"}, ""))
 
-	pattern_Waypoint_ExpediteStatusReport_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2}, []string{"deployment", "deployment.id", "status-report"}, ""))
+	pattern_Derrick_ExpediteStatusReport_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2}, []string{"deployment", "deployment.id", "status-report"}, ""))
 
-	pattern_Waypoint_ExpediteStatusReport_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2}, []string{"release", "release.id", "status-report"}, ""))
+	pattern_Derrick_ExpediteStatusReport_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2}, []string{"release", "release.id", "status-report"}, ""))
 
-	pattern_Waypoint_ExpediteStatusReport_2 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 1, 0, 4, 1, 5, 5, 2, 6}, []string{"project", "deployment.sequence.application.project", "application", "deployment.sequence.application.application", "deployment", "deployment.sequence.number", "status-report"}, ""))
+	pattern_Derrick_ExpediteStatusReport_2 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 1, 0, 4, 1, 5, 5, 2, 6}, []string{"project", "deployment.sequence.application.project", "application", "deployment.sequence.application.application", "deployment", "deployment.sequence.number", "status-report"}, ""))
 
-	pattern_Waypoint_ExpediteStatusReport_3 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 1, 0, 4, 1, 5, 5, 2, 6}, []string{"project", "release.sequence.application.project", "application", "release.sequence.application.application", "release", "release.sequence.number", "status-report"}, ""))
+	pattern_Derrick_ExpediteStatusReport_3 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 1, 0, 4, 1, 5, 5, 2, 6}, []string{"project", "release.sequence.application.project", "application", "release.sequence.application.application", "release", "release.sequence.number", "status-report"}, ""))
 
-	pattern_Waypoint_GetLogStream_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2}, []string{"deployment", "deployment_id", "logs"}, ""))
+	pattern_Derrick_GetLogStream_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2}, []string{"deployment", "deployment_id", "logs"}, ""))
 
-	pattern_Waypoint_GetLogStream_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4}, []string{"project", "application.application.project", "application", "application.application.application", "logs"}, ""))
+	pattern_Derrick_GetLogStream_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4}, []string{"project", "application.application.project", "application", "application.application.application", "logs"}, ""))
 
-	pattern_Waypoint_GetLogStream_2 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 1, 0, 4, 1, 5, 5, 2, 6}, []string{"project", "application.application.project", "application", "application.application.application", "workspace", "application.workspace.workspace", "logs"}, ""))
+	pattern_Derrick_GetLogStream_2 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 1, 0, 4, 1, 5, 5, 2, 6}, []string{"project", "application.application.project", "application", "application.application.application", "workspace", "application.workspace.workspace", "logs"}, ""))
 
-	pattern_Waypoint_StartExecStream_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"exec"}, ""))
+	pattern_Derrick_StartExecStream_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"exec"}, ""))
 
-	pattern_Waypoint_SetConfig_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"project", "config"}, ""))
+	pattern_Derrick_SetConfig_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"project", "config"}, ""))
 
-	pattern_Waypoint_DeleteConfig_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"project", "config", "delete"}, ""))
+	pattern_Derrick_DeleteConfig_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"project", "config", "delete"}, ""))
 
-	pattern_Waypoint_GetConfig_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4}, []string{"project", "application.project", "application", "application.application", "config"}, ""))
+	pattern_Derrick_GetConfig_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4}, []string{"project", "application.project", "application", "application.application", "config"}, ""))
 
-	pattern_Waypoint_GetConfig_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2}, []string{"project", "project.project", "config"}, ""))
+	pattern_Derrick_GetConfig_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2}, []string{"project", "project.project", "config"}, ""))
 
-	pattern_Waypoint_GetConfig_2 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"project", "application.project", "application.application", "config"}, ""))
+	pattern_Derrick_GetConfig_2 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"project", "application.project", "application.application", "config"}, ""))
 
-	pattern_Waypoint_SetConfigSource_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"config-source"}, ""))
+	pattern_Derrick_SetConfigSource_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"config-source"}, ""))
 
-	pattern_Waypoint_DeleteConfigSource_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"config-source", "delete"}, ""))
+	pattern_Derrick_DeleteConfigSource_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"config-source", "delete"}, ""))
 
-	pattern_Waypoint_GetConfigSource_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"config-source"}, ""))
+	pattern_Derrick_GetConfigSource_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"config-source"}, ""))
 
-	pattern_Waypoint_CreateHostname_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4}, []string{"project", "target.application.application.project", "application", "target.application.application.application", "hostname"}, ""))
+	pattern_Derrick_CreateHostname_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4}, []string{"project", "target.application.application.project", "application", "target.application.application.application", "hostname"}, ""))
 
-	pattern_Waypoint_CreateHostname_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 1, 0, 4, 1, 5, 5, 2, 6}, []string{"project", "target.application.application.project", "application", "target.application.application.application", "workspace", "target.application.workspace.workspace", "hostname"}, ""))
+	pattern_Derrick_CreateHostname_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 1, 0, 4, 1, 5, 5, 2, 6}, []string{"project", "target.application.application.project", "application", "target.application.application.application", "workspace", "target.application.workspace.workspace", "hostname"}, ""))
 
-	pattern_Waypoint_DeleteHostname_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 0}, []string{"hostname"}, ""))
+	pattern_Derrick_DeleteHostname_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 0}, []string{"hostname"}, ""))
 
-	pattern_Waypoint_ListHostnames_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4}, []string{"project", "target.application.application.project", "application", "target.application.application.application", "hostnames"}, ""))
+	pattern_Derrick_ListHostnames_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4}, []string{"project", "target.application.application.project", "application", "target.application.application.application", "hostnames"}, ""))
 
-	pattern_Waypoint_ListHostnames_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 1, 0, 4, 1, 5, 5, 2, 6}, []string{"project", "target.application.application.project", "application", "target.application.application.application", "workspace", "target.application.workspace.workspace", "hostnames"}, ""))
+	pattern_Derrick_ListHostnames_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 1, 0, 4, 1, 5, 5, 2, 6}, []string{"project", "target.application.application.project", "application", "target.application.application.application", "workspace", "target.application.workspace.workspace", "hostnames"}, ""))
 
-	pattern_Waypoint_QueueJob_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"jobs", "queue"}, ""))
+	pattern_Derrick_QueueJob_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"jobs", "queue"}, ""))
 
-	pattern_Waypoint_CancelJob_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"jobs", "cancel", "job_id"}, ""))
+	pattern_Derrick_CancelJob_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"jobs", "cancel", "job_id"}, ""))
 
-	pattern_Waypoint_GetJob_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"jobs", "job_id"}, ""))
+	pattern_Derrick_GetJob_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"jobs", "job_id"}, ""))
 
-	pattern_Waypoint_ListJobs_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"jobs", "workspace", "workspace.workspace"}, ""))
+	pattern_Derrick_ListJobs_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"jobs", "workspace", "workspace.workspace"}, ""))
 
-	pattern_Waypoint_ListJobs_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3, 1, 0, 4, 1, 5, 4}, []string{"jobs", "workspace", "workspace.workspace", "state", "jobState"}, ""))
+	pattern_Derrick_ListJobs_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3, 1, 0, 4, 1, 5, 4}, []string{"jobs", "workspace", "workspace.workspace", "state", "jobState"}, ""))
 
-	pattern_Waypoint_ListJobs_2 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"jobs", "project", "project.project"}, ""))
+	pattern_Derrick_ListJobs_2 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"jobs", "project", "project.project"}, ""))
 
-	pattern_Waypoint_ListJobs_3 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"jobs", "state", "jobState"}, ""))
+	pattern_Derrick_ListJobs_3 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"jobs", "state", "jobState"}, ""))
 
-	pattern_Waypoint_ListJobs_4 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 1, 0, 4, 1, 5, 3}, []string{"jobs", "runner", "by-id", "targetRunner.id.id"}, ""))
+	pattern_Derrick_ListJobs_4 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 1, 0, 4, 1, 5, 3}, []string{"jobs", "runner", "by-id", "targetRunner.id.id"}, ""))
 
-	pattern_Waypoint_ValidateJob_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"jobs", "validateJob"}, ""))
+	pattern_Derrick_ValidateJob_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"jobs", "validateJob"}, ""))
 
-	pattern_Waypoint_GetJobStream_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"jobs", "stream", "job_id"}, ""))
+	pattern_Derrick_GetJobStream_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"jobs", "stream", "job_id"}, ""))
 
-	pattern_Waypoint_GetRunner_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"runner", "runner_id"}, ""))
+	pattern_Derrick_GetRunner_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"runner", "runner_id"}, ""))
 
-	pattern_Waypoint_ListRunners_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"runners"}, ""))
+	pattern_Derrick_ListRunners_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"runners"}, ""))
 
-	pattern_Waypoint_AdoptRunner_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2}, []string{"runner", "runner_id", "adopt"}, ""))
+	pattern_Derrick_AdoptRunner_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2}, []string{"runner", "runner_id", "adopt"}, ""))
 
-	pattern_Waypoint_ForgetRunner_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2}, []string{"runner", "runner_id", "forget"}, ""))
+	pattern_Derrick_ForgetRunner_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2}, []string{"runner", "runner_id", "forget"}, ""))
 
-	pattern_Waypoint_GetServerConfig_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"server", "config"}, ""))
+	pattern_Derrick_GetServerConfig_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"server", "config"}, ""))
 
-	pattern_Waypoint_SetServerConfig_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"server", "config"}, ""))
+	pattern_Derrick_SetServerConfig_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"server", "config"}, ""))
 
-	pattern_Waypoint_DecodeToken_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"token", "decode"}, ""))
+	pattern_Derrick_DecodeToken_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"token", "decode"}, ""))
 
-	pattern_Waypoint_GenerateInviteToken_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"token", "invite"}, ""))
+	pattern_Derrick_GenerateInviteToken_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"token", "invite"}, ""))
 
-	pattern_Waypoint_GenerateLoginToken_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"token", "login"}, ""))
+	pattern_Derrick_GenerateLoginToken_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"token", "login"}, ""))
 
-	pattern_Waypoint_GenerateRunnerToken_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"token", "runner"}, ""))
+	pattern_Derrick_GenerateRunnerToken_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"token", "runner"}, ""))
 
-	pattern_Waypoint_ConvertInviteToken_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"token", "exchange"}, ""))
+	pattern_Derrick_ConvertInviteToken_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"token", "exchange"}, ""))
 
-	pattern_Waypoint_DerrickHclFmt_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"hcl", "format"}, ""))
+	pattern_Derrick_DerrickHclFmt_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"hcl", "format"}, ""))
 
-	pattern_Waypoint_UpsertOnDemandRunnerConfig_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"runner", "on-demand"}, ""))
+	pattern_Derrick_UpsertOnDemandRunnerConfig_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"runner", "on-demand"}, ""))
 
-	pattern_Waypoint_GetOnDemandRunnerConfig_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"on-demand-runner", "by-id", "config.id"}, ""))
+	pattern_Derrick_GetOnDemandRunnerConfig_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"on-demand-runner", "by-id", "config.id"}, ""))
 
-	pattern_Waypoint_GetOnDemandRunnerConfig_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"on-demand-runner", "by-name", "config.name"}, ""))
+	pattern_Derrick_GetOnDemandRunnerConfig_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"on-demand-runner", "by-name", "config.name"}, ""))
 
-	pattern_Waypoint_ListOnDemandRunnerConfigs_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"on-demand-runners"}, ""))
+	pattern_Derrick_ListOnDemandRunnerConfigs_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"on-demand-runners"}, ""))
 
-	pattern_Waypoint_GetTask_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"task", "ref.id"}, ""))
+	pattern_Derrick_GetTask_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"task", "ref.id"}, ""))
 
-	pattern_Waypoint_GetTask_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"task", "by-job", "ref.job_id"}, ""))
+	pattern_Derrick_GetTask_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"task", "by-job", "ref.job_id"}, ""))
 
-	pattern_Waypoint_ListTask_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"tasks"}, ""))
+	pattern_Derrick_ListTask_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"tasks"}, ""))
 
-	pattern_Waypoint_CancelTask_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2}, []string{"task", "ref.id", "cancel"}, ""))
+	pattern_Derrick_CancelTask_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2}, []string{"task", "ref.id", "cancel"}, ""))
 
-	pattern_Waypoint_CancelTask_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"task", "by-job", "ref.job_id", "cancel"}, ""))
+	pattern_Derrick_CancelTask_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"task", "by-job", "ref.job_id", "cancel"}, ""))
 
-	pattern_Waypoint_UpsertTrigger_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"triggers"}, ""))
+	pattern_Derrick_UpsertTrigger_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"triggers"}, ""))
 
-	pattern_Waypoint_GetTrigger_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"trigger", "ref.id"}, ""))
+	pattern_Derrick_GetTrigger_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"trigger", "ref.id"}, ""))
 
-	pattern_Waypoint_GetTrigger_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"trigger", "ref.id"}, ""))
+	pattern_Derrick_GetTrigger_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"trigger", "ref.id"}, ""))
 
-	pattern_Waypoint_ListTriggers_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"triggers"}, ""))
+	pattern_Derrick_ListTriggers_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"triggers"}, ""))
 
-	pattern_Waypoint_ListTriggers_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2}, []string{"project", "project.project", "triggers"}, ""))
+	pattern_Derrick_ListTriggers_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2}, []string{"project", "project.project", "triggers"}, ""))
 
-	pattern_Waypoint_ListTriggers_2 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4}, []string{"project", "application.project", "application", "application.application", "triggers"}, ""))
+	pattern_Derrick_ListTriggers_2 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4}, []string{"project", "application.project", "application", "application.application", "triggers"}, ""))
 
-	pattern_Waypoint_ListTriggers_3 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 1, 0, 4, 1, 5, 5, 2, 6}, []string{"project", "application.project", "application", "application.application", "workspace", "workspace.workspace", "triggers"}, ""))
+	pattern_Derrick_ListTriggers_3 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 1, 0, 4, 1, 5, 5, 2, 6}, []string{"project", "application.project", "application", "application.application", "workspace", "workspace.workspace", "triggers"}, ""))
 
-	pattern_Waypoint_RunTrigger_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"trigger", "ref.id"}, ""))
+	pattern_Derrick_RunTrigger_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"trigger", "ref.id"}, ""))
 
-	pattern_Waypoint_RunPipeline_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4}, []string{"project", "pipeline.owner.project.project", "pipeline", "pipeline.owner.pipeline_name", "run"}, ""))
+	pattern_Derrick_RunPipeline_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4}, []string{"project", "pipeline.owner.project.project", "pipeline", "pipeline.owner.pipeline_name", "run"}, ""))
 
-	pattern_Waypoint_RunPipeline_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2}, []string{"pipeline", "pipeline.id", "run"}, ""))
+	pattern_Derrick_RunPipeline_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2}, []string{"pipeline", "pipeline.id", "run"}, ""))
 
-	pattern_Waypoint_GetPipeline_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3}, []string{"project", "pipeline.owner.project.project", "pipeline", "pipeline.owner.pipeline_name"}, ""))
+	pattern_Derrick_GetPipeline_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3}, []string{"project", "pipeline.owner.project.project", "pipeline", "pipeline.owner.pipeline_name"}, ""))
 
-	pattern_Waypoint_GetPipeline_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"pipeline", "pipeline.id"}, ""))
+	pattern_Derrick_GetPipeline_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"pipeline", "pipeline.id"}, ""))
 
-	pattern_Waypoint_GetPipelineRun_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 1, 0, 4, 1, 5, 5}, []string{"project", "pipeline.owner.project.project", "pipeline", "pipeline.owner.pipeline_name", "run", "sequence"}, ""))
+	pattern_Derrick_GetPipelineRun_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4, 1, 0, 4, 1, 5, 5}, []string{"project", "pipeline.owner.project.project", "pipeline", "pipeline.owner.pipeline_name", "run", "sequence"}, ""))
 
-	pattern_Waypoint_GetPipelineRun_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3}, []string{"pipeline", "pipeline.id", "run", "sequence"}, ""))
+	pattern_Derrick_GetPipelineRun_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3}, []string{"pipeline", "pipeline.id", "run", "sequence"}, ""))
 
-	pattern_Waypoint_GetLatestPipelineRun_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4}, []string{"project", "pipeline.owner.project.project", "pipeline", "pipeline.owner.pipeline_name", "latest-run"}, ""))
+	pattern_Derrick_GetLatestPipelineRun_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4}, []string{"project", "pipeline.owner.project.project", "pipeline", "pipeline.owner.pipeline_name", "latest-run"}, ""))
 
-	pattern_Waypoint_GetLatestPipelineRun_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2}, []string{"pipeline", "pipeline.id", "latest-run"}, ""))
+	pattern_Derrick_GetLatestPipelineRun_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2}, []string{"pipeline", "pipeline.id", "latest-run"}, ""))
 
-	pattern_Waypoint_ListPipelines_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2}, []string{"project", "project.project", "pipelines"}, ""))
+	pattern_Derrick_ListPipelines_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2}, []string{"project", "project.project", "pipelines"}, ""))
 
-	pattern_Waypoint_ListPipelineRuns_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4}, []string{"project", "pipeline.owner.project.project", "pipeline", "pipeline.owner.pipeline_name", "runs"}, ""))
+	pattern_Derrick_ListPipelineRuns_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4}, []string{"project", "pipeline.owner.project.project", "pipeline", "pipeline.owner.pipeline_name", "runs"}, ""))
 
-	pattern_Waypoint_ListPipelineRuns_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2}, []string{"pipeline", "pipeline.id", "runs"}, ""))
+	pattern_Derrick_ListPipelineRuns_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2}, []string{"pipeline", "pipeline.id", "runs"}, ""))
 
-	pattern_Waypoint_ConfigSyncPipeline_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2}, []string{"project", "project.project", "config-sync-pipeline"}, ""))
+	pattern_Derrick_ConfigSyncPipeline_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1, 2, 2}, []string{"project", "project.project", "config-sync-pipeline"}, ""))
 
-	pattern_Waypoint_UI_ListProjects_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "ui", "projects"}, ""))
+	pattern_Derrick_UI_ListProjects_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "ui", "projects"}, ""))
 
-	pattern_Waypoint_UI_GetProject_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"ui", "project", "project.project"}, ""))
+	pattern_Derrick_UI_GetProject_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"ui", "project", "project.project"}, ""))
 
-	pattern_Waypoint_UI_ListDeployments_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3, 1, 0, 4, 1, 5, 4, 2, 5}, []string{"ui", "project", "application.project", "application", "application.application", "deployments"}, ""))
+	pattern_Derrick_UI_ListDeployments_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3, 1, 0, 4, 1, 5, 4, 2, 5}, []string{"ui", "project", "application.project", "application", "application.application", "deployments"}, ""))
 
-	pattern_Waypoint_UI_ListReleases_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3, 1, 0, 4, 1, 5, 4, 2, 5}, []string{"ui", "project", "application.project", "application", "application.application", "releases"}, ""))
+	pattern_Derrick_UI_ListReleases_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3, 1, 0, 4, 1, 5, 4, 2, 5}, []string{"ui", "project", "application.project", "application", "application.application", "releases"}, ""))
 )
 
 var (
-	forward_Waypoint_GetVersionInfo_0 = runtime.ForwardResponseMessage
+	forward_Derrick_GetVersionInfo_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_ListOIDCAuthMethods_0 = runtime.ForwardResponseMessage
+	forward_Derrick_ListOIDCAuthMethods_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_GetOIDCAuthURL_0 = runtime.ForwardResponseMessage
+	forward_Derrick_GetOIDCAuthURL_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_CompleteOIDCAuth_0 = runtime.ForwardResponseMessage
+	forward_Derrick_CompleteOIDCAuth_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_NoAuthRunTrigger_0 = runtime.ForwardResponseMessage
+	forward_Derrick_NoAuthRunTrigger_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_GetUser_0 = runtime.ForwardResponseMessage
+	forward_Derrick_GetUser_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_GetUser_1 = runtime.ForwardResponseMessage
+	forward_Derrick_GetUser_1 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_ListUsers_0 = runtime.ForwardResponseMessage
+	forward_Derrick_ListUsers_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_UpdateUser_0 = runtime.ForwardResponseMessage
+	forward_Derrick_UpdateUser_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_DeleteUser_0 = runtime.ForwardResponseMessage
+	forward_Derrick_DeleteUser_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_DeleteUser_1 = runtime.ForwardResponseMessage
+	forward_Derrick_DeleteUser_1 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_UpsertAuthMethod_0 = runtime.ForwardResponseMessage
+	forward_Derrick_UpsertAuthMethod_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_GetAuthMethod_0 = runtime.ForwardResponseMessage
+	forward_Derrick_GetAuthMethod_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_ListAuthMethods_0 = runtime.ForwardResponseMessage
+	forward_Derrick_ListAuthMethods_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_DeleteAuthMethod_0 = runtime.ForwardResponseMessage
+	forward_Derrick_DeleteAuthMethod_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_ListWorkspaces_0 = runtime.ForwardResponseMessage
+	forward_Derrick_ListWorkspaces_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_ListWorkspaces_1 = runtime.ForwardResponseMessage
+	forward_Derrick_ListWorkspaces_1 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_ListWorkspaces_2 = runtime.ForwardResponseMessage
+	forward_Derrick_ListWorkspaces_2 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_GetWorkspace_0 = runtime.ForwardResponseMessage
+	forward_Derrick_GetWorkspace_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_UpsertWorkspace_0 = runtime.ForwardResponseMessage
+	forward_Derrick_UpsertWorkspace_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_UpsertProject_0 = runtime.ForwardResponseMessage
+	forward_Derrick_UpsertProject_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_GetProject_0 = runtime.ForwardResponseMessage
+	forward_Derrick_GetProject_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_ListProjects_0 = runtime.ForwardResponseMessage
+	forward_Derrick_ListProjects_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_DestroyProject_0 = runtime.ForwardResponseMessage
+	forward_Derrick_DestroyProject_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_GetApplication_0 = runtime.ForwardResponseMessage
+	forward_Derrick_GetApplication_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_UpsertApplication_0 = runtime.ForwardResponseMessage
+	forward_Derrick_UpsertApplication_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_ListBuilds_0 = runtime.ForwardResponseMessage
+	forward_Derrick_ListBuilds_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_ListBuilds_1 = runtime.ForwardResponseMessage
+	forward_Derrick_ListBuilds_1 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_GetBuild_0 = runtime.ForwardResponseMessage
+	forward_Derrick_GetBuild_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_GetBuild_1 = runtime.ForwardResponseMessage
+	forward_Derrick_GetBuild_1 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_GetLatestBuild_0 = runtime.ForwardResponseMessage
+	forward_Derrick_GetLatestBuild_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_GetLatestBuild_1 = runtime.ForwardResponseMessage
+	forward_Derrick_GetLatestBuild_1 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_ListPushedArtifacts_0 = runtime.ForwardResponseMessage
+	forward_Derrick_ListPushedArtifacts_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_ListPushedArtifacts_1 = runtime.ForwardResponseMessage
+	forward_Derrick_ListPushedArtifacts_1 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_GetPushedArtifact_0 = runtime.ForwardResponseMessage
+	forward_Derrick_GetPushedArtifact_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_GetPushedArtifact_1 = runtime.ForwardResponseMessage
+	forward_Derrick_GetPushedArtifact_1 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_GetLatestPushedArtifact_0 = runtime.ForwardResponseMessage
+	forward_Derrick_GetLatestPushedArtifact_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_GetLatestPushedArtifact_1 = runtime.ForwardResponseMessage
+	forward_Derrick_GetLatestPushedArtifact_1 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_ListDeployments_0 = runtime.ForwardResponseMessage
+	forward_Derrick_ListDeployments_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_ListDeployments_1 = runtime.ForwardResponseMessage
+	forward_Derrick_ListDeployments_1 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_GetDeployment_0 = runtime.ForwardResponseMessage
+	forward_Derrick_GetDeployment_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_GetDeployment_1 = runtime.ForwardResponseMessage
+	forward_Derrick_GetDeployment_1 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_ListInstances_0 = runtime.ForwardResponseMessage
+	forward_Derrick_ListInstances_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_ListInstances_1 = runtime.ForwardResponseMessage
+	forward_Derrick_ListInstances_1 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_ListInstances_2 = runtime.ForwardResponseMessage
+	forward_Derrick_ListInstances_2 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_ListReleases_0 = runtime.ForwardResponseMessage
+	forward_Derrick_ListReleases_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_ListReleases_1 = runtime.ForwardResponseMessage
+	forward_Derrick_ListReleases_1 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_GetRelease_0 = runtime.ForwardResponseMessage
+	forward_Derrick_GetRelease_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_GetRelease_1 = runtime.ForwardResponseMessage
+	forward_Derrick_GetRelease_1 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_GetLatestRelease_0 = runtime.ForwardResponseMessage
+	forward_Derrick_GetLatestRelease_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_GetLatestRelease_1 = runtime.ForwardResponseMessage
+	forward_Derrick_GetLatestRelease_1 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_GetStatusReport_0 = runtime.ForwardResponseMessage
+	forward_Derrick_GetStatusReport_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_GetLatestStatusReport_0 = runtime.ForwardResponseMessage
+	forward_Derrick_GetLatestStatusReport_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_GetLatestStatusReport_1 = runtime.ForwardResponseMessage
+	forward_Derrick_GetLatestStatusReport_1 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_ListStatusReports_0 = runtime.ForwardResponseMessage
+	forward_Derrick_ListStatusReports_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_ListStatusReports_1 = runtime.ForwardResponseMessage
+	forward_Derrick_ListStatusReports_1 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_ExpediteStatusReport_0 = runtime.ForwardResponseMessage
+	forward_Derrick_ExpediteStatusReport_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_ExpediteStatusReport_1 = runtime.ForwardResponseMessage
+	forward_Derrick_ExpediteStatusReport_1 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_ExpediteStatusReport_2 = runtime.ForwardResponseMessage
+	forward_Derrick_ExpediteStatusReport_2 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_ExpediteStatusReport_3 = runtime.ForwardResponseMessage
+	forward_Derrick_ExpediteStatusReport_3 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_GetLogStream_0 = runtime.ForwardResponseStream
+	forward_Derrick_GetLogStream_0 = runtime.ForwardResponseStream
 
-	forward_Waypoint_GetLogStream_1 = runtime.ForwardResponseStream
+	forward_Derrick_GetLogStream_1 = runtime.ForwardResponseStream
 
-	forward_Waypoint_GetLogStream_2 = runtime.ForwardResponseStream
+	forward_Derrick_GetLogStream_2 = runtime.ForwardResponseStream
 
-	forward_Waypoint_StartExecStream_0 = runtime.ForwardResponseStream
+	forward_Derrick_StartExecStream_0 = runtime.ForwardResponseStream
 
-	forward_Waypoint_SetConfig_0 = runtime.ForwardResponseMessage
+	forward_Derrick_SetConfig_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_DeleteConfig_0 = runtime.ForwardResponseMessage
+	forward_Derrick_DeleteConfig_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_GetConfig_0 = runtime.ForwardResponseMessage
+	forward_Derrick_GetConfig_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_GetConfig_1 = runtime.ForwardResponseMessage
+	forward_Derrick_GetConfig_1 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_GetConfig_2 = runtime.ForwardResponseMessage
+	forward_Derrick_GetConfig_2 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_SetConfigSource_0 = runtime.ForwardResponseMessage
+	forward_Derrick_SetConfigSource_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_DeleteConfigSource_0 = runtime.ForwardResponseMessage
+	forward_Derrick_DeleteConfigSource_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_GetConfigSource_0 = runtime.ForwardResponseMessage
+	forward_Derrick_GetConfigSource_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_CreateHostname_0 = runtime.ForwardResponseMessage
+	forward_Derrick_CreateHostname_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_CreateHostname_1 = runtime.ForwardResponseMessage
+	forward_Derrick_CreateHostname_1 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_DeleteHostname_0 = runtime.ForwardResponseMessage
+	forward_Derrick_DeleteHostname_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_ListHostnames_0 = runtime.ForwardResponseMessage
+	forward_Derrick_ListHostnames_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_ListHostnames_1 = runtime.ForwardResponseMessage
+	forward_Derrick_ListHostnames_1 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_QueueJob_0 = runtime.ForwardResponseMessage
+	forward_Derrick_QueueJob_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_CancelJob_0 = runtime.ForwardResponseMessage
+	forward_Derrick_CancelJob_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_GetJob_0 = runtime.ForwardResponseMessage
+	forward_Derrick_GetJob_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_ListJobs_0 = runtime.ForwardResponseMessage
+	forward_Derrick_ListJobs_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_ListJobs_1 = runtime.ForwardResponseMessage
+	forward_Derrick_ListJobs_1 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_ListJobs_2 = runtime.ForwardResponseMessage
+	forward_Derrick_ListJobs_2 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_ListJobs_3 = runtime.ForwardResponseMessage
+	forward_Derrick_ListJobs_3 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_ListJobs_4 = runtime.ForwardResponseMessage
+	forward_Derrick_ListJobs_4 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_ValidateJob_0 = runtime.ForwardResponseMessage
+	forward_Derrick_ValidateJob_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_GetJobStream_0 = runtime.ForwardResponseStream
+	forward_Derrick_GetJobStream_0 = runtime.ForwardResponseStream
 
-	forward_Waypoint_GetRunner_0 = runtime.ForwardResponseMessage
+	forward_Derrick_GetRunner_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_ListRunners_0 = runtime.ForwardResponseMessage
+	forward_Derrick_ListRunners_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_AdoptRunner_0 = runtime.ForwardResponseMessage
+	forward_Derrick_AdoptRunner_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_ForgetRunner_0 = runtime.ForwardResponseMessage
+	forward_Derrick_ForgetRunner_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_GetServerConfig_0 = runtime.ForwardResponseMessage
+	forward_Derrick_GetServerConfig_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_SetServerConfig_0 = runtime.ForwardResponseMessage
+	forward_Derrick_SetServerConfig_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_DecodeToken_0 = runtime.ForwardResponseMessage
+	forward_Derrick_DecodeToken_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_GenerateInviteToken_0 = runtime.ForwardResponseMessage
+	forward_Derrick_GenerateInviteToken_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_GenerateLoginToken_0 = runtime.ForwardResponseMessage
+	forward_Derrick_GenerateLoginToken_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_GenerateRunnerToken_0 = runtime.ForwardResponseMessage
+	forward_Derrick_GenerateRunnerToken_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_ConvertInviteToken_0 = runtime.ForwardResponseMessage
+	forward_Derrick_ConvertInviteToken_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_DerrickHclFmt_0 = runtime.ForwardResponseMessage
+	forward_Derrick_DerrickHclFmt_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_UpsertOnDemandRunnerConfig_0 = runtime.ForwardResponseMessage
+	forward_Derrick_UpsertOnDemandRunnerConfig_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_GetOnDemandRunnerConfig_0 = runtime.ForwardResponseMessage
+	forward_Derrick_GetOnDemandRunnerConfig_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_GetOnDemandRunnerConfig_1 = runtime.ForwardResponseMessage
+	forward_Derrick_GetOnDemandRunnerConfig_1 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_ListOnDemandRunnerConfigs_0 = runtime.ForwardResponseMessage
+	forward_Derrick_ListOnDemandRunnerConfigs_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_GetTask_0 = runtime.ForwardResponseMessage
+	forward_Derrick_GetTask_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_GetTask_1 = runtime.ForwardResponseMessage
+	forward_Derrick_GetTask_1 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_ListTask_0 = runtime.ForwardResponseMessage
+	forward_Derrick_ListTask_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_CancelTask_0 = runtime.ForwardResponseMessage
+	forward_Derrick_CancelTask_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_CancelTask_1 = runtime.ForwardResponseMessage
+	forward_Derrick_CancelTask_1 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_UpsertTrigger_0 = runtime.ForwardResponseMessage
+	forward_Derrick_UpsertTrigger_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_GetTrigger_0 = runtime.ForwardResponseMessage
+	forward_Derrick_GetTrigger_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_GetTrigger_1 = runtime.ForwardResponseMessage
+	forward_Derrick_GetTrigger_1 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_ListTriggers_0 = runtime.ForwardResponseMessage
+	forward_Derrick_ListTriggers_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_ListTriggers_1 = runtime.ForwardResponseMessage
+	forward_Derrick_ListTriggers_1 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_ListTriggers_2 = runtime.ForwardResponseMessage
+	forward_Derrick_ListTriggers_2 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_ListTriggers_3 = runtime.ForwardResponseMessage
+	forward_Derrick_ListTriggers_3 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_RunTrigger_0 = runtime.ForwardResponseMessage
+	forward_Derrick_RunTrigger_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_RunPipeline_0 = runtime.ForwardResponseMessage
+	forward_Derrick_RunPipeline_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_RunPipeline_1 = runtime.ForwardResponseMessage
+	forward_Derrick_RunPipeline_1 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_GetPipeline_0 = runtime.ForwardResponseMessage
+	forward_Derrick_GetPipeline_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_GetPipeline_1 = runtime.ForwardResponseMessage
+	forward_Derrick_GetPipeline_1 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_GetPipelineRun_0 = runtime.ForwardResponseMessage
+	forward_Derrick_GetPipelineRun_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_GetPipelineRun_1 = runtime.ForwardResponseMessage
+	forward_Derrick_GetPipelineRun_1 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_GetLatestPipelineRun_0 = runtime.ForwardResponseMessage
+	forward_Derrick_GetLatestPipelineRun_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_GetLatestPipelineRun_1 = runtime.ForwardResponseMessage
+	forward_Derrick_GetLatestPipelineRun_1 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_ListPipelines_0 = runtime.ForwardResponseMessage
+	forward_Derrick_ListPipelines_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_ListPipelineRuns_0 = runtime.ForwardResponseMessage
+	forward_Derrick_ListPipelineRuns_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_ListPipelineRuns_1 = runtime.ForwardResponseMessage
+	forward_Derrick_ListPipelineRuns_1 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_ConfigSyncPipeline_0 = runtime.ForwardResponseMessage
+	forward_Derrick_ConfigSyncPipeline_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_UI_ListProjects_0 = runtime.ForwardResponseMessage
+	forward_Derrick_UI_ListProjects_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_UI_GetProject_0 = runtime.ForwardResponseMessage
+	forward_Derrick_UI_GetProject_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_UI_ListDeployments_0 = runtime.ForwardResponseMessage
+	forward_Derrick_UI_ListDeployments_0 = runtime.ForwardResponseMessage
 
-	forward_Waypoint_UI_ListReleases_0 = runtime.ForwardResponseMessage
+	forward_Derrick_UI_ListReleases_0 = runtime.ForwardResponseMessage
 )

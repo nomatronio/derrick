@@ -701,7 +701,7 @@ func TestServiceGetJobStream_bufferedData(t *testing.T, factory Factory) {
 	}))
 
 	// Get our job stream and verify we open
-	var stream pb.Waypoint_GetJobStreamClient
+	var stream pb.Derrick_GetJobStreamClient
 	require.Eventually(func() bool {
 		stream, err = client.GetJobStream(ctx, &pb.GetJobStreamRequest{JobId: queueResp.JobId})
 		if err != nil {
@@ -939,7 +939,7 @@ func TestServiceGetJobStream_expired(t *testing.T, factory Factory) {
 // type is matched.
 func jobStreamRecv(
 	t *testing.T,
-	stream pb.Waypoint_GetJobStreamClient,
+	stream pb.Derrick_GetJobStreamClient,
 	typ interface{},
 ) *pb.GetJobStreamResponse {
 	match := reflect.TypeOf(typ)

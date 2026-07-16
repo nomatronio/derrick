@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package ec2;
 
-option go_package = "waypoint/builtin/aws/ec2";
+option go_package = "github.com/nomatronio/derrick/builtin/aws/ec2";
 
 message Deployment {
   string service_name = 1;

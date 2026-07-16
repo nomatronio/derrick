@@ -295,7 +295,7 @@ func (ceb *CEB) writeFiles(log hclog.Logger, cfg *config, env *appconfig.Updated
 
 func (ceb *CEB) recvConfig(
 	ctx context.Context,
-	client pb.Waypoint_EntrypointConfigClient,
+	client pb.Derrick_EntrypointConfigClient,
 	ch chan<- *pb.EntrypointConfig,
 	reconnect func() error,
 ) {

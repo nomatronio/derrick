@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package function_url;
 
-option go_package = "waypoint/builtin/aws/lambda/function_url";
+option go_package = "github.com/nomatronio/derrick/builtin/aws/lambda/function_url";
 
 import "opaqueany/any.proto";
 

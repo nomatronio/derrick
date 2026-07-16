@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package ecs;
 
-option go_package = "waypoint/builtin/aws/ecs";
+option go_package = "github.com/nomatronio/derrick/builtin/aws/ecs";
 
 import "opaqueany/any.proto";
 

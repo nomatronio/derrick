@@ -13,7 +13,13 @@
 
 var jspb = require('google-protobuf');
 var goog = jspb;
-var global = Function('return this')();
+var global =
+    (typeof globalThis !== 'undefined' && globalThis) ||
+    (typeof window !== 'undefined' && window) ||
+    (typeof global !== 'undefined' && global) ||
+    (typeof self !== 'undefined' && self) ||
+    (function () { return this; }).call(null) ||
+    Function('return this')();
 
 goog.exportSymbol('proto.google.api.Control', null, global);
 /**
@@ -69,7 +75,7 @@ proto.google.api.Control.prototype.toObject = function(opt_includeInstance) {
  */
 proto.google.api.Control.toObject = function(includeInstance, msg) {
   var f, obj = {
-    environment: jspb.Message.getFieldWithDefault(msg, 1, "")
+environment: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {

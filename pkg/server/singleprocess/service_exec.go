@@ -18,7 +18,7 @@ import (
 )
 
 func (s *Service) StartExecStream(
-	srv pb.Waypoint_StartExecStreamServer,
+	srv pb.Derrick_StartExecStreamServer,
 ) error {
 	ctx := srv.Context()
 	log := hclog.FromContext(srv.Context())
@@ -261,7 +261,7 @@ func (s *Service) StartExecStream(
 
 func (s *Service) handleEntrypointExecRequest(
 	log hclog.Logger,
-	srv pb.Waypoint_StartExecStreamServer,
+	srv pb.Derrick_StartExecStreamServer,
 	entryReq *pb.EntrypointExecRequest,
 ) (bool, error) {
 	log.Trace("event received from entrypoint", "event", entryReq.Event)

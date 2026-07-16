@@ -128,17 +128,23 @@ gen/server: # Generates server protobuf Go files from server.proto
 	@test -s "thirdparty/proto/api-common-protos/.git" || { echo "git submodules not initialized, run 'git submodule update --init --recursive' and try again"; exit 1; }
 	go generate ./pkg/server
 
+.PHONY: gen
+gen: gen/server gen/client gen/plugins gen/ts # Regenerate all protobuf-derived artifacts
+
 .PHONY: gen/client
 gen/client: # Generates grpc-gateway client from server.swagger.json
 	go generate ./pkg/client
 
 .PHONY: gen/ts
 gen/ts: # Generates frontend typescript files
+	@command -v protoc-gen-grpc-web >/dev/null 2>&1 || { echo "missing protoc-gen-grpc-web; run: bash scripts/install-proto-ts-tools.sh"; exit 1; }
+	@command -v protoc-gen-js >/dev/null 2>&1 || { echo "missing protoc-gen-js; run: bash scripts/install-proto-ts-tools.sh"; exit 1; }
+	@command -v protoc-gen-ts >/dev/null 2>&1 || { echo "missing protoc-gen-ts; run: bash scripts/install-proto-ts-tools.sh"; exit 1; }
 	# Clear existing generated files
 	@rm -rf ./ui/lib/api-common-protos/google 2> /dev/null
 	@rm -rf ./ui/lib/opaqueany/*.{js,ts} 2> /dev/null
-	@rm -rf ./ui/lib/waypoint-client/*.ts 2> /dev/null
-	@rm -rf ./ui/lib/waypoint-pb/*.{js,d.ts} 2> /dev/null
+	@rm -rf ./ui/lib/derrick-client/*.ts 2> /dev/null
+	@rm -rf ./ui/lib/derrick-pb/*.{js,d.ts} 2> /dev/null
 
 	# Generate JS and gRPCWeb libraries from pkg/server/proto/server.proto
 	protoc \
@@ -146,25 +152,30 @@ gen/ts: # Generates frontend typescript files
 		-I=./thirdparty/proto/api-common-protos/ \
 		-I=./thirdparty/proto/opaqueany/ \
 		./pkg/server/proto/server.proto \
-		--js_out=import_style=commonjs:ui/lib/waypoint-pb/ \
-		--grpc-web_out=import_style=typescript,mode=grpcwebtext:ui/lib/waypoint-client/
+		--js_out=import_style=commonjs:ui/lib/derrick-pb/ \
+		--grpc-web_out=import_style=typescript,mode=grpcwebtext:ui/lib/derrick-client/
 
 	# Rearrange generated libraries
-	@mv ./ui/lib/waypoint-client/pkg/server/proto/* ./ui/lib/waypoint-client/
-	@rm -rf ./ui/lib/waypoint-client/pkg
-	@mv ./ui/lib/waypoint-client/server_pb.d.ts ./ui/lib/waypoint-pb/
-	@mv ./ui/lib/waypoint-pb/pkg/server/proto/* ./ui/lib/waypoint-pb/
-	@rm -rf ./ui/lib/waypoint-pb/pkg
+	@mv ./ui/lib/derrick-client/pkg/server/proto/* ./ui/lib/derrick-client/
+	@rm -rf ./ui/lib/derrick-client/pkg
+	@mv ./ui/lib/derrick-client/server_pb.d.ts ./ui/lib/derrick-pb/
+	@mv ./ui/lib/derrick-pb/pkg/server/proto/* ./ui/lib/derrick-pb/
+	@rm -rf ./ui/lib/derrick-pb/pkg
 
 	# Hack: fix import of api-common-protos and various JS/TS imports
 	# These issues below will help:
 	#   https://github.com/protocolbuffers/protobuf/issues/5119
 	#   https://github.com/protocolbuffers/protobuf/issues/6341
-	find . -type f -wholename './ui/lib/waypoint-pb/*' | xargs sed -i 's/\.\.\/\.\.\/\.\.\/google/api-common-protos\/google/g'
-	find . -type f -wholename './ui/lib/waypoint-pb/*' | xargs sed -i 's/\.\.\/\.\.\/\.\.\/any_pb/opaqueany\/any_pb/g'
-	find . -type f -wholename './ui/lib/waypoint-client/*' | xargs sed -i 's/\.\.\/\.\.\/\.\.\/google/api-common-protos\/google/g'
-	find . -type f -wholename './ui/lib/waypoint-client/*' | xargs sed -i 's/\.\/server_pb/waypoint-pb/g'
-	find . -type f -wholename './ui/lib/waypoint-client/*' | xargs sed -i 's/\.\.\/\.\.\/\.\.\/pkg\/server\/proto\/server_pb/waypoint-pb/g'
+	find . -type f -wholename './ui/lib/derrick-pb/*' | xargs sed -i '' 's/\.\.\/\.\.\/\.\.\/google/api-common-protos\/google/g'
+	find . -type f -wholename './ui/lib/derrick-pb/*' | xargs sed -i '' 's/\.\.\/\.\.\/\.\.\/any_pb/opaqueany\/any_pb/g'
+	find . -type f -wholename './ui/lib/derrick-client/*' | xargs sed -i '' 's/\.\.\/\.\.\/\.\.\/google/api-common-protos\/google/g'
+	find . -type f -wholename './ui/lib/derrick-client/*' | xargs sed -i '' 's/\.\/server_pb/derrick-pb/g'
+	find . -type f -wholename './ui/lib/derrick-client/*' | xargs sed -i '' 's/\.\.\/\.\.\/\.\.\/pkg\/server\/proto\/server_pb/derrick-pb/g'
+
+	# Fix package names for Ember link: dependencies
+	@sed -i '' 's/"name": "waypoint-pb"/"name": "derrick-pb"/' ./ui/lib/derrick-pb/package.json
+	@sed -i '' 's/"name": "waypoint-client"/"name": "derrick-client"/' ./ui/lib/derrick-client/package.json
+	@sed -i '' "s/from 'waypoint-pb'/from 'derrick-pb'/g" ./ui/lib/derrick-client/ServerServiceClientPb.ts
 
 	# Generate JS and TS from thirdparty/proto/api-common-protos
 	protoc \

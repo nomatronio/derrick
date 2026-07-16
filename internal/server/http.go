@@ -63,7 +63,7 @@ func newHttpServer(grpcServer *grpc.Server, ln net.Listener, opts *options) (*ht
 		),
 	)
 
-	err := gen.RegisterWaypointHandlerFromEndpoint(opts.Context, grpcHandler, grpcAddr, grpcOpts)
+	err := gen.RegisterDerrickHandlerFromEndpoint(opts.Context, grpcHandler, grpcAddr, grpcOpts)
 	if err != nil {
 		return nil, err
 	}

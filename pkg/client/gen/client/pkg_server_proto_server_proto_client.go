@@ -10,7 +10,7 @@ import (
 	httptransport "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
 
-	"github.com/nomatronio/derrick/pkg/client/gen/client/waypoint"
+	"github.com/nomatronio/derrick/pkg/client/gen/client/derrick"
 )
 
 // Default pkg server proto server proto HTTP client.
@@ -55,7 +55,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *PkgServerP
 
 	cli := new(PkgServerProtoServerProto)
 	cli.Transport = transport
-	cli.Waypoint = waypoint.New(transport, formats)
+	cli.Derrick = derrick.New(transport, formats)
 	return cli
 }
 
@@ -100,7 +100,7 @@ func (cfg *TransportConfig) WithSchemes(schemes []string) *TransportConfig {
 
 // PkgServerProtoServerProto is a client for pkg server proto server proto
 type PkgServerProtoServerProto struct {
-	Waypoint waypoint.ClientService
+	Derrick derrick.ClientService
 
 	Transport runtime.ClientTransport
 }
@@ -108,5 +108,5 @@ type PkgServerProtoServerProto struct {
 // SetTransport changes the transport on the client and all its subresources
 func (c *PkgServerProtoServerProto) SetTransport(transport runtime.ClientTransport) {
 	c.Transport = transport
-	c.Waypoint.SetTransport(transport)
+	c.Derrick.SetTransport(transport)
 }

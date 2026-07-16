@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package ecr;
 
-option go_package = "waypoint/builtin/aws/ecr";
+option go_package = "github.com/nomatronio/derrick/builtin/aws/ecr";
 
 // Image is the artifact type for the registry.
 message Image {

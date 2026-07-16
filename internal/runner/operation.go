@@ -38,7 +38,7 @@ func (r *Runner) executeJob(
 	assignment *pb.RunnerJobStreamResponse_JobAssignment,
 	wd string,
 	clientMutex *sync.Mutex,
-	client pb.Waypoint_RunnerJobStreamClient,
+	client pb.Derrick_RunnerJobStreamClient,
 ) (*pb.Job_Result, error) {
 	job := assignment.Job
 

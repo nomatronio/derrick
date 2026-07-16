@@ -277,7 +277,7 @@ func (ceb *CEB) startExec(execConfig *pb.EntrypointConfig_Exec, env []string) {
 // errors rather than return since there is no reasonable way to handle them.
 func (ceb *CEB) handleExecProcessExit(
 	log hclog.Logger,
-	client pb.Waypoint_EntrypointExecStreamClient,
+	client pb.Derrick_EntrypointExecStreamClient,
 	err error,
 ) {
 	var exitCode int

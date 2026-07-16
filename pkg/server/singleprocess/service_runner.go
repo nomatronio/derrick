@@ -298,7 +298,7 @@ func (s *Service) RunnerToken(
 }
 
 func (s *Service) RunnerConfig(
-	srv pb.Waypoint_RunnerConfigServer,
+	srv pb.Derrick_RunnerConfigServer,
 ) error {
 	log := hclog.FromContext(srv.Context())
 	ctx, cancel := context.WithCancel(srv.Context())
@@ -506,7 +506,7 @@ func (s *Service) RunnerConfig(
 }
 
 func (s *Service) RunnerJobStream(
-	server pb.Waypoint_RunnerJobStreamServer,
+	server pb.Derrick_RunnerJobStreamServer,
 ) error {
 	log := hclog.FromContext(server.Context())
 	ctx, cancel := context.WithCancel(server.Context())
@@ -906,7 +906,7 @@ func (s *Service) RunnerJobStream(
 func (s *Service) handleJobStreamRequest(
 	log hclog.Logger,
 	job *serverstate.Job,
-	srv pb.Waypoint_RunnerJobStreamServer,
+	srv pb.Derrick_RunnerJobStreamServer,
 	req *pb.RunnerJobStreamRequest,
 	logStreamWriter logstream.Writer,
 ) error {

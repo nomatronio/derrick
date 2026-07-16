@@ -136,8 +136,8 @@
     "google-protobuf": "^3.21.0",
     "grpc-web": "link:./lib/grpc-web",
     "opaqueany": "link:./lib/opaqueany",
-    "waypoint-client": "link:./lib/waypoint-client",
-    "waypoint-pb": "link:./lib/waypoint-pb"
+    "derrick-client": "link:./lib/derrick-client",
+    "derrick-pb": "link:./lib/derrick-pb"
   },
   "ember-addon": {}
 }

@@ -13,7 +13,13 @@
 
 var jspb = require('google-protobuf');
 var goog = jspb;
-var global = Function('return this')();
+var global =
+    (typeof globalThis !== 'undefined' && globalThis) ||
+    (typeof window !== 'undefined' && window) ||
+    (typeof global !== 'undefined' && global) ||
+    (typeof self !== 'undefined' && self) ||
+    (function () { return this; }).call(null) ||
+    Function('return this')();
 
 var google_api_annotations_pb = require('../../google/api/annotations_pb.js');
 goog.object.extend(proto, google_api_annotations_pb);
@@ -100,10 +106,10 @@ proto.google.api.Usage.prototype.toObject = function(opt_includeInstance) {
  */
 proto.google.api.Usage.toObject = function(includeInstance, msg) {
   var f, obj = {
-    requirementsList: (f = jspb.Message.getRepeatedField(msg, 1)) == null ? undefined : f,
-    rulesList: jspb.Message.toObjectList(msg.getRulesList(),
+requirementsList: (f = jspb.Message.getRepeatedField(msg, 1)) == null ? undefined : f,
+rulesList: jspb.Message.toObjectList(msg.getRulesList(),
     proto.google.api.UsageRule.toObject, includeInstance),
-    producerNotificationChannel: jspb.Message.getFieldWithDefault(msg, 7, "")
+producerNotificationChannel: jspb.Message.getFieldWithDefault(msg, 7, "")
   };
 
   if (includeInstance) {
@@ -332,9 +338,9 @@ proto.google.api.UsageRule.prototype.toObject = function(opt_includeInstance) {
  */
 proto.google.api.UsageRule.toObject = function(includeInstance, msg) {
   var f, obj = {
-    selector: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    allowUnregisteredCalls: jspb.Message.getBooleanFieldWithDefault(msg, 2, false),
-    skipServiceControl: jspb.Message.getBooleanFieldWithDefault(msg, 3, false)
+selector: jspb.Message.getFieldWithDefault(msg, 1, ""),
+allowUnregisteredCalls: jspb.Message.getBooleanFieldWithDefault(msg, 2, false),
+skipServiceControl: jspb.Message.getBooleanFieldWithDefault(msg, 3, false)
   };
 
   if (includeInstance) {

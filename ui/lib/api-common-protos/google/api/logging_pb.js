@@ -13,7 +13,13 @@
 
 var jspb = require('google-protobuf');
 var goog = jspb;
-var global = Function('return this')();
+var global =
+    (typeof globalThis !== 'undefined' && globalThis) ||
+    (typeof window !== 'undefined' && window) ||
+    (typeof global !== 'undefined' && global) ||
+    (typeof self !== 'undefined' && self) ||
+    (function () { return this; }).call(null) ||
+    Function('return this')();
 
 var google_api_annotations_pb = require('../../google/api/annotations_pb.js');
 goog.object.extend(proto, google_api_annotations_pb);
@@ -100,9 +106,9 @@ proto.google.api.Logging.prototype.toObject = function(opt_includeInstance) {
  */
 proto.google.api.Logging.toObject = function(includeInstance, msg) {
   var f, obj = {
-    producerDestinationsList: jspb.Message.toObjectList(msg.getProducerDestinationsList(),
+producerDestinationsList: jspb.Message.toObjectList(msg.getProducerDestinationsList(),
     proto.google.api.Logging.LoggingDestination.toObject, includeInstance),
-    consumerDestinationsList: jspb.Message.toObjectList(msg.getConsumerDestinationsList(),
+consumerDestinationsList: jspb.Message.toObjectList(msg.getConsumerDestinationsList(),
     proto.google.api.Logging.LoggingDestination.toObject, includeInstance)
   };
 
@@ -237,8 +243,8 @@ proto.google.api.Logging.LoggingDestination.prototype.toObject = function(opt_in
  */
 proto.google.api.Logging.LoggingDestination.toObject = function(includeInstance, msg) {
   var f, obj = {
-    monitoredResource: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    logsList: (f = jspb.Message.getRepeatedField(msg, 1)) == null ? undefined : f
+monitoredResource: jspb.Message.getFieldWithDefault(msg, 3, ""),
+logsList: (f = jspb.Message.getRepeatedField(msg, 1)) == null ? undefined : f
   };
 
   if (includeInstance) {

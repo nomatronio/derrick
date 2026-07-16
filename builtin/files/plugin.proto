@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package files;
 
-option go_package = "waypoint/builtin/files";
+option go_package = "github.com/nomatronio/derrick/builtin/files";
 
 message Files {
   string path = 1;

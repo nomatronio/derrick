@@ -13,7 +13,13 @@
 
 var jspb = require('google-protobuf');
 var goog = jspb;
-var global = Function('return this')();
+var global =
+    (typeof globalThis !== 'undefined' && globalThis) ||
+    (typeof window !== 'undefined' && window) ||
+    (typeof global !== 'undefined' && global) ||
+    (typeof self !== 'undefined' && self) ||
+    (function () { return this; }).call(null) ||
+    Function('return this')();
 
 var google_api_annotations_pb = require('../../google/api/annotations_pb.js');
 goog.object.extend(proto, google_api_annotations_pb);
@@ -122,9 +128,9 @@ proto.google.api.Quota.prototype.toObject = function(opt_includeInstance) {
  */
 proto.google.api.Quota.toObject = function(includeInstance, msg) {
   var f, obj = {
-    limitsList: jspb.Message.toObjectList(msg.getLimitsList(),
+limitsList: jspb.Message.toObjectList(msg.getLimitsList(),
     proto.google.api.QuotaLimit.toObject, includeInstance),
-    metricRulesList: jspb.Message.toObjectList(msg.getMetricRulesList(),
+metricRulesList: jspb.Message.toObjectList(msg.getMetricRulesList(),
     proto.google.api.MetricRule.toObject, includeInstance)
   };
 
@@ -328,8 +334,8 @@ proto.google.api.MetricRule.prototype.toObject = function(opt_includeInstance) {
  */
 proto.google.api.MetricRule.toObject = function(includeInstance, msg) {
   var f, obj = {
-    selector: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    metricCostsMap: (f = msg.getMetricCostsMap()) ? f.toObject(includeInstance, undefined) : []
+selector: jspb.Message.getFieldWithDefault(msg, 1, ""),
+metricCostsMap: (f = msg.getMetricCostsMap()) ? f.toObject(includeInstance, undefined) : []
   };
 
   if (includeInstance) {
@@ -456,7 +462,8 @@ proto.google.api.MetricRule.prototype.getMetricCostsMap = function(opt_noLazyCre
  */
 proto.google.api.MetricRule.prototype.clearMetricCostsMap = function() {
   this.getMetricCostsMap().clear();
-  return this;};
+  return this;
+};
 
 
 
@@ -491,16 +498,16 @@ proto.google.api.QuotaLimit.prototype.toObject = function(opt_includeInstance) {
  */
 proto.google.api.QuotaLimit.toObject = function(includeInstance, msg) {
   var f, obj = {
-    name: jspb.Message.getFieldWithDefault(msg, 6, ""),
-    description: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    defaultLimit: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    maxLimit: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    freeTier: jspb.Message.getFieldWithDefault(msg, 7, 0),
-    duration: jspb.Message.getFieldWithDefault(msg, 5, ""),
-    metric: jspb.Message.getFieldWithDefault(msg, 8, ""),
-    unit: jspb.Message.getFieldWithDefault(msg, 9, ""),
-    valuesMap: (f = msg.getValuesMap()) ? f.toObject(includeInstance, undefined) : [],
-    displayName: jspb.Message.getFieldWithDefault(msg, 12, "")
+name: jspb.Message.getFieldWithDefault(msg, 6, ""),
+description: jspb.Message.getFieldWithDefault(msg, 2, ""),
+defaultLimit: jspb.Message.getFieldWithDefault(msg, 3, 0),
+maxLimit: jspb.Message.getFieldWithDefault(msg, 4, 0),
+freeTier: jspb.Message.getFieldWithDefault(msg, 7, 0),
+duration: jspb.Message.getFieldWithDefault(msg, 5, ""),
+metric: jspb.Message.getFieldWithDefault(msg, 8, ""),
+unit: jspb.Message.getFieldWithDefault(msg, 9, ""),
+valuesMap: (f = msg.getValuesMap()) ? f.toObject(includeInstance, undefined) : [],
+displayName: jspb.Message.getFieldWithDefault(msg, 12, "")
   };
 
   if (includeInstance) {
@@ -841,7 +848,8 @@ proto.google.api.QuotaLimit.prototype.getValuesMap = function(opt_noLazyCreate) 
  */
 proto.google.api.QuotaLimit.prototype.clearValuesMap = function() {
   this.getValuesMap().clear();
-  return this;};
+  return this;
+};
 
 
 /**

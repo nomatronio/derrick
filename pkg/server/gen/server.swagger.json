@@ -14,7 +14,7 @@
     "/artifact/{ref.id}": {
       "get": {
         "summary": "GetPushedArtifact returns a deployment",
-        "operationId": "Waypoint_GetPushedArtifact",
+        "operationId": "Derrick_GetPushedArtifact",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -57,14 +57,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/auth-method": {
       "post": {
         "summary": "UpsertAuthMethod upserts the auth method. All users logged in with\nthis auth method will remain logged in even if settings change.",
-        "operationId": "Waypoint_UpsertAuthMethod",
+        "operationId": "Derrick_UpsertAuthMethod",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -90,14 +90,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/auth-method/{auth_method.name}": {
       "get": {
         "summary": "GetAuthMethod returns the auth method.",
-        "operationId": "Waypoint_GetAuthMethod",
+        "operationId": "Derrick_GetAuthMethod",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -121,12 +121,12 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       },
       "delete": {
         "summary": "Delete an auth method. This will invalidate all users authenticated\nusing this auth method and they will have to reauthenticate some other\nway.",
-        "operationId": "Waypoint_DeleteAuthMethod",
+        "operationId": "Derrick_DeleteAuthMethod",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -150,14 +150,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/auth-methods": {
       "get": {
         "summary": "ListAuthMethods returns a list of all the auth methods.",
-        "operationId": "Waypoint_ListAuthMethods",
+        "operationId": "Derrick_ListAuthMethods",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -173,14 +173,14 @@
           }
         },
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/build/{ref.id}": {
       "get": {
         "summary": "GetBuild returns a build",
-        "operationId": "Waypoint_GetBuild",
+        "operationId": "Derrick_GetBuild",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -223,14 +223,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/config-source": {
       "get": {
         "summary": "Get the matching configuration source for the request. This will return\nthe most specific matching config source given the scope in the request.\nFor example, if you search for an app-specific config source and only\na global config exists, the global config will be returned.",
-        "operationId": "Waypoint_GetConfigSource",
+        "operationId": "Derrick_GetConfigSource",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -285,12 +285,12 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       },
       "put": {
         "summary": "Set the configuration for a dynamic configuration source. If you're looking\nto set application configuration, you probably want SetConfig instead.",
-        "operationId": "Waypoint_SetConfigSource",
+        "operationId": "Derrick_SetConfigSource",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -316,14 +316,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/config-source/delete": {
       "put": {
         "summary": "Delete the configuration for a dynamic configuration source",
-        "operationId": "Waypoint_DeleteConfigSource",
+        "operationId": "Derrick_DeleteConfigSource",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -349,14 +349,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/deployment/{deployment.id}/status-report": {
       "put": {
         "summary": "ExpediteStatusReport returns the queued status report job id",
-        "operationId": "Waypoint_ExpediteStatusReport",
+        "operationId": "Derrick_ExpediteStatusReport",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -388,14 +388,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/deployment/{deployment_id}/logs": {
       "post": {
         "summary": "GetLogStream reads the log stream for a deployment. This will immediately\nsend a single LogEntry with the lines we have so far. If there are no\navailable lines this will NOT block and instead will return an error.\nThe client can choose to retry or not.",
-        "operationId": "Waypoint_GetLogStream",
+        "operationId": "Derrick_GetLogStream",
         "responses": {
           "200": {
             "description": "A successful response.(streaming responses)",
@@ -437,14 +437,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/deployment/{ref.id}": {
       "get": {
         "summary": "GetDeployment returns a deployment",
-        "operationId": "Waypoint_GetDeployment",
+        "operationId": "Derrick_GetDeployment",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -500,14 +500,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/exec": {
       "post": {
         "summary": "StartExecStream starts an exec session.",
-        "operationId": "Waypoint_StartExecStream",
+        "operationId": "Derrick_StartExecStream",
         "responses": {
           "200": {
             "description": "A successful response.(streaming responses)",
@@ -543,14 +543,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/hcl/format": {
       "post": {
-        "summary": "DerrickHclFmt formats a waypoint.hcl file. This must be in HCL format.\nJSON formatting is not supported.",
-        "operationId": "Waypoint_DerrickHclFmt",
+        "summary": "DerrickHclFmt formats a derrick.hcl file. This must be in HCL format.\nJSON formatting is not supported.",
+        "operationId": "Derrick_DerrickHclFmt",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -576,14 +576,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/hostname/{hostname}": {
       "delete": {
         "summary": "Delete a hostname with the URL service.",
-        "operationId": "Waypoint_DeleteHostname",
+        "operationId": "Derrick_DeleteHostname",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -607,14 +607,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/instances/{deployment_id}": {
       "get": {
         "summary": "ListInstances returns the running instances of deployments.",
-        "operationId": "Waypoint_ListInstances",
+        "operationId": "Derrick_ListInstances",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -664,7 +664,7 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
@@ -672,7 +672,7 @@
       "put": {
         "summary": "CancelJob cancels a job. If the job is still queued this is a quick\nand easy operation. If the job is already completed, then this does\nnothing. If the job is assigned or running, then this will signal\nthe runner about the cancellation but it may take time.",
         "description": "This RPC always returns immediately. You must use GetJob or GetJobStream\nto wait on the status of the cancellation.",
-        "operationId": "Waypoint_CancelJob",
+        "operationId": "Derrick_CancelJob",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -705,14 +705,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/jobs/project/{project.project}": {
       "get": {
-        "summary": "ListJobs will return a list of jobs known to Waypoint server. Can be filtered\nby request on values like workspace, project, application, job state, etc.",
-        "operationId": "Waypoint_ListJobs3",
+        "summary": "ListJobs will return a list of jobs known to Derrick server. Can be filtered\nby request on values like workspace, project, application, job state, etc.",
+        "operationId": "Derrick_ListJobs3",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -829,14 +829,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/jobs/queue": {
       "post": {
         "summary": "QueueJob queues a job for execution by a runner. This will return as\nsoon as the job is queued, it will not wait for execution.",
-        "operationId": "Waypoint_QueueJob",
+        "operationId": "Derrick_QueueJob",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -862,14 +862,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/jobs/runner/by-id/{targetRunner.id.id}": {
       "get": {
-        "summary": "ListJobs will return a list of jobs known to Waypoint server. Can be filtered\nby request on values like workspace, project, application, job state, etc.",
-        "operationId": "Waypoint_ListJobs5",
+        "summary": "ListJobs will return a list of jobs known to Derrick server. Can be filtered\nby request on values like workspace, project, application, job state, etc.",
+        "operationId": "Derrick_ListJobs5",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -986,14 +986,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/jobs/state/{jobState}": {
       "get": {
-        "summary": "ListJobs will return a list of jobs known to Waypoint server. Can be filtered\nby request on values like workspace, project, application, job state, etc.",
-        "operationId": "Waypoint_ListJobs4",
+        "summary": "ListJobs will return a list of jobs known to Derrick server. Can be filtered\nby request on values like workspace, project, application, job state, etc.",
+        "operationId": "Derrick_ListJobs4",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -1111,14 +1111,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/jobs/stream/{job_id}": {
       "get": {
         "summary": "GetJobStream opens a job event stream for a running job. This can be\nused to listen for terminal output and other events of a running job.\nMultiple listeners can open a job stream.",
-        "operationId": "Waypoint_GetJobStream",
+        "operationId": "Derrick_GetJobStream",
         "responses": {
           "200": {
             "description": "A successful response.(streaming responses)",
@@ -1151,14 +1151,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/jobs/validateJob": {
       "post": {
         "summary": "ValidateJob checks if a job appears valid. This will check the job\nstructure itself (i.e. missing fields) and can also check to ensure\nthe job is assignable to a runner.",
-        "operationId": "Waypoint_ValidateJob",
+        "operationId": "Derrick_ValidateJob",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -1184,14 +1184,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/jobs/workspace/{workspace.workspace}": {
       "get": {
-        "summary": "ListJobs will return a list of jobs known to Waypoint server. Can be filtered\nby request on values like workspace, project, application, job state, etc.",
-        "operationId": "Waypoint_ListJobs",
+        "summary": "ListJobs will return a list of jobs known to Derrick server. Can be filtered\nby request on values like workspace, project, application, job state, etc.",
+        "operationId": "Derrick_ListJobs",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -1308,14 +1308,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/jobs/workspace/{workspace.workspace}/state/{jobState}": {
       "get": {
-        "summary": "ListJobs will return a list of jobs known to Waypoint server. Can be filtered\nby request on values like workspace, project, application, job state, etc.",
-        "operationId": "Waypoint_ListJobs2",
+        "summary": "ListJobs will return a list of jobs known to Derrick server. Can be filtered\nby request on values like workspace, project, application, job state, etc.",
+        "operationId": "Derrick_ListJobs2",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -1433,14 +1433,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/jobs/{job_id}": {
       "get": {
         "summary": "GetJob queries a job by ID.",
-        "operationId": "Waypoint_GetJob",
+        "operationId": "Derrick_GetJob",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -1465,14 +1465,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/oidc/methods": {
       "get": {
         "summary": "List the available OIDC providers for authentication. The \"name\" of the\nOIDC provider can be used with GetOIDCAuthURL and CompleteOIDCAuth to\nperform OIDC-based authentication.",
-        "operationId": "Waypoint_ListOIDCAuthMethods",
+        "operationId": "Derrick_ListOIDCAuthMethods",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -1488,14 +1488,14 @@
           }
         },
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/oidc/{auth_method.name}/complete": {
       "post": {
         "summary": "Complete the OIDC auth cycle after receiving the callback from the\nOIDC provider.",
-        "operationId": "Waypoint_CompleteOIDCAuth",
+        "operationId": "Derrick_CompleteOIDCAuth",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -1527,14 +1527,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/oidc/{auth_method.name}/url": {
       "post": {
         "summary": "Get the URL to visit to start authentication with OIDC.",
-        "operationId": "Waypoint_GetOIDCAuthURL",
+        "operationId": "Derrick_GetOIDCAuthURL",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -1566,14 +1566,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/on-demand-runner/by-id/{config.id}": {
       "get": {
         "summary": "GetOnDemandRunnerConfig returns the on-demand runner configuration.",
-        "operationId": "Waypoint_GetOnDemandRunnerConfig",
+        "operationId": "Derrick_GetOnDemandRunnerConfig",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -1603,14 +1603,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/on-demand-runner/by-name/{config.name}": {
       "get": {
         "summary": "GetOnDemandRunnerConfig returns the on-demand runner configuration.",
-        "operationId": "Waypoint_GetOnDemandRunnerConfig2",
+        "operationId": "Derrick_GetOnDemandRunnerConfig2",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -1640,14 +1640,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/on-demand-runners": {
       "get": {
         "summary": "ListOnDemandRunnerConfigs returns a list of all the on-demand runners configs.",
-        "operationId": "Waypoint_ListOnDemandRunnerConfigs",
+        "operationId": "Derrick_ListOnDemandRunnerConfigs",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -1663,14 +1663,14 @@
           }
         },
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/pipeline/{pipeline.id}": {
       "get": {
         "summary": "GetPipeline returns a pipeline proto by pipeline ref id",
-        "operationId": "Waypoint_GetPipeline2",
+        "operationId": "Derrick_GetPipeline2",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -1708,14 +1708,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/pipeline/{pipeline.id}/latest-run": {
       "get": {
         "summary": "GetLatestPipelineRun returns a pipeline run proto by pipeline ref id and sequence",
-        "operationId": "Waypoint_GetLatestPipelineRun2",
+        "operationId": "Derrick_GetLatestPipelineRun2",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -1753,14 +1753,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/pipeline/{pipeline.id}/run": {
       "post": {
         "summary": "RunPipeline queues a pipeline execution.",
-        "operationId": "Waypoint_RunPipeline2",
+        "operationId": "Derrick_RunPipeline2",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -1793,14 +1793,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/pipeline/{pipeline.id}/run/{sequence}": {
       "get": {
         "summary": "GetPipelineRun returns a pipeline run proto by pipeline ref id and sequence",
-        "operationId": "Waypoint_GetPipelineRun2",
+        "operationId": "Derrick_GetPipelineRun2",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -1845,14 +1845,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/pipeline/{pipeline.id}/runs": {
       "get": {
         "summary": "ListPipelineRuns takes a pipeline ref and returns a list of runs of that pipeline.\nIt will return an error if the requested pipeline does not exist, or an empty response\nif there are no runs for the pipeline.",
-        "operationId": "Waypoint_ListPipelineRuns2",
+        "operationId": "Derrick_ListPipelineRuns2",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -1890,14 +1890,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project": {
       "post": {
         "summary": "UpsertProject upserts the project.",
-        "operationId": "Waypoint_UpsertProject",
+        "operationId": "Derrick_UpsertProject",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -1923,14 +1923,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/config": {
       "put": {
         "summary": "Set one or more configuration variables for applications or runners.",
-        "operationId": "Waypoint_SetConfig",
+        "operationId": "Derrick_SetConfig",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -1956,14 +1956,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/config/delete": {
       "put": {
         "summary": "Delete one or more configuration variables for applications or runners.",
-        "operationId": "Waypoint_DeleteConfig",
+        "operationId": "Derrick_DeleteConfig",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -1989,14 +1989,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/{application.application.project}/application/{application.application.application}/instances": {
       "get": {
         "summary": "ListInstances returns the running instances of deployments.",
-        "operationId": "Waypoint_ListInstances2",
+        "operationId": "Derrick_ListInstances2",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -2046,14 +2046,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/{application.application.project}/application/{application.application.application}/logs": {
       "post": {
         "summary": "GetLogStream reads the log stream for a deployment. This will immediately\nsend a single LogEntry with the lines we have so far. If there are no\navailable lines this will NOT block and instead will return an error.\nThe client can choose to retry or not.",
-        "operationId": "Waypoint_GetLogStream2",
+        "operationId": "Derrick_GetLogStream2",
         "responses": {
           "200": {
             "description": "A successful response.(streaming responses)",
@@ -2100,14 +2100,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/{application.application.project}/application/{application.application.application}/workspace/{application.workspace.workspace}/instances": {
       "get": {
         "summary": "ListInstances returns the running instances of deployments.",
-        "operationId": "Waypoint_ListInstances3",
+        "operationId": "Derrick_ListInstances3",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -2157,14 +2157,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/{application.application.project}/application/{application.application.application}/workspace/{application.workspace.workspace}/logs": {
       "post": {
         "summary": "GetLogStream reads the log stream for a deployment. This will immediately\nsend a single LogEntry with the lines we have so far. If there are no\navailable lines this will NOT block and instead will return an error.\nThe client can choose to retry or not.",
-        "operationId": "Waypoint_GetLogStream3",
+        "operationId": "Derrick_GetLogStream3",
         "responses": {
           "200": {
             "description": "A successful response.(streaming responses)",
@@ -2217,14 +2217,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/{application.project}/application/{application.application}": {
       "get": {
         "summary": "GetApplication returns one application on the project.",
-        "operationId": "Waypoint_GetApplication",
+        "operationId": "Derrick_GetApplication",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -2254,14 +2254,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/{application.project}/application/{application.application}/artifact/latest": {
       "get": {
         "summary": "GetLatestPushedArtifact returns the most recent successfully completed\nartifact push for an app.",
-        "operationId": "Waypoint_GetLatestPushedArtifact",
+        "operationId": "Derrick_GetLatestPushedArtifact",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -2297,14 +2297,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/{application.project}/application/{application.application}/artifacts": {
       "get": {
         "summary": "ListPushedArtifacts returns the builds.",
-        "operationId": "Waypoint_ListPushedArtifacts",
+        "operationId": "Derrick_ListPushedArtifacts",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -2374,14 +2374,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/{application.project}/application/{application.application}/build/latest": {
       "get": {
         "summary": "GetLatestBuild returns the most recent successfully completed build\nfor an app.",
-        "operationId": "Waypoint_GetLatestBuild",
+        "operationId": "Derrick_GetLatestBuild",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -2417,14 +2417,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/{application.project}/application/{application.application}/builds": {
       "get": {
         "summary": "ListBuilds returns the builds.",
-        "operationId": "Waypoint_ListBuilds",
+        "operationId": "Derrick_ListBuilds",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -2487,14 +2487,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/{application.project}/application/{application.application}/config": {
       "get": {
         "summary": "Retrieve merged configuration values for a specific scope. You can determine\nwhere a configuration variable was set by looking at the scope field on\neach variable.",
-        "operationId": "Waypoint_GetConfig",
+        "operationId": "Derrick_GetConfig",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -2549,14 +2549,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/{application.project}/application/{application.application}/deployments": {
       "get": {
         "summary": "ListDeployments returns the deployments.",
-        "operationId": "Waypoint_ListDeployments",
+        "operationId": "Derrick_ListDeployments",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -2646,14 +2646,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/{application.project}/application/{application.application}/release/latest": {
       "get": {
         "summary": "GetLatestRelease returns the most recent successfully completed\nrelease for an app.",
-        "operationId": "Waypoint_GetLatestRelease",
+        "operationId": "Derrick_GetLatestRelease",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -2703,14 +2703,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/{application.project}/application/{application.application}/releases": {
       "get": {
         "summary": "ListReleases returns the releases.",
-        "operationId": "Waypoint_ListReleases",
+        "operationId": "Derrick_ListReleases",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -2801,14 +2801,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/{application.project}/application/{application.application}/status-report/latest": {
       "get": {
         "summary": "GetLatestStatusReport returns the most recent successfully completed\nhealth report for an app",
-        "operationId": "Waypoint_GetLatestStatusReport",
+        "operationId": "Derrick_GetLatestStatusReport",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -2856,14 +2856,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/{application.project}/application/{application.application}/status-reports": {
       "get": {
         "summary": "ListStatusReports returns the deployments.",
-        "operationId": "Waypoint_ListStatusReports",
+        "operationId": "Derrick_ListStatusReports",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -2952,14 +2952,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/{application.project}/application/{application.application}/triggers": {
       "get": {
         "summary": "ListTriggers takes a request filter, and returns any matching existing triggers",
-        "operationId": "Waypoint_ListTriggers3",
+        "operationId": "Derrick_ListTriggers3",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -3012,14 +3012,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/artifact/latest": {
       "get": {
         "summary": "GetLatestPushedArtifact returns the most recent successfully completed\nartifact push for an app.",
-        "operationId": "Waypoint_GetLatestPushedArtifact2",
+        "operationId": "Derrick_GetLatestPushedArtifact2",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -3055,14 +3055,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/artifacts": {
       "get": {
         "summary": "ListPushedArtifacts returns the builds.",
-        "operationId": "Waypoint_ListPushedArtifacts2",
+        "operationId": "Derrick_ListPushedArtifacts2",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -3132,14 +3132,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/build/latest": {
       "get": {
         "summary": "GetLatestBuild returns the most recent successfully completed build\nfor an app.",
-        "operationId": "Waypoint_GetLatestBuild2",
+        "operationId": "Derrick_GetLatestBuild2",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -3175,14 +3175,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/builds": {
       "get": {
         "summary": "ListBuilds returns the builds.",
-        "operationId": "Waypoint_ListBuilds2",
+        "operationId": "Derrick_ListBuilds2",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -3245,14 +3245,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/deployments": {
       "get": {
         "summary": "ListDeployments returns the deployments.",
-        "operationId": "Waypoint_ListDeployments2",
+        "operationId": "Derrick_ListDeployments2",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -3342,14 +3342,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/release/latest": {
       "get": {
         "summary": "GetLatestRelease returns the most recent successfully completed\nrelease for an app.",
-        "operationId": "Waypoint_GetLatestRelease2",
+        "operationId": "Derrick_GetLatestRelease2",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -3399,14 +3399,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/releases": {
       "get": {
         "summary": "ListReleases returns the releases.",
-        "operationId": "Waypoint_ListReleases2",
+        "operationId": "Derrick_ListReleases2",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -3497,14 +3497,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/status-report/latest": {
       "get": {
         "summary": "GetLatestStatusReport returns the most recent successfully completed\nhealth report for an app",
-        "operationId": "Waypoint_GetLatestStatusReport2",
+        "operationId": "Derrick_GetLatestStatusReport2",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -3552,14 +3552,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/status-reports": {
       "get": {
         "summary": "ListStatusReports returns the deployments.",
-        "operationId": "Waypoint_ListStatusReports2",
+        "operationId": "Derrick_ListStatusReports2",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -3648,14 +3648,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/{application.project}/application/{application.application}/workspace/{workspace.workspace}/triggers": {
       "get": {
         "summary": "ListTriggers takes a request filter, and returns any matching existing triggers",
-        "operationId": "Waypoint_ListTriggers4",
+        "operationId": "Derrick_ListTriggers4",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -3708,7 +3708,7 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
@@ -3716,7 +3716,7 @@
       "get": {
         "summary": "ListWorkspaces returns a list of all workspaces.",
         "description": "Note that currently this list is never pruned, even if a workspace is\nno longer in use. We plan to prune this in a future improvement.",
-        "operationId": "Waypoint_ListWorkspaces3",
+        "operationId": "Derrick_ListWorkspaces3",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -3752,14 +3752,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/{application.project}/{application.application}/config": {
       "get": {
         "summary": "Retrieve merged configuration values for a specific scope. You can determine\nwhere a configuration variable was set by looking at the scope field on\neach variable.",
-        "operationId": "Waypoint_GetConfig3",
+        "operationId": "Derrick_GetConfig3",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -3814,14 +3814,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/{deployment.sequence.application.project}/application/{deployment.sequence.application.application}/deployment/{deployment.sequence.number}/status-report": {
       "put": {
         "summary": "ExpediteStatusReport returns the queued status report job id",
-        "operationId": "Waypoint_ExpediteStatusReport3",
+        "operationId": "Derrick_ExpediteStatusReport3",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -3866,14 +3866,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/{pipeline.owner.project.project}/pipeline/{pipeline.owner.pipeline_name}": {
       "get": {
         "summary": "GetPipeline returns a pipeline proto by pipeline ref id",
-        "operationId": "Waypoint_GetPipeline",
+        "operationId": "Derrick_GetPipeline",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -3911,14 +3911,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/{pipeline.owner.project.project}/pipeline/{pipeline.owner.pipeline_name}/latest-run": {
       "get": {
         "summary": "GetLatestPipelineRun returns a pipeline run proto by pipeline ref id and sequence",
-        "operationId": "Waypoint_GetLatestPipelineRun",
+        "operationId": "Derrick_GetLatestPipelineRun",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -3956,14 +3956,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/{pipeline.owner.project.project}/pipeline/{pipeline.owner.pipeline_name}/run": {
       "post": {
         "summary": "RunPipeline queues a pipeline execution.",
-        "operationId": "Waypoint_RunPipeline",
+        "operationId": "Derrick_RunPipeline",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -4002,14 +4002,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/{pipeline.owner.project.project}/pipeline/{pipeline.owner.pipeline_name}/run/{sequence}": {
       "get": {
         "summary": "GetPipelineRun returns a pipeline run proto by pipeline ref id and sequence",
-        "operationId": "Waypoint_GetPipelineRun",
+        "operationId": "Derrick_GetPipelineRun",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -4054,14 +4054,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/{pipeline.owner.project.project}/pipeline/{pipeline.owner.pipeline_name}/runs": {
       "get": {
         "summary": "ListPipelineRuns takes a pipeline ref and returns a list of runs of that pipeline.\nIt will return an error if the requested pipeline does not exist, or an empty response\nif there are no runs for the pipeline.",
-        "operationId": "Waypoint_ListPipelineRuns",
+        "operationId": "Derrick_ListPipelineRuns",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -4099,14 +4099,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/{project.project}": {
       "get": {
         "summary": "GetProject returns the project.",
-        "operationId": "Waypoint_GetProject",
+        "operationId": "Derrick_GetProject",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -4130,12 +4130,12 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       },
       "delete": {
         "summary": "DestroyProject deletes a project from the database as well as (optionally)\ndestroys all resources created within a project",
-        "operationId": "Waypoint_DestroyProject",
+        "operationId": "Derrick_DestroyProject",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -4159,14 +4159,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/{project.project}/application": {
       "post": {
         "summary": "UpsertApplication upserts an application with a project.",
-        "operationId": "Waypoint_UpsertApplication",
+        "operationId": "Derrick_UpsertApplication",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -4198,14 +4198,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/{project.project}/config": {
       "get": {
         "summary": "Retrieve merged configuration values for a specific scope. You can determine\nwhere a configuration variable was set by looking at the scope field on\neach variable.",
-        "operationId": "Waypoint_GetConfig2",
+        "operationId": "Derrick_GetConfig2",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -4260,14 +4260,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/{project.project}/config-sync-pipeline": {
       "post": {
-        "summary": "ConfigSyncPipeline takes a request for a given project and syncs the current\nproject config to the Waypoint database.",
-        "operationId": "Waypoint_ConfigSyncPipeline",
+        "summary": "ConfigSyncPipeline takes a request for a given project and syncs the current\nproject config to the Derrick database.",
+        "operationId": "Derrick_ConfigSyncPipeline",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -4299,14 +4299,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/{project.project}/pipelines": {
       "get": {
         "summary": "ListPipelines takes a project and evaluates the projects config to get\na list of Pipeline protos to return in the response. These pipelines\nare scoped to a single project from the request. It will return an\nerror if the requested project does not exist, or an empty response\nif no pipelines are defined for the project.",
-        "operationId": "Waypoint_ListPipelines",
+        "operationId": "Derrick_ListPipelines",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -4330,14 +4330,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/{project.project}/triggers": {
       "get": {
         "summary": "ListTriggers takes a request filter, and returns any matching existing triggers",
-        "operationId": "Waypoint_ListTriggers2",
+        "operationId": "Derrick_ListTriggers2",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -4390,7 +4390,7 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
@@ -4398,7 +4398,7 @@
       "get": {
         "summary": "ListWorkspaces returns a list of all workspaces.",
         "description": "Note that currently this list is never pruned, even if a workspace is\nno longer in use. We plan to prune this in a future improvement.",
-        "operationId": "Waypoint_ListWorkspaces2",
+        "operationId": "Derrick_ListWorkspaces2",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -4434,14 +4434,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/{ref.sequence.application.project}/application/{ref.sequence.application.application}/artifact/{ref.sequence.number}": {
       "get": {
         "summary": "GetPushedArtifact returns a deployment",
-        "operationId": "Waypoint_GetPushedArtifact2",
+        "operationId": "Derrick_GetPushedArtifact2",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -4484,14 +4484,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/{ref.sequence.application.project}/application/{ref.sequence.application.application}/build/{ref.sequence.number}": {
       "get": {
         "summary": "GetBuild returns a build",
-        "operationId": "Waypoint_GetBuild2",
+        "operationId": "Derrick_GetBuild2",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -4534,14 +4534,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/{ref.sequence.application.project}/application/{ref.sequence.application.application}/deployment/{ref.sequence.number}": {
       "get": {
         "summary": "GetDeployment returns a deployment",
-        "operationId": "Waypoint_GetDeployment2",
+        "operationId": "Derrick_GetDeployment2",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -4597,14 +4597,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/{ref.sequence.application.project}/application/{ref.sequence.application.application}/release/{ref.sequence.number}": {
       "get": {
         "summary": "GetRelease returns a release",
-        "operationId": "Waypoint_GetRelease2",
+        "operationId": "Derrick_GetRelease2",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -4661,14 +4661,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/{release.sequence.application.project}/application/{release.sequence.application.application}/release/{release.sequence.number}/status-report": {
       "put": {
         "summary": "ExpediteStatusReport returns the queued status report job id",
-        "operationId": "Waypoint_ExpediteStatusReport4",
+        "operationId": "Derrick_ExpediteStatusReport4",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -4713,14 +4713,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/{target.application.application.project}/application/{target.application.application.application}/hostname": {
       "post": {
         "summary": "Create a hostname with the URL service.",
-        "operationId": "Waypoint_CreateHostname",
+        "operationId": "Derrick_CreateHostname",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -4758,14 +4758,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/{target.application.application.project}/application/{target.application.application.application}/hostnames": {
       "get": {
         "summary": "List all our registered hostnames.",
-        "operationId": "Waypoint_ListHostnames",
+        "operationId": "Derrick_ListHostnames",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -4801,14 +4801,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/{target.application.application.project}/application/{target.application.application.application}/workspace/{target.application.workspace.workspace}/hostname": {
       "post": {
         "summary": "Create a hostname with the URL service.",
-        "operationId": "Waypoint_CreateHostname2",
+        "operationId": "Derrick_CreateHostname2",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -4852,14 +4852,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/project/{target.application.application.project}/application/{target.application.application.application}/workspace/{target.application.workspace.workspace}/hostnames": {
       "get": {
         "summary": "List all our registered hostnames.",
-        "operationId": "Waypoint_ListHostnames2",
+        "operationId": "Derrick_ListHostnames2",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -4895,14 +4895,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/projects": {
       "get": {
         "summary": "ListProjects returns a list of all the projects. There is no equivalent\nListApplications because applications are a part of projects and you\ncan use GetProject to get more information about the project.",
-        "operationId": "Waypoint_ListProjects",
+        "operationId": "Derrick_ListProjects",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -4942,14 +4942,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/release/by-id/{ref.id}": {
       "get": {
         "summary": "GetStatusReport returns a StatusReport",
-        "operationId": "Waypoint_GetStatusReport",
+        "operationId": "Derrick_GetStatusReport",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -4992,14 +4992,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/release/{ref.id}": {
       "get": {
         "summary": "GetRelease returns a release",
-        "operationId": "Waypoint_GetRelease",
+        "operationId": "Derrick_GetRelease",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -5056,14 +5056,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/release/{release.id}/status-report": {
       "put": {
         "summary": "ExpediteStatusReport returns the queued status report job id",
-        "operationId": "Waypoint_ExpediteStatusReport2",
+        "operationId": "Derrick_ExpediteStatusReport2",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -5095,14 +5095,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/runner/on-demand": {
       "post": {
         "summary": "UpsertOnDemandRunnerConfig updates or inserts a on-demand runner\nconfiguration. This configuration can be used by projects for running\noperations on just-in-time launched runners.",
-        "operationId": "Waypoint_UpsertOnDemandRunnerConfig",
+        "operationId": "Derrick_UpsertOnDemandRunnerConfig",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -5128,14 +5128,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/runner/{runner_id}": {
       "get": {
         "summary": "GetRunner gets information about a single runner.",
-        "operationId": "Waypoint_GetRunner",
+        "operationId": "Derrick_GetRunner",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -5160,14 +5160,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/runner/{runner_id}/adopt": {
       "post": {
         "summary": "AdoptRunners allows marking a runner as adopted or rejected.",
-        "operationId": "Waypoint_AdoptRunner",
+        "operationId": "Derrick_AdoptRunner",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -5200,14 +5200,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/runner/{runner_id}/forget": {
       "post": {
         "summary": "ForgetRunner deletes an existing runner entry and makes the server\nbehave as if the runner no longer exists. If the runner is currently\nrunning, it will receive errors on subsequent jobs, and will have to\nre-register. A forgotten runner will not be assigned new jobs until\nre-registered.",
-        "operationId": "Waypoint_ForgetRunner",
+        "operationId": "Derrick_ForgetRunner",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -5232,14 +5232,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/runners": {
       "get": {
-        "summary": "ListRunners lists runners that are currently registered with the waypoint server.\nThis list does not include previous on-demand runners that have exited.",
-        "operationId": "Waypoint_ListRunners",
+        "summary": "ListRunners lists runners that are currently registered with the derrick server.\nThis list does not include previous on-demand runners that have exited.",
+        "operationId": "Derrick_ListRunners",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -5255,14 +5255,14 @@
           }
         },
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/server/config": {
       "get": {
-        "summary": "GetServerConfig sets configuration for the Waypoint server.",
-        "operationId": "Waypoint_GetServerConfig",
+        "summary": "GetServerConfig sets configuration for the Derrick server.",
+        "operationId": "Derrick_GetServerConfig",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -5278,12 +5278,12 @@
           }
         },
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       },
       "post": {
-        "summary": "SetServerConfig sets configuration for the Waypoint server.",
-        "operationId": "Waypoint_SetServerConfig",
+        "summary": "SetServerConfig sets configuration for the Derrick server.",
+        "operationId": "Derrick_SetServerConfig",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -5309,14 +5309,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/task/by-job/{ref.job_id}": {
       "get": {
         "summary": "GetTask returns a requested Task message. Or an error if it does not exist.",
-        "operationId": "Waypoint_GetTask2",
+        "operationId": "Derrick_GetTask2",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -5348,14 +5348,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/task/by-job/{ref.job_id}/cancel": {
       "put": {
         "summary": "CancelTask will attempt to gracefully cancel each job in the task job triple",
-        "operationId": "Waypoint_CancelTask2",
+        "operationId": "Derrick_CancelTask2",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -5388,14 +5388,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/task/{ref.id}": {
       "get": {
         "summary": "GetTask returns a requested Task message. Or an error if it does not exist.",
-        "operationId": "Waypoint_GetTask",
+        "operationId": "Derrick_GetTask",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -5427,14 +5427,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/task/{ref.id}/cancel": {
       "put": {
         "summary": "CancelTask will attempt to gracefully cancel each job in the task job triple",
-        "operationId": "Waypoint_CancelTask",
+        "operationId": "Derrick_CancelTask",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -5467,14 +5467,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/tasks": {
       "get": {
         "summary": "ListTask will return a list of all existing Tasks",
-        "operationId": "Waypoint_ListTask",
+        "operationId": "Derrick_ListTask",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -5513,7 +5513,7 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
@@ -5521,7 +5521,7 @@
       "post": {
         "summary": "DecodeToken takes a token string and returns the structured information\nabout the given token. This is useful for frontends (CLI, UI, etc.) to\nlearn more about a token before using it. For example, if a UI wants to\ncreate a signup flow around signup tokens, they can validate the token\nahead of time.",
         "description": "This endpoint does NOT require authentication.",
-        "operationId": "Waypoint_DecodeToken",
+        "operationId": "Derrick_DecodeToken",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -5547,14 +5547,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/token/exchange": {
       "post": {
         "summary": "Exchange a invite token for a login token. If the invite token is\nfor a new user, this will create a new user account with the provided\nusername hint.",
-        "operationId": "Waypoint_ConvertInviteToken",
+        "operationId": "Derrick_ConvertInviteToken",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -5580,14 +5580,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/token/invite": {
       "post": {
-        "summary": "Generate a new invite token that users can exchange for a login token.\nThis can be used to also invite new users to the Waypoint server.",
-        "operationId": "Waypoint_GenerateInviteToken",
+        "summary": "Generate a new invite token that users can exchange for a login token.\nThis can be used to also invite new users to the Derrick server.",
+        "operationId": "Derrick_GenerateInviteToken",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -5613,14 +5613,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/token/login": {
       "post": {
         "summary": "Generate a new login token that users can use to login directly.\nThis can only be called for existing users.",
-        "operationId": "Waypoint_GenerateLoginToken",
+        "operationId": "Derrick_GenerateLoginToken",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -5646,14 +5646,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/token/runner": {
       "post": {
         "summary": "Generate a new runner token that can be used with runners so they\nimmediately begin work. The recommended appraoch is to instead use\nthe adoption flow but this also works.",
-        "operationId": "Waypoint_GenerateRunnerToken",
+        "operationId": "Derrick_GenerateRunnerToken",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -5679,14 +5679,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/trigger/{ref.id}": {
       "get": {
         "summary": "GetTrigger returns a requested trigger message. Or an error if it does not exist.",
-        "operationId": "Waypoint_GetTrigger",
+        "operationId": "Derrick_GetTrigger",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -5710,12 +5710,12 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       },
       "delete": {
         "summary": "GetTrigger returns a requested trigger message. Or an error if it does not exist.",
-        "operationId": "Waypoint_GetTrigger2",
+        "operationId": "Derrick_GetTrigger2",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -5739,12 +5739,12 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       },
       "put": {
         "summary": "RunTrigger will look up the referenced trigger and attempt to queue a job\nbased on the trigger configuration.",
-        "operationId": "Waypoint_RunTrigger",
+        "operationId": "Derrick_RunTrigger",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -5776,14 +5776,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/triggers": {
       "get": {
         "summary": "ListTriggers takes a request filter, and returns any matching existing triggers",
-        "operationId": "Waypoint_ListTriggers",
+        "operationId": "Derrick_ListTriggers",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -5836,12 +5836,12 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       },
       "post": {
         "summary": "UpsertTrigger updates or inserts a trigger URL configuration.",
-        "operationId": "Waypoint_UpsertTrigger",
+        "operationId": "Derrick_UpsertTrigger",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -5867,14 +5867,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/triggers/no-auth/{ref.id}/run": {
       "post": {
         "summary": "Attempts to run a trigger given a trigger ID reference. If the trigger does\nnot exist, we return not found. If the trigger exists but requires authentication\nwe return an error.",
-        "operationId": "Waypoint_NoAuthRunTrigger",
+        "operationId": "Derrick_NoAuthRunTrigger",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -5906,14 +5906,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/ui/project/{application.project}/application/{application.application}/deployments": {
       "get": {
         "summary": "List deployments for a given application.",
-        "operationId": "Waypoint_UI_ListDeployments",
+        "operationId": "Derrick_UI_ListDeployments",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -5990,14 +5990,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/ui/project/{application.project}/application/{application.application}/releases": {
       "get": {
         "summary": "List releases for a given application.",
-        "operationId": "Waypoint_UI_ListReleases",
+        "operationId": "Derrick_UI_ListReleases",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -6074,14 +6074,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/ui/project/{project.project}": {
       "get": {
         "summary": "Get a given project with useful related records.",
-        "operationId": "Waypoint_UI_GetProject",
+        "operationId": "Derrick_UI_GetProject",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -6105,14 +6105,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/user/by-id/{user.id.id}": {
       "get": {
         "summary": "GetUser returns the current logged in user or some other user.",
-        "operationId": "Waypoint_GetUser",
+        "operationId": "Derrick_GetUser",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -6142,12 +6142,12 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       },
       "delete": {
         "summary": "Delete a user. This will invalidate all authentication for this user\nas well since they no longer exist.",
-        "operationId": "Waypoint_DeleteUser",
+        "operationId": "Derrick_DeleteUser",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -6177,14 +6177,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/user/by-username/{user.username.username}": {
       "get": {
         "summary": "GetUser returns the current logged in user or some other user.",
-        "operationId": "Waypoint_GetUser2",
+        "operationId": "Derrick_GetUser2",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -6214,12 +6214,12 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       },
       "delete": {
         "summary": "Delete a user. This will invalidate all authentication for this user\nas well since they no longer exist.",
-        "operationId": "Waypoint_DeleteUser2",
+        "operationId": "Derrick_DeleteUser2",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -6249,14 +6249,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/user/{user.id}": {
       "put": {
         "summary": "Update the details about an existing user.",
-        "operationId": "Waypoint_UpdateUser",
+        "operationId": "Derrick_UpdateUser",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -6274,7 +6274,7 @@
         "parameters": [
           {
             "name": "user.id",
-            "description": "Id that is unique to the Waypoint server (usually a ULID).",
+            "description": "Id that is unique to the Derrick server (usually a ULID).",
             "in": "path",
             "required": true,
             "type": "string"
@@ -6289,14 +6289,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/users": {
       "get": {
         "summary": "List all users in the system.",
-        "operationId": "Waypoint_ListUsers",
+        "operationId": "Derrick_ListUsers",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -6312,14 +6312,14 @@
           }
         },
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/v1/ui/projects": {
       "get": {
         "summary": "List full projects (not just refs)",
-        "operationId": "Waypoint_UI_ListProjects",
+        "operationId": "Derrick_UI_ListProjects",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -6359,14 +6359,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/version": {
       "get": {
         "summary": "GetVersionInfo returns information about the server. This RPC call does\nNOT require authentication. It can be used by clients to determine if they\nare capable of talking to this server.",
-        "operationId": "Waypoint_GetVersionInfo",
+        "operationId": "Derrick_GetVersionInfo",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -6382,14 +6382,14 @@
           }
         },
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/workspace": {
       "post": {
         "summary": "UpsertWorkspace upserts the workspace. Changes to a Workspace's Projects\nare ignored at this time.",
-        "operationId": "Waypoint_UpsertWorkspace",
+        "operationId": "Derrick_UpsertWorkspace",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -6415,14 +6415,14 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
     "/workspace/{workspace.workspace}": {
       "get": {
         "summary": "GetWorkspace returns the workspace.",
-        "operationId": "Waypoint_GetWorkspace",
+        "operationId": "Derrick_GetWorkspace",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -6446,7 +6446,7 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     },
@@ -6454,7 +6454,7 @@
       "get": {
         "summary": "ListWorkspaces returns a list of all workspaces.",
         "description": "Note that currently this list is never pruned, even if a workspace is\nno longer in use. We plan to prune this in a future improvement.",
-        "operationId": "Waypoint_ListWorkspaces",
+        "operationId": "Derrick_ListWorkspaces",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -6490,7 +6490,7 @@
           }
         ],
         "tags": [
-          "Waypoint"
+          "Derrick"
         ]
       }
     }
@@ -6501,7 +6501,7 @@
       "properties": {
         "type_url": {
           "type": "string",
-          "description": "A URL/resource name that uniquely identifies the type of the serialized\nprotocol buffer message. This string must contain at least\none \"/\" character. The last segment of the URL's path must represent\nthe fully qualified name of the type (as in\n`path/google.protobuf.Duration`). The name should be in a canonical form\n(e.g., leading \".\" is not accepted).\n\nIn practice, teams usually precompile into the binary all types that they\nexpect it to use in the context of Any. However, for URLs which use the\nscheme `http`, `https`, or no scheme, one can optionally set up a type\nserver that maps type URLs to message definitions as follows:\n\n* If no scheme is provided, `https` is assumed.\n* An HTTP GET on the URL must yield a [google.protobuf.Type][]\n  value in binary format, or produce an error.\n* Applications are allowed to cache lookup results based on the\n  URL, or have them precompiled into a binary to avoid any\n  lookup. Therefore, binary compatibility needs to be preserved\n  on changes to types. (Use versioned type names to manage\n  breaking changes.)\n\nNote: this functionality is not currently available in the official\nprotobuf release, and it is not used for type URLs beginning with\ntype.googleapis.com.\n\nSchemes other than `http`, `https` (or the empty scheme) might be\nused with implementation specific semantics."
+          "description": "A URL/resource name that uniquely identifies the type of the serialized\nprotocol buffer message. This string must contain at least\none \"/\" character. The last segment of the URL's path must represent\nthe fully qualified name of the type (as in\n`path/google.protobuf.Duration`). The name should be in a canonical form\n(e.g., leading \".\" is not accepted).\n\nIn practice, teams usually precompile into the binary all types that they\nexpect it to use in the context of Any. However, for URLs which use the\nscheme `http`, `https`, or no scheme, one can optionally set up a type\nserver that maps type URLs to message definitions as follows:\n\n* If no scheme is provided, `https` is assumed.\n* An HTTP GET on the URL must yield a [google.protobuf.Type][]\n  value in binary format, or produce an error.\n* Applications are allowed to cache lookup results based on the\n  URL, or have them precompiled into a binary to avoid any\n  lookup. Therefore, binary compatibility needs to be preserved\n  on changes to types. (Use versioned type names to manage\n  breaking changes.)\n\nNote: this functionality is not currently available in the official\nprotobuf release, and it is not used for type URLs beginning with\ntype.googleapis.com. As of May 2023, there are no widely used type server\nimplementations and no plans to implement one.\n\nSchemes other than `http`, `https` (or the empty scheme) might be\nused with implementation specific semantics."
         },
         "value": {
           "type": "string",
@@ -6509,7 +6509,7 @@
           "description": "Must be a valid serialized protocol buffer of the above specified type."
         }
       },
-      "description": "`Any` contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message.\n\nProtobuf library provides support to pack/unpack Any values in the form\nof utility functions or additional generated methods of the Any type.\n\nExample 1: Pack and unpack a message in C++.\n\n    Foo foo = ...;\n    Any any;\n    any.PackFrom(foo);\n    ...\n    if (any.UnpackTo(&foo)) {\n      ...\n    }\n\nExample 2: Pack and unpack a message in Java.\n\n    Foo foo = ...;\n    Any any = Any.pack(foo);\n    ...\n    if (any.is(Foo.class)) {\n      foo = any.unpack(Foo.class);\n    }\n\n Example 3: Pack and unpack a message in Python.\n\n    foo = Foo(...)\n    any = Any()\n    any.Pack(foo)\n    ...\n    if any.Is(Foo.DESCRIPTOR):\n      any.Unpack(foo)\n      ...\n\n Example 4: Pack and unpack a message in Go\n\n     foo := &pb.Foo{...}\n     any, err := anypb.New(foo)\n     if err != nil {\n       ...\n     }\n     ...\n     foo := &pb.Foo{}\n     if err := any.UnmarshalTo(foo); err != nil {\n       ...\n     }\n\nThe pack methods provided by protobuf library will by default use\n'type.googleapis.com/full.type.name' as the type URL and the unpack\nmethods only use the fully qualified type name after the last '/'\nin the type URL, for example \"foo.bar.com/x/y.z\" will yield type\nname \"y.z\".\n\n\nJSON\n====\nThe JSON representation of an `Any` value uses the regular\nrepresentation of the deserialized, embedded message, with an\nadditional field `@type` which contains the type URL. Example:\n\n    package google.profile;\n    message Person {\n      string first_name = 1;\n      string last_name = 2;\n    }\n\n    {\n      \"@type\": \"type.googleapis.com/google.profile.Person\",\n      \"firstName\": <string>,\n      \"lastName\": <string>\n    }\n\nIf the embedded message type is well-known and has a custom JSON\nrepresentation, that representation will be embedded adding a field\n`value` which holds the custom JSON in addition to the `@type`\nfield. Example (for message [google.protobuf.Duration][]):\n\n    {\n      \"@type\": \"type.googleapis.com/google.protobuf.Duration\",\n      \"value\": \"1.212s\"\n    }"
+      "description": "`Any` contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message.\n\nProtobuf library provides support to pack/unpack Any values in the form\nof utility functions or additional generated methods of the Any type.\n\nExample 1: Pack and unpack a message in C++.\n\n    Foo foo = ...;\n    Any any;\n    any.PackFrom(foo);\n    ...\n    if (any.UnpackTo(&foo)) {\n      ...\n    }\n\nExample 2: Pack and unpack a message in Java.\n\n    Foo foo = ...;\n    Any any = Any.pack(foo);\n    ...\n    if (any.is(Foo.class)) {\n      foo = any.unpack(Foo.class);\n    }\n    // or ...\n    if (any.isSameTypeAs(Foo.getDefaultInstance())) {\n      foo = any.unpack(Foo.getDefaultInstance());\n    }\n\n Example 3: Pack and unpack a message in Python.\n\n    foo = Foo(...)\n    any = Any()\n    any.Pack(foo)\n    ...\n    if any.Is(Foo.DESCRIPTOR):\n      any.Unpack(foo)\n      ...\n\n Example 4: Pack and unpack a message in Go\n\n     foo := &pb.Foo{...}\n     any, err := anypb.New(foo)\n     if err != nil {\n       ...\n     }\n     ...\n     foo := &pb.Foo{}\n     if err := any.UnmarshalTo(foo); err != nil {\n       ...\n     }\n\nThe pack methods provided by protobuf library will by default use\n'type.googleapis.com/full.type.name' as the type URL and the unpack\nmethods only use the fully qualified type name after the last '/'\nin the type URL, for example \"foo.bar.com/x/y.z\" will yield type\nname \"y.z\".\n\nJSON\n====\nThe JSON representation of an `Any` value uses the regular\nrepresentation of the deserialized, embedded message, with an\nadditional field `@type` which contains the type URL. Example:\n\n    package google.profile;\n    message Person {\n      string first_name = 1;\n      string last_name = 2;\n    }\n\n    {\n      \"@type\": \"type.googleapis.com/google.profile.Person\",\n      \"firstName\": <string>,\n      \"lastName\": <string>\n    }\n\nIf the embedded message type is well-known and has a custom JSON\nrepresentation, that representation will be embedded adding a field\n`value` which holds the custom JSON in addition to the `@type`\nfield. Example (for message [google.protobuf.Duration][]):\n\n    {\n      \"@type\": \"type.googleapis.com/google.protobuf.Duration\",\n      \"value\": \"1.212s\"\n    }"
     },
     "google.rpc.Status": {
       "type": "object",
@@ -6616,7 +6616,7 @@
         },
         "artifact_json": {
           "type": "string",
-          "description": "This is the JSON-encoded protobuf structure of the Any field above.\nThis is generated by the plugin and Waypoint core does not modify this\nvalue or have any enforced structure. This will be different per-plugin."
+          "description": "This is the JSON-encoded protobuf structure of the Any field above.\nThis is generated by the plugin and Derrick core does not modify this\nvalue or have any enforced structure. This will be different per-plugin."
         }
       },
       "description": "Artifact is the result of a build or registry. This is the metadata only.\nThe binary contents of an artifact are expected to be stored in a registry."
@@ -6644,7 +6644,7 @@
           "description": "OIDC uses OpenID Connect for auth. OIDC is supported by most\nmajor identity providers."
         }
       },
-      "description": "AuthMethod is a mechanism for authenticating to the Waypoint server.\nAn AuthMethod deals with AuthN only: it provides identity and trades\nthat for a Waypoint token."
+      "description": "AuthMethod is a mechanism for authenticating to the Derrick server.\nAn AuthMethod deals with AuthN only: it provides identity and trades\nthat for a Derrick token."
     },
     "nomatron.derrick.AuthMethod.OIDC": {
       "type": "object",
@@ -6770,7 +6770,7 @@
       "properties": {
         "job_data_source_ref": {
           "$ref": "#/definitions/nomatron.derrick.Job.DataSource.Ref",
-          "description": "The ref that was used in the job to run this operation. This is\nalso accessible by querying the job via the job_id and should always\nmatch.\n\nThis may be null under multiple circumstances: (1) the job was\nmanually triggered with local data (no datasource) or (2) the job\nwas run in earlier versions of Waypoint before we tracked this or\n(3) the job hasn't yet loaded the data.\n\nThis is always pre-populated if it is exists."
+          "description": "The ref that was used in the job to run this operation. This is\nalso accessible by querying the job via the job_id and should always\nmatch.\n\nThis may be null under multiple circumstances: (1) the job was\nmanually triggered with local data (no datasource) or (2) the job\nwas run in earlier versions of Derrick before we tracked this or\n(3) the job hasn't yet loaded the data.\n\nThis is always pre-populated if it is exists."
         }
       }
     },
@@ -6995,7 +6995,7 @@
         },
         "application": {
           "$ref": "#/definitions/nomatron.derrick.Ref.Application",
-          "description": "These fields used to have docs but removed since they shouldn't be\nused. If you're really trying to figure how to use these old fields,\nsee a Waypoint 0.5 or earlier git checkout."
+          "description": "These fields used to have docs but removed since they shouldn't be\nused. If you're really trying to figure how to use these old fields,\nsee a Derrick 0.5 or earlier git checkout."
         },
         "project": {
           "$ref": "#/definitions/nomatron.derrick.Ref.Project"
@@ -7004,7 +7004,7 @@
           "$ref": "#/definitions/nomatron.derrick.Ref.Runner"
         }
       },
-      "description": "ConfigVars represent configuration variables for applications and runners.\nConfiguration variables can be exposed via env vars, files, and more. They\nare a way to inject configuration into a Waypoint-managed process.\n\nNote that config vars are different from input variables. Input variables\nare a way to parameterize a Waypoint project/app. This is a different feature.\n\n== Conflict Resolution\n\nWhen two configuration variables share the same name and are both\nvalid for a given target environment (for example, config \"foo\" set for\nboth the project and app scope), the following rules are applied to determine\nwhich variable value is used:\n\n  1. If a workspace is set one one but not the other, the variable\n     with the workspace sorts higher than no workspace.\n\n  2. The most specific \"scope\" is used: app over project over global.\n\n  3. If scopes match, the variable with a label selector set is used.\n\n  4. If both have label selectors, the config variable with the longer\n     label selector by string length is used. This is arbitrary but makes\n     the process deterministic."
+      "description": "ConfigVars represent configuration variables for applications and runners.\nConfiguration variables can be exposed via env vars, files, and more. They\nare a way to inject configuration into a Waypoint-managed process.\n\nNote that config vars are different from input variables. Input variables\nare a way to parameterize a Derrick project/app. This is a different feature.\n\n== Conflict Resolution\n\nWhen two configuration variables share the same name and are both\nvalid for a given target environment (for example, config \"foo\" set for\nboth the project and app scope), the following rules are applied to determine\nwhich variable value is used:\n\n  1. If a workspace is set one one but not the other, the variable\n     with the workspace sorts higher than no workspace.\n\n  2. The most specific \"scope\" is used: app over project over global.\n\n  3. If scopes match, the variable with a label selector set is used.\n\n  4. If both have label selectors, the config variable with the longer\n     label selector by string length is used. This is arbitrary but makes\n     the process deterministic."
     },
     "nomatron.derrick.ConfigVar.DynamicVal": {
       "type": "object",
@@ -7218,7 +7218,7 @@
         },
         "deployment_json": {
           "type": "string",
-          "description": "This is the JSON-encoded protobuf structure of the Any field above.\nThis is generated by the plugin and Waypoint core does not modify this\nvalue or have any enforced structure. This will be different per-plugin."
+          "description": "This is the JSON-encoded protobuf structure of the Any field above.\nThis is generated by the plugin and Derrick core does not modify this\nvalue or have any enforced structure. This will be different per-plugin."
         },
         "labels": {
           "type": "object",
@@ -7294,7 +7294,25 @@
         },
         "job_data_source_ref": {
           "$ref": "#/definitions/nomatron.derrick.Job.DataSource.Ref",
-          "description": "The ref that was used in the job to run this operation. This is\nalso accessible by querying the job via the job_id and should always\nmatch.\n\nThis may be null under multiple circumstances: (1) the job was\nmanually triggered with local data (no datasource) or (2) the job\nwas run in earlier versions of Waypoint before we tracked this or\n(3) the job hasn't yet loaded the data.\n\nThis is always pre-populated if it is exists."
+          "description": "The ref that was used in the job to run this operation. This is\nalso accessible by querying the job via the job_id and should always\nmatch.\n\nThis may be null under multiple circumstances: (1) the job was\nmanually triggered with local data (no datasource) or (2) the job\nwas run in earlier versions of Derrick before we tracked this or\n(3) the job hasn't yet loaded the data.\n\nThis is always pre-populated if it is exists."
+        }
+      }
+    },
+    "nomatron.derrick.DerrickHclFmtRequest": {
+      "type": "object",
+      "properties": {
+        "derrick_hcl": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "nomatron.derrick.DerrickHclFmtResponse": {
+      "type": "object",
+      "properties": {
+        "derrick_hcl": {
+          "type": "string",
+          "format": "byte"
         }
       }
     },
@@ -7747,7 +7765,7 @@
       "properties": {
         "id": {
           "type": "string",
-          "description": "Id is the unique identifier for this generation. This value is opaque.\nWaypoint internally only requires that two different generations have\ntwo different IDs. The format of the value can be anything."
+          "description": "Id is the unique identifier for this generation. This value is opaque.\nDerrick internally only requires that two different generations have\ntwo different IDs. The format of the value can be anything."
         },
         "initial_sequence": {
           "type": "string",
@@ -7755,7 +7773,7 @@
           "description": "This is the sequence number of the first operation that introduced\nthis generation. Once all operations using a sequence number are fully\ndestroyed, a reused generation will introduce a new sequence number.\n\nThis should not be manually set. This value will be automatically\npopulated on insert. Updates should not modify this value.\n\nConsumers can compare this to the sequence number of the operation\nto determine if this generation is new or existing."
         }
       },
-      "description": "Generation is a shared message type used by operations to denote the\n\"generation\" they're a part of. A generation denotes whether shared\nphysical resources were used or whether new resources were created.\nAnother way to conceptualize generations: immutable deployment models\nwill create new generations each operation, whereas mutable models will\nreuse a generation.\n\nThe concept of a \"Generation\" was introduced in Waypoint 0.4. Operations\nfrom earlier versions will have nil generations and callers must handle\nthat scenario.\n\n== Read/Write Notes\n\nCallers inserting operations should ONLY set the generation ID. Remaining\nfields will be automatically populated.\n\nUpdates should never modify the generation."
+      "description": "Generation is a shared message type used by operations to denote the\n\"generation\" they're a part of. A generation denotes whether shared\nphysical resources were used or whether new resources were created.\nAnother way to conceptualize generations: immutable deployment models\nwill create new generations each operation, whereas mutable models will\nreuse a generation.\n\nThe concept of a \"Generation\" was introduced in Derrick 0.4. Operations\nfrom earlier versions will have nil generations and callers must handle\nthat scenario.\n\n== Read/Write Notes\n\nCallers inserting operations should ONLY set the generation ID. Remaining\nfields will be automatically populated.\n\nUpdates should never modify the generation."
     },
     "nomatron.derrick.GetApplicationResponse": {
       "type": "object",
@@ -8332,7 +8350,7 @@
           "title": "Which type of instance this is"
         }
       },
-      "description": "An instance is a single running process for a deployment. A deployment\nmay have many instances (for example Kubernetes ReplicaSets spawn many pods).\nAn instance is only represented if you're using the Waypoint Entrypoint.\nOtherwise, the Waypoint server will never be notified of running instances."
+      "description": "An instance is a single running process for a deployment. A deployment\nmay have many instances (for example Kubernetes ReplicaSets spawn many pods).\nAn instance is only represented if you're using the Derrick Entrypoint.\nOtherwise, the Derrick server will never be notified of running instances."
     },
     "nomatron.derrick.Instance.Type": {
       "type": "string",
@@ -8420,7 +8438,7 @@
         },
         "data_source": {
           "$ref": "#/definitions/nomatron.derrick.Job.DataSource",
-          "description": "data_source determines where the data to operate on (such as the\napplication source code and Waypoint configuration) comes from.\nIf this is not set then QueueJob will populate this if a default\ndata source is configured for the target project.\n\nThe overrides will set overrides of configs for the data source. This is\ndata source dependent but this allows for example setting the Git ref\nwithout knowing the full data source. Invalid overrides will fail the\njob.\nErgo, this is optional."
+          "description": "data_source determines where the data to operate on (such as the\napplication source code and Derrick configuration) comes from.\nIf this is not set then QueueJob will populate this if a default\ndata source is configured for the target project.\n\nThe overrides will set overrides of configs for the data source. This is\ndata source dependent but this allows for example setting the Git ref\nwithout knowing the full data source. Invalid overrides will fail the\njob.\nErgo, this is optional."
         },
         "data_source_overrides": {
           "type": "object",
@@ -8430,7 +8448,7 @@
         },
         "derrick_hcl": {
           "$ref": "#/definitions/nomatron.derrick.Hcl",
-          "description": "Waypoint.hcl file contents. This is OPTIONAL and not typically supplied.\nIf this is not provided, the job will source the waypoint.hcl file\nfrom the server or the data source. This can be used to override those\nand force a specific waypoint.hcl to be used."
+          "description": "Derrick.hcl file contents. This is OPTIONAL and not typically supplied.\nIf this is not provided, the job will source the derrick.hcl file\nfrom the server or the data source. This can be used to override those\nand force a specific derrick.hcl to be used."
         },
         "variables": {
           "type": "array",
@@ -8539,11 +8557,11 @@
           "additionalProperties": {
             "$ref": "#/definitions/nomatron.derrick.Variable.FinalValue"
           },
-          "description": "Variable refs store the final value used on the operation for each variable\ndefined in the waypoint.hcl. Any variables with `sensitive` set in the\nwaypoint.hcl will have a value hashed with SHA256 so the user can verify\nthe value used."
+          "description": "Variable refs store the final value used on the operation for each variable\ndefined in the derrick.hcl. Any variables with `sensitive` set in the\nderrick.hcl will have a value hashed with SHA256 so the user can verify\nthe value used."
         },
         "config": {
           "$ref": "#/definitions/nomatron.derrick.Job.Config",
-          "description": "Config is information about the Waypoint configuration (waypoint.hcl)\nfor this job. This is only available once the configuration is loaded.\nIf this is nil and the job is RUNNING, then it may not be loaded yet.\nAPI users can wait on the Job event on the JobStream to listen for\njob updates."
+          "description": "Config is information about the Derrick configuration (derrick.hcl)\nfor this job. This is only available once the configuration is loaded.\nIf this is nil and the job is RUNNING, then it may not be loaded yet.\nAPI users can wait on the Job event on the JobStream to listen for\njob updates."
         },
         "error": {
           "$ref": "#/definitions/google.rpc.Status",
@@ -8667,7 +8685,7 @@
         "JOB"
       ],
       "default": "UNKNOWN",
-      "description": "Source is the location where the configuration was loaded from.\n\n - UNKNOWN: Unknown should never be set, but represents a zero value.\n - FILE: File is when the waypoint.hcl was loaded from a file either\non disk (local actions) or the attached repository (GitOps).\n - SERVER: Server is when the waypoint.hcl was loaded from the server\nfrom being written directly in the project settings.\n - JOB: Job is when the waypoint.hcl was loaded directly from the job by\nbeing embedded in the \"derrick_hcl\" field (tag 12)."
+      "description": "Source is the location where the configuration was loaded from.\n\n - UNKNOWN: Unknown should never be set, but represents a zero value.\n - FILE: File is when the derrick.hcl was loaded from a file either\non disk (local actions) or the attached repository (GitOps).\n - SERVER: Server is when the derrick.hcl was loaded from the server\nfrom being written directly in the project settings.\n - JOB: Job is when the derrick.hcl was loaded directly from the job by\nbeing embedded in the \"derrick_hcl\" field (tag 12)."
     },
     "nomatron.derrick.Job.ConfigSyncOp": {
       "type": "object"
@@ -8688,7 +8706,7 @@
         },
         "remote": {
           "$ref": "#/definitions/nomatron.derrick.Job.Remote",
-          "description": "remote means that the Waypoint server has special logic for how to\nfetch the data."
+          "description": "remote means that the Derrick server has special logic for how to\nfetch the data."
         }
       }
     },
@@ -8874,7 +8892,7 @@
     },
     "nomatron.derrick.Job.InitOp": {
       "type": "object",
-      "description": "InitOp triggers an init action for a project (the equivalent of `waypoint\ninit`). The job will fail if there is no data source configured for the\nproject. As with `waypoint init`, this operation is idempotent."
+      "description": "InitOp triggers an init action for a project (the equivalent of `waypoint\ninit`). The job will fail if there is no data source configured for the\nproject. As with `derrick init`, this operation is idempotent."
     },
     "nomatron.derrick.Job.InitResult": {
       "type": "object"
@@ -9056,7 +9074,7 @@
       "properties": {
         "description": {
           "type": "string",
-          "description": "Description is information about how the Waypoint server\nacquires the data."
+          "description": "Description is information about how the Derrick server\nacquires the data."
         },
         "git_remote": {
           "$ref": "#/definitions/nomatron.derrick.Job.Git",
@@ -9239,7 +9257,7 @@
           "description": "Options for the release stage. The \"deployment\" field in this will\nbe ignored since we'll always use the deployment from the deploy\nstep in Up."
         }
       },
-      "description": "UpOp runs the \"waypoint up\" logic: it does a build (with push),\ndeploy, and release all in one. The results for each child operation\nwill be set directly on the Release message (i.e. \"build\" will be\npopulated in addition to \"up\")."
+      "description": "UpOp runs the \"derrick up\" logic: it does a build (with push),\ndeploy, and release all in one. The results for each child operation\nwill be set directly on the Release message (i.e. \"build\" will be\npopulated in addition to \"up\")."
     },
     "nomatron.derrick.Job.UpResult": {
       "type": "object",
@@ -9747,14 +9765,14 @@
         },
         "project": {
           "$ref": "#/definitions/nomatron.derrick.Ref.Project",
-          "description": "This pipeline is created from a waypoint.hcl file that is synced via VCS."
+          "description": "This pipeline is created from a derrick.hcl file that is synced via VCS."
         },
         "steps": {
           "type": "object",
           "additionalProperties": {
             "$ref": "#/definitions/nomatron.derrick.Pipeline.Step"
           },
-          "description": "The steps that make up this pipeline. This is a set and the order\nhas no meaning; it does not imply any ordering that the steps will\nbe executed. The execution order is purely defined by the \"depends_on\"\nfields on the steps.\n\nThere must be only one \"root\" step. A root step is a step with no\ndependencies. It is an error for there to be more than one root step.\n\nFor API users, the GetPipelineResponse has a number of fields that\nhelp make this much easier to consume, such as a dedicated field for\nthe root step, mermaid-formatted graph output, and more.\n\nThese requirements are usually hidden from users through nicer user\nexperiences for editing: waypoint.hcl syntax (which implicitly creates\nordering and root steps), UIs, etc. All these requirements are noted for\n_internal_ users who are modifying pipelines via the API. For those\ninternal users, they must manage the tedium of adhering to these requirements."
+          "description": "The steps that make up this pipeline. This is a set and the order\nhas no meaning; it does not imply any ordering that the steps will\nbe executed. The execution order is purely defined by the \"depends_on\"\nfields on the steps.\n\nThere must be only one \"root\" step. A root step is a step with no\ndependencies. It is an error for there to be more than one root step.\n\nFor API users, the GetPipelineResponse has a number of fields that\nhelp make this much easier to consume, such as a dedicated field for\nthe root step, mermaid-formatted graph output, and more.\n\nThese requirements are usually hidden from users through nicer user\nexperiences for editing: derrick.hcl syntax (which implicitly creates\nordering and root steps), UIs, etc. All these requirements are noted for\n_internal_ users who are modifying pipelines via the API. For those\ninternal users, they must manage the tedium of adhering to these requirements."
         }
       }
     },
@@ -9939,24 +9957,24 @@
           "items": {
             "$ref": "#/definitions/nomatron.derrick.Application"
           },
-          "description": "The set of applications that are known about this project. Note that\nthis may not exactly represent the project configuration if a user hasn't\nrun `waypoint init` yet.\n\nThe applications cannot be modified in any Project APIs. You must\nuse the dedicated Application APIs."
+          "description": "The set of applications that are known about this project. Note that\nthis may not exactly represent the project configuration if a user hasn't\nrun `derrick init` yet.\n\nThe applications cannot be modified in any Project APIs. You must\nuse the dedicated Application APIs."
         },
         "remote_enabled": {
           "type": "boolean",
-          "description": "If true, then the `-remote` flag or the `waypoint build project/app`\nsyntax can be used with a remote runner. If this is false, then\nthis is not allowed. This is typically configured using the\n`runner {}` block in the waypoint config."
+          "description": "If true, then the `-remote` flag or the `derrick build project/app`\nsyntax can be used with a remote runner. If this is false, then\nthis is not allowed. This is typically configured using the\n`runner {}` block in the derrick config."
         },
         "data_source": {
           "$ref": "#/definitions/nomatron.derrick.Job.DataSource",
-          "description": "Where data is sourced for remote operations. If this isn't set, then\nthere is no default data source and it will be an error if a job is\nqueued for this project without a data source set. This is usually\nset using the `runner {}` block in the waypoint config."
+          "description": "Where data is sourced for remote operations. If this isn't set, then\nthere is no default data source and it will be an error if a job is\nqueued for this project without a data source set. This is usually\nset using the `runner {}` block in the derrick config."
         },
         "data_source_poll": {
           "$ref": "#/definitions/nomatron.derrick.Project.Poll",
-          "description": "Polling settings. Polling will trigger a \"waypoint up\" whenever a\nnew data is detected on the data source. For now, polling is only done\non the `default` workspace. A future version of Waypoint will expand\npolling to other workspaces.\n\nEach polling event is tracked as a separate job. You can query the\npoll operations and their success/failure by using the ListJobs API."
+          "description": "Polling settings. Polling will trigger a \"derrick up\" whenever a\nnew data is detected on the data source. For now, polling is only done\non the `default` workspace. A future version of Derrick will expand\npolling to other workspaces.\n\nEach polling event is tracked as a separate job. You can query the\npoll operations and their success/failure by using the ListJobs API."
         },
         "derrick_hcl": {
           "type": "string",
           "format": "byte",
-          "title": "The contents of a default waypoint.hcl file. This will be used ONLY IF\nthis project does not have a waypoint.hcl file when an operation is\nexecuted. When this is used, local operations can't be run any more\nsince the CLI usually determines the project based on the waypoint.hcl\nfile. The CLI may still be used for remote operations by executing\ni.e. waypoint up <project>"
+          "title": "The contents of a default derrick.hcl file. This will be used ONLY IF\nthis project does not have a derrick.hcl file when an operation is\nexecuted. When this is used, local operations can't be run any more\nsince the CLI usually determines the project based on the derrick.hcl\nfile. The CLI may still be used for remote operations by executing\ni.e. derrick up <project>"
         },
         "derrick_hcl_format": {
           "$ref": "#/definitions/nomatron.derrick.Hcl.Format"
@@ -9974,7 +9992,7 @@
         },
         "status_report_poll": {
           "$ref": "#/definitions/nomatron.derrick.Project.AppStatusPoll",
-          "description": "Application polling settings. Polling will trigger a \"StatusFunc\" for collecting a\nreport on the current status of the application.\nFor now, polling is only done on the `default` workspace. A future\nversion of Waypoint will expand polling to other workspaces.\n\nEach polling event is tracked as a separate job. You can query the\npoll operations and their success/failure by using the ListJobs API."
+          "description": "Application polling settings. Polling will trigger a \"StatusFunc\" for collecting a\nreport on the current status of the application.\nFor now, polling is only done on the `default` workspace. A future\nversion of Derrick will expand polling to other workspaces.\n\nEach polling event is tracked as a separate job. You can query the\npoll operations and their success/failure by using the ListJobs API."
         },
         "state": {
           "$ref": "#/definitions/nomatron.derrick.Project.ProjectState"
@@ -10083,7 +10101,7 @@
       "properties": {
         "job_data_source_ref": {
           "$ref": "#/definitions/nomatron.derrick.Job.DataSource.Ref",
-          "description": "The ref that was used in the job to run this operation. This is\nalso accessible by querying the job via the job_id and should always\nmatch.\n\nThis may be null under multiple circumstances: (1) the job was\nmanually triggered with local data (no datasource) or (2) the job\nwas run in earlier versions of Waypoint before we tracked this or\n(3) the job hasn't yet loaded the data.\n\nThis is always pre-populated if it is exists."
+          "description": "The ref that was used in the job to run this operation. This is\nalso accessible by querying the job via the job_id and should always\nmatch.\n\nThis may be null under multiple circumstances: (1) the job was\nmanually triggered with local data (no datasource) or (2) the job\nwas run in earlier versions of Derrick before we tracked this or\n(3) the job hasn't yet loaded the data.\n\nThis is always pre-populated if it is exists."
         }
       }
     },
@@ -10411,7 +10429,7 @@
         },
         "release_json": {
           "type": "string",
-          "description": "This is the JSON-encoded protobuf structure of the Any field above.\nThis is generated by the plugin and Waypoint core does not modify this\nvalue or have any enforced structure. This will be different per-plugin."
+          "description": "This is the JSON-encoded protobuf structure of the Any field above.\nThis is generated by the plugin and Derrick core does not modify this\nvalue or have any enforced structure. This will be different per-plugin."
         },
         "deployment_id": {
           "type": "string",
@@ -10488,7 +10506,7 @@
         },
         "job_data_source_ref": {
           "$ref": "#/definitions/nomatron.derrick.Job.DataSource.Ref",
-          "description": "The ref that was used in the job to run this operation. This is\nalso accessible by querying the job via the job_id and should always\nmatch.\n\nThis may be null under multiple circumstances: (1) the job was\nmanually triggered with local data (no datasource) or (2) the job\nwas run in earlier versions of Waypoint before we tracked this or\n(3) the job hasn't yet loaded the data.\n\nThis is always pre-populated if it is exists."
+          "description": "The ref that was used in the job to run this operation. This is\nalso accessible by querying the job via the job_id and should always\nmatch.\n\nThis may be null under multiple circumstances: (1) the job was\nmanually triggered with local data (no datasource) or (2) the job\nwas run in earlier versions of Derrick before we tracked this or\n(3) the job hasn't yet loaded the data.\n\nThis is always pre-populated if it is exists."
         }
       }
     },
@@ -10512,7 +10530,7 @@
       "properties": {
         "exit": {
           "type": "boolean",
-          "description": "If true, the server will exit after the restore is staged. This will\nSHUT DOWN the server and some external process you created is expected\nto bring it back. The Waypoint server on its own WILL NOT automatically\nrestart. You should only set this if you have some operation to\nautomate restart such as running in Nomad or Kubernetes."
+          "description": "If true, the server will exit after the restore is staged. This will\nSHUT DOWN the server and some external process you created is expected\nto bring it back. The Derrick server on its own WILL NOT automatically\nrestart. You should only set this if you have some operation to\nautomate restart such as running in Nomad or Kubernetes."
         }
       }
     },
@@ -10624,7 +10642,7 @@
           "additionalProperties": {
             "type": "string"
           },
-          "description": "Labels for the runner. These are the same as labels for any other\nsystem in Waypoint (see operations such as Deployment). For runners, they\ncan additionally be used as a targeting mechanism."
+          "description": "Labels for the runner. These are the same as labels for any other\nsystem in Derrick (see operations such as Deployment). For runners, they\ncan additionally be used as a targeting mechanism."
         },
         "online": {
           "type": "boolean",
@@ -11021,7 +11039,7 @@
           "title": "count of active instance connections from waypoint-entrypoint (ceb). This\nis currently only applicable to deployment type status reports"
         }
       },
-      "description": "StatusReport is the report genrated when querying the overall health of\na deployed or released application. This report is generated after\nan Up Operation, DeployOp or ReleaseOp. In the future Waypoint will be able\nto generate these reports on demand in the UI.\n\nNOTE: This is not related to Status or StatusFilter messages but a message\nused to run the StatusReport job operation for Waypoint Server. The raw SDK\nStatusReport message is stored as an option on this message"
+      "description": "StatusReport is the report genrated when querying the overall health of\na deployed or released application. This report is generated after\nan Up Operation, DeployOp or ReleaseOp. In the future Derrick will be able\nto generate these reports on demand in the UI.\n\nNOTE: This is not related to Status or StatusFilter messages but a message\nused to run the StatusReport job operation for Derrick Server. The raw SDK\nStatusReport message is stored as an option on this message"
     },
     "nomatron.derrick.StatusReport.Health": {
       "type": "object",
@@ -11372,14 +11390,14 @@
           "title": "The OAuth client secret that goes along with the client_id"
         }
       },
-      "description": "The OAuth message contains information that the client should use\nto generate on OAuth token for authenticating with the server rather\nthan just submitting the waypoint token directly."
+      "description": "The OAuth message contains information that the client should use\nto generate on OAuth token for authenticating with the server rather\nthan just submitting the derrick token directly."
     },
     "nomatron.derrick.Trigger": {
       "type": "object",
       "properties": {
         "id": {
           "type": "string",
-          "description": "uuid generated by Waypoint on creation. Used as the identifier in the URL."
+          "description": "uuid generated by Derrick on creation. Used as the identifier in the URL."
         },
         "name": {
           "type": "string",
@@ -11442,7 +11460,7 @@
           "description": "The application to use. Can be empty, this trigger will run on every app\nif not set."
         }
       },
-      "description": "The Trigger message is a representation of a URL that can be requested\nfor invoking specific lifecycle operations on a projects applications. These\ntrigger URLs are intended to be used in a CI system for easy configuration.\nThe user is expected to configure and generate the URL ahead of time, and\nWaypoint will generate a trigger based on the configuration here and return\na URL to make requests with."
+      "description": "The Trigger message is a representation of a URL that can be requested\nfor invoking specific lifecycle operations on a projects applications. These\ntrigger URLs are intended to be used in a CI system for easy configuration.\nThe user is expected to configure and generate the URL ahead of time, and\nDerrick will generate a trigger based on the configuration here and return\na URL to make requests with."
     },
     "nomatron.derrick.UI.DeploymentBundle": {
       "type": "object",
@@ -11465,7 +11483,7 @@
         },
         "job_data_source_ref": {
           "$ref": "#/definitions/nomatron.derrick.Job.DataSource.Ref",
-          "description": "The ref that was used in the job to run this operation. This is\nalso accessible by querying the job via the job_id and should always\nmatch.\n\nThis may be null under multiple circumstances: (1) the job was\nmanually triggered with local data (no datasource) or (2) the job\nwas run in earlier versions of Waypoint before we tracked this or\n(3) the job hasn't yet loaded the data.\n\nThis is always pre-populated if it is exists."
+          "description": "The ref that was used in the job to run this operation. This is\nalso accessible by querying the job via the job_id and should always\nmatch.\n\nThis may be null under multiple circumstances: (1) the job was\nmanually triggered with local data (no datasource) or (2) the job\nwas run in earlier versions of Derrick before we tracked this or\n(3) the job hasn't yet loaded the data.\n\nThis is always pre-populated if it is exists."
         },
         "latest_status_report": {
           "$ref": "#/definitions/nomatron.derrick.StatusReport",
@@ -11753,11 +11771,11 @@
       "properties": {
         "id": {
           "type": "string",
-          "description": "Id that is unique to the Waypoint server (usually a ULID)."
+          "description": "Id that is unique to the Derrick server (usually a ULID)."
         },
         "username": {
           "type": "string",
-          "description": "username, unique to the Waypoint server. May not be blank,\nbut can be changed. We allow changing so that auth methods\nsuch as OIDC can generate non-user-friendly usernames and\nthe user can fix them up later."
+          "description": "username, unique to the Derrick server. May not be blank,\nbut can be changed. We allow changing so that auth methods\nsuch as OIDC can generate non-user-friendly usernames and\nthe user can fix them up later."
         },
         "display": {
           "type": "string",
@@ -11765,7 +11783,7 @@
         },
         "email": {
           "type": "string",
-          "description": "Email, not used for login. May be blank. May not be verified.\nVerification currently depends on the auth system. One day maybe\nWaypoint will handle this."
+          "description": "Email, not used for login. May be blank. May not be verified.\nVerification currently depends on the auth system. One day maybe\nDerrick will handle this."
         },
         "links": {
           "type": "array",
@@ -11775,7 +11793,7 @@
           "description": "Links is the list of account links with 3rd party\nidentity systems."
         }
       },
-      "description": "User represents a single user identity within the Waypoint server. A\nuser account may represent multiple authentication methods (OIDC from\nmultiple sources, tokens, etc.)."
+      "description": "User represents a single user identity within the Derrick server. A\nuser account may represent multiple authentication methods (OIDC from\nmultiple sources, tokens, etc.)."
     },
     "nomatron.derrick.User.Link": {
       "type": "object",
@@ -11784,7 +11802,7 @@
           "$ref": "#/definitions/nomatron.derrick.User.Link.OIDC"
         }
       },
-      "description": "Link is a connection between an authentication provider and\nthe user identity. This is used to lookup a unique user account\nwithin Waypoint from multiple auth sources (i.e. GitHub auth,\nuser/pass, etc.)."
+      "description": "Link is a connection between an authentication provider and\nthe user identity. This is used to lookup a unique user account\nwithin Derrick from multiple auth sources (i.e. GitHub auth,\nuser/pass, etc.)."
     },
     "nomatron.derrick.User.Link.OIDC": {
       "type": "object",
@@ -12000,24 +12018,6 @@
         "minimum": {
           "type": "integer",
           "format": "int64"
-        }
-      }
-    },
-    "nomatron.derrick.DerrickHclFmtRequest": {
-      "type": "object",
-      "properties": {
-        "derrick_hcl": {
-          "type": "string",
-          "format": "byte"
-        }
-      }
-    },
-    "nomatron.derrick.DerrickHclFmtResponse": {
-      "type": "object",
-      "properties": {
-        "derrick_hcl": {
-          "type": "string",
-          "format": "byte"
         }
       }
     },

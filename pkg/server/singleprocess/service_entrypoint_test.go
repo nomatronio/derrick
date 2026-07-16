@@ -494,7 +494,7 @@ func testRegisterExec(ctx context.Context, t *testing.T, client pb.DerrickClient
 	}
 }
 
-func testEntrypointExecOpened(t *testing.T, stream pb.Waypoint_EntrypointExecStreamClient) {
+func testEntrypointExecOpened(t *testing.T, stream pb.Derrick_EntrypointExecStreamClient) {
 	resp, err := stream.Recv()
 	require.NoError(t, err)
 	require.IsType(t, resp.Event, (*pb.EntrypointExecResponse_Opened)(nil))

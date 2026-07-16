@@ -258,7 +258,7 @@ func (r *Runner) processAppEnv(log hclog.Logger, env []string) {
 
 func (r *Runner) recvConfig(
 	ctx context.Context,
-	client pb.Waypoint_RunnerConfigClient,
+	client pb.Derrick_RunnerConfigClient,
 	ch chan<- *pb.RunnerConfig,
 	reconnect func() error,
 ) {

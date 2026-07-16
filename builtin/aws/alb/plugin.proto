@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package alb;
 
-option go_package = "waypoint/builtin/aws/alb";
+option go_package = "github.com/nomatronio/derrick/builtin/aws/alb";
 
 import "opaqueany/any.proto";
 
