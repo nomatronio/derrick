@@ -84,7 +84,7 @@ require (
 	github.com/mitchellh/go-wordwrap v1.0.1
 	github.com/mitchellh/hashstructure/v2 v2.0.1
 	github.com/mitchellh/mapstructure v1.5.0
-	github.com/mitchellh/pointerstructure v1.2.0
+	github.com/mitchellh/pointerstructure v1.2.1
 	github.com/mitchellh/protoc-gen-go-json v1.1.1-0.20211009224639-45822525aa9c
 	github.com/mitchellh/reflectwalk v1.0.2
 	github.com/moby/buildkit v0.8.3
