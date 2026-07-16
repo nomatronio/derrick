@@ -1,88 +1,52 @@
-![Image](website/public/img/logo-fullcolor-whitebackground-rbg.png)
+# Derrick
 
-----------------------------------------
+**Enterprise application delivery under control.**
 
-# Waypoint
+Derrick is a developer-centric, multi-runtime application delivery platform with enterprise governance. It is an open-core fork of [HashiCorp Waypoint](https://github.com/hashicorp/waypoint) v0.11.4 (MPL 2.0).
 
-* Website: https://www.waypointproject.io
-* Tutorials: [HashiCorp Developer](https://developer.hashicorp.com/waypoint/tutorials)
-* Forum: [Discuss](https://discuss.hashicorp.com/c/waypoint)
+> **Rename in progress.** The product is named Derrick, but the codebase still uses Waypoint naming (CLI binary, Go module path, `waypoint.hcl`). The binary currently builds as `waypoint` until the rename milestone.
 
-Waypoint allows developers to define their application build, deploy, and release lifecycle as code, reducing the time to deliver deployments through a consistent and repeatable workflow.
+## Fork Provenance
 
-Waypoint supports a number of build methods and target platforms out of the box
-and more can be easily added via plugins:
+This repository was forked from Waypoint tag `v0.11.4` under the Mozilla Public License 2.0. Post-v0.11.4 BUSL-licensed upstream code is **not** included.
 
-* Cloud Native Buildpacks
-* Docker
-* Kubernetes
-* AWS EC2 and ECS
-* Azure Container Instances
-* Google Cloud Run
-* And many more...
+See [FORK.md](FORK.md) for full fork details and [NOTICE](NOTICE) for copyright attribution.
 
-Waypoint runs on Linux, Mac OS X, and Windows.
+## Repository Layout
 
-**Please note**: We take Waypoint's security and our users' trust very seriously. If you
-believe you have found a security issue in Waypoint, please [responsibly disclose](https://www.hashicorp.com/security#vulnerability-reporting) by
-contacting us at security@hashicorp.com.
+| Repository | Purpose |
+|------------|---------|
+| [`nomatronio/derrick`](https://github.com/nomatronio/derrick) | Public MPL 2.0 open core (this repo) |
+| `nomatronio/derrick-enterprise` | Private enterprise implementation |
 
-## Quick Start
+Enterprise features (RBAC, SSO, advanced approvals, license enforcement) live in the separate `derrick-enterprise` repository and are wired in via public extension points.
 
-A [quick start guide](https://developer.hashicorp.com/waypoint/docs/getting-started) is available on HashiCorp Developer. You can also find [tutorials](https://developer.hashicorp.com/waypoint/tutorials) which cover topics ranging from getting started guides to more advanced usage.
+## Quick Start (Current Waypoint Build)
 
-* [Getting Started](https://developer.hashicorp.com/waypoint/docs/getting-started)
-* [Introduction](https://developer.hashicorp.com/waypoint/tutorials/get-started-docker/get-started-intro)
-* [Installation](https://developer.hashicorp.com/waypoint/tutorials/get-started-docker/get-started-install)
-* [Docker](https://developer.hashicorp.com/waypoint/tutorials/get-started-docker/get-started-docker)
-* [Kubernetes](https://developer.hashicorp.com/waypoint/tutorials/get-started-kubernetes/get-started-kubernetes)
-* [Nomad](https://developer.hashicorp.com/waypoint/tutorials/get-started-nomad/get-started-nomad)
-* [Waypoint UI](https://developer.hashicorp.com/waypoint/tutorials/get-started-docker/get-started-ui)
-* [AWS ECS](https://developer.hashicorp.com/waypoint/tutorials/deploy-aws/aws-ecs)
-* [Azure Container Instance](https://developer.hashicorp.com/waypoint/tutorials/deploy-azure/azure-container-instance)
-* [Google Cloud Run](https://developer.hashicorp.com/waypoint/tutorials/deploy-google-cloud/google-cloud-run)
+Until the rename milestone, build and run using the existing Waypoint toolchain:
 
-## Documentation
+```bash
+# CLI-only build (fastest sanity check)
+make bin/cli-only
+./waypoint version
 
-Full, comprehensive documentation is available on HashiCorp Developer:
+# Full build (includes entrypoint cross-compilation)
+make bin
+```
 
-https://developer.hashicorp.com/waypoint/docs
+Requires Go 1.19 or later.
+
+## Local Development With Enterprise
+
+Use a local `go.work` file in the parent directory to develop both repos together. See the `derrick-enterprise` repository README.
+
+**Do not commit `go.work` to either repository.**
 
 ## Contributing
 
-Thank you for your interest in contributing! Please refer to [CONTRIBUTING.md](https://github.com/hashicorp/waypoint/blob/master/.github/CONTRIBUTING.md) for guidance.
+Read [AGENTS.md](AGENTS.md) before making changes. All modifications to MPL-covered Waypoint files must stay in this public repository.
 
-### Installing Dependencies
+## Legal
 
-This repository contains a couple of different ways to automate installing the
-required Golang packages needed to build Waypoint locally. You can either use
-[NixOS](https://nixos.org/), or run `make tools` to setup the
-required packages.
-
-### Running the unit tests
-
-To run the entire test suite, you'll want to ensure that you've brought up
-all the required containers used for testing. You can do this by leveraging
-the existing `docker-compose.yml` file that's in the root directory of this
-project:
-
-```
-$ docker-compose up
-```
-
-After running this, you should have a local Horizon container along with a few
-other services needed for running the tests:
-
-```
-$ make test
-```
-
-#### Running individual tests
-
-If you don't want to run the entire test suite, you can just run a singe test
-with go. For example, if you wanted to run the tests ListInstances, you would
-run:
-
-```
-$ go test -run ListInstances -v ./internal/server/singleprocess
-```
+- Product name **Derrick** is pending formal trademark clearance.
+- This is not legal advice. See [FORK.md](FORK.md) and [LICENSE](LICENSE) for license terms.

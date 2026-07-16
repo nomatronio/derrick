@@ -1,0 +1,34 @@
+Derrick
+=======
+
+This product includes software developed by Nomatron Ltd and software
+originally developed by HashiCorp, Inc.
+
+---
+
+HashiCorp Waypoint (v0.11.4)
+----------------------------
+
+Copyright (c) 2020 HashiCorp, Inc.
+
+Portions of this software are derived from HashiCorp Waypoint tag v0.11.4,
+licensed under the Mozilla Public License 2.0. See LICENSE for the full
+license text.
+
+Upstream source: https://github.com/hashicorp/waypoint
+Fork point: v0.11.4 (7128fba03891df32b77e341d2380fe8f48a0b508)
+
+---
+
+Nomatron Ltd Modifications
+--------------------------
+
+Copyright (c) 2026 Nomatron Ltd.
+
+Modifications to the HashiCorp Waypoint source are licensed under the
+Mozilla Public License 2.0 where they constitute Modifications of
+MPL-covered files. See FORK.md for fork provenance and AGENTS.md for
+contribution boundaries.
+
+New files that do not contain MPL-covered source may be licensed separately
+as indicated in their file headers.

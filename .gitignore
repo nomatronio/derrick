@@ -10,6 +10,10 @@ tmp/
 # System-specific
 .DS_Store
 
+# Local Go workspace (use parent go.work for joint development)
+go.work
+go.work.sum
+
 pkg/dist
 pkg/bin
 
