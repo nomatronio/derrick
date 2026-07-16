@@ -1,6 +1,6 @@
 module github.com/nomatronio/derrick
 
-go 1.19
+go 1.25.0
 
 require (
 	contrib.go.opencensus.io/exporter/ocagent v0.6.0
@@ -112,7 +112,7 @@ require (
 	go.uber.org/goleak v1.1.12
 	golang.org/x/crypto v0.0.0-20220622213112-05595931fe9d
 	golang.org/x/oauth2 v0.1.0
-	golang.org/x/sys v0.5.0
+	golang.org/x/sys v0.47.0
 	google.golang.org/api v0.103.0
 	google.golang.org/genproto v0.0.0-20221201164419-0e50fba7f41c
 	google.golang.org/grpc v1.50.1
