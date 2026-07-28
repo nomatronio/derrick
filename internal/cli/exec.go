@@ -191,8 +191,8 @@ Usage: derrick exec [options] cmd
 
   For example, you could run one of the following commands:
 
-    waypoint exec bash
-    waypoint exec rake db:migrate
+    derrick exec bash
+    derrick exec rake db:migrate
 
 ` + c.Flags().Help())
 }

@@ -117,7 +117,7 @@ func (i *NomadRunnerInstaller) Install(ctx context.Context, opts *InstallOpts) e
 
 	// Install the runner
 	s = sg.Add("Installing the Derrick runner")
-	_, err = nomadutil.RunJob(ctx, s, client, derrickRunnerNomadJob(i.Config, opts), false)
+	_, err = nomadutil.RunJob(ctx, s, client, waypointRunnerNomadJob(i.Config, opts), false)
 	if err != nil {
 		return err
 	}
@@ -127,10 +127,10 @@ func (i *NomadRunnerInstaller) Install(ctx context.Context, opts *InstallOpts) e
 	return nil
 }
 
-// derrickRunnerNomadJob takes in a NomadConfig and returns a Nomad Job
-// for the Nomad API to run a Derrick runner.
-func derrickRunnerNomadJob(c NomadConfig, opts *InstallOpts) *api.Job {
-	// Name AND ID of the Nomad job will be derrick-runner-ID
+// waypointRunnerNomadJob takes in a NomadConfig and returns a Nomad Job
+// for the Nomad API to run a Waypoint runner.
+func waypointRunnerNomadJob(c NomadConfig, opts *InstallOpts) *api.Job {
+	// Name AND ID of the Nomad job will be waypoint-runner-ID
 	// Name is cosmetic, but ID must be unique
 	jobRef := installutil.DefaultRunnerName(opts.Id)
 	job := api.NewServiceJob(jobRef, jobRef, c.Region, 50)
@@ -352,7 +352,7 @@ func (i *NomadRunnerInstaller) Uninstall(ctx context.Context, opts *InstallOpts)
 	s.Done()
 
 	s = sg.Add("Locate existing Derrick runner...")
-	var derrickRunnerJobName string
+	var waypointRunnerJobName string
 	possibleRunnerJobNames := []string{
 		installutil.DefaultRunnerName(opts.Id),
 		defaultRunnerTagName,
@@ -360,16 +360,16 @@ func (i *NomadRunnerInstaller) Uninstall(ctx context.Context, opts *InstallOpts)
 	for _, runnerJobName := range possibleRunnerJobNames {
 		jobs, _, err := client.Jobs().PrefixList(runnerJobName)
 		if err != nil {
-			s.Update("Unable to find nomad job %s for Derrick runner", derrickRunnerJobName)
+			s.Update("Unable to find nomad job %s for Derrick runner", waypointRunnerJobName)
 			return err
 		}
 		if len(jobs) > 0 {
-			derrickRunnerJobName = runnerJobName
+			waypointRunnerJobName = runnerJobName
 			break
 		}
 	}
 
-	if derrickRunnerJobName == "" {
+	if waypointRunnerJobName == "" {
 		s.Update("Could not find Derrick runner in Nomad")
 		return fmt.Errorf("Could not find Derrick runner in Nomad")
 	}
@@ -378,7 +378,7 @@ func (i *NomadRunnerInstaller) Uninstall(ctx context.Context, opts *InstallOpts)
 	s.Done()
 
 	s = sg.Add("Uninstalling the Derrick runner...")
-	_, _, err = client.Jobs().Deregister(derrickRunnerJobName, false, &api.WriteOptions{})
+	_, _, err = client.Jobs().Deregister(waypointRunnerJobName, false, &api.WriteOptions{})
 	if err != nil {
 		s.Update("Unable to deregister Derrick runner job.")
 		return err
@@ -386,7 +386,7 @@ func (i *NomadRunnerInstaller) Uninstall(ctx context.Context, opts *InstallOpts)
 
 	s.Update("Waiting for jobs to be stopped...")
 	err = wait.PollImmediate(2*time.Second, 10*time.Minute, func() (bool, error) {
-		jobs, _, err := client.Jobs().PrefixList(derrickRunnerJobName)
+		jobs, _, err := client.Jobs().PrefixList(waypointRunnerJobName)
 		if err != nil {
 			return false, err
 		}
@@ -402,12 +402,12 @@ func (i *NomadRunnerInstaller) Uninstall(ctx context.Context, opts *InstallOpts)
 	}
 
 	// Delete CSI volume for runner (if it exists)
-	vols, _, err := client.CSIVolumes().List(&api.QueryOptions{Prefix: derrickRunnerJobName})
+	vols, _, err := client.CSIVolumes().List(&api.QueryOptions{Prefix: waypointRunnerJobName})
 	if err != nil {
 		return err
 	}
 	for _, vol := range vols {
-		if vol.ID == derrickRunnerJobName {
+		if vol.ID == waypointRunnerJobName {
 			s.Update("Destroying persistent CSI volume")
 			err = client.CSIVolumes().Deregister(vol.ID, true, &api.WriteOptions{})
 			if err != nil {
@@ -418,7 +418,7 @@ func (i *NomadRunnerInstaller) Uninstall(ctx context.Context, opts *InstallOpts)
 		}
 	}
 
-	_, _, err = client.Jobs().Deregister(derrickRunnerJobName, true, &api.WriteOptions{})
+	_, _, err = client.Jobs().Deregister(waypointRunnerJobName, true, &api.WriteOptions{})
 	if err != nil {
 		s.Update("Unable to deregister Derrick runner job.")
 		return err

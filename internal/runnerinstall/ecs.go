@@ -31,14 +31,14 @@ import (
 )
 
 const (
-	defaultRunnerLogGroup  = "derrick-runner-logs"
+	defaultRunnerLogGroup  = "waypoint-runner-logs"
 	defaultTaskRuntime     = "FARGATE"
 	defaultRunnerTagValue  = "runner-component"
 	defaultRunnerIdTagName = "runner-id"
 )
 
 // odrRolePolicy represents the minimum policies required for an On-Demand
-// Runner task to successfully build and deploy a Derrick application to ECS.
+// Runner task to successfully build and deploy a Waypoint application to ECS.
 // We chose to enumerate the minimum policies to avoid being over privileged.
 // This list may not be exhaustive or complete to deploy to all platforms (EC2,
 // Lambda), but represent a reasonable minimum. To add additional policies,
@@ -253,7 +253,7 @@ func (i *ECSRunnerInstaller) InstallFlags(set *flag.Set) {
 		Name:    "ecs-execution-role-name",
 		Target:  &i.Config.ExecutionRoleName,
 		Usage:   "The name of the execution task IAM Role to associate with the ECS Service.",
-		Default: "derrick-runner-execution-role",
+		Default: "waypoint-runner-execution-role",
 	})
 
 	set.StringVar(&flag.StringVar{
@@ -287,7 +287,7 @@ func (i *ECSRunnerInstaller) InstallFlags(set *flag.Set) {
 	set.StringVar(&flag.StringVar{
 		Name:    "ecs-cluster",
 		Target:  &i.Config.Cluster,
-		Default: "derrick-server",
+		Default: "waypoint-server",
 		Usage:   "The name of the ECS Cluster to install the Derrick runner into.",
 	})
 
@@ -298,7 +298,7 @@ func (i *ECSRunnerInstaller) InstallFlags(set *flag.Set) {
 	})
 }
 
-// Uninstall deletes the derrick-runner service from AWS ECS, and its
+// Uninstall deletes the waypoint-runner service from AWS ECS, and its
 // associated volume from EFS. The log group, execution role, subnets,
 // and ECS cluster are not deleted.
 func (i *ECSRunnerInstaller) Uninstall(ctx context.Context, opts *InstallOpts) error {
@@ -319,7 +319,7 @@ func (i *ECSRunnerInstaller) Uninstall(ctx context.Context, opts *InstallOpts) e
 		return err
 	}
 
-	// Find clusterArn which derrick runner is installed into
+	// Find clusterArn which waypoint runner is installed into
 	// We check for the serviceName before v0.9 and v0.9+
 	ecsSvc := ecs.New(sess)
 	serviceNames := []string{
@@ -337,7 +337,7 @@ func (i *ECSRunnerInstaller) Uninstall(ctx context.Context, opts *InstallOpts) e
 	for _, service := range services {
 		// Delete associated runner service and tasks
 		// This does not remove the security group since it may be in use by other
-		// runners/derrick infrastructure.
+		// runners/waypoint infrastructure.
 		s.Update("Deleting runner service")
 		_, err = ecsSvc.DeleteService(&ecs.DeleteServiceInput{
 			Service: service.ServiceArn,
@@ -467,7 +467,7 @@ func (i *ECSRunnerInstaller) UninstallFlags(set *flag.Set) {
 	set.StringVar(&flag.StringVar{
 		Name:    "ecs-cluster",
 		Target:  &i.Config.Cluster,
-		Default: "derrick-server",
+		Default: "waypoint-server",
 		Usage:   "The name of the ECS Cluster to install the Derrick runner into.",
 	})
 }
@@ -488,7 +488,7 @@ func launchRunner(
 	s := sg.Add("Installing Derrick runner into ECS...")
 	defer func() { s.Abort() }()
 
-	defaultStreamPrefix := fmt.Sprintf("derrick-runner-%d", time.Now().Nanosecond())
+	defaultStreamPrefix := fmt.Sprintf("waypoint-runner-%d", time.Now().Nanosecond())
 	logOptions := buildLoggingOptions(
 		nil,
 		region,
@@ -552,7 +552,7 @@ func launchRunner(
 		},
 	}
 
-	s.Update("Registering Task definition: derrick-runner")
+	s.Update("Registering Task definition: waypoint-runner")
 
 	registerTaskDefinitionInput := ecs.RegisterTaskDefinitionInput{
 		ContainerDefinitions: []*ecs.ContainerDefinition{&def},
@@ -620,7 +620,7 @@ func launchRunner(
 		return nil, fmt.Errorf("could not find security group (%s)", awsinstallutil.DefaultSecurityGroupName)
 	}
 
-	// Check for details of possibly existing cluster `derrick-server`
+	// Check for details of possibly existing cluster `waypoint-server`
 	// If server was installed to ECS with `derrick install` command, we'd expect this
 	// query what subnets and vpc information from the server service
 	services, err := ecsSvc.DescribeServices(&ecs.DescribeServicesInput{
@@ -631,12 +631,12 @@ func launchRunner(
 		return nil, err
 	}
 
-	// If we found an ECS cluster `derrick-server` use that
+	// If we found an ECS cluster `waypoint-server` use that
 	// If not, use the configs passed to this method
 	var clusterArn *string
 	var subnets []*string
 	if len(services.Services) == 0 {
-		// return nil, fmt.Errorf("no derrick-server service found")
+		// return nil, fmt.Errorf("no waypoint-server service found")
 		clusterArn = aws.String(cluster)
 		subnets = netInfo.Subnets
 	} else {
@@ -803,7 +803,7 @@ func (i *ECSRunnerInstaller) setupTaskRole(
 	_, err = svc.PutRolePolicy(&iam.PutRolePolicyInput{
 		RoleName:       aws.String(roleName),
 		PolicyDocument: aws.String(odrRolePolicy),
-		PolicyName:     aws.String("derrick-odr-policy"),
+		PolicyName:     aws.String("waypoint-odr-policy"),
 	})
 	if err != nil {
 		return "", err

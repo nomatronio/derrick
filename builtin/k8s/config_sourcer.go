@@ -252,7 +252,7 @@ func (cs *ConfigSourcer) Documentation() (*docs.Documentation, error) {
 
 	doc.Description("Read configuration values from Kubernetes ConfigMap or Secret resources. " +
 		"Note that to read a config value from a Secret, you must set `secret = true`. Otherwise " +
-		"Waypoint will load a dynamic value from a ConfigMap.")
+		"Derrick will load a dynamic value from a ConfigMap.")
 
 	doc.Example(`
 config {

@@ -283,7 +283,7 @@ If application logs are not available, the application may have failed to start.
 	errExecAllDisabled = `
 Exec is not available for any running instance. Every instance has exec
 explicitly disabled. This is only possible by disabling exec at deploy time.
-It is not possible to re-enable Waypoint exec for this deployment using
-"waypoint config".
+It is not possible to re-enable Derrick exec for this deployment using
+"derrick config".
 `
 )

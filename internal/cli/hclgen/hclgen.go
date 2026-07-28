@@ -249,7 +249,7 @@ func HclGen(ui terminal.UI) bool {
 	ui.Output(
 		"\nIf you skipped any steps, open your derrick.hcl file to add missing plugins or fields before continuing. (See https://www.derrick.dev/plugins)",
 	)
-	ui.Output("Otherwise, run \"waypoint init\" again to start using Waypoint!\n")
+	ui.Output("Otherwise, run \"derrick init\" again to start using Derrick!\n")
 	ui.Output("Now attempting to format the HCL file:\n")
 	out, err := fmtpkg.Format(hclFileByte, "derrick.hcl")
 	if err != nil {
@@ -291,7 +291,7 @@ func exitSafe(file *os.File, outstanding int, ui terminal.UI, byteS []byte) erro
 	byteS = closeBrackets(byteS, outstanding, outstanding)
 	file.Write(byteS)
 	file.Close()
-	ui.Output("Generator exited. Any information you added before exiting has been included in your derrick.hcl file. Edit this file manually before using Waypoint.")
+	ui.Output("Generator exited. Any information you added before exiting has been included in your derrick.hcl file. Edit this file manually before using Derrick.")
 	return nil
 }
 

@@ -1049,7 +1049,7 @@ func (p *Platform) resourceAutoscalerCreate(
 		ui.Output("If you have not yet setup a metrics-server inside your Kubernetes cluster, "+
 			"please refer to the metrics-server project documentation for properly "+
 			"installing one: https://github.com/kubernetes-sigs/metrics-server", terminal.WithWarningStyle())
-		ui.Output("Waypoint will continue to configure horizontal pod autoscaler ...",
+		ui.Output("Derrick will continue to configure horizontal pod autoscaler ...",
 			terminal.WithWarningStyle())
 	}
 
@@ -1993,7 +1993,7 @@ use "kubernetes" {
 }
 
 var mixedHealthWarn = strings.TrimSpace(`
-Waypoint detected that the current deployment is not ready, however your application
+Derrick detected that the current deployment is not ready, however your application
 might be available or still starting up.
 `)
 

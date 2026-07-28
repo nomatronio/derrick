@@ -333,7 +333,7 @@ func (c *TaskInspectCommand) Flags() *flag.Sets {
 }
 
 func (c *TaskInspectCommand) Synopsis() string {
-	return "Inspect an On-Demand Runner Task from Waypoint"
+	return "Inspect an On-Demand Runner Task from Derrick"
 }
 
 func (c *TaskInspectCommand) Help() string {

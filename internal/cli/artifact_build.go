@@ -89,7 +89,7 @@ func (c *ArtifactBuildCommand) Synopsis() string {
 func (c *ArtifactBuildCommand) Help() string {
 	return formatHelp(`
 Usage: derrick artifact build [options]
-Alias: waypoint build [options]
+Alias: derrick build [options]
 
   Build a new versioned artifact from source.
 

@@ -345,7 +345,7 @@ Usage: derrick k8s bootstrap [options]
 
   This command will do a number of things:
 
-  1. Equivalent of "waypoint server bootstrap"
+  1. Equivalent of "derrick server bootstrap"
   2. Write a bootstrap token to the given Kubernetes secret
   3. Create a token for a static runner and write it to the configured
      Kubernetes secret.

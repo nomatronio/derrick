@@ -158,7 +158,7 @@ func (p *Platform) Deploy(
 		if *containerGroup.Location != p.config.Location {
 			return nil, status.Errorf(
 				codes.InvalidArgument,
-				`Waypoint is unable to change the location of an existing container instance as Azure does not allow the location of
+				`Derrick is unable to change the location of an existing container instance as Azure does not allow the location of
 existing container instances to be changed.
 The container instance '%s' is currently deployed to the location '%s', but your configuration sets a location of '%s'.
 To update the location you will need to manually destroy and recreate the resource.`,

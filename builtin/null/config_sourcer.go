@@ -141,9 +141,9 @@ config {
 		docs.Summary(
 			"This looks up the given key in the `values` configuration for the",
 			"config sourcer. This can be used to actually test pulling a dynamic",
-			"value, except the dynamic value is just Waypoint server-stored.",
+			"value, except the dynamic value is just Derrick server-stored.",
 			"This is useful for learning about and experimenting with config sourcer",
-			"configuration with Waypoint.",
+			"configuration with Derrick.",
 		),
 	)
 

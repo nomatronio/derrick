@@ -106,11 +106,11 @@ Usage: derrick user token [options]
   Request a new login token for a user.
 
   You must be logged in already to generate a token. If you need to
-  log in, use the "waypoint login" command.
+  log in, use the "derrick login" command.
 
   This generates a new token that can be used to authenticate directly
-  to the Derrick server. If you're inviting a new user to Waypoint,
-  its recommended to generate an invite token with "waypoint user invite"
+  to the Derrick server. If you're inviting a new user to Derrick,
+  its recommended to generate an invite token with "derrick user invite"
   or share the UI URL for logging in.
 ` + warnTokenDeprecated + "\n" + c.Flags().Help()
 

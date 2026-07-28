@@ -28,12 +28,12 @@ var (
 
 const (
 	// envLogLevel is the env var to set with the log level. This
-	// env var matches the Derrick CLI on purpose. This can be set on
+	// env var matches the Waypoint CLI on purpose. This can be set on
 	// the runner process OR via app config (`derrick config`).
 	envLogLevel = "DERRICK_LOG_LEVEL"
 )
 
-// Runners in Derrick execute operations. These can be local (the CLI)
+// Runners in Waypoint execute operations. These can be local (the CLI)
 // or they can be remote (triggered by some webhook). In either case, they
 // share this same underlying implementation.
 //
@@ -47,7 +47,7 @@ const (
 //
 //  3. Run a single job with "Accept". This is named to be similar to a
 //     network listener "accepting" a connection. This will request a single
-//     job from the Derrick server, block until one is available, and execute
+//     job from the Waypoint server, block until one is available, and execute
 //     it. Repeat this call for however many jobs you want to execute.
 //
 //  4. Clean up with "Close". This will gracefully exit the runner, waiting
@@ -103,7 +103,7 @@ type Runner struct {
 
 // New initializes a new runner.
 //
-// You must call Start to start the runner and register with the Derrick
+// You must call Start to start the runner and register with the Waypoint
 // server. See the Runner struct docs for more details.
 func New(opts ...Option) (*Runner, error) {
 	// Our default runner
@@ -228,7 +228,7 @@ func (r *Runner) Id() string {
 	return r.id
 }
 
-// Start starts the runner by registering the runner with the Derrick
+// Start starts the runner by registering the runner with the Waypoint
 // server. This will spawn goroutines for management. This will return after
 // registration so this should not be executed in a goroutine.
 func (r *Runner) Start(ctx context.Context) error {
@@ -416,7 +416,7 @@ type Option func(*Runner, *config) error
 
 // WithClient sets the client directly. In this case, the runner won't
 // attempt any connection at all regardless of other configuration (env
-// vars or derrick config file). This will be used.
+// vars or waypoint config file). This will be used.
 //
 // If this is specified, the client MUST use a tokenutil.ContextToken
 // type for the PerRPCCredentials setting. This package and others will use

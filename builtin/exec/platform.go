@@ -264,12 +264,12 @@ func (p *Platform) Documentation() (*docs.Documentation, error) {
 Execute any command to perform a deploy.
 
 This plugin lets you use almost any pre-existing deployment tool for the
-deploy step of Waypoint. This is a great way to take a pre-existing application
-and begin using Waypoint. For example, you can wrap "kubectl" calls if you
+deploy step of Derrick. This is a great way to take a pre-existing application
+and begin using Derrick. For example, you can wrap "kubectl" calls if you
 already have Kubernetes configurations, or "helm" if you use Helm, and so on.
 
-The "exec" plugin is meant to be an escape hatch from Waypoint. In working
-this way, you will lose many Waypoint benefits. For example, "waypoint destroy"
+The "exec" plugin is meant to be an escape hatch from Derrick. In working
+this way, you will lose many Derrick benefits. For example, "derrick destroy"
 functionality will not work with deploys created with the exec plugin.
 
 ### Templates
@@ -295,7 +295,7 @@ The following template values are always available:
     you should set these if able.
 
 
-  - ".Workspace" (string) - The workspace name that the Waypoint deploy is
+  - ".Workspace" (string) - The workspace name that the Derrick deploy is
     running in. This lets you potentially deploy to different clusters based
     on this value.
 
@@ -351,7 +351,7 @@ deploy {
 		"dir",
 		"The working directory to use while executing the command.",
 		docs.Summary(
-			"This will default to the same working directory as the Waypoint execution.",
+			"This will default to the same working directory as the Derrick execution.",
 		),
 	)
 

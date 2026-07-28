@@ -120,7 +120,7 @@ func (s *Service) NoAuthRunTrigger(
 	if err != nil {
 		log.Error("failed to get requested trigger", "trigger_id", req.Ref.Id, "error", err)
 		return nil, status.Errorf(codes.NotFound,
-			"trigger id %q not found. check the waypoint server logs for more information", req.Ref.Id)
+			"trigger id %q not found. check the derrick server logs for more information", req.Ref.Id)
 	}
 
 	if trigger.Authenticated {

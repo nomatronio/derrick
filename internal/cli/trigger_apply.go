@@ -59,7 +59,7 @@ func (c *TriggerApplyCommand) Run(args []string) int {
 	var diffTrigger *pb.Trigger
 	if c.flagTriggerId != "" {
 		if !c.Update {
-			c.ui.Output("Cannot specify id on create, must call 'waypoint trigger update'", terminal.WithErrorStyle())
+			c.ui.Output("Cannot specify id on create, must call 'derrick trigger update'", terminal.WithErrorStyle())
 			return 1
 		}
 

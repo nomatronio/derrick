@@ -40,7 +40,7 @@ func (c *ContextListCommand) Run(args []string) int {
 	}
 
 	if len(names) == 0 {
-		c.ui.Output("No contexts. Create one with `waypoint context create`.")
+		c.ui.Output("No contexts. Create one with `derrick context create`.")
 		return 0
 	}
 

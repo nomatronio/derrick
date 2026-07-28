@@ -553,7 +553,7 @@ Usage: derrick project apply [options] NAME
 
   This command should be used to create a new project pointing to a VCS
   repo. If you have a "derrick.hcl" file and a local repository, you can
-  also use "waypoint init" in the directory of the project.
+  also use "derrick init" in the directory of the project.
 
   You may create a project from a derrick.hcl file and optionally overwrite
   some fields using flags by specifying the -waypoint-hcl flag.

@@ -35,7 +35,7 @@ type K8sRunnerInstaller struct {
 const (
 	defaultRunnerMemory          = "256Mi"
 	defaultRunnerCPU             = "250m"
-	defaultOdrServiceAccountName = "derrick-runner-odr"
+	defaultOdrServiceAccountName = "waypoint-runner-odr"
 )
 
 type InstalledRunnerConfig struct {
@@ -77,7 +77,7 @@ func (i *K8sRunnerInstaller) Install(ctx context.Context, opts *InstallOpts) err
 	client.DependencyUpdate = false
 	client.Timeout = 300 * time.Second
 	client.Namespace = i.Config.Namespace
-	client.ReleaseName = "derrick-" + strings.ToLower(opts.Id)
+	client.ReleaseName = "waypoint-" + strings.ToLower(opts.Id)
 	client.GenerateName = false
 	client.NameTemplate = ""
 	client.OutputDir = ""
@@ -86,7 +86,7 @@ func (i *K8sRunnerInstaller) Install(ctx context.Context, opts *InstallOpts) err
 	client.SubNotes = true
 	client.DisableOpenAPIValidation = false
 	client.Replace = false
-	client.Description = "Static runner for executing remote operations for Hashicorp Derrick."
+	client.Description = "Static runner for executing remote operations for Derrick."
 	client.CreateNamespace = true
 
 	version := i.Config.Version
@@ -266,10 +266,10 @@ func (i *K8sRunnerInstaller) Uninstall(ctx context.Context, opts *InstallOpts) e
 	ui := opts.UI
 	// Our checks here follow the logic of:
 	// Up until v0.8.2, we installed runners with the k8s client,
-	// and the Label was "app=derrick-runner" and the Name "derrick-runner-random-id"
+	// and the Label was "app=waypoint-runner" and the Name "waypoint-runner-random-id"
 	// As of 0.9.0, we install runners with helm, with a Label following the
-	// pattern ("app.kubernetes.io/instance=derrick-%s", runnerId)
-	// and the Name ("derrick-"+strings.ToLower(runnerId))
+	// pattern ("app.kubernetes.io/instance=waypoint-%s", runnerId)
+	// and the Name ("waypoint-"+strings.ToLower(runnerId))
 	//
 	// Therefore we need to ascertain A) if the runner exists on the cluster at
 	// all (it might not be if the user is auth'd to the wrong cluster), and then B)
@@ -295,7 +295,7 @@ func (i *K8sRunnerInstaller) Uninstall(ctx context.Context, opts *InstallOpts) e
 	// Search for runner with 0.9+ tag format, installed with helm
 	podClient := clientset.CoreV1().Pods(i.Config.Namespace)
 	helmClientList, err := podClient.List(ctx, metav1.ListOptions{
-		LabelSelector: fmt.Sprintf("app.kubernetes.io/instance=derrick-%s", strings.ToLower(opts.Id)),
+		LabelSelector: fmt.Sprintf("app.kubernetes.io/instance=waypoint-%s", strings.ToLower(opts.Id)),
 	})
 	if err != nil {
 		return fmt.Errorf("could not list pods in namespace %q with current context: %s", i.Config.Namespace, err)
@@ -318,7 +318,7 @@ func (i *K8sRunnerInstaller) Uninstall(ctx context.Context, opts *InstallOpts) e
 }
 
 // Uninstall is a method of K8sInstaller and implements the Installer interface to
-// remove a derrick-server statefulset and the associated PVC and service from
+// remove a waypoint-server statefulset and the associated PVC and service from
 // a Kubernetes cluster
 func (i *K8sRunnerInstaller) uninstallWithK8s(ctx context.Context, opts *InstallOpts, listK8sClient *v1.DeploymentList) error {
 	ui := opts.UI
@@ -442,7 +442,7 @@ func (i *K8sRunnerInstaller) uninstallWithHelm(ctx context.Context, opts *Instal
 	}
 
 	s.Update("Uninstallation Pre-check...")
-	helmRunnerId := "derrick-" + strings.ToLower(opts.Id)
+	helmRunnerId := "waypoint-" + strings.ToLower(opts.Id)
 	verifyClient := action.NewGetValues(actionConfig)
 	cfg, err := verifyClient.Run(helmRunnerId)
 	if err != nil {

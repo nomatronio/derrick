@@ -2,7 +2,7 @@ parameter {
   key         = "config_key"
   description = <<EOT
 Return a value from the config source configuration.
-This looks up the given key in the `values` configuration for the config sourcer. This can be used to actually test pulling a dynamic value, except the dynamic value is just Waypoint server-stored. This is useful for learning about and experimenting with config sourcer configuration with Waypoint.
+This looks up the given key in the `values` configuration for the config sourcer. This can be used to actually test pulling a dynamic value, except the dynamic value is just Derrick server-stored. This is useful for learning about and experimenting with config sourcer configuration with Derrick.
 
 EOT
   type        = "string"

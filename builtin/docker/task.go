@@ -136,7 +136,7 @@ task {
 		"A map of key/value pairs to label the docker container with.",
 		docs.Summary(
 			"A map of key/value pair(s), stored in docker as a string. Each key/value pair must",
-			"be unique. Validiation occurs at the docker layer, not in Waypoint. Label",
+			"be unique. Validiation occurs at the docker layer, not in Derrick. Label",
 			"keys are alphanumeric strings which may contain periods (.) and hyphens (-).",
 		),
 	)
@@ -167,7 +167,7 @@ task {
 			"These variables are used to control all of a container's modes,",
 			"such as configuring it to start a web app vs a background worker.",
 			"These environment variables should not be common",
-			"configuration variables normally set in `waypoint config`.",
+			"configuration variables normally set in `derrick config`.",
 		),
 	)
 

@@ -70,7 +70,7 @@ Usage: derrick runner reject [options] ID
 
   Reject a pending or adopted runner with the given ID.
 
-  The ID can be retrieved via the "waypoint runner list" command or
+  The ID can be retrieved via the "derrick runner list" command or
   the API. This ID must be the ID of a currently registered runner. The
   runner can be in any state: new, preadopted, adopted, or rejected. This
   will move the runner to the rejected state.

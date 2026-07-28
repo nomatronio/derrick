@@ -260,7 +260,7 @@ func (p *Platform) resourceServiceCreate(
 		for k := range services {
 			if k != p.config.Location {
 				// Waypoint can not change the region of a service so return an error.
-				return status.Errorf(codes.AlreadyExists, "The Cloud Run service '%s' already exists in the region '%s', Waypoint is unable to change the region of a deployed service", src.App, k)
+				return status.Errorf(codes.AlreadyExists, "The Cloud Run service '%s' already exists in the region '%s', Derrick is unable to change the region of a deployed service", src.App, k)
 			}
 		}
 

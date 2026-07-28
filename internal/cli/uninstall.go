@@ -109,7 +109,7 @@ func (c *UninstallCommand) Run(args []string) int {
 			if serverPlatform == "" {
 				// It's still empty
 				c.ui.Output(
-					"Cannot determine what platform to uninstall Waypoint. "+
+					"Cannot determine what platform to uninstall Derrick. "+
 						"The -platform flag is required since the server context did not include "+
 						"a server platform.",
 					terminal.WithErrorStyle(),
@@ -272,8 +272,8 @@ func (c *UninstallCommand) Help() string {
 Usage: derrick server uninstall [options]
 
   Uninstall the Derrick server. This command is not intended to uninstall a
-  server that was manually run with the 'waypoint server run' CLI, but with
-  a Derrick server that was installed via 'waypoint server install'.
+  server that was manually run with the 'derrick server run' CLI, but with
+  a Derrick server that was installed via 'derrick server install'.
 
   The platform can be specified as kubernetes, nomad, ecs, or docker. If not
   specified, the CLI command will attempt to retrieve the platform defined in
@@ -285,8 +285,8 @@ Usage: derrick server uninstall [options]
   This command does not destroy Derrick resources, such as deployments and
   releases. Clear all workspaces prior to uninstall to prevent hanging resources.
 
-  If a runner was installed via "waypoint install", the runner will also be
-  uninstalled. Manually installed runners (outside of the "waypoint install"
+  If a runner was installed via "derrick install", the runner will also be
+  uninstalled. Manually installed runners (outside of the "derrick install"
   command) will not be affected.
 
 ` + c.Flags().Help())
