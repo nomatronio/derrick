@@ -12,7 +12,7 @@ app "test" {
           use "B" {}
         }
 
-        label "waypoint/workspace == staging" {
+        label "derrick/workspace == staging" {
           use "C" {}
         }
     }

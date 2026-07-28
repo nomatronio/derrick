@@ -86,6 +86,111 @@ else
   echo "OK: install/runtime resource names"
 fi
 
+if rg -q 'identifier  = "waypoint/' builtin/ 2>/dev/null; then
+  echo "FAIL: builtin plugin metadata still uses waypoint/ identifiers"
+  rg 'identifier  = "waypoint/' builtin/ | head -10
+  fail=1
+else
+  echo "OK: plugin metadata identifiers"
+fi
+
+if rg -q 'waypoint-plugin-' internal/plugin/ --glob '*.go' 2>/dev/null; then
+  echo "FAIL: plugin discovery still references waypoint-plugin- binary prefix"
+  rg 'waypoint-plugin-' internal/plugin/ --glob '*.go' | head -10
+  fail=1
+else
+  echo "OK: plugin binary prefix"
+fi
+
+if rg -q '"waypoint/workspace"' internal/ pkg/ --glob '*.go' 2>/dev/null; then
+  echo "FAIL: system label still uses waypoint/workspace"
+  rg '"waypoint/workspace"' internal/ pkg/ --glob '*.go' | head -10
+  fail=1
+else
+  echo "OK: system label namespace"
+fi
+
+if rg -q '/waypoint/docs/' website/content website/data embedJson/gen docs/gen 2>/dev/null; then
+  echo "FAIL: docs still link to /waypoint/docs/"
+  rg '/waypoint/docs/' website/content website/data embedJson/gen docs/gen | head -10
+  fail=1
+else
+  echo "OK: docs site paths"
+fi
+
+if rg -q 'waypoint\.hcl' website/content embedJson/gen docs/gen 2>/dev/null; then
+  echo "FAIL: docs still reference waypoint.hcl"
+  rg 'waypoint\.hcl' website/content embedJson/gen docs/gen | head -10
+  fail=1
+else
+  echo "OK: docs HCL filename"
+fi
+
+if rg -q 'pkg-name: \[ "waypoint"' .github/workflows/ 2>/dev/null; then
+  echo "FAIL: CI build matrix still uses waypoint package name"
+  rg 'pkg-name: \[ "waypoint"' .github/workflows/
+  fail=1
+else
+  echo "OK: CI build matrix package names"
+fi
+
+if rg -q 'tar -cvf derrick\.tar \./waypoint|COPY dist/\$TARGETOS/\$TARGETARCH/waypoint' \
+  .github/workflows/ Dockerfile CRT.Dockerfile 2>/dev/null; then
+  echo "FAIL: CI/Docker still references waypoint binary artifact paths"
+  rg 'tar -cvf derrick\.tar \./waypoint|COPY dist/\$TARGETOS/\$TARGETARCH/waypoint' \
+    .github/workflows/ Dockerfile CRT.Dockerfile
+  fail=1
+else
+  echo "OK: CI/Docker binary artifact paths"
+fi
+
+if rg -q 'Getenv\("DERRICK_BINARY", "waypoint"\)|DERRICK_BINARY:-\$TESTDIR/waypoint' test-e2e/ 2>/dev/null; then
+  echo "FAIL: e2e tests still default to waypoint binary"
+  rg 'Getenv\("DERRICK_BINARY", "waypoint"\)|DERRICK_BINARY:-\$TESTDIR/waypoint' test-e2e/
+  fail=1
+else
+  echo "OK: e2e default binary paths"
+fi
+
+if rg -q 'waypoint/hashicorp/' .github/workflows/notify-integration-release-manual.yml 2>/dev/null; then
+  echo "FAIL: integration release notify workflow still uses waypoint/hashicorp plugin ids"
+  fail=1
+else
+  echo "OK: integration release plugin identifiers"
+fi
+
+if rg -q '\["waypoint", "cli-docs"\]' tools/gendocs/ 2>/dev/null; then
+  echo "FAIL: gendocs still invokes waypoint cli-docs"
+  fail=1
+else
+  echo "OK: gendocs CLI name"
+fi
+
+USER_FACING_GO=(
+  internal/cli
+  internal/serverinstall
+  internal/runnerinstall
+  internal/installutil
+  cmd
+  internal/ceb
+)
+
+if rg -q '"[^"]*Waypoint[^"]*"' "${USER_FACING_GO[@]}" --glob '*.go' --glob '!*_test.go' 2>/dev/null; then
+  echo "FAIL: user-facing Go strings still contain Waypoint (double-quoted)"
+  rg '"[^"]*Waypoint[^"]*"' "${USER_FACING_GO[@]}" --glob '*.go' --glob '!*_test.go' | head -10
+  fail=1
+else
+  echo "OK: user-facing Go double-quoted strings"
+fi
+
+if rg -q '"waypoint [a-z]' internal/cli --glob '*.go' --glob '!*_test.go' 2>/dev/null; then
+  echo "FAIL: CLI help still references waypoint subcommands in quotes"
+  rg '"waypoint [a-z]' internal/cli --glob '*.go' --glob '!*_test.go' | head -10
+  fail=1
+else
+  echo "OK: CLI subcommand references in help text"
+fi
+
 if [[ "$fail" -ne 0 ]]; then
   echo ""
   echo "rename-check: one or more forbidden Waypoint identifiers remain."

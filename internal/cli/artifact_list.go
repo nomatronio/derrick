@@ -122,7 +122,7 @@ func (c *ArtifactListCommand) Run(args []string) int {
 
 			if c.flagVerbose {
 				for k, val := range b.Labels {
-					if strings.HasPrefix(k, "waypoint/") {
+					if strings.HasPrefix(k, "derrick/") {
 						continue
 					}
 
@@ -134,7 +134,7 @@ func (c *ArtifactListCommand) Run(args []string) int {
 				}
 
 				for k, val := range b.Build.Labels {
-					if strings.HasPrefix(k, "waypoint/") {
+					if strings.HasPrefix(k, "derrick/") {
 						continue
 					}
 

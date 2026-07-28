@@ -222,7 +222,7 @@ func (c *ReleaseListCommand) Run(args []string) int {
 
 			if c.flagVerbose {
 				for k, val := range b.Labels {
-					if strings.HasPrefix(k, "waypoint/") {
+					if strings.HasPrefix(k, "derrick/") {
 						continue
 					}
 
