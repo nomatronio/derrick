@@ -8,7 +8,7 @@ import (
 	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )
 
-// DeriveDefaultODRImage returns the default Waypoint ODR image based on the
+// DeriveDefaultODRImage returns the default Derrick ODR image based on the
 // supplied server image. We default the ODR image to the name of the server
 // image with the `-odr` suffix attached to it.
 func DeriveDefaultODRImage(serverImage string) (string, error) {
@@ -19,7 +19,7 @@ func DeriveDefaultODRImage(serverImage string) (string, error) {
 	tagged, ok := image.(reference.Tagged)
 	if !ok {
 		return "", fmt.Errorf("server image doesn't have a tag specified. " +
-			"Please specify a tag, for example `waypoint:latest`.")
+			"Please specify a tag, for example `derrick:latest`.")
 	}
 
 	tag := tagged.Tag()
@@ -32,14 +32,14 @@ func DeriveDefaultODRImage(serverImage string) (string, error) {
 
 // NOTE: the server image is also used for static (non-ODR) runners.
 // Static runners cannot use the ODR image.
-const DefaultServerImage = "hashicorp/waypoint:latest"
+const DefaultServerImage = "nomatronio/derrick:latest"
 
 // When we have a serverImage value to give to DeriveDefaultOdrImage,
 // we should use that. When we don't, we can use this value
-const DefaultODRImage = "hashicorp/waypoint-odr:latest"
+const DefaultODRImage = "nomatronio/derrick-odr:latest"
 
 func DefaultRunnerName(id string) string {
-	return "waypoint-" + id + "-runner"
+	return "derrick-" + id + "-runner"
 }
 
 // An optional interface that the installer can implement to request

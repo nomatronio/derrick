@@ -36,7 +36,7 @@ func debugSignalHandler(ctx context.Context, log hclog.Logger) {
 
 		// Dump the profile to a timestamped file
 		path := filepath.Join(os.TempDir(), fmt.Sprintf(
-			"waypoint_heap_%d", time.Now().Unix()))
+			"derrick_heap_%d", time.Now().Unix()))
 		log.Warn("SIGUSR1 received, dumping heap profile", "path", path)
 
 		// Get the profile, this is predefined by Go and should always exist.

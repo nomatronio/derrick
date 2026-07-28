@@ -66,7 +66,7 @@ func (r *Runner) executeJob(
 		return nil, err
 	}
 
-	// Waypoint.hcl set on the job overrides all, even if we found a
+	// Derrick.hcl set on the job overrides all, even if we found a
 	// derrick.hcl in the working directory above.
 	if job.DerrickHcl != nil && len(job.DerrickHcl.Contents) > 0 {
 		log.Info("using derrick.hcl associated with the project in the server")
@@ -118,7 +118,7 @@ func (r *Runner) executeJob(
 		// No derrick.hcl file is found.
 		return nil, status.Errorf(codes.FailedPrecondition,
 			"A derrick.hcl was not found. Please either add a derrick.hcl to "+
-				"the project source or in the project settings in the Waypoint UI.")
+				"the project source or in the project settings in the Derrick UI.")
 	}
 
 	// Determine the evaluation context we'll be using
@@ -147,7 +147,7 @@ func (r *Runner) executeJob(
 	}
 
 	// If we have a project specified on the job, override the configuration
-	// project with that. This allows the same Waypoint configuration to
+	// project with that. This allows the same Derrick configuration to
 	// be shared by multiple projects, which is very possible in the UI,
 	// and less useful when stored as a file in the repo.
 	if v := job.Application.Project; v != "" {
@@ -160,7 +160,7 @@ func (r *Runner) executeJob(
 	}
 
 	// Setup our project data directory.
-	projDir, err := datadir.NewProject(filepath.Join(wd, ".waypoint"))
+	projDir, err := datadir.NewProject(filepath.Join(wd, ".derrick"))
 	if err != nil {
 		return nil, err
 	}

@@ -57,7 +57,7 @@ func TestServer(t *testing.T) {
 	time.Sleep(time.Second)
 
 	var cfg gossh.ClientConfig
-	cfg.User = "waypoint"
+	cfg.User = "derrick"
 	cfg.Auth = []gossh.AuthMethod{
 		gossh.PublicKeys(userSigner),
 	}

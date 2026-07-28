@@ -226,15 +226,15 @@ func CreatePersistentVolume(
 func SetupPretask(volumeMounts []*api.VolumeMount) *api.Task {
 	preTask := api.NewTask("pre_task", "docker")
 	// Observed WP user and group IDs in the published container, update if those ever change
-	waypointUserID := 100
-	waypointGroupID := 1000
+	derrickUserID := 100
+	derrickGroupID := 1000
 	cpu := DefaultResourcesCPU
 	mem := DefaultResourcesMemory
 	preTask.Config = map[string]interface{}{
 		// Doing this because this is the only way https://github.com/hashicorp/nomad/issues/8892
 		"image":   "busybox:latest",
 		"command": "sh",
-		"args":    []string{"-c", fmt.Sprintf("chown -R %d:%d /data/", waypointUserID, waypointGroupID)},
+		"args":    []string{"-c", fmt.Sprintf("chown -R %d:%d /data/", derrickUserID, derrickGroupID)},
 	}
 	preTask.VolumeMounts = volumeMounts
 	preTask.Resources = &api.Resources{

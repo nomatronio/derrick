@@ -404,7 +404,7 @@ func (c *LoginCommand) k8sServerAddr(ctx context.Context) (string, error) {
 	}
 
 	if advertiseAddr == "" {
-		return "", fmt.Errorf("Failed to detect waypoint-ui service address.")
+		return "", fmt.Errorf("Failed to detect derrick-ui service address.")
 	}
 
 	// The advertise addr always needs the gRPC port. For our Helm chart
@@ -447,7 +447,7 @@ func (c *LoginCommand) Flags() *flag.Sets {
 			Target: &c.flagK8SService,
 			Usage: "The name of the Kubernetes service to get the server address from " +
 				"when using the -from-kubernetes flag.",
-			Default: "waypoint-ui",
+			Default: "derrick-ui",
 		})
 
 		f.StringVar(&flag.StringVar{
@@ -455,7 +455,7 @@ func (c *LoginCommand) Flags() *flag.Sets {
 			Target: &c.flagK8STokenSecret,
 			Usage: "The name of the Kubernetes secret that has the Derrick token " +
 				"when using the -from-kubernetes flag.",
-			Default: "waypoint-server-token",
+			Default: "derrick-server-token",
 		})
 
 		f.StringVar(&flag.StringVar{
@@ -489,7 +489,7 @@ Usage: derrick login [server address]
   an existing Derrick server.
 
   If the server address is not specified and you have an active
-  context (see "waypoint context"), then this command will reauthenticate
+  context (see "derrick context"), then this command will reauthenticate
   to the currently active server.
 
   This command can be used for token-based authentication as well as
@@ -507,7 +507,7 @@ Usage: derrick login [server address]
 const (
 	errNoAuthMethods = `
 Only token-based authentication is allowed by this server. To login using
-a token, use the "waypoint login" command with the "-token" flag.
+a token, use the "derrick login" command with the "-token" flag.
 `
 
 	errManyAuthMethods = `
@@ -520,14 +520,14 @@ of available auth methods are:
 
 	errLoginServerAddress = `
 This error usually is because you forgot to specify an address for
-a server as an argument. Please use "waypoint login <address>" where
+a server as an argument. Please use "derrick login <address>" where
 "<address>" is the address to your Derrick server. For example:
 
-waypoint login example.com
+derrick login example.com
 
 or
 
-waypoint login https://example.com
+derrick login https://example.com
 `
 
 	errTokenInvalid = `
@@ -538,7 +538,7 @@ double-check the token and try again.
 	errK8STokenEmpty = `
 The Derrick token in the Kubernetes secret is empty. This is usually
 for one of two reasons. First, the Derrick server may not be bootstrapped.
-After installing Derrick on Kubernetes, it takes a few minutes for Waypoint
+After installing Derrick on Kubernetes, it takes a few minutes for Derrick
 to bootstrap itself.
 
 If Derrick is already bootstrapped, it's possible the server administrator

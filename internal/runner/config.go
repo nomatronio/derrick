@@ -61,7 +61,7 @@ func (r *Runner) initConfigStreamReceiver(
 		// If the connection failed, we'll just log that and retry in the
 		// background so the remainder of runner startup can continue.
 		if status.Code(err) == codes.Unavailable {
-			log.Error("error connecting to Waypoint server, will retry")
+			log.Error("error connecting to Derrick server, will retry")
 			go r.initConfigStreamReceiver(ctx, log, ch, true)
 			return nil
 		}

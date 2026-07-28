@@ -64,7 +64,7 @@ func realMain() int {
 		err = cebssh.RunExecSSHServer(ctx, log, port, hostKey, userKey)
 		if err != nil {
 			fmt.Fprintf(flag.CommandLine.Output(),
-				"Error initializing Waypoint entrypoint: %s\n", formatError(err))
+				"Error initializing Derrick entrypoint: %s\n", formatError(err))
 			return 1
 		}
 		return 0
@@ -85,7 +85,7 @@ func realMain() int {
 		ceb.WithExec(args))
 	if err != nil {
 		fmt.Fprintf(flag.CommandLine.Output(),
-			"Error initializing Waypoint entrypoint: %s\n", formatError(err))
+			"Error initializing Derrick entrypoint: %s\n", formatError(err))
 		return 1
 	}
 
@@ -110,7 +110,7 @@ func usage() {
 const usageText = `
 Usage: %[1]s [cmd] [args...]
 
-    This the custom entrypoint to support Waypoint. It will re-execute any
-    command given after configuring the environment for usage with Waypoint.
+    This the custom entrypoint to support Derrick. It will re-execute any
+    command given after configuring the environment for usage with Derrick.
 
 `
