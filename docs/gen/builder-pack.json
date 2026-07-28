@@ -70,7 +70,7 @@
          "Field": "static_environment",
          "Type": "map of string to string",
          "Synopsis": "environment variables to expose to the buildpack",
-         "Summary": "these environment variables should not be run of the mill configuration variables, use waypoint config for that. These variables are used to control over all container modes, such as configuring it to start a web app vs a background worker",
+         "Summary": "these environment variables should not be run of the mill configuration variables, use derrick config for that. These variables are used to control over all container modes, such as configuring it to start a web app vs a background worker",
          "Optional": true,
          "Default": "",
          "EnvVar": "",
@@ -125,8 +125,8 @@
          "SubFields": null
       }
    ],
-   "outputAttrsHelp": "Output attributes can be used in your `waypoint.hcl` as [variables](/docs/waypoint-hcl/variables) via [`artifact`](/docs/waypoint-hcl/variables/artifact) or [`deploy`](/docs/waypoint-hcl/variables/deploy).",
+   "outputAttrsHelp": "Output attributes can be used in your `derrick.hcl` as [variables](/docs/derrick-hcl/variables) via [`artifact`](/docs/derrick-hcl/variables/artifact) or [`deploy`](/docs/derrick-hcl/variables/deploy).",
    "requiredFields": null,
    "type": "builder",
-   "use": "the [`use` stanza](/docs/waypoint-hcl/use) for this plugin."
+   "use": "the [`use` stanza](/docs/derrick-hcl/use) for this plugin."
 }

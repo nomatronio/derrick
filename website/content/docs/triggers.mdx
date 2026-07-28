@@ -26,13 +26,13 @@ The Derrick CLI comes with a subcommand that lets you configure and update
 Trigger URL configurations.
 
 Check out our CLI docs for the `derrick trigger` command, such as
-[derrick trigger create](/waypoint/commands/trigger-create).
+[derrick trigger create](/derrick/commands/trigger-create).
 
 ## Pre-configuring a Trigger URL
 
 As an example, you can create a Trigger URL config that deploys the latest artifact
 to the production workspace. First, configure the Trigger to use the
-right project, application, and workspace. Then, specify which [lifecycle operation](/waypoint/docs/lifecycle)
+right project, application, and workspace. Then, specify which [lifecycle operation](/derrick/docs/lifecycle)
 you want the trigger to execute when run. You can also include a `description` or
 `tags` for extra information for the user.
 
@@ -47,7 +47,7 @@ $ derrick trigger create \
 Trigger "deploy-latest" (123ABC456DEF) has been created
 
  Trigger ID: 123ABC456DEF
-Trigger URL: https://waypoint.server.address.example.com/v1/trigger/123ABC456DEF
+Trigger URL: https://derrick.server.address.example.com/v1/trigger/123ABC456DEF
 ```
 
 Note that creating a trigger does not validate the existence of a Project or
@@ -155,21 +155,21 @@ $ derrick trigger create \
 Trigger "deploy-latest" (123ABC456DEF) has been created
 
 Trigger ID: 123ABC456DEF
-Trigger URL: https://waypoint.server.address.example.com/v1/trigger/123ABC456DEF
+Trigger URL: https://derrick.server.address.example.com/v1/trigger/123ABC456DEF
 ```
 
 Once a trigger has been created, you can request it start via `curl` or any other
 http request.
 
 ```
-curl -k -G -d "token=`derrick user token`" https://waypoint.server.address.example.com/v1/trigger/123ABC456DEF
+curl -k -G -d "token=`derrick user token`" https://derrick.server.address.example.com/v1/trigger/123ABC456DEF
 ```
 
 If your project includes an input variable that you wish to override on the request,
 you can provide a `variables` option.
 
 ```
-curl -k -G -d "variables={\"tag\":\"latest\"}" -d "token=`derrick user token`" https://waypoint.server.address.example.com/v1/trigger/123ABC456DEF
+curl -k -G -d "variables={\"tag\":\"latest\"}" -d "token=`derrick user token`" https://derrick.server.address.example.com/v1/trigger/123ABC456DEF
 ```
 
 ### Streaming Job Output over HTTP
@@ -199,7 +199,7 @@ will be finished if it returns a `Complete` or `Error` value type.
 Streaming output will give you the job event streamed directly to you:
 
 ```
-$ curl -k -G -d "stream=true" -d "token=`derrick user token`" https://waypoint.server.address.example.com/v1/trigger/01FTS1A6H3EH4H4W1XY89AWZ84
+$ curl -k -G -d "stream=true" -d "token=`derrick user token`" https://derrick.server.address.example.com/v1/trigger/01FTS1A6H3EH4H4W1XY89AWZ84
 ...
 ...
 > GET /v1/trigger/123ABC456DEF?stream=true&token=tokenstring HTTP/1.1

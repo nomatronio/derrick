@@ -54,6 +54,22 @@ else
   echo "OK: Makefile binary paths"
 fi
 
+if rg -q '/waypoint/docs/' website/content website/data embedJson/gen docs/gen 2>/dev/null; then
+  echo "FAIL: docs still link to /waypoint/docs/"
+  rg '/waypoint/docs/' website/content website/data embedJson/gen docs/gen | head -10
+  fail=1
+else
+  echo "OK: docs site paths"
+fi
+
+if rg -q 'waypoint\.hcl' website/content embedJson/gen docs/gen 2>/dev/null; then
+  echo "FAIL: docs still reference waypoint.hcl"
+  rg 'waypoint\.hcl' website/content embedJson/gen docs/gen | head -10
+  fail=1
+else
+  echo "OK: docs HCL filename"
+fi
+
 if [[ "$fail" -ne 0 ]]; then
   echo ""
   echo "rename-check: one or more forbidden Waypoint identifiers remain."

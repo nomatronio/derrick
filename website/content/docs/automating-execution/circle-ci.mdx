@@ -41,6 +41,9 @@ for a full list of variables that could be utilized in this way.
 
 ## Example
 
+~> **Note:** The CircleCI `circleci/waypoint` orb is a legacy upstream integration.
+> For new Derrick pipelines, install the `derrick` CLI directly or use a custom orb.
+
 ```yaml
 ---
 version: 2.1
@@ -52,10 +55,10 @@ jobs:
   build:
     executor: derrick/default
     environment:
-      WAYPOINT_SERVER_ADDR: ''
-      WAYPOINT_SERVER_TOKEN: ''
-      WAYPOINT_SERVER_TLS: '1'
-      WAYPOINT_SERVER_TLS_SKIP_VERIFY: '1'
+      DERRICK_SERVER_ADDR: ''
+      DERRICK_SERVER_TOKEN: ''
+      DERRICK_SERVER_TLS: '1'
+      DERRICK_SERVER_TLS_SKIP_VERIFY: '1'
     steps:
       - checkout
       - derrick/init

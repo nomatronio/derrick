@@ -5,7 +5,7 @@ or a chart in a repository.
 
 ### Entrypoint Functionality
 
-Derrick [entrypoint functionality](/waypoint/docs/entrypoint#functionality) such
+Derrick [entrypoint functionality](/derrick/docs/entrypoint#functionality) such
 as logs, exec, app configuration, and more require two properties to be true:
 
 1. The running image must already have the Derrick entrypoint installed
@@ -16,17 +16,17 @@ as logs, exec, app configuration, and more require two properties to be true:
    deployment stage.**
 
 **Step 2 does not happen automatically.** You must manually set the entrypoint
-environment variables using the [templating feature](/waypoint/docs/derrick-hcl/functions/template).
+environment variables using the [templating feature](/derrick/docs/derrick-hcl/functions/template).
 These must be passed in using Helm values (i.e. the chart must make
 environment variables configurable).
 
 This is documented in more detail with a full example in the
-[Kubernetes Helm Deployment documentation](/waypoint/docs/platforms/kubernetes/helm-deploy).
+[Kubernetes Helm Deployment documentation](/derrick/docs/platforms/kubernetes/helm-deploy).
 
 #### URL Service
 
 If you want your workload to be accessible by the
-[Derrick URL service](/waypoint/docs/url), you must set the PORT environment variable
+[Derrick URL service](/derrick/docs/url), you must set the PORT environment variable
 within the pod with your web service and also be using the Derrick
 entrypoint (documented in the previous section).
 
@@ -58,7 +58,7 @@ deploy {
 
 ### Required Parameters
 
-These parameters are used in the [`use` stanza](/waypoint/docs/derrick-hcl/use) for this plugin.
+These parameters are used in the [`use` stanza](/derrick/docs/derrick-hcl/use) for this plugin.
 
 #### chart
 
@@ -86,7 +86,7 @@ This sets a single value. Separate nested values with a `.`. This is the same as
 
 ### Optional Parameters
 
-These parameters are used in the [`use` stanza](/waypoint/docs/derrick-hcl/use) for this plugin.
+These parameters are used in the [`use` stanza](/derrick/docs/derrick-hcl/use) for this plugin.
 
 #### context
 
@@ -179,7 +179,7 @@ The version of the chart to install.
 
 ### Output Attributes
 
-Output attributes can be used in your `derrick.hcl` as [variables](/waypoint/docs/derrick-hcl/variables) via [`artifact`](/waypoint/docs/derrick-hcl/variables/artifact) or [`deploy`](/waypoint/docs/derrick-hcl/variables/deploy).
+Output attributes can be used in your `derrick.hcl` as [variables](/derrick/docs/derrick-hcl/variables) via [`artifact`](/derrick/docs/derrick-hcl/variables/artifact) or [`deploy`](/derrick/docs/derrick-hcl/variables/deploy).
 
 #### release
 

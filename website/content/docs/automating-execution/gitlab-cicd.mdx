@@ -19,7 +19,7 @@ The example demonstrates the main steps:
    using a Docker custom image executor with your other deploy
    dependencies, you could utilize the public Docker image in a multi-stage build.
 3. **Run `derrick init`.** This depends on the environment variables listed
-   below and documented in the [Automating Execution](/waypoint/docs/automating-execution#init)
+   below and documented in the [Automating Execution](/derrick/docs/automating-execution#init)
    overview.
 4. **Run the build, deploy, and release.** In this case, instead of using `derrick up`,
    it breaks out each stage as a separate command to be easier to read and
@@ -45,18 +45,23 @@ See the GitLab CI/CD [predefined environment variables](https://docs.gitlab.com/
 
 ## Example
 
+~> **Note:** The GitLab `waypoint-images` container and `WAYPOINT_*` environment
+> variables below are legacy upstream names. Use a Derrick release image or install
+> the `derrick` CLI in your pipeline and set `DERRICK_*` variables instead.
+
 ```yaml
-waypoint:
-  # GitLab created images, which basically rewraps HashiCorp's officially released binaries and may not match HashiCorp's checksums, See https://gitlab.com/gitlab-org/waypoint-images for more details about what goes into the images.
+derrick:
+  # Legacy GitLab image wrapping upstream Waypoint binaries. Prefer installing
+  # derrick from github.com/nomatronio/derrick/releases for new pipelines.
   image: registry.gitlab.com/gitlab-org/waypoint-images:latest
   stage: build
   services:
     - docker:dind
   variables:
-    WAYPOINT_SERVER_ADDR: ''
-    WAYPOINT_SERVER_TOKEN: ''
-    WAYPOINT_SERVER_TLS: '1'
-    WAYPOINT_SERVER_TLS_SKIP_VERIFY: '1'
+    DERRICK_SERVER_ADDR: ''
+    DERRICK_SERVER_TOKEN: ''
+    DERRICK_SERVER_TLS: '1'
+    DERRICK_SERVER_TLS_SKIP_VERIFY: '1'
   script:
     - derrick init
     - derrick build

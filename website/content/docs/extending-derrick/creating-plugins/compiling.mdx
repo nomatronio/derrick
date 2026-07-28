@@ -38,14 +38,14 @@ build:
 	@echo ""
 	@echo "Compile Plugin"
 
-	go build -o ./bin/waypoint-plugin-${PLUGIN_NAME} ./main.go
+	go build -o ./bin/derrick-plugin-${PLUGIN_NAME} ./main.go
 
 # Install the plugin locally
 install:
 	@echo ""
 	@echo "Installing Plugin"
 
-	cp ./bin/waypoint-plugin-${PLUGIN_NAME}* ${HOME}/.config/waypoint/plugins/
+	cp ./bin/derrick-plugin-${PLUGIN_NAME}* ${HOME}/.config/derrick/plugins/
 ```
 
 Let's modify it a little. Edit the `Makefile` and change the `PLUGIN_NAME` to your plugin name `gobuilder`
@@ -78,7 +78,7 @@ build:
 	@echo ""
 	@echo "Compile Plugin"
 
-	go build -o ./bin/waypoint-plugin-${PLUGIN_NAME} ./main.go
+	go build -o ./bin/derrick-plugin-${PLUGIN_NAME} ./main.go
 ```
 
 With the `Makefile` changed, you can now run `make` to build the plugin.
@@ -91,14 +91,14 @@ Build Protos
 protoc -I . --go_out=plugins=grpc:builder --go_opt=paths=source_relative ./builder/output.proto
 
 Compile Plugin
-go build -o ./bin/waypoint-plugin-gobuilder ./main.go
+go build -o ./bin/derrick-plugin-gobuilder ./main.go
 ```
 
 If you look in the ./bin folder, you will see your compile plugin.
 
 ```shell
 ls ./bin
-waypoint-plugin-gobuilder
+derrick-plugin-gobuilder
 ```
 
 Let's now install the plugin so that it can be used by the Derrick CLI.
@@ -109,8 +109,8 @@ You can install your plugin using the `make install` command. Derrick will autom
 load plugins from certain know locations, these are:
 
 - Same directory as any `derrick.hcl`
-- <waypoint_app_folder>/.waypoint/plugins/
-- \$XDG_CONFIG_HOME/waypoint/plugins/
+- <derrick_app_folder>/.derrick/plugins/
+- \$XDG_CONFIG_HOME/derrick/plugins/
 
 The `make install` command will copy the plugin to the Derrick config in your
 `$HOME` folder. Note that this may not match your `$XDG_CONFIG_HOME` value so
@@ -120,9 +120,9 @@ please double check this is correct for you.
 ➜ make install
 
 Installing Plugin
-cp ./bin/waypoint-plugin-gobuilder /home/nicj/.config/waypoint/plugins/
+cp ./bin/derrick-plugin-gobuilder /home/nicj/.config/derrick/plugins/
 ```
 
 Now the plugin has been installed, let's create an example application which uses your new plugin.
 
-[Next - Creating an Example Application](/waypoint/docs/extending-derrick/creating-plugins/example-application)
+[Next - Creating an Example Application](/derrick/docs/extending-derrick/creating-plugins/example-application)

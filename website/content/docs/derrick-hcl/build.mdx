@@ -12,7 +12,7 @@ description: |-
 The `build` stanza describes how an application is built. Derrick converts
 application source code into an artifact. Derrick can store the image locally,
 or push it to a remote registry. Read more about the
-[build phase of the application lifecycle here](/waypoint/docs/lifecycle/build).
+[build phase of the application lifecycle here](/derrick/docs/lifecycle/build).
 
 Exactly one `build` stanza is required within an `app` stanza.
 
@@ -44,7 +44,7 @@ app "frontend" {
 
 ### Optional
 
-- `hook` <code>([hook][hook]: nil)</code> - [Hooks](/waypoint/docs/lifecycle/hooks)
+- `hook` <code>([hook][hook]: nil)</code> - [Hooks](/derrick/docs/lifecycle/hooks)
   to execute before and/or after the build.
 
 - `registry` <code>([registry][registry]: nil)</code> - A registry to
@@ -52,6 +52,6 @@ app "frontend" {
   pushed to any registry and it is assumed that the deployment can access
   the build result.
 
-[hook]: /waypoint/docs/derrick-hcl/hook 'Hook Stanza'
-[registry]: /waypoint/docs/derrick-hcl/registry 'Registry Stanza'
-[use]: /waypoint/docs/derrick-hcl/use 'Use Stanza'
+[hook]: /derrick/docs/derrick-hcl/hook 'Hook Stanza'
+[registry]: /derrick/docs/derrick-hcl/registry 'Registry Stanza'
+[use]: /derrick/docs/derrick-hcl/use 'Use Stanza'

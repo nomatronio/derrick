@@ -128,7 +128,7 @@
          "SubFields": null
       }
    ],
-   "outputAttrsHelp": "Output attributes can be used in your `waypoint.hcl` as [variables](/waypoint/docs/waypoint-hcl/variables) via [`artifact`](/waypoint/docs/waypoint-hcl/variables/artifact) or [`deploy`](/waypoint/docs/waypoint-hcl/variables/deploy).",
+   "outputAttrsHelp": "Output attributes can be used in your `derrick.hcl` as [variables](/derrick/docs/derrick-hcl/variables) via [`artifact`](/derrick/docs/derrick-hcl/variables/artifact) or [`deploy`](/derrick/docs/derrick-hcl/variables/deploy).",
    "requiredFields": [
       {
          "Field": "instance_type",
@@ -168,5 +168,5 @@
       }
    ],
    "type": "platform",
-   "use": "the [`use` stanza](/waypoint/docs/waypoint-hcl/use) for this plugin."
+   "use": "the [`use` stanza](/derrick/docs/derrick-hcl/use) for this plugin."
 }

@@ -17,7 +17,7 @@ To follow this guide, you will need the following tools:
 - [Go version 1.14+](https://golang.org/doc/install)
 - [Protocol Buffer Compiler](https://grpc.io/docs/protoc-installation/)
 - [Protocol Buffer compile plugin for Go](https://grpc.io/docs/languages/go/quickstart/)
-- [Example Code](https://github.com/hashicorp/waypoint-plugin-examples)
+- [Example Code](https://github.com/nomatronio/derrick)
 
 The plugin you are going create will implement the `Builder` component and will be able to compile Go applications from
 source and create a compiled binary. In addition to implementing `Builder`, you will see how to implement the optional
@@ -76,7 +76,7 @@ the template folder.
 create a new plugin called `gobuilder` in the current repo.
 
 ```shell
-./clone.sh gobuilder ../gobuilder github.com/hashicorp/waypoint-plugin-examples/gobuilder
+./clone.sh gobuilder ../gobuilder github.com/nomatronio/derrick/gobuilder
 
 Created new plugin in ../gobuilder
 You can build this plugin by running the following command
@@ -103,10 +103,10 @@ protoc -I . --go_opt=plugins=grpc --go_out=../../../../ ./platform/output.proto
 protoc -I . --go_opt=plugins=grpc --go_out=../../../../ ./release/output.proto
 
 Compile Plugin
-go build -o ./bin/waypoint-plugin-template ./main.go
+go build -o ./bin/derrick-plugin-template ./main.go
 ```
 
 If you received an error when trying to build your plugin, double-check that you have all the required pre-requisites
 installed.
 
-[Next - Registering Plugin Components](/waypoint/docs/extending-derrick/creating-plugins/main)
+[Next - Registering Plugin Components](/derrick/docs/extending-derrick/creating-plugins/main)

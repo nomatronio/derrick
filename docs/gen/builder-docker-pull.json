@@ -1,5 +1,5 @@
 {
-   "description": "\nUse an existing, pre-built Docker image.\n\nThis builder will automatically inject the Waypoint entrypoint. You\ncan disable this with the \"disable_entrypoint\" configuration.\n\nIf you wish to rename or retag an image, use this along with the\n\"docker\" registry option which will rename/retag the image and then\npush it to the specified registry.\n\nIf Docker isn't available (the Docker daemon isn't running or a DOCKER_HOST\nisn't set), a daemonless solution will be used instead.\n\nIf \"disable_entrypoint\" is set to true and the Waypoint configuration\nhas no registry, this builder will not physically pull the image. This enables\nWaypoint to work in environments where the image is built outside of Waypoint\n(such as in a CI pipeline).\n",
+   "description": "\nUse an existing, pre-built Docker image.\n\nThis builder will automatically inject the Derrick entrypoint. You\ncan disable this with the \"disable_entrypoint\" configuration.\n\nIf you wish to rename or retag an image, use this along with the\n\"docker\" registry option which will rename/retag the image and then\npush it to the specified registry.\n\nIf Docker isn't available (the Docker daemon isn't running or a DOCKER_HOST\nisn't set), a daemonless solution will be used instead.\n\nIf \"disable_entrypoint\" is set to true and the Derrick configuration\nhas no registry, this builder will not physically pull the image. This enables\nDerrick to work in environments where the image is built outside of Derrick\n(such as in a CI pipeline).\n",
    "example": "build {\n  use \"docker-pull\" {\n    image = \"gcr.io/my-project/my-image\"\n    tag   = \"abcd1234\"\n  }\n}",
    "input": "component.Source",
    "mappers": null,
@@ -175,7 +175,7 @@
          "SubFields": null
       }
    ],
-   "outputAttrsHelp": "Output attributes can be used in your `waypoint.hcl` as [variables](/docs/waypoint-hcl/variables) via [`artifact`](/docs/waypoint-hcl/variables/artifact) or [`deploy`](/docs/waypoint-hcl/variables/deploy).",
+   "outputAttrsHelp": "Output attributes can be used in your `derrick.hcl` as [variables](/docs/derrick-hcl/variables) via [`artifact`](/docs/derrick-hcl/variables/artifact) or [`deploy`](/docs/derrick-hcl/variables/deploy).",
    "requiredFields": [
       {
          "Field": "image",
@@ -201,5 +201,5 @@
       }
    ],
    "type": "builder",
-   "use": "the [`use` stanza](/docs/waypoint-hcl/use) for this plugin."
+   "use": "the [`use` stanza](/docs/derrick-hcl/use) for this plugin."
 }

@@ -7,10 +7,10 @@ description: |-
 
 # ConfigSourcer
 
-https://pkg.go.dev/github.com/hashicorp/waypoint-plugin-sdk/component#ConfigSourcer
+https://pkg.go.dev/github.com/nomatronio/derrick-plugin-sdk/component#ConfigSourcer
 
 `ConfigSourcer` can be implemented to dynamically load configs from external
-sources such as [Vault](/waypoint/integrations/hashicorp/vault/latest/components/config-sourcer) and [Terraform Cloud](/waypoint/integrations/hashicorp/terraform-cloud/latest/components/config-sourcer).
+sources such as [Vault](/derrick/integrations/hashicorp/vault/latest/components/config-sourcer) and [Terraform Cloud](/derrick/integrations/hashicorp/terraform-cloud/latest/components/config-sourcer).
 Derrick uses dynamic config sourcers to run alongside the application. The
 plugin interface expects a `ReadFunc()` for reading configuration and a
 `StopFunc()` for stopping configuration sourcing.
@@ -77,7 +77,7 @@ func (cs *ConfigSourcer) read(
 
 ## Getting your plugin into the CEB
 
-To write your own config sourcer, the Derrick [entrypoint](/waypoint/docs/entrypoint)
+To write your own config sourcer, the Derrick [entrypoint](/derrick/docs/entrypoint)
 needs to be able to load and run your plugin. Unfortunately today there is no
 supported way for the CEB to automatically load your plugin. This means if
 you wish you write your own config sourcer plugin, you'll need to add the

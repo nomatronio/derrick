@@ -8,7 +8,7 @@ description: |-
 # Derrick Runners
 
 Derrick utilizes "runners" to execute operations. A runner is a program executing
-[`derrick runner agent`](/waypoint/commands/runner-agent) that is configured with the details
+[`derrick runner agent`](/derrick/commands/runner-agent) that is configured with the details
 of the Derrick server.
 
 Every operation that Derrick runs (build, deploy, release, etc) is executed by a Derrick runner.
@@ -25,7 +25,7 @@ In most deployments, there are two kinds of runners:
 Static runners are long-lived runners that are installed into your deployment
 environment once, likely when you setup Derrick for the first time.
 
-The [`derrick install`](/waypoint/commands/install) and [`derrick runner install`](/waypoint/commands/runner-install)
+The [`derrick install`](/derrick/commands/install) and [`derrick runner install`](/derrick/commands/runner-install)
 commands can install these runners for you, using details about your deployment
 environment.
 
@@ -43,7 +43,7 @@ on-demand runners are ephemeral container instances that perform one operation o
 They can perform container builds without any privileged access, offer more isolation
 between operations, and allow Derrick to scale further.
 
-On-demand runners: see [on-demand runners](/waypoint/docs/runner/on-demand-runner) for more information.
+On-demand runners: see [on-demand runners](/derrick/docs/runner/on-demand-runner) for more information.
 
 ### Runner Architecture
 
@@ -79,7 +79,7 @@ This diagram shows a CLI runner, as well as remote static and on-demand runners:
 
 Runner targeting was designed with multi-environment and multi-region workflows in mind.
 Static runners can be installed with user-defined ID and labels.
-You can then set [runner profiles](/waypoint/docs/runner/profiles), which tell the server which static runner to target to handle operations,
+You can then set [runner profiles](/derrick/docs/runner/profiles), which tell the server which static runner to target to handle operations,
 and the configurations of the short-lived on-demand runner that will execute jobs.
 Finally, specify which `runner profile` to use for an application via
 the `profile` option in the `runner` stanza of the `derrick.hcl` file.
@@ -96,7 +96,7 @@ $ derrick runner agent -name=test -label=org=hashicorp -label=env=dev
 ```
 
 Static runners need a valid runner token and server adoption in order to receive jobs.
-For more information on runner adoption, see [adoption workflow](/waypoint/docs/runner/adoption).
+For more information on runner adoption, see [adoption workflow](/derrick/docs/runner/adoption).
 
 With `derrick runner list`, you can see the full list of available
 runners and their labels.
@@ -129,7 +129,7 @@ $ derrick runner profile set -name=docker-hashicorp-dev -plugin-type=docker -tar
 ```shell-session
                   NAME                  | PLUGIN TYPE |               OCI URL                |              TARGET RUNNER              | DEFAULT
 ----------------------------------------+-------------+--------------------------------------+-----------------------------------------+----------
-  docker-hashicorp-dev                  | docker      | hashicorp/waypoint-odr:latest        | labels: {"env":"dev","org":"hashicorp"} |
+  docker-hashicorp-dev                  | docker      | nomatronio/derrick-odr:latest        | labels: {"env":"dev","org":"hashicorp"} |
 ```
 
 Specify the runner profile to use with the `runner` stanza in the `derrick.hcl` file.
@@ -199,7 +199,7 @@ the application continue uninterrupted.
 
 Runners can be disabled if desired. With runners disabled, Derrick executes
 all operations via the local CLI (even when communicating with a remote
-[server](/waypoint/docs/server)).
+[server](/derrick/docs/server)).
 
 ### Unavailable Functionality
 
@@ -220,7 +220,7 @@ functionality is not available.
 ### Disabling Runner Installation
 
 Prior to installation, runners can be disabled by specifying the
-`-runner=false` flag to the [`derrick install`](/waypoint/commands/install) command.
+`-runner=false` flag to the [`derrick install`](/derrick/commands/install) command.
 This will not install a runner.
 
 ### Removing a Runner
@@ -237,6 +237,6 @@ To uninstall a runner that is already installed, there are two options:
 1. You may also manually go into your platform and delete the runner. For instance
    with kubernetes, you'd delete the StatefulSet that maintains the static runner.
 2. Uninstall and reinstall Derrick with a
-   [data snapshot and restore](/waypoint/docs/server/run/maintenance#backup-restore). This is
+   [data snapshot and restore](/derrick/docs/server/run/maintenance#backup-restore). This is
    a fairly substantial action and should only be undertaken if there is no other
    options.

@@ -1,5 +1,5 @@
 {
-   "description": "\nLaunch a Nomad job for on-demand tasks from the Waypoint server.\n\nThis will use the standard Nomad environment used for with the server install\nto launch on demand Nomad jobs for Waypoint server tasks.\n\t",
+   "description": "\nLaunch a Nomad job for on-demand tasks from the Derrick server.\n\nThis will use the standard Nomad environment used for with the server install\nto launch on demand Nomad jobs for Derrick server tasks.\n\t",
    "example": "task {\n\tuse \"nomad\" {}\n}",
    "mappers": null,
    "name": "nomad",
@@ -91,8 +91,8 @@
          "SubFields": null
       }
    ],
-   "outputAttrsHelp": "Output attributes can be used in your `waypoint.hcl` as [variables](/waypoint/docs/waypoint-hcl/variables) via [`artifact`](/waypoint/docs/waypoint-hcl/variables/artifact) or [`deploy`](/waypoint/docs/waypoint-hcl/variables/deploy).",
+   "outputAttrsHelp": "Output attributes can be used in your `derrick.hcl` as [variables](/derrick/docs/derrick-hcl/variables) via [`artifact`](/derrick/docs/derrick-hcl/variables/artifact) or [`deploy`](/derrick/docs/derrick-hcl/variables/deploy).",
    "requiredFields": null,
    "type": "task",
-   "use": "the [`use` stanza](/waypoint/docs/waypoint-hcl/use) for this plugin."
+   "use": "the [`use` stanza](/derrick/docs/derrick-hcl/use) for this plugin."
 }

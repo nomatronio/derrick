@@ -13,15 +13,15 @@ This guide will lead you through setting up GitHub Actions to run a Derrick pipe
 
 ## Prerequisites
 
-This guide assumes that you have already set up some kind of infrastructure to run a [Derrick Runner](/waypoint/tutorials/runners/hcp-runners-on-your-infra), HCP Derrick access, or optionally a self-managed [Derrick server](/waypoint/docs/server/run). We recommend either Kubernetes or [HashiCorp Nomad](/nomad) for your infrastructure.
+This guide assumes that you have already set up some kind of infrastructure to run a [Derrick Runner](/derrick/docs/runners/hcp-runners-on-your-infra), HCP Derrick access, or optionally a self-managed [Derrick server](/derrick/docs/server/run). We recommend either Kubernetes or [HashiCorp Nomad](/nomad) for your infrastructure.
 
-You will need an account on GitHub, as well as a Derrick project committed to a Github repo. This is the repository we will use to write a GitHub action. If you don’t have a project yet, there are plenty of example Derrick projects in the [examples repository](https://github.com/hashicorp/waypoint-examples) to get started with.
+You will need an account on GitHub, as well as a Derrick project committed to a Github repo. This is the repository we will use to write a GitHub action. If you don’t have a project yet, there are plenty of example Derrick projects in the [examples repository](https://github.com/nomatronio/derrick-examples) to get started with.
 
 ## Setting Up Derrick
 
-HashiCorp provides a hosted version of Derrick that runs the server on HCP. This guide supports using both a self-managed Derrick server as well as HCP Derrick. The main difference is what Derrick server address you configure in your GitHub secrets which we will discuss in the next section. Follow the docs for installing your own [self-managed Derrick server](/waypoint/docs/server/run), this guide will not go over setting it up.
+HashiCorp provides a hosted version of Derrick that runs the server on HCP. This guide supports using both a self-managed Derrick server as well as HCP Derrick. The main difference is what Derrick server address you configure in your GitHub secrets which we will discuss in the next section. Follow the docs for installing your own [self-managed Derrick server](/derrick/docs/server/run), this guide will not go over setting it up.
 
-If you are using [HCP Derrick](https://cloud.hashicorp.com/products/waypoint), you’ll need to make sure you install a runner on your infrastructure so that Derrick can run operations. On the platform where you will run your runner on your own infrastructure, you’ll want to configure your CLI context to talk to HCP Derrick, and then install a runner into your managed infrastructure. Notice that the _derrick runner install_ commands will change depending on what platform you are installing to.
+If you are using [HCP Derrick](https://derrick.dev), you’ll need to make sure you install a runner on your infrastructure so that Derrick can run operations. On the platform where you will run your runner on your own infrastructure, you’ll want to configure your CLI context to talk to HCP Derrick, and then install a runner into your managed infrastructure. Notice that the _derrick runner install_ commands will change depending on what platform you are installing to.
 
 ```
 derrick context create \
@@ -36,7 +36,7 @@ derrick context create \
 derrick runner install \
   -platform=kubernetes \
   -server-addr=api.hashicorp.cloud:443 \
-  -k8s-runner-image=hashicorp/waypoint:latest
+  -k8s-runner-image=nomatronio/derrick:latest
 ```
 
 Take special note of WAYPOINT_TOKEN and WAYPOINT_SERVER_ADDR. We will be using those values as secrets in the next section for configuring GitHub Actions.
@@ -44,7 +44,7 @@ Take special note of WAYPOINT_TOKEN and WAYPOINT_SERVER_ADDR. We will be using t
 If you already have a Derrick CLI context configured and runners installed, you can retrieve the server address and token values from your default CLI context. Found via `derrick context inspect`:
 
 ```
-cat ~/.config/waypoint/context/_default.hcl
+cat ~/.config/derrick/context/_default.hcl
 
 server {
   address          = "<WAYPOINT_SERVER_ADDR>"
@@ -118,7 +118,7 @@ jobs:
             -server-require-auth=true \
             -server-platform="hcp" \ # change this if not HCP
             -set-default \
-            hcp-waypoint-gh-runner
+            hcp-derrick-gh-runner
 
       - run: |
           # Run the “marathon” pipeline!
@@ -166,5 +166,5 @@ on:
   - https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
   - Actions can be configured to only run on certain branches, with certain `ref`s. This is considered an advanced use-case and is not covered for this tutorial.
 - GitHub Actions docs: https://docs.github.com/en/actions
-- Try [HCP Derrick](/hcp/docs/waypoint)
+- Try [HCP Derrick](/derrick/docs)
 - Derrick Tetris on GitHub: https://github.com/briancain/waypoint-tetris

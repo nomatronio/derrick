@@ -7,11 +7,11 @@ description: |-
 
 # Upgrading to Derrick 0.7.0 from 0.6.x
 
-Derrick 0.6.x can be upgraded to Derrick 0.7.0 using a [standard upgrade](/waypoint/docs/upgrading#standard-upgrade).
+Derrick 0.6.x can be upgraded to Derrick 0.7.0 using a [standard upgrade](/derrick/docs/upgrading#standard-upgrade).
 
 ## Breaking Changes
 
-**[v0.7.0](https://github.com/hashicorp/waypoint/releases/tag/v0.7.0)**
+**[v0.7.0](https://github.com/nomatronio/derrick/releases/tag/v0.7.0)**
 
 - core: `configdynamic` has been renamed to `dynamic`. The existing function
   name continues to work but is deprecated and may be removed in a future version.
@@ -24,7 +24,7 @@ Derrick 0.6.x can be upgraded to Derrick 0.7.0 using a [standard upgrade](/waypo
 
 ### Server Image
 
-`derrick install` uses the `hashicorp/waypoint:latest` container image for
+`derrick install` uses the `nomatronio/derrick:latest` container image for
 Kubernetes, Nomad, ECS, and Docker. When upgrading, your platform may require
 you to pull the latest image instead of using a cache.
 

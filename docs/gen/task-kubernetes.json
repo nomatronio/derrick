@@ -1,5 +1,5 @@
 {
-   "description": "\nLaunch a Kubernetes pod for on-demand tasks from the Waypoint server.\n\nThis will use the standard Kubernetes environment variables to source\nauthentication information for Kubernetes. If this is running within Kubernetes\nitself (typical for a Kubernetes-based installation), it will use the pod's\nservice account unless other auth is explicitly given. This allows the task\nlauncher to work by default.\n",
+   "description": "\nLaunch a Kubernetes pod for on-demand tasks from the Derrick server.\n\nThis will use the standard Kubernetes environment variables to source\nauthentication information for Kubernetes. If this is running within Kubernetes\nitself (typical for a Kubernetes-based installation), it will use the pod's\nservice account unless other auth is explicitly given. This allows the task\nlauncher to work by default.\n",
    "example": "task {\n\tuse \"kubernetes\" {}\n}",
    "mappers": null,
    "name": "kubernetes",
@@ -30,7 +30,7 @@
          "Field": "image_secret",
          "Type": "string",
          "Synopsis": "name of the Kubernetes secret to use for the image",
-         "Summary": "this references an existing secret; Waypoint does not create this secret",
+         "Summary": "this references an existing secret; Derrick does not create this secret",
          "Optional": true,
          "Default": "",
          "EnvVar": "",
@@ -95,7 +95,7 @@
          "SubFields": null
       }
    ],
-   "outputAttrsHelp": "Output attributes can be used in your `waypoint.hcl` as [variables](/docs/waypoint-hcl/variables) via [`artifact`](/docs/waypoint-hcl/variables/artifact) or [`deploy`](/docs/waypoint-hcl/variables/deploy).",
+   "outputAttrsHelp": "Output attributes can be used in your `derrick.hcl` as [variables](/docs/derrick-hcl/variables) via [`artifact`](/docs/derrick-hcl/variables/artifact) or [`deploy`](/docs/derrick-hcl/variables/deploy).",
    "requiredFields": [
       {
          "Field": "cpu",
@@ -132,5 +132,5 @@
       }
    ],
    "type": "task",
-   "use": "the [`use` stanza](/docs/waypoint-hcl/use) for this plugin."
+   "use": "the [`use` stanza](/docs/derrick-hcl/use) for this plugin."
 }

@@ -13,18 +13,18 @@ values sourced from external systems such as Kubernetes ConfigMaps,
 HashiCorp Vault, Amazon Parameter Store, etc.
 
 Application configuration can be set two ways. First, it may be set using the
-[`config` stanza](/waypoint/docs/derrick-hcl/config) in the `derrick.hcl` file. You
-may also use the [`derrick config`](/waypoint/commands/config-set) CLI command, but this
+[`config` stanza](/derrick/docs/derrick-hcl/config) in the `derrick.hcl` file. You
+may also use the [`derrick config`](/derrick/commands/config-set) CLI command, but this
 can only be used for environment variables.
 
 When configuration values change, Derrick will automatically
 [restart your application](#application-restart-behavior).
 
-This functionality requires the [Derrick entrypoint](/waypoint/docs/entrypoint).
+This functionality requires the [Derrick entrypoint](/derrick/docs/entrypoint).
 
 ## Setting Configuration via the CLI
 
-Static configuration are values that are set directly using [`derrick config set`](/waypoint/commands/config-set).
+Static configuration are values that are set directly using [`derrick config set`](/derrick/commands/config-set).
 They are "static" because they are set with a predetermined value directly on the Derrick
 server.
 
@@ -39,7 +39,7 @@ when configuration changes.
 
 ### Project Scope
 
-[`derrick config set`](/waypoint/commands/config-set) will set variables by default scoped to the _project_.
+[`derrick config set`](/derrick/commands/config-set) will set variables by default scoped to the _project_.
 This means that all applications within your project will have the environment
 variable set.
 
@@ -56,8 +56,8 @@ $ derrick config set -app web PORT=8080
 ## Setting Configuration via `derrick.hcl`
 
 Configuration can also be set directly in the `derrick.hcl` file using
-the [`config` stanza](/waypoint/docs/derrick-hcl/config). The example below achieves
-the same thing as the [`derrick config set`](/waypoint/commands/config-set) example in the [section above](/waypoint/docs/app-config#setting-configuration-via-the-cli).
+the [`config` stanza](/derrick/docs/derrick-hcl/config). The example below achieves
+the same thing as the [`derrick config set`](/derrick/commands/config-set) example in the [section above](/derrick/docs/app-config#setting-configuration-via-the-cli).
 
 ```hcl
 config {
@@ -69,25 +69,25 @@ config {
 
 Configuration specified in the `derrick.hcl` file has a number of benefits:
 
-- The configuration is made available immediately during all lifecycle operations (such as [`derrick up`](/waypoint/commands/up), [`derrick deploy`](/waypoint/commands/deploy), etc.).
+- The configuration is made available immediately during all lifecycle operations (such as [`derrick up`](/derrick/commands/up), [`derrick deploy`](/derrick/commands/deploy), etc.).
 
 - The configuration is persisted as code and can be committed to version control.
 
 - The configuration can make use of
-  [functions](/waypoint/docs/derrick-hcl/functions) and
-  [variables](/waypoint/docs/derrick-hcl/variables) to compute the keys and values.
+  [functions](/derrick/docs/derrick-hcl/functions) and
+  [variables](/derrick/docs/derrick-hcl/variables) to compute the keys and values.
 
 ### Updating the Configuration of Existing Deployments
 
 Changes to configuration within the `derrick.hcl` file take effect
-whenever a new deploy occurs (such as via a [`derrick up`](/waypoint/commands/up) or [`derrick deploy`](/waypoint/commands/deploy)).
+whenever a new deploy occurs (such as via a [`derrick up`](/derrick/commands/up) or [`derrick deploy`](/derrick/commands/deploy)).
 Existing deployments can be updated without
-a new deploy by using the [`derrick config sync`](/waypoint/commands/config-sync) CLI command.
+a new deploy by using the [`derrick config sync`](/derrick/commands/config-sync) CLI command.
 
 When configuration changes take effect, any changes will affect
 _all deployments_ of that project or application. Practically, this
 means if you change a configuration value in the `derrick.hcl` file
-and run [`derrick up`](/waypoint/commands/up), the new deployment as well as any previous deployments
+and run [`derrick up`](/derrick/commands/up), the new deployment as well as any previous deployments
 that are still running will be updated with the new configuration value.
 
 ### Project vs. Application Scope
@@ -140,7 +140,7 @@ will be fixed in a future version.
 Derrick can sync application configuration values with external systems
 such as Kubernetes ConfigMaps, HashiCorp Vault, Amazon Parameter Store,
 and more. To learn more about this, see the documentation page on
-[dynamic configuration values](/waypoint/docs/app-config/dynamic).
+[dynamic configuration values](/derrick/docs/app-config/dynamic).
 
 ## Application Restart Behavior
 
