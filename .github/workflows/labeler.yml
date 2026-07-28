@@ -1,8 +1,12 @@
 name: "Pull Request Labeler"
 
 on:
+<<<<<<< HEAD
   pull_request:
     types: [opened, synchronize, reopened]
+=======
+  - pull_request_target
+>>>>>>> main
 
 permissions:
   contents: read
