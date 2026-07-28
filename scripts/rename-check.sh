@@ -47,6 +47,14 @@ else
   echo "OK: CLI usage strings"
 fi
 
+if rg -q '"waypoint ' internal/cli/ 2>/dev/null; then
+  echo "FAIL: CLI help still references \"waypoint \" command examples"
+  rg '"waypoint ' internal/cli/ | head -10
+  fail=1
+else
+  echo "OK: CLI help command examples"
+fi
+
 if [[ -f Makefile ]] && rg -q 'cmd/waypoint|o \./waypoint' Makefile 2>/dev/null; then
   echo "FAIL: Makefile still references waypoint binary paths"
   fail=1

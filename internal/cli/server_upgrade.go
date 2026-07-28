@@ -609,7 +609,7 @@ Usage: derrick server upgrade [options]
 }
 
 var (
-	defaultSnapshotName = "waypoint-server-snapshot"
+	defaultSnapshotName = "derrick-server-snapshot"
 	upgradeConfirmMsg   = strings.TrimSpace(`
 Upgrading Derrick server requires confirmation.
 `)

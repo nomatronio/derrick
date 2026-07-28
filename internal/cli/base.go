@@ -126,7 +126,7 @@ type baseCommand struct {
 	// noLocalServer prevents the creation of a local in-memory server
 	noLocalServer bool
 
-	// The home directory that we loaded the waypoint config from
+	// The home directory that we loaded the derrick config from
 	homeConfigPath string
 
 	// deprecatedFlagRemote is whether to execute using a remote runner or use
@@ -203,7 +203,7 @@ func (c *baseCommand) showValidations(validationResults config.ValidationResults
 //   - Starts a local runner (if necessary)
 //   - Attempts to find a derrick.hcl config file, and parse it
 //   - Determines which project/apps are being targeted, by looking at
-//     the -project and -app flags, the local config, the waypoint server.
+//     the -project and -app flags, the local config, the Derrick server.
 func (c *baseCommand) Init(opts ...Option) error {
 	baseCfg := baseConfig{}
 

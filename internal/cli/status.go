@@ -1306,14 +1306,14 @@ derrick status -app=APP-NAME -project=%[1]s
 
 	wpProjectNotFound = strings.TrimSpace(`
 No project named %q was found for the server context %q. To see a list of
-currently configured projects, run “derrick project list”.
+currently configured projects, run "derrick project list".
 
 If you want more information for a specific application, use the '-app' flag
-with “derrick status -app=APP-NAME -project=PROJECT-NAME”.
+with "derrick status -app=APP-NAME -project=PROJECT-NAME".
 `)
 
 	wpAppNotFound = strings.TrimSpace(`
 No application named %q was found in project %q for the server context %q. To see a
-list of currently configured projects, run “derrick project list”.
+list of currently configured projects, run "derrick project list".
 `)
 )
