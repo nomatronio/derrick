@@ -41,7 +41,7 @@
          "Field": "labels",
          "Type": "map of string to string",
          "Synopsis": "A map of key/value pairs to label the docker container with.",
-         "Summary": "A map of key/value pair(s), stored in docker as a string. Each key/value pair must be unique. Validiation occurs at the docker layer, not in Waypoint. Label keys are alphanumeric strings which may contain periods (.) and hyphens (-).",
+         "Summary": "A map of key/value pair(s), stored in docker as a string. Each key/value pair must be unique. Validiation occurs at the docker layer, not in Derrick. Label keys are alphanumeric strings which may contain periods (.) and hyphens (-).",
          "Optional": true,
          "Default": "",
          "EnvVar": "",
@@ -52,9 +52,9 @@
          "Field": "networks",
          "Type": "list of string",
          "Synopsis": "A list of strings with network names to connect the container to.",
-         "Summary": "A list of networks to connect the container to. By default the container will always connect to the `waypoint` network.",
+         "Summary": "A list of networks to connect the container to. By default the container will always connect to the `derrick` network.",
          "Optional": true,
-         "Default": "waypoint",
+         "Default": "derrick",
          "EnvVar": "",
          "Category": false,
          "SubFields": null
@@ -97,7 +97,7 @@
          "Field": "static_environment",
          "Type": "map of string to string",
          "Synopsis": "environment variables to expose to the application",
-         "Summary": "These variables are used to control all of a container's modes, such as configuring it to start a web app vs a background worker. These environment variables should not be common configuration variables normally set in `waypoint config`.",
+         "Summary": "These variables are used to control all of a container's modes, such as configuring it to start a web app vs a background worker. These environment variables should not be common configuration variables normally set in `derrick config`.",
          "Optional": true,
          "Default": "",
          "EnvVar": "",
@@ -118,7 +118,7 @@
          "SubFields": null
       }
    ],
-   "outputAttrsHelp": "Output attributes can be used in your `waypoint.hcl` as [variables](/docs/waypoint-hcl/variables) via [`artifact`](/docs/waypoint-hcl/variables/artifact) or [`deploy`](/docs/waypoint-hcl/variables/deploy).",
+   "outputAttrsHelp": "Output attributes can be used in your `derrick.hcl` as [variables](/docs/derrick-hcl/variables) via [`artifact`](/docs/derrick-hcl/variables/artifact) or [`deploy`](/docs/derrick-hcl/variables/deploy).",
    "requiredFields": [
       {
          "Field": "client_config",
@@ -133,5 +133,5 @@
       }
    ],
    "type": "task",
-   "use": "the [`use` stanza](/docs/waypoint-hcl/use) for this plugin."
+   "use": "the [`use` stanza](/docs/derrick-hcl/use) for this plugin."
 }

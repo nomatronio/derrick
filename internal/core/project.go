@@ -341,7 +341,7 @@ func (p *Project) mergeLabels(ls ...map[string]string) map[string]string {
 	result := map[string]string{}
 
 	// Set our builtin labels
-	result["waypoint/workspace"] = p.workspace
+	result["derrick/workspace"] = p.workspace
 
 	// Merge order
 	mergeOrder := []map[string]string{result, p.labels}

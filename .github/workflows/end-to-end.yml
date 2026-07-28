@@ -1,19 +1,19 @@
 on:
   workflow_call:
     inputs:
-      waypoint-binary:
+      derrick-binary:
         required: true
         type: string
-      waypoint-tar:
+      derrick-tar:
         required: true
         type: string
-      waypoint-image:
+      derrick-image:
         required: true
         type: string
-      waypoint-odr-tar:
+      derrick-odr-tar:
         required: true
         type: string
-      waypoint-odr-image:
+      derrick-odr-image:
         required: true
         type: string
 
@@ -22,18 +22,18 @@ jobs:
     name: Publish Images
     runs-on: ubuntu-latest
     outputs:
-      waypoint-image: ${{ steps.push-waypoint.outputs.waypoint-image }}
-      waypoint-odr-image: ${{ steps.push-waypoint-odr.outputs.waypoint-odr-image }}
+      derrick-image: ${{ steps.push-derrick.outputs.derrick-image }}
+      derrick-odr-image: ${{ steps.push-derrick-odr.outputs.derrick-odr-image }}
     steps:
-      - name: Download Waypoint Image
+      - name: Download Derrick Image
         uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2
         with:
-          name: ${{ inputs.waypoint-tar }}
+          name: ${{ inputs.derrick-tar }}
 
-      - name: Download Waypoint ODR Image
+      - name: Download Derrick ODR Image
         uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2
         with:
-          name: ${{ inputs.waypoint-odr-tar }}
+          name: ${{ inputs.derrick-odr-tar }}
 
       - name: GHCR Login
         uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a # v2.1.0
@@ -42,25 +42,25 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
       
-      - name: Tag and Push Waypoint
-        id: push-waypoint
+      - name: Tag and Push Derrick
+        id: push-derrick
         env:
-          GHCR_IMAGE_NAME: ghcr.io/hashicorp/waypoint/alpha:${{ github.sha }}
+          GHCR_IMAGE_NAME: ghcr.io/nomatronio/derrick/alpha:${{ github.sha }}
         run: |
-          docker load < ${{ inputs.waypoint-tar }}
-          docker tag ${{ inputs.waypoint-image }} "${GHCR_IMAGE_NAME}"
+          docker load < ${{ inputs.derrick-tar }}
+          docker tag ${{ inputs.derrick-image }} "${GHCR_IMAGE_NAME}"
           docker push "${GHCR_IMAGE_NAME}"
-          echo "waypoint-image=${{env.GHCR_IMAGE_NAME}}" | tee -a "$GITHUB_OUTPUT"
+          echo "derrick-image=${{env.GHCR_IMAGE_NAME}}" | tee -a "$GITHUB_OUTPUT"
 
-      - name: Tag and Push Waypoint ODR
-        id: push-waypoint-odr
+      - name: Tag and Push Derrick ODR
+        id: push-derrick-odr
         env:
-          GHCR_IMAGE_NAME: ghcr.io/hashicorp/waypoint/alpha-odr:${{ github.sha }}
+          GHCR_IMAGE_NAME: ghcr.io/nomatronio/derrick/alpha-odr:${{ github.sha }}
         run: |
-          docker load < ${{ inputs.waypoint-odr-tar }}
-          docker tag ${{ inputs.waypoint-odr-image }} "${GHCR_IMAGE_NAME}"
+          docker load < ${{ inputs.derrick-odr-tar }}
+          docker tag ${{ inputs.derrick-odr-image }} "${GHCR_IMAGE_NAME}"
           docker push "${GHCR_IMAGE_NAME}"
-          echo "waypoint-odr-image=${{env.GHCR_IMAGE_NAME}}" | tee -a "$GITHUB_OUTPUT"
+          echo "derrick-odr-image=${{env.GHCR_IMAGE_NAME}}" | tee -a "$GITHUB_OUTPUT"
 
   run_tests:
     name: Run End-to-end tests
@@ -72,20 +72,20 @@ jobs:
 
       - uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2
         with: 
-          name: ${{ inputs.waypoint-binary }}
+          name: ${{ inputs.derrick-binary }}
 
-      - name: install waypoint binary
-        id: install-waypoint
+      - name: install derrick binary
+        id: install-derrick
         run: |
-          unzip ${{ inputs.waypoint-binary }}
+          unzip ${{ inputs.derrick-binary }}
           mkdir -p "$(pwd)/bin"
-          mv waypoint "$(pwd)/bin/waypoint"
-          echo "wp-binary=$(pwd)/bin/waypoint" | tee -a "$GITHUB_OUTPUT"
+          mv derrick "$(pwd)/bin/derrick"
+          echo "wp-binary=$(pwd)/bin/derrick" | tee -a "$GITHUB_OUTPUT"
 
       - name: Run Tests
         env: 
           E2E_PLATFORM: Docker
-          WP_BINARY: ${{ steps.install-waypoint.outputs.wp-binary }}
-          WP_SERVERIMAGE_UPGRADE: ${{ needs.publish-images.outputs.waypoint-image }}
-          WP_ODRIMAGE_UPGRADE: ${{ needs.publish-images.outputs.waypoint-odr-image }}
+          DERRICK_BINARY: ${{ steps.install-derrick.outputs.wp-binary }}
+          DERRICK_SERVERIMAGE_UPGRADE: ${{ needs.publish-images.outputs.derrick-image }}
+          DERRICK_ODRIMAGE_UPGRADE: ${{ needs.publish-images.outputs.derrick-odr-image }}
         run: ./test-e2e/run-test.sh

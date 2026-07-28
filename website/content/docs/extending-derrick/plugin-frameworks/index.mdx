@@ -18,7 +18,7 @@ that attempts to do it all. By defining each resources CRUD functions (i.e. the
 create and delete funcs, plus a status), resource manager will call the appropriate
 functions depending on what operations are being taken with Derrick.
 
-https://pkg.go.dev/github.com/hashicorp/waypoint-plugin-sdk/framework/resource
+https://pkg.go.dev/github.com/nomatronio/derrick-plugin-sdk/framework/resource
 
 # Implementing Resource Manager
 
@@ -39,7 +39,7 @@ syntax = "proto3";
 
 package platform;
 
-option go_package = "github.com/hashicorp/waypoint-plugin-examples/template/platform";
+option go_package = "github.com/nomatronio/derrick/template/platform";
 
 import "google/protobuf/any.proto";
 
@@ -324,5 +324,5 @@ For a more complete picture of what this implementation might look like with
 a real platform plugin, check out how Derrick handles Resource Manager
 with the Kubernetes plugin for deployments and releases:
 
-- [Derrick Kubernetes Deploy Plugin](https://github.com/hashicorp/waypoint/blob/main/builtin/k8s/platform.go)
-- [Derrick Kubernetes Release Plugin](https://github.com/hashicorp/waypoint/blob/main/builtin/k8s/releaser.go)
+- [Derrick Kubernetes Deploy Plugin](https://github.com/nomatronio/derrick/blob/main/builtin/k8s/platform.go)
+- [Derrick Kubernetes Release Plugin](https://github.com/nomatronio/derrick/blob/main/builtin/k8s/releaser.go)

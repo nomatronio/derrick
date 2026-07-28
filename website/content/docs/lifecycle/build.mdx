@@ -34,11 +34,11 @@ app "my-app" {
 
 Derrick includes these builtin plugins to build a Docker image for your app.
 
-- [Docker Build](/waypoint/integrations/hashicorp/docker/latest/components/builder)
-- [Docker Pull Build](/waypoint/integrations/hashicorp/docker-pull/latest/components/builder)
-- [Cloud Native Buildpacks](/waypoint/integrations/hashicorp/pack)
+- [Docker Build](/derrick/integrations/hashicorp/docker/latest/components/builder)
+- [Docker Pull Build](/derrick/integrations/hashicorp/docker-pull/latest/components/builder)
+- [Cloud Native Buildpacks](/derrick/integrations/hashicorp/pack)
 
-You can also create a [plugin](/waypoint/docs/plugins) to extend Derrick with your own builder.
+You can also create a [plugin](/derrick/docs/plugins) to extend Derrick with your own builder.
 
 ### Choosing How to Build Your App
 
@@ -59,7 +59,7 @@ image. If you application works with the `docker build`
 [Docker command](https://docs.docker.com/engine/reference/commandline/build/)
 it should work well the Derrick Docker plugin.
 
-Reference the [Docker plugin](/waypoint/integrations/hashicorp/docker) for all configuration options.
+Reference the [Docker plugin](/derrick/integrations/hashicorp/docker) for all configuration options.
 
 #### Docker Pull Build
 
@@ -115,7 +115,7 @@ An example of this model in practice would be the build process generating
 the static binaries for your web service within your application image, and
 then executing the necessary commands to start ExpressJS to host those static files.
 
-See the [waypoint-examples](https://github.com/hashicorp/waypoint-examples)
+See the [derrick](https://github.com/nomatronio/derrick-examples)
 repository for more examples of this model. The `Procfile` syntax
 is `web: <server process> <server file>`. A sample Procfile with this syntax is below:
 
@@ -215,7 +215,7 @@ Example Docker Registry Configuration
 ...
 ```
 
-Reference the [AWS ECS plugin](/waypoint/integrations/hashicorp/aws-ecs) documentation for an AWS Elastic Container Registry example.
+Reference the [AWS ECS plugin](/derrick/integrations/hashicorp/aws-ecs) documentation for an AWS Elastic Container Registry example.
 
 ### Scenarios for a Registry
 
@@ -268,7 +268,7 @@ Reference the file in `derrick.hcl`:
 
 #### Authentication with Vault
 
-Derrick can read [dynamic config variables](/waypoint/docs/intro/use-cases/dynamic-config-vault-dynamic-secrets)
+Derrick can read [dynamic config variables](/derrick/docs/intro/use-cases/dynamic-config-vault-dynamic-secrets)
 directly from Vault:
 
 ```hcl
@@ -347,5 +347,5 @@ is configured with the private registry credentials. Here is an example
 #### Platforms and Private Registries
 
 Reference [Deploy Private Registry
-documentation](/waypoint/docs/lifecycle/deploy#private-registries) for details on how to
+documentation](/derrick/docs/lifecycle/deploy#private-registries) for details on how to
 configure deployment for private registries.

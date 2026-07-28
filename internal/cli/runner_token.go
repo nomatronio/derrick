@@ -95,7 +95,7 @@ Usage: derrick runner token [options]
 
   Generate a new runner token used for runners.
 
-  This generates a new token that can be used for "waypoint runner agent".
+  This generates a new token that can be used for "derrick runner agent".
   Generating a token in advance enables the "pre-adoption" mode where a runner
   avoids the manual adoption process and begins accepting work immediately.
 

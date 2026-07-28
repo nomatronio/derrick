@@ -71,7 +71,7 @@ func (c *VersionCommand) Help() string {
 	return formatHelp(`
 Usage: derrick version
 
-  Prints the version information for Waypoint.
+  Prints the version information for Derrick.
 
   This command will show the version of the current Derrick CLI. If
   the CLI is configured to communicate to a Derrick server, the server

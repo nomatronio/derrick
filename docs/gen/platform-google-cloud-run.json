@@ -1,6 +1,6 @@
 {
    "description": "Deploy a container to Google Cloud Run",
-   "example": "project = \"wpmini\"\n\napp \"wpmini\" {\n  labels = {\n    \"service\" = \"wpmini\",\n    \"env\"     = \"dev\"\n  }\n\n  build {\n    use \"pack\" {}\n\n    registry {\n      use \"docker\" {\n        image = \"gcr.io/waypoint-project-id/wpmini\"\n        tag   = \"latest\"\n      }\n    }\n  }\n\n  deploy {\n    use \"google-cloud-run\" {\n      project  = \"waypoint-project-id\"\n      location = \"europe-north1\"\n\n      port = 5000\n\n      static_environment = {\n        \"NAME\" : \"World\"\n      }\n\n      capacity {\n        memory                     = 128\n        cpu_count                  = 2\n        max_requests_per_container = 10\n        request_timeout            = 300\n      }\n\n\t  service_account_name = \"cloudrun@waypoint-project-id.iam.gserviceaccount.com\"\n\n      auto_scaling {\n        max = 10\n      }\n\n      cloudsql_instances = [\"waypoint-project-id:europe-north1:sql-instance\"]\n\n      vpc_access {\n        connector = \"custom-vpc-connector\"\n        egress = \"all\"\n      }\n    }\n  }\n\n  release {\n    use \"google-cloud-run\" {}\n  }\n}",
+   "example": "project = \"wpmini\"\n\napp \"wpmini\" {\n  labels = {\n    \"service\" = \"wpmini\",\n    \"env\"     = \"dev\"\n  }\n\n  build {\n    use \"pack\" {}\n\n    registry {\n      use \"docker\" {\n        image = \"gcr.io/derrick-project-id/wpmini\"\n        tag   = \"latest\"\n      }\n    }\n  }\n\n  deploy {\n    use \"google-cloud-run\" {\n      project  = \"derrick-project-id\"\n      location = \"europe-north1\"\n\n      port = 5000\n\n      static_environment = {\n        \"NAME\" : \"World\"\n      }\n\n      capacity {\n        memory                     = 128\n        cpu_count                  = 2\n        max_requests_per_container = 10\n        request_timeout            = 300\n      }\n\n\t  service_account_name = \"cloudrun@derrick-project-id.iam.gserviceaccount.com\"\n\n      auto_scaling {\n        max = 10\n      }\n\n      cloudsql_instances = [\"derrick-project-id:europe-north1:sql-instance\"]\n\n      vpc_access {\n        connector = \"custom-vpc-connector\"\n        egress = \"all\"\n      }\n    }\n  }\n\n  release {\n    use \"google-cloud-run\" {}\n  }\n}",
    "mappers": null,
    "name": "google-cloud-run",
    "optionalFields": [
@@ -162,7 +162,7 @@
          "SubFields": null
       }
    ],
-   "outputAttrsHelp": "Output attributes can be used in your `waypoint.hcl` as [variables](/docs/waypoint-hcl/variables) via [`artifact`](/docs/waypoint-hcl/variables/artifact) or [`deploy`](/docs/waypoint-hcl/variables/deploy).",
+   "outputAttrsHelp": "Output attributes can be used in your `derrick.hcl` as [variables](/docs/derrick-hcl/variables) via [`artifact`](/docs/derrick-hcl/variables/artifact) or [`deploy`](/docs/derrick-hcl/variables/deploy).",
    "requiredFields": [
       {
          "Field": "auto_scaling",
@@ -267,5 +267,5 @@
       }
    ],
    "type": "platform",
-   "use": "the [`use` stanza](/docs/waypoint-hcl/use) for this plugin."
+   "use": "the [`use` stanza](/docs/derrick-hcl/use) for this plugin."
 }

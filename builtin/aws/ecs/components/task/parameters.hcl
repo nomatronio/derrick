@@ -1,14 +1,14 @@
 # This file was generated via `make gen/integrations-hcl`
 parameter {
   key         = "cluster"
-  description = "Cluster name to place On-Demand runner tasks in\nECS Cluster to place On-Demand runners in. This defaults to the cluster used by the Waypoint server"
+  description = "Cluster name to place On-Demand runner tasks in\nECS Cluster to place On-Demand runners in. This defaults to the cluster used by the Derrick server"
   type        = "string"
   required    = false
 }
 
 parameter {
   key         = "execution_role_name"
-  description = "The name of the AWS IAM role to apply to the task's Execution Role\nExecutionRoleName is the name of the AWS IAM role to apply to the task's Execution Role. At this time we reuse the same Role as the Waypoint server Execution Role."
+  description = "The name of the AWS IAM role to apply to the task's Execution Role\nExecutionRoleName is the name of the AWS IAM role to apply to the task's Execution Role. At this time we reuse the same Role as the Derrick server Execution Role."
   type        = "string"
   required    = false
 }
@@ -29,7 +29,7 @@ parameter {
 
 parameter {
   key         = "odr_image"
-  description = "Docker image for the Waypoint On-Demand Runners\nDocker image for the Waypoint On-Demand Runners. This will\ndefault to the server image with the name (not label) suffixed with '-odr'.\""
+  description = "Docker image for the Derrick On-Demand Runners\nDocker image for the Derrick On-Demand Runners. This will\ndefault to the server image with the name (not label) suffixed with '-odr'.\""
   type        = ""
   required    = true
 }
@@ -43,21 +43,21 @@ parameter {
 
 parameter {
   key         = "region"
-  description = "AWS Region to use\nAWS region to use. Defaults to the region used for the Waypoint Server."
+  description = "AWS Region to use\nAWS region to use. Defaults to the region used for the Derrick Server."
   type        = "string"
   required    = false
 }
 
 parameter {
   key         = "security_group_id"
-  description = "Security Group ID to place the On-Demand Runner task in\nSecurity Group ID to place the On-Demand Runner task in. This defaults to the security group used for the Waypoint server"
+  description = "Security Group ID to place the On-Demand Runner task in\nSecurity Group ID to place the On-Demand Runner task in. This defaults to the security group used for the Derrick server"
   type        = "string"
   required    = true
 }
 
 parameter {
   key         = "subnets"
-  description = "List of subnets to place the On-Demand Runner task in.\nList of subnets to place the On-Demand Runner task in. This defaults to the list of subnets configured for the Waypoint server and must be either identical or a subset of the subnets used by the Waypoint server"
+  description = "List of subnets to place the On-Demand Runner task in.\nList of subnets to place the On-Demand Runner task in. This defaults to the list of subnets configured for the Derrick server and must be either identical or a subset of the subnets used by the Derrick server"
   type        = "string"
   required    = true
 }

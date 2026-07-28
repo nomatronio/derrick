@@ -35,7 +35,7 @@ if ctx.Err() != nil {
 
 ## \*component.Source
 
-https://pkg.go.dev/github.com/hashicorp/waypoint-plugin-sdk/component#Source
+https://pkg.go.dev/github.com/nomatronio/derrick-plugin-sdk/component#Source
 
 Source is a data struct which provides the current application name `App`, and `Path` which is the directory
 containing the current Derrick file.
@@ -49,7 +49,7 @@ type Source struct {
 
 ## \*component.JobInfo
 
-https://pkg.go.dev/github.com/hashicorp/waypoint-plugin-sdk/component#JobInfo
+https://pkg.go.dev/github.com/nomatronio/derrick-plugin-sdk/component#JobInfo
 
 JobInfo is a data struct which provides details related to the current Job.
 
@@ -73,7 +73,7 @@ type JobInfo struct {
 
 ## \*component.DeploymentConfig
 
-https://pkg.go.dev/github.com/hashicorp/waypoint-plugin-sdk/component#DeploymentConfig
+https://pkg.go.dev/github.com/nomatronio/derrick-plugin-sdk/component#DeploymentConfig
 
 DeploymentConfig contains configuration which the entrypoint binary requires in order to run correctly.
 For example if you deploy an application to Google Cloud Run which is using the builtin Docker builder,
@@ -122,14 +122,14 @@ Info, Debug, Trace, etc. By default, log output is disabled when running a derri
 
 ## terminal.UI
 
-https://pkg.go.dev/github.com/hashicorp/waypoint-plugin-sdk/terminal#UI
+https://pkg.go.dev/github.com/nomatronio/derrick-plugin-sdk/terminal#UI
 
 UI allows you to build rich output for your plugin, more details on using terminal.UI can be found in the
 Interacting with the UI section.
 
 ## \*component.LabelSet
 
-https://pkg.go.dev/github.com/hashicorp/waypoint-plugin-sdk/component#LabelSet
+https://pkg.go.dev/github.com/nomatronio/derrick-plugin-sdk/component#LabelSet
 
 LabelSet allows you to read the labels defined at an app level on your Derrick configuration.
 

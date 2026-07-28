@@ -14,11 +14,11 @@ to a registry such as a Docker Registry, Amazon ECR, Artifactory, etc. A registr
 is used to make the result of a build available to the deployment platform.
 
 A `registry` is required unless using the Docker build plugin via a [CLI
-runner](/waypoint/docs/runner#cli-runner). This is not the common case, and thusly almost
+runner](/derrick/docs/runner#cli-runner). This is not the common case, and thusly almost
 always a `registry` stanza should be used.
 
 Please see the documentation on the
-[registry phase of the Derrick lifecycle](/waypoint/docs/lifecycle/build#registry)
+[registry phase of the Derrick lifecycle](/derrick/docs/lifecycle/build#registry)
 for examples of when a registry is necessary and the behavior of Derrick without a
 registry specified.
 
@@ -50,8 +50,8 @@ app "frontend" {
 
 ### Optional
 
-- `hook` <code>([hook][hook]: nil)</code> - [Hooks](/waypoint/docs/lifecycle/hooks)
+- `hook` <code>([hook][hook]: nil)</code> - [Hooks](/derrick/docs/lifecycle/hooks)
   to execute before and/or after the artifact is pushed to the registry.
 
-[hook]: /waypoint/docs/derrick-hcl/hook 'Hook Stanza'
-[use]: /waypoint/docs/derrick-hcl/use 'Use Stanza'
+[hook]: /derrick/docs/derrick-hcl/hook 'Hook Stanza'
+[use]: /derrick/docs/derrick-hcl/use 'Use Stanza'

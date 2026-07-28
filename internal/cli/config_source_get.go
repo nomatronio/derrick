@@ -90,7 +90,7 @@ func (c *ConfigSourceGetCommand) Run(args []string) int {
 		if len(resp.ConfigSources) == 0 {
 			c.project.UI.Output(
 				"No dynamic config sources are configured.\nUse the command "+
-					"\"waypoint config source-set\" to add config sources.",
+					"\"derrick config source-set\" to add config sources.",
 				terminal.WithWarningStyle())
 			return 0
 		}

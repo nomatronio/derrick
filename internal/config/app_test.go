@@ -92,14 +92,14 @@ func TestConfigApp_compare(t *testing.T) {
 
 				// Production workspace
 				b, err = c.Build(labelsCtx(map[string]string{
-					"waypoint/workspace": "production",
+					"derrick/workspace": "production",
 				}))
 				require.NoError(t, err)
 				require.Equal(t, "B", b.Use.Type)
 
 				// Non-matching workspace
 				b, err = c.Build(labelsCtx(map[string]string{
-					"waypoint/workspace": "dev",
+					"derrick/workspace": "dev",
 				}))
 				require.NoError(t, err)
 				require.Equal(t, "A", b.Use.Type)
@@ -113,7 +113,7 @@ func TestConfigApp_compare(t *testing.T) {
 
 				// Labels
 				b, err = c.Build(labelsCtx(map[string]string{
-					"waypoint/workspace": "staging",
+					"derrick/workspace": "staging",
 				}))
 				require.NoError(t, err)
 				require.Equal(t, "C", b.Use.Type)
@@ -162,7 +162,7 @@ func TestConfigApp_compare(t *testing.T) {
 
 				// Production workspace
 				b, err = c.Registry(labelsCtx(map[string]string{
-					"waypoint/workspace": "production",
+					"derrick/workspace": "production",
 				}))
 				require.NoError(t, err)
 				require.Equal(t, "B", b.Use.Type)

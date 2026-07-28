@@ -64,7 +64,7 @@ func (i *DockerRunnerInstaller) Install(ctx context.Context, opts *InstallOpts) 
 
 		resp, err := cli.ImagePull(ctx, reference.FamiliarName(imageRef), types.ImagePullOptions{})
 		if err != nil {
-			s.Update("Unable to pull waypoint image")
+			s.Update("Unable to pull derrick image")
 			return err
 		}
 		defer resp.Close()
@@ -89,9 +89,9 @@ func (i *DockerRunnerInstaller) Install(ctx context.Context, opts *InstallOpts) 
 	// We have no opinion on the EndpointSettings for the Docker network which
 	// the user can specify, so we assign an empty struct to the single element
 	// in the map of networks (which is the name of the network, if provided)
-	var waypointNetwork network.NetworkingConfig
+	var derrickNetwork network.NetworkingConfig
 	if i.Config.Network != "" {
-		waypointNetwork = network.NetworkingConfig{
+		derrickNetwork = network.NetworkingConfig{
 			EndpointsConfig: map[string]*network.EndpointSettings{
 				i.Config.Network: {},
 			},
@@ -112,7 +112,7 @@ func (i *DockerRunnerInstaller) Install(ctx context.Context, opts *InstallOpts) 
 		Env:          opts.AdvertiseClient.Env(),
 		Cmd:          append([]string{"runner", "agent", "-id=" + opts.Id, "-cookie=" + opts.Cookie, "-vv"}, opts.RunnerAgentFlags...),
 		Labels: map[string]string{
-			"waypoint-type": "runner",
+			"derrick-type": "runner",
 		},
 	}, &container.HostConfig{
 		Privileged: true,
@@ -124,7 +124,7 @@ func (i *DockerRunnerInstaller) Install(ctx context.Context, opts *InstallOpts) 
 			"seccomp=unconfined",
 			"apparmor=unconfined",
 		},
-	}, &waypointNetwork, nil, "waypoint-"+opts.Id+"-runner")
+	}, &derrickNetwork, nil, "derrick-"+opts.Id+"-runner")
 	if err != nil {
 		return err
 	}
@@ -134,7 +134,7 @@ func (i *DockerRunnerInstaller) Install(ctx context.Context, opts *InstallOpts) 
 		return err
 	}
 
-	s.Update("Waypoint runner installed and started!")
+	s.Update("Derrick runner installed and started!")
 	s.Done()
 
 	return nil
@@ -144,14 +144,14 @@ func (i *DockerRunnerInstaller) InstallFlags(set *flag.Set) {
 	set.StringVar(&flag.StringVar{
 		Name:    "docker-runner-image",
 		Target:  &i.Config.RunnerImage,
-		Usage:   "The Docker image for the Waypoint runner.",
+		Usage:   "The Docker image for the Derrick runner.",
 		Default: defaultRunnerImage,
 	})
 
 	set.StringVar(&flag.StringVar{
 		Name:   "docker-runner-network",
 		Target: &i.Config.Network,
-		Usage:  "The Docker network in which to deploy the Waypoint runner.",
+		Usage:  "The Docker network in which to deploy the Derrick runner.",
 	})
 
 	set.StringVar(&flag.StringVar{
@@ -215,7 +215,7 @@ func (d DockerRunnerInstaller) Uninstall(ctx context.Context, opts *InstallOpts)
 		return err
 	}
 
-	s.Update("Waypoint Runner uninstalled")
+	s.Update("Derrick Runner uninstalled")
 	s.Done()
 	return nil
 }

@@ -7,7 +7,7 @@ description: |-
 
 # Status
 
-https://pkg.go.dev/github.com/hashicorp/waypoint-plugin-sdk/component#Status
+https://pkg.go.dev/github.com/nomatronio/derrick-plugin-sdk/component#Status
 
 The `Status` interface is responsible for reporting on the current health
 for resources which have been created by the derrick `deploy`
@@ -32,7 +32,7 @@ Each report has a top level `Health` which should be the health of the deploymen
 or release your plugin created. Each report can also describe the resources
 involved and their reported health.
 
-https://pkg.go.dev/github.com/hashicorp/waypoint-plugin-sdk/proto/gen#StatusReport
+https://pkg.go.dev/github.com/nomatronio/derrick-plugin-sdk/proto/gen#StatusReport
 
 ```go
 type StatusReport struct {
@@ -40,7 +40,7 @@ type StatusReport struct {
   // a collection of resources for a deployed application
   Resources []*StatusReport_Resource `protobuf:"bytes,1,rep,name=resources,proto3" json:"resources,omitempty"`
   // the current overall health state for a deployment
-  Health StatusReport_Health `protobuf:"varint,2,opt,name=health,proto3,enum=hashicorp.waypoint.sdk.StatusReport_Health" json:"health,omitempty"`
+  Health StatusReport_Health `protobuf:"varint,2,opt,name=health,proto3,enum=nomatron.derrick.sdk.StatusReport_Health" json:"health,omitempty"`
   // a simple human readable message detailing the Health state
   HealthMessage string `protobuf:"bytes,3,opt,name=health_message,json=healthMessage,proto3" json:"health_message,omitempty"`
   // the time when this report was generated
@@ -80,9 +80,9 @@ import (
   "os"
   "path/filepath"
 
-  "github.com/hashicorp/waypoint-plugin-sdk/component"
-  sdk "github.com/hashicorp/waypoint-plugin-sdk/proto/gen"
-  "github.com/hashicorp/waypoint-plugin-sdk/terminal"
+  "github.com/nomatronio/derrick-plugin-sdk/component"
+  sdk "github.com/nomatronio/derrick-plugin-sdk/proto/gen"
+  "github.com/nomatronio/derrick-plugin-sdk/terminal"
 )
 
 // The StatusFunc here tells the Derrick plugin SDK which function in this

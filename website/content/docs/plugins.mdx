@@ -11,31 +11,31 @@ Derrick can be extended using custom plugins. Derrick supports
 custom builders, deployment platforms, registries, release managers,
 and more. This allows you to extend the Derrick workflow and featureset
 anywhere. This page will focus on _using_ plugins. To learn more about
-how to write plugins, see the [Extending Derrick guide](/waypoint/docs/extending-derrick).
+how to write plugins, see the [Extending Derrick guide](/derrick/docs/extending-derrick).
 
 Derrick ships with dozens of built-in plugins. These plugins are available
 out-of-the-box with Derrick and are built directly on the same plugin system
 as external plugins. To see a list of supported plugins, see the
-[integrations library](/waypoint/integrations).
+[integrations library](/derrick/integrations).
 
 ## Available Plugins
 
-You can see a list of all built-in plugins in our [integrations library](/waypoint/integrations).
+You can see a list of all built-in plugins in our [integrations library](/derrick/integrations).
 
-We maintain a list of external plugins [here](https://github.com/hashicorp/waypoint-plugin-examples#community-built-plugins), and we plan to incorporate them into our integrations library in the future.
+We maintain a list of external plugins [here](https://github.com/nomatronio/derrick#community-built-plugins), and we plan to incorporate them into our integrations library in the future.
 
 ## Using an External Plugin
 
 External plugins are distributed as executable binaries. To use an external
 plugin, you must download the correct binary for your operating system,
 place it at the correct location, and use it within your
-[derrick configuration](/waypoint/docs/derrick-hcl/use).
+[derrick configuration](/derrick/docs/derrick-hcl/use).
 
 ### Installing an External Plugin - Local Operations
 
 To install an external plugin, the binary must first be named
 `derrick-plugin-<name>` where `<name>` is the same label that is used
-with the [`use` stanza](/waypoint/docs/derrick-hcl/use) in your Derrick configuration.
+with the [`use` stanza](/derrick/docs/derrick-hcl/use) in your Derrick configuration.
 For the example below, our binary must be named `derrick-plugin-hashicloud`.
 If you're on Windows, the binary must end in ".exe".
 
@@ -53,8 +53,8 @@ Once the plugin is named, it must be copied into the correct location. Derrick
 will look for plugins in the following locations in the following order:
 
 1. In the same directory as the `derrick.hcl` file.
-2. In `./.waypoint/plugins/` relative to the `derrick.hcl` file.
-3. In `$XDG_CONFIG_HOME/waypoint/plugins`
+2. In `./.derrick/plugins/` relative to the `derrick.hcl` file.
+3. In `$XDG_CONFIG_HOME/derrick/plugins`
 
 Once a plugin is found, it will not search the later paths.
 
@@ -62,17 +62,17 @@ Once a plugin is found, it will not search the later paths.
 
 In order to use a custom plugin with remote operations, the plugin must be built-in
 to the Docker image used for the on-demand runner profile configured to execute your
-remote operations. The default on-demand runner image, hashicorp/waypoint-odr:latest,
+remote operations. The default on-demand runner image, nomatronio/derrick-odr:latest,
 contains only the plugins which are built-in to the Derrick binary. To add a custom
 plugin, you may extend this image to add your own plugin:
 
 ```Dockerfile
-FROM hashicorp/waypoint-odr:latest
+FROM nomatronio/derrick-odr:latest
 
-COPY ./waypoint-plugin-myplugin $HOME/.config/waypoint/plugins/waypoint-plugin-myplugin
+COPY ./derrick-plugin-myplugin $HOME/.config/derrick/plugins/derrick-plugin-myplugin
 ```
 
-How to configure your runner profile to use the new image is detailed [here](/waypoint/docs/runner/profiles#oci-url).
+How to configure your runner profile to use the new image is detailed [here](/derrick/docs/runner/profiles#oci-url).
 
 #### Troubleshooting
 
@@ -86,7 +86,7 @@ If the path isn't correct, this is usually due to unset environment variables
 try again.
 
 ```
-2020-10-17T11:32:12.743-0700 [DEBUG] derrick.runner: plugin search path: job_id=01EMVXARPMVCPYWE4FPECZY30B path=[, .waypoint/plugins, /Users/mitchellh/.config/waypoint/plugins]
+2020-10-17T11:32:12.743-0700 [DEBUG] derrick.runner: plugin search path: job_id=01EMVXARPMVCPYWE4FPECZY30B path=[, .derrick/plugins, /Users/mitchellh/.config/derrick/plugins]
 ```
 
 ### Using the External Plugin
@@ -108,7 +108,7 @@ app {
 
 #### Checksumming
 
-You can also use the explicit [`plugin` stanza](/waypoint/docs/derrick-hcl/plugin)
+You can also use the explicit [`plugin` stanza](/derrick/docs/derrick-hcl/plugin)
 to define plugins.
 
 This stanza provides additional functionality when loading plugins.
@@ -122,4 +122,4 @@ This will find the plugin, load it, and also validate any configuration.
 
 ## Authoring a Plugin
 
-To write a plugin, see the [Extending Derrick guide](/waypoint/docs/extending-derrick).
+To write a plugin, see the [Extending Derrick guide](/derrick/docs/extending-derrick).

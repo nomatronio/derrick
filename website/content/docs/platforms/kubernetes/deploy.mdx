@@ -14,8 +14,8 @@ get up and running easily. If your application becomes more complex later,
 you can always switch deployment plugins.
 
 -> **Prefer writing YAML? That's okay!** Derrick supports
-[Helm](/waypoint/docs/platforms/kubernetes/helm-deploy) and raw
-[`kubectl apply`](/waypoint/docs/platforms/kubernetes/kubectl-deploy) as first-class
+[Helm](/derrick/docs/platforms/kubernetes/helm-deploy) and raw
+[`kubectl apply`](/derrick/docs/platforms/kubernetes/kubectl-deploy) as first-class
 deployment plugins, too.
 
 ## A Simple Application
@@ -152,7 +152,7 @@ automatically. Installing the metrics server is typically a single
 With the default Kubernetes deployment configuration, Derrick creates
 a single `ClusterIP` type service. This is perfect for internal services
 but doesn't work if you want to expose your application to the public internet.
-By configuring a `kubernetes` [release stanza](/waypoint/docs/derrick-hcl/release),
+By configuring a `kubernetes` [release stanza](/derrick/docs/derrick-hcl/release),
 configuring release management for your service is also only a few lines
 of HCL.
 
@@ -201,6 +201,6 @@ for more information.
 ## Reference Documentation
 
 To view a full list of the available options for the Kubernetes plugin,
-please see the [plugin reference documentation](/waypoint/integrations/hashicorp/kubernetes).
+please see the [plugin reference documentation](/derrick/integrations/hashicorp/kubernetes).
 This documentation is more dense and has less examples, but is an
 exhaustive list of the available options.

@@ -307,9 +307,9 @@ func (s *State) userDelete(
 	// If the user is the default user, then we can't delete them for now
 	if u.Id == serverstate.DefaultUserId {
 		return status.Errorf(codes.FailedPrecondition,
-			"The initial Waypoint user can't currently be deleted. The initial "+
+			"The initial Derrick user can't currently be deleted. The initial "+
 				"user is used by deployments and runners for authentication. "+
-				"A future version of Waypoint will remove this restriction.")
+				"A future version of Derrick will remove this restriction.")
 	}
 
 	// We can't delete the final user or the system will get into a state

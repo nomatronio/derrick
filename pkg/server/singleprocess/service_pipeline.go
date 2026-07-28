@@ -394,7 +394,7 @@ func (s *Service) buildStepJobs(
 				// they can just add a Release step to their pipeline
 
 				// Queue a release job too
-				log.Warn("Waypoint server current does not support queueing an automatic " +
+				log.Warn("Derrick server current does not support queueing an automatic " +
 					"release job via a deploy....Sorry!!!")
 			}
 		case *pb.Pipeline_Step_Release_:

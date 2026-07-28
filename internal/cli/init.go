@@ -207,7 +207,7 @@ func (c *InitCommand) Run(args []string) int {
 			c.ui.Output("Project had errors during initialization.\n"+
 				"Derrick experienced some errors during project initialization. The output\n"+
 				"above should contain the failure messages. Please correct these errors and\n"+
-				"run 'waypoint init' again.",
+				"run 'derrick init' again.",
 				terminal.WithStyle(terminal.ErrorBoldStyle),
 			)
 
@@ -219,8 +219,8 @@ func (c *InitCommand) Run(args []string) int {
 	c.ui.Output("Project initialized!", terminal.WithStyle(terminal.SuccessBoldStyle))
 	c.ui.Output("")
 	c.ui.Output(
-		"You may now call 'waypoint up' to deploy your project or\n" +
-			"commands such as 'waypoint build' to perform steps individually.",
+		"You may now call 'derrick up' to deploy your project or\n" +
+			"commands such as 'derrick build' to perform steps individually.",
 	)
 
 	return 0
@@ -245,7 +245,7 @@ No Derrick configuration was found in this directory.
 A sample configuration has been created in the file "derrick.hcl". This
 file is heavily commented to help you get started.
 
-Once you've setup your initial configuration, run "waypoint init" again to
+Once you've setup your initial configuration, run "derrick init" again to
 validate the configuration and initialize your project.
 `),
 		terminal.WithSuccessStyle(),
@@ -731,7 +731,7 @@ var initStepStrings = map[initStepType]struct {
 		Error: "Failed to initialize client for Derrick server.",
 		ErrorDetails: `
 The Derrick client validation step validates that we can connect to the
-configured Derrick server. If this is a local-only operation (no Waypoint
+configured Derrick server. If this is a local-only operation (no Derrick
 server is configured), then we validate that we can initialize local writes.
 The error for this failure is shown below.
 			`,
@@ -798,7 +798,7 @@ There was an error during this step and it is shown below.
 Derrick will guide you through the authentication process one plugin
 at a time. Plugins may interactively attempt to authenticate or they may
 just output help text to guide you there. You can use Ctrl-C at any point
-to cancel and run "waypoint init" again later.
+to cancel and run "derrick init" again later.
 			`,
 
 			"auth-failure": `

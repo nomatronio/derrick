@@ -353,7 +353,7 @@ func (s *Service) CompleteOIDCAuth(
 			return nil, hcerr.Externalize(
 				hclog.FromContext(ctx),
 				status.Errorf(codes.PermissionDenied, "rejected OIDC login based on access selector"),
-				"Your account was denied access. Please contact your Waypoint "+
+				"Your account was denied access. Please contact your Derrick "+
 					"server administrator for more information.",
 				"auth_method",
 				am.Name,

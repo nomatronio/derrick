@@ -7,5 +7,5 @@
    "output": "google.cloudrun.Release",
    "requiredFields": null,
    "type": "releasemanager",
-   "use": "the [`use` stanza](/waypoint/docs/waypoint-hcl/use) for this plugin."
+   "use": "the [`use` stanza](/derrick/docs/derrick-hcl/use) for this plugin."
 }

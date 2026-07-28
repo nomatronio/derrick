@@ -336,7 +336,7 @@ func (b *Builder) Build(
 				`to a Docker daemon. Pack does not support dockerless builds. We will `+
 				`still attempt to run the build but it will likely fail. If you are `+
 				`running this build locally, please install Docker. If you are running `+
-				`this build remotely (in a Waypoint runner), the runner must be configured `+
+				`this build remotely (in a Derrick runner), the runner must be configured `+
 				`to have access to the Docker daemon.`+"\n",
 			terminal.WithWarningStyle(),
 		)
@@ -457,7 +457,7 @@ func (b *Builder) Build(
 		assetName, ok := assets.CEBArch[strings.ToLower(serverInfo.Architecture)]
 		if !ok {
 			return nil, status.Errorf(codes.FailedPrecondition,
-				"Automatic Waypoint entrypoint injection only supports amd64 and arm64 "+
+				"Automatic Derrick entrypoint injection only supports amd64 and arm64 "+
 					"image architectures. Got: %s", serverInfo.Architecture)
 		}
 
@@ -566,7 +566,7 @@ build {
 		"environment variables to expose to the buildpack",
 		docs.Summary(
 			"these environment variables should not be run of the mill",
-			"configuration variables, use waypoint config for that.",
+			"configuration variables, use derrick config for that.",
 			"These variables are used to control over all container modes,",
 			"such as configuring it to start a web app vs a background worker",
 		),

@@ -1,4 +1,4 @@
-// Package execwriter contains helpers for writing "waypoint exec"
+// Package execwriter contains helpers for writing "derrick exec"
 // streams via an io.Writer. Data written to the io.Writer will be
 // automatically sent to the gRPC stream.
 package execwriter

@@ -111,7 +111,7 @@ func (r *Runner) Accept(ctx context.Context) error {
 }
 
 // AcceptExact is the same as Accept except that it accepts only
-// a job with exactly the given ID. This is used by Waypoint only in
+// a job with exactly the given ID. This is used by Derrick only in
 // local execution mode as an extra security measure to prevent other
 // jobs from being assigned to the runner.
 func (r *Runner) AcceptExact(ctx context.Context, id string) error {

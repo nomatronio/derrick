@@ -1,0 +1,5 @@
+url_docker_registry_dockerhub = "https://hub.docker.com/r/nomatronio/derrick"
+url_docker_registry_ecr = "https://gallery.ecr.aws/nomatronio/derrick"
+url_license = "https://github.com/nomatronio/derrick/blob/main/LICENSE"
+url_project_website = "https://derrick.dev"
+url_source_repository = "https://github.com/nomatronio/derrick"

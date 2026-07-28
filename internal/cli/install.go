@@ -464,7 +464,7 @@ func (c *InstallCommand) Synopsis() string {
 func (c *InstallCommand) Help() string {
 	return formatHelp(`
 Usage: derrick server install [options]
-Alias: waypoint install
+Alias: derrick install
 
   Installs a Derrick server to an existing platform. The platform should be
   specified as kubernetes, nomad, ecs, or docker.
@@ -474,7 +474,7 @@ Alias: waypoint install
   be disabled by specifying "-runner=false".
 
   By default, this will also automatically create a new default CLI context
-  (see "waypoint context") so the CLI will be configured to use the newly
+  (see "derrick context") so the CLI will be configured to use the newly
   installed server.
 
   This command will require you to accept the Derrick Terms of Service
@@ -489,7 +489,7 @@ Alias: waypoint install
   advanced flag options. As an example, to set the server log level to trace
   and disable the UI, the command would be:
 
-    waypoint install -platform=docker -accept-tos -- -vvv -disable-ui
+    derrick install -platform=docker -accept-tos -- -vvv -disable-ui
 
 ` + c.Flags().Help())
 }
@@ -621,8 +621,8 @@ var (
 	errInstallRunning = strings.TrimSpace(`
 The Derrick server has been deployed, but due to this error we were
 unable to automatically configure the local CLI or the Derrick server
-advertise address. You must do this manually using "waypoint context"
-and "waypoint server config-set".
+advertise address. You must do this manually using "derrick context"
+and "derrick server config-set".
 `)
 
 	errInstallToken = strings.TrimSpace(`
@@ -641,7 +641,7 @@ server first.
 Derrick has detected that the server has already been deployed and bootstrapped.
 However, the current context used to restart the server is not configured
 to authenticate to the current server. If there is a valid context, switch
-to it using "waypoint context use".
+to it using "derrick context use".
 `)
 
 	outInstallSuccess = strings.TrimSpace(`
@@ -649,15 +649,15 @@ Derrick server successfully installed and configured!
 
 The CLI has been configured to connect to the server automatically. This
 connection information is saved in the CLI context named %[1]q.
-Use the "waypoint context" CLI to manage CLI contexts.
+Use the "derrick context" CLI to manage CLI contexts.
 
 The server has been configured to advertise the following address for
 entrypoint communications. This must be a reachable address for all your
 deployments. If this is incorrect, manually set it using the CLI command
-"waypoint server config-set".
+"derrick server config-set".
 
 To launch and authenticate into the Web UI, run:
-waypoint ui -authenticate
+derrick ui -authenticate
 
 Advertise Address: %[2]s
 Web UI Address: %[3]s

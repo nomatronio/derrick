@@ -41,7 +41,7 @@ func TestAppBuild_happy(t *testing.T) {
 
 		// Verify that we set the status properly
 		require.Equal("foo", build.Labels["foo"])
-		require.Contains(build.Labels, "waypoint/workspace")
+		require.Contains(build.Labels, "derrick/workspace")
 
 		// Verify we have the ID set
 		require.Equal("hello", build.JobId)
@@ -131,7 +131,7 @@ func TestAppBuild_hasRegistry(t *testing.T) {
 
 			// Verify that we set the status properly
 			require.Equal("foo", build.Labels["foo"])
-			require.Contains(build.Labels, "waypoint/workspace")
+			require.Contains(build.Labels, "derrick/workspace")
 
 			// Verify we have the ID set
 			require.Equal("hello", build.JobId)
@@ -177,7 +177,7 @@ func TestAppBuild_hasRegistry(t *testing.T) {
 
 			// Verify that we set the status properly
 			require.Equal("foo", build.Labels["foo"])
-			require.Contains(build.Labels, "waypoint/workspace")
+			require.Contains(build.Labels, "derrick/workspace")
 
 			// Verify we have the ID set
 			require.Equal("hello", build.JobId)

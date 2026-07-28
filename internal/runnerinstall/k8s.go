@@ -35,7 +35,7 @@ type K8sRunnerInstaller struct {
 const (
 	defaultRunnerMemory          = "256Mi"
 	defaultRunnerCPU             = "250m"
-	defaultOdrServiceAccountName = "waypoint-runner-odr"
+	defaultOdrServiceAccountName = "derrick-runner-odr"
 )
 
 type InstalledRunnerConfig struct {
@@ -77,7 +77,7 @@ func (i *K8sRunnerInstaller) Install(ctx context.Context, opts *InstallOpts) err
 	client.DependencyUpdate = false
 	client.Timeout = 300 * time.Second
 	client.Namespace = i.Config.Namespace
-	client.ReleaseName = "waypoint-" + strings.ToLower(opts.Id)
+	client.ReleaseName = "derrick-" + strings.ToLower(opts.Id)
 	client.GenerateName = false
 	client.NameTemplate = ""
 	client.OutputDir = ""
@@ -86,14 +86,14 @@ func (i *K8sRunnerInstaller) Install(ctx context.Context, opts *InstallOpts) err
 	client.SubNotes = true
 	client.DisableOpenAPIValidation = false
 	client.Replace = false
-	client.Description = "Static runner for executing remote operations for Hashicorp Waypoint."
+	client.Description = "Static runner for executing remote operations for Hashicorp Derrick."
 	client.CreateNamespace = true
 
 	version := i.Config.Version
 	if version == "" {
 		tags, err := helminstallutil.GetLatestHelmChartVersion(ctx)
 		if err != nil {
-			opts.UI.Output("Error getting latest tag of Waypoint helm chart.", terminal.WithErrorStyle())
+			opts.UI.Output("Error getting latest tag of Derrick helm chart.", terminal.WithErrorStyle())
 			return err
 		}
 		version = *tags[0].Name
@@ -101,13 +101,13 @@ func (i *K8sRunnerInstaller) Install(ctx context.Context, opts *InstallOpts) err
 
 	path, err := client.LocateChart("https://github.com/hashicorp/waypoint-helm/archive/refs/tags/"+version+".tar.gz", settings)
 	if err != nil {
-		opts.UI.Output("Unable to locate Waypoint helm chart.", terminal.WithErrorStyle())
+		opts.UI.Output("Unable to locate Derrick helm chart.", terminal.WithErrorStyle())
 		return err
 	}
 
 	c, err := loader.Load(path)
 	if err != nil {
-		opts.UI.Output("Unable to load Waypoint helm chart.", terminal.WithErrorStyle())
+		opts.UI.Output("Unable to load Derrick helm chart.", terminal.WithErrorStyle())
 		return err
 	}
 
@@ -134,7 +134,7 @@ func (i *K8sRunnerInstaller) Install(ctx context.Context, opts *InstallOpts) err
 				return err
 			}
 		} else {
-			opts.UI.Output("Waypoint runner service account already exists - a new service account will not be created",
+			opts.UI.Output("Derrick runner service account already exists - a new service account will not be created",
 				terminal.WithInfoStyle())
 			i.Config.CreateServiceAccount = false
 		}
@@ -183,12 +183,12 @@ func (i *K8sRunnerInstaller) Install(ctx context.Context, opts *InstallOpts) err
 		},
 	}
 
-	s.Update("Installing Waypoint Helm chart with runner options: " + c.Name())
+	s.Update("Installing Derrick Helm chart with runner options: " + c.Name())
 	_, err = client.RunWithContext(ctx, c, values)
 	if err != nil {
 		return err
 	}
-	s.Update("Waypoint runner installed with Helm!")
+	s.Update("Derrick runner installed with Helm!")
 	s.Status(terminal.StatusOK)
 	s.Done()
 
@@ -205,14 +205,14 @@ func (i *K8sRunnerInstaller) InstallFlags(set *flag.Set) {
 	set.StringVar(&flag.StringVar{
 		Name:   "k8s-context",
 		Target: &i.Config.K8sContext,
-		Usage: "The Kubernetes context to install the Waypoint runner to. If left" +
-			" unset, Waypoint will use the current Kubernetes context.",
+		Usage: "The Kubernetes context to install the Derrick runner to. If left" +
+			" unset, Derrick will use the current Kubernetes context.",
 	})
 
 	set.StringVar(&flag.StringVar{
 		Name:   "k8s-helm-version",
 		Target: &i.Config.Version,
-		Usage: "The version of the Helm chart to use for the Waypoint runner install. " +
+		Usage: "The version of the Helm chart to use for the Derrick runner install. " +
 			"The required version number format is: 'vX.Y.Z'.",
 	})
 
@@ -220,7 +220,7 @@ func (i *K8sRunnerInstaller) InstallFlags(set *flag.Set) {
 		Name:    "k8s-namespace",
 		Target:  &i.Config.Namespace,
 		Default: "default",
-		Usage: "The namespace in the Kubernetes cluster into which the Waypoint " +
+		Usage: "The namespace in the Kubernetes cluster into which the Derrick " +
 			"runner will be installed.",
 	})
 
@@ -230,21 +230,21 @@ func (i *K8sRunnerInstaller) InstallFlags(set *flag.Set) {
 		// This is the static (non-odr) runner, and therefore needs to use the non-ODR
 		// image. The server and the static runner use the same image.
 		Default: installutil.DefaultServerImage,
-		Usage:   "Docker image for the Waypoint runner.",
+		Usage:   "Docker image for the Derrick runner.",
 	})
 
 	set.StringVar(&flag.StringVar{
 		Name:    "k8s-cpu-request",
 		Target:  &i.Config.CpuRequest,
 		Default: defaultRunnerCPU,
-		Usage:   "Requested amount of CPU for Waypoint runner.",
+		Usage:   "Requested amount of CPU for Derrick runner.",
 	})
 
 	set.StringVar(&flag.StringVar{
 		Name:    "k8s-mem-request",
 		Target:  &i.Config.MemRequest,
 		Default: defaultRunnerMemory,
-		Usage:   "Requested amount of memory for Waypoint runner.",
+		Usage:   "Requested amount of memory for Derrick runner.",
 	})
 
 	set.BoolVar(&flag.BoolVar{
@@ -258,7 +258,7 @@ func (i *K8sRunnerInstaller) InstallFlags(set *flag.Set) {
 		Name:    "k8s-image-pull-policy",
 		Target:  &i.Config.ImagePullPolicy,
 		Default: "",
-		Usage:   "Set the pull policy for the Waypoint runner image",
+		Usage:   "Set the pull policy for the Derrick runner image",
 	})
 }
 
@@ -266,10 +266,10 @@ func (i *K8sRunnerInstaller) Uninstall(ctx context.Context, opts *InstallOpts) e
 	ui := opts.UI
 	// Our checks here follow the logic of:
 	// Up until v0.8.2, we installed runners with the k8s client,
-	// and the Label was "app=waypoint-runner" and the Name "waypoint-runner-random-id"
+	// and the Label was "app=derrick-runner" and the Name "derrick-runner-random-id"
 	// As of 0.9.0, we install runners with helm, with a Label following the
-	// pattern ("app.kubernetes.io/instance=waypoint-%s", runnerId)
-	// and the Name ("waypoint-"+strings.ToLower(runnerId))
+	// pattern ("app.kubernetes.io/instance=derrick-%s", runnerId)
+	// and the Name ("derrick-"+strings.ToLower(runnerId))
 	//
 	// Therefore we need to ascertain A) if the runner exists on the cluster at
 	// all (it might not be if the user is auth'd to the wrong cluster), and then B)
@@ -295,7 +295,7 @@ func (i *K8sRunnerInstaller) Uninstall(ctx context.Context, opts *InstallOpts) e
 	// Search for runner with 0.9+ tag format, installed with helm
 	podClient := clientset.CoreV1().Pods(i.Config.Namespace)
 	helmClientList, err := podClient.List(ctx, metav1.ListOptions{
-		LabelSelector: fmt.Sprintf("app.kubernetes.io/instance=waypoint-%s", strings.ToLower(opts.Id)),
+		LabelSelector: fmt.Sprintf("app.kubernetes.io/instance=derrick-%s", strings.ToLower(opts.Id)),
 	})
 	if err != nil {
 		return fmt.Errorf("could not list pods in namespace %q with current context: %s", i.Config.Namespace, err)
@@ -318,7 +318,7 @@ func (i *K8sRunnerInstaller) Uninstall(ctx context.Context, opts *InstallOpts) e
 }
 
 // Uninstall is a method of K8sInstaller and implements the Installer interface to
-// remove a waypoint-server statefulset and the associated PVC and service from
+// remove a derrick-server statefulset and the associated PVC and service from
 // a Kubernetes cluster
 func (i *K8sRunnerInstaller) uninstallWithK8s(ctx context.Context, opts *InstallOpts, listK8sClient *v1.DeploymentList) error {
 	ui := opts.UI
@@ -397,7 +397,7 @@ func (i *K8sRunnerInstaller) uninstallWithK8s(ctx context.Context, opts *Install
 		},
 	); err != nil {
 		ui.Output(
-			"Error deleting Waypoint deployment: %s", clierrors.Humanize(err),
+			"Error deleting Derrick deployment: %s", clierrors.Humanize(err),
 			terminal.WithErrorStyle(),
 		)
 		return err
@@ -442,7 +442,7 @@ func (i *K8sRunnerInstaller) uninstallWithHelm(ctx context.Context, opts *Instal
 	}
 
 	s.Update("Uninstallation Pre-check...")
-	helmRunnerId := "waypoint-" + strings.ToLower(opts.Id)
+	helmRunnerId := "derrick-" + strings.ToLower(opts.Id)
 	verifyClient := action.NewGetValues(actionConfig)
 	cfg, err := verifyClient.Run(helmRunnerId)
 	if err != nil {
@@ -497,15 +497,15 @@ func (i *K8sRunnerInstaller) UninstallFlags(set *flag.Set) {
 	set.StringVar(&flag.StringVar{
 		Name:   "k8s-context",
 		Target: &i.Config.K8sContext,
-		Usage: "The Kubernetes context to install the Waypoint runner to. If left" +
-			" unset, Waypoint will use the current Kubernetes context.",
+		Usage: "The Kubernetes context to install the Derrick runner to. If left" +
+			" unset, Derrick will use the current Kubernetes context.",
 	})
 
 	set.StringVar(&flag.StringVar{
 		Name:    "k8s-namespace",
 		Target:  &i.Config.Namespace,
 		Default: "default",
-		Usage: "The namespace in the Kubernetes cluster into which the Waypoint " +
+		Usage: "The namespace in the Kubernetes cluster into which the Derrick " +
 			"runner will be installed.",
 	})
 }

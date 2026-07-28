@@ -8,7 +8,7 @@ description: |-
 # Derrick Server Install
 
 The recommended way to install the server is using the
-[`derrick install`](/waypoint/commands/install) command.
+[`derrick install`](/derrick/commands/install) command.
 This command will install a server into Docker, Kubernetes, AWS ECS, or Nomad,
 bootstrap the server, and configure your local CLI to access that server.
 It is a single command to get up and running with Derrick.
@@ -16,7 +16,7 @@ It is a single command to get up and running with Derrick.
 This command is configured to install recommended defaults out of the box, while
 giving enough dials and options for users to tweak to still be useful. If there's
 a specific setup that doesn't work for you with `derrick install`, we recommend
-looking at the [server run](/waypoint/docs/server/run) documentation instead or opening
+looking at the [server run](/derrick/docs/server/run) documentation instead or opening
 an issue on GitHub and requesting a feature enhancement.
 
 The server installed by the `derrick install` command runs Derrick
@@ -31,10 +31,10 @@ derrick server run -accept-tos -vv -db=/data/data.db -listen-grpc=0.0.0.0:9701 -
 
 Currently, Derrick supports running its server on the following platforms:
 
-- [Kubernetes](/waypoint/docs/server/install#kubernetes-platform)
-- [Nomad](/waypoint/docs/server/install#nomad-platform)
-- [Amazon ECS](/waypoint/docs/server/install#aws-ecs-platform)
-- [Docker](/waypoint/docs/server/install#docker-platform)
+- [Kubernetes](/derrick/docs/server/install#kubernetes-platform)
+- [Nomad](/derrick/docs/server/install#nomad-platform)
+- [Amazon ECS](/derrick/docs/server/install#aws-ecs-platform)
+- [Docker](/derrick/docs/server/install#docker-platform)
 
 ### Kubernetes Platform
 
@@ -76,7 +76,7 @@ When running the install helper, the CLI should show the Consul DNS backed hostn
 server at the end of an install:
 
 ```shell-session
-$ derrick install -platform=nomad -nomad-host-volume="waypoint" -nomad-runner-host-volume="waypoint-runner" -accept-tos
+$ derrick install -platform=nomad -nomad-host-volume="derrick" -nomad-runner-host-volume="derrick-runner" -accept-tos
 ✓ Derrick server ready
 ✓ The CLI has been configured to automatically install a Consul service for
 the Derrick service backend and ui service in Nomad.
@@ -99,7 +99,7 @@ To launch and authenticate into the Web UI, run:
 derrick ui -authenticate
 
 Advertise Address: derrick-server.service.dc1.consul:9701
-Web UI Address: https://waypoint-ui.service.dc1.consul:9702
+Web UI Address: https://derrick-ui.service.dc1.consul:9702
 ```
 
 Notice that the advertise and web ui address is shown as a hostname, rather than an IP.
@@ -107,7 +107,7 @@ Notice that the advertise and web ui address is shown as a hostname, rather than
 Without using Consul, if the Derrick server allocation ever gets restarted in Nomad, the IP
 address will no longer be valid, and you will have to upgrade every server client's context.
 There are ways around this issue that are considered more advanced, and are likely
-better candidates for using the [server run](/waypoint/docs/server/run) flow for setting
+better candidates for using the [server run](/derrick/docs/server/run) flow for setting
 up Derrick server.
 
 If you do not wish to automatically register a Consul service in Nomad for
@@ -155,7 +155,7 @@ $ derrick install -platform=ecs -accept-tos
 ✓ Found existing IAM role to use: derrick-server-execution-role
 ✓ Created CloudWatchLogs group to store logs in: derrick-server-logs
 ✓ Network load balancer created
-✓ Created ECS Service (waypoint, cluster-name: derrick-server)
+✓ Created ECS Service (derrick, cluster-name: derrick-server)
 ✓ Waiting for target group to be healthy...
 ✓ Service launched!
 ✓ Server installed and configured!
@@ -181,7 +181,7 @@ To launch and authenticate into the Web UI, run:
 derrick ui -authenticate
 
 Advertise Address: derrick-server-nlb-xyz123.elb.us-west-2.amazonaws.com:9701
-Web UI Address: https://waypoint-server-nlb-xyz123.elb.us-west-2.amazonaws.com:9702
+Web UI Address: https://derrick-server-nlb-xyz123.elb.us-west-2.amazonaws.com:9702
 ```
 
 ### Docker Platform
@@ -192,4 +192,4 @@ recommend using Derrick running in Docker for production workflows.
 
 This command sets up Docker containers for running Derrick server and its
 runner as two separate containers by default. They are each installed to a Docker
-network called "waypoint".
+network called "derrick".

@@ -19,7 +19,7 @@ import (
 	"github.com/nomatronio/derrick/pkg/tokenutil"
 )
 
-// client returns the Waypoint client or blocks until it is set or the
+// client returns the Derrick client or blocks until it is set or the
 // ceb is exiting. Once this returns, users should ALWAYS check if an exit
 // condition was triggered to avoid nil panics.
 func (ceb *CEB) waitClient() pb.DerrickClient {
@@ -45,7 +45,7 @@ func (ceb *CEB) initClient(ctx context.Context, log hclog.Logger, cfg *config, r
 	}
 
 	if cfg.ServerAddr == "" {
-		log.Info("no waypoint server configured, disabled entrypoint")
+		log.Info("no derrick server configured, disabled entrypoint")
 		return nil
 	}
 

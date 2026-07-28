@@ -62,8 +62,8 @@ LOOP:
 
 var (
 	runnerFailedToConnectToServer = strings.TrimSpace(`
-The Waypoint runner was unable to connect to Waypoint server. Maybe the
--server-addr specified is not accessible from the Waypoint runner?
+The Derrick runner was unable to connect to Derrick server. Maybe the
+-server-addr specified is not accessible from the Derrick runner?
 `)
 )
 

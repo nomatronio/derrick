@@ -69,7 +69,7 @@ func (c *VersionInfo) FullVersionNumber(rev bool) string {
 	var versionString bytes.Buffer
 
 	if Version == "unknown" && VersionPrerelease == "unknown" {
-		return "Waypoint (version unknown)"
+		return "Derrick (version unknown)"
 	}
 
 	fmt.Fprintf(&versionString, "%s", c.Version)

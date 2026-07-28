@@ -71,7 +71,7 @@ parameter {
 
 parameter {
   key         = "client_config"
-  description = "client config for remote Docker engine\nthis config block can be used to configure a remote Docker engine. By default Waypoint will attempt to discover this configuration using the environment variables: `DOCKER_HOST` to set the url to the docker server. `DOCKER_API_VERSION` to set the version of the API to reach, leave empty for latest. `DOCKER_CERT_PATH` to load the TLS certificates from. `DOCKER_TLS_VERIFY` to enable or disable TLS verification, off by default."
+  description = "client config for remote Docker engine\nthis config block can be used to configure a remote Docker engine. By default Derrick will attempt to discover this configuration using the environment variables: `DOCKER_HOST` to set the url to the docker server. `DOCKER_API_VERSION` to set the version of the API to reach, leave empty for latest. `DOCKER_CERT_PATH` to load the TLS certificates from. `DOCKER_TLS_VERIFY` to enable or disable TLS verification, off by default."
   type        = "docker.ClientConfig"
   required    = false
 }
@@ -101,7 +101,7 @@ parameter {
 
 parameter {
   key         = "labels"
-  description = "A map of key/value pairs to label the docker container with.\nA map of key/value pair(s), stored in docker as a string. Each key/value pair must be unique. Validiation occurs at the docker layer, not in Waypoint. Label keys are alphanumeric strings which may contain periods (.) and hyphens (-)."
+  description = "A map of key/value pairs to label the docker container with.\nA map of key/value pair(s), stored in docker as a string. Each key/value pair must be unique. Validiation occurs at the docker layer, not in Derrick. Label keys are alphanumeric strings which may contain periods (.) and hyphens (-)."
   type        = "map of string to string"
   required    = false
 }

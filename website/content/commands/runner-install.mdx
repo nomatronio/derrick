@@ -44,7 +44,7 @@ the install, the command would be:
 
 - `-platform=<string>` - Platform to install the Derrick runner into. If unset, uses the platform of the local context. One possible value from: docker, ecs, kubernetes, nomad.
 - `-server-addr=<string>` - Address of the Derrick server.
-- `-odr-image=<string>` - Docker image for the on-demand runners. The default is hashicorp/waypoint-odr:latest.
+- `-odr-image=<string>` - Docker image for the on-demand runners. The default is nomatronio/derrick-odr:latest.
 - `-server-tls` - Connect the runner to the server over TLS. The default is true.
 - `-server-tls-skip-verify` - Skip TLS verification for runner connection to server. The default is false.
 - `-server-require-auth` - Send authentication details from runner to server. The default is false.
@@ -53,7 +53,7 @@ the install, the command would be:
 
 #### docker Options
 
-- `-docker-runner-image=<string>` - The Docker image for the Derrick runner. The default is hashicorp/waypoint.
+- `-docker-runner-image=<string>` - The Docker image for the Derrick runner. The default is nomatronio/derrick.
 - `-docker-runner-network=<string>` - The Docker network in which to deploy the Derrick runner.
 - `-docker-socket-path=<string>` - The path of the Docker socket that will be bound in runner. The default is /var/run/docker.sock.
 
@@ -64,7 +64,7 @@ the install, the command would be:
 - `-ecs-task-role-name=<string>` - IAM Execution Role to assign to the on-demand runner. The default is derrick-runner.
 - `-ecs-cpu=<string>` - The amount of CPU to allocate for the Derrick runner task. The default is 512.
 - `-ecs-memory=<string>` - The amount of memory to allocate for the Derrick runner task. The default is 2048.
-- `-ecs-runner-image=<string>` - The Derrick runner Docker image. The default is hashicorp/waypoint.
+- `-ecs-runner-image=<string>` - The Derrick runner Docker image. The default is nomatronio/derrick.
 - `-ecs-cluster=<string>` - The name of the ECS Cluster to install the Derrick runner into. The default is derrick-server.
 - `-ecs-subnets=<string>` - Subnets to install the Derrick runner into.
 
@@ -74,7 +74,7 @@ the install, the command would be:
 - `-k8s-context=<string>` - The Kubernetes context to install the Derrick runner to. If left unset, Derrick will use the current Kubernetes context.
 - `-k8s-helm-version=<string>` - The version of the Helm chart to use for the Derrick runner install. The required version number format is: 'vX.Y.Z'.
 - `-k8s-namespace=<string>` - The namespace in the Kubernetes cluster into which the Derrick runner will be installed. The default is default.
-- `-k8s-runner-image=<string>` - Docker image for the Derrick runner. The default is hashicorp/waypoint:latest.
+- `-k8s-runner-image=<string>` - Docker image for the Derrick runner. The default is nomatronio/derrick:latest.
 - `-k8s-cpu-request=<string>` - Requested amount of CPU for Derrick runner. The default is 250m.
 - `-k8s-mem-request=<string>` - Requested amount of memory for Derrick runner. The default is 256Mi.
 - `-k8s-runner-service-account-init` - Create the service account if it does not exist. The default is true.
@@ -83,7 +83,7 @@ the install, the command would be:
 #### nomad Options
 
 - `-nomad-dc=<string>` - Datacenters to install to for Nomad. The default is dc1.
-- `-nomad-runner-image=<string>` - Docker image for the Derrick runner. The default is hashicorp/waypoint.
+- `-nomad-runner-image=<string>` - Docker image for the Derrick runner. The default is nomatronio/derrick.
 - `-nomad-runner-cpu=<string>` - CPU required to run the runner task in MHz.
 - `-nomad-runner-memory=<string>` - MB of Memory to allocate to the runner job task.
 - `-nomad-host-volume=<string>` - Nomad host volume name.

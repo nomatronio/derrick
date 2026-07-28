@@ -57,7 +57,7 @@ func (c *ConfigDeleteCommand) Run(args []string) int {
 	}
 
 	// If there are no command arguments, check if the command has
-	// been invoked with a pipe like `cat .env | waypoint config set`.
+	// been invoked with a pipe like `cat .env | derrick config set`.
 	if len(c.args) == 0 {
 		info, err := os.Stdin.Stat()
 		if err != nil {

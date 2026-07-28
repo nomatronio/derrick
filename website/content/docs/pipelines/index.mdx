@@ -8,8 +8,8 @@ description: |-
 # Derrick Custom Pipelines
 
 ~> **NOTE**: Custom Pipelines is currently a **Tech Preview** feature of Derrick.
-We invite all Derrick users to give custom pipelines a try and let us know about your experience on our [Discuss forums](https://discuss.hashicorp.com/c/waypoint/51), as well as feature requests, enhancements, or bugs
-via [GitHub](https://github.com/hashicorp/waypoint/issues). We look forward to
+We invite all Derrick users to give custom pipelines a try and let us know about your experience on our [Discuss forums](https://github.com/nomatronio/derrick/discussions51), as well as feature requests, enhancements, or bugs
+via [GitHub](https://github.com/nomatronio/derrick/issues). We look forward to
 hearing what you think and how Derrick can help make your experience
 delivering your applications even better!
 
@@ -29,14 +29,14 @@ run in and configure any operation options necessary; such as disabling an
 artifact push in the `build` step, or pruning old deployments
 on a release in the `release` step.
 
-Please visit the [Pipeline Configuration Docs](/waypoint/docs/pipelines/config)
+Please visit the [Pipeline Configuration Docs](/derrick/docs/pipelines/config)
 for more information about the configuration of a Pipeline for a
 Derrick project.
 
 ### Pipeline Runs
 
 Each time a pipeline is run, Derrick keeps track of the steps, jobs, and run results.
-As you can see from the [derrick pipeline run console example output](/waypoint/docs/pipelines#examples),
+As you can see from the [derrick pipeline run console example output](/derrick/docs/pipelines#examples),
 Derrick identifies how many steps are in the pipeline and how many are successfully
 completed. Users can then further deep dive into specific pipeline runs to view
 more information.
@@ -113,7 +113,7 @@ security scan the built artifact.
 ```hcl
 pipeline "example" {
   step "run-some-code" {
-    image_url = "https://localhost:5000/waypoint-odr:dev"
+    image_url = "https://localhost:5000/derrick-odr:dev"
 
     use "exec" {
       # executes a binary test with some arguments
@@ -317,7 +317,7 @@ pipeline "build-and-test" {
     use "build" {}
   }
   step "test" {
-    image_url = "https://localhost:5000/waypoint-odr:dev"
+    image_url = "https://localhost:5000/derrick-odr:dev"
     use "exec" {
       # executes a binary test with some arguments
       command = "test"
@@ -426,5 +426,5 @@ simple as `derrick pipeline run full-up`:
 We plan to continue making improvements to pipelines in the coming months to bring it out of Tech Preview. This includes more support for running batches of operations for a pipeline by improving Derrick's internal job system, sharing VCS project source code between Steps, giving Pipeline Steps the ability to share input and output variables, approval Steps to "manually" sign off on releases, and more!
 
 Current open feature requests, bug reports, and general issues can be found via
-the [core/pipeline](https://github.com/hashicorp/waypoint/issues?q=is%3Aissue+is%3Aopen+label%3Acore%2Fpipeline)
+the [core/pipeline](https://github.com/nomatronio/derrick/issues?q=is%3Aissue+is%3Aopen+label%3Acore%2Fpipeline)
 label on GitHub!

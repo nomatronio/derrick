@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eo pipefail
 
-# Waypoint end to end test runner
+# Derrick end to end test runner
 
 # shell spinner: https://www.shellscript.sh/tips/spinner/
 spin()
@@ -18,7 +18,7 @@ spin()
   done
 }
 
-echo "Beginning Waypoint end-to-end tests..."
+echo "Beginning Derrick end-to-end tests..."
 echo
 
 if [ "${E2E_PLATFORM}" != "Docker" ] && [ "${E2E_PLATFORM}" != "Kubernetes" ] && [ "${E2E_PLATFORM}" != "Ecs" ] && [ "${E2E_PLATFORM}" != "Nomad" ]; then
@@ -27,7 +27,7 @@ if [ "${E2E_PLATFORM}" != "Docker" ] && [ "${E2E_PLATFORM}" != "Kubernetes" ] &&
 fi
 
 # For running script outside of `test-e2e` folder
-TESTDIR="${WP_TESTE2E_DIR:-$(pwd)}"
+TESTDIR="${DERRICK_TESTE2E_DIR:-$(pwd)}"
 
 echo "==> Installing dependencies..."
 echo
@@ -48,26 +48,26 @@ export GOEXE="$(go env GOEXE)"
 export OUTDIR="build/${GOOS}_${GOARCH}"
 
 # Target working directory for the binary location if not specified
-export WP_BINARY="${WP_BINARY:-$TESTDIR/waypoint}"
+export DERRICK_BINARY="${DERRICK_BINARY:-$TESTDIR/derrick}"
 
-if [ -z "$WP_EXAMPLES_PATH" ]; then
-  echo "WP_EXAMPLES_PATH unset; setting to ${TESTDIR}/waypoint-examples"
-  export WP_EXAMPLES_PATH="${TESTDIR}/waypoint-examples"
+if [ -z "$DERRICK_EXAMPLES_PATH" ]; then
+  echo "DERRICK_EXAMPLES_PATH unset; setting to ${TESTDIR}/waypoint-examples"
+  export DERRICK_EXAMPLES_PATH="${TESTDIR}/waypoint-examples"
 fi
 
-echo "==> Checking if Waypoint binary is built..."
-if [ -f "${WP_BINARY}" ]; then
-  "${WP_BINARY}" version
+echo "==> Checking if Derrick binary is built..."
+if [ -f "${DERRICK_BINARY}" ]; then
+  "${DERRICK_BINARY}" version
   echo
 else
-  echo "==> Building waypoint binary..."
+  echo "==> Building derrick binary..."
   echo
   make
   echo
 fi
 
 # TODO: build waypoint OR download a package, add a switch for this
-#   - add param for installing a certain waypoint server, allow install from alpha package
+#   - add param for installing a certain derrick server, allow install from alpha package
 #   - export proper vars for binary path and server image later on
 
 # make tools
@@ -76,7 +76,7 @@ fi
 
 # Bring in test apps (potentially at a certain sha rather than `main`?)
 # git clone --depth 1 git@github.com:hashicorp/waypoint-examples.git
-if [ ! -d "$WP_EXAMPLES_PATH" ]; then
+if [ ! -d "$DERRICK_EXAMPLES_PATH" ]; then
   echo "==> Pulling in waypoint-examples for test..."
   echo
 
@@ -89,7 +89,7 @@ fi
 # 
 
 echo
-echo "==> Running Waypoint end-to-end tests..."
+echo "==> Running Derrick end-to-end tests..."
 echo
 
 # TODO: allow for running all platforms, or only certain ones
@@ -102,7 +102,7 @@ if [ -z "$CI" ]; then
 fi
 
 # Run Docker tests
-go test -v "github.com/hashicorp/waypoint/test-e2e" -run "$E2E_PLATFORM"
+go test -v "github.com/nomatronio/derrick/test-e2e" -run "$E2E_PLATFORM"
 testResult=$?
 
 # Set up Nomad
@@ -119,7 +119,7 @@ if [[ "$testResult" -eq 0 ]]; then
   echo "==> Cleaning up after finishing tests..."
   echo
 
-  if [[ ! -d WP_EXAMPLES_PATH ]]; then
+  if [[ ! -d DERRICK_EXAMPLES_PATH ]]; then
     # Test clean up
     echo
     echo "* Cleaning up 'waypoint-examples'"

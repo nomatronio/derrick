@@ -276,7 +276,7 @@ Deployment %s marked as released.
 No release manager was configured and the configured platform doesn't
 natively support releases. This means that releasing doesn't generate any
 public URL. Derrick marked the deployment above as "released" for server
-history and to prevent commands such as "waypoint destroy" from deleting
+history and to prevent commands such as "derrick destroy" from deleting
 the deployment by default.
 `
 
@@ -285,7 +285,7 @@ No deployments were found.
 
 This may be because this application has never deployed before or it may be
 because any previous deploys have been destroyed. Create a new deployment
-using "waypoint deploy" and try again.
+using "derrick deploy" and try again.
 `
 
 	releaseUpToDate = `

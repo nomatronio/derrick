@@ -4,13 +4,13 @@ Deploy to a Nomad cluster from a pre-existing Nomad job specification file.
 
 This plugin lets you use any pre-existing Nomad job specification file to
 deploy to Nomad. This deployment is able to support all the features of Derrick.
-You may use Derrick's [templating features](/waypoint/docs/derrick-hcl/functions/template)
+You may use Derrick's [templating features](/derrick/docs/derrick-hcl/functions/template)
 to template the Nomad jobspec with information such as the artifact from
 a previous build step, entrypoint environment variables, etc.
 
 ### Artifact Access
 
-You may use Derrick's [templating features](/waypoint/docs/derrick-hcl/functions/template)
+You may use Derrick's [templating features](/derrick/docs/derrick-hcl/functions/template)
 to access information such as the artifact from the build or push stages.
 An example below shows this by using `templatefile` mixed with
 variables such as `artifact.image` to dynamically configure the
@@ -22,7 +22,7 @@ and the `templatefile` function in your derrick.hcl file, any interpolated value
 
 ### Entrypoint Functionality
 
-Derrick [entrypoint functionality](/waypoint/docs/entrypoint#functionality) such
+Derrick [entrypoint functionality](/derrick/docs/entrypoint#functionality) such
 as logs, exec, app configuration, and more require two properties to be true:
 
 1. The running image must already have the Derrick entrypoint installed
@@ -33,7 +33,7 @@ as logs, exec, app configuration, and more require two properties to be true:
    deployment stage.**
 
 **Step 2 does not happen automatically.** You must manually set the entrypoint
-environment variables using the [templating feature](/waypoint/docs/derrick-hcl/functions/template).
+environment variables using the [templating feature](/derrick/docs/derrick-hcl/functions/template).
 One of the examples below shows the entrypoint environment variables being
 injected.
 
@@ -43,7 +43,7 @@ cannot be used simultaneously. In order to use the features of the Derrick entry
 ### URL Service
 
 If you want your workload to be accessible by the
-[Derrick URL service](/waypoint/docs/url), you must set the PORT environment variable
+[Derrick URL service](/derrick/docs/url), you must set the PORT environment variable
 within your job and be using the Derrick entrypoint (documented in the
 previous section).
 
@@ -96,7 +96,7 @@ job "web" {
 
 ### Required Parameters
 
-These parameters are used in the [`use` stanza](/waypoint/docs/derrick-hcl/use) for this plugin.
+These parameters are used in the [`use` stanza](/derrick/docs/derrick-hcl/use) for this plugin.
 
 #### consul_token
 
@@ -122,7 +122,7 @@ Uses the runner config environment variable VAULT_TOKEN.
 
 ### Optional Parameters
 
-These parameters are used in the [`use` stanza](/waypoint/docs/derrick-hcl/use) for this plugin.
+These parameters are used in the [`use` stanza](/derrick/docs/derrick-hcl/use) for this plugin.
 
 #### hcl1
 
@@ -134,7 +134,7 @@ Parses jobspec as HCL1 instead of HCL2.
 
 ### Output Attributes
 
-Output attributes can be used in your `derrick.hcl` as [variables](/waypoint/docs/derrick-hcl/variables) via [`artifact`](/waypoint/docs/derrick-hcl/variables/artifact) or [`deploy`](/waypoint/docs/derrick-hcl/variables/deploy).
+Output attributes can be used in your `derrick.hcl` as [variables](/derrick/docs/derrick-hcl/variables) via [`artifact`](/derrick/docs/derrick-hcl/variables/artifact) or [`deploy`](/derrick/docs/derrick-hcl/variables/deploy).
 
 #### id
 

@@ -428,7 +428,7 @@ func labels(ctx *hcl.EvalContext, body hcl.Body) (map[string]string, error) {
 // is expected to have "labels" set in it.
 //
 // If ws is true, then the scope of the scopedStage will be compared to
-// a label of value "waypoint/workspace" which is expected to always be
+// a label of value "derrick/workspace" which is expected to always be
 // present.
 //
 // This function can return (nil, nil) as a valid result. This means
@@ -449,10 +449,10 @@ func scopeMatchStage(
 	}
 
 	// If we're workspace matching, simplify this by looking up the
-	// "waypoint/workspace" key.
+	// "derrick/workspace" key.
 	if len(wsScopes) > 0 {
 		values := labels.AsValueMap()
-		wsValue, ok := values["waypoint/workspace"]
+		wsValue, ok := values["derrick/workspace"]
 		if !ok {
 			// No workspace key we can't possibly match.
 			return nil, nil

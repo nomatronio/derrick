@@ -158,7 +158,7 @@ func (c *Config) Pipeline(id string, ctx *hcl.EvalContext) (*Pipeline, error) {
 					*/
 					return nil, status.Errorf(codes.FailedPrecondition,
 						"Step %q defined 2 levels of nesting for an embedded pipeline %q. "+
-							"Currently Waypoint only supports 1 level of nesting for embedded pipelines. "+
+							"Currently Derrick only supports 1 level of nesting for embedded pipelines. "+
 							"You can instead define a pipeline and refer to it as a step rather than "+
 							"defining it directly inside a step.", embedStepRaw.Name, pipeline.Name)
 				}

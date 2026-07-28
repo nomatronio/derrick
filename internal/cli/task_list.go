@@ -235,7 +235,7 @@ func (c *TaskListCommand) Flags() *flag.Sets {
 }
 
 func (c *TaskListCommand) Synopsis() string {
-	return "List all On-Demand Runner Tasks in Waypoint"
+	return "List all On-Demand Runner Tasks in Derrick"
 }
 
 func (c *TaskListCommand) Help() string {

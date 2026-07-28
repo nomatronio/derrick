@@ -255,7 +255,7 @@ func (c *JobInspectCommand) Flags() *flag.Sets {
 }
 
 func (c *JobInspectCommand) Synopsis() string {
-	return "Inspect the details of a job by id in Waypoint"
+	return "Inspect the details of a job by id in Derrick"
 }
 
 func (c *JobInspectCommand) Help() string {

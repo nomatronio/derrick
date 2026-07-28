@@ -29,7 +29,7 @@ parameter {
 
 parameter {
   key         = "image_secret"
-  description = "name of the Kubernetes secret to use for the image\nthis references an existing secret; Waypoint does not create this secret"
+  description = "name of the Kubernetes secret to use for the image\nthis references an existing secret; Derrick does not create this secret"
   type        = "string"
   required    = false
 }

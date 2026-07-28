@@ -148,7 +148,7 @@ func (c *ContextInspectCommand) Help() string {
 	return formatHelp(`
 Usage: derrick context inspect [<name>]
 
-  Output information about a waypoint context or general context info.
+  Output information about a derrick context or general context info.
 
 ` + c.Flags().Help())
 }

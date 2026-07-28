@@ -24,8 +24,8 @@
     "skipLibCheck": true,
     "paths": {
       "ember-cli-flash/*": ["node_modules/ember-cli-flash/index.d.ts"],
-      "waypoint/tests/*": ["tests/*"],
-      "waypoint/*": ["app/*"],
+      "derrick/tests/*": ["tests/*"],
+      "derrick/*": ["app/*"],
       // Ensure that types from libraries are included
       "lib/derrick-client": ["lib/derrick-client/*"],
       "*": ["types/*"]

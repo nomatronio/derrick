@@ -27,14 +27,14 @@ deployment to mirror the Derrick labels we have set.
 app "web" {
   deploy {
     use "kubernetes" {
-      annotations = { for k, v in labels: "waypoint/${k}" => v }
+      annotations = { for k, v in labels: "derrick/${k}" => v }
     }
   }
 }
 ```
 
 This examples goes a bit further and uses HCL map expressions to
-prefix all our labels with "waypoint/" to note they come from Derrick.
+prefix all our labels with "derrick/" to note they come from Derrick.
 If you wanted to just map the labels directly, you can do
 `annotations = labels` directly.
 

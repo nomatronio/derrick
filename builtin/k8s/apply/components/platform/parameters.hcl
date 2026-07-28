@@ -15,7 +15,7 @@ parameter {
 
 parameter {
   key         = "path"
-  description = "Path to a file or directory of YAML or  JSON files.\nThis will be used for `kubectl apply` to create a set of Kubernetes resources. Pair this with `templatefile` or `templatedir` [templating functions](/waypoint/docs/waypoint-hcl/functions/template) to inject dynamic elements into your Kubernetes resources. Subdirectories are included recursively."
+  description = "Path to a file or directory of YAML or  JSON files.\nThis will be used for `kubectl apply` to create a set of Kubernetes resources. Pair this with `templatefile` or `templatedir` [templating functions](/derrick/docs/derrick-hcl/functions/template) to inject dynamic elements into your Kubernetes resources. Subdirectories are included recursively."
   type        = "string"
   required    = true
 }

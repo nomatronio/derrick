@@ -395,9 +395,9 @@ config {
 			"this functionality by reading the username and password into separate values.",
 			"\n\nWhen using the Vault KV secret backend, the path is usually",
 			"`<mount>/data/<key>`. For example, if you wrote data with",
-			"`vault kv put secret/myapp` then the key for Waypoint must be",
+			"`vault kv put secret/myapp` then the key for Derrick must be",
 			"`secret/data/myapp`. This can be confusing but is caused by the fact that",
-			"the Vault API is what Waypoint uses and the Vault CLI does this automatically for KV.",
+			"the Vault API is what Derrick uses and the Vault CLI does this automatically for KV.",
 		),
 	)
 

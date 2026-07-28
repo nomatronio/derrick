@@ -26,7 +26,7 @@
          "Field": "repository",
          "Type": "string",
          "Synopsis": "the ECR repository to store the image into",
-         "Summary": "This defaults to waypoint- then the application name. The repository will be automatically created if needed",
+         "Summary": "This defaults to derrick- then the application name. The repository will be automatically created if needed",
          "Optional": true,
          "Default": "",
          "EnvVar": "",
@@ -70,7 +70,7 @@
          "SubFields": null
       }
    ],
-   "outputAttrsHelp": "Output attributes can be used in your `waypoint.hcl` as [variables](/docs/waypoint-hcl/variables) via [`artifact`](/docs/waypoint-hcl/variables/artifact) or [`deploy`](/docs/waypoint-hcl/variables/deploy).",
+   "outputAttrsHelp": "Output attributes can be used in your `derrick.hcl` as [variables](/docs/derrick-hcl/variables) via [`artifact`](/docs/derrick-hcl/variables/artifact) or [`deploy`](/docs/derrick-hcl/variables/deploy).",
    "requiredFields": [
       {
          "Field": "tag",
@@ -85,5 +85,5 @@
       }
    ],
    "type": "registry",
-   "use": "the [`use` stanza](/docs/waypoint-hcl/use) for this plugin."
+   "use": "the [`use` stanza](/docs/derrick-hcl/use) for this plugin."
 }

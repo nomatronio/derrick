@@ -77,7 +77,7 @@ func (ceb *CEB) initConfigStreamReceiver(
 		// we just start this up in the background in retry mode and allow
 		// the startup to continue so we don't block the child process starting.
 		if status.Code(err) == codes.Unavailable {
-			log.Error("error connecting to Waypoint server, will retry but startup " +
+			log.Error("error connecting to Derrick server, will retry but startup " +
 				"child command without initial settings")
 			go ceb.initConfigStreamReceiver(ctx, log, cfg, ch, true)
 			return nil

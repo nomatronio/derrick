@@ -10,31 +10,31 @@ import (
 )
 
 // A plugin-agnostic function for end-to-end testing the CLI
-// Requires a waypoint server already running, and a project directory
+// Requires a derrick server already running, and a project directory
 // with an app that can build and deploy.
-// Requires WP_BINARY and WP_PROJECT_TEMPLATE_PATH env vars
+// Requires DERRICK_BINARY and DERRICK_PROJECT_TEMPLATE_PATH env vars
 //
-// To run this locally, set up a waypoint server (anywhere), clone the waypoint-examples repo,
-// and set WP_PROJECT_TEMPLATE_PATH=/path/to/waypoint-examples/docker/static
+// To run this locally, set up a derrick server (anywhere), clone the waypoint-examples repo,
+// and set DERRICK_PROJECT_TEMPLATE_PATH=/path/to/waypoint-examples/docker/static
 func TestCliE2E(t *testing.T) {
 
-	wpBinary = Getenv("WP_BINARY", "waypoint")
-	projectTemplatePath := Getenv("WP_PROJECT_TEMPLATE_PATH", "")
+	wpBinary = Getenv("DERRICK_BINARY", "derrick")
+	projectTemplatePath := Getenv("DERRICK_PROJECT_TEMPLATE_PATH", "")
 	if projectTemplatePath == "" {
-		t.Fatalf("Missing required environment variable WP_PROJECT_TEMPLATE_PATH")
+		t.Fatalf("Missing required environment variable DERRICK_PROJECT_TEMPLATE_PATH")
 	}
 	projectFiles, err := ioutil.ReadDir(projectTemplatePath)
 	if err != nil {
 		t.Fatalf("Failed listing files in project template path %s: %s", projectTemplatePath, err)
 	}
-	foundWaypointConfig := false
+	foundDerrickConfig := false
 	for _, file := range projectFiles {
 		if file.Name() == "derrick.hcl" {
-			foundWaypointConfig = true
+			foundDerrickConfig = true
 			break
 		}
 	}
-	if !foundWaypointConfig {
+	if !foundDerrickConfig {
 		t.Fatalf("No derrick.hcl file in project template path %s", projectTemplatePath)
 	}
 

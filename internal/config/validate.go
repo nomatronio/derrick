@@ -346,15 +346,15 @@ func (c *Pipeline) Validate() error {
 //
 //   - key and value length can't be greater than 255 characters each
 //   - keys must be in hostname format (RFC 952)
-//   - keys can't be prefixed with "waypoint/" which is reserved for system use
+//   - keys can't be prefixed with "derrick/" which is reserved for system use
 func ValidateLabels(labels map[string]string) ValidationResults {
 	var results ValidationResults
 
 	for k, v := range labels {
 		name := fmt.Sprintf("label[%s]", k)
 
-		if strings.HasPrefix(k, "waypoint/") {
-			results = append(results, ValidationResult{Error: fmt.Errorf("%s: prefix 'waypoint/' is reserved for system use", name)})
+		if strings.HasPrefix(k, "derrick/") {
+			results = append(results, ValidationResult{Error: fmt.Errorf("%s: prefix 'derrick/' is reserved for system use", name)})
 		}
 
 		if len(k) > 255 {

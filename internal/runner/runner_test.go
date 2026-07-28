@@ -684,7 +684,7 @@ func TestRunnerStart_config(t *testing.T) {
 		client := singleprocess.TestServer(t)
 
 		// Create a temp dir with a filepath in it
-		td, err := ioutil.TempDir("", "waypoint")
+		td, err := ioutil.TempDir("", "derrick")
 		require.NoError(err)
 		defer os.RemoveAll(td)
 		name := filepath.Join(td, "config")

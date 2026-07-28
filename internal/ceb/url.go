@@ -80,7 +80,7 @@ func (ceb *CEB) initURLService(ctx context.Context, port int, cfg *pb.Entrypoint
 	dc, err := discovery.NewClient(cfg.ControlAddr)
 	if err != nil {
 		// This shouldn't fail so we don't have to retry at the time of writing.
-		return errors.Wrapf(err, "error conecting to waypoint control service")
+		return errors.Wrapf(err, "error conecting to derrick control service")
 	}
 
 	L.Debug("refreshing data")

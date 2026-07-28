@@ -104,7 +104,7 @@ func (p *TaskLauncher) Documentation() (*docs.Documentation, error) {
 	}
 
 	doc.Description(`
-Launch a Kubernetes pod for on-demand tasks from the Waypoint server.
+Launch a Kubernetes pod for on-demand tasks from the Derrick server.
 
 This will use the standard Kubernetes environment variables to source
 authentication information for Kubernetes. If this is running within Kubernetes
@@ -135,7 +135,7 @@ task {
 		"image_secret",
 		"name of the Kubernetes secret to use for the image",
 		docs.Summary(
-			"this references an existing secret; Waypoint does not create this secret",
+			"this references an existing secret; Derrick does not create this secret",
 		),
 	)
 

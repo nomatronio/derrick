@@ -9,13 +9,13 @@ description: |-
 
 Derrick provides multiple options for accessing ConfigMap and Secret resources
 within your deployed application. This can be used or instead of Derrick's native
-[application configuration](/waypoint/docs/app-config) functionality.
+[application configuration](/derrick/docs/app-config) functionality.
 
 This page will focus on Derrick-specific mechanisms for injecting
 configuration into your application, and it all requires the
-[Derrick Entrypoint](/waypoint/docs/entrypoint) to be injected and configured.
-Please note that **if you're using the [Helm](/waypoint/docs/platforms/kubernetes/helm-deploy) or
-[`kubernetes-apply`](/waypoint/docs/platforms/kubernetes/kubectl-deploy) deployment plugins,
+[Derrick Entrypoint](/derrick/docs/entrypoint) to be injected and configured.
+Please note that **if you're using the [Helm](/derrick/docs/platforms/kubernetes/helm-deploy) or
+[`kubernetes-apply`](/derrick/docs/platforms/kubernetes/kubectl-deploy) deployment plugins,
 you do not need to use the Derrick entrypoint** and you can access
 ConfigMaps and Secrets using
 [standard Kubernetes practices](https://kubernetes.io/docs/concepts/configuration/configmap/).
@@ -25,9 +25,9 @@ techniques noted below as well.
 ## Environment Variables
 
 You can set environment variables for your application directly
-in the `derrick.hcl` file using the [`config` stanza](/waypoint/docs/derrick-hcl/config).
+in the `derrick.hcl` file using the [`config` stanza](/derrick/docs/derrick-hcl/config).
 Static environment variables like this can also be set using the
-[web UI or CLI](/waypoint/docs/app-config).
+[web UI or CLI](/derrick/docs/app-config).
 
 ```hcl
 config {
@@ -44,7 +44,7 @@ app "my-app" {
 But, it's not a good idea to put something like an API key directly
 in your Derrick configuration. A better idea would be to use a Kubernetes
 Secret and access it from there. Derrick lets you do this with
-[dynamic configuration](/waypoint/docs/app-config/dynamic):
+[dynamic configuration](/derrick/docs/app-config/dynamic):
 
 ```hcl
 config {
@@ -96,9 +96,9 @@ app "my-app" {
 }
 ```
 
-This example shows two new concepts: [internal variables](/waypoint/docs/app-config/internal)
+This example shows two new concepts: [internal variables](/derrick/docs/app-config/internal)
 for creating intermediary values that can be used in other configuration
-values and [files](/waypoint/docs/app-config/files) for creating configuration files.
+values and [files](/derrick/docs/app-config/files) for creating configuration files.
 
 The file `config/config.json` will be written relative to your application
 deployment path. You could also specify an absolute path if you want the
@@ -120,4 +120,4 @@ running application.
 This is a big improvement over native Kubernetes mechanisms which update the
 file but depend on the running application to watch the filesystem for changes.
 For more information, including how to change the signal Derrick sends,
-see [the reference documentation](/waypoint/docs/app-config/files#file-change-signal).
+see [the reference documentation](/derrick/docs/app-config/files#file-change-signal).

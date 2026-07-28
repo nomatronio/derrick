@@ -119,7 +119,7 @@ Usage: derrick user modify [options]
   Modify details about a user.
 
   Some details such as username and display name may be updated.
-  Use "waypoint user inspect" to see the current attributes for a user.
+  Use "derrick user inspect" to see the current attributes for a user.
 
 ` + c.Flags().Help()
 

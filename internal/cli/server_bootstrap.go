@@ -142,7 +142,7 @@ Usage: derrick server bootstrap [options]
   be bootstrapped again.
 
   This command is only required for manually run servers. For servers
-  installed with "waypoint install", the bootstrap is done automatically
+  installed with "derrick install", the bootstrap is done automatically
   during the install process.
 
   The easiest way to run this command against a new server is by using
@@ -166,6 +166,6 @@ No running server detected.
 
 Bootstrapping is only required for running servers. This error may happen
 if you didn't specify a "-server-addr" or the server at that address has shut
-down. Please start a server with "waypoint server run" and try again.
+down. Please start a server with "derrick server run" and try again.
 `)
 )

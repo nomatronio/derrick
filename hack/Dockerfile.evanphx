@@ -25,6 +25,6 @@ RUN --mount=type=cache,target=/root/.cache/go-build make bin
 
 FROM alpine
 
-COPY --from=builder /tmp/wp-src/waypoint /usr/bin/waypoint
+COPY --from=builder /tmp/wp-src/derrick /usr/bin/derrick
 
-ENTRYPOINT ["/usr/bin/waypoint"]
+ENTRYPOINT ["/usr/bin/derrick"]

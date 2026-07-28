@@ -118,8 +118,8 @@ func (r *Registry) Push(
 
 	case *Image_UnusedImg:
 		return nil, status.Errorf(codes.FailedPrecondition,
-			"Input image is in `img` but Waypoint doesn't support img from "+
-				"version 0.7 onwards. Please use a Waypoint 0.6 runner to complete "+
+			"Input image is in `img` but Derrick doesn't support img from "+
+				"version 0.7 onwards. Please use a Derrick 0.6 runner to complete "+
 				"this job or rerun the build without img.")
 
 	}

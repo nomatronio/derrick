@@ -92,7 +92,7 @@ description: "%s"
 
 `, capital, name, cmd.Synopsis())
 
-	fmt.Fprintf(w, "# Derrick %s\n\nCommand: `waypoint %s`\n\n%s\n\n", capital, name, cmd.Synopsis())
+	fmt.Fprintf(w, "# Derrick %s\n\nCommand: `derrick %s`\n\n%s\n\n", capital, name, cmd.Synopsis())
 
 	descFile := goodName + "_desc.mdx"
 
@@ -115,13 +115,13 @@ description: "%s"
 			optionalAlias = helpText[1]
 		}
 
-		reUsage := regexp.MustCompile(`waypoint (?P<cmd>.*)$`)
+		reUsage := regexp.MustCompile(`derrick (?P<cmd>.*)$`)
 		reAlias := regexp.MustCompile(`Alias: `)
 
 		matches := reUsage.FindStringSubmatch(usage)
 
 		if len(matches) > 0 {
-			fmt.Fprintf(w, fmt.Sprintf("## Usage\n\nUsage: `waypoint %s`\n", matches[1]))
+			fmt.Fprintf(w, fmt.Sprintf("## Usage\n\nUsage: `derrick %s`\n", matches[1]))
 
 			hasAlias := false
 			if optionalAlias != "" {
@@ -129,7 +129,7 @@ description: "%s"
 				if len(matchAlias) > 0 {
 					hasAlias = true
 					aliasMatch := reUsage.FindStringSubmatch(optionalAlias)
-					fmt.Fprintf(w, fmt.Sprintf("\nAlias: `waypoint %s`\n", aliasMatch[1]))
+					fmt.Fprintf(w, fmt.Sprintf("\nAlias: `derrick %s`\n", aliasMatch[1]))
 				}
 			}
 
@@ -168,8 +168,8 @@ description: "%s"
 			}
 		} else {
 			// Fail over to simple docs gen. These are for top level commands
-			// like `waypoint context` that don't work without a subcommand and fail the regex match.
-			fmt.Fprintf(w, "## Usage\n\nUsage: `waypoint %s [options]`\n", name)
+			// like `derrick context` that don't work without a subcommand and fail the regex match.
+			fmt.Fprintf(w, "## Usage\n\nUsage: `derrick %s [options]`\n", name)
 		}
 
 		// Generate flag options

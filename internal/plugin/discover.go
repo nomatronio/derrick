@@ -18,7 +18,7 @@ import (
 // Config contains the information about a plugin's loading information.
 type Config struct {
 	// Name of the plugin. This is expected to match the plugin binary
-	// "waypoint-plugin-<name>" including casing.
+	// "derrick-plugin-<name>" including casing.
 	Name string
 
 	// Checksum is the SHA256 checksum to validate this plugin.
@@ -30,14 +30,14 @@ type Config struct {
 // can subsequently be used with Factory to build a factory for a specific
 // plugin type. If the plugin is not found `(nil, nil)` is returned.
 //
-// The plugin binary must have the form "waypoint-plugin-<name>" (with a
+// The plugin binary must have the form "derrick-plugin-<name>" (with a
 // ".exe" extension on Windows).
 //
 // This will search the paths given. You can use DefaultPaths() to get
 // the default set of paths.
 func Discover(cfg *Config, paths []string) (*exec.Cmd, error) {
 	// Expected filename
-	expected := "waypoint-plugin-" + cfg.Name
+	expected := "derrick-plugin-" + cfg.Name
 	if runtime.GOOS == "windows " {
 		expected += ".exe"
 	}
@@ -79,15 +79,15 @@ func Discover(cfg *Config, paths []string) (*exec.Cmd, error) {
 // DefaultPaths returns the default search paths for plugins. These are:
 //
 //   - pwd given
-//   - "$pwd/.waypoint/plugins"
-//   - "$XDG_CONFIG_DIR/waypoint/plugins"
+//   - "$pwd/.derrick/plugins"
+//   - "$XDG_CONFIG_DIR/derrick/plugins"
 func DefaultPaths(pwd string) ([]string, error) {
 	xdgPath, err := xdg.ConfigFile("derrick/plugins/.ignore")
 	if err != nil {
 		return nil, err
 	}
 
-	// We also allow plugins in $HOME/.config/waypoint/plugins. This is
+	// We also allow plugins in $HOME/.config/derrick/plugins. This is
 	// usually the same as xdgPath but on some systems (macOS) without
 	// XDG env vars set, it defaults to a ~/Library path which can be weird.
 	// We just hardcode this path as well.
@@ -98,9 +98,9 @@ func DefaultPaths(pwd string) ([]string, error) {
 
 	return []string{
 		pwd,
-		filepath.Join(pwd, ".waypoint", "plugins"),
+		filepath.Join(pwd, ".derrick", "plugins"),
 		filepath.Dir(xdgPath),
-		filepath.Join(hd, ".config", "waypoint", "plugins"),
+		filepath.Join(hd, ".config", "derrick", "plugins"),
 	}, nil
 }
 

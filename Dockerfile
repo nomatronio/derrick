@@ -1,7 +1,7 @@
 # syntax = docker.mirror.hashicorp.services/docker/dockerfile:experimental
 
 #--------------------------------------------------------------------
-# builder builds the Waypoint binaries
+# builder builds the Derrick binaries
 #--------------------------------------------------------------------
 
 FROM docker.mirror.hashicorp.services/golang:1.19-alpine3.17 AS builder
@@ -34,7 +34,7 @@ RUN touch /tmp/.keep
 # by the non-odr stages.
 FROM gcr.io/kaniko-project/executor:v1.9.1 as odr
 
-COPY --from=builder /tmp/wp-src/waypoint /kaniko/waypoint
+COPY --from=builder /tmp/wp-src/derrick /kaniko/derrick
 COPY --from=busybox /bin/busybox /kaniko/busybox
 COPY --from=busybox /tmp /kaniko/tmp
 
@@ -47,7 +47,7 @@ RUN ["/kaniko/busybox", "--install", "-s", "/kaniko/bin"]
 ENV PATH $PATH:/kaniko/bin
 ENV TMPDIR /kaniko/tmp
 
-ENTRYPOINT ["/kaniko/waypoint"]
+ENTRYPOINT ["/kaniko/derrick"]
 
 #--------------------------------------------------------------------
 # final image
@@ -55,29 +55,29 @@ ENTRYPOINT ["/kaniko/waypoint"]
 
 FROM docker.mirror.hashicorp.services/alpine:3.17.0
 
-# git is for gitrefpretty() and other calls for Waypoint
+# git is for gitrefpretty() and other calls for Derrick
 RUN apk add --no-cache git
 
-COPY --from=builder /tmp/wp-src/waypoint /usr/bin/waypoint
-COPY --from=builder /tmp/wp-src/waypoint-entrypoint /usr/bin/waypoint-entrypoint
+COPY --from=builder /tmp/wp-src/derrick /usr/bin/derrick
+COPY --from=builder /tmp/wp-src/derrick-entrypoint /usr/bin/derrick-entrypoint
 
 VOLUME ["/data"]
 
 # NOTE: userid must be 100 here. Otherwise upgrades will fail due to user not
 # having the proper permissions to read the server db due to a different userid
-RUN addgroup waypoint && \
-    adduser -S -u 100 -G waypoint waypoint && \
+RUN addgroup derrick && \
+    adduser -S -u 100 -G derrick derrick && \
     mkdir /data/ && \
-    chown -R waypoint:waypoint /data
+    chown -R derrick:derrick /data
 
-# configure newuidmap/newgidmap to work with our waypoint user
+# configure newuidmap/newgidmap to work with our derrick user
 RUN mkdir -p /run/user/100 \
-  && chown -R waypoint /run/user/100 /home/waypoint \
-  && echo waypoint:100000:65536 | tee /etc/subuid | tee /etc/subgid
+  && chown -R derrick /run/user/100 /home/derrick \
+  && echo derrick:100000:65536 | tee /etc/subuid | tee /etc/subgid
 
-USER waypoint
-ENV USER waypoint
-ENV HOME /home/waypoint
+USER derrick
+ENV USER derrick
+ENV HOME /home/derrick
 ENV XDG_RUNTIME_DIR=/run/user/100
 
-ENTRYPOINT ["/usr/bin/waypoint"]
+ENTRYPOINT ["/usr/bin/derrick"]

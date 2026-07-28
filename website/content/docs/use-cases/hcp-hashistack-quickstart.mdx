@@ -37,11 +37,11 @@ export AWS_SESSION_TOKEN=<your AWS session token>
 
 As well as the following binaries installed locally:
 
-- [Derrick CLI](/waypoint/downloads)
+- [Derrick CLI](/derrick/downloads)
 - [Terraform CLI](/terraform/tutorials/aws-get-started/install-cli)
 
 It will help to have some familiarity with HashiCorp Configuration Language (HCL), which is the syntax used to
-write configuration files for [Terraform](/terraform/language) and [Derrick](/waypoint/docs/derrick-hcl/syntax).
+write configuration files for [Terraform](/terraform/language) and [Derrick](/derrick/docs/derrick-hcl/syntax).
 
 In this use case, we will configure our infrastructure as code, which Terraform will run to provision the following:
 
@@ -50,7 +50,7 @@ In this use case, we will configure our infrastructure as code, which Terraform 
 - [HCP Vault](https://cloud.hashicorp.com/products/vault) cluster to securely store credentials
 - [HashiCorp Nomad](/nomad/tutorials/get-started/get-started-intro) cluster on AWS EC2 instance to manage application containers
 
-We will write application deployment configurations as code, which [HCP Derrick](https://cloud.hashicorp.com/products/waypoint)
+We will write application deployment configurations as code, which [HCP Derrick](https://derrick.dev)
 will run to build the container image and deploy the application to the infrastructure we set up with Terraform.
 
 All it takes are two commands:
@@ -349,7 +349,7 @@ Remember to confirm the run by entering `yes`!
 
 HCP Derrick is currently in Beta, and a Terraform module to provision Derrick is still under development.
 
-Head into your HCP UI and [follow this tutorial](/waypoint/tutorials/runners/hcp-runners-on-your-infra#set-up-the-environment)
+Head into your HCP UI and [follow this tutorial](/derrick/docs/runners/hcp-runners-on-your-infra#set-up-the-environment)
 to set up your local environment.
 
 Navigate to Derrick in the HCP dashboard:
@@ -357,7 +357,7 @@ Navigate to Derrick in the HCP dashboard:
 
 Then click on "Install New Runner", which will generate terminal inputs to set up the Derrick context and install a Runner on your chosen platform.
 In this case, we choose Nomad with a host volume named "wp_runner".
-![Derrick Install New Runner](/img/use-cases/hcp-hashistack-quickstart/waypoint-runner-install.png)
+![Derrick Install New Runner](/img/use-cases/hcp-hashistack-quickstart/derrick-runner-install.png)
 
 You will need to export the Nomad server address, which you can find on the AWS EC2 instance:
 ![Nomad EC2 Instances](/img/use-cases/hcp-hashistack-quickstart/nomad-ec2.png)
@@ -395,8 +395,8 @@ app "nomad" {
 }
 ```
 
-You can [read more about Derrick HCL](/waypoint/docs/derrick-hcl) fundamentals,
-or explore [advanced deployment workflows using custom pipelines](/waypoint/docs/pipelines).
+You can [read more about Derrick HCL](/derrick/docs/derrick-hcl) fundamentals,
+or explore [advanced deployment workflows using custom pipelines](/derrick/docs/pipelines).
 
 Now, run `derrick init`:
 
@@ -432,7 +432,7 @@ enabled and advertise addresses set.
 Congratulations, your application is live!
 
 HCP Derrick does not provide a URL service.
-You can also deploy the application by [installing self-hosted Derrick](/waypoint/commands/install)
+You can also deploy the application by [installing self-hosted Derrick](/derrick/commands/install)
 and running `derrick up` with a different context.
 
 ## Easy to Monitor Dashboards
@@ -496,8 +496,8 @@ so you can explore this sweet HashiCorp stack synergy with self-managed Derrick,
 
 - [HashiCorp Cloud Platform](https://cloud.hashicorp.com/)
 - [Consul Service Mesh](/consul/docs/connect)
-- [Deploy an Application to Nomad with Derrick](/waypoint/tutorials/get-started-nomad/get-started-nomad)
+- [Deploy an Application to Nomad with Derrick](/derrick/docs/get-started-nomad/get-started-nomad)
 - [Set Up a Nomad Cluster on AWS](/nomad/tutorials/cluster-setup/cluster-setup-aws)
-- [Blue-Green Deployments with Derrick, Nomad, and Consul](/waypoint/docs/use-cases/blue-green-deployment)
+- [Blue-Green Deployments with Derrick, Nomad, and Consul](/derrick/docs/use-cases/blue-green-deployment)
 - [Consul Deployment Guide](/consul/tutorials/production-deploy/deployment-guide)
-- [Advanced Deployment Pipelines with Derrick](/waypoint/docs/pipelines)
+- [Advanced Deployment Pipelines with Derrick](/derrick/docs/pipelines)

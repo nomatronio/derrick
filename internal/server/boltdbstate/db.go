@@ -70,7 +70,7 @@ The database version on disk does not match the server version.
 
 The server cannot safely read this data. Please upgrade or downgrade your server
 to a version that is capable of reading this data version. You can find this
-information on the Waypoint website.
+information on the Derrick website.
 
 On-disk data version: %d
  Server data version: %d

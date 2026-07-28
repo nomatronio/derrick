@@ -15,16 +15,16 @@ import (
 )
 
 // Installer is implemented by the server platforms and is responsible for managing
-// the installation of the Waypoint server.
+// the installation of the Derrick server.
 type Installer interface {
 	// HasRunner returns true if a runner is installed.
 	HasRunner(context.Context, *InstallOpts) (bool, error)
 
-	// Install expects the Waypoint server to be installed.
+	// Install expects the Derrick server to be installed.
 	// Returns InstallResults, a bootstrap token (if platform sets one up), or an error
 	Install(context.Context, *InstallOpts) (*InstallResults, string, error)
 
-	// InstallRunner expects a Waypoint runner to be installed.
+	// InstallRunner expects a Derrick runner to be installed.
 	InstallRunner(context.Context, *runnerinstall.InstallOpts) error
 
 	// InstallFlags is called prior to Install and allows the installer to
@@ -32,7 +32,7 @@ type Installer interface {
 	// the platform name to avoid conflicts with other flags.
 	InstallFlags(*flag.Set)
 
-	// Upgrade expects the Waypoint server to be upgraded from a previous install.
+	// Upgrade expects the Derrick server to be upgraded from a previous install.
 	// After upgrading the server, this should also upgrade the primary
 	// runner that was installed with InstallRunner, if it exists.
 	Upgrade(ctx context.Context, opts *InstallOpts, serverCfg serverconfig.Client) (*InstallResults, error)
@@ -42,7 +42,7 @@ type Installer interface {
 	// the platform name to avoid conflicts with other flags.
 	UpgradeFlags(*flag.Set)
 
-	// Uninstall expects the Waypoint server to be uninstalled. This should
+	// Uninstall expects the Derrick server to be uninstalled. This should
 	// also look up to see if any runners exist (installed via InstallRunner)
 	// and remove those as well. Runners manually installed outside of this
 	// interface should not be touched.
@@ -117,8 +117,8 @@ var Platforms = map[string]Installer{
 }
 
 const (
-	serverName = "waypoint-server"
-	runnerName = "waypoint-runner"
+	serverName = "derrick-server"
+	runnerName = "derrick-runner"
 )
 
 // Default server ports to use

@@ -30,7 +30,7 @@ The Derrick server stores data into a single `data.db` file.
 For `derrick install`-based servers:
 
 - **Docker** - `/data/data.db`
-- **ECS** - `/waypoint-data/data.db`
+- **ECS** - `/derrick-data/data.db`
 - **Kubernetes** - `/data/data.db`
 - **Nomad** - `/alloc/data.db`
 
@@ -42,7 +42,7 @@ The Derrick server supports both an online and offline backup and restore.
 
 #### Online Backup and Restore
 
-To backup the database, use the [`derrick server snapshot`](/waypoint/commands/server-snapshot)
+To backup the database, use the [`derrick server snapshot`](/derrick/commands/server-snapshot)
 command. This command will take an online snapshot of the database and
 write it to a local gzip-compressed file. In the example below, we take
 a snapshot and save it as a `backup.snap`:
@@ -55,7 +55,7 @@ $ derrick server snapshot backup.snap
 (such as auth tokens) _unencrypted_. Snapshots are highly sensitive and should
 be carefully protected.
 
-You can then restore this snapshot using [`derrick server restore`](/waypoint/commands/server-restore).
+You can then restore this snapshot using [`derrick server restore`](/derrick/commands/server-restore).
 This command _stages_ the restore but _does not_ activate the restore. This means
 that the old data (prior to the restore) will continue to be the live data
 until the restore is activated. To activate the restore, you must restart the server. You may call restore
@@ -80,7 +80,7 @@ via `derrick server snapshot`.
 In the server data directory (where the `data.db` file would normally be),
 copy the snapshot data and name the file `derrick-restore.db`. For example,
 if you normally run the Derrick server as `derrick server -db=/data/data.db`
-then you should copy the snapshot data to `/data/waypoint-restore.db`.
+then you should copy the snapshot data to `/data/derrick-restore.db`.
 
 The real database doesn't need to exist; the restore process also works with
 new, fresh servers. However, the snapshot data must still be named `derrick-restore.db`.

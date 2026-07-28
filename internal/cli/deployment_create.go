@@ -233,13 +233,13 @@ func (c *DeploymentCreateCommand) Synopsis() string {
 func (c *DeploymentCreateCommand) Help() string {
 	return formatHelp(`
 Usage: derrick deployment deploy [options]
-Alias: waypoint deploy
+Alias: derrick deploy
 
   Deploy an application. This will deploy the most recent successful
   pushed artifact by default. You can view a list of recent artifacts
   using the "artifact list" command.
 
-  By default, "waypoint deploy" automatically performs a release. This behavior
+  By default, "derrick deploy" automatically performs a release. This behavior
   can be disabled by using the "-release=false" flag.
 
 ` + c.Flags().Help())
@@ -249,7 +249,7 @@ const (
 	deployURLService = `
 The deploy was successful! A Derrick deployment URL is shown below. This
 can be used internally to check your deployment and is not meant for external
-traffic. You can manage this hostname using "waypoint hostname."
+traffic. You can manage this hostname using "derrick hostname."
 `
 
 	deployNoURL = `
