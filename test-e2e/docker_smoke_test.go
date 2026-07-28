@@ -11,7 +11,7 @@ var (
 	dockerMultiAppTestDir = fmt.Sprintf("%s/docker/go-multiapp", examplesRootDir)
 )
 
-func TestWaypointDockerInstall(t *testing.T) {
+func TestDerrickDockerInstall(t *testing.T) {
 	wp := NewBinary(t, wpBinary, dockerTestDir)
 	stdout, stderr, err := wp.RunRaw("install", "-platform=docker", "-accept-tos", fmt.Sprintf("-docker-server-image=%s", wpServerImage), fmt.Sprintf("-docker-odr-image=%s", wpOdrImage))
 
@@ -23,21 +23,21 @@ func TestWaypointDockerInstall(t *testing.T) {
 		t.Errorf("unexpected stderr output installing server to docker: %s", stderr)
 	}
 
-	if !strings.Contains(stdout, "Waypoint server successfully installed and configured!") {
+	if !strings.Contains(stdout, "Derrick server successfully installed and configured!") {
 		t.Errorf("No success message detected after docker server install:\n%s", stdout)
 	}
 }
 
-func TestWaypointDockerUp(t *testing.T) {
+func TestDerrickDockerUp(t *testing.T) {
 	wp := NewBinary(t, wpBinary, dockerTestDir)
 	stdout, stderr, err := wp.RunRaw("init")
 
 	if err != nil {
-		t.Errorf("unexpected error initializing waypoint project: %s\nstderr: %s", err, stderr)
+		t.Errorf("unexpected error initializing derrick project: %s\nstderr: %s", err, stderr)
 	}
 
 	if stderr != "" {
-		t.Errorf("unexpected stderr output initializing waypoint project: %s", stderr)
+		t.Errorf("unexpected stderr output initializing derrick project: %s", stderr)
 	}
 
 	if !strings.Contains(stdout, "Project initialized!") {
@@ -47,11 +47,11 @@ func TestWaypointDockerUp(t *testing.T) {
 	stdout, stderr, err = wp.RunRaw("up")
 
 	if err != nil {
-		t.Errorf("unexpected error deploying waypoint project: %s\nstderr: %s", err, stderr)
+		t.Errorf("unexpected error deploying derrick project: %s\nstderr: %s", err, stderr)
 	}
 
 	if stderr != "" {
-		t.Errorf("unexpected stderr output deploying waypoint project: %s", stderr)
+		t.Errorf("unexpected stderr output deploying derrick project: %s", stderr)
 	}
 
 	if !strings.Contains(stdout, "The deploy was successful!") {
@@ -59,16 +59,16 @@ func TestWaypointDockerUp(t *testing.T) {
 	}
 }
 
-func TestWaypointDockerMultiAppUp(t *testing.T) {
+func TestDerrickDockerMultiAppUp(t *testing.T) {
 	wp := NewBinary(t, wpBinary, dockerMultiAppTestDir)
 	stdout, stderr, err := wp.RunRaw("init")
 
 	if err != nil {
-		t.Errorf("unexpected error initializing waypoint project: %s\nstderr: %s", err, stderr)
+		t.Errorf("unexpected error initializing derrick project: %s\nstderr: %s", err, stderr)
 	}
 
 	if stderr != "" {
-		t.Errorf("unexpected stderr output initializing waypoint project: %s", stderr)
+		t.Errorf("unexpected stderr output initializing derrick project: %s", stderr)
 	}
 
 	if !strings.Contains(stdout, "Project initialized!") {
@@ -78,11 +78,11 @@ func TestWaypointDockerMultiAppUp(t *testing.T) {
 	stdout, stderr, err = wp.RunRaw("up")
 
 	if err != nil {
-		t.Errorf("unexpected error deploying waypoint project: %s\nstderr: %s", err, stderr)
+		t.Errorf("unexpected error deploying derrick project: %s\nstderr: %s", err, stderr)
 	}
 
 	if stderr != "" {
-		t.Errorf("unexpected stderr output deploying waypoint project: %s", stderr)
+		t.Errorf("unexpected stderr output deploying derrick project: %s", stderr)
 	}
 
 	if !strings.Contains(stdout, "The deploy was successful!") {
@@ -90,7 +90,7 @@ func TestWaypointDockerMultiAppUp(t *testing.T) {
 	}
 }
 
-func TestWaypointDockerUpgrade(t *testing.T) {
+func TestDerrickDockerUpgrade(t *testing.T) {
 	wp := NewBinary(t, wpBinary, dockerTestDir)
 	stdout, stderr, err := wp.RunRaw("server", "upgrade", "-platform=docker", "-auto-approve", fmt.Sprintf("-docker-server-image=%s", wpServerImageUpgrade), fmt.Sprintf("-docker-odr-image=%s", wpOdrImageUpgrade), "-snapshot=false")
 
@@ -102,21 +102,21 @@ func TestWaypointDockerUpgrade(t *testing.T) {
 		t.Errorf("unexpected stderr output upgrading server in docker: %s", stderr)
 	}
 
-	if !strings.Contains(stdout, "Waypoint has finished upgrading the server") {
+	if !strings.Contains(stdout, "Derrick has finished upgrading the server") {
 		t.Errorf("No success message detected after docker server install:\n%s", stdout)
 	}
 }
 
-func TestWaypointDockerUpAfterUpgrade(t *testing.T) {
+func TestDerrickDockerUpAfterUpgrade(t *testing.T) {
 	wp := NewBinary(t, wpBinary, dockerTestDir)
 	stdout, stderr, err := wp.RunRaw("up")
 
 	if err != nil {
-		t.Errorf("unexpected error deploying waypoint project: %s\nstderr: %s", err, stderr)
+		t.Errorf("unexpected error deploying derrick project: %s\nstderr: %s", err, stderr)
 	}
 
 	if stderr != "" {
-		t.Errorf("unexpected stderr output deploying waypoint project: %s", stderr)
+		t.Errorf("unexpected stderr output deploying derrick project: %s", stderr)
 	}
 
 	if !strings.Contains(stdout, "The deploy was successful!") {
@@ -124,16 +124,16 @@ func TestWaypointDockerUpAfterUpgrade(t *testing.T) {
 	}
 }
 
-func TestWaypointDockerMultiAppUpAfterUpgrade(t *testing.T) {
+func TestDerrickDockerMultiAppUpAfterUpgrade(t *testing.T) {
 	wp := NewBinary(t, wpBinary, dockerMultiAppTestDir)
 	stdout, stderr, err := wp.RunRaw("init")
 
 	if err != nil {
-		t.Errorf("unexpected error initializing waypoint project: %s\nstderr: %s", err, stderr)
+		t.Errorf("unexpected error initializing derrick project: %s\nstderr: %s", err, stderr)
 	}
 
 	if stderr != "" {
-		t.Errorf("unexpected stderr output initializing waypoint project: %s", stderr)
+		t.Errorf("unexpected stderr output initializing derrick project: %s", stderr)
 	}
 
 	if !strings.Contains(stdout, "Project initialized!") {
@@ -143,11 +143,11 @@ func TestWaypointDockerMultiAppUpAfterUpgrade(t *testing.T) {
 	stdout, stderr, err = wp.RunRaw("up")
 
 	if err != nil {
-		t.Errorf("unexpected error deploying waypoint project: %s\nstderr: %s", err, stderr)
+		t.Errorf("unexpected error deploying derrick project: %s\nstderr: %s", err, stderr)
 	}
 
 	if stderr != "" {
-		t.Errorf("unexpected stderr output deploying waypoint project: %s", stderr)
+		t.Errorf("unexpected stderr output deploying derrick project: %s", stderr)
 	}
 
 	if !strings.Contains(stdout, "The deploy was successful!") {
@@ -155,16 +155,16 @@ func TestWaypointDockerMultiAppUpAfterUpgrade(t *testing.T) {
 	}
 }
 
-func TestWaypointDockerDestroy(t *testing.T) {
+func TestDerrickDockerDestroy(t *testing.T) {
 	wp := NewBinary(t, wpBinary, dockerTestDir)
 	stdout, stderr, err := wp.RunRaw("destroy", "-auto-approve")
 
 	if err != nil {
-		t.Errorf("unexpected error destroying waypoint project: %s\nstderr: %s", err, stderr)
+		t.Errorf("unexpected error destroying derrick project: %s\nstderr: %s", err, stderr)
 	}
 
 	if stderr != "" {
-		t.Errorf("unexpected stderr output destroying waypoint project: %v", stderr)
+		t.Errorf("unexpected stderr output destroying derrick project: %v", stderr)
 	}
 
 	if !strings.Contains(stdout, "Destroy successful!") {
@@ -172,16 +172,16 @@ func TestWaypointDockerDestroy(t *testing.T) {
 	}
 }
 
-func TestWaypointDockerDestroyMultiApp(t *testing.T) {
+func TestDerrickDockerDestroyMultiApp(t *testing.T) {
 	wp := NewBinary(t, wpBinary, dockerMultiAppTestDir)
 	stdout, stderr, err := wp.RunRaw("destroy", "-auto-approve")
 
 	if err != nil {
-		t.Errorf("unexpected error destroying waypoint project: %s\nstderr: %s", err, stderr)
+		t.Errorf("unexpected error destroying derrick project: %s\nstderr: %s", err, stderr)
 	}
 
 	if stderr != "" {
-		t.Errorf("unexpected stderr output destroying waypoint project: %v", stderr)
+		t.Errorf("unexpected stderr output destroying derrick project: %v", stderr)
 	}
 
 	if !strings.Contains(stdout, "Destroy successful!") {
@@ -189,19 +189,19 @@ func TestWaypointDockerDestroyMultiApp(t *testing.T) {
 	}
 }
 
-func TestWaypointDockerUninstall(t *testing.T) {
+func TestDerrickDockerUninstall(t *testing.T) {
 	wp := NewBinary(t, wpBinary, dockerTestDir)
 	stdout, stderr, err := wp.RunRaw("server", "uninstall", "-platform=docker", "-auto-approve", "-snapshot=false")
 
 	if err != nil {
-		t.Errorf("unexpected error uninstalling waypoint server: %s\nstderr: %s", err, stderr)
+		t.Errorf("unexpected error uninstalling derrick server: %s\nstderr: %s", err, stderr)
 	}
 
 	if stderr != "" {
-		t.Errorf("unexpected stderr output uninstalling waypoint server: %s", stderr)
+		t.Errorf("unexpected stderr output uninstalling derrick server: %s", stderr)
 	}
 
-	if !strings.Contains(stdout, "Waypoint server successfully uninstalled") {
+	if !strings.Contains(stdout, "Derrick server successfully uninstalled") {
 		t.Errorf("No success message detected after uninstalling server:\n%s", stdout)
 	}
 }

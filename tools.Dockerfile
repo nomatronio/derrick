@@ -21,4 +21,4 @@ COPY go.sum /tools
 
 RUN make -C /tools tools
 
-WORKDIR /waypoint
+WORKDIR /derrick

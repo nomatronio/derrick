@@ -10,7 +10,7 @@ var (
 	kubernetesTestDir = fmt.Sprintf("%s/kubernetes/nodejs", examplesRootDir)
 )
 
-func TestWaypointKubernetesInstall(t *testing.T) {
+func TestDerrickKubernetesInstall(t *testing.T) {
 	wp := NewBinary(t, wpBinary, kubernetesTestDir)
 	stdout, stderr, err := wp.RunRaw("install", "-platform=kubernetes", "-accept-tos", fmt.Sprintf("-k8s-server-image=%s", wpServerImage), fmt.Sprintf("-k8s-odr-image=%s", wpOdrImage))
 
@@ -22,21 +22,21 @@ func TestWaypointKubernetesInstall(t *testing.T) {
 		t.Errorf("unexpected stderr output installing server to kubernetes: %s", stderr)
 	}
 
-	if !strings.Contains(stdout, "Waypoint server successfully installed and configured!") {
+	if !strings.Contains(stdout, "Derrick server successfully installed and configured!") {
 		t.Errorf("No success message detected after kubernetes server install:\n%s", stdout)
 	}
 }
 
-func TestWaypointKubernetesUp(t *testing.T) {
+func TestDerrickKubernetesUp(t *testing.T) {
 	wp := NewBinary(t, wpBinary, kubernetesTestDir)
 	stdout, stderr, err := wp.RunRaw("init")
 
 	if err != nil {
-		t.Errorf("unexpected error initializing waypoint project: %s", err)
+		t.Errorf("unexpected error initializing derrick project: %s", err)
 	}
 
 	if stderr != "" {
-		t.Errorf("unexpected stderr output initializing waypoint project: %s", stderr)
+		t.Errorf("unexpected stderr output initializing derrick project: %s", stderr)
 	}
 
 	if !strings.Contains(stdout, "Project initialized!") {
@@ -46,11 +46,11 @@ func TestWaypointKubernetesUp(t *testing.T) {
 	stdout, stderr, err = wp.RunRaw("up")
 
 	if err != nil {
-		t.Errorf("unexpected error deploying waypoint project: %s", err)
+		t.Errorf("unexpected error deploying derrick project: %s", err)
 	}
 
 	if stderr != "" {
-		t.Errorf("unexpected stderr output deploying waypoint project: %s", stderr)
+		t.Errorf("unexpected stderr output deploying derrick project: %s", stderr)
 	}
 
 	if !strings.Contains(stdout, "The deploy was successful!") {
@@ -58,7 +58,7 @@ func TestWaypointKubernetesUp(t *testing.T) {
 	}
 }
 
-func TestWaypointKubernetesUpgrade(t *testing.T) {
+func TestDerrickKubernetesUpgrade(t *testing.T) {
 	wp := NewBinary(t, wpBinary, kubernetesTestDir)
 	stdout, stderr, err := wp.RunRaw("server", "upgrade", "-platform=kubernetes", "-auto-approve", fmt.Sprintf("-k8s-server-image=%s", wpServerImageUpgrade), fmt.Sprintf("-k8s-odr-image=%s", wpOdrImageUpgrade), "-snapshot=false")
 
@@ -70,21 +70,21 @@ func TestWaypointKubernetesUpgrade(t *testing.T) {
 		t.Errorf("unexpected stderr output upgrading server in kubernetes: %s", stderr)
 	}
 
-	if !strings.Contains(stdout, "Waypoint has finished upgrading the server") {
+	if !strings.Contains(stdout, "Derrick has finished upgrading the server") {
 		t.Errorf("No success message detected after kubernetes server install:\n%s", stdout)
 	}
 }
 
-func TestWaypointKubernetesUpAfterUpgrade(t *testing.T) {
+func TestDerrickKubernetesUpAfterUpgrade(t *testing.T) {
 	wp := NewBinary(t, wpBinary, kubernetesTestDir)
 	stdout, stderr, err := wp.RunRaw("up")
 
 	if err != nil {
-		t.Errorf("unexpected error deploying waypoint project: %s", err)
+		t.Errorf("unexpected error deploying derrick project: %s", err)
 	}
 
 	if stderr != "" {
-		t.Errorf("unexpected stderr output deploying waypoint project: %s", stderr)
+		t.Errorf("unexpected stderr output deploying derrick project: %s", stderr)
 	}
 
 	if !strings.Contains(stdout, "The deploy was successful!") {
@@ -92,16 +92,16 @@ func TestWaypointKubernetesUpAfterUpgrade(t *testing.T) {
 	}
 }
 
-func TestWaypointKubernetesDestroy(t *testing.T) {
+func TestDerrickKubernetesDestroy(t *testing.T) {
 	wp := NewBinary(t, wpBinary, kubernetesTestDir)
 	stdout, stderr, err := wp.RunRaw("destroy")
 
 	if err != nil {
-		t.Errorf("unexpected error destroying waypoint project: %s", err)
+		t.Errorf("unexpected error destroying derrick project: %s", err)
 	}
 
 	if stderr != "" {
-		t.Errorf("unexpected stderr output destroying waypoint project: %s", stderr)
+		t.Errorf("unexpected stderr output destroying derrick project: %s", stderr)
 	}
 
 	if !strings.Contains(stdout, "Destroy successful!") {
@@ -109,19 +109,19 @@ func TestWaypointKubernetesDestroy(t *testing.T) {
 	}
 }
 
-func TestWaypointKubernetesUninstall(t *testing.T) {
+func TestDerrickKubernetesUninstall(t *testing.T) {
 	wp := NewBinary(t, wpBinary, kubernetesTestDir)
 	stdout, stderr, err := wp.RunRaw("server", "uninstall", "-platform=kubernetes", "-auto-approve", "-snapshot=false")
 
 	if err != nil {
-		t.Errorf("unexpected error uninstalling waypoint server: %s", err)
+		t.Errorf("unexpected error uninstalling derrick server: %s", err)
 	}
 
 	if stderr != "" {
-		t.Errorf("unexpected stderr output uninstalling waypoint server: %s", stderr)
+		t.Errorf("unexpected stderr output uninstalling derrick server: %s", stderr)
 	}
 
-	if !strings.Contains(stdout, "Waypoint server successfully uninstalled") {
+	if !strings.Contains(stdout, "Derrick server successfully uninstalled") {
 		t.Errorf("No success message detected after uninstalling server:\n%s", stdout)
 	}
 }

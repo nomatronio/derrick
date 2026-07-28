@@ -94,7 +94,7 @@ jobs:
       - name: go test
         env:
           POSTGRES_USER: postgres
-          POSTGRES_DB: waypoint_test
+          POSTGRES_DB: derrick_test
         run: |-
           read -ra PACKAGE_NAMES <<< "${{ join(matrix.packages, ' ') }}"
           mkdir -p "$TEST_RESULTS_DIR"

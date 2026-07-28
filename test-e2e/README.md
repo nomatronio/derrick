@@ -1,8 +1,8 @@
-# Waypoint End-to-End Testing
+# Derrick End-to-End Testing
 
 ## Requirements
 
-For now, these tests assume that you already have Waypoint available on the path,
+For now, these tests assume that you already have Derrick available on the path,
 as well as Docker, K8s, and Nomad  installed and running. In the future, the
 `run-tests.sh` script will set these up in a CI environment.
 
@@ -14,12 +14,12 @@ If you wish to run the script outside of this test directory, the following
 environment variable must be set so that it knows where the `test-e2e` directory
 is at:
 
-* `WP_TESTE2E_DIR` (string) - Path to `test-e2e`.
+* `DERRICK_TESTE2E_DIR` (string) - Path to `test-e2e`.
 
-For example, running these tests from the Waypoint root directory:
+For example, running these tests from the Derrick root directory:
 
 ```
-WP_TESTE2E_DIR="test-e2e" ./test-e2e/run-tests.sh
+DERRICK_TESTE2E_DIR="test-e2e" ./test-e2e/run-tests.sh
 ```
 
 ## How to write a new test
@@ -32,7 +32,7 @@ it yourself without the shell runner, you can execute the test with
 `go test <filename> util.go`. You need to include `util.go` to get the helper
 functions for running the tests.
 
-A simple test might be seeing that the Waypoint command line tool is available:
+A simple test might be seeing that the Derrick command line tool is available:
 
 ```go
 package test
@@ -42,7 +42,7 @@ import (
 	"testing"
 )
 
-func TestWaypointAvailable(t *testing.T) {
+func TestDerrickAvailable(t *testing.T) {
 	wp := NewBinary(wpBinary, ".")
 	stdout, stderr, err := wp.Run("version")
 	if err != nil {
@@ -53,7 +53,7 @@ func TestWaypointAvailable(t *testing.T) {
 		t.Errorf("unexpected stderr output getting version: %s", stderr)
 	}
 
-	if !strings.Contains(stdout, "Waypoint v") {
+	if !strings.Contains(stdout, "Derrick v") {
 		t.Errorf("No version output detected:\n%s", stdout)
 	}
 }

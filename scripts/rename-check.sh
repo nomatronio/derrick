@@ -54,6 +54,46 @@ else
   echo "OK: Makefile binary paths"
 fi
 
+if rg -q 'pkg-name: \[ "waypoint"' .github/workflows/ 2>/dev/null; then
+  echo "FAIL: CI build matrix still uses waypoint package name"
+  rg 'pkg-name: \[ "waypoint"' .github/workflows/
+  fail=1
+else
+  echo "OK: CI build matrix package names"
+fi
+
+if rg -q 'tar -cvf derrick\.tar \./waypoint|COPY dist/\$TARGETOS/\$TARGETARCH/waypoint' \
+  .github/workflows/ Dockerfile CRT.Dockerfile 2>/dev/null; then
+  echo "FAIL: CI/Docker still references waypoint binary artifact paths"
+  rg 'tar -cvf derrick\.tar \./waypoint|COPY dist/\$TARGETOS/\$TARGETARCH/waypoint' \
+    .github/workflows/ Dockerfile CRT.Dockerfile
+  fail=1
+else
+  echo "OK: CI/Docker binary artifact paths"
+fi
+
+if rg -q 'Getenv\("DERRICK_BINARY", "waypoint"\)|DERRICK_BINARY:-\$TESTDIR/waypoint' test-e2e/ 2>/dev/null; then
+  echo "FAIL: e2e tests still default to waypoint binary"
+  rg 'Getenv\("DERRICK_BINARY", "waypoint"\)|DERRICK_BINARY:-\$TESTDIR/waypoint' test-e2e/
+  fail=1
+else
+  echo "OK: e2e default binary paths"
+fi
+
+if rg -q 'waypoint/hashicorp/' .github/workflows/notify-integration-release-manual.yml 2>/dev/null; then
+  echo "FAIL: integration release notify workflow still uses waypoint/hashicorp plugin ids"
+  fail=1
+else
+  echo "OK: integration release plugin identifiers"
+fi
+
+if rg -q '\["waypoint", "cli-docs"\]' tools/gendocs/ 2>/dev/null; then
+  echo "FAIL: gendocs still invokes waypoint cli-docs"
+  fail=1
+else
+  echo "OK: gendocs CLI name"
+fi
+
 if [[ "$fail" -ne 0 ]]; then
   echo ""
   echo "rename-check: one or more forbidden Waypoint identifiers remain."

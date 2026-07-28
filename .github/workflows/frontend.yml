@@ -13,7 +13,7 @@ jobs:
 
       - name: set-cache-key
         id: set-cache-key
-        run: echo "cache-key=waypoint-ui-v1-${{ hashFiles('ui/yarn.lock', 'ui/lib/**') }}" | tee -a "${GITHUB_OUTPUT}"
+        run: echo "cache-key=derrick-ui-v1-${{ hashFiles('ui/yarn.lock', 'ui/lib/**') }}" | tee -a "${GITHUB_OUTPUT}"
 
       - name: Initialize UI cache
         id: ui-cache

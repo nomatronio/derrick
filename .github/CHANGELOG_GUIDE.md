@@ -1,6 +1,6 @@
 # How To Use
 
-Waypoint uses `go-changelog` to generate its changelog on release:
+Derrick uses `go-changelog` to generate its changelog on release:
 
 * https://github.com/hashicorp/go-changelog
 
