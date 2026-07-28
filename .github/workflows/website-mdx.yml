@@ -12,10 +12,10 @@ jobs:
         with:
           path: "."
       - name: generate plugin docs
-        run: go run ./cmd/waypoint docs -website-mdx
+        run: go run ./cmd/derrick docs -website-mdx
       - name: generate cli docs
         run: go run ./tools/gendocs
-      - run: rm waypoint-restore.db.lock; git status
+      - run: rm derrick-restore.db.lock; git status
       - uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce # v3.1.2
         with:
           path: website/

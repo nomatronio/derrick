@@ -1,14 +1,14 @@
 schema = "1"
 
-project "waypoint" {
+project "derrick" {
   // the team key is not used by CRT currently
-  team = "waypoint"
+  team = "nomatron"
   slack {
     notification_channel = "C01AMV217D4"
   }
   github {
-    organization = "hashicorp"
-    repository = "waypoint"
+    organization = "nomatronio"
+    repository = "derrick"
 
     release_branches = [
       "main",
@@ -20,8 +20,8 @@ project "waypoint" {
 event "build" {
   depends = ["merge"]
   action "build" {
-    organization = "hashicorp"
-    repository = "waypoint"
+    organization = "nomatronio"
+    repository = "derrick"
     workflow = "build"
   }
 }
@@ -30,7 +30,7 @@ event "prepare" {
   depends = ["build"]
 
   action "prepare" {
-    organization = "hashicorp"
+    organization = "nomatronio"
     repository   = "crt-workflows-common"
     workflow     = "prepare"
     depends      = ["build"]
@@ -52,7 +52,7 @@ event "trigger-staging" {
 event "promote-staging" {
   depends = ["trigger-staging"]
   action "promote-staging" {
-    organization = "hashicorp"
+    organization = "nomatronio"
     repository = "crt-workflows-common"
     workflow = "promote-staging"
     config = "release-metadata.hcl"
@@ -66,7 +66,7 @@ event "promote-staging" {
 event "promote-staging-docker" {
   depends = ["promote-staging"]
   action "promote-staging-docker" {
-    organization = "hashicorp"
+    organization = "nomatronio"
     repository = "crt-workflows-common"
     workflow = "promote-staging-docker"
   }
@@ -84,7 +84,7 @@ event "trigger-production" {
 event "promote-production" {
   depends = ["trigger-production"]
   action "promote-production" {
-    organization = "hashicorp"
+    organization = "nomatronio"
     repository = "crt-workflows-common"
     workflow = "promote-production"
   }
@@ -97,7 +97,7 @@ event "promote-production" {
 event "promote-production-docker" {
   depends = ["promote-production"]
   action "promote-production-docker" {
-    organization = "hashicorp"
+    organization = "nomatronio"
     repository = "crt-workflows-common"
     workflow = "promote-production-docker"
   }
@@ -110,7 +110,7 @@ event "promote-production-docker" {
 event "promote-production-packaging" {
   depends = ["promote-production-docker"]
   action "promote-production-packaging" {
-    organization = "hashicorp"
+    organization = "nomatronio"
     repository = "crt-workflows-common"
     workflow = "promote-production-packaging"
   }
@@ -123,7 +123,7 @@ event "promote-production-packaging" {
 event "bump-version-patch" {
   depends = ["promote-production-packaging"]
   action "bump-version" {
-    organization = "hashicorp"
+    organization = "nomatronio"
     repository = "crt-workflows-common"
     workflow = "bump-version"
   }
@@ -136,7 +136,7 @@ event "bump-version-patch" {
 event "update-ironbank" {
   depends = ["bump-version-patch"]
   action "update-ironbank" {
-    organization = "hashicorp"
+    organization = "nomatronio"
     repository = "crt-workflows-common"
     workflow = "update-ironbank"
   }

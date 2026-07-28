@@ -19,16 +19,16 @@ import (
 
 // Test config settings used by the tests
 var (
-	wpBinary             = Getenv("WP_BINARY", "waypoint")
-	wpServerImage        = Getenv("WP_SERVERIMAGE", "hashicorp/waypoint:latest")
-	wpOdrImage           = Getenv("WP_ODRIMAGE", "hashicorp/waypoint-odr:latest")
-	wpServerImageUpgrade = Getenv("WP_SERVERIMAGE_UPGRADE", "ghcr.io/hashicorp/waypoint/alpha:latest")
-	wpOdrImageUpgrade    = Getenv("WP_ODRIMAGE_UPGRADE", "ghcr.io/hashicorp/waypoint/alpha-odr:latest")
+	wpBinary             = Getenv("DERRICK_BINARY", "derrick")
+	wpServerImage        = Getenv("DERRICK_SERVERIMAGE", "nomatronio/derrick:latest")
+	wpOdrImage           = Getenv("DERRICK_ODRIMAGE", "nomatronio/derrick-odr:latest")
+	wpServerImageUpgrade = Getenv("DERRICK_SERVERIMAGE_UPGRADE", "ghcr.io/nomatronio/derrick/alpha:latest")
+	wpOdrImageUpgrade    = Getenv("DERRICK_ODRIMAGE_UPGRADE", "ghcr.io/nomatronio/derrick/alpha-odr:latest")
 
-	examplesRootDir = Getenv("WP_EXAMPLES_PATH", "waypoint-examples")
+	examplesRootDir = Getenv("DERRICK_EXAMPLES_PATH", "waypoint-examples")
 )
 
-// A struct representation of the waypoint binary
+// A struct representation of the derrick binary
 type binary struct {
 	t          *testing.T
 	binaryPath string
@@ -43,7 +43,7 @@ func NewBinary(t *testing.T, binaryPath string, workingDir string) *binary {
 	}
 }
 
-// Builds a generic execer for running waypoint commands
+// Builds a generic execer for running derrick commands
 func (b *binary) NewCmd(args ...string) *exec.Cmd {
 	cmd := exec.Command(b.binaryPath, args...)
 	cmd.Dir = b.workingDir

@@ -16,7 +16,7 @@ services:
     image: docker.mirror.hashicorp.services/circleci/postgres:11-alpine
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_DB: waypoint_test
+      POSTGRES_DB: derrick_test
     ports:
       - "5432:5432"
   vault:

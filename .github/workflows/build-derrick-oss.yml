@@ -1,5 +1,5 @@
 ---
-name: build_waypoint
+name: build_derrick
 
 on:
   workflow_call:
@@ -26,13 +26,13 @@ on:
       package-name:
         type: string
         required: true
-      waypoint-version:
+      derrick-version:
         type: string
         required: true
-      waypoint-base-version:
+      derrick-base-version:
         type: string
         required: true
-      waypoint-prerelease:
+      derrick-prerelease:
         type: string
         required: true
 
@@ -41,7 +41,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       bin-name: ${{ steps.get-bin-name.outputs.bin-name }}
-    name: Build ${{ inputs.package-name }} ${{ inputs.goos }} ${{ inputs.goarch }} v${{ inputs.waypoint-version }}
+    name: Build ${{ inputs.package-name }} ${{ inputs.goos }} ${{ inputs.goarch }} v${{ inputs.derrick-version }}
     steps:
       - uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3.5.2
       - name: Restore ui assets
@@ -70,16 +70,16 @@ jobs:
         env:
           GOOS: ${{ inputs.goos }}
           GOARCH: ${{ inputs.goarch }}
-          WAYPOINT_GOOS: ${{ inputs.goos }}
-          WAYPOINT_GOARCH: ${{ inputs.goarch }}
-          BASE_VERSION: ${{ inputs.waypoint-base-version }}
-          PRERELEASE: ${{ inputs.waypoint-prerelease }}
+          DERRICK_GOOS: ${{ inputs.goos }}
+          DERRICK_GOARCH: ${{ inputs.goarch }}
+          BASE_VERSION: ${{ inputs.derrick-base-version }}
+          PRERELEASE: ${{ inputs.derrick-prerelease }}
           CGO_ENABLED: ${{ inputs.cgo-enabled }}
           CRT_BIN_NAME: ${{ steps.get-bin-name.outputs.bin-name }}
         uses: hashicorp/actions-go-build@v0.1.7
         with:
           product_name: ${{ inputs.package-name }}
-          product_version: ${{ inputs.waypoint-version }}
+          product_version: ${{ inputs.derrick-version }}
           go_version: ${{ inputs.go-version }}
           os: ${{ inputs.goos }}
           arch: ${{ inputs.goarch }}
@@ -89,15 +89,15 @@ jobs:
 
       - name: Linux packaging
         id: packaging
-        if: ${{ (inputs.goos == 'linux') && (inputs.package-name == 'waypoint') && (inputs.goarch != '386') }}
+        if: ${{ (inputs.goos == 'linux') && (inputs.package-name == 'derrick') && (inputs.goarch != '386') }}
         uses: hashicorp/actions-packaging-linux@v1
         with:
           name: ${{ inputs.package-name }}
           description: ${{ inputs.package-name }}
           arch: ${{ inputs.goarch }}
-          version: ${{ inputs.waypoint-version }}
-          maintainer: "HashiCorp"
-          homepage: "https://github.com/hashicorp/waypoint"
+          version: ${{ inputs.derrick-version }}
+          maintainer: "Nomatron"
+          homepage: "https://github.com/nomatronio/derrick"
           license: "MPL-2.0"
           binary: "dist/${{ inputs.package-name }}"
           deb_depends: "git"
