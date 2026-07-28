@@ -29,7 +29,7 @@ import (
 	"github.com/nomatronio/derrick/pkg/serverconfig"
 )
 
-const runnerJobName string = "waypoint-static-runner"
+const runnerJobName string = "derrick-static-runner"
 
 type NomadInstaller struct {
 	config nomadConfig
@@ -104,19 +104,19 @@ var (
 	defaultCSIVolumeMountFS = "xfs"
 
 	// Defaults to use for setting up Consul
-	defaultServiceTag             = "waypoint"
+	defaultServiceTag             = "derrick"
 	defaultConsulDatacenter       = "dc1"
 	defaultConsulDomain           = "consul"
-	waypointBackendServiceName    = "waypoint-server"
-	waypointUIServiceName         = "waypoint-ui"
-	defaultWaypointConsulHostname = fmt.Sprintf("%s.%s.service.%s.%s",
-		defaultServiceTag, waypointBackendServiceName, defaultConsulDatacenter, defaultConsulDomain)
+	derrickBackendServiceName    = "derrick-server"
+	derrickUIServiceName         = "derrick-ui"
+	defaultDerrickConsulHostname = fmt.Sprintf("%s.%s.service.%s.%s",
+		defaultServiceTag, derrickBackendServiceName, defaultConsulDatacenter, defaultConsulDomain)
 
 	defaultNomadHost = "http://localhost:4646"
 )
 
 // Install is a method of NomadInstaller and implements the Installer interface to
-// register a waypoint-server job with a Nomad cluster
+// register a derrick-server job with a Nomad cluster
 func (i *NomadInstaller) Install(
 	ctx context.Context,
 	opts *InstallOpts,
@@ -137,7 +137,7 @@ func (i *NomadInstaller) Install(
 
 	s.Update("Checking for existing Derrick server...")
 
-	// Check if waypoint-server has already been deployed
+	// Check if derrick-server has already been deployed
 	jobs, _, err := client.Jobs().PrefixList(serverName)
 	if err != nil {
 		return nil, "", err
@@ -147,7 +147,7 @@ func (i *NomadInstaller) Install(
 	for _, j := range jobs {
 		if j.Name == serverName {
 			if j.Status != "running" {
-				return nil, "", fmt.Errorf("waypoint-server job found but not running")
+				return nil, "", fmt.Errorf("derrick-server job found but not running")
 			}
 			serverDetected = true
 			break
@@ -190,7 +190,7 @@ func (i *NomadInstaller) Install(
 			}
 		}
 		if len(allocs) == 0 || len(activeAllocs) == 0 {
-			return nil, "", fmt.Errorf("waypoint-server job found but no running allocations available")
+			return nil, "", fmt.Errorf("derrick-server job found but no running allocations available")
 		}
 		serverAddr, err := getAddrFromAllocID(allocs[0].ID, client)
 		if err != nil {
@@ -222,7 +222,7 @@ func (i *NomadInstaller) Install(
 		err = nomad.CreatePersistentVolume(
 			ctx,
 			client,
-			"waypoint-server",
+			"derrick-server",
 			i.config.csiVolume,
 			i.config.csiPluginId,
 			i.config.csiVolumeProvider,
@@ -244,7 +244,7 @@ func (i *NomadInstaller) Install(
 	}
 
 	s.Update("Installing Derrick server to Nomad")
-	allocID, err := nomad.RunJob(ctx, s, client, waypointNomadJob(i.config, opts.ServerRunFlags, false), i.config.policyOverride)
+	allocID, err := nomad.RunJob(ctx, s, client, derrickNomadJob(i.config, opts.ServerRunFlags, false), i.config.policyOverride)
 	if err != nil {
 		return nil, "", err
 	}
@@ -253,7 +253,7 @@ func (i *NomadInstaller) Install(
 	// than the direct static IP for the CLI context and server config. Otherwise
 	// if Nomad restarts the server allocation, a new IP will be assigned and any
 	// configured clients will be invalid
-	httpAddr, addr.Addr, err = i.getWaypointAddress(client, allocID)
+	httpAddr, addr.Addr, err = i.getDerrickAddress(client, allocID)
 	if err != nil {
 		return nil, "", err
 	}
@@ -291,7 +291,7 @@ func (i *NomadInstaller) Install(
 	}, "", nil
 }
 
-func (i *NomadInstaller) getWaypointAddress(client *api.Client, allocID string) (string, string, error) {
+func (i *NomadInstaller) getDerrickAddress(client *api.Client, allocID string) (string, string, error) {
 	if i.config.serviceProvider == "consul" && i.config.consulService {
 		if i.config.consulDatacenter == "" {
 			i.config.consulDatacenter = defaultConsulDatacenter
@@ -305,19 +305,19 @@ func (i *NomadInstaller) getWaypointAddress(client *api.Client, allocID string) 
 
 		if i.config.consulServiceHostname == "" {
 			return fmt.Sprintf("%s.service.%s.%s:%d",
-					waypointUIServiceName, i.config.consulDatacenter, i.config.consulDomain, httpPort), fmt.Sprintf("%s.service.%s.%s:%d",
-					waypointBackendServiceName, i.config.consulDatacenter, i.config.consulDomain, grpcPort), nil
+					derrickUIServiceName, i.config.consulDatacenter, i.config.consulDomain, httpPort), fmt.Sprintf("%s.service.%s.%s:%d",
+					derrickBackendServiceName, i.config.consulDatacenter, i.config.consulDomain, grpcPort), nil
 		} else {
 			return fmt.Sprintf("%s:%d", i.config.consulServiceHostname, httpPort),
 				fmt.Sprintf("%s:%d", i.config.consulServiceHostname, grpcPort), nil
 		}
 	} else if i.config.serviceProvider == "nomad" {
-		backendService, _, err := client.Services().Get(waypointBackendServiceName, nil)
+		backendService, _, err := client.Services().Get(derrickBackendServiceName, nil)
 		if err != nil {
 			return "", "", err
 		}
 
-		uiService, _, err := client.Services().Get(waypointUIServiceName, nil)
+		uiService, _, err := client.Services().Get(derrickUIServiceName, nil)
 		if err != nil {
 			return "", "", err
 		}
@@ -338,7 +338,7 @@ func (i *NomadInstaller) getWaypointAddress(client *api.Client, allocID string) 
 }
 
 // Upgrade is a method of NomadInstaller and implements the Installer interface to
-// upgrade a waypoint-server in a Nomad cluster
+// upgrade a derrick-server in a Nomad cluster
 func (i *NomadInstaller) Upgrade(
 	ctx context.Context, opts *InstallOpts, serverCfg serverconfig.Client) (
 	*InstallResults, error,
@@ -349,7 +349,7 @@ func (i *NomadInstaller) Upgrade(
 	defer sg.Wait()
 
 	if i.config.serviceProvider == "none" && !i.config.consulService {
-		// By default, we don't auto-enable the consul service because prior to Waypoint
+		// By default, we don't auto-enable the consul service because prior to Derrick
 		// version 0.6.2, we did not enable it by default.
 		proceed, err := opts.UI.Input(&terminal.Input{
 			Prompt: "Service discovery is disabled for the Derrick Nomad job. If you had previously enabled " +
@@ -381,7 +381,7 @@ func (i *NomadInstaller) Upgrade(
 
 	s.Update("Checking for existing Derrick server...")
 
-	// Check if waypoint-server has already been deployed
+	// Check if derrick-server has already been deployed
 	jobs, _, err := client.Jobs().PrefixList(serverName)
 	if err != nil {
 		return nil, err
@@ -444,7 +444,7 @@ func (i *NomadInstaller) Upgrade(
 	}
 
 	s = sg.Add("Upgrading Derrick server on Nomad to %q", i.config.serverImage)
-	job := waypointNomadJob(i.config, opts.ServerRunFlags, true)
+	job := derrickNomadJob(i.config, opts.ServerRunFlags, true)
 	jobOpts := &api.RegisterOptions{
 		PolicyOverride: i.config.policyOverride,
 	}
@@ -519,7 +519,7 @@ func (i *NomadInstaller) Upgrade(
 	// than the direct static IP for the CLI context and server config. Otherwise
 	// if Nomad restarts the server allocation, a new IP will be assigned and any
 	// configured clients will be invalid
-	httpAddr, addr.Addr, err = i.getWaypointAddress(client, allocID)
+	httpAddr, addr.Addr, err = i.getDerrickAddress(client, allocID)
 	if err != nil {
 		return nil, err
 	}
@@ -544,7 +544,7 @@ func (i *NomadInstaller) Upgrade(
 }
 
 // Unnstall is a method of NomadInstaller and implements the Installer interface to
-// stop and purge the waypoint-server job on a Nomad cluster
+// stop and purge the derrick-server job on a Nomad cluster
 func (i *NomadInstaller) Uninstall(ctx context.Context, opts *InstallOpts) error {
 	ui := opts.UI
 
@@ -562,7 +562,7 @@ func (i *NomadInstaller) Uninstall(ctx context.Context, opts *InstallOpts) error
 
 	s.Update("Checking for existing Derrick server...")
 
-	// Find waypoint-server job
+	// Find derrick-server job
 	jobs, _, err := client.Jobs().PrefixList(serverName)
 	if err != nil {
 		return err
@@ -606,12 +606,12 @@ func (i *NomadInstaller) Uninstall(ctx context.Context, opts *InstallOpts) error
 
 	s.Update("Derrick job and allocations purged")
 
-	vols, _, err := client.CSIVolumes().List(&api.QueryOptions{Prefix: "waypoint"})
+	vols, _, err := client.CSIVolumes().List(&api.QueryOptions{Prefix: "derrick"})
 	if err != nil {
 		return err
 	}
 	for _, vol := range vols {
-		if vol.ID == "waypoint-server" {
+		if vol.ID == "derrick-server" {
 			s.Update("Destroying persistent CSI volume")
 			err = client.CSIVolumes().Deregister(vol.ID, false, &api.WriteOptions{})
 			if err != nil {
@@ -834,9 +834,9 @@ func dockerNetworkMode(nomadNetworkMode string) string {
 	return ""
 }
 
-// waypointNomadJob takes in a nomadConfig and returns a Nomad Job per the
+// derrickNomadJob takes in a nomadConfig and returns a Nomad Job per the
 // Nomad API
-func waypointNomadJob(c nomadConfig, rawRunFlags []string, upgrade bool) *api.Job {
+func derrickNomadJob(c nomadConfig, rawRunFlags []string, upgrade bool) *api.Job {
 	job := api.NewServiceJob(serverName, serverName, c.region, 50)
 	job.Namespace = &c.namespace
 	job.Datacenters = c.datacenters
@@ -847,7 +847,7 @@ func waypointNomadJob(c nomadConfig, rawRunFlags []string, upgrade bool) *api.Jo
 	httpPort, _ := strconv.Atoi(defaultHttpPort)
 
 	// Include services to be registered. Currently configured to happen with Consul by default
-	// One service added for Waypoint UI, and one for Waypoint backend port
+	// One service added for Derrick UI, and one for Derrick backend port
 	var services []*api.Service
 	if (c.serviceProvider == "consul" && (c.consulService || upgrade)) || (c.consulService && (c.serviceProvider == "consul" || upgrade)) {
 		token := ""
@@ -872,14 +872,14 @@ func waypointNomadJob(c nomadConfig, rawRunFlags []string, upgrade bool) *api.Jo
 
 		services = []*api.Service{
 			{
-				Name:      waypointUIServiceName,
+				Name:      derrickUIServiceName,
 				Address:   c.serviceAddress,
 				PortLabel: "ui",
 				Tags:      uiTags,
 				Provider:  "consul",
 			},
 			{
-				Name:      waypointBackendServiceName,
+				Name:      derrickBackendServiceName,
 				Address:   c.serviceAddress,
 				PortLabel: "server",
 				Tags:      backendTags,
@@ -889,14 +889,14 @@ func waypointNomadJob(c nomadConfig, rawRunFlags []string, upgrade bool) *api.Jo
 	} else if c.serviceProvider == "nomad" {
 		services = []*api.Service{
 			{
-				Name:      waypointUIServiceName,
+				Name:      derrickUIServiceName,
 				Address:   c.serviceAddress,
 				PortLabel: "ui",
 				Tags:      c.serviceUITags,
 				Provider:  "nomad",
 			},
 			{
-				Name:      waypointBackendServiceName,
+				Name:      derrickBackendServiceName,
 				Address:   c.serviceAddress,
 				PortLabel: "server",
 				Tags:      c.serviceBackendTags,
@@ -937,7 +937,7 @@ func waypointNomadJob(c nomadConfig, rawRunFlags []string, upgrade bool) *api.Jo
 
 	if c.csiVolumeProvider != "" {
 		volumeRequest.Type = "csi"
-		volumeRequest.Source = "waypoint-server"
+		volumeRequest.Source = "derrick-server"
 		volumeRequest.AccessMode = "single-node-writer"
 		volumeRequest.AttachmentMode = "file-system"
 	} else {
@@ -946,13 +946,13 @@ func waypointNomadJob(c nomadConfig, rawRunFlags []string, upgrade bool) *api.Jo
 	}
 
 	tg.Volumes = map[string]*api.VolumeRequest{
-		"waypoint-server": &volumeRequest,
+		"derrick-server": &volumeRequest,
 	}
 
 	job.AddTaskGroup(tg)
 
 	readOnly := false
-	volume := "waypoint-server"
+	volume := "derrick-server"
 	destination := "/data"
 	volumeMounts := []*api.VolumeMount{
 		{
@@ -999,9 +999,9 @@ func waypointNomadJob(c nomadConfig, rawRunFlags []string, upgrade bool) *api.Jo
 	return job
 }
 
-// waypointRunnerNomadJob takes in a nomadConfig and returns a Nomad Job
-// for the Nomad API to run a Waypoint runner.
-func waypointRunnerNomadJob(c nomadConfig, opts *InstallRunnerOpts) *api.Job {
+// derrickRunnerNomadJob takes in a nomadConfig and returns a Nomad Job
+// for the Nomad API to run a Derrick runner.
+func derrickRunnerNomadJob(c nomadConfig, opts *InstallRunnerOpts) *api.Job {
 	job := api.NewServiceJob(runnerName, runnerName, c.region, 50)
 	job.Namespace = &c.namespace
 	job.Datacenters = c.datacenters
@@ -1195,7 +1195,7 @@ func (i *NomadInstaller) InstallFlags(set *flag.Set) {
 		Name:   "nomad-odr-image",
 		Target: &i.config.odrImage,
 		Usage: "Docker image for the on-demand runners. If not specified, it " +
-			"defaults to the server image name + '-odr' (i.e. 'hashicorp/waypoint-odr:latest')",
+			"defaults to the server image name + '-odr' (i.e. 'nomatronio/derrick-odr:latest')",
 	})
 
 	set.BoolVar(&flag.BoolVar{
@@ -1319,7 +1319,7 @@ func (i *NomadInstaller) InstallFlags(set *flag.Set) {
 		Name:   "nomad-consul-service-hostname",
 		Target: &i.config.consulServiceHostname,
 		Usage: "If set, will use this hostname for Consul DNS rather than the default, " +
-			"i.e. \"waypoint-server.service.consul\".",
+			"i.e. \"derrick-server.service.consul\".",
 		Default: "",
 	})
 
@@ -1432,7 +1432,7 @@ func (i *NomadInstaller) InstallFlags(set *flag.Set) {
 		Name:    "nomad-csi-volume",
 		Target:  &i.config.csiVolume,
 		Usage:   "The name of the volume to initialize for Derrick server within the CSI provider.",
-		Default: "waypoint-server",
+		Default: "derrick-server",
 	})
 }
 
@@ -1491,7 +1491,7 @@ func (i *NomadInstaller) UpgradeFlags(set *flag.Set) {
 		Name:   "nomad-odr-image",
 		Target: &i.config.odrImage,
 		Usage: "Docker image for the on-demand runners. If not specified, it " +
-			"defaults to the server image name + '-odr' (i.e. 'hashicorp/waypoint-odr:latest')",
+			"defaults to the server image name + '-odr' (i.e. 'nomatronio/derrick-odr:latest')",
 	})
 
 	set.BoolVar(&flag.BoolVar{
@@ -1621,7 +1621,7 @@ func (i *NomadInstaller) UpgradeFlags(set *flag.Set) {
 		Name:   "nomad-consul-service-hostname",
 		Target: &i.config.consulServiceHostname,
 		Usage: "If set, will use this hostname for Consul DNS rather than the default, " +
-			"i.e. \"waypoint-server.service.consul\".",
+			"i.e. \"derrick-server.service.consul\".",
 		Default: "",
 	})
 
