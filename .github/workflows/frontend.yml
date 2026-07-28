@@ -17,7 +17,7 @@ jobs:
 
       - name: Initialize UI cache
         id: ui-cache
-        uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8 # v3.3.1
+        uses: actions/cache@v4
         with:
           key: "${{ steps.set-cache-key.outputs.cache-key }}"
           path: |- 
@@ -46,7 +46,7 @@ jobs:
           node-version: 14
 
       - name: restore-cache
-        uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8 # v3.3.1
+        uses: actions/cache@v4
         with:
           key: ${{ needs.frontend-cache.outputs.yarn-cache-key }}
           path: |- 
@@ -70,7 +70,7 @@ jobs:
           node-version: 14
 
       - name: restore-cache
-        uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8 # v3.3.1
+        uses: actions/cache@v4
         with:
           key: ${{ needs.frontend-cache.outputs.yarn-cache-key }}
           path: |- 

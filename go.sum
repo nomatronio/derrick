@@ -1825,6 +1825,8 @@ github.com/ncw/swift v1.0.47/go.mod h1:23YIA4yWVnGwv2dQlN4bB7egfYX6YLn0Yo/S6zZO/
 github.com/neo4j-drivers/gobolt v1.7.4/go.mod h1:O9AUbip4Dgre+CD3p40dnMD4a4r52QBIfblg5k7CTbE=
 github.com/neo4j/neo4j-go-driver v1.7.4/go.mod h1:aPO0vVr+WnhEJne+FgFjfsjzAnssPFLucHgGZ76Zb/U=
 github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e/go.mod h1:zD1mROLANZcx1PVRCS0qkT7pwLkGfwJo4zjcN/Tysno=
+github.com/nomatronio/derrick-plugin-sdk v0.1.0 h1:OAfAIqtt6jJUudSCLLt0pOeBVytLE8RbP9vPvg3e9DI=
+github.com/nomatronio/derrick-plugin-sdk v0.1.0/go.mod h1:P6oX9K0VboSGrkaFzJVsMp/RAhx5sfVyYKmQKM1aj0c=
 github.com/novln/docker-parser v1.0.0 h1:PjEBd9QnKixcWczNGyEdfUrP6GR0YUilAqG7Wksg3uc=
 github.com/novln/docker-parser v1.0.0/go.mod h1:oCeM32fsoUwkwByB5wVjsrsVQySzPWkl3JdlTn1txpE=
 github.com/nrdcg/auroradns v1.0.0/go.mod h1:6JPXKzIRzZzMqtTDgueIhTi6rFf1QvYE/HzqidhOhjw=

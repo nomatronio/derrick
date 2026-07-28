@@ -90,7 +90,7 @@ require (
 	github.com/moby/buildkit v0.8.3
 	github.com/mr-tron/base58 v1.2.0
 	github.com/natefinch/atomic v0.0.0-20200526193002-18c0533a5b09
-	github.com/nomatronio/derrick-plugin-sdk v0.0.0-00010101000000-000000000000
+	github.com/nomatronio/derrick-plugin-sdk v0.1.0
 	github.com/novln/docker-parser v1.0.0
 	github.com/oklog/ulid v1.3.1
 	github.com/oklog/ulid/v2 v2.0.2
@@ -381,7 +381,3 @@ require (
 
 // v0.3.11 panics for some reason on our tests
 replace github.com/imdario/mergo => github.com/imdario/mergo v0.3.9
-
-replace github.com/nomatronio/derrick-plugin-sdk => ../derrick-plugin-sdk
-
-replace github.com/nomatronio/derrick => .

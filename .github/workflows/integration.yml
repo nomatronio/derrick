@@ -18,7 +18,7 @@ jobs:
 
       - name: save ui cache
         id: ui-cache
-        uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8 # v3.3.1
+        uses: actions/cache@v4
         with:
           key: "${{ steps.set-cache-key.outputs.cache-key }}"
           path: |-
@@ -52,7 +52,7 @@ jobs:
           go-version-file: go.mod
 
       - name: Restore UI cache
-        uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8 # v3.3.1
+        uses: actions/cache@v4
         with:
           key: ${{ needs.build-frontend.outputs.yarn-cache-key }}
           path: |-

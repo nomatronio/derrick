@@ -98,7 +98,7 @@ jobs:
           echo "${PKG_NAME} copyright year is ${PKG_COPYRIGHT_YEAR}"
           cd ui && make && cd ..
       - name: Save assets to cache
-        uses: actions/cache/save@v3 # TSCCR: no version of actions/cache trusts nested action "save"
+        uses: actions/cache/save@v4 # TSCCR: no version of actions/cache trusts nested action "save"
         with:
           path: ui/dist/assets
           key: ui_assets_${{ github.sha }}
@@ -116,7 +116,7 @@ jobs:
         with:
           go-version: ${{ needs.get-go-version.outputs.go-version }}
       - name: Restore ui assets
-        uses: actions/cache/restore@v3 # TSCCR: no version of actions/cache trusts nested action "restore"
+        uses: actions/cache/restore@v4 # TSCCR: no version of actions/cache trusts nested action "restore"
         with:
           path: ui/dist/assets
           key: ui_assets_${{ github.sha }}
@@ -131,7 +131,7 @@ jobs:
           go install github.com/kevinburke/go-bindata/go-bindata@v3.24.0+incompatible
           make bin/crt-assets
       - name: Save assets to cache
-        uses: actions/cache/save@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8 # v3.3.1
+        uses: actions/cache/save@v4
         with:
           path: internal/assets
           key: build_assets_${{ github.sha }}
