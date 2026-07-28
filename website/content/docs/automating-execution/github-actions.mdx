@@ -15,7 +15,13 @@ and commits with relevant statuses of builds, deploys, and releases.
 
 There are two options for utilizing Derrick and GitHub actions.
 
-## hashicorp/action-setup-waypoint
+~> **Note:** The HashiCorp GitHub Actions below are legacy upstream Waypoint
+> actions. Until Nomatron publishes Derrick-specific actions, install the
+> `derrick` CLI directly in your workflow (for example via a release binary
+> from [github.com/nomatronio/derrick](https://github.com/nomatronio/derrick))
+> and run `derrick` commands in subsequent steps.
+
+## hashicorp/action-setup-waypoint (legacy)
 
 This action sets up Derrick based on version. This action can be
 composed with other steps to run Derrick, and is currently
@@ -30,10 +36,10 @@ The source is available on GitHub at [hashicorp/action-setup-waypoint](https://g
 
 ```yaml
 env:
-  WAYPOINT_SERVER_TOKEN: ${{ secrets.WAYPOINT_SERVER_TOKEN }}
-  WAYPOINT_SERVER_ADDR: derrick.example.com:9701
-  WAYPOINT_SERVER_TLS: 1
-  WAYPOINT_SERVER_TLS_SKIP_VERIFY: 1
+  DERRICK_SERVER_TOKEN: ${{ secrets.DERRICK_SERVER_TOKEN }}
+  DERRICK_SERVER_ADDR: derrick.example.com:9701
+  DERRICK_SERVER_TLS: 1
+  DERRICK_SERVER_TLS_SKIP_VERIFY: 1
 
 steps:
   - uses: actions/checkout@v2
@@ -44,7 +50,7 @@ steps:
 - run: derrick build
 ```
 
-## hashicorp/action-waypoint
+## hashicorp/action-waypoint (legacy)
 
 ~> Note: This is an experiment and isn't recommended for consistent usage.
 For anything beyond experimental, we recommend using action-setup-waypoint.
@@ -70,9 +76,9 @@ steps:
     with:
       version: '0.0.1-beta1'
       github_token: ${{ secrets.GITHUB_TOKEN }}
-      derrick_server_address: 'waypoint.example.com:9701'
-      derrick_server_ui: 'https://waypoint.example.com:9702'
-      derrick_server_token: ${{ secrets.WAYPOINT_SERVER_TOKEN }}
+      derrick_server_address: 'derrick.example.com:9701'
+      derrick_server_ui: 'https://derrick.example.com:9702'
+      derrick_server_token: ${{ secrets.DERRICK_SERVER_TOKEN }}
       workspace: default
   - uses: hashicorp/action-waypoint
     name: Build

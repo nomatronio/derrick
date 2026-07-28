@@ -208,13 +208,13 @@
          "SubFields": null
       }
    ],
-   "outputAttrsHelp": "Output attributes can be used in your `waypoint.hcl` as [variables](/docs/waypoint-hcl/variables) via [`artifact`](/docs/waypoint-hcl/variables/artifact) or [`deploy`](/docs/waypoint-hcl/variables/deploy).",
+   "outputAttrsHelp": "Output attributes can be used in your `derrick.hcl` as [variables](/docs/derrick-hcl/variables) via [`artifact`](/docs/derrick-hcl/variables/artifact) or [`deploy`](/docs/derrick-hcl/variables/deploy).",
    "requiredFields": [
       {
          "Field": "image",
          "Type": "string",
          "Synopsis": "the image to push the local image to, fully qualified",
-         "Summary": "this value must be the fully qualified name to the image. for example: gcr.io/waypoint-demo/demo",
+         "Summary": "this value must be the fully qualified name to the image. for example: gcr.io/derrick-demo/demo",
          "Optional": false,
          "Default": "",
          "EnvVar": "",
@@ -234,5 +234,5 @@
       }
    ],
    "type": "registry",
-   "use": "the [`use` stanza](/docs/waypoint-hcl/use) for this plugin."
+   "use": "the [`use` stanza](/docs/derrick-hcl/use) for this plugin."
 }

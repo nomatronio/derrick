@@ -13,7 +13,7 @@ This is not an exhaustive list nor is it a promise that these features will
 be built, but it gives a glimpse into the vision we have for this project.
 
 For a finer-grained view into our roadmap and what is being worked on for
-a release, please refer to the [GitHub Issue Tracker](https://github.com/hashicorp/waypoint/issues).
+a release, please refer to the [GitHub Issue Tracker](https://github.com/nomatronio/derrick/issues).
 This is a more manual approach to reading our roadmap and includes small details
 such as bug fixes, but is much more accurate to what we're working on.
 
@@ -21,7 +21,7 @@ such as bug fixes, but is much more accurate to what we're working on.
 
 Derrick has always had `build`, `deploy`, and `release` lifecycle events, but
 to handle more complex deployments, Derrick needed the ability to add custom steps.
-We recently released a [Tech Preview of custom pipelines](/waypoint/docs/pipelines),
+We recently released a [Tech Preview of custom pipelines](/derrick/docs/pipelines),
 introducing the ability to script custom steps, such as running tests after a
 build or security scanning artifacts prior to a deploy. As we work to bring
 custom pipelines out of Tech Preview, we'll be introducing more support for
@@ -31,7 +31,7 @@ pipelines to the UI.
 
 ### App Promotion
 
-Derrick has the [workspaces](/waypoint/docs/workspaces) feature for
+Derrick has the [workspaces](/derrick/docs/workspaces) feature for
 isolating different environments. We plan to build on this feature,
 and custom pipelines, to enable workspaces that may target different
 infrastructure environments (such as a dev vs. production cluster), and we
@@ -62,7 +62,7 @@ We will likely integrate with [Terraform](/terraform) in some way.
 
 ### Deployment Templates
 
-Derrick currently associates a [derrick.hcl](/waypoint/docs/derrick-hcl)
+Derrick currently associates a [derrick.hcl](/derrick/docs/derrick-hcl)
 configuration with a single project. In the future, we will allow parameterized
 configurations to be shared as a template library with your installation.
 When users create a new project, they can select from a list of common
@@ -82,7 +82,7 @@ access for other tokens.
 
 ### Exec Improvements
 
-We're really excited about [`derrick exec`](/waypoint/docs/exec) but there
+We're really excited about [`derrick exec`](/derrick/docs/exec) but there
 are a lot of improvements we want to make here:
 
 - **New deployment targeting.** - We want exec to be able to spin up

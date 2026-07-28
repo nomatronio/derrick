@@ -43,7 +43,7 @@
          "Field": "listener_arn",
          "Type": "string",
          "Synopsis": "the ARN on an existing ALB to configure",
-         "Summary": "when this is set, no ALB or Listener is created. Instead the application is configured by manipulating this existing Listener. This allows users to configure their ALB outside waypoint but still have waypoint hook the application to that ALB",
+         "Summary": "when this is set, no ALB or Listener is created. Instead the application is configured by manipulating this existing Listener. This allows users to configure their ALB outside derrick but still have derrick hook the application to that ALB",
          "Optional": true,
          "Default": "",
          "EnvVar": "",
@@ -115,5 +115,5 @@
    "output": "alb.Release",
    "requiredFields": null,
    "type": "releasemanager",
-   "use": "the [`use` stanza](/waypoint/docs/waypoint-hcl/use) for this plugin."
+   "use": "the [`use` stanza](/derrick/docs/derrick-hcl/use) for this plugin."
 }

@@ -7,7 +7,7 @@ description: |-
 
 # Upgrading to Derrick 0.9.0 from 0.8.x
 
-Derrick 0.8.x can be upgraded to Derrick 0.9.0 using a [standard upgrade](/waypoint/docs/upgrading#standard-upgrade).
+Derrick 0.8.x can be upgraded to Derrick 0.9.0 using a [standard upgrade](/derrick/docs/upgrading#standard-upgrade).
 There are some considerations depending on what platform your server is installed on.
 There are no breaking changes in the protocol or `derrick.hcl` configuration file.
 Due to the changes in `runner` management, we cannot guarantee that all Derrick
@@ -19,7 +19,7 @@ compatible. We encourage users to have all components on the same version.
 During prerelease testing, we discovered an issue that has exited since the 0.8.1
 release, and possibly earlier, that means `derrick upgrade` does not work on
 servers installed on ECS. We found this too late to fix it for the 0.9.0 release,
-but plan to fix it for a future release. You can track [the issue here](https://github.com/hashicorp/waypoint/issues/3527).
+but plan to fix it for a future release. You can track [the issue here](https://github.com/nomatronio/derrick/issues/3527).
 
 If you want to upgrade your Derrick server installed on ECS, you will need to
 snapshot your sever, do a Derrick server uninstall, complete a new express
@@ -75,7 +75,7 @@ their current state, run ‘derrick status -project=PROJECT-NAME’.
 
 $ derrick server uninstall -platform=kubernetes -delete-context=false -auto-approve
 Uninstalling Derrick server on platform "kubernetes" with context "install-1657050368"
-✓ Snapshot "waypoint-server-snapshot-1657050483" generated
+✓ Snapshot "derrick-server-snapshot-1657050483" generated
 ...
 
 Derrick server successfully uninstalled for kubernetes platform
@@ -99,15 +99,15 @@ Server: v0.9.0
 $ derrick context inspect
 
 » Context Settings:
-      config path: /Users/username/Library/Preferences/waypoint
+      config path: /Users/username/Library/Preferences/derrick
   default context: install-1657050581
 
 $ derrick server restore derrick-server-snapshot-1657050483
 
-$ cp /Users/username/Library/Preferences/waypoint/context/install-1657050368.hcl /Users/username/Library/Preferences/waypoint/context/install-1657050581.hcl
+$ cp /Users/username/Library/Preferences/derrick/context/install-1657050368.hcl /Users/username/Library/Preferences/derrick/context/install-1657050581.hcl
 
-$ kubectl delete pod/waypoint-server-0
-pod "waypoint-server-0" deleted
+$ kubectl delete pod/derrick-server-0
+pod "derrick-server-0" deleted
 
 $ derrick status
 Current project statuses in server context "localhost:9701"
@@ -156,7 +156,7 @@ $ derrick runner profile set -name=01G68E50FKQA2JZM8Q79C0NQE7 -plugin-type=kuber
 
 ### Server Image
 
-`derrick install` uses the `hashicorp/waypoint:latest` container image for
+`derrick install` uses the `nomatronio/derrick:latest` container image for
 Kubernetes, Nomad, ECS, and Docker. When upgrading, your platform may require
 you to pull the latest image instead of using a cache.
 

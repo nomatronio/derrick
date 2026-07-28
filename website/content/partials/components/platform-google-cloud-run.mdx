@@ -23,7 +23,7 @@ app "wpmini" {
 
     registry {
       use "docker" {
-        image = "gcr.io/waypoint-project-id/wpmini"
+        image = "gcr.io/derrick-project-id/wpmini"
         tag   = "latest"
       }
     }
@@ -31,7 +31,7 @@ app "wpmini" {
 
   deploy {
     use "google-cloud-run" {
-      project  = "waypoint-project-id"
+      project  = "derrick-project-id"
       location = "europe-north1"
 
       port = 5000
@@ -47,13 +47,13 @@ app "wpmini" {
         request_timeout            = 300
       }
 
-	  service_account_name = "cloudrun@waypoint-project-id.iam.gserviceaccount.com"
+	  service_account_name = "cloudrun@derrick-project-id.iam.gserviceaccount.com"
 
       auto_scaling {
         max = 10
       }
 
-      cloudsql_instances = ["waypoint-project-id:europe-north1:sql-instance"]
+      cloudsql_instances = ["derrick-project-id:europe-north1:sql-instance"]
 
       vpc_access {
         connector = "custom-vpc-connector"
@@ -70,7 +70,7 @@ app "wpmini" {
 
 ### Required Parameters
 
-These parameters are used in the [`use` stanza](/waypoint/docs/derrick-hcl/use) for this plugin.
+These parameters are used in the [`use` stanza](/derrick/docs/derrick-hcl/use) for this plugin.
 
 #### auto_scaling (category)
 
@@ -125,7 +125,7 @@ GCP project ID where the Cloud Run instance will be deployed.
 
 ### Optional Parameters
 
-These parameters are used in the [`use` stanza](/waypoint/docs/derrick-hcl/use) for this plugin.
+These parameters are used in the [`use` stanza](/derrick/docs/derrick-hcl/use) for this plugin.
 
 #### cloudsql_instances
 
@@ -184,7 +184,7 @@ Set VPC egress. Supported values are 'all' and 'private-ranges-only'.
 
 ### Output Attributes
 
-Output attributes can be used in your `derrick.hcl` as [variables](/waypoint/docs/derrick-hcl/variables) via [`artifact`](/waypoint/docs/derrick-hcl/variables/artifact) or [`deploy`](/waypoint/docs/derrick-hcl/variables/deploy).
+Output attributes can be used in your `derrick.hcl` as [variables](/derrick/docs/derrick-hcl/variables) via [`artifact`](/derrick/docs/derrick-hcl/variables/artifact) or [`deploy`](/derrick/docs/derrick-hcl/variables/deploy).
 
 #### id
 

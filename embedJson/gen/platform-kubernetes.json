@@ -119,7 +119,7 @@
          "Field": "image_secret",
          "Type": "string",
          "Synopsis": "name of the Kubernetes secrete to use for the image",
-         "Summary": "this references an existing secret, waypoint does not create this secret",
+         "Summary": "this references an existing secret, derrick does not create this secret",
          "Optional": true,
          "Default": "",
          "EnvVar": "",
@@ -265,7 +265,7 @@
          "Field": "replicas",
          "Type": "int32",
          "Synopsis": "the number of replicas to maintain",
-         "Summary": "if the replica count is maintained outside waypoint, for instance by a pod autoscaler, do not set this variable",
+         "Summary": "if the replica count is maintained outside Derrick, for instance by a pod autoscaler, do not set this variable",
          "Optional": true,
          "Default": "",
          "EnvVar": "",
@@ -325,7 +325,7 @@
          "Field": "static_environment",
          "Type": "map of string to string",
          "Synopsis": "environment variables to control broad modes of the application",
-         "Summary": "environment variables that are meant to configure the container in a static way. This might be control an image that has multiple modes of operation, selected via environment variable. Most configuration should use the waypoint config commands",
+         "Summary": "environment variables that are meant to configure the container in a static way. This might be control an image that has multiple modes of operation, selected via environment variable. Most configuration should use the derrick config commands",
          "Optional": true,
          "Default": "",
          "EnvVar": "",
@@ -373,7 +373,7 @@
          "SubFields": null
       }
    ],
-   "outputAttrsHelp": "Output attributes can be used in your `waypoint.hcl` as [variables](/waypoint/docs/waypoint-hcl/variables) via [`artifact`](/waypoint/docs/waypoint-hcl/variables/artifact) or [`deploy`](/waypoint/docs/waypoint-hcl/variables/deploy).",
+   "outputAttrsHelp": "Output attributes can be used in your `derrick.hcl` as [variables](/derrick/docs/derrick-hcl/variables) via [`artifact`](/derrick/docs/derrick-hcl/variables/artifact) or [`deploy`](/derrick/docs/derrick-hcl/variables/deploy).",
    "requiredFields": [
       {
          "Field": "pod",
@@ -657,7 +657,7 @@
                      "Field": "static_environment",
                      "Type": "map of string to string",
                      "Synopsis": "environment variables to control broad modes of the application",
-                     "Summary": "environment variables that are meant to configure the container in a static way. This might be control an image that has multiple modes of operation, selected via environment variable. Most configuration should use the waypoint config commands",
+                     "Summary": "environment variables that are meant to configure the container in a static way. This might be control an image that has multiple modes of operation, selected via environment variable. Most configuration should use the derrick config commands",
                      "Optional": true,
                      "Default": "",
                      "EnvVar": "",
@@ -1010,7 +1010,7 @@
                            "Field": "static_environment",
                            "Type": "map of string to string",
                            "Synopsis": "environment variables to control broad modes of the application",
-                           "Summary": "environment variables that are meant to configure the container in a static way. This might be control an image that has multiple modes of operation, selected via environment variable. Most configuration should use the waypoint config commands",
+                           "Summary": "environment variables that are meant to configure the container in a static way. This might be control an image that has multiple modes of operation, selected via environment variable. Most configuration should use the derrick config commands",
                            "Optional": true,
                            "Default": "",
                            "EnvVar": "",
@@ -1038,5 +1038,5 @@
       }
    ],
    "type": "platform",
-   "use": "the [`use` stanza](/waypoint/docs/waypoint-hcl/use) for this plugin."
+   "use": "the [`use` stanza](/derrick/docs/derrick-hcl/use) for this plugin."
 }

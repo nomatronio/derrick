@@ -7,7 +7,7 @@ description: |-
 
 # Upgrading to Derrick 0.11.0 from 0.10.x
 
-Derrick 0.10.x can be upgraded to Derrick 0.11.0 using a [standard upgrade](/waypoint/docs/upgrading#standard-upgrade).
+Derrick 0.10.x can be upgraded to Derrick 0.11.0 using a [standard upgrade](/derrick/docs/upgrading#standard-upgrade).
 There are some considerations depending on what platform your server is installed on.
 There are no breaking changes in the protocol or `derrick.hcl` configuration file.
 However, there was a bug related to the usage of dynamic configuration which will require attention during the upgrade. Those details are below.
@@ -71,7 +71,7 @@ The database of a Derrick server installed to AWS ECS is persisted in a file
 system, provided by the Elastic File System (EFS) service of AWS. To preserve
 the database during the upgrade, a new EFS volume will need to be created. An
 access point will need to be added to this volume as well. This access point's
-path must be set to `/waypointserverdata`. The POSIX user and root directory
+path must be set to `/derrickserverdata`. The POSIX user and root directory
 creation permissions should both have their user and group ID set to `100` and
 `1000`, respectively. The access point permissions should be set to `755`.
 
@@ -106,12 +106,12 @@ metadata:
 spec:
   volumeSnapshotClassName: <storage-class>
   source:
-    persistentVolumeClaimName: data-default-waypoint-server-0
+    persistentVolumeClaimName: data-default-derrick-server-0
 EOF
 
 $ kubectl get volumesnapshot
 NAME                READYTOUSE   SOURCEPVC                        SOURCESNAPSHOTCONTENT   RESTORESIZE   SNAPSHOTCLASS   SNAPSHOTCONTENT   CREATIONTIME   AGE
-waypoint-snapshot                data-default-waypoint-server-0                                         <storage-class>                                              13s
+derrick-snapshot                data-default-derrick-server-0                                         <storage-class>                                              13s
 ```
 
 Now run:
@@ -151,10 +151,10 @@ $ nomad job stop derrick-server
 
 $ nomad volume snapshot create <volume-id> derrick-0-11-upgrade
 Snapshot ID                        Volume ID    Size    Create Time             Ready?
-<volume-id>@waypoint-0-11-upgrade  <volume-id>  211MiB  2023-02-14-15:45-08:00  true
+<volume-id>@derrick-0-11-upgrade  <volume-id>  211MiB  2023-02-14-15:45-08:00  true
 
 $ nomad job inspect derrick-server > derrick-server-0.10.json
-$ # Make a copy of `derrick-server.json` and set {"Job": "Stop": false} and the derrick server image version to "0.11.0" in the "waypoint-server" task group.
+$ # Make a copy of `derrick-server.json` and set {"Job": "Stop": false} and the derrick server image version to "0.11.0" in the "derrick-server" task group.
 $ # Submit the job to nomad to start again.
 
 $ nomad job run -json derrick-server-0.11.0.json

@@ -16,7 +16,7 @@ to certain environments.
 
 ### Via the CLI
 
-You can set environment variables using [`derrick config`](/waypoint/commands/config-set)
+You can set environment variables using [`derrick config`](/derrick/commands/config-set)
 with the `-runner` flag:
 
 ```shell-session
@@ -38,12 +38,12 @@ $ derrick config get -runner
 
 ~> **Security note:** HCP Derrick stores these values encrypted within its backend
 using HashiCorp Vault. If that's unsatisfactory, you can set the environment variables
-manually when [manually running the runner](/waypoint/docs/runner/run-manual).
+manually when [manually running the runner](/derrick/docs/runner/run-manual).
 
 ~> **Security note:** On a self hosted Derrick server, these configuration values are
 stored as plaintext in the Derrick server data file. If you do not want to store any
 secrets on the Derrick server, you must set the environment variables manually when
-[manually running the runner](/waypoint/docs/runner/run-manual).
+[manually running the runner](/derrick/docs/runner/run-manual).
 
 You can use the `-scope` flag paired with flags such as `-project`,
 `-label-scope`, and `-workspace` to set runner variables that are only
@@ -80,7 +80,7 @@ use the `NOMAD_TOKEN` configured for the corresponding environment automatically
 ### Via the `derrick.hcl` File
 
 Environment variables for runners can also be set via the `derrick.hcl`
-file. This uses the same syntax as the [`config` stanza](/waypoint/docs/derrick-hcl/config):
+file. This uses the same syntax as the [`config` stanza](/derrick/docs/derrick-hcl/config):
 
 ```hcl
 config {
@@ -104,7 +104,7 @@ the `derrick.hcl` file.
 Using the `derrick.hcl` file, you can configure data to be stored in files
 that are available to runners when running operations for that project or application.
 You cannot configure files to be available globally to the server. This behaves similarly to
-[application configuration files](/waypoint/docs/app-config/files).
+[application configuration files](/derrick/docs/app-config/files).
 
 ```hcl
 config {
@@ -126,9 +126,9 @@ they are the most common production deployment setup.
 ## Dynamic Values
 
 When using the `derrick.hcl` format, runners may make use of
-[dynamic values](/waypoint/docs/app-config/dynamic) to source configuration
+[dynamic values](/derrick/docs/app-config/dynamic) to source configuration
 from external sources. The `runner` stanza also has access to
-[internal values](/waypoint/docs/app-config/internal) for composing multiple
+[internal values](/derrick/docs/app-config/internal) for composing multiple
 values together.
 
 Note that runner variables only have access to internal variables
@@ -157,4 +157,4 @@ config {
 
 ## Runner profiles
 
-To modify the way that Derrick launches on-demand runners, see [runner profiles](/waypoint/docs/runner/profiles).
+To modify the way that Derrick launches on-demand runners, see [runner profiles](/derrick/docs/runner/profiles).

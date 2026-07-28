@@ -11,7 +11,7 @@ permissions.
 
 ### Required Parameters
 
-These parameters are used in the [`use` stanza](/waypoint/docs/derrick-hcl/use) for this plugin.
+These parameters are used in the [`use` stanza](/derrick/docs/derrick-hcl/use) for this plugin.
 
 #### odr_image
 
@@ -38,7 +38,7 @@ List of subnets to place the On-Demand Runner task in. This defaults to the list
 
 ### Optional Parameters
 
-These parameters are used in the [`use` stanza](/waypoint/docs/derrick-hcl/use) for this plugin.
+These parameters are used in the [`use` stanza](/derrick/docs/derrick-hcl/use) for this plugin.
 
 #### cluster
 
@@ -62,7 +62,7 @@ ExecutionRoleName is the name of the AWS IAM role to apply to the task's Executi
 
 Cloud Watch Log Group to use for On-Demand Runners.
 
-Cloud Watch Log Group to use for On-Demand Runners. Defaults to the log group used for runners (waypoint-runner).
+Cloud Watch Log Group to use for On-Demand Runners. Defaults to the log group used for runners (derrick-runner).
 
 - Type: **string**
 - **Optional**
@@ -105,7 +105,7 @@ TaskRoleName is the name of the AWS IAM role to apply to the task. This role det
 
 ### Output Attributes
 
-Output attributes can be used in your `derrick.hcl` as [variables](/waypoint/docs/derrick-hcl/variables) via [`artifact`](/waypoint/docs/derrick-hcl/variables/artifact) or [`deploy`](/waypoint/docs/derrick-hcl/variables/deploy).
+Output attributes can be used in your `derrick.hcl` as [variables](/derrick/docs/derrick-hcl/variables) via [`artifact`](/derrick/docs/derrick-hcl/variables/artifact) or [`deploy`](/derrick/docs/derrick-hcl/variables/deploy).
 
 #### id
 

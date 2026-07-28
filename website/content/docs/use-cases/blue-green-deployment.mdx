@@ -39,7 +39,7 @@ are running to split some percentage of traffic between the resolver for the new
 and old instances of the service.
 
 To achieve this, a series of commands or API calls would need to be run manually,
-or automated through scripts or some other means; but [Derrick pipelines](/waypoint/docs/pipelines)
+or automated through scripts or some other means; but [Derrick pipelines](/derrick/docs/pipelines)
 can orchestrate this! Derrick pipelines can execute configured phases of your app's build, deployment,
 and release lifecycle, and run custom steps such as modifying Consul config
 entries to configure DNS to route traffic to your canary deployment instances.
@@ -55,11 +55,11 @@ described in this use case.
 If experimenting with this use case, it will be helpful to have some familiarity
 with the tools and concepts listed below.
 
-- [Derrick CLI](/waypoint/downloads)
-  - [Context created](/waypoint/docs/server/auth#logging-in) and connected to local Derrick server or HCP Derrick server
-- Derrick [runner](/waypoint/docs/runner/run-manual#installing-a-runner)
+- [Derrick CLI](/derrick/downloads)
+  - [Context created](/derrick/docs/server/auth#logging-in) and connected to local Derrick server or HCP Derrick server
+- Derrick [runner](/derrick/docs/runner/run-manual#installing-a-runner)
   - Must be able to connect to HashiCorp Nomad & HashiCorp Consul clusters
-- Derrick [runner configuration](/waypoint/docs/runner/config)
+- Derrick [runner configuration](/derrick/docs/runner/config)
   - Used to connect to HashiCorp Nomad
 - Docker registry
   - Credentials to push a build to the registry
@@ -361,7 +361,7 @@ The Nomad UI also shows that the job is up and running with one allocation.
 
 The Derrick UI indicates that the deployment is running too!
 
-![Blue Deployment in Derrick](/img/use-cases/blue-green-deployment/blue-deployment-waypoint-ui.png)
+![Blue Deployment in Derrick](/img/use-cases/blue-green-deployment/blue-deployment-derrick-ui.png)
 
 And of course, `curl`-ing the application at the address and port will say:
 
@@ -390,7 +390,7 @@ connection:
 
 The `config` stanza in the Derrick configuration file will set these variables
 in the application's environment dynamically. You can learn more about this in
-the [Derrick documentation on config variables](/waypoint/docs/derrick-hcl/config).
+the [Derrick documentation on config variables](/derrick/docs/derrick-hcl/config).
 
 Any change could be made to this application though, not just database connections.
 But with a new change in place, and pushed to the git repository, it's time to
@@ -459,8 +459,8 @@ minimizing downtime and user impact.
 
 ## Further Reading
 
-- [Derrick Pipelines](/waypoint/docs/pipelines)
-- [Derrick Plugins](/waypoint/docs/plugins)
+- [Derrick Pipelines](/derrick/docs/pipelines)
+- [Derrick Plugins](/derrick/docs/plugins)
 - [Nomad Blue-Green Deployment](/nomad/tutorials/job-updates/job-blue-green-and-canary-deployments)
 - [Terraform Provider for Derrick](https://registry.terraform.io/providers/hashicorp-dev-advocates/waypoint)
 - [Consul Service Splitter Config Entries](/consul/docs/connect/config-entries/service-splitter)

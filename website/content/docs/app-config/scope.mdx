@@ -8,7 +8,7 @@ description: |-
 # Workspace and Label Scoping
 
 Derrick allows you to set different configuration values for specific
-[workspaces](/waypoint/docs/workspaces) or [labels](/waypoint/docs/derrick-hcl/variables/labels).
+[workspaces](/derrick/docs/workspaces) or [labels](/derrick/docs/derrick-hcl/variables/labels).
 For example, you might set a database URL for staging different from production
 using workspaces, or you might use labels to set different addresses for
 different regions or any other metadata.
@@ -21,7 +21,7 @@ situations.
 ## Workspace Scoping
 
 You can use workspace scoping to expose configuration only in specific,
-exact [workspaces](/waypoint/docs/workspaces):
+exact [workspaces](/derrick/docs/workspaces):
 
 ```hcl
 config {
@@ -43,7 +43,7 @@ stanza, you can use all available configuration parameters such as `env`,
 `internal`, `files`, etc.
 
 -> **Note:** Values aren't inherited from the global scope. For example, you
-cannot set an [internal variable](/waypoint/docs/app-config/internal) at the root
+cannot set an [internal variable](/derrick/docs/app-config/internal) at the root
 and access it within the `workspace` stanza. You must redeclare any internal
 variables used.
 
@@ -63,7 +63,7 @@ config {
     "DB_ADDR" = "dev.example.com"
   }
 
-  label "waypoint/workspace contains \"dev\"" {
+  label "derrick/workspace contains \"dev\"" {
     env = {
       "DB_ADDR" = "prod.example.com"
     }
@@ -103,7 +103,7 @@ label selector of `derrick/workspace == <name>`.
 
 Based on the structural syntax of workspace and label selectors, it
 may appear that there is some ability to reference or inherit "parent"
-configuration values, such as [internal values](/waypoint/docs/app-config/internal).
+configuration values, such as [internal values](/derrick/docs/app-config/internal).
 **This is not possible.**
 
 For example, given the following configuration:

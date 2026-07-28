@@ -60,7 +60,7 @@ and disable the UI, the command would be:
 
 #### docker Options
 
-- `-docker-server-image=<string>` - Docker image for the Derrick server. The default is hashicorp/waypoint:latest.
+- `-docker-server-image=<string>` - Docker image for the Derrick server. The default is nomatronio/derrick:latest.
 - `-docker-odr-image=<string>` - Docker image for the Derrick On-Demand Runners. This will default to the server image with the name (not label) suffixed with '-odr'.
 - `-docker-runner-socket-path=<string>` - The path of the Docker socket that will be bound in runner. The default is /var/run/docker.sock.
 
@@ -70,7 +70,7 @@ and disable the UI, the command would be:
 - `-ecs-region=<string>` - Configures which AWS region to install into.
 - `-ecs-subnets=<string>` - Subnets to install server into.
 - `-ecs-execution-role-name=<string>` - Configures the IAM Execution role name to use. The default is derrick-server-execution-role.
-- `-ecs-server-image=<string>` - Docker image for the Derrick server. The default is hashicorp/waypoint:latest.
+- `-ecs-server-image=<string>` - Docker image for the Derrick server. The default is nomatronio/derrick:latest.
 - `-ecs-cpu=<string>` - Configures the requested CPU amount for the Derrick server task in ECS. The default is 512.
 - `-ecs-mem=<string>` - Configures the requested memory amount for the Derrick server task in ECS. The default is 1024.
 - `-ecs-task-role-name=<string>` - IAM Execution Role to assign to the on-demand runner. If this is blank, an IAM role will be created automatically with the default permissions. The default is derrick-runner.
@@ -93,7 +93,7 @@ and disable the UI, the command would be:
 - `-k8s-pull-policy=<string>` - Set the pull policy for the Derrick server image.
 - `-k8s-pull-secret=<string>` - Secret to use to access the Derrick server image on Kubernetes.
 - `-k8s-secret-file=<string>` - Use the Kubernetes Secret in the given path to access the Derrick server image.
-- `-k8s-server-image=<string>` - Docker image for the Derrick server. The default is hashicorp/waypoint:latest.
+- `-k8s-server-image=<string>` - Docker image for the Derrick server. The default is nomatronio/derrick:latest.
 - `-k8s-odr-image=<string>` - Docker image for the Derrick On-Demand Runners.
 - `-k8s-runner-service-account=<string>` - Service account to assign to the on-demand runner. If this is blank, a service account will be created automatically with the correct permissions. The default is derrick-runner.
 - `-k8s-runner-service-account-init` - Create the service account if it does not exist. The default is true.
@@ -109,7 +109,7 @@ and disable the UI, the command would be:
 - `-nomad-namespace=<string>` - Namespace to install the Derrick server into for Nomad. The default is default.
 - `-nomad-network-mode=<string>` - Nomad task group network mode. The default is host.
 - `-nomad-host-network=<string>` - Designates the host network name to use when allocating the ports of the Derrick server. The default is default.
-- `-nomad-odr-image=<string>` - Docker image for the on-demand runners. If not specified, it defaults to the server image name + '-odr' (i.e. 'hashicorp/waypoint-odr:latest').
+- `-nomad-odr-image=<string>` - Docker image for the on-demand runners. If not specified, it defaults to the server image name + '-odr' (i.e. 'nomatronio/derrick-odr:latest').
 - `-nomad-policy-override` - Override the Nomad sentinel policy for enterprise Nomad. The default is false.
 - `-nomad-region=<string>` - Region to install to for Nomad. The default is global.
 - `-nomad-server-cpu=<string>` - CPU required to run this task in MHz. The default is 200.
@@ -122,12 +122,12 @@ and disable the UI, the command would be:
 - `-nomad-runner-csi-volume=<string>` - The name of the volume to initialize for the Derrick runner within the CSI provider.
 - `-nomad-runner-csi-volume-capacity-min=<int>` - Derrick runner Nomad CSI volume capacity minimum, in bytes. The default is 1073741824.
 - `-nomad-runner-csi-volume-capacity-max=<int>` - Derrick runner Nomad CSI volume capacity maximum, in bytes. The default is 2147483648.
-- `-nomad-server-image=<string>` - Docker image for the Derrick server. The default is hashicorp/waypoint:latest.
+- `-nomad-server-image=<string>` - Docker image for the Derrick server. The default is nomatronio/derrick:latest.
 - `-nomad-service-provider=<string>` - Create service for Derrick UI and Server in Consul. One possible value from: consul, nomad, none. The default is consul.
 - `-nomad-service-ui-tags=<string>` - Tags for the Derrick UI service. The default is derrick.
 - `-nomad-service-backend-tags=<string>` - Tags for the Derrick backend service. The default is derrick.
 - `-nomad-consul-service` - Create service for Derrick UI and Server in Consul. The default is true.
-- `-nomad-consul-service-hostname=<string>` - If set, will use this hostname for Consul DNS rather than the default, i.e. "waypoint-server.service.consul".
+- `-nomad-consul-service-hostname=<string>` - If set, will use this hostname for Consul DNS rather than the default, i.e. "derrick-server.service.consul".
 - `-nomad-consul-service-ui-tags=<string>` - Tags for the Derrick UI service generated in Consul.
 - `-nomad-consul-service-backend-tags=<string>` - Tags for the Derrick backend service generated in Consul. The 'first' tag will be used when crafting the Consul DNS hostname for accessing Derrick.
 - `-nomad-consul-datacenter=<string>` - The datacenter where Consul is located. The default is dc1.

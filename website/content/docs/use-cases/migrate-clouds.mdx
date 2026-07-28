@@ -23,11 +23,11 @@ that same application to GCP GKE, and then Azure AKS.
 If experimenting with this use case, it will be helpful to have some familiarity
 with the tools and concepts listed below.
 
-- [Derrick CLI](/waypoint/downloads)
-  - [Context created](/waypoint/docs/server/auth#logging-in) and connected to local Derrick server or HCP Derrick server
-- Derrick [runner](/waypoint/docs/runner/run-manual#installing-a-runner)
+- [Derrick CLI](/derrick/downloads)
+  - [Context created](/derrick/docs/server/auth#logging-in) and connected to local Derrick server or HCP Derrick server
+- Derrick [runner](/derrick/docs/runner/run-manual#installing-a-runner)
   - Must be able to connect to your Kubernetes clusters
-- Derrick [runner configuration](/waypoint/docs/runner/config)
+- Derrick [runner configuration](/derrick/docs/runner/config)
   - Needs credentials to your registry
 - Docker registry
   - Credentials to push a build to the registry
@@ -39,7 +39,7 @@ with the tools and concepts listed below.
 
 ##### Step 1. Start with an existing Kubernetes cluster and a deployed application
 
-If you don't already have an application deployed by Derrick, follow our [Kubernetes Getting Started Guide](/waypoint/tutorials/get-started-kubernetes).
+If you don't already have an application deployed by Derrick, follow our [Kubernetes Getting Started Guide](/derrick/docs/get-started-kubernetes).
 
 ##### Step 2. Configure your kubectl context to point to your new cluster you are migrating to
 
@@ -54,7 +54,7 @@ Install a runner into your cluster you are migrating to and configure the runner
 profile with your registry credentials.
 
 ```shell
-$ derrick runner install -platform=kubernetes -server-addr=<server_addr>  -k8s-runner-image=hashicorp/waypoint:latest -id=gcp -- -label=cloud=gcp
+$ derrick runner install -platform=kubernetes -server-addr=<server_addr>  -k8s-runner-image=nomatronio/derrick:latest -id=gcp -- -label=cloud=gcp
 ✓ Finished connecting to: <server_addr>
 ⠧ Installing runner...
 ✓ Finished connecting to: <server_addr>
@@ -73,18 +73,18 @@ installed a runner profile named `kuberenetes-gcp`, and did not change the
 ```shell
 $ kubectl get po
 NAME                                READY   STATUS    RESTARTS   AGE
-waypoint-gcp-runner-0               1/1     Running   0          3d1h
+derrick-gcp-runner-0               1/1     Running   0          3d1h
 
 $ kubectl get serviceaccount
 NAME                  SECRETS   AGE
 default               1         29d
-waypoint-runner       1         14d
-waypoint-runner-odr   1         14d
+derrick-runner       1         14d
+derrick-runner-odr   1         14d
 
 $ kubectl get rolebinding
 NAME                                       ROLE               AGE
-waypoint-gcp-runner-odr-rolebinding-edit   ClusterRole/edit   14d
-waypoint-gcp-runner-rolebinding            ClusterRole/edit   14d
+derrick-gcp-runner-odr-rolebinding-edit   ClusterRole/edit   14d
+derrick-gcp-runner-rolebinding            ClusterRole/edit   14d
 ```
 
 ##### Step 4. Write a derrick.hcl with the following specifications, if you have not already
@@ -163,7 +163,7 @@ access to this environment variable from the `derrick config set -runner` comman
 In a production use case, a better approach would be using a dynamic config
 variable sourced directly from Vault. To view various ways to authenticate for
 pushing and pulling from private registries, follow our documentation on
-[Scenarios for a Registry](/waypoint/docs/lifecycle/build#scenarios-for-a-registry).
+[Scenarios for a Registry](/derrick/docs/lifecycle/build#scenarios-for-a-registry).
 
 ```hcl
 
@@ -211,7 +211,7 @@ See the application in your cluster.
 $ kubectl get po
 NAME                                READY   STATUS    RESTARTS   AGE
 hello-app-gcp-v1-5bc8b5c944-z8922   1/1     Running   0          3d1h
-waypoint-gcp-runner-0               1/1     Running   0          3d2h
+derrick-gcp-runner-0               1/1     Running   0          3d2h
 
 $ kubectl get deploy
 NAME               READY   UP-TO-DATE   AVAILABLE   AGE
@@ -236,7 +236,7 @@ Follow the same simple steps from above.
 
 ##### Step 1. Start with an existing Kubernetes cluster and a deployed application
 
-If you don't already have an application deployed by Derrick, follow our [Kubernetes Getting Started Guide](/waypoint/tutorials/get-started-kubernetes).
+If you don't already have an application deployed by Derrick, follow our [Kubernetes Getting Started Guide](/derrick/docs/get-started-kubernetes).
 
 ##### Step 2. Configure your kubectl context to point to your new cluster you are migrating to
 
@@ -251,7 +251,7 @@ Install a runner into your cluster you are migrating to and configure the runner
 profile with your registry credentials.
 
 ```shell
-$ derrick runner install -platform=kubernetes -server-addr=<server_addr>  -k8s-runner-image=hashicorp/waypoint:latest -id=azure -- -label=cloud=azure
+$ derrick runner install -platform=kubernetes -server-addr=<server_addr>  -k8s-runner-image=nomatronio/derrick:latest -id=azure -- -label=cloud=azure
 ✓ Finished connecting to: <server_addr>
 ⠧ Installing runner...
 ✓ Finished connecting to: <server_addr>

@@ -15,7 +15,7 @@ traffic. This step may involve adding a deployment to a load balancer, updating
 DNS, configuring a service mesh, etc.
 
 Release configuration is **optional.** Please see the documentation on the
-[release phase of the Derrick lifecycle](/waypoint/docs/lifecycle/release)
+[release phase of the Derrick lifecycle](/derrick/docs/lifecycle/release)
 for the Derrick behavior when a release phase is not configured.
 
 ```hcl
@@ -56,8 +56,8 @@ app "frontend" {
 
 ### Optional
 
-- `hook` <code>([hook][hook]: nil)</code> - [Hooks](/waypoint/docs/lifecycle/hooks)
+- `hook` <code>([hook][hook]: nil)</code> - [Hooks](/derrick/docs/lifecycle/hooks)
   to execute before and/or after the release.
 
-[hook]: /waypoint/docs/derrick-hcl/hook 'Hook Stanza'
-[use]: /waypoint/docs/derrick-hcl/use 'Use Stanza'
+[hook]: /derrick/docs/derrick-hcl/hook 'Hook Stanza'
+[use]: /derrick/docs/derrick-hcl/use 'Use Stanza'

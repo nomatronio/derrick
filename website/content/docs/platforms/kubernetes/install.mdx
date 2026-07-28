@@ -13,7 +13,7 @@ provides a Helm chart to setup a fully production ready Derrick server cluster
 on Kubernetes.
 
 -> **Why a server?** Derrick requires a serverside component to enable
-features such as [GitOps](/waypoint/docs/projects/git), history tracking,
+features such as [GitOps](/derrick/docs/projects/git), history tracking,
 resource health checking, collaboration with teammates, etc. You can also
 run Derrick in a purely local mode for quick tasks where the previously
 mentioned features aren't important.
@@ -39,7 +39,7 @@ just trying to _use_ Derrick, you may be able to just use the web interface
 instead. Ask another team member with Derrick setup for the URL to your
 interface and credentials to log in.
 
-To install the Derrick client, go to the [Downloads](/waypoint/downloads) page
+To install the Derrick client, go to the [Downloads](/derrick/downloads) page
 and follow the instructions. We provide raw binaries as well as full system
 packages depending on your operating system.
 
@@ -71,7 +71,7 @@ You can install Derrick using the following commands:
 $ helm repo add hashicorp https://helm.releases.hashicorp.com
 "hashicorp" has been added to your repositories
 
-$ helm install derrick hashicorp/waypoint
+$ helm install derrick nomatronio/derrick
 ```
 
 The Helm chart has many
@@ -104,7 +104,7 @@ and `derrick login` commands:
 - A Derrick runner profile was configured so that operations such as
   builds, deploys, etc. launch within Kubernetes pods.
 
-- The Derrick server was [bootstrapped](/waypoint/docs/server/run#bootstrap-the-server)
+- The Derrick server was [bootstrapped](/derrick/docs/server/run#bootstrap-the-server)
   which creates the first user. The authentication token for this first
   user was stored in a Kubernetes Secret.
 

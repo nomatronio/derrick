@@ -68,7 +68,7 @@
                "Field": "load_balancer_arn",
                "Type": "string",
                "Synopsis": "the ARN on an existing ALB to configure",
-               "Summary": "when this is set, Waypoint will use this ALB instead of creating its own. A target group will still be created for each deployment, and will be added to a listener on the configured ALB port (Waypoint will the listener if it doesn't exist). This allows users to configure their ALB outside Waypoint but still have Waypoint hook the application to that ALB",
+               "Summary": "when this is set, Derrick will use this ALB instead of creating its own. A target group will still be created for each deployment, and will be added to a listener on the configured ALB port (Derrick will the listener if it doesn't exist). This allows users to configure their ALB outside Derrick but still have Derrick hook the application to that ALB",
                "Optional": true,
                "Default": "",
                "EnvVar": "",
@@ -250,7 +250,7 @@
          "Field": "security_group_ids",
          "Type": "list of string",
          "Synopsis": "Security Group IDs of existing security groups to use for the ECS service's network access",
-         "Summary": "list of existing group IDs to use for the ECS service's network access. If none are specified, waypoint will create one. If DisableALB is false (the default), waypoint will only allow ingress from the ALB's security group",
+         "Summary": "list of existing group IDs to use for the ECS service's network access. If none are specified, derrick will create one. If DisableALB is false (the default), derrick will only allow ingress from the ALB's security group",
          "Optional": true,
          "Default": "",
          "EnvVar": "",
@@ -442,7 +442,7 @@
          "SubFields": null
       }
    ],
-   "outputAttrsHelp": "Output attributes can be used in your `waypoint.hcl` as [variables](/waypoint/docs/waypoint-hcl/variables) via [`artifact`](/waypoint/docs/waypoint-hcl/variables/artifact) or [`deploy`](/waypoint/docs/waypoint-hcl/variables/deploy).",
+   "outputAttrsHelp": "Output attributes can be used in your `derrick.hcl` as [variables](/derrick/docs/derrick-hcl/variables) via [`artifact`](/derrick/docs/derrick-hcl/variables/artifact) or [`deploy`](/derrick/docs/derrick-hcl/variables/deploy).",
    "requiredFields": [
       {
          "Field": "health_check",
@@ -821,5 +821,5 @@
       }
    ],
    "type": "platform",
-   "use": "the [`use` stanza](/waypoint/docs/waypoint-hcl/use) for this plugin."
+   "use": "the [`use` stanza](/derrick/docs/derrick-hcl/use) for this plugin."
 }

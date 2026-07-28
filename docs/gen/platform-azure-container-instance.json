@@ -42,7 +42,7 @@
          "Field": "static_environment",
          "Type": "map of string to string",
          "Synopsis": "environment variables to control broad modes of the application",
-         "Summary": "environment variables that are meant to configure the application in a static way. This might be control an image that has multiple modes of operation, selected via environment variable. Most configuration should use the waypoint config commands.",
+         "Summary": "environment variables that are meant to configure the application in a static way. This might be control an image that has multiple modes of operation, selected via environment variable. Most configuration should use the derrick config commands.",
          "Optional": true,
          "Default": "",
          "EnvVar": "",
@@ -97,7 +97,7 @@
          "SubFields": null
       }
    ],
-   "outputAttrsHelp": "Output attributes can be used in your `waypoint.hcl` as [variables](/docs/waypoint-hcl/variables) via [`artifact`](/docs/waypoint-hcl/variables/artifact) or [`deploy`](/docs/waypoint-hcl/variables/deploy).",
+   "outputAttrsHelp": "Output attributes can be used in your `derrick.hcl` as [variables](/docs/derrick-hcl/variables) via [`artifact`](/docs/derrick-hcl/variables/artifact) or [`deploy`](/docs/derrick-hcl/variables/deploy).",
    "requiredFields": [
       {
          "Field": "capacity",
@@ -224,5 +224,5 @@
       }
    ],
    "type": "platform",
-   "use": "the [`use` stanza](/docs/waypoint-hcl/use) for this plugin."
+   "use": "the [`use` stanza](/docs/derrick-hcl/use) for this plugin."
 }
