@@ -38,14 +38,14 @@ type dockerConfig struct {
 var (
 	grpcPort             = defaultGrpcPort
 	httpPort             = defaultHttpPort
-	containerLabel       = "waypoint-type=server"
-	containerKey         = "waypoint-type"
+	containerLabel       = "derrick-type=server"
+	containerKey         = "derrick-type"
 	containerValue       = "server"
 	containerValueRunner = "runner"
 )
 
 // Install is a method of DockerInstaller and implements the Installer interface to
-// create a waypoint-server as a Docker container
+// create a derrick-server as a Docker container
 func (i *DockerInstaller) Install(
 	ctx context.Context,
 	opts *InstallOpts,
@@ -105,14 +105,14 @@ func (i *DockerInstaller) Install(
 
 	// If we already have a server, bolt.
 	if len(containers) > 0 {
-		s.Update("Detected existing Waypoint server.")
+		s.Update("Detected existing Derrick server.")
 		s.Status(terminal.StatusWarn)
 		s.Done()
 
-		// In the case where waypoint server container isn't running, the installer
+		// In the case where derrick server container isn't running, the installer
 		// will attempt to start the container. It does this for all containers
 		// that match the 'containerLabel'. In the future case where we support
-		// running multiple waypoint server containers, this loop will try to start
+		// running multiple derrick server containers, this loop will try to start
 		// each container.
 		for _, container := range containers {
 			if container.State != "running" {
@@ -183,23 +183,23 @@ func (i *DockerInstaller) Install(
 		s = sg.Add("")
 	}
 
-	s.Update("Creating waypoint network...")
+	s.Update("Creating derrick network...")
 
 	nets, err := cli.NetworkList(ctx, types.NetworkListOptions{
-		Filters: filters.NewArgs(filters.Arg("label", "use=waypoint")),
+		Filters: filters.NewArgs(filters.Arg("label", "use=derrick")),
 	})
 	if err != nil {
 		return nil, "", err
 	}
 
 	if len(nets) == 0 {
-		_, err = cli.NetworkCreate(ctx, "waypoint", types.NetworkCreate{
+		_, err = cli.NetworkCreate(ctx, "derrick", types.NetworkCreate{
 			Driver:         "bridge",
 			CheckDuplicate: true,
 			Internal:       false,
 			Attachable:     true,
 			Labels: map[string]string{
-				"use": "waypoint",
+				"use": "derrick",
 			},
 		})
 
@@ -219,7 +219,7 @@ func (i *DockerInstaller) Install(
 		return nil, "", err
 	}
 
-	s.Update("Installing Waypoint server to docker")
+	s.Update("Installing Derrick server to docker")
 
 	cmd := []string{"server", "run", "-accept-tos", "-vv", "-db=/data/data.db", fmt.Sprintf("-listen-grpc=0.0.0.0:%s", grpcPort), fmt.Sprintf("-listen-http=0.0.0.0:%s", httpPort)}
 	cmd = append(cmd, opts.ServerRunFlags...)
@@ -253,7 +253,7 @@ func (i *DockerInstaller) Install(
 
 	netconfig := network.NetworkingConfig{
 		EndpointsConfig: map[string]*network.EndpointSettings{
-			"waypoint": {},
+			"derrick": {},
 		},
 	}
 
@@ -287,7 +287,7 @@ func (i *DockerInstaller) Install(
 }
 
 // Upgrade is a method of DockerInstaller and implements the Installer interface to
-// upgrade a waypoint-server as a Docker container
+// upgrade a derrick-server as a Docker container
 func (i *DockerInstaller) Upgrade(
 	ctx context.Context, opts *InstallOpts, serverCfg serverconfig.Client) (
 	*InstallResults, error,
@@ -313,12 +313,12 @@ func (i *DockerInstaller) Upgrade(
 	}
 	cli.NegotiateAPIVersion(ctx)
 
-	s.Update("Checking for an existing Waypoint server installation...")
+	s.Update("Checking for an existing Derrick server installation...")
 	containers, err := cli.ContainerList(ctx, types.ContainerListOptions{
 		All: true, // include stopped containers
 		Filters: filters.NewArgs(filters.KeyValuePair{
 			Key:   "label",
-			Value: "waypoint-type=server",
+			Value: "derrick-type=server",
 		}),
 	})
 	if err != nil {
@@ -347,14 +347,14 @@ func (i *DockerInstaller) Upgrade(
 	httpAddr = "localhost:" + httpPort
 
 	if len(containers) == 0 {
-		s.Update("No waypoint server detected. Nothing to upgrade.")
+		s.Update("No derrick server detected. Nothing to upgrade.")
 		s.Status(terminal.StatusWarn)
 		s.Done()
-		return nil, fmt.Errorf("No waypoint server container detected")
+		return nil, fmt.Errorf("No derrick server container detected")
 	}
 
-	// Assume waypoint-server is the first container with the waypoint-type label
-	waypointServerContainer := containers[0]
+	// Assume derrick-server is the first container with the derrick-type label
+	derrickServerContainer := containers[0]
 
 	s.Update("Checking for Docker image: %s", i.config.serverImage)
 
@@ -402,19 +402,19 @@ func (i *DockerInstaller) Upgrade(
 	}
 
 	s.Update(
-		"Upgrading Waypoint server image from %q to %q",
-		waypointServerContainer.Image,
+		"Upgrading Derrick server image from %q to %q",
+		derrickServerContainer.Image,
 		i.config.serverImage,
 	)
 	s.Done()
 
 	s = sg.Add("Removing and restarting current server container")
 	// stop and remove container
-	err = cli.ContainerStop(ctx, waypointServerContainer.ID, nil)
+	err = cli.ContainerStop(ctx, derrickServerContainer.ID, nil)
 	if err != nil {
 		return nil, err
 	}
-	err = cli.ContainerRemove(ctx, waypointServerContainer.ID, types.ContainerRemoveOptions{
+	err = cli.ContainerRemove(ctx, derrickServerContainer.ID, types.ContainerRemoveOptions{
 		Force:         true,
 		RemoveVolumes: false,
 	})
@@ -464,12 +464,12 @@ func (i *DockerInstaller) Upgrade(
 
 	netconfig := network.NetworkingConfig{
 		EndpointsConfig: map[string]*network.EndpointSettings{
-			"waypoint": {},
+			"derrick": {},
 		},
 	}
 
 	cfg.Labels = map[string]string{
-		"waypoint-type": "server",
+		"derrick-type": "server",
 	}
 	s.Update("Creating and starting container")
 	//
@@ -497,7 +497,7 @@ func (i *DockerInstaller) Upgrade(
 }
 
 // Install is a method of DockerInstaller and implements the Installer interface to
-// remove the waypoint-server Docker container and associated image and volume
+// remove the derrick-server Docker container and associated image and volume
 func (i *DockerInstaller) Uninstall(
 	ctx context.Context,
 	opts *InstallOpts,
@@ -532,7 +532,7 @@ func (i *DockerInstaller) Uninstall(
 
 	if len(containers) < 1 {
 		return fmt.Errorf(
-			"cannot find a Waypoint Docker container; Waypoint may already be uninstalled.",
+			"cannot find a Derrick Docker container; Derrick may already be uninstalled.",
 		)
 	}
 
@@ -545,7 +545,7 @@ func (i *DockerInstaller) Uninstall(
 		return fmt.Errorf("Error parsing Docker image: %s", err)
 	}
 
-	s.Update("Stopping Waypoint Docker container...")
+	s.Update("Stopping Derrick Docker container...")
 
 	// Stop the container gracefully, respecting the Engine's default timeout.
 	if err := cli.ContainerStop(ctx, containerId, nil); err != nil {
@@ -564,7 +564,7 @@ func (i *DockerInstaller) Uninstall(
 	s.Done()
 	s = sg.Add("")
 
-	s.Update("Removing Waypoint Docker volume...")
+	s.Update("Removing Derrick Docker volume...")
 	// Find volume of the server
 	vl, err := cli.VolumeList(ctx, filters.NewArgs(filters.KeyValuePair{
 		Key:   "name",
@@ -575,9 +575,9 @@ func (i *DockerInstaller) Uninstall(
 	}
 	volumeExists := len(vl.Volumes) > 0
 
-	// If the Waypoint Docker volume does not exist, we keep going and just warn
+	// If the Derrick Docker volume does not exist, we keep going and just warn
 	if !volumeExists {
-		s.Update("Couldn't find Waypoint Docker volume %q; not removing", serverName)
+		s.Update("Couldn't find Derrick Docker volume %q; not removing", serverName)
 		s.Status(terminal.StatusWarn)
 		s.Done()
 	} else {
@@ -630,7 +630,7 @@ func (i *DockerInstaller) InstallRunner(
 ) error {
 	runnerInstaller := runnerinstall.DockerRunnerInstaller{Config: runnerinstall.DockerConfig{
 		RunnerImage: i.config.serverImage,
-		Network:     "waypoint",
+		Network:     "derrick",
 		SocketPath:  i.config.runnerSocketPath,
 	}}
 	err := runnerInstaller.Install(ctx, opts)
@@ -696,14 +696,14 @@ func (i *DockerInstaller) InstallFlags(set *flag.Set) {
 	set.StringVar(&flag.StringVar{
 		Name:    "docker-server-image",
 		Target:  &i.config.serverImage,
-		Usage:   "Docker image for the Waypoint server.",
+		Usage:   "Docker image for the Derrick server.",
 		Default: installutil.DefaultServerImage,
 	})
 
 	set.StringVar(&flag.StringVar{
 		Name:   "docker-odr-image",
 		Target: &i.config.odrImage,
-		Usage: "Docker image for the Waypoint On-Demand Runners. This will " +
+		Usage: "Docker image for the Derrick On-Demand Runners. This will " +
 			"default to the server image with the name (not label) suffixed with '-odr'.",
 	})
 
@@ -719,14 +719,14 @@ func (i *DockerInstaller) UpgradeFlags(set *flag.Set) {
 	set.StringVar(&flag.StringVar{
 		Name:    "docker-server-image",
 		Target:  &i.config.serverImage,
-		Usage:   "Docker image for the Waypoint server.",
+		Usage:   "Docker image for the Derrick server.",
 		Default: installutil.DefaultServerImage,
 	})
 
 	set.StringVar(&flag.StringVar{
 		Name:   "docker-odr-image",
 		Target: &i.config.odrImage,
-		Usage: "Docker image for the Waypoint On-Demand Runners. This will " +
+		Usage: "Docker image for the Derrick On-Demand Runners. This will " +
 			"default to the server image with the name (not label) suffixed with '-odr'.",
 	})
 

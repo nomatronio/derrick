@@ -62,7 +62,7 @@ func NewClient(config K8sConfig) (*kubernetes.Clientset, error) {
 	)
 
 	// Discover the current target namespace in the user's config so if they
-	// run kubectl commands waypoint will show up. If we use the default namespace
+	// run kubectl commands derrick will show up. If we use the default namespace
 	// they might not see the objects we've created.
 	if config.Namespace == "" {
 		namespace, _, err := newCmdConfig.Namespace()

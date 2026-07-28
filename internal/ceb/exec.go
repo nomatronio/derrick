@@ -101,7 +101,7 @@ func (ceb *CEB) startExec(execConfig *pb.EntrypointConfig_Exec, env []string) {
 		return
 	}
 
-	// Set our environment variables from our `waypoint config` settings.
+	// Set our environment variables from our `derrick config` settings.
 	cmd.Env = append(cmd.Env, env...)
 
 	// Create our pipe for stdin so that we can send data

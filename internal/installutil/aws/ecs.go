@@ -20,11 +20,11 @@ import (
 )
 
 const (
-	defaultServerTagName     = "waypoint-server"
+	defaultServerTagName     = "derrick-server"
 	defaultServerTagValue    = "server-component"
-	ServerName               = "waypoint-server"
-	DefaultStaticRunnerName  = "waypoint-static-runner"
-	DefaultSecurityGroupName = "waypoint-server-security-group"
+	ServerName               = "derrick-server"
+	DefaultStaticRunnerName  = "derrick-static-runner"
+	DefaultSecurityGroupName = "derrick-server-security-group"
 	RolePolicy               = `{
   "Version": "2012-10-17",
   "Statement": [
@@ -86,7 +86,7 @@ func (lf *Lifecycle) Execute(log hclog.Logger, ui terminal.UI) error {
 }
 
 // SetupNetworking retrieves subnet information and creates the security group
-// necessary for Waypoint.
+// necessary for Derrick.
 func SetupNetworking(
 	ctx context.Context,
 	ui terminal.UI,
@@ -206,7 +206,7 @@ EFSLOOP:
 				OwnerGid:    gid,
 				Permissions: aws.String("755"),
 			},
-			Path: aws.String("/waypointserverdata"),
+			Path: aws.String("/derrickserverdata"),
 		},
 	})
 	if err != nil {
@@ -288,7 +288,7 @@ func CreateService(serviceInput *ecs.CreateServiceInput, ecsSvc *ecs.ECS) (*ecs.
 }
 
 // TODO: Add runner ID as tag
-// SetupExecutionRole creates the necessary IAM execution role for Waypoint, if it does not exist
+// SetupExecutionRole creates the necessary IAM execution role for Derrick, if it does not exist
 func SetupExecutionRole(
 	ctx context.Context,
 	ui terminal.UI,
@@ -463,7 +463,7 @@ func createSG(
 	} else {
 		s.Update("Creating security group: %s", name)
 		out, err := ec2srv.CreateSecurityGroup(&ec2.CreateSecurityGroupInput{
-			Description: aws.String("created by waypoint"),
+			Description: aws.String("created by derrick"),
 			GroupName:   aws.String(name),
 			VpcId:       vpcId,
 			TagSpecifications: []*ec2.TagSpecification{

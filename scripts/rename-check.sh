@@ -68,6 +68,24 @@ else
   echo "OK: ui tsconfig path aliases"
 fi
 
+INSTALL_DIRS=(internal/serverinstall internal/runnerinstall internal/installutil internal/runner internal/ceb cmd/derrick-entrypoint)
+
+if rg -q 'hashicorp/waypoint[^-]' "${INSTALL_DIRS[@]}" 2>/dev/null; then
+  echo "FAIL: install/runtime still references hashicorp/waypoint images:"
+  rg 'hashicorp/waypoint[^-]' "${INSTALL_DIRS[@]}" | head -10
+  fail=1
+else
+  echo "OK: install/runtime default images"
+fi
+
+if rg -q '"waypoint-server"|"waypoint-runner"|"waypoint-ui"' "${INSTALL_DIRS[@]}" 2>/dev/null; then
+  echo "FAIL: install/runtime still uses waypoint-* resource names:"
+  rg '"waypoint-server"|"waypoint-runner"|"waypoint-ui"' "${INSTALL_DIRS[@]}" | head -10
+  fail=1
+else
+  echo "OK: install/runtime resource names"
+fi
+
 if [[ "$fail" -ne 0 ]]; then
   echo ""
   echo "rename-check: one or more forbidden Waypoint identifiers remain."

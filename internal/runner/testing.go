@@ -33,7 +33,7 @@ func TestRunner(t testing.T, opts ...Option) *Runner {
 	td := testTempDir(t)
 	testChdir(t, td)
 
-	// Create a valid waypoint configuration file
+	// Create a valid derrick configuration file
 	configpkg.TestConfigFile(t, configpkg.TestSource(t))
 
 	return runner
@@ -47,7 +47,7 @@ func testChdir(t testing.T, dir string) {
 }
 
 func testTempDir(t testing.T) string {
-	dir, err := ioutil.TempDir("", "waypoint-test")
+	dir, err := ioutil.TempDir("", "derrick-test")
 	require.NoError(t, err)
 	t.Cleanup(func() { os.RemoveAll(dir) })
 	return dir

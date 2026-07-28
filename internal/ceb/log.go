@@ -19,7 +19,7 @@ import (
 )
 
 // initSystemLogger initializes ceb.logger and sets up all the fields
-// for streaming system logs to the Waypoint server.
+// for streaming system logs to the Derrick server.
 func (ceb *CEB) initSystemLogger() {
 	// Create an intercept logger with our default options. This will
 	// behave just like hclog.L() (which we use at the time of writing)

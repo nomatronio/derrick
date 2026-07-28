@@ -33,20 +33,20 @@ import (
 )
 
 const (
-	defaultRunnerLogGroup = "waypoint-runner-logs"
-	defaultServerLogGroup = "waypoint-server-logs"
+	defaultRunnerLogGroup = "derrick-runner-logs"
+	defaultServerLogGroup = "derrick-server-logs"
 
-	defaultTaskFamily  = "waypoint-server"
+	defaultTaskFamily  = "derrick-server"
 	defaultTaskRuntime = "FARGATE"
 
-	defaultNLBName = "waypoint-server-nlb"
+	defaultNLBName = "derrick-server-nlb"
 
 	// These tags are used to tag resources as they are created in AWS. Two tags
 	// are required, so that the UninstallRunner method(s) can query for runner
 	// resources and retrieve the cluster ARN
-	defaultServerTagName  = "waypoint-server"
+	defaultServerTagName  = "derrick-server"
 	defaultServerTagValue = "server-component"
-	defaultRunnerTagName  = "waypoint-runner"
+	defaultRunnerTagName  = "derrick-runner"
 	defaultRunnerTagValue = "runner-component"
 )
 
@@ -59,15 +59,15 @@ type ECSInstaller struct {
 }
 
 type ecsConfig struct {
-	// ServerImage is the image/tag of the Waypoint server to use. Default is
-	// hashicorp/waypoint:latest
+	// ServerImage is the image/tag of the Derrick server to use. Default is
+	// nomatronio/derrick:latest
 	ServerImage string `hcl:"server_image,optional"`
 
 	// Region defines which AWS region to use.
 	Region string `hcl:"region,optional"`
 
 	// Cluster is the name of the ECS Cluster to install the service into.
-	// Defaults to waypoint-server
+	// Defaults to derrick-server
 	Cluster string `hcl:"cluster,optional"`
 
 	// ExecutionRoleName is the name of the execution task IAM Role to associate
@@ -86,7 +86,7 @@ type ecsConfig struct {
 	// IAM Execution Role to assign to the on-demand runner
 	TaskRoleName string `hcl:"task_role_name,optional"`
 
-	// On-Demand Runner docker image. Defaults to hashicorp/waypoint-odr
+	// On-Demand Runner docker image. Defaults to nomatronio/derrick-odr
 	OdrImage string `hcl:"odr_image,optional"`
 
 	// On-Demand Runner
@@ -97,7 +97,7 @@ type ecsConfig struct {
 }
 
 // Install is a method of ECSInstaller and implements the Installer interface to
-// register a waypoint-server in a ecs cluster
+// register a derrick-server in a ecs cluster
 func (i *ECSInstaller) Install(
 	ctx context.Context,
 	opts *InstallOpts,
@@ -231,7 +231,7 @@ func (i *ECSInstaller) Install(
 	}, "", nil
 }
 
-// Launch takes the previously created resource and launches the Waypoint server
+// Launch takes the previously created resource and launches the Derrick server
 // service
 func (i *ECSInstaller) Launch(
 	ctx context.Context,
@@ -264,7 +264,7 @@ func (i *ECSInstaller) Launch(
 	s.Done()
 	s = sg.Add("")
 
-	defaultStreamPrefix := fmt.Sprintf("waypoint-server-%d", time.Now().Nanosecond())
+	defaultStreamPrefix := fmt.Sprintf("derrick-server-%d", time.Now().Nanosecond())
 	logOptions := buildLoggingOptions(
 		nil,
 		i.config.Region,
@@ -277,7 +277,7 @@ func (i *ECSInstaller) Launch(
 		aws.String("run"),
 		aws.String("-accept-tos"),
 		aws.String("-vv"),
-		aws.String("-db=/waypoint-data/data.db"),
+		aws.String("-db=/derrick-data/data.db"),
 		aws.String(fmt.Sprintf("-listen-grpc=0.0.0.0:%d", grpcPort)),
 		aws.String(fmt.Sprintf("-listen-http=0.0.0.0:%d", httpPort)),
 	}
@@ -304,8 +304,8 @@ func (i *ECSInstaller) Launch(
 		},
 		MountPoints: []*ecs.MountPoint{
 			{
-				SourceVolume:  aws.String("waypointdata"),
-				ContainerPath: aws.String("/waypoint-data"),
+				SourceVolume:  aws.String("derrickdata"),
+				ContainerPath: aws.String("/derrick-data"),
 			},
 		},
 	}
@@ -332,7 +332,7 @@ func (i *ECSInstaller) Launch(
 		},
 		Volumes: []*ecs.Volume{
 			{
-				Name: aws.String("waypointdata"),
+				Name: aws.String("derrickdata"),
 				EfsVolumeConfiguration: &ecs.EFSVolumeConfiguration{
 					TransitEncryption: aws.String(ecs.EFSTransitEncryptionEnabled),
 					FileSystemId:      efsInfo.FileSystemID,
@@ -381,12 +381,12 @@ func (i *ECSInstaller) Launch(
 		},
 		LoadBalancers: []*ecs.LoadBalancer{
 			{
-				ContainerName:  aws.String("waypoint-server"),
+				ContainerName:  aws.String("derrick-server"),
 				ContainerPort:  aws.Int64(int64(httpPort)),
 				TargetGroupArn: aws.String(nlb.httpTgArn),
 			},
 			{
-				ContainerName:  aws.String("waypoint-server"),
+				ContainerName:  aws.String("derrick-server"),
 				ContainerPort:  aws.Int64(int64(grpcPort)),
 				TargetGroupArn: aws.String(nlb.grpcTgArn),
 			},
@@ -447,7 +447,7 @@ func (i *ECSInstaller) Launch(
 }
 
 // Upgrade is a method of ECSInstaller and implements the Installer interface to
-// upgrade a waypoint-server in a ecs cluster
+// upgrade a derrick-server in a ecs cluster
 func (i *ECSInstaller) Upgrade(
 	ctx context.Context, opts *InstallOpts, serverCfg serverconfig.Client) (
 	*InstallResults, error,
@@ -506,10 +506,10 @@ func (i *ECSInstaller) Upgrade(
 	// should only find one
 	serverSvc := services.Services[0]
 	if serverSvc == nil {
-		return nil, fmt.Errorf("no waypoint-server service found")
+		return nil, fmt.Errorf("no derrick-server service found")
 	}
 
-	// Set or update the deregistration delay in the target groups. Waypoint
+	// Set or update the deregistration delay in the target groups. Derrick
 	// server installations pre-0.9.1 used the default 300 second delay, which
 	// we need to lower. Note: "serverSvc.LoadBalancers" below is a slice of
 	// load balancer + target group pairs. We expect two target groups attached
@@ -613,7 +613,7 @@ func (i *ECSInstaller) Upgrade(
 	for _, taskArn := range tasks.TaskArns {
 		_, err := ecsSvc.StopTask(&ecs.StopTaskInput{
 			Cluster: &clusterArn,
-			Reason:  aws.String("Waypoint server upgrade"),
+			Reason:  aws.String("Derrick server upgrade"),
 			Task:    taskArn,
 		})
 		if err != nil {
@@ -653,7 +653,7 @@ func (i *ECSInstaller) Upgrade(
 }
 
 // Uninstall is a method of ECSInstaller and implements the Installer interface
-// to remove a waypoint-server statefulset and the associated PVC and service
+// to remove a derrick-server statefulset and the associated PVC and service
 // from a ecs cluster
 func (i *ECSInstaller) Uninstall(
 	ctx context.Context,
@@ -668,8 +668,8 @@ func (i *ECSInstaller) Uninstall(
 	s := sg.Add("Uninstalling Server resources...")
 	defer func() { s.Abort() }()
 
-	// Get list of resources created with either the waypoint-server, or
-	// waypoint-runner tag
+	// Get list of resources created with either the derrick-server, or
+	// derrick-runner tag
 	sess, err := utils.GetSession(&utils.SessionConfig{
 		Region: i.config.Region,
 		Logger: log,
@@ -977,7 +977,7 @@ func (i *ECSInstaller) InstallFlags(set *flag.Set) {
 		Name:    "ecs-cluster",
 		Target:  &i.config.Cluster,
 		Usage:   "Configures the Cluster to install into.",
-		Default: "waypoint-server",
+		Default: "derrick-server",
 	})
 	set.StringVar(&flag.StringVar{
 		Name:   "ecs-region",
@@ -993,24 +993,24 @@ func (i *ECSInstaller) InstallFlags(set *flag.Set) {
 		Name:    "ecs-execution-role-name",
 		Target:  &i.config.ExecutionRoleName,
 		Usage:   "Configures the IAM Execution role name to use.",
-		Default: "waypoint-server-execution-role",
+		Default: "derrick-server-execution-role",
 	})
 	set.StringVar(&flag.StringVar{
 		Name:    "ecs-server-image",
 		Target:  &i.config.ServerImage,
-		Usage:   "Docker image for the Waypoint server.",
+		Usage:   "Docker image for the Derrick server.",
 		Default: installutil.DefaultServerImage,
 	})
 	set.StringVar(&flag.StringVar{
 		Name:    "ecs-cpu",
 		Target:  &i.config.CPU,
-		Usage:   "Configures the requested CPU amount for the Waypoint server task in ECS.",
+		Usage:   "Configures the requested CPU amount for the Derrick server task in ECS.",
 		Default: "512",
 	})
 	set.StringVar(&flag.StringVar{
 		Name:    "ecs-mem",
 		Target:  &i.config.Memory,
-		Usage:   "Configures the requested memory amount for the Waypoint server task in ECS.",
+		Usage:   "Configures the requested memory amount for the Derrick server task in ECS.",
 		Default: "1024",
 	})
 	set.StringVar(&flag.StringVar{
@@ -1018,25 +1018,25 @@ func (i *ECSInstaller) InstallFlags(set *flag.Set) {
 		Target: &i.config.TaskRoleName,
 		Usage: "IAM Execution Role to assign to the on-demand runner. If this is blank, " +
 			"an IAM role will be created automatically with the default permissions.",
-		Default: "waypoint-runner",
+		Default: "derrick-runner",
 	})
 
 	set.StringVar(&flag.StringVar{
 		Name:   "ecs-odr-image",
 		Target: &i.config.OdrImage,
-		Usage: "Docker image for the Waypoint On-Demand Runners. This will " +
+		Usage: "Docker image for the Derrick On-Demand Runners. This will " +
 			"default to the server image with the name (not label) suffixed with '-odr'.",
 	})
 	set.StringVar(&flag.StringVar{
 		Name:    "ecs-odr-mem",
 		Target:  &i.config.OdrMemory,
-		Usage:   "Configures the requested memory amount for the Waypoint On-Demand runner in ECS.",
+		Usage:   "Configures the requested memory amount for the Derrick On-Demand runner in ECS.",
 		Default: "2048",
 	})
 	set.StringVar(&flag.StringVar{
 		Name:    "ecs-odr-cpu",
 		Target:  &i.config.OdrCPU,
-		Usage:   "Configures the requested CPU amount for the Waypoint On-Demand runner in ECS.",
+		Usage:   "Configures the requested CPU amount for the Derrick On-Demand runner in ECS.",
 		Default: "512",
 	})
 }
@@ -1046,12 +1046,12 @@ func (i *ECSInstaller) UpgradeFlags(set *flag.Set) {
 		Name:    "ecs-cluster",
 		Target:  &i.config.Cluster,
 		Usage:   "Configures the Cluster to upgrade.",
-		Default: "waypoint-server",
+		Default: "derrick-server",
 	})
 	set.StringVar(&flag.StringVar{
 		Name:    "ecs-server-image",
 		Target:  &i.config.ServerImage,
-		Usage:   "Docker image for the Waypoint server.",
+		Usage:   "Docker image for the Derrick server.",
 		Default: installutil.DefaultServerImage,
 	})
 	set.StringVar(&flag.StringVar{
@@ -1062,20 +1062,20 @@ func (i *ECSInstaller) UpgradeFlags(set *flag.Set) {
 	set.StringVar(&flag.StringVar{
 		Name:    "ecs-cpu",
 		Target:  &i.config.CPU,
-		Usage:   "Configures the requested CPU amount for the Waypoint server task in ECS.",
+		Usage:   "Configures the requested CPU amount for the Derrick server task in ECS.",
 		Default: "512",
 	})
 	set.StringVar(&flag.StringVar{
 		Name:    "ecs-mem",
 		Target:  &i.config.Memory,
-		Usage:   "Configures the requested memory amount for the Waypoint server task in ECS.",
+		Usage:   "Configures the requested memory amount for the Derrick server task in ECS.",
 		Default: "1024",
 	})
 
 	set.StringVar(&flag.StringVar{
 		Name:   "ecs-odr-image",
 		Target: &i.config.OdrImage,
-		Usage: "Docker image for the Waypoint On-Demand Runners. This will " +
+		Usage: "Docker image for the Derrick On-Demand Runners. This will " +
 			"default to the server image with the name (not label) suffixed with '-odr'.",
 	})
 
@@ -1084,25 +1084,25 @@ func (i *ECSInstaller) UpgradeFlags(set *flag.Set) {
 		Target: &i.config.TaskRoleName,
 		Usage: "IAM Execution Role to assign to the on-demand runner. If this is blank, " +
 			"an IAM role will be created automatically with the default permissions.",
-		Default: "waypoint-runner",
+		Default: "derrick-runner",
 	})
 	set.StringVar(&flag.StringVar{
 		Name:    "ecs-execution-role-name",
 		Target:  &i.config.ExecutionRoleName,
 		Usage:   "Configures the IAM Execution role name to use.",
-		Default: "waypoint-server-execution-role",
+		Default: "derrick-server-execution-role",
 	})
 
 	set.StringVar(&flag.StringVar{
 		Name:    "ecs-odr-mem",
 		Target:  &i.config.OdrMemory,
-		Usage:   "Configures the requested memory amount for the Waypoint On-Demand runner in ECS.",
+		Usage:   "Configures the requested memory amount for the Derrick On-Demand runner in ECS.",
 		Default: "2048",
 	})
 	set.StringVar(&flag.StringVar{
 		Name:    "ecs-odr-cpu",
 		Target:  &i.config.OdrCPU,
-		Usage:   "Configures the requested CPU amount for the Waypoint On-Demand runner in ECS.",
+		Usage:   "Configures the requested CPU amount for the Derrick On-Demand runner in ECS.",
 		Default: "512",
 	})
 }
@@ -1112,7 +1112,7 @@ func (i *ECSInstaller) UninstallFlags(set *flag.Set) {
 		Name:    "ecs-cluster",
 		Target:  &i.config.Cluster,
 		Usage:   "Configures the Cluster to uninstall.",
-		Default: "waypoint-server",
+		Default: "derrick-server",
 	})
 	set.StringVar(&flag.StringVar{
 		Name:   "ecs-region",
@@ -1305,7 +1305,7 @@ func createNLB(
 	elbsrv := elbv2.New(sess)
 
 	ctgGPRC, err := elbsrv.CreateTargetGroup(&elbv2.CreateTargetGroupInput{
-		Name:                    aws.String("waypoint-server-grpc"),
+		Name:                    aws.String("derrick-server-grpc"),
 		Port:                    grpcPort,
 		Protocol:                aws.String("TCP"),
 		TargetType:              aws.String("ip"),
@@ -1324,7 +1324,7 @@ func createNLB(
 	}
 
 	htgGPRC, err := elbsrv.CreateTargetGroup(&elbv2.CreateTargetGroupInput{
-		Name:                    aws.String("waypoint-server-http"),
+		Name:                    aws.String("derrick-server-http"),
 		Port:                    httpPort,
 		Protocol:                aws.String("TCP"),
 		TargetType:              aws.String("ip"),

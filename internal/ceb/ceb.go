@@ -35,8 +35,8 @@ const (
 	envCEBToken            = "DERRICK_CEB_INVITE_TOKEN"
 
 	// envLogLevel is the env var to set with the log level. This
-	// env var matches the Waypoint CLI on purpose. This can be set on
-	// the entrypoint process OR via app config (`waypoint config`).
+	// env var matches the Derrick CLI on purpose. This can be set on
+	// the entrypoint process OR via app config (`derrick config`).
 	envLogLevel = "DERRICK_LOG_LEVEL"
 )
 
@@ -347,7 +347,7 @@ func WithExec(args []string) Option {
 	}
 }
 
-// WithClient specifies the Waypoint client to use directly. This will
+// WithClient specifies the Derrick client to use directly. This will
 // override any env vars or any other form of client connection configuration.
 func WithClient(client pb.DerrickClient) Option {
 	return func(ceb *CEB, cfg *config) error {
