@@ -68,7 +68,7 @@ func TestServiceGetLogStreamCases(t *testing.T, factory Factory) {
 
 			out = append(out, &instLog{
 				Derrick_EntrypointLogStreamClient: logSendClient,
-				id:                                 id,
+				id:                                id,
 			})
 		}
 
