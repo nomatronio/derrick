@@ -9,9 +9,8 @@
   font-size: 0.75rem;
   margin: 0 auto;
   padding: scale.$sm-4 scale.$lg-4 scale.$lg-5;
-  .pds-logomark {
-    font-size: 1.5rem;
-    line-height: 1.5rem;
+  .footer-brand {
+    color: rgb(var(--brand));
     margin: 0 scale.$sm-1 0 0;
   }
 

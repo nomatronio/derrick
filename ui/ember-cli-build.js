@@ -17,8 +17,8 @@ module.exports = function (defaults) {
         // these options are passed directly to the favicons module
         path: '/',
         appName: 'Derrick',
-        appShortName: 'WP',
-        developerName: 'HashiCorp',
+        appShortName: 'DR',
+        developerName: 'Nomatron',
         appleStatusBarStyle: 'black',
         icons: {
           favicons: true,

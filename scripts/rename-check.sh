@@ -54,6 +54,20 @@ else
   echo "OK: Makefile binary paths"
 fi
 
+if [[ -f ui/package.json ]] && rg -q '"name": "waypoint"' ui/package.json 2>/dev/null; then
+  echo "FAIL: ui/package.json still uses package name waypoint"
+  fail=1
+else
+  echo "OK: ui package name"
+fi
+
+if [[ -f ui/tsconfig.json ]] && rg -q '"waypoint/' ui/tsconfig.json 2>/dev/null; then
+  echo "FAIL: ui/tsconfig.json still uses waypoint path aliases"
+  fail=1
+else
+  echo "OK: ui tsconfig path aliases"
+fi
+
 if [[ "$fail" -ne 0 ]]; then
   echo ""
   echo "rename-check: one or more forbidden Waypoint identifiers remain."
