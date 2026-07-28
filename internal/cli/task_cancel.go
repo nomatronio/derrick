@@ -80,7 +80,7 @@ func (c *TaskCancelCommand) Flags() *flag.Sets {
 }
 
 func (c *TaskCancelCommand) Synopsis() string {
-	return "Cancel an On-Demand Runner Task running in Waypoint"
+	return "Cancel an On-Demand Runner Task running in Derrick"
 }
 
 func (c *TaskCancelCommand) Help() string {

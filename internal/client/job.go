@@ -91,7 +91,7 @@ func (c *Project) setupLocalJobSystem(ctx context.Context) (isLocal bool, newCtx
 		getProjectResp, err := c.client.GetProject(ctx, &pb.GetProjectRequest{Project: c.project})
 		if err != nil {
 			if status.Code(err) == codes.NotFound {
-				return false, newCtx, fmt.Errorf("Project %q was not found! Please ensure that 'waypoint init' was run with this project.", c.project.Project)
+				return false, newCtx, fmt.Errorf("Project %q was not found! Please ensure that 'derrick init' was run with this project.", c.project.Project)
 			} else {
 				return false, newCtx, errors.Wrapf(err, "failed to get project %s", c.project.Project)
 			}
@@ -99,7 +99,7 @@ func (c *Project) setupLocalJobSystem(ctx context.Context) (isLocal bool, newCtx
 		project = getProjectResp.Project
 
 		var runnerCfgs []*configpkg.Runner
-		// Note(XX): temp (?) workaround the issue where runner is only upserted to profile on the first `waypoint init`
+		// Note(XX): temp (?) workaround the issue where runner is only upserted to profile on the first `derrick init`
 		if c.waypointHCL != nil {
 			runnerCfgs = append(runnerCfgs, c.waypointHCL.ConfigRunner())
 			for _, app := range project.Applications {
@@ -154,7 +154,7 @@ func (c *Project) setupLocalJobSystem(ctx context.Context) (isLocal bool, newCtx
 				getProjectResp, err := c.client.GetProject(ctx, &pb.GetProjectRequest{Project: c.project})
 				if err != nil {
 					if status.Code(err) == codes.NotFound {
-						return fmt.Errorf("project %q was not found! Please ensure that 'waypoint init' was run with this project.", c.project.Project)
+						return fmt.Errorf("project %q was not found! Please ensure that 'derrick init' was run with this project.", c.project.Project)
 					} else {
 						return errors.Wrapf(err, "failed to get project %s", c.project.Project)
 					}
@@ -313,7 +313,7 @@ const stateEventPause = 3000 * time.Millisecond
 
 var warnGitDirty = strings.TrimSpace(`
 There are local changes that do not match the remote repository. By default,
-Waypoint will perform this operation using a remote runner that will use the
+Derrick will perform this operation using a remote runner that will use the
 remote repository’s git ref and not these local changes. For these changes
 to be used for future operations, either commit and push, or run the operation
 locally with the -local flag.

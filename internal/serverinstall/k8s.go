@@ -176,7 +176,7 @@ func (i *K8sInstaller) Install(
 	if i.Config.Version == "" {
 		tags, err := helminstallutil.GetLatestHelmChartVersion(ctx)
 		if err != nil {
-			opts.UI.Output("Error getting latest tag of Waypoint helm chart.", terminal.WithErrorStyle())
+			opts.UI.Output("Error getting latest tag of Derrick helm chart.", terminal.WithErrorStyle())
 			return nil, "", err
 		}
 		version = *tags[0].Name
@@ -239,7 +239,7 @@ func (i *K8sInstaller) Install(
 		},
 	}
 
-	s.Update("Installing Waypoint Helm chart...")
+	s.Update("Installing Derrick Helm chart...")
 	_, err = client.RunWithContext(ctx, c, values)
 	if err != nil {
 		return nil, "", err
@@ -412,7 +412,7 @@ func (i *K8sInstaller) Install(
 	s.Done()
 	s = sg.Add("")
 
-	s.Update("Waypoint server installed with Helm!")
+	s.Update("Derrick server installed with Helm!")
 	s.Status(terminal.StatusOK)
 	s.Done()
 
@@ -480,7 +480,7 @@ func (i *K8sInstaller) Upgrade(
 	if i.Config.Version == "" {
 		tags, err := helminstallutil.GetLatestHelmChartVersion(ctx)
 		if err != nil {
-			opts.UI.Output("Error getting latest tag of Waypoint helm chart.", terminal.WithErrorStyle())
+			opts.UI.Output("Error getting latest tag of Derrick helm chart.", terminal.WithErrorStyle())
 			return nil, err
 		}
 		version = *tags[0].Name
@@ -533,7 +533,7 @@ func (i *K8sInstaller) Upgrade(
 		},
 	}
 
-	s.Update("Installing Waypoint Helm chart...")
+	s.Update("Installing Derrick Helm chart...")
 	_, err = client.RunWithContext(ctx, "waypoint", c, values)
 	if err != nil {
 		return nil, err
@@ -698,7 +698,7 @@ func (i *K8sInstaller) Uninstall(ctx context.Context, opts *InstallOpts) error {
 	if err != nil {
 		return err
 	}
-	s.Update("Waypoint uninstalled with Helm!")
+	s.Update("Derrick uninstalled with Helm!")
 	s.Status(terminal.StatusOK)
 	s.Done()
 
@@ -939,8 +939,8 @@ func (i *K8sInstaller) InstallFlags(set *flag.Set) {
 	set.StringVar(&flag.StringVar{
 		Name:   "k8s-context",
 		Target: &i.Config.K8sContext,
-		Usage: "The Kubernetes context to install the Waypoint server to. If left" +
-			" unset, Waypoint will use the current Kubernetes context.",
+		Usage: "The Kubernetes context to install the Derrick server to. If left" +
+			" unset, Derrick will use the current Kubernetes context.",
 		Default: "",
 	})
 
@@ -952,75 +952,75 @@ func (i *K8sInstaller) InstallFlags(set *flag.Set) {
 	set.StringVar(&flag.StringVar{
 		Name:   "k8s-helm-version",
 		Target: &i.Config.Version,
-		Usage: "The version of the Helm chart to use for the Waypoint runner install. " +
+		Usage: "The version of the Helm chart to use for the Derrick runner install. " +
 			"The required version number format is: 'vX.Y.Z'.",
 	})
 
 	set.StringVar(&flag.StringVar{
 		Name:    "k8s-cpu-request",
 		Target:  &i.Config.CpuRequest,
-		Usage:   "Configures the requested CPU amount for the Waypoint server in Kubernetes.",
+		Usage:   "Configures the requested CPU amount for the Derrick server in Kubernetes.",
 		Default: "0",
 	})
 
 	set.StringVar(&flag.StringVar{
 		Name:    "k8s-mem-request",
 		Target:  &i.Config.MemRequest,
-		Usage:   "Configures the requested memory amount for the Waypoint server in Kubernetes.",
+		Usage:   "Configures the requested memory amount for the Derrick server in Kubernetes.",
 		Default: "0",
 	})
 
 	set.StringVar(&flag.StringVar{
 		Name:    "k8s-cpu-limit",
 		Target:  &i.Config.CpuLimit,
-		Usage:   "Configures the CPU limit for the Waypoint server in Kubernetes.",
+		Usage:   "Configures the CPU limit for the Derrick server in Kubernetes.",
 		Default: "0",
 	})
 
 	set.StringVar(&flag.StringVar{
 		Name:    "k8s-mem-limit",
 		Target:  &i.Config.MemLimit,
-		Usage:   "Configures the memory limit for the Waypoint server in Kubernetes.",
+		Usage:   "Configures the memory limit for the Derrick server in Kubernetes.",
 		Default: "0",
 	})
 
 	set.StringVar(&flag.StringVar{
 		Name:    "k8s-namespace",
 		Target:  &i.Config.Namespace,
-		Usage:   "Namespace to install the Waypoint server into for Kubernetes.",
+		Usage:   "Namespace to install the Derrick server into for Kubernetes.",
 		Default: "default",
 	})
 
 	set.StringVar(&flag.StringVar{
 		Name:    "k8s-pull-policy",
 		Target:  &i.Config.ImagePullPolicy,
-		Usage:   "Set the pull policy for the Waypoint server image.",
+		Usage:   "Set the pull policy for the Derrick server image.",
 		Default: "",
 	})
 
 	set.StringVar(&flag.StringVar{
 		Name:   "k8s-pull-secret",
 		Target: &i.Config.ImagePullSecret,
-		Usage:  "Secret to use to access the Waypoint server image on Kubernetes.",
+		Usage:  "Secret to use to access the Derrick server image on Kubernetes.",
 	})
 
 	set.StringVar(&flag.StringVar{
 		Name:   "k8s-secret-file",
 		Target: &i.Config.SecretFile,
-		Usage:  "Use the Kubernetes Secret in the given path to access the Waypoint server image.",
+		Usage:  "Use the Kubernetes Secret in the given path to access the Derrick server image.",
 	})
 
 	set.StringVar(&flag.StringVar{
 		Name:    "k8s-server-image",
 		Target:  &i.Config.ServerImage,
-		Usage:   "Docker image for the Waypoint server.",
+		Usage:   "Docker image for the Derrick server.",
 		Default: installutil.DefaultServerImage,
 	})
 
 	set.StringVar(&flag.StringVar{
 		Name:   "k8s-odr-image",
 		Target: &i.Config.OdrImage,
-		Usage:  "Docker image for the Waypoint On-Demand Runners",
+		Usage:  "Docker image for the Derrick On-Demand Runners",
 	})
 
 	set.StringVar(&flag.StringVar{
@@ -1041,13 +1041,13 @@ func (i *K8sInstaller) InstallFlags(set *flag.Set) {
 	set.StringVar(&flag.StringVar{
 		Name:   "k8s-storageclassname",
 		Target: &i.Config.StorageClassName,
-		Usage:  "Name of the StorageClass required by the volume claim to install the Waypoint server image to.",
+		Usage:  "Name of the StorageClass required by the volume claim to install the Derrick server image to.",
 	})
 
 	set.StringVar(&flag.StringVar{
 		Name:    "k8s-storage-request",
 		Target:  &i.Config.StorageRequest,
-		Usage:   "Configures the requested persistent volume size for the Waypoint server in Kubernetes.",
+		Usage:   "Configures the requested persistent volume size for the Derrick server in Kubernetes.",
 		Default: "1Gi",
 	})
 }
@@ -1065,29 +1065,29 @@ func (i *K8sInstaller) UpgradeFlags(set *flag.Set) {
 	set.StringVar(&flag.StringVar{
 		Name:   "k8s-context",
 		Target: &i.Config.K8sContext,
-		Usage: "The Kubernetes context to upgrade the Waypoint server to. If left" +
-			" unset, Waypoint will use the current Kubernetes context.",
+		Usage: "The Kubernetes context to upgrade the Derrick server to. If left" +
+			" unset, Derrick will use the current Kubernetes context.",
 		Default: "",
 	})
 
 	set.StringVar(&flag.StringVar{
 		Name:    "k8s-namespace",
 		Target:  &i.Config.Namespace,
-		Usage:   "Namespace to install the Waypoint server into for Kubernetes.",
+		Usage:   "Namespace to install the Derrick server into for Kubernetes.",
 		Default: "default",
 	})
 
 	set.StringVar(&flag.StringVar{
 		Name:    "k8s-server-image",
 		Target:  &i.Config.ServerImage,
-		Usage:   "Docker image for the Waypoint server.",
+		Usage:   "Docker image for the Derrick server.",
 		Default: installutil.DefaultServerImage,
 	})
 
 	set.StringVar(&flag.StringVar{
 		Name:   "k8s-odr-image",
 		Target: &i.Config.OdrImage,
-		Usage:  "Docker image for the Waypoint On-Demand Runners",
+		Usage:  "Docker image for the Derrick On-Demand Runners",
 	})
 
 	set.StringVar(&flag.StringVar{
@@ -1110,15 +1110,15 @@ func (i *K8sInstaller) UninstallFlags(set *flag.Set) {
 	set.StringVar(&flag.StringVar{
 		Name:   "k8s-context",
 		Target: &i.Config.K8sContext,
-		Usage: "The Kubernetes context to unisntall the Waypoint server from. If left" +
-			" unset, Waypoint will use the current Kubernetes context.",
+		Usage: "The Kubernetes context to unisntall the Derrick server from. If left" +
+			" unset, Derrick will use the current Kubernetes context.",
 		Default: "",
 	})
 
 	set.StringVar(&flag.StringVar{
 		Name:    "k8s-namespace",
 		Target:  &i.Config.Namespace,
-		Usage:   "Namespace in Kubernetes to uninstall the Waypoint server from.",
+		Usage:   "Namespace in Kubernetes to uninstall the Derrick server from.",
 		Default: "default",
 	})
 }
@@ -1126,8 +1126,8 @@ func (i *K8sInstaller) UninstallFlags(set *flag.Set) {
 var warnK8SKind = strings.TrimSpace(`
 Kind cluster detected!
 
-Installing Waypoint to a Kind cluster requires that the cluster has
+Installing Derrick to a Kind cluster requires that the cluster has
 LoadBalancer capabilities (such as metallb). If Kind isn't configured
 in this way, then the install may hang. If this happens, please delete
-all the Waypoint resources and try again.
+all the Derrick resources and try again.
 `)

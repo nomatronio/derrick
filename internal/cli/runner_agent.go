@@ -408,13 +408,13 @@ Usage: derrick runner agent [options]
   specified using "-label" flags.
 
   A runner can be registered with the server in two ways. First, a
-  runner token can be created with "waypoint runner token" and used with
+  runner token can be created with "derrick runner token" and used with
   this command (using the DERRICK_SERVER_TOKEN environment variable,
-  "waypoint context", etc.). This will allow the runner to begin accepting
+  "derrick context", etc.). This will allow the runner to begin accepting
   jobs immediately since it is preauthorized.
 
   The second approach is to specify only the cookie value (acquired using
-  the "waypoint server cookie" command) and the server address. This will
+  the "derrick server cookie" command) and the server address. This will
   trigger a process that puts the runner in a pending state until a human
   manually verifies it. This is useful for easily installing runners.
 

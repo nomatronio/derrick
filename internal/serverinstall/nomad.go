@@ -135,7 +135,7 @@ func (i *NomadInstaller) Install(
 		return nil, "", err
 	}
 
-	s.Update("Checking for existing Waypoint server...")
+	s.Update("Checking for existing Derrick server...")
 
 	// Check if waypoint-server has already been deployed
 	jobs, _, err := client.Jobs().PrefixList(serverName)
@@ -197,7 +197,7 @@ func (i *NomadInstaller) Install(
 			return nil, "", err
 		}
 
-		s.Update("Detected existing Waypoint server")
+		s.Update("Detected existing Derrick server")
 		s.Status(terminal.StatusWarn)
 		s.Done()
 
@@ -243,7 +243,7 @@ func (i *NomadInstaller) Install(
 		s.Done()
 	}
 
-	s.Update("Installing Waypoint server to Nomad")
+	s.Update("Installing Derrick server to Nomad")
 	allocID, err := nomad.RunJob(ctx, s, client, waypointNomadJob(i.config, opts.ServerRunFlags, false), i.config.policyOverride)
 	if err != nil {
 		return nil, "", err
@@ -267,20 +267,20 @@ func (i *NomadInstaller) Install(
 		},
 	}
 
-	s.Update("Waypoint server ready")
+	s.Update("Derrick server ready")
 	s.Done()
 
 	if i.config.serviceProvider == "consul" && i.config.consulService {
 		opts.UI.Output("The CLI has been configured to automatically install a Consul service for\n" +
-			"the Waypoint service backend and ui service in Nomad.")
+			"the Derrick service backend and ui service in Nomad.")
 	} else if i.config.serviceProvider == "nomad" {
 		opts.UI.Output("The CLI has been configured to automatically install a Nomad service for\n" +
-			"the Waypoint service backend and ui service in Nomad.")
+			"the Derrick service backend and ui service in Nomad.")
 	} else {
-		opts.UI.Output("Waypoint server running on Nomad is being accessed via its allocation IP and port.\n" +
-			"This could change in the future if Nomad creates a new allocation for the Waypoint server,\n" +
-			"which would break all existing Waypoint contexts.\n\n" +
-			"It is recommended to use Consul for determining Waypoint servers IP running on Nomad rather than\n" +
+		opts.UI.Output("Derrick server running on Nomad is being accessed via its allocation IP and port.\n" +
+			"This could change in the future if Nomad creates a new allocation for the Derrick server,\n" +
+			"which would break all existing Derrick contexts.\n\n" +
+			"It is recommended to use Consul for determining Derrick servers IP running on Nomad rather than\n" +
 			"relying on the static IP that is initially set up for this allocation.")
 	}
 
@@ -352,7 +352,7 @@ func (i *NomadInstaller) Upgrade(
 		// By default, we don't auto-enable the consul service because prior to Waypoint
 		// version 0.6.2, we did not enable it by default.
 		proceed, err := opts.UI.Input(&terminal.Input{
-			Prompt: "Service discovery is disabled for the Waypoint Nomad job. If you had previously enabled " +
+			Prompt: "Service discovery is disabled for the Derrick Nomad job. If you had previously enabled " +
 				"it in the last installation, please stop this upgrade and re-run with the -nomad-service-provider flag. " +
 				"Otherwise, enter 'yes' to continue the upgrade: ",
 			Style:  "",
@@ -379,7 +379,7 @@ func (i *NomadInstaller) Upgrade(
 		return nil, err
 	}
 
-	s.Update("Checking for existing Waypoint server...")
+	s.Update("Checking for existing Derrick server...")
 
 	// Check if waypoint-server has already been deployed
 	jobs, _, err := client.Jobs().PrefixList(serverName)
@@ -418,24 +418,24 @@ func (i *NomadInstaller) Upgrade(
 	addr.TlsSkipVerify = true
 
 	if !serverDetected {
-		s.Update("No existing Waypoint server detected")
+		s.Update("No existing Derrick server detected")
 		s.Status(terminal.StatusError)
 		s.Done()
-		return nil, fmt.Errorf("No waypoint server job named %q detected in Nomad", serverName)
+		return nil, fmt.Errorf("No derrick server job named %q detected in Nomad", serverName)
 	} else {
 		allocs, _, err := client.Jobs().Allocations(serverName, false, nil)
 		if err != nil {
 			return nil, err
 		}
 		if len(allocs) == 0 {
-			return nil, fmt.Errorf("waypoint server job %q found but no running allocations available", serverName)
+			return nil, fmt.Errorf("derrick server job %q found but no running allocations available", serverName)
 		}
 		serverAddr, err := getAddrFromAllocID(allocs[0].ID, client)
 		if err != nil {
 			return nil, err
 		}
 
-		s.Update("Detected existing Waypoint server")
+		s.Update("Detected existing Derrick server")
 		s.Done()
 
 		clicfg.Server.Address = serverAddr
@@ -443,7 +443,7 @@ func (i *NomadInstaller) Upgrade(
 		httpAddr = serverAddr
 	}
 
-	s = sg.Add("Upgrading Waypoint server on Nomad to %q", i.config.serverImage)
+	s = sg.Add("Upgrading Derrick server on Nomad to %q", i.config.serverImage)
 	job := waypointNomadJob(i.config, opts.ServerRunFlags, true)
 	jobOpts := &api.RegisterOptions{
 		PolicyOverride: i.config.policyOverride,
@@ -462,7 +462,7 @@ func (i *NomadInstaller) Upgrade(
 
 	eval, meta, err := i.waitForEvaluation(ctx, s, client, resp, qopts)
 	if err != nil {
-		s.Update("Nomad failed to schedule the waypoint server ", serverName)
+		s.Update("Nomad failed to schedule the derrick server ", serverName)
 		s.Status(terminal.StatusError)
 		return nil, err
 	}
@@ -533,7 +533,7 @@ func (i *NomadInstaller) Upgrade(
 		},
 	}
 
-	s.Update("Upgrade of Waypoint server on Nomad complete!")
+	s.Update("Upgrade of Derrick server on Nomad complete!")
 	s.Done()
 
 	return &InstallResults{
@@ -560,7 +560,7 @@ func (i *NomadInstaller) Uninstall(ctx context.Context, opts *InstallOpts) error
 		return err
 	}
 
-	s.Update("Checking for existing Waypoint server...")
+	s.Update("Checking for existing Derrick server...")
 
 	// Find waypoint-server job
 	jobs, _, err := client.Jobs().PrefixList(serverName)
@@ -578,11 +578,11 @@ func (i *NomadInstaller) Uninstall(ctx context.Context, opts *InstallOpts) error
 		return fmt.Errorf("No job with server name %q found; cannot uninstall", serverName)
 	}
 
-	s.Update("Removing Waypoint server from Nomad...")
+	s.Update("Removing Derrick server from Nomad...")
 	_, _, err = client.Jobs().Deregister(serverName, true, &api.WriteOptions{})
 	if err != nil {
 		ui.Output(
-			"Error deregistering waypoint server job: %s", clierrors.Humanize(err),
+			"Error deregistering derrick server job: %s", clierrors.Humanize(err),
 			terminal.WithErrorStyle(),
 		)
 		return err
@@ -604,7 +604,7 @@ func (i *NomadInstaller) Uninstall(ctx context.Context, opts *InstallOpts) error
 		}
 	}
 
-	s.Update("Waypoint job and allocations purged")
+	s.Update("Derrick job and allocations purged")
 
 	vols, _, err := client.CSIVolumes().List(&api.QueryOptions{Prefix: "waypoint"})
 	if err != nil {
@@ -1173,7 +1173,7 @@ func (i *NomadInstaller) InstallFlags(set *flag.Set) {
 		Name:    "nomad-namespace",
 		Target:  &i.config.namespace,
 		Default: "default",
-		Usage:   "Namespace to install the Waypoint server into for Nomad.",
+		Usage:   "Namespace to install the Derrick server into for Nomad.",
 	})
 
 	set.StringVar(&flag.StringVar{
@@ -1187,7 +1187,7 @@ func (i *NomadInstaller) InstallFlags(set *flag.Set) {
 		Name:   "nomad-host-network",
 		Target: &i.config.hostNetwork,
 		Usage: "Designates the host network name to use when allocating the" +
-			" ports of the Waypoint server.",
+			" ports of the Derrick server.",
 		Default: "default",
 	})
 
@@ -1249,47 +1249,47 @@ func (i *NomadInstaller) InstallFlags(set *flag.Set) {
 	set.StringVar(&flag.StringVar{
 		Name:   "nomad-runner-host-volume",
 		Target: &i.config.runnerHostVolume,
-		Usage:  "Name of the host volume to use for the Waypoint runner.",
+		Usage:  "Name of the host volume to use for the Derrick runner.",
 	})
 
 	set.StringVar(&flag.StringVar{
 		Name:   "nomad-runner-csi-volume-provider",
 		Target: &i.config.runnerCsiVolumeProvider,
-		Usage:  "Name of the CSI volume provider to use for the Waypoint runner.",
+		Usage:  "Name of the CSI volume provider to use for the Derrick runner.",
 	})
 
 	set.StringVar(&flag.StringVar{
 		Name:   "nomad-runner-csi-volume",
 		Target: &i.config.runnerCsiVolume,
-		Usage:  "The name of the volume to initialize for the Waypoint runner within the CSI provider.",
+		Usage:  "The name of the volume to initialize for the Derrick runner within the CSI provider.",
 	})
 
 	// TODO: Update default values for runner - less space is needed for runner compared to server
 	set.Int64Var(&flag.Int64Var{
 		Name:    "nomad-runner-csi-volume-capacity-min",
 		Target:  &i.config.runnerCsiVolumeCapacityMin,
-		Usage:   "Waypoint runner Nomad CSI volume capacity minimum, in bytes.",
+		Usage:   "Derrick runner Nomad CSI volume capacity minimum, in bytes.",
 		Default: defaultCSIVolumeCapacityMin,
 	})
 
 	set.Int64Var(&flag.Int64Var{
 		Name:    "nomad-runner-csi-volume-capacity-max",
 		Target:  &i.config.runnerCsiVolumeCapacityMax,
-		Usage:   "Waypoint runner Nomad CSI volume capacity maximum, in bytes.",
+		Usage:   "Derrick runner Nomad CSI volume capacity maximum, in bytes.",
 		Default: defaultCSIVolumeCapacityMax,
 	})
 
 	set.StringVar(&flag.StringVar{
 		Name:    "nomad-server-image",
 		Target:  &i.config.serverImage,
-		Usage:   "Docker image for the Waypoint server.",
+		Usage:   "Docker image for the Derrick server.",
 		Default: installutil.DefaultServerImage,
 	})
 
 	set.EnumSingleVar(&flag.EnumSingleVar{
 		Name:    "nomad-service-provider",
 		Target:  &i.config.serviceProvider,
-		Usage:   "Create service for Waypoint UI and Server in Consul.",
+		Usage:   "Create service for Derrick UI and Server in Consul.",
 		Values:  []string{"consul", "nomad", "none"},
 		Default: "consul", //default to consul for fresh installs
 	})
@@ -1297,21 +1297,21 @@ func (i *NomadInstaller) InstallFlags(set *flag.Set) {
 	set.StringSliceVar(&flag.StringSliceVar{
 		Name:    "nomad-service-ui-tags",
 		Target:  &i.config.serviceUITags,
-		Usage:   "Tags for the Waypoint UI service.",
+		Usage:   "Tags for the Derrick UI service.",
 		Default: []string{defaultServiceTag},
 	})
 
 	set.StringSliceVar(&flag.StringSliceVar{
 		Name:    "nomad-service-backend-tags",
 		Target:  &i.config.serviceBackendTags,
-		Usage:   "Tags for the Waypoint backend service.",
+		Usage:   "Tags for the Derrick backend service.",
 		Default: []string{defaultServiceTag},
 	})
 
 	set.BoolVar(&flag.BoolVar{
 		Name:    "nomad-consul-service",
 		Target:  &i.config.consulService,
-		Usage:   "Create service for Waypoint UI and Server in Consul.",
+		Usage:   "Create service for Derrick UI and Server in Consul.",
 		Default: true, //default to true for fresh installs
 	})
 
@@ -1326,14 +1326,14 @@ func (i *NomadInstaller) InstallFlags(set *flag.Set) {
 	set.StringSliceVar(&flag.StringSliceVar{
 		Name:   "nomad-consul-service-ui-tags",
 		Target: &i.config.consulServiceUITags,
-		Usage:  "Tags for the Waypoint UI service generated in Consul.",
+		Usage:  "Tags for the Derrick UI service generated in Consul.",
 	})
 
 	set.StringSliceVar(&flag.StringSliceVar{
 		Name:   "nomad-consul-service-backend-tags",
 		Target: &i.config.consulServiceBackendTags,
-		Usage: "Tags for the Waypoint backend service generated in Consul. The 'first' tag " +
-			"will be used when crafting the Consul DNS hostname for accessing Waypoint.",
+		Usage: "Tags for the Derrick backend service generated in Consul. The 'first' tag " +
+			"will be used when crafting the Consul DNS hostname for accessing Derrick.",
 	})
 
 	set.StringVar(&flag.StringVar{
@@ -1361,7 +1361,7 @@ func (i *NomadInstaller) InstallFlags(set *flag.Set) {
 	set.StringVar(&flag.StringVar{
 		Name:   "nomad-host-volume",
 		Target: &i.config.hostVolume,
-		Usage:  "Nomad host volume name to use for the Waypoint server, required for volume type 'host'.",
+		Usage:  "Nomad host volume name to use for the Derrick server, required for volume type 'host'.",
 	})
 
 	set.StringVar(&flag.StringVar{
@@ -1431,7 +1431,7 @@ func (i *NomadInstaller) InstallFlags(set *flag.Set) {
 	set.StringVar(&flag.StringVar{
 		Name:    "nomad-csi-volume",
 		Target:  &i.config.csiVolume,
-		Usage:   "The name of the volume to initialize for Waypoint server within the CSI provider.",
+		Usage:   "The name of the volume to initialize for Derrick server within the CSI provider.",
 		Default: "waypoint-server",
 	})
 }
@@ -1469,7 +1469,7 @@ func (i *NomadInstaller) UpgradeFlags(set *flag.Set) {
 		Name:    "nomad-namespace",
 		Target:  &i.config.namespace,
 		Default: "default",
-		Usage:   "Namespace to install the Waypoint server into for Nomad.",
+		Usage:   "Namespace to install the Derrick server into for Nomad.",
 	})
 
 	set.StringVar(&flag.StringVar{
@@ -1483,7 +1483,7 @@ func (i *NomadInstaller) UpgradeFlags(set *flag.Set) {
 		Name:   "nomad-host-network",
 		Target: &i.config.hostNetwork,
 		Usage: "Designates the host network name to use when allocating the" +
-			" ports of the Waypoint server.",
+			" ports of the Derrick server.",
 		Default: "default",
 	})
 
@@ -1545,40 +1545,40 @@ func (i *NomadInstaller) UpgradeFlags(set *flag.Set) {
 	set.StringVar(&flag.StringVar{
 		Name:   "nomad-runner-host-volume",
 		Target: &i.config.runnerHostVolume,
-		Usage:  "Name of the host volume to use for the Waypoint runner.",
+		Usage:  "Name of the host volume to use for the Derrick runner.",
 	})
 
 	set.StringVar(&flag.StringVar{
 		Name:   "nomad-runner-csi-volume-provider",
 		Target: &i.config.runnerCsiVolumeProvider,
-		Usage:  "Name of the CSI volume provider to use for the Waypoint runner.",
+		Usage:  "Name of the CSI volume provider to use for the Derrick runner.",
 	})
 
 	set.StringVar(&flag.StringVar{
 		Name:   "nomad-runner-csi-volume",
 		Target: &i.config.runnerCsiVolume,
-		Usage:  "The name of the volume to initialize for the Waypoint runner within the CSI provider.",
+		Usage:  "The name of the volume to initialize for the Derrick runner within the CSI provider.",
 	})
 
 	// TODO: Update default values for runner - less space is needed for runner compared to server
 	set.Int64Var(&flag.Int64Var{
 		Name:    "nomad-runner-csi-volume-capacity-min",
 		Target:  &i.config.runnerCsiVolumeCapacityMin,
-		Usage:   "Waypoint runner Nomad CSI volume capacity minimum, in bytes.",
+		Usage:   "Derrick runner Nomad CSI volume capacity minimum, in bytes.",
 		Default: defaultCSIVolumeCapacityMin,
 	})
 
 	set.Int64Var(&flag.Int64Var{
 		Name:    "nomad-runner-csi-volume-capacity-max",
 		Target:  &i.config.runnerCsiVolumeCapacityMax,
-		Usage:   "Waypoint runner Nomad CSI volume capacity maximum, in bytes.",
+		Usage:   "Derrick runner Nomad CSI volume capacity maximum, in bytes.",
 		Default: defaultCSIVolumeCapacityMax,
 	})
 
 	set.StringVar(&flag.StringVar{
 		Name:    "nomad-server-image",
 		Target:  &i.config.serverImage,
-		Usage:   "Docker image for the Waypoint server.",
+		Usage:   "Docker image for the Derrick server.",
 		Default: installutil.DefaultServerImage,
 	})
 
@@ -1591,7 +1591,7 @@ func (i *NomadInstaller) UpgradeFlags(set *flag.Set) {
 	set.EnumSingleVar(&flag.EnumSingleVar{
 		Name:    "nomad-service-provider",
 		Target:  &i.config.serviceProvider,
-		Usage:   "Create service for Waypoint UI and Server.",
+		Usage:   "Create service for Derrick UI and Server.",
 		Values:  []string{"consul", "nomad", "none"},
 		Default: "none", // default none on upgrades, make sure people opt-in to service discovery
 	})
@@ -1599,21 +1599,21 @@ func (i *NomadInstaller) UpgradeFlags(set *flag.Set) {
 	set.StringSliceVar(&flag.StringSliceVar{
 		Name:    "nomad-service-ui-tags",
 		Target:  &i.config.serviceUITags,
-		Usage:   "Tags for the Waypoint UI service.",
+		Usage:   "Tags for the Derrick UI service.",
 		Default: []string{defaultServiceTag},
 	})
 
 	set.StringSliceVar(&flag.StringSliceVar{
 		Name:    "nomad-service-backend-tags",
 		Target:  &i.config.serviceBackendTags,
-		Usage:   "Tags for the Waypoint backend service.",
+		Usage:   "Tags for the Derrick backend service.",
 		Default: []string{defaultServiceTag},
 	})
 
 	set.BoolVar(&flag.BoolVar{
 		Name:    "nomad-consul-service",
 		Target:  &i.config.consulService,
-		Usage:   "Create service for Waypoint UI and Server in Consul.",
+		Usage:   "Create service for Derrick UI and Server in Consul.",
 		Default: false, // default to false, make sure people opt into this for upgrades
 	})
 
@@ -1628,14 +1628,14 @@ func (i *NomadInstaller) UpgradeFlags(set *flag.Set) {
 	set.StringSliceVar(&flag.StringSliceVar{
 		Name:   "nomad-consul-service-ui-tags",
 		Target: &i.config.consulServiceUITags,
-		Usage:  "Tags for the Waypoint UI service generated in Consul.",
+		Usage:  "Tags for the Derrick UI service generated in Consul.",
 	})
 
 	set.StringSliceVar(&flag.StringSliceVar{
 		Name:   "nomad-consul-service-backend-tags",
 		Target: &i.config.consulServiceBackendTags,
-		Usage: "Tags for the Waypoint backend service generated in Consul. The 'first' tag " +
-			"will be used when crafting the Consul DNS hostname for accessing Waypoint.",
+		Usage: "Tags for the Derrick backend service generated in Consul. The 'first' tag " +
+			"will be used when crafting the Consul DNS hostname for accessing Derrick.",
 	})
 
 	set.StringVar(&flag.StringVar{

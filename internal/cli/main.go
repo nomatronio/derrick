@@ -67,7 +67,7 @@ func Main(args []string) int {
 	// up plugin processes by calling Close on all the resources we use.
 	defer plugin.CleanupClients()
 
-	// NOTE: This is only for running `waypoint -v` and expecting it to return
+	// NOTE: This is only for running `derrick -v` and expecting it to return
 	// a version. Any other subcommand will expect `-v` to be around verbose
 	// logging rather than printing a version
 	if len(args) == 2 && args[1] == "-v" {
@@ -82,7 +82,7 @@ func Main(args []string) int {
 
 	// Log our versions
 	vsn := version.GetVersion()
-	log.Info("waypoint version",
+	log.Info("derrick version",
 		"full_string", vsn.FullVersionNumber(true),
 		"version", vsn.Version,
 		"prerelease", vsn.VersionPrerelease,
@@ -114,7 +114,7 @@ func Main(args []string) int {
 
 	// Copy the CLI to check if it is a version call. If so, we modify
 	// the args to just be the version subcommand. This ensures that
-	// --version behaves by calling `waypoint version` and we get consistent
+	// --version behaves by calling `derrick version` and we get consistent
 	// behavior.
 	cli := cliFactory()
 	if cli.IsVersion() {
@@ -1018,7 +1018,7 @@ Auth method management
 
 The auth-method commands can be used to manage how users can authenticate
 into the Derrick server. For day-to-day Derrick users, you likely want
-to use the "waypoint login" command or "waypoint user" commands. The
+to use the "derrick login" command or "derrick user" commands. The
 auth-method subcommand is primarily aimed at Derrick server operators.
 `,
 	},
@@ -1054,7 +1054,7 @@ For more information see: https://derrick.dev/docs/app-config
 		`
 Manage configurations for accessing Derrick servers.
 
-A context contains all the configuration to connect to a single Waypoint
+A context contains all the configuration to connect to a single Derrick
 server. The Derrick CLI can have multiple contexts to make it easy to switch
 between different Derrick servers.
 `,
@@ -1087,7 +1087,7 @@ For more information see: https://derrick.dev/docs/url
 	"job": {
 		"Job introspection and management",
 		`
-Manage and check the status of jobs in Waypoint.
+Manage and check the status of jobs in Derrick.
 `,
 	},
 
@@ -1116,8 +1116,8 @@ to a VCS repository (if one exists).
 		`
 Runner management.
 
-Runners are used to execute remote operations for Waypoint. If you're new
-to Waypoint, you generally *do not need* runners and you can ignore this
+Runners are used to execute remote operations for Derrick. If you're new
+to Derrick, you generally *do not need* runners and you can ignore this
 entire section.
 `,
 	},
@@ -1129,7 +1129,7 @@ Server management.
 
 The CLI, UI, and entrypoints all communicate to a Derrick server. A
 Derrick server is required for logs, exec, config, and more to work.
-The recommended way to run a server is "waypoint install".
+The recommended way to run a server is "derrick install".
 
 This command contains further subcommands to work with servers.
 `,
@@ -1138,7 +1138,7 @@ This command contains further subcommands to work with servers.
 	"task": {
 		"Task introspection and management",
 		`
-Manage and check the status of On-Demand Runner Tasks in Waypoint.
+Manage and check the status of On-Demand Runner Tasks in Derrick.
 `,
 	},
 
@@ -1147,7 +1147,7 @@ Manage and check the status of On-Demand Runner Tasks in Waypoint.
 		`
 Authenticate and invite collaborators.
 
-Tokens are the primary form of authentication to Waypoint. Everyone who
+Tokens are the primary form of authentication to Derrick. Everyone who
 accesses a Derrick server requires a token.
 
 ` + warnTokenDeprecated,
@@ -1158,7 +1158,7 @@ accesses a Derrick server requires a token.
 		`
 Trigger URL management.
 
-Trigger URLs are used to execute lifecycle operations for Waypoint. They are configured
+Trigger URLs are used to execute lifecycle operations for Derrick. They are configured
 ahead of the execution request, and Derrick server will generate a configuration
 URL for clients to send a request to execute the operation.
 `,
@@ -1174,7 +1174,7 @@ token authentication. This subcommand can be used to inspect information
 about the currently logged in user, generate new access, and invite new
 users directly into the Derrick server.
 
-If you are looking to log in to Waypoint, use "waypoint login".
+If you are looking to log in to Derrick, use "derrick login".
 `,
 	},
 	"runner-profile": {

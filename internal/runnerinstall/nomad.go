@@ -75,7 +75,7 @@ func (i *NomadRunnerInstaller) Install(ctx context.Context, opts *InstallOpts) e
 	s.Done()
 
 	// The flags for the runner's volume, whether CSI or host volume, are differently named
-	// for `waypoint install` (which also installs a runner) vs. `waypoint runner install`.
+	// for `derrick install` (which also installs a runner) vs. `derrick runner install`.
 	// Since the runner's ID is set to "static" on the server install, we can use that
 	// to differentiate the flag names here.
 	if i.Config.CsiVolumeProvider == "" && i.Config.HostVolume == "" && opts.Id == installutil.Id {
@@ -116,12 +116,12 @@ func (i *NomadRunnerInstaller) Install(ctx context.Context, opts *InstallOpts) e
 	}
 
 	// Install the runner
-	s = sg.Add("Installing the Waypoint runner")
+	s = sg.Add("Installing the Derrick runner")
 	_, err = nomadutil.RunJob(ctx, s, client, waypointRunnerNomadJob(i.Config, opts), false)
 	if err != nil {
 		return err
 	}
-	s.Update("Waypoint runner installed")
+	s.Update("Derrick runner installed")
 	s.Done()
 
 	return nil
@@ -242,7 +242,7 @@ func (i *NomadRunnerInstaller) InstallFlags(set *flag.Set) {
 	set.StringVar(&flag.StringVar{
 		Name:    "nomad-runner-image",
 		Target:  &i.Config.RunnerImage,
-		Usage:   "Docker image for the Waypoint runner.",
+		Usage:   "Docker image for the Derrick runner.",
 		Default: defaultRunnerImage,
 	})
 
@@ -325,7 +325,7 @@ func (i *NomadRunnerInstaller) InstallFlags(set *flag.Set) {
 	set.StringMapVar(&flag.StringMapVar{
 		Name:   "nomad-csi-secrets",
 		Target: &i.Config.CsiSecrets,
-		Usage:  "Credentials for publishing volume for Waypoint runner.",
+		Usage:  "Credentials for publishing volume for Derrick runner.",
 	})
 
 	set.StringVar(&flag.StringVar{
@@ -351,7 +351,7 @@ func (i *NomadRunnerInstaller) Uninstall(ctx context.Context, opts *InstallOpts)
 	}
 	s.Done()
 
-	s = sg.Add("Locate existing Waypoint runner...")
+	s = sg.Add("Locate existing Derrick runner...")
 	var waypointRunnerJobName string
 	possibleRunnerJobNames := []string{
 		installutil.DefaultRunnerName(opts.Id),
@@ -360,7 +360,7 @@ func (i *NomadRunnerInstaller) Uninstall(ctx context.Context, opts *InstallOpts)
 	for _, runnerJobName := range possibleRunnerJobNames {
 		jobs, _, err := client.Jobs().PrefixList(runnerJobName)
 		if err != nil {
-			s.Update("Unable to find nomad job %s for Waypoint runner", waypointRunnerJobName)
+			s.Update("Unable to find nomad job %s for Derrick runner", waypointRunnerJobName)
 			return err
 		}
 		if len(jobs) > 0 {
@@ -370,17 +370,17 @@ func (i *NomadRunnerInstaller) Uninstall(ctx context.Context, opts *InstallOpts)
 	}
 
 	if waypointRunnerJobName == "" {
-		s.Update("Could not find Waypoint runner in Nomad")
-		return fmt.Errorf("Could not find Waypoint runner in Nomad")
+		s.Update("Could not find Derrick runner in Nomad")
+		return fmt.Errorf("Could not find Derrick runner in Nomad")
 	}
 
-	s.Update("Waypoint runner found.")
+	s.Update("Derrick runner found.")
 	s.Done()
 
-	s = sg.Add("Uninstalling the Waypoint runner...")
+	s = sg.Add("Uninstalling the Derrick runner...")
 	_, _, err = client.Jobs().Deregister(waypointRunnerJobName, false, &api.WriteOptions{})
 	if err != nil {
-		s.Update("Unable to deregister Waypoint runner job.")
+		s.Update("Unable to deregister Derrick runner job.")
 		return err
 	}
 
@@ -420,10 +420,10 @@ func (i *NomadRunnerInstaller) Uninstall(ctx context.Context, opts *InstallOpts)
 
 	_, _, err = client.Jobs().Deregister(waypointRunnerJobName, true, &api.WriteOptions{})
 	if err != nil {
-		s.Update("Unable to deregister Waypoint runner job.")
+		s.Update("Unable to deregister Derrick runner job.")
 		return err
 	}
-	s.Update("Waypoint runner job and allocations purged")
+	s.Update("Derrick runner job and allocations purged")
 	s.Done()
 
 	return nil

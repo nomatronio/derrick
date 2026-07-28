@@ -1,6 +1,6 @@
 integration {
   name        = "Docker Pull"
-  description = "The Docker Pull plugin pulls a Docker image from an existing Docker repository, and wraps the existing image entrypoint with the Waypoint entrypoint."
+  description = "The Docker Pull plugin pulls a Docker image from an existing Docker repository, and wraps the existing image entrypoint with the Derrick entrypoint."
   identifier  = "waypoint/docker-pull"
   components  = ["builder"]
   flags       = ["builtin"]

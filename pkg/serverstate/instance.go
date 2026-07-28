@@ -54,7 +54,7 @@ type InstanceExec struct {
 }
 
 // InstanceExecHandler is an optional interface that the state interface can implement.
-// When it does, the functionality associated with `waypoint exec` will be available.
+// When it does, the functionality associated with `derrick exec` will be available.
 type InstanceExecHandler interface {
 	// InstanceExecCreateByTargetedInstance registers an exec request for a specific instance,
 	// identified by it's database id.

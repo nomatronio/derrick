@@ -1885,7 +1885,7 @@ func (p *Platform) resourceAlbDestroy(
 		return nil
 	}
 
-	s := sg.Add("Checking if ALB is managed by Waypoint")
+	s := sg.Add("Checking if ALB is managed by Derrick")
 	defer s.Abort()
 
 	elbsrv := elbv2.New(sess)
@@ -1915,13 +1915,13 @@ func (p *Platform) resourceAlbDestroy(
 		}
 		// If we reach this point, we've checked all of the tags on the ALB,
 		// and none of them indicate the ALB is managed by Waypoint
-		log.Debug("ALB not created by Waypoint - skipping ALB deletion")
-		s.Update("ALB is not managed by Waypoint - skipping ALB deletion")
+		log.Debug("ALB not created by Derrick - skipping ALB deletion")
+		s.Update("ALB is not managed by Derrick - skipping ALB deletion")
 		s.Done()
 		return nil
 	}
 DELETE_ALB:
-	s.Update("ALB is managed by Waypoint - proceeding with deletion")
+	s.Update("ALB is managed by Derrick - proceeding with deletion")
 	s.Done()
 
 	s = sg.Add("Deleting ALB %s", state.DnsName)
@@ -3147,12 +3147,12 @@ deploy {
 				"load_balancer_arn",
 				"the ARN on an existing ALB to configure",
 				docs.Summary(
-					"when this is set, Waypoint will use this ALB instead of creating",
+					"when this is set, Derrick will use this ALB instead of creating",
 					"its own. A target group will still be created for each deployment,",
 					"and will be added to a listener on the configured ALB port",
-					"(Waypoint will the listener if it doesn't exist).",
-					"This allows users to configure their ALB outside Waypoint but still ",
-					"have Waypoint hook the application to that ALB",
+					"(Derrick will the listener if it doesn't exist).",
+					"This allows users to configure their ALB outside Derrick but still ",
+					"have Derrick hook the application to that ALB",
 				),
 			)
 
@@ -3387,7 +3387,7 @@ deploy {
 
 var (
 	mixedHealthWarn = strings.TrimSpace(`
-Waypoint detected that the current deployment is not ready, however your application
+Derrick detected that the current deployment is not ready, however your application
 might be available or still starting up.
 `)
 )

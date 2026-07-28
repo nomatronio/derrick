@@ -118,7 +118,7 @@ func (r *Runner) executeJob(
 		// No derrick.hcl file is found.
 		return nil, status.Errorf(codes.FailedPrecondition,
 			"A derrick.hcl was not found. Please either add a derrick.hcl to "+
-				"the project source or in the project settings in the Waypoint UI.")
+				"the project source or in the project settings in the Derrick UI.")
 	}
 
 	// Determine the evaluation context we'll be using

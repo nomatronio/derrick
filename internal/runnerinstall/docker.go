@@ -134,7 +134,7 @@ func (i *DockerRunnerInstaller) Install(ctx context.Context, opts *InstallOpts) 
 		return err
 	}
 
-	s.Update("Waypoint runner installed and started!")
+	s.Update("Derrick runner installed and started!")
 	s.Done()
 
 	return nil
@@ -144,14 +144,14 @@ func (i *DockerRunnerInstaller) InstallFlags(set *flag.Set) {
 	set.StringVar(&flag.StringVar{
 		Name:    "docker-runner-image",
 		Target:  &i.Config.RunnerImage,
-		Usage:   "The Docker image for the Waypoint runner.",
+		Usage:   "The Docker image for the Derrick runner.",
 		Default: defaultRunnerImage,
 	})
 
 	set.StringVar(&flag.StringVar{
 		Name:   "docker-runner-network",
 		Target: &i.Config.Network,
-		Usage:  "The Docker network in which to deploy the Waypoint runner.",
+		Usage:  "The Docker network in which to deploy the Derrick runner.",
 	})
 
 	set.StringVar(&flag.StringVar{
@@ -215,7 +215,7 @@ func (d DockerRunnerInstaller) Uninstall(ctx context.Context, opts *InstallOpts)
 		return err
 	}
 
-	s.Update("Waypoint Runner uninstalled")
+	s.Update("Derrick Runner uninstalled")
 	s.Done()
 	return nil
 }

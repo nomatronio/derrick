@@ -89,19 +89,19 @@ func (p *TaskLauncher) Documentation() (*docs.Documentation, error) {
 	}
 
 	doc.Description(`
-Launch an ECS task for on-demand tasks from the Waypoint server.
+Launch an ECS task for on-demand tasks from the Derrick server.
 
 This will use the standard AWS environment variables and IAM Role information to
 source authentication information for AWS, using the configured task role.
-If no task role name is specified, Waypoint will create one with the required
+If no task role name is specified, Derrick will create one with the required
 permissions.
 `)
 
 	doc.SetField(
 		"odr_image",
-		"Docker image for the Waypoint On-Demand Runners",
+		"Docker image for the Derrick On-Demand Runners",
 		docs.Summary(`
-		Docker image for the Waypoint On-Demand Runners. This will
+		Docker image for the Derrick On-Demand Runners. This will
 default to the server image with the name (not label) suffixed with '-odr'."
 `,
 		),
@@ -123,7 +123,7 @@ permissions"
 		"Cluster name to place On-Demand runner tasks in",
 		docs.Summary(
 			"ECS Cluster to place On-Demand runners in. This defaults to the cluster",
-			"used by the Waypoint server",
+			"used by the Derrick server",
 		),
 	)
 
@@ -131,7 +131,7 @@ permissions"
 		"region",
 		"AWS Region to use",
 		docs.Summary(
-			"AWS region to use. Defaults to the region used for the Waypoint Server.",
+			"AWS region to use. Defaults to the region used for the Derrick Server.",
 		),
 	)
 
@@ -140,7 +140,7 @@ permissions"
 		"The name of the AWS IAM role to apply to the task's Execution Role",
 		docs.Summary(
 			"ExecutionRoleName is the name of the AWS IAM role to apply to the task's",
-			"Execution Role. At this time we reuse the same Role as the Waypoint",
+			"Execution Role. At this time we reuse the same Role as the Derrick",
 			"server Execution Role.",
 		),
 	)
@@ -161,9 +161,9 @@ permissions"
 		"List of subnets to place the On-Demand Runner task in.",
 		docs.Summary(
 			"List of subnets to place the On-Demand Runner task in. This defaults",
-			"to the list of subnets configured for the Waypoint server and ",
+			"to the list of subnets configured for the Derrick server and ",
 			"must be either identical or a subset of the subnets used by the ",
-			"Waypoint server",
+			"Derrick server",
 		),
 	)
 
@@ -172,7 +172,7 @@ permissions"
 		"Security Group ID to place the On-Demand Runner task in",
 		docs.Summary(
 			"Security Group ID to place the On-Demand Runner task in. This defaults ",
-			"to the security group used for the Waypoint server",
+			"to the security group used for the Derrick server",
 		),
 	)
 
@@ -249,7 +249,7 @@ func (p *TaskLauncher) StopTask(
 				log.Info("stopping ECS task", "task_id", ti.Id)
 				_, err := ecsSvc.StopTask(&ecs.StopTaskInput{
 					Cluster: aws.String(p.config.Cluster),
-					Reason:  aws.String("Waypoint ODR job is complete"),
+					Reason:  aws.String("Derrick ODR job is complete"),
 					Task:    taskArn,
 				})
 				if err != nil {

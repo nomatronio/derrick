@@ -307,7 +307,7 @@ New servers must be bootstrapped to retrieve the initial auth token for
 connections. To bootstrap this server, run the following command in your
 terminal once the server is up and running.
 
-  waypoint server bootstrap -server-addr=%s -server-tls-skip-verify
+  derrick server bootstrap -server-addr=%s -server-tls-skip-verify
 
 This command will bootstrap the server and setup a CLI context.
 `), ln.Addr().String(), terminal.WithInfoStyle())
@@ -595,7 +595,7 @@ Usage: derrick server run [options]
 
   Run the builtin server.
 
-  The easier way to run a server is to use the "waypoint install" command.
+  The easier way to run a server is to use the "derrick install" command.
   This command is for people who are manually running the server in any
   environment.
 
@@ -654,7 +654,7 @@ func (c *ServerRunCommand) listenerForConfig(log hclog.Logger, cfg *serverconfig
 		template := x509.Certificate{
 			SerialNumber: big.NewInt(time.Now().Unix()),
 			Subject: pkix.Name{
-				Organization: []string{"Waypoint"},
+				Organization: []string{"Derrick"},
 			},
 			NotBefore:             time.Now(),
 			NotAfter:              time.Now().Add(time.Hour * 24 * 365 * 10),

@@ -101,8 +101,8 @@ Usage: derrick project list
   exactly one "derrick.hcl" configuration. A project may contain multiple
   applications.
 
-  A project is registered via the web UI, "waypoint project apply",
-  or "waypoint init".
+  A project is registered via the web UI, "derrick project apply",
+  or "derrick init".
 
 `)
 }

@@ -158,13 +158,13 @@ Usage: derrick runner list [options]
   that are pending (not adopted) will not be sent any jobs or configuration.
   Runners that are accepted (adopted) are sent jobs. Runners that are
   "preadopted" are sent jobs but have avoided the manual adoption process by
-  being preconfigured with a valid runner token (see "waypoint runner token").
+  being preconfigured with a valid runner token (see "derrick runner token").
   Runners that are "rejected" are never given jobs, and error immediately if
   they try to register.
 
-  If a runner is pending, you can adopt it using "waypoint runner adopt ID"
+  If a runner is pending, you can adopt it using "derrick runner adopt ID"
   where "ID" comes from the output from this command. You can explicitly
-  reject a runner using "waypoint runner reject ID". A runner can be rejected
+  reject a runner using "derrick runner reject ID". A runner can be rejected
   at any time, even after it is already adopted.
 
 ` + c.Flags().Help())

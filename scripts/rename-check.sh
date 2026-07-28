@@ -54,6 +54,31 @@ else
   echo "OK: Makefile binary paths"
 fi
 
+USER_FACING_GO=(
+  internal/cli
+  internal/serverinstall
+  internal/runnerinstall
+  internal/installutil
+  cmd
+  internal/ceb
+)
+
+if rg -q '"[^"]*Waypoint[^"]*"' "${USER_FACING_GO[@]}" --glob '*.go' --glob '!*_test.go' 2>/dev/null; then
+  echo "FAIL: user-facing Go strings still contain Waypoint (double-quoted)"
+  rg '"[^"]*Waypoint[^"]*"' "${USER_FACING_GO[@]}" --glob '*.go' --glob '!*_test.go' | head -10
+  fail=1
+else
+  echo "OK: user-facing Go double-quoted strings"
+fi
+
+if rg -q '"waypoint [a-z]' internal/cli --glob '*.go' --glob '!*_test.go' 2>/dev/null; then
+  echo "FAIL: CLI help still references waypoint subcommands in quotes"
+  rg '"waypoint [a-z]' internal/cli --glob '*.go' --glob '!*_test.go' | head -10
+  fail=1
+else
+  echo "OK: CLI subcommand references in help text"
+fi
+
 if [[ "$fail" -ne 0 ]]; then
   echo ""
   echo "rename-check: one or more forbidden Waypoint identifiers remain."

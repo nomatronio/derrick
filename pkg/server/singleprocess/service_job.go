@@ -136,7 +136,7 @@ func (s *Service) queueJobReqToJob(
 	project, err := s.state(ctx).ProjectGet(ctx, &pb.Ref_Project{Project: job.Application.Project})
 	if status.Code(err) == codes.NotFound {
 		return nil, "", hcerr.UserErrorWithCodef(codes.NotFound, err,
-			"Project %q was not found! Please ensure that 'waypoint init' was run with this project.",
+			"Project %q was not found! Please ensure that 'derrick init' was run with this project.",
 			job.Application.Project)
 	}
 

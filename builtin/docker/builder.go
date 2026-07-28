@@ -111,12 +111,12 @@ from a Dockerfile.
 Many hosted environments, such as Kubernetes clusters, don't provide access
 to a Docker server. In these cases, it is desirable to perform what is called
 a "dockerless" build: building a Docker image without access to a Docker
-daemon. Waypoint supports dockerless builds.
+daemon. Derrick supports dockerless builds.
 
-Waypoint performs Dockerless builds by leveraging
+Derrick performs Dockerless builds by leveraging
 [Kaniko](https://github.com/GoogleContainerTools/kaniko)
 within on-demand launched runners. This should work in all supported
-Waypoint installation environments by default and you should not have
+Derrick installation environments by default and you should not have
 to specify any additional configuration.
 `)
 
@@ -360,12 +360,12 @@ func (b *Builder) Build(
 	}
 
 	if !b.config.DisableCEB {
-		step = sg.Add("Injecting Waypoint Entrypoint...")
+		step = sg.Add("Injecting Derrick Entrypoint...")
 
 		assetName, ok := assets.CEBArch[strings.ToLower(inspect.Architecture)]
 		if !ok {
 			return nil, status.Errorf(codes.FailedPrecondition,
-				"Automatic Waypoint entrypoint injection only supports amd64 and arm64 "+
+				"Automatic Derrick entrypoint injection only supports amd64 and arm64 "+
 					"image architectures. Got: %s", inspect.Architecture)
 		}
 

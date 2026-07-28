@@ -613,7 +613,7 @@ func (i *ECSInstaller) Upgrade(
 	for _, taskArn := range tasks.TaskArns {
 		_, err := ecsSvc.StopTask(&ecs.StopTaskInput{
 			Cluster: &clusterArn,
-			Reason:  aws.String("Waypoint server upgrade"),
+			Reason:  aws.String("Derrick server upgrade"),
 			Task:    taskArn,
 		})
 		if err != nil {
@@ -998,19 +998,19 @@ func (i *ECSInstaller) InstallFlags(set *flag.Set) {
 	set.StringVar(&flag.StringVar{
 		Name:    "ecs-server-image",
 		Target:  &i.config.ServerImage,
-		Usage:   "Docker image for the Waypoint server.",
+		Usage:   "Docker image for the Derrick server.",
 		Default: installutil.DefaultServerImage,
 	})
 	set.StringVar(&flag.StringVar{
 		Name:    "ecs-cpu",
 		Target:  &i.config.CPU,
-		Usage:   "Configures the requested CPU amount for the Waypoint server task in ECS.",
+		Usage:   "Configures the requested CPU amount for the Derrick server task in ECS.",
 		Default: "512",
 	})
 	set.StringVar(&flag.StringVar{
 		Name:    "ecs-mem",
 		Target:  &i.config.Memory,
-		Usage:   "Configures the requested memory amount for the Waypoint server task in ECS.",
+		Usage:   "Configures the requested memory amount for the Derrick server task in ECS.",
 		Default: "1024",
 	})
 	set.StringVar(&flag.StringVar{
@@ -1024,19 +1024,19 @@ func (i *ECSInstaller) InstallFlags(set *flag.Set) {
 	set.StringVar(&flag.StringVar{
 		Name:   "ecs-odr-image",
 		Target: &i.config.OdrImage,
-		Usage: "Docker image for the Waypoint On-Demand Runners. This will " +
+		Usage: "Docker image for the Derrick On-Demand Runners. This will " +
 			"default to the server image with the name (not label) suffixed with '-odr'.",
 	})
 	set.StringVar(&flag.StringVar{
 		Name:    "ecs-odr-mem",
 		Target:  &i.config.OdrMemory,
-		Usage:   "Configures the requested memory amount for the Waypoint On-Demand runner in ECS.",
+		Usage:   "Configures the requested memory amount for the Derrick On-Demand runner in ECS.",
 		Default: "2048",
 	})
 	set.StringVar(&flag.StringVar{
 		Name:    "ecs-odr-cpu",
 		Target:  &i.config.OdrCPU,
-		Usage:   "Configures the requested CPU amount for the Waypoint On-Demand runner in ECS.",
+		Usage:   "Configures the requested CPU amount for the Derrick On-Demand runner in ECS.",
 		Default: "512",
 	})
 }
@@ -1051,7 +1051,7 @@ func (i *ECSInstaller) UpgradeFlags(set *flag.Set) {
 	set.StringVar(&flag.StringVar{
 		Name:    "ecs-server-image",
 		Target:  &i.config.ServerImage,
-		Usage:   "Docker image for the Waypoint server.",
+		Usage:   "Docker image for the Derrick server.",
 		Default: installutil.DefaultServerImage,
 	})
 	set.StringVar(&flag.StringVar{
@@ -1062,20 +1062,20 @@ func (i *ECSInstaller) UpgradeFlags(set *flag.Set) {
 	set.StringVar(&flag.StringVar{
 		Name:    "ecs-cpu",
 		Target:  &i.config.CPU,
-		Usage:   "Configures the requested CPU amount for the Waypoint server task in ECS.",
+		Usage:   "Configures the requested CPU amount for the Derrick server task in ECS.",
 		Default: "512",
 	})
 	set.StringVar(&flag.StringVar{
 		Name:    "ecs-mem",
 		Target:  &i.config.Memory,
-		Usage:   "Configures the requested memory amount for the Waypoint server task in ECS.",
+		Usage:   "Configures the requested memory amount for the Derrick server task in ECS.",
 		Default: "1024",
 	})
 
 	set.StringVar(&flag.StringVar{
 		Name:   "ecs-odr-image",
 		Target: &i.config.OdrImage,
-		Usage: "Docker image for the Waypoint On-Demand Runners. This will " +
+		Usage: "Docker image for the Derrick On-Demand Runners. This will " +
 			"default to the server image with the name (not label) suffixed with '-odr'.",
 	})
 
@@ -1096,13 +1096,13 @@ func (i *ECSInstaller) UpgradeFlags(set *flag.Set) {
 	set.StringVar(&flag.StringVar{
 		Name:    "ecs-odr-mem",
 		Target:  &i.config.OdrMemory,
-		Usage:   "Configures the requested memory amount for the Waypoint On-Demand runner in ECS.",
+		Usage:   "Configures the requested memory amount for the Derrick On-Demand runner in ECS.",
 		Default: "2048",
 	})
 	set.StringVar(&flag.StringVar{
 		Name:    "ecs-odr-cpu",
 		Target:  &i.config.OdrCPU,
-		Usage:   "Configures the requested CPU amount for the Waypoint On-Demand runner in ECS.",
+		Usage:   "Configures the requested CPU amount for the Derrick On-Demand runner in ECS.",
 		Default: "512",
 	})
 }

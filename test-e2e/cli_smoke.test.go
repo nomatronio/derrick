@@ -17,7 +17,7 @@ func TestWaypointInstall(t *testing.T) {
 		t.Errorf("unexpected stderr output getting version: %s", stderr)
 	}
 
-	if !strings.Contains(stdout, "Waypoint v") {
+	if !strings.Contains(stdout, "Derrick v") {
 		t.Errorf("No version output detected:\n%s", stdout)
 	}
 }

@@ -14,7 +14,7 @@ import (
 	"github.com/nomatronio/derrick/pkg/serverconfig"
 )
 
-// HandleExec handles the `waypoint exec` websocket API. This works by
+// HandleExec handles the `derrick exec` websocket API. This works by
 // connecting back to our own local gRPC server.
 func HandleExec(addr string, tls bool) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {

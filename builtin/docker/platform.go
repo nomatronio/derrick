@@ -883,7 +883,7 @@ deploy {
 		"A map of key/value pairs to label the docker container with.",
 		docs.Summary(
 			"A map of key/value pair(s), stored in docker as a string. Each key/value pair must",
-			"be unique. Validiation occurs at the docker layer, not in Waypoint. Label",
+			"be unique. Validiation occurs at the docker layer, not in Derrick. Label",
 			"keys are alphanumeric strings which may contain periods (.) and hyphens (-).",
 		),
 	)
@@ -921,7 +921,7 @@ deploy {
 		"environment variables to expose to the application",
 		docs.Summary(
 			"these environment variables should not be run of the mill",
-			"configuration variables, use waypoint config for that.",
+			"configuration variables, use derrick config for that.",
 			"These variables are used to control over all container modes,",
 			"such as configuring it to start a web app vs a background worker",
 		),
@@ -967,7 +967,7 @@ deploy {
 		docs.Summary(
 			"this config block can be used to configure",
 			"a remote Docker engine.",
-			"By default Waypoint will attempt to discover this configuration",
+			"By default Derrick will attempt to discover this configuration",
 			"using the environment variables:",
 			"`DOCKER_HOST` to set the url to the docker server.",
 			"`DOCKER_API_VERSION` to set the version of the API to reach, leave empty for latest.",
@@ -981,7 +981,7 @@ deploy {
 
 var (
 	mixedHealthWarn = strings.TrimSpace(`
-Waypoint detected that the current deployment is not ready, however your application
+Derrick detected that the current deployment is not ready, however your application
 might be available or still starting up.
 `)
 )

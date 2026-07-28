@@ -415,7 +415,7 @@ func (c *JobListCommand) Flags() *flag.Sets {
 }
 
 func (c *JobListCommand) Synopsis() string {
-	return "List all jobs in Waypoint"
+	return "List all jobs in Derrick"
 }
 
 func (c *JobListCommand) Help() string {

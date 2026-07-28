@@ -294,7 +294,7 @@ func (c *ServerUpgradeCommand) Run(args []string) int {
 		c.ui.Output("Server address has changed after upgrade. This client will "+
 			"update its context with the new address, however any other clients "+
 			"using this server must manually update their server address listed below "+
-			"or find the address from `waypoint context list` which lists context %q address",
+			"or find the address from `derrick context list` which lists context %q address",
 			ctxName,
 			terminal.WithWarningStyle())
 	}
@@ -321,7 +321,7 @@ func (c *ServerUpgradeCommand) Run(args []string) int {
 		c.ui.Output(
 			"Error connecting to server: %s\n\n%s",
 			clierrors.Humanize(err),
-			"Check the waypoint server container logs for more information on "+
+			"Check the derrick server container logs for more information on "+
 				"why it could have failed.",
 			terminal.WithErrorStyle(),
 		)
@@ -598,10 +598,10 @@ Usage: derrick server upgrade [options]
 
   Upgrade Derrick server in the current context to the latest version or the
   server image version specified. By default, Derrick will upgrade to server
-  version "hashicorp/waypoint:latest". Before upgrading, a snapshot of the
+  version "nomatronio/derrick:latest". Before upgrading, a snapshot of the
   server will be taken in case of any upgrade failures.
 
-  If a runner was installed via "waypoint install" then that runner will also
+  If a runner was installed via "derrick install" then that runner will also
   be upgraded to the latest version after the server is upgraded. Any other
   manually installed runners will not be automatically upgraded.
 
@@ -621,11 +621,11 @@ upgrade.
 	upgradeFailHelp = strings.TrimSpace(`
 Upgrading Derrick server has failed. To restore from a snapshot, use the command:
 
-waypoint server restore [snapshot-name]
+derrick server restore [snapshot-name]
 
 Where 'snapshot-name' is the name of the snapshot taken prior to the upgrade.
 
-More information can be found by running 'waypoint server restore -help' or
+More information can be found by running 'derrick server restore -help' or
 following the server maintenance guide for backups and restores:
 https://www.derrick.dev/docs/server/run/maintenance#backup-restore
 `)
@@ -635,7 +635,7 @@ Advertise Address: %[1]s
 `)
 
 	runnerUnsetDefault = strings.TrimSpace(`
-waypoint runner profile set -default=false -plugin-type=%[1]s -name=%[2]s
+derrick runner profile set -default=false -plugin-type=%[1]s -name=%[2]s
 `)
 
 	runnerDefaultName = "=> %[1]s"
@@ -657,13 +657,13 @@ from being the default:
 	upgradeToHelmRefused = strings.TrimSpace(`
 Upgrading directly to 0.9.0 is not currently supported via this method on Kubernetes.
 
-You can manually perform the upgrade by taking a snapshot of your Waypoint
+You can manually perform the upgrade by taking a snapshot of your Derrick
 server and restoring the snapshot to a fresh install of Derrick Server using
 the commands:
 
-waypoint server snapshot
-waypoint install -platform=kubernetes
-waypoint server restore [snapshot-name]
+derrick server snapshot
+derrick install -platform=kubernetes
+derrick server restore [snapshot-name]
 `)
 
 	runnerProfileUpgradeConfigError = strings.TrimSpace(`
@@ -672,7 +672,7 @@ Plugin Config Error: %[3]s
 
 Please run the following with the corrected plugin configuration to fix this.
 
-waypoint runner profile set -name=%[2]s -plugin-config=<path_to_config_file>
+derrick runner profile set -name=%[2]s -plugin-config=<path_to_config_file>
 
 Starting in v0.9.0, ODR plugin configurations are validated for correctness.
 The previous configuration for this profile is invalid, and ODRs will not launch

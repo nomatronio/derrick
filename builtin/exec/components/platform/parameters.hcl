@@ -8,7 +8,7 @@ parameter {
 
 parameter {
   key         = "dir"
-  description = "The working directory to use while executing the command.\nThis will default to the same working directory as the Waypoint execution."
+  description = "The working directory to use while executing the command.\nThis will default to the same working directory as the Derrick execution."
   type        = "string"
   required    = false
 }

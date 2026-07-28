@@ -137,7 +137,7 @@ func (c *StatusCommand) RefreshApplicationStatus() error {
 	// Do the Work (local or remote)
 	if c.flagAllProjects {
 		c.ui.Output("This command does not support refreshing statuses for all "+
-			"defined projects in Waypoint. Use the project argument to narrow down "+
+			"defined projects in Derrick. Use the project argument to narrow down "+
 			"which projects you hope to refresh a status on.", terminal.WithWarningStyle())
 		return nil
 	}
@@ -1247,7 +1247,7 @@ func (c *StatusCommand) Help() string {
 Usage: derrick status [options] [project]
 
   View the current status of projects, applications, and their resources
-  managed by Waypoint.
+  managed by Derrick.
 
   When the '-refresh' flag is included, this command will attempt to regenerate
   every requested application's status report on-demand for both local and remote
@@ -1262,13 +1262,13 @@ var (
 	wpStatusSuccessMsg = strings.TrimSpace(`
 The projects listed above represent their current state known
 in the Derrick server. For more information about a project’s applications and
-their current state, run ‘waypoint status -project=PROJECT-NAME’.
+their current state, run ‘derrick status -project=PROJECT-NAME’.
 `)
 
 	wpStatusProjectSuccessMsg = strings.TrimSpace(`
 The project and its apps listed above represents its current state known
 in the Derrick server. For more information about a project’s applications and
-their current state, run ‘waypoint status -app=APP-NAME -project=PROJECT-NAME’.
+their current state, run ‘derrick status -app=APP-NAME -project=PROJECT-NAME’.
 `)
 
 	wpStatusAppSuccessMsg = strings.TrimSpace(`
@@ -1288,32 +1288,32 @@ Current status for application % q in project %q in server context %q.
 
 	wpNoServerContext = strings.TrimSpace(`
 No default server context set for the Derrick CLI. To set a default, use
-'waypoint context use <context-name>'. To see a full list of known contexts,
-run 'waypoint context list'. If Derrick is running in local mode, this is expected.
+'derrick context use <context-name>'. To see a full list of known contexts,
+run 'derrick context list'. If Derrick is running in local mode, this is expected.
 `)
 
 	wpStatusHealthTriageMsg = strings.TrimSpace(`
 To see more information about the failing application, please check out the application logs:
 
-waypoint logs -app=APP-NAME
+derrick logs -app=APP-NAME
 
 The projects listed above represent their current state known
 in Derrick server. For more information about an application defined in the
 project %[1]q can be viewed by running the command:
 
-waypoint status -app=APP-NAME -project=%[1]s
+derrick status -app=APP-NAME -project=%[1]s
 `)
 
 	wpProjectNotFound = strings.TrimSpace(`
 No project named %q was found for the server context %q. To see a list of
-currently configured projects, run “waypoint project list”.
+currently configured projects, run “derrick project list”.
 
 If you want more information for a specific application, use the '-app' flag
-with “waypoint status -app=APP-NAME -project=PROJECT-NAME”.
+with “derrick status -app=APP-NAME -project=PROJECT-NAME”.
 `)
 
 	wpAppNotFound = strings.TrimSpace(`
 No application named %q was found in project %q for the server context %q. To see a
-list of currently configured projects, run “waypoint project list”.
+list of currently configured projects, run “derrick project list”.
 `)
 )

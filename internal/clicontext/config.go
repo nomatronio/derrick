@@ -38,7 +38,7 @@ func LoadPath(path string) (*Config, error) {
 //   - assumes TLS skip verify
 //
 // The skip verify bit is a bad default but it is the most common UX
-// getting started and this URL is most commonly used with `waypoint login`
+// getting started and this URL is most commonly used with `derrick login`
 // so we want to provide the smoothest experience there at the expense
 // of a slight risk.
 func (c *Config) FromURL(v string) error {

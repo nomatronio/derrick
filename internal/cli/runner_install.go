@@ -129,7 +129,7 @@ Usage: derrick runner install [options]
   on the runner profile that is generated as part of adopting a runner during
   the install, the command would be:
 
-    waypoint runner install -server-addr=localhost:9701 -server-tls-skip-verify -- -label=environment=primary
+    derrick runner install -server-addr=localhost:9701 -server-tls-skip-verify -- -label=environment=primary
 
 ` + c.Flags().Help())
 }
@@ -342,13 +342,13 @@ func (c *RunnerInstallCommand) Run(args []string) int {
 
 var (
 	runnerInstalledButNotYetAdopted = strings.TrimSpace(`The installed runner must be adopted.
-Please run "waypoint runner adopt" before the runner can start accepting jobs.
+Please run "derrick runner adopt" before the runner can start accepting jobs.
 `)
 
 	runnerInstallFailed = strings.TrimSpace(`
 Please run the following to clean up the resources from the unsuccessful runner installation,
 specifying additional platform flags as needed:
 
-waypoint runner uninstall -platform=%[1]s -id=%[2]s <additional_platform_flags>
+derrick runner uninstall -platform=%[1]s -id=%[2]s <additional_platform_flags>
 `)
 )

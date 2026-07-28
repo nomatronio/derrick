@@ -155,7 +155,7 @@ func (c *baseCommand) Close() error {
 func (c *baseCommand) checkDeprecatedFlags() error {
 	// Check for deprecated project/app syntax.
 	// NOTE(izaak): we should remove this in the next major (v0.8.0) because it
-	// collides with arguments that contain a single slash (i.e. `waypoint exec bin/bash`)
+	// collides with arguments that contain a single slash (i.e. `derrick exec bin/bash`)
 	if len(c.args) > 0 {
 		match := reAppTarget.FindStringSubmatch(c.args[0])
 		if match != nil {
@@ -729,7 +729,7 @@ var (
 
 	errFlagAfterArgs = errors.New(strings.TrimSpace(`
 Flags must be specified before positional arguments in the CLI command.
-For example "waypoint up -example project" not "waypoint up project -example".
+For example "derrick up -example project" not "derrick up project -example".
 Please reorder your arguments and try again.
 
 Note: we can't automatically fix this or allow this since we can't safely

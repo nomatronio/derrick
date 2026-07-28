@@ -106,12 +106,12 @@ Usage: derrick user invite [options]
   Generate an invite token that can be used to log in.
 
   You must be logged in already to generate an invite token. If you need to
-  log in, use the "waypoint login" command.
+  log in, use the "derrick login" command.
 
   This generates a new invite token. An invite token can be exchanged for
   a login token. If your Derrick server has OIDC (non-token) auth enabled,
   it is recommended to instead invite users using your UI URL or directly
-  via "waypoint login".
+  via "derrick login".
 
 ` + c.Flags().Help()
 

@@ -245,7 +245,7 @@ func (i *ECSRunnerInstaller) Install(ctx context.Context, opts *InstallOpts) err
 func (i *ECSRunnerInstaller) InstallFlags(set *flag.Set) {
 	set.StringVar(&flag.StringVar{
 		Name:   "ecs-region",
-		Usage:  "AWS region in which to install the Waypoint runner.",
+		Usage:  "AWS region in which to install the Derrick runner.",
 		Target: &i.Config.Region,
 	})
 
@@ -266,14 +266,14 @@ func (i *ECSRunnerInstaller) InstallFlags(set *flag.Set) {
 	set.StringVar(&flag.StringVar{
 		Name:    "ecs-cpu",
 		Target:  &i.Config.CPU,
-		Usage:   "The amount of CPU to allocate for the Waypoint runner task.",
+		Usage:   "The amount of CPU to allocate for the Derrick runner task.",
 		Default: "512",
 	})
 
 	set.StringVar(&flag.StringVar{
 		Name:    "ecs-memory",
 		Target:  &i.Config.Memory,
-		Usage:   "The amount of memory to allocate for the Waypoint runner task",
+		Usage:   "The amount of memory to allocate for the Derrick runner task",
 		Default: "2048",
 	})
 
@@ -281,20 +281,20 @@ func (i *ECSRunnerInstaller) InstallFlags(set *flag.Set) {
 		Name:    "ecs-runner-image",
 		Target:  &i.Config.RunnerImage,
 		Default: defaultRunnerImage,
-		Usage:   "The Waypoint runner Docker image.",
+		Usage:   "The Derrick runner Docker image.",
 	})
 
 	set.StringVar(&flag.StringVar{
 		Name:    "ecs-cluster",
 		Target:  &i.Config.Cluster,
 		Default: "waypoint-server",
-		Usage:   "The name of the ECS Cluster to install the Waypoint runner into.",
+		Usage:   "The name of the ECS Cluster to install the Derrick runner into.",
 	})
 
 	set.StringSliceVar(&flag.StringSliceVar{
 		Name:   "ecs-subnets",
 		Target: &i.Config.Subnets,
-		Usage:  "Subnets to install the Waypoint runner into.",
+		Usage:  "Subnets to install the Derrick runner into.",
 	})
 }
 
@@ -361,7 +361,7 @@ func (i *ECSRunnerInstaller) Uninstall(ctx context.Context, opts *InstallOpts) e
 			return err
 		}
 
-		s.Update("Waypoint runner AWS ECS service deleted")
+		s.Update("Derrick runner AWS ECS service deleted")
 	}
 	s.Done()
 
@@ -460,7 +460,7 @@ DeleteFileSystem:
 func (i *ECSRunnerInstaller) UninstallFlags(set *flag.Set) {
 	set.StringVar(&flag.StringVar{
 		Name:   "ecs-region",
-		Usage:  "AWS region in which to install the Waypoint runner.",
+		Usage:  "AWS region in which to install the Derrick runner.",
 		Target: &i.Config.Region,
 	})
 
@@ -468,7 +468,7 @@ func (i *ECSRunnerInstaller) UninstallFlags(set *flag.Set) {
 		Name:    "ecs-cluster",
 		Target:  &i.Config.Cluster,
 		Default: "waypoint-server",
-		Usage:   "The name of the ECS Cluster to install the Waypoint runner into.",
+		Usage:   "The name of the ECS Cluster to install the Derrick runner into.",
 	})
 }
 
@@ -485,7 +485,7 @@ func launchRunner(
 	sg := ui.StepGroup()
 	defer sg.Wait()
 
-	s := sg.Add("Installing Waypoint runner into ECS...")
+	s := sg.Add("Installing Derrick runner into ECS...")
 	defer func() { s.Abort() }()
 
 	defaultStreamPrefix := fmt.Sprintf("waypoint-runner-%d", time.Now().Nanosecond())
@@ -621,7 +621,7 @@ func launchRunner(
 	}
 
 	// Check for details of possibly existing cluster `waypoint-server`
-	// If server was installed to ECS with `waypoint install` command, we'd expect this
+	// If server was installed to ECS with `derrick install` command, we'd expect this
 	// query what subnets and vpc information from the server service
 	services, err := ecsSvc.DescribeServices(&ecs.DescribeServicesInput{
 		Cluster:  aws.String(cluster),

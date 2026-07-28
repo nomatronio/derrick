@@ -39,7 +39,7 @@ func (c *JobCancelCommand) Run(args []string) int {
 
 	if c.flagForce {
 		c.ui.Output("You requested to use force to cancel a job! Be aware that this "+
-			"operation is dangerous and could result in some bad behavior or failure modes in Waypoint.",
+			"operation is dangerous and could result in some bad behavior or failure modes in Derrick.",
 			terminal.WithWarningStyle())
 		c.ui.Output("If this is not your intention, ctrl-c now! The CLI will sleep for 3 seconds...",
 			terminal.WithWarningStyle())

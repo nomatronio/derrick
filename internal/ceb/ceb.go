@@ -36,7 +36,7 @@ const (
 
 	// envLogLevel is the env var to set with the log level. This
 	// env var matches the Waypoint CLI on purpose. This can be set on
-	// the entrypoint process OR via app config (`waypoint config`).
+	// the entrypoint process OR via app config (`derrick config`).
 	envLogLevel = "DERRICK_LOG_LEVEL"
 )
 

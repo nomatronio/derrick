@@ -100,7 +100,7 @@ func (c *ExchangeInviteCommand) Run(args []string) int {
 	if c.token == "" {
 		c.project.UI.Output(
 			"An invite token is required.\n"+
-				"Run `waypoint token invite` to generate an invite token.", terminal.WithErrorStyle())
+				"Run `derrick token invite` to generate an invite token.", terminal.WithErrorStyle())
 		return 1
 	}
 
@@ -215,8 +215,8 @@ Usage: derrick token new [options]
 }
 
 const warnTokenDeprecated = `
-The "waypoint token" commands are deprecated. They have been replaced with
-the "waypoint user" set of commands. Everything that was possible with
-"waypoint token" is now possible with "waypoint user". For example,
-"waypoint token new" is now "waypoint user token".
+The "derrick token" commands are deprecated. They have been replaced with
+the "derrick user" set of commands. Everything that was possible with
+"derrick token" is now possible with "derrick user". For example,
+"derrick token new" is now "derrick user token".
 `

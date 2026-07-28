@@ -45,7 +45,7 @@ func (ceb *CEB) initClient(ctx context.Context, log hclog.Logger, cfg *config, r
 	}
 
 	if cfg.ServerAddr == "" {
-		log.Info("no waypoint server configured, disabled entrypoint")
+		log.Info("no derrick server configured, disabled entrypoint")
 		return nil
 	}
 

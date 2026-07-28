@@ -300,7 +300,7 @@ func (s *Service) authLogin(
 		// point.
 		if !body.UnusedLogin || userId != DefaultUserId {
 			return nil, status.Errorf(codes.Unauthenticated,
-				"Pre-Waypoint 0.5 token must be for the default user. This should always "+
+				"Pre-Derrick 0.5 token must be for the default user. This should always "+
 					"be the case so the token is likely corrupt.")
 		}
 
@@ -309,7 +309,7 @@ func (s *Service) authLogin(
 			// If we're already bootstrapped, give a slightly better error.
 			if status.Code(err) == codes.PermissionDenied {
 				return nil, status.Errorf(codes.Unauthenticated,
-					"Pre-Waypoint 0.5 token no longer accepted once the bootstrap user is deleted")
+					"Pre-Derrick 0.5 token no longer accepted once the bootstrap user is deleted")
 			}
 
 			return nil, err
@@ -375,7 +375,7 @@ func (s *Service) decodeToken(ctx context.Context, token string) (*pb.TokenTrans
 		if vt.Before(now.UTC()) {
 			return nil, nil, errors.Wrapf(ErrInvalidToken,
 				"Token has expired. The token was valid until: %s. Please "+
-					"reauthenticate to continue accessing Waypoint.", vt)
+					"reauthenticate to continue accessing Derrick.", vt)
 		}
 	}
 

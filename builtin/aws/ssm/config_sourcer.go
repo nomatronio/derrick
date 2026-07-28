@@ -75,7 +75,7 @@ func (cs *ConfigSourcer) read(
 		log.Warn("error decoding the config source config", "err", err)
 		return nil, err
 	}
-	awsConfig.CallerName = "Waypoint"
+	awsConfig.CallerName = "Derrick"
 	awsConfig.CallerDocumentationURL = "https://www.waypointproject.io/"
 
 	// Get our session

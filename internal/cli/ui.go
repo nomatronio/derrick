@@ -142,7 +142,7 @@ Usage: derrick ui [options]
 var (
 	noContextFoundError = strings.TrimSpace(`
 Attempted to open the ui but found no Derrick contexts. Please either create a new
-context that uses an existing Derrick server with 'waypoint context create'
-or install a server using 'waypoint server install' which will set up a context for you.
+context that uses an existing Derrick server with 'derrick context create'
+or install a server using 'derrick server install' which will set up a context for you.
 `)
 )

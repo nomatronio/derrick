@@ -114,7 +114,7 @@ monitor to restart the server, where it will see the staged snapshot and restore
 If -exit is not passed, an operator must restart the server manually to finish the restoration
 process.
 
-The argument should be to a file written previously by 'waypoint server snapshot'.
+The argument should be to a file written previously by 'derrick server snapshot'.
 If no name is specified and standard input is not a terminal, the backup will read from
 standard input. Using a name of '-' will force reading from standard input.
 

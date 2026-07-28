@@ -571,7 +571,7 @@ deploy {
 
 var (
 	mixedHealthWarn = strings.TrimSpace(`
-Waypoint detected that the current deployment is not ready, however your application
+Derrick detected that the current deployment is not ready, however your application
 might be available or still starting up.
 `)
 )

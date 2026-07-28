@@ -17,7 +17,7 @@ const (
 )
 
 type RunnerInstaller interface {
-	// Install expects a Waypoint Runner to be installed
+	// Install expects a Derrick Runner to be installed
 	Install(context.Context, *InstallOpts) error
 
 	// InstallFlags is called prior to Install and allows the installer to
@@ -55,7 +55,7 @@ type InstallOpts struct {
 	// Unique ID for the runner.
 	Id string
 
-	// Flags which will be supplied to the `waypoint runner agent` command
+	// Flags which will be supplied to the `derrick runner agent` command
 	RunnerAgentFlags []string
 }
 

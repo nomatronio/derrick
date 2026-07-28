@@ -35,7 +35,7 @@ func (cs *ConfigSourcer) initAuthMethod(
 	// You always need to set a mount path if you're using an auth method
 	if cs.config.AuthMethodMountPath == "" {
 		return fmt.Errorf(
-			"auth_method_mount_path must be set with waypoint config source-set")
+			"auth_method_mount_path must be set with derrick config source-set")
 	}
 
 	// Get the config
