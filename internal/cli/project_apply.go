@@ -33,8 +33,8 @@ type ProjectApplyCommand struct {
 	flagGitKeyPath            string
 	flagGitKeyPassword        string
 	flagGitRecurseSubmodules  int
-	flagFromDerrickHcl       string
-	flagDerrickHcl           string
+	flagFromDerrickHcl        string
+	flagDerrickHcl            string
 	flagPoll                  *bool
 	flagPollInterval          string
 	flagAppStatusPoll         *bool

@@ -7,9 +7,9 @@ import (
 	"sort"
 	"strings"
 
+	"github.com/mitchellh/pointerstructure"
 	"github.com/nomatronio/derrick/pkg/config/funcs"
 	pb "github.com/nomatronio/derrick/pkg/server/gen"
-	"github.com/mitchellh/pointerstructure"
 	"github.com/zclconf/go-cty/cty"
 )
 

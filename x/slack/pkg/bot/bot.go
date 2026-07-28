@@ -10,8 +10,8 @@ import (
 
 	"github.com/google/shlex"
 	"github.com/hashicorp/go-hclog"
-	"github.com/nomatronio/derrick/internal/cli"
 	mcli "github.com/mitchellh/cli"
+	"github.com/nomatronio/derrick/internal/cli"
 	"github.com/slack-go/slack"
 )
 
