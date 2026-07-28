@@ -7,7 +7,7 @@ import (
 // Plugin configures a plugin.
 type Plugin struct {
 	// Name of the plugin. This is expected to match the plugin binary
-	// "waypoint-plugin-<name>" including casing.
+	// "derrick-plugin-<name>" including casing.
 	Name string `hcl:",label"`
 
 	// Type is the type of plugin this is. This can be multiple.

@@ -54,6 +54,30 @@ else
   echo "OK: Makefile binary paths"
 fi
 
+if rg -q 'identifier  = "waypoint/' builtin/ 2>/dev/null; then
+  echo "FAIL: builtin plugin metadata still uses waypoint/ identifiers"
+  rg 'identifier  = "waypoint/' builtin/ | head -10
+  fail=1
+else
+  echo "OK: plugin metadata identifiers"
+fi
+
+if rg -q 'waypoint-plugin-' internal/plugin/ --glob '*.go' 2>/dev/null; then
+  echo "FAIL: plugin discovery still references waypoint-plugin- binary prefix"
+  rg 'waypoint-plugin-' internal/plugin/ --glob '*.go' | head -10
+  fail=1
+else
+  echo "OK: plugin binary prefix"
+fi
+
+if rg -q '"waypoint/workspace"' internal/ pkg/ --glob '*.go' 2>/dev/null; then
+  echo "FAIL: system label still uses waypoint/workspace"
+  rg '"waypoint/workspace"' internal/ pkg/ --glob '*.go' | head -10
+  fail=1
+else
+  echo "OK: system label namespace"
+fi
+
 if [[ "$fail" -ne 0 ]]; then
   echo ""
   echo "rename-check: one or more forbidden Waypoint identifiers remain."

@@ -275,7 +275,7 @@ func (c *DeploymentListCommand) Run(args []string) int {
 
 			if c.flagVerbose {
 				for k, val := range b.Labels {
-					if strings.HasPrefix(k, "waypoint/") {
+					if strings.HasPrefix(k, "derrick/") {
 						continue
 					}
 
@@ -288,7 +288,7 @@ func (c *DeploymentListCommand) Run(args []string) int {
 
 				if deployBundle.Artifact != nil {
 					for k, val := range deployBundle.Artifact.Labels {
-						if strings.HasPrefix(k, "waypoint/") {
+						if strings.HasPrefix(k, "derrick/") {
 							continue
 						}
 
@@ -302,7 +302,7 @@ func (c *DeploymentListCommand) Run(args []string) int {
 
 				if deployBundle.Build != nil {
 					for k, val := range deployBundle.Build.Labels {
-						if strings.HasPrefix(k, "waypoint/") {
+						if strings.HasPrefix(k, "derrick/") {
 							continue
 						}
 

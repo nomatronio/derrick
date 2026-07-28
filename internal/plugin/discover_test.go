@@ -44,8 +44,8 @@ func TestDiscover(t *testing.T) {
 			&Config{Name: "b"},
 			"",
 			&exec.Cmd{
-				Path: filepath.Join("testdata", "pathB", "waypoint-plugin-b"),
-				Args: []string{filepath.Join("testdata", "pathB", "waypoint-plugin-b")},
+				Path: filepath.Join("testdata", "pathB", "derrick-plugin-b"),
+				Args: []string{filepath.Join("testdata", "pathB", "derrick-plugin-b")},
 			},
 		},
 
@@ -58,8 +58,8 @@ func TestDiscover(t *testing.T) {
 			&Config{Name: "a"},
 			"",
 			&exec.Cmd{
-				Path: filepath.Join("testdata", "pathA", "waypoint-plugin-a"),
-				Args: []string{filepath.Join("testdata", "pathA", "waypoint-plugin-a")},
+				Path: filepath.Join("testdata", "pathA", "derrick-plugin-a"),
+				Args: []string{filepath.Join("testdata", "pathA", "derrick-plugin-a")},
 			},
 		},
 
@@ -75,8 +75,8 @@ func TestDiscover(t *testing.T) {
 			},
 			"",
 			&exec.Cmd{
-				Path: filepath.Join("testdata", "pathB", "waypoint-plugin-b"),
-				Args: []string{filepath.Join("testdata", "pathB", "waypoint-plugin-b")},
+				Path: filepath.Join("testdata", "pathB", "derrick-plugin-b"),
+				Args: []string{filepath.Join("testdata", "pathB", "derrick-plugin-b")},
 			},
 		},
 

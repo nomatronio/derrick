@@ -24,7 +24,7 @@ app "relative_above_root" {
 
 app "system_label" {
     labels = {
-        "waypoint/foo" = "bar"
+        "derrick/foo" = "bar"
     }
 
     build {

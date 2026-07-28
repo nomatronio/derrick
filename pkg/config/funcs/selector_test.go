@@ -29,8 +29,8 @@ func TestSelectorMatch(t *testing.T) {
 		},
 
 		{
-			map[string]string{"waypoint/workspace": "foo"},
-			"waypoint/workspace == foo",
+			map[string]string{"derrick/workspace": "foo"},
+			"derrick/workspace == foo",
 			cty.BoolVal(true),
 			false,
 		},
