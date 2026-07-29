@@ -2,7 +2,9 @@ project = "sinatra"
 
 app "sinatra" {
   build {
-    use "pack" {}
+    use "pack" {
+      disable_entrypoint = true
+    }
 
     registry {
       use "docker" {
