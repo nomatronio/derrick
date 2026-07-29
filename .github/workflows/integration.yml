@@ -92,6 +92,8 @@ jobs:
         with:
           name: derrick.tar
       - name: Execute Integration Tests
+        env:
+          GOLANG_PROTOBUF_REGISTRATION_CONFLICT: warn
         run: |-
           tar -xvf derrick.tar
           ./ci/integration.sh
