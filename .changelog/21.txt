@@ -1,0 +1,3 @@
+```release-note:improvement
+pack: Upgrade pack library to v0.24.1 and default to heroku/builder:24 for Platform API 0.7+ compatibility
+```

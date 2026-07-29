@@ -13,7 +13,7 @@ Create a Docker image using CloudNative Buildpacks.
 ```hcl
 build {
   use "pack" {
-	builder     = "heroku/buildpacks:20"
+		builder     = "heroku/builder:24"
 	disable_entrypoint = false
   }
 }
