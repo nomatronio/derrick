@@ -118,6 +118,7 @@ module('Acceptance | workspaces', function (hooks) {
     await visit('/alpha');
     await click('[data-test-logout-button]');
 
+    assert.equal(currentURL(), '/auth', 'redirected to auth on logout');
     assert.equal(session.data.workspace, undefined, 'workspace no longer in session store');
   });
 });

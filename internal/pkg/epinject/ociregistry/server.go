@@ -28,6 +28,8 @@ import (
 	"github.com/oklog/ulid/v2"
 	"github.com/opencontainers/go-digest"
 	v1 "github.com/opencontainers/image-spec/specs-go/v1"
+
+	"github.com/nomatronio/derrick/internal/pkg/epinject"
 	"github.com/pkg/errors"
 )
 
@@ -238,7 +240,7 @@ func (s *Server) SetupEntrypointLayer(name string, epData []byte) error {
 	tw := tar.NewWriter(io.MultiWriter(gzw, dh))
 
 	tw.WriteHeader(&tar.Header{
-		Name: "/waypoint-entrypoint",
+		Name: epinject.EntrypointPath,
 		Size: int64(len(epData)),
 		Mode: 0777,
 	})
@@ -599,11 +601,11 @@ func (s *Server) updateManifest(w http.ResponseWriter, r *http.Request) {
 		})
 	}
 
-	// By default we want to prepend waypoint-entrypoint to the Entrypoint and
+	// By default we want to prepend the Derrick entrypoint to the Entrypoint and
 	// inject the CEB. If the Entrypoint is empty, or the first element is
-	// already waypoint-entrypoint, we skip the injection
-	if len(config.Config.Entrypoint) == 0 || config.Config.Entrypoint[0] != "/waypoint-entrypoint" {
-		config.Config.Entrypoint = append([]string{"/waypoint-entrypoint"}, config.Config.Entrypoint...)
+	// already a Derrick entrypoint, we skip the injection
+	if len(config.Config.Entrypoint) == 0 || !epinject.HasEntrypoint(config.Config.Entrypoint) {
+		config.Config.Entrypoint = append([]string{epinject.EntrypointPath}, config.Config.Entrypoint...)
 		s.Logger.Debug("injected entrypoint", "value", config.Config.Entrypoint)
 	} else {
 		s.Logger.Debug("entrypoint already included", "value", config.Config.Entrypoint)
