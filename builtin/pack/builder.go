@@ -11,9 +11,9 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/buildpacks/pack"
-	"github.com/buildpacks/pack/logging"
-	"github.com/buildpacks/pack/project"
+	packclient "github.com/buildpacks/pack/pkg/client"
+	"github.com/buildpacks/pack/pkg/logging"
+	projectTypes "github.com/buildpacks/pack/pkg/project/types"
 	"github.com/docker/distribution/reference"
 	"github.com/docker/docker/client"
 	"github.com/hashicorp/go-hclog"
@@ -76,7 +76,7 @@ type BuilderConfig struct {
 	ProcessType string `hcl:"process_type,optional" default:"web"`
 }
 
-const DefaultBuilder = "heroku/builder:20"
+const DefaultBuilder = "heroku/builder:24"
 
 // Config implements Configurable
 func (b *Builder) Config() (interface{}, error) {
@@ -373,9 +373,9 @@ func (b *Builder) Build(
 	build := sg.Add("Building image")
 	defer build.Abort()
 
-	client, err := pack.NewClient(
-		pack.WithLogger(logging.New(build.TermOutput())),
-		pack.WithDockerClient(dockerClient),
+	client, err := packclient.NewClient(
+		packclient.WithLogger(logging.NewSimpleLogger(build.TermOutput())),
+		packclient.WithDockerClient(dockerClient),
 	)
 	if err != nil {
 		return nil, err
@@ -383,18 +383,19 @@ func (b *Builder) Build(
 
 	step.Done()
 
-	bo := pack.BuildOptions{
+	bo := packclient.BuildOptions{
 		Image:      src.App,
 		Builder:    builder,
 		AppPath:    src.Path,
 		Env:        b.config.StaticEnvVars,
 		Buildpacks: b.config.Buildpacks,
-		ProjectDescriptor: project.Descriptor{
-			Build: project.Build{
+		ProjectDescriptor: projectTypes.Descriptor{
+			Build: projectTypes.Build{
 				Exclude: b.config.Ignore,
 			},
 		},
 		DefaultProcessType: b.config.ProcessType,
+		TrustBuilder:     func(string) bool { return true },
 	}
 
 	err = client.Build(ctx, bo)
@@ -522,7 +523,7 @@ Create a Docker image using CloudNative Buildpacks.
 	doc.Example(`
 build {
   use "pack" {
-	builder     = "heroku/buildpacks:20"
+		builder     = "heroku/builder:24"
 	disable_entrypoint = false
   }
 }
