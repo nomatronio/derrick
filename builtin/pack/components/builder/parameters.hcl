@@ -4,7 +4,7 @@ parameter {
   description   = "The buildpack builder image to use"
   type          = "string"
   required      = false
-  default_value = "heroku/builder:22"
+  default_value = "heroku/builder:20"
 }
 
 parameter {

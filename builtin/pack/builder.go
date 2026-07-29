@@ -76,7 +76,7 @@ type BuilderConfig struct {
 	ProcessType string `hcl:"process_type,optional" default:"web"`
 }
 
-const DefaultBuilder = "heroku/builder:22"
+const DefaultBuilder = "heroku/builder:20"
 
 // Config implements Configurable
 func (b *Builder) Config() (interface{}, error) {
