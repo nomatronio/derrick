@@ -1,4 +1,4 @@
-import { click, visit, currentURL } from '@ember/test-helpers';
+import { click, visit, currentURL, waitUntil } from '@ember/test-helpers';
 import { setupMirage } from 'ember-cli-mirage/test-support';
 import { setupApplicationTest } from 'ember-qunit';
 import { module, test } from 'qunit';
@@ -119,6 +119,7 @@ module('Acceptance | workspaces', function (hooks) {
     await click('[data-test-logout-button]');
 
     assert.equal(currentURL(), '/auth', 'redirected to auth on logout');
+    await waitUntil(() => session.data.workspace === undefined);
     assert.equal(session.data.workspace, undefined, 'workspace no longer in session store');
   });
 });
