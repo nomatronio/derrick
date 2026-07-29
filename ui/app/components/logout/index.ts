@@ -10,6 +10,7 @@ export default class Logout extends Component {
 
   @action
   async logout(): Promise<void> {
+    this.session.set('data.workspace', undefined);
     await this.session.invalidate();
     this.router.transitionTo('auth');
   }
