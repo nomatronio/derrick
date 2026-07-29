@@ -688,7 +688,7 @@ func TestRunnerAccept_noConfig_serverHcl(t *testing.T) {
 	{
 		_, err := client.UpsertProject(context.Background(), &pb.UpsertProjectRequest{
 			Project: &pb.Project{
-				Name:        ref.Project,
+				Name:       ref.Project,
 				DerrickHcl: []byte(configpkg.TestSource(t)),
 			},
 		})
@@ -736,7 +736,7 @@ func TestRunnerAccept_noConfig_serverHclJson(t *testing.T) {
 	{
 		_, err := client.UpsertProject(context.Background(), &pb.UpsertProjectRequest{
 			Project: &pb.Project{
-				Name:              ref.Project,
+				Name:             ref.Project,
 				DerrickHcl:       []byte(configpkg.TestSourceJSON(t)),
 				DerrickHclFormat: pb.Hcl_JSON,
 			},

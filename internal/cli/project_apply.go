@@ -33,8 +33,8 @@ type ProjectApplyCommand struct {
 	flagGitKeyPath            string
 	flagGitKeyPassword        string
 	flagGitRecurseSubmodules  int
-	flagFromDerrickHcl       string
-	flagDerrickHcl           string
+	flagFromDerrickHcl        string
+	flagDerrickHcl            string
 	flagPoll                  *bool
 	flagPollInterval          string
 	flagAppStatusPoll         *bool
@@ -104,7 +104,7 @@ func (c *ProjectApplyCommand) Run(args []string) int {
 		path, err := filepath.Abs(c.flagFromDerrickHcl)
 		if err != nil {
 			c.ui.Output(
-				"Error loading HCL file specified with the -from-waypoint-hcl flag: %s", clierrors.Humanize(err),
+				"Error loading HCL file specified with the -from-derrick-hcl flag: %s", clierrors.Humanize(err),
 				terminal.WithErrorStyle(),
 			)
 
@@ -117,7 +117,7 @@ func (c *ProjectApplyCommand) Run(args []string) int {
 		})
 		if err != nil {
 			c.ui.Output(
-				"Error loading HCL file specified with the -from-waypoint-hcl flag: %s", clierrors.Humanize(err),
+				"Error loading HCL file specified with the -from-derrick-hcl flag: %s", clierrors.Humanize(err),
 				terminal.WithErrorStyle(),
 			)
 
@@ -140,7 +140,7 @@ func (c *ProjectApplyCommand) Run(args []string) int {
 			ds, err := source.ProjectSource(dscfg.Body, cfg.HCLContext())
 			if err != nil {
 				c.ui.Output(
-					"Error loading HCL file specified with the -from-waypoint-hcl flag: %s", clierrors.Humanize(err),
+					"Error loading HCL file specified with the -from-derrick-hcl flag: %s", clierrors.Humanize(err),
 					terminal.WithErrorStyle(),
 				)
 
@@ -322,7 +322,7 @@ func (c *ProjectApplyCommand) Run(args []string) int {
 		bs, err := ioutil.ReadFile(v)
 		if err != nil {
 			c.ui.Output(
-				"Error reading HCL file specified with the -waypoint-hcl flag: %s",
+				"Error reading HCL file specified with the -derrick-hcl flag: %s",
 				clierrors.Humanize(err),
 				terminal.WithErrorStyle(),
 			)
@@ -334,10 +334,10 @@ func (c *ProjectApplyCommand) Run(args []string) int {
 		switch filepath.Ext(v) {
 		case ".hcl":
 			format = pb.Hcl_HCL
-			_, diag := hclsyntax.ParseConfig(bs, "<waypoint-hcl>", hcl.Pos{})
+			_, diag := hclsyntax.ParseConfig(bs, "<derrick-hcl>", hcl.Pos{})
 			if diag.HasErrors() {
 				c.ui.Output(
-					"Syntax errors in file specified with -waypoint-hcl: %s",
+					"Syntax errors in file specified with -derrick-hcl: %s",
 					clierrors.Humanize(diag),
 					terminal.WithErrorStyle(),
 				)
@@ -347,10 +347,10 @@ func (c *ProjectApplyCommand) Run(args []string) int {
 
 		case ".json":
 			format = pb.Hcl_JSON
-			_, diag := hcljson.Parse(bs, "<waypoint-hcl>")
+			_, diag := hcljson.Parse(bs, "<derrick-hcl>")
 			if diag.HasErrors() {
 				c.ui.Output(
-					"Syntax errors in file specified with -waypoint-hcl: %s",
+					"Syntax errors in file specified with -derrick-hcl: %s",
 					clierrors.Humanize(diag),
 					terminal.WithErrorStyle(),
 				)
@@ -360,7 +360,7 @@ func (c *ProjectApplyCommand) Run(args []string) int {
 
 		default:
 			c.ui.Output(
-				"File specified via -waypoint-hcl must end in '.hcl' or '.json'",
+				"File specified via -derrick-hcl must end in '.hcl' or '.json'",
 				terminal.WithErrorStyle(),
 			)
 
@@ -398,7 +398,7 @@ func (c *ProjectApplyCommand) Flags() *flag.Sets {
 		f := sets.NewSet("Command Options")
 
 		f.StringVar(&flag.StringVar{
-			Name:    "from-waypoint-hcl",
+			Name:    "from-derrick-hcl",
 			Target:  &c.flagFromDerrickHcl,
 			Default: "",
 			Usage: "derrick.hcl formatted file to load settings from. This can be used " +
@@ -408,7 +408,7 @@ func (c *ProjectApplyCommand) Flags() *flag.Sets {
 		})
 
 		f.StringVar(&flag.StringVar{
-			Name:    "waypoint-hcl",
+			Name:    "derrick-hcl",
 			Target:  &c.flagDerrickHcl,
 			Default: "",
 			Usage: "Path to a derrick.hcl file to associate with this project. This " +
@@ -556,7 +556,7 @@ Usage: derrick project apply [options] NAME
   also use "derrick init" in the directory of the project.
 
   You may create a project from a derrick.hcl file and optionally overwrite
-  some fields using flags by specifying the -waypoint-hcl flag.
+  some fields using flags by specifying the -derrick-hcl flag.
 
 ` + c.Flags().Help())
 }

@@ -2,12 +2,15 @@ project = "sinatra"
 
 app "sinatra" {
   build {
-    use "pack" {}
+    use "docker" {
+      disable_entrypoint = true
+    }
 
     registry {
       use "docker" {
-        image = "registry.localhost:5000/sinatra"
-        tag   = "latest"
+        image    = "registry.localhost:5000/sinatra"
+        tag      = "latest"
+        insecure = true
       }
     }
   }

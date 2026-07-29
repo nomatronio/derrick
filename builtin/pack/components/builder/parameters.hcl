@@ -4,7 +4,7 @@ parameter {
   description   = "The buildpack builder image to use"
   type          = "string"
   required      = false
-  default_value = "heroku/buildpacks:20"
+  default_value = "heroku/builder:20"
 }
 
 parameter {
@@ -37,7 +37,7 @@ parameter {
 
 parameter {
   key         = "static_environment"
-  description = "environment variables to expose to the buildpack\nthese environment variables should not be run of the mill configuration variables, use waypoint config for that. These variables are used to control over all container modes, such as configuring it to start a web app vs a background worker"
+  description = "environment variables to expose to the buildpack\nthese environment variables should not be run of the mill configuration variables, use derrick config for that. These variables are used to control over all container modes, such as configuring it to start a web app vs a background worker"
   type        = "map of string to string"
   required    = false
 }

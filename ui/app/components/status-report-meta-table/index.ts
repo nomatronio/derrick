@@ -5,13 +5,7 @@ import { tracked } from '@glimmer/tracking';
 import ApiService from 'derrick/services/api';
 import FlashMessagesService from 'derrick/services/pds-flash-messages';
 import type ProjectService from 'derrick/services/project';
-import {
-  Ref,
-  ExpediteStatusReportRequest,
-  GetJobStreamRequest,
-  GetJobStreamResponse,
-  Job,
-} from 'derrick-pb';
+import { Ref, ExpediteStatusReportRequest, GetJobStreamRequest, GetJobStreamResponse, Job } from 'derrick-pb';
 import { DeploymentExtended } from 'derrick/services/api';
 
 interface Args {

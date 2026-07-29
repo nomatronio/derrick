@@ -488,7 +488,7 @@ func TestProjectGetSetAllPropertiesSansVariables(t *testing.T, f Factory, rf Res
 		},
 		DerrickHcl:       []byte("hcl bytes"),
 		DerrickHclFormat: pb.Hcl_JSON,
-		FileChangeSignal:  "HUP",
+		FileChangeSignal: "HUP",
 		StatusReportPoll: &pb.Project_AppStatusPoll{
 			Enabled:  true,
 			Interval: "1h",
@@ -655,7 +655,7 @@ func TestProjectGetSetAllProperties(t *testing.T, f Factory, rf RestartFactory) 
 		},
 		DerrickHcl:       []byte("hcl bytes"),
 		DerrickHclFormat: pb.Hcl_JSON,
-		FileChangeSignal:  "HUP",
+		FileChangeSignal: "HUP",
 		Variables: []*pb.Variable{{
 			Name: "test-variable",
 			Value: &pb.Variable_Str{

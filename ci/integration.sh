@@ -16,30 +16,30 @@ kubectl cluster-info
 echo "Boot up the registry to use:"
 docker run -d -p 5000:5000 --restart=always --name registry.localhost registry:2
 
-WP="$(pwd)/waypoint"
+DERRICK="$(pwd)/derrick"
 
-test -e "$WP"
+test -e "$DERRICK"
 
 cd ci/sinatra || exit 1
 
-[[ -n "$GITHUB_ACTION" ]] && echo "::group::Waypoint init"
-"$WP" init
+[[ -n "$GITHUB_ACTION" ]] && echo "::group::Derrick init"
+"$DERRICK" init
 
-[[ -n "$GITHUB_ACTION" ]] && echo "::group::Waypoint build"
-"$WP" build
+[[ -n "$GITHUB_ACTION" ]] && echo "::group::Derrick build"
+"$DERRICK" build
 
-[[ -n "$GITHUB_ACTION" ]] && echo "::group::Waypoint deploy"
+[[ -n "$GITHUB_ACTION" ]] && echo "::group::Derrick deploy"
 # If the registry isn't working and the pods are therefore unable to pull, we get stuck in an infinite wait
-timeout 1m "$WP" deploy
+timeout 3m "$DERRICK" deploy
 
-[[ -n "$GITHUB_ACTION" ]] && echo "::group::Waypoint release"
-"$WP" release
+[[ -n "$GITHUB_ACTION" ]] && echo "::group::Derrick release"
+"$DERRICK" release
 
-[[ -n "$GITHUB_ACTION" ]] && echo "::group::Waypoint deployment list"
+[[ -n "$GITHUB_ACTION" ]] && echo "::group::Derrick deployment list"
 # Smoke test list methods
-"$WP" deployment list
-"$WP" deployment list -V
-"$WP" deployment list -json
+"$DERRICK" deployment list
+"$DERRICK" deployment list -V
+"$DERRICK" deployment list -json
 
 ## Let things get going.
 sleep 10
@@ -48,4 +48,4 @@ sleep 10
 
 PORT=$(kubectl get service sinatra -o jsonpath="{.spec.ports[0].nodePort}")
 
-test "$(curl -s "localhost:$PORT")" = "Welcome to Waypoint!"
+test "$(curl -s "localhost:$PORT")" = "Welcome to Derrick!"

@@ -8,7 +8,7 @@ jobs:
   check-links:
     uses: hashicorp/dev-portal/.github/workflows/docs-content-check-legacy-links-format.yml@475289345d312552b745224b46895f51cc5fc490
     with:
-      repo-owner: "hashicorp"
+      repo-owner: "nomatronio"
       repo-name: "derrick"
       commit-sha: ${{ github.sha }}
       mdx-directory: "website/content"

@@ -12,13 +12,13 @@ jobs:
         with:
           go-version-file: go.mod
       - run: go mod download
-      - uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2
+      - uses: actions/download-artifact@v4
         with:
           path: "."
       - name: generate json plugin docs
         run: go run ./cmd/derrick docs -json
       - run: rm derrick-restore.db.lock; git status
-      - uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce # v3.1.2
+      - uses: actions/upload-artifact@v4
         with:
           path: "embedJson"
           name: docs
@@ -29,7 +29,7 @@ jobs:
       - generate-json-docs
     steps:
       - uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3.5.2
-      - uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2
+      - uses: actions/download-artifact@v4
         with:
           path: "embedJson"
           name: docs

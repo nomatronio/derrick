@@ -177,7 +177,7 @@ func (c *RunnerProfileSetCommand) Run(args []string) int {
 		switch filepath.Ext(path) {
 		case ".hcl":
 			od.ConfigFormat = pb.Hcl_HCL
-			_, diag := hclsyntax.ParseConfig(data, "<waypoint-hcl>", hcl.Pos{})
+			_, diag := hclsyntax.ParseConfig(data, "<derrick-hcl>", hcl.Pos{})
 			if diag.HasErrors() {
 				c.ui.Output(
 					"Syntax errors in file specified with -plugin-config: %s",
@@ -190,7 +190,7 @@ func (c *RunnerProfileSetCommand) Run(args []string) int {
 
 		case ".json":
 			od.ConfigFormat = pb.Hcl_JSON
-			_, diag := hcljson.Parse(data, "<waypoint-hcl>")
+			_, diag := hcljson.Parse(data, "<derrick-hcl>")
 			if diag.HasErrors() {
 				c.ui.Output(
 					"Syntax errors in file specified with -plugin-config: %s",

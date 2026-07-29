@@ -1,11 +1,4 @@
-import {
-  GetJobRequest,
-  GetJobStreamResponse,
-  Job,
-  QueueJobRequest,
-  QueueJobResponse,
-  Ref,
-} from 'derrick-pb';
+import { GetJobRequest, GetJobStreamResponse, Job, QueueJobRequest, QueueJobResponse, Ref } from 'derrick-pb';
 
 import ApiService from 'derrick/services/api';
 import Component from '@glimmer/component';

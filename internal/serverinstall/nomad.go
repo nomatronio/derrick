@@ -104,9 +104,9 @@ var (
 	defaultCSIVolumeMountFS = "xfs"
 
 	// Defaults to use for setting up Consul
-	defaultServiceTag             = "derrick"
-	defaultConsulDatacenter       = "dc1"
-	defaultConsulDomain           = "consul"
+	defaultServiceTag            = "derrick"
+	defaultConsulDatacenter      = "dc1"
+	defaultConsulDomain          = "consul"
 	derrickBackendServiceName    = "derrick-server"
 	derrickUIServiceName         = "derrick-ui"
 	defaultDerrickConsulHostname = fmt.Sprintf("%s.%s.service.%s.%s",

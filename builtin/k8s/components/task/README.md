@@ -1,5 +1,5 @@
 <!-- This file was generated via `make gen/integrations-hcl` -->
-Launch a Kubernetes pod for on-demand tasks from the Waypoint server.
+Launch a Kubernetes pod for on-demand tasks from the Derrick server.
 
 This will use the standard Kubernetes environment variables to source
 authentication information for Kubernetes. If this is running within Kubernetes

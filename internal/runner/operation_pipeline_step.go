@@ -144,7 +144,7 @@ func (r *Runner) executePipelineStepExec(
 		Labels:              job.Labels,
 		DataSource:          job.DataSource,
 		DataSourceOverrides: job.DataSourceOverrides,
-		DerrickHcl:         job.DerrickHcl,
+		DerrickHcl:          job.DerrickHcl,
 		Variables:           job.Variables,
 
 		// Must target "any" runner so we get ODR to work.

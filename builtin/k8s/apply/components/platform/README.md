@@ -3,15 +3,15 @@ Deploy Kubernetes resources directly from a single file or a directory of YAML
 or JSON files.
 
 This plugin lets you use any pre-existing set of Kubernetes resource files
-to deploy to Kubernetes. This plugin supports all the features of Waypoint.
-You may use Waypoint's [templating features](/waypoint/docs/waypoint-hcl/functions/template)
+to deploy to Kubernetes. This plugin supports all the features of Derrick.
+You may use Derrick's [templating features](/derrick/docs/waypoint-hcl/functions/template)
 to template the resources with information such as the artifact from
 a previous build step, entrypoint environment variables, etc.
 
 ### Requirements
 
 This plugin requires "kubectl" to be installed since this plugin works by
-subprocessing to "kubectl apply". Other Waypoint Kubernetes plugins sometimes
+subprocessing to "kubectl apply". Other Derrick Kubernetes plugins sometimes
 use the API directly but this plugin requires "kubectl".
 
 "kubectl" must also be configured to access your Kubernetes cluster. You
@@ -21,7 +21,7 @@ used.
 
 ### Artifact Access
 
-You may use Waypoint's [templating features](/waypoint/docs/waypoint-hcl/functions/template)
+You may use Derrick's [templating features](/derrick/docs/waypoint-hcl/functions/template)
 to access information such as the artifact from the build or push stages.
 An example below shows this by using `templatedir` mixed with
 variables such as `artifact.image` to dynamically configure the
@@ -29,26 +29,26 @@ Docker image within a Kubernetes Deployment.
 
 ### Entrypoint Functionality
 
-Waypoint [entrypoint functionality](/waypoint/docs/entrypoint#functionality) such
+Derrick [entrypoint functionality](/derrick/docs/entrypoint#functionality) such
 as logs, exec, app configuration, and more require two properties to be true:
 
-1. The running image must already have the Waypoint entrypoint installed
+1. The running image must already have the Derrick entrypoint installed
   and configured as the entrypoint. This should happen in the build stage.
 
 2. Proper environment variables must be set so the entrypoint knows how
-  to communicate to the Waypoint server. **This step happens in this
+  to communicate to the Derrick server. **This step happens in this
   deployment stage.**
 
 **Step 2 does not happen automatically.** You must manually set the entrypoint
-environment variables using the [templating feature](/waypoint/docs/waypoint-hcl/functions/template).
+environment variables using the [templating feature](/derrick/docs/waypoint-hcl/functions/template).
 One of the examples below shows the entrypoint environment variables being
 injected.
 
 ### URL Service
 
 If you want your workload to be accessible by the
-[Waypoint URL service](/waypoint/docs/url), you must set the PORT environment variable
-within the pod with your web service and also be using the Waypoint
+[Derrick URL service](/derrick/docs/url), you must set the PORT environment variable
+within the pod with your web service and also be using the Derrick
 entrypoint (documented in the previous section).
 
 The PORT environment variable should be the port that your web service
@@ -63,7 +63,7 @@ below for more details.
 ### Examples
 
 ```hcl
-// The waypoint.hcl file
+// The derrick.hcl file
 deploy {
   use "kubernetes-apply" {
     // Templated to perhaps bring in the artifact from a previous

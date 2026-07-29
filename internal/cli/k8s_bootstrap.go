@@ -107,7 +107,7 @@ func (c *K8SBootstrapCommand) Run(args []string) int {
 
 	if advertiseAddr == "" {
 		c.ui.Output(
-			"Failed to detect waypoint-ui service address.",
+			"Failed to detect derrick-ui service address.",
 			terminal.WithErrorStyle(),
 		)
 		return 1

@@ -26,12 +26,12 @@ jobs:
       derrick-odr-image: ${{ steps.push-derrick-odr.outputs.derrick-odr-image }}
     steps:
       - name: Download Derrick Image
-        uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2
+        uses: actions/download-artifact@v4
         with:
           name: ${{ inputs.derrick-tar }}
 
       - name: Download Derrick ODR Image
-        uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2
+        uses: actions/download-artifact@v4
         with:
           name: ${{ inputs.derrick-odr-tar }}
 
@@ -70,7 +70,7 @@ jobs:
       - uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3.5.2
       - uses: actions/setup-go@4d34df0c2316fe8122ab82dc22947d607c0c91f9 # v4.0.0
 
-      - uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2
+      - uses: actions/download-artifact@v4
         with: 
           name: ${{ inputs.derrick-binary }}
 

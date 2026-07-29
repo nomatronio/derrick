@@ -1,7 +1,7 @@
 <!-- This file was generated via `make gen/integrations-hcl` -->
 Use an existing, pre-built Docker image.
 
-This builder will automatically inject the Waypoint entrypoint. You
+This builder will automatically inject the Derrick entrypoint. You
 can disable this with the "disable_entrypoint" configuration.
 
 If you wish to rename or retag an image, use this along with the
@@ -11,9 +11,9 @@ push it to the specified registry.
 If Docker isn't available (the Docker daemon isn't running or a DOCKER_HOST
 isn't set), a daemonless solution will be used instead.
 
-If "disable_entrypoint" is set to true and the Waypoint configuration
+If "disable_entrypoint" is set to true and the Derrick configuration
 has no registry, this builder will not physically pull the image. This enables
-Waypoint to work in environments where the image is built outside of Waypoint
+Derrick to work in environments where the image is built outside of Derrick
 (such as in a CI pipeline).
 
 ### Interface

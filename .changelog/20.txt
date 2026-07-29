@@ -1,0 +1,3 @@
+```release-note:improvement
+ci: Fix module parsing, cache actions, link checker, and labeler permissions after the Waypoint rename
+```

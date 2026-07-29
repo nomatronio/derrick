@@ -70,7 +70,7 @@ jobs:
         with:
           version: ${{ needs.get-product-version.outputs.product-version }}
           product: ${{ env.PKG_NAME }}
-      - uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce # v3.1.2
+      - uses: actions/upload-artifact@v4
         with:
           name: metadata.json
           path: ${{ steps.generate-metadata-file.outputs.filepath }}
@@ -98,7 +98,7 @@ jobs:
           echo "${PKG_NAME} copyright year is ${PKG_COPYRIGHT_YEAR}"
           cd ui && make && cd ..
       - name: Save assets to cache
-        uses: actions/cache/save@v3 # TSCCR: no version of actions/cache trusts nested action "save"
+        uses: actions/cache/save@v4 # TSCCR: no version of actions/cache trusts nested action "save"
         with:
           path: ui/dist/assets
           key: ui_assets_${{ github.sha }}
@@ -116,7 +116,7 @@ jobs:
         with:
           go-version: ${{ needs.get-go-version.outputs.go-version }}
       - name: Restore ui assets
-        uses: actions/cache/restore@v3 # TSCCR: no version of actions/cache trusts nested action "restore"
+        uses: actions/cache/restore@v4 # TSCCR: no version of actions/cache trusts nested action "restore"
         with:
           path: ui/dist/assets
           key: ui_assets_${{ github.sha }}
@@ -131,7 +131,7 @@ jobs:
           go install github.com/kevinburke/go-bindata/go-bindata@v3.24.0+incompatible
           make bin/crt-assets
       - name: Save assets to cache
-        uses: actions/cache/save@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8 # v3.3.1
+        uses: actions/cache/save@v4
         with:
           path: internal/assets
           key: build_assets_${{ github.sha }}
@@ -184,12 +184,12 @@ jobs:
     steps:
       - uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3.5.2
       - name: Download Derrick
-        uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2
+        uses: actions/download-artifact@v4
         with:
           path: archive
           name: derrick_${{env.version}}_linux_${{ matrix.arch }}.zip
       - name: Download Entrypoint
-        uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2
+        uses: actions/download-artifact@v4
         with:
           path: archive
           name: derrick-entrypoint_${{ env.version }}_linux_${{ matrix.arch }}.zip

@@ -8,10 +8,10 @@ import (
 
 	"github.com/hashicorp/consul/api"
 	"github.com/hashicorp/go-hclog"
+	"github.com/mitchellh/mapstructure"
 	"github.com/nomatronio/derrick-plugin-sdk/component"
 	"github.com/nomatronio/derrick-plugin-sdk/docs"
 	pb "github.com/nomatronio/derrick-plugin-sdk/proto/gen"
-	"github.com/mitchellh/mapstructure"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )

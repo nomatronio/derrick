@@ -78,7 +78,7 @@ func TestValidateProject(t *testing.T) {
 				v.DerrickHcl = []byte("i am not valid")
 				v.DerrickHclFormat = pb.Hcl_HCL
 			},
-			"waypoint_hcl",
+			"derrick_hcl",
 		},
 
 		{

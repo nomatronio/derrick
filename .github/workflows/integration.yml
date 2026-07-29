@@ -18,7 +18,7 @@ jobs:
 
       - name: save ui cache
         id: ui-cache
-        uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8 # v3.3.1
+        uses: actions/cache@v4
         with:
           key: "${{ steps.set-cache-key.outputs.cache-key }}"
           path: |-
@@ -52,7 +52,7 @@ jobs:
           go-version-file: go.mod
 
       - name: Restore UI cache
-        uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8 # v3.3.1
+        uses: actions/cache@v4
         with:
           key: ${{ needs.build-frontend.outputs.yarn-cache-key }}
           path: |-
@@ -70,7 +70,7 @@ jobs:
         run: |-
           make bin
           tar -cvf derrick.tar ./derrick
-      - uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce # v3.1.2
+      - uses: actions/upload-artifact@v4
         with:
           path: derrick.tar
           name: derrick.tar
@@ -88,10 +88,12 @@ jobs:
         run: |-
           export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
           timeout 60s bash -c 'trap "echo Failed, timeout reached while waiting for kubernetes to launch 1>&2" SIGTERM; while ! kubectl get node 2>/dev/null ; do sleep 1 ; done; echo "Connected, ok"'
-      - uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2
+      - uses: actions/download-artifact@v4
         with:
           name: derrick.tar
       - name: Execute Integration Tests
+        env:
+          GOLANG_PROTOBUF_REGISTRATION_CONFLICT: warn
         run: |-
           tar -xvf derrick.tar
           ./ci/integration.sh
