@@ -30,7 +30,7 @@ cd ci/sinatra || exit 1
 
 [[ -n "$GITHUB_ACTION" ]] && echo "::group::Derrick deploy"
 # If the registry isn't working and the pods are therefore unable to pull, we get stuck in an infinite wait
-timeout 1m "$DERRICK" deploy
+timeout 3m "$DERRICK" deploy
 
 [[ -n "$GITHUB_ACTION" ]] && echo "::group::Derrick release"
 "$DERRICK" release

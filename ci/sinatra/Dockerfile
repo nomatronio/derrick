@@ -9,4 +9,4 @@ COPY . .
 
 EXPOSE 3000
 
-CMD ["bundle", "exec", "ruby", "app.rb", "-o", "0.0.0.0", "-p", "3000"]
+CMD ["bundle", "exec", "ruby", "app.rb"]
