@@ -1,0 +1,3 @@
+```release-note:improvement
+ci: Bump hashicorp/actions-docker-build from 1 to 2
+```
