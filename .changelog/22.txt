@@ -1,0 +1,7 @@
+```release-note:improvement
+entrypoint: Rename injected entrypoint path to /derrick-entrypoint while retaining legacy compatibility
+```
+
+```release-note:bug
+test: Reduce flaky job stream and workspace logout test failures on CI
+```

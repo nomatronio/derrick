@@ -251,9 +251,9 @@ func (b *Builder) Build(args BuildArgs) (*wpdocker.Image, error) {
 
 		callback := func(cur []string) (*epinject.NewEntrypoint, error) {
 			ep := &epinject.NewEntrypoint{
-				Entrypoint: append([]string{"/waypoint-entrypoint"}, cur...),
+				Entrypoint: append([]string{epinject.EntrypointPath}, cur...),
 				InjectFiles: map[string]epinject.InjectFile{
-					"/waypoint-entrypoint": {
+					epinject.EntrypointPath: {
 						Reader: bytes.NewReader(asset),
 						Info:   assetInfo,
 					},

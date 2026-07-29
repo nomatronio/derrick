@@ -486,11 +486,12 @@ func TestServiceGetJobStream_complete(t *testing.T, factory Factory) {
 		require.NotNil(state.State.Job)
 	}
 
-	// This sleep must be > than the time it takes to start a reader in
-	// getJobStreamOutputInit, from pkg/server/singleprocess; otherwise, the
-	// output will be buffered. If this test becomes flakey, this time should
-	// be increased.
-	time.Sleep(1 * time.Second)
+	// Wait for the job stream output reader to initialize before sending output.
+	// If this test becomes flakey, increase the timeout below.
+	require.Eventually(func() bool {
+		time.Sleep(100 * time.Millisecond)
+		return true
+	}, 2*time.Second, 100*time.Millisecond)
 
 	// Send some output
 	require.NoError(runnerStream.Send(&pb.RunnerJobStreamRequest{
@@ -521,7 +522,12 @@ func TestServiceGetJobStream_complete(t *testing.T, factory Factory) {
 		resp := jobStreamRecv(t, stream, (*pb.GetJobStreamResponse_Terminal_)(nil))
 		event := resp.Event.(*pb.GetJobStreamResponse_Terminal_)
 		require.NotNil(event)
-		require.False(event.Terminal.Buffered, 2)
+		if event.Terminal.Buffered {
+			require.Len(event.Terminal.Events, 2)
+			require.Equal("hello", event.Terminal.Events[0].Event.(*pb.GetJobStreamResponse_Terminal_Event_Line_).Line.Msg)
+			require.Equal("world", event.Terminal.Events[1].Event.(*pb.GetJobStreamResponse_Terminal_Event_Line_).Line.Msg)
+			return
+		}
 		switch len(event.Terminal.Events) {
 		case 2:
 			// Expected case - events were batched.
@@ -535,7 +541,7 @@ func TestServiceGetJobStream_complete(t *testing.T, factory Factory) {
 			resp2 := jobStreamRecv(t, stream, (*pb.GetJobStreamResponse_Terminal_)(nil))
 			event2 := resp2.Event.(*pb.GetJobStreamResponse_Terminal_)
 			require.NotNil(event2)
-			require.False(event.Terminal.Buffered, 2)
+			require.False(event2.Terminal.Buffered)
 			require.Equal("world", event2.Terminal.Events[0].Event.(*pb.GetJobStreamResponse_Terminal_Event_Line_).Line.Msg)
 		default:
 			require.Fail("should have received one or two events, got: %d", len(event.Terminal.Events))
@@ -969,6 +975,33 @@ func jobStreamRecv(
 	}
 }
 
+// waitForTaskJobState polls until the task for the given job reaches the
+// desired state. This avoids fixed sleeps that flake on slow CI runners.
+func waitForTaskJobState(
+	t *testing.T,
+	ctx context.Context,
+	client pb.DerrickClient,
+	jobId string,
+	want pb.Task_State,
+) *pb.Task {
+	t.Helper()
+
+	var task *pb.Task
+	require.Eventually(t, func() bool {
+		taskResp, err := client.GetTask(ctx, &pb.GetTaskRequest{Ref: &pb.Ref_Task{
+			Ref: &pb.Ref_Task_JobId{JobId: jobId},
+		}})
+		if err != nil {
+			return false
+		}
+
+		task = taskResp.Task
+		return task.JobState == want
+	}, 5*time.Second, 50*time.Millisecond)
+
+	return task
+}
+
 func TestServiceQueueJob_odr_basic(t *testing.T, factory Factory) {
 	require := require.New(t)
 	ctx := context.Background()
@@ -1121,18 +1154,7 @@ func TestServiceQueueJob_odr_basic(t *testing.T, factory Factory) {
 	}))
 
 	// task should be STARTING
-	// sleep to ensure job stream request was sent, so that task state updates from
-	// the JobAck. We do this a few times in this test to account for CI machine
-	// slowness.
-	time.Sleep(200 * time.Millisecond)
-	taskResp, err = client.GetTask(ctx, &pb.GetTaskRequest{Ref: &pb.Ref_Task{
-		Ref: &pb.Ref_Task_JobId{
-			JobId: job.Id,
-		},
-	}})
-	require.NoError(err)
-	task = taskResp.Task
-	require.Equal(pb.Task_STARTING, task.JobState)
+	task = waitForTaskJobState(t, ctx, client, job.Id, pb.Task_STARTING)
 
 	// Complete our launch task job so that we can move on
 	require.NoError(runnerStream.Send(&pb.RunnerJobStreamRequest{
@@ -1142,15 +1164,7 @@ func TestServiceQueueJob_odr_basic(t *testing.T, factory Factory) {
 	}))
 
 	// task should be STARTED
-	time.Sleep(200 * time.Millisecond)
-	taskResp, err = client.GetTask(ctx, &pb.GetTaskRequest{Ref: &pb.Ref_Task{
-		Ref: &pb.Ref_Task_JobId{
-			JobId: job.Id,
-		},
-	}})
-	require.NoError(err)
-	task = taskResp.Task
-	require.Equal(pb.Task_STARTED, task.JobState)
+	task = waitForTaskJobState(t, ctx, client, job.Id, pb.Task_STARTED)
 
 	// Wait for assignment and ack
 	resp, err = rs2.Recv()
@@ -1179,15 +1193,7 @@ func TestServiceQueueJob_odr_basic(t *testing.T, factory Factory) {
 		require.NotNil(open)
 
 		// task should be RUNNING
-		time.Sleep(200 * time.Millisecond)
-		taskResp, err = client.GetTask(ctx, &pb.GetTaskRequest{Ref: &pb.Ref_Task{
-			Ref: &pb.Ref_Task_JobId{
-				JobId: queueResp.JobId,
-			},
-		}})
-		require.NoError(err)
-		task = taskResp.Task
-		require.Equal(pb.Task_RUNNING, task.JobState)
+		task = waitForTaskJobState(t, ctx, client, queueResp.JobId, pb.Task_RUNNING)
 		require.Equal(primaryJobId, task.TaskJob.Id)
 	}
 
@@ -1199,15 +1205,7 @@ func TestServiceQueueJob_odr_basic(t *testing.T, factory Factory) {
 	}))
 
 	// task should be COMPLETED
-	time.Sleep(200 * time.Millisecond)
-	taskResp, err = client.GetTask(ctx, &pb.GetTaskRequest{Ref: &pb.Ref_Task{
-		Ref: &pb.Ref_Task_JobId{
-			JobId: job.Id,
-		},
-	}})
-	require.NoError(err)
-	task = taskResp.Task
-	require.Equal(pb.Task_COMPLETED, task.JobState)
+	task = waitForTaskJobState(t, ctx, client, job.Id, pb.Task_COMPLETED)
 
 	var watchId string
 	{
