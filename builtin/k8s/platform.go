@@ -33,12 +33,10 @@ import (
 	"github.com/nomatronio/derrick-plugin-sdk/terminal"
 	"github.com/nomatronio/derrick/builtin/aws/utils"
 	"github.com/nomatronio/derrick/builtin/docker"
+	"github.com/nomatronio/derrick/internal/pkg/derrlabels"
 )
 
 const (
-	labelId    = "waypoint.hashicorp.com/id"
-	labelNonce = "waypoint.hashicorp.com/nonce"
-
 	DefaultServicePort = 3000
 )
 
@@ -727,7 +725,7 @@ func (p *Platform) resourceDeploymentCreate(
 
 	// Set our ID on the label. We use this ID so that we can have a key
 	// to route to multiple versions during release management.
-	deployment.Spec.Template.Labels[labelId] = result.Id
+	derrlabels.ApplyID(deployment.Spec.Template.Labels, result.Id)
 
 	// Version label duplicates "labelId" to support services like Istio that
 	// expect pods to be labeled with 'version'
@@ -762,8 +760,9 @@ func (p *Platform) resourceDeploymentCreate(
 		deployment.Spec.Template.Annotations = make(map[string]string)
 	}
 
-	deployment.Spec.Template.Annotations[labelNonce] =
-		time.Now().UTC().Format(time.RFC3339Nano)
+	nonce := time.Now().UTC().Format(time.RFC3339Nano)
+	deployment.Spec.Template.Annotations[derrlabels.LegacyNonceKey] = nonce
+	deployment.Spec.Template.Annotations[derrlabels.NonceKey] = nonce
 
 	if deployment.Spec.Template.ObjectMeta.Annotations == nil {
 		deployment.Spec.Template.Annotations = make(map[string]string)
@@ -821,7 +820,7 @@ func (p *Platform) resourceDeploymentCreate(
 	step = sg.Add("Waiting for deployment...")
 
 	ps := clientSet.CoreV1().Pods(ns)
-	podLabelId := fmt.Sprintf("%s=%s", labelId, result.Id)
+	podLabelId := derrlabels.IDSelector(result.Id)
 
 	var (
 		lastStatus    time.Time

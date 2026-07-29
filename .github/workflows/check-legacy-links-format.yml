@@ -1,17 +1,38 @@
 name: Legacy Link Format Checker
 on:
-  push:
+  pull_request:
     paths:
       - "website/content/**/*.mdx"
       - "website/data/*-nav-data.json"
+  push:
+    branches:
+      - main
+    paths:
+      - "website/content/**/*.mdx"
+      - "website/data/*-nav-data.json"
+
 jobs:
   check-links:
-    uses: hashicorp/dev-portal/.github/workflows/docs-content-check-legacy-links-format.yml@475289345d312552b745224b46895f51cc5fc490
-    with:
-      repo-owner: "nomatronio"
-      repo-name: "derrick"
-      commit-sha: ${{ github.sha }}
-      mdx-directory: "website/content"
-      nav-data-directory: "website/data"
-permissions:
-  contents: read
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Check for legacy Waypoint doc links
+        run: |
+          set -euo pipefail
+          # Forbidden legacy link patterns in published docs
+          if rg -q '/waypoint/docs/' website/content website/data 2>/dev/null; then
+            echo "FAIL: docs contain legacy /waypoint/docs/ links:"
+            rg '/waypoint/docs/' website/content website/data
+            exit 1
+          fi
+          if rg -q 'waypoint\.hcl' website/content website/data 2>/dev/null; then
+            echo "FAIL: docs reference waypoint.hcl instead of derrick.hcl:"
+            rg 'waypoint\.hcl' website/content website/data
+            exit 1
+          fi
+          if rg -q 'developer\.hashicorp\.com/waypoint' website/content website/data 2>/dev/null; then
+            echo "FAIL: docs link to developer.hashicorp.com/waypoint:"
+            rg 'developer\.hashicorp\.com/waypoint' website/content website/data
+            exit 1
+          fi
+          echo "OK: no legacy Waypoint doc links found"

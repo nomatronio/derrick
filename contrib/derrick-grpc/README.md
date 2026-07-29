@@ -1,7 +1,7 @@
-# Waypoint gRPC
+# Derrick gRPC
 
-If you find yourself wanting to interact directly with Waypoint’s gRPC API, this
-script is for you. It uses Waypoint CLI’s current context for server address and
+If you find yourself wanting to interact directly with Derrick’s gRPC API, this
+script is for you. It uses Derrick CLI’s current context for server address and
 credentials, all you need to specify is the method you want to call and the data
 you want to send.
 
@@ -12,14 +12,14 @@ easier to drop down to using gRPCurl directly.
 
 1. [grpcurl](https://github.com/fullstorydev/grpcurl#installation)
 2. [jq](https://stedolan.github.io/jq/download/)
-3. waypoint ;)
+3. derrick ;)
 
 ## Examples
 
 Query the `GetVersionInfo` method:
 
 ```sh
-$ waypoint-grpc GetVersionInfo
+$ derrick-grpc GetVersionInfo
 {
   "info": {
     "api": {
@@ -31,7 +31,7 @@ $ waypoint-grpc GetVersionInfo
 Get a project:
 
 ```sh
-$ waypoint-grpc.sh GetProject '{ "project": { "project": "example" } }'
+$ derrick-grpc.sh GetProject '{ "project": { "project": "example" } }'
 {
   "project": {
     "name": "example",

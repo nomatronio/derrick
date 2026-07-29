@@ -12988,7 +12988,7 @@ type StatusReport struct {
 	// A health report of all of the resources that make up the report.
 	// Copied from the plugin generated raw SDK status report for convenient API access.
 	DeprecatedResourcesHealth []*StatusReport_Health `protobuf:"bytes,9,rep,name=deprecated_resources_health,json=deprecatedResourcesHealth,proto3" json:"deprecated_resources_health,omitempty"`
-	// count of active instance connections from waypoint-entrypoint (ceb). This
+	// count of active instance connections from derrick-entrypoint (ceb). This
 	// is currently only applicable to deployment type status reports
 	InstancesCount uint32 `protobuf:"varint,14,opt,name=instances_count,json=instancesCount,proto3" json:"instances_count,omitempty"`
 }

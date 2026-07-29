@@ -19,16 +19,16 @@ data=$2
 
 if [ -z "$method" ]
 then
-  echo "Usage: waypoint-grpc.sh <method> [args]"
+  echo "Usage: derrick-grpc.sh <method> [args]"
   echo
   echo "Examples:"
-  echo "    waypoint-grpc.sh GetVersionInfo"
-  echo "    waypoint-grpc.sh GetProject '{ \"project\": { \"project\": \"example\" } }'"
+  echo "    derrick-grpc.sh GetVersionInfo"
+  echo "    derrick-grpc.sh GetProject '{ \"project\": { \"project\": \"example\" } }'"
   exit
 fi
 
-default_context=$(waypoint context inspect -json | jq -r .default_context)
-context_json=$(waypoint context inspect -json $default_context)
+default_context=$(derrick context inspect -json | jq -r .default_context)
+context_json=$(derrick context inspect -json $default_context)
 address=$(echo $context_json | jq -r .address)
 token=$(echo $context_json | jq -r .auth_token)
 
@@ -38,4 +38,4 @@ grpcurl \
   -H "authorization: $token" \
   -d "$data" \
   $address \
-  "hashicorp.waypoint.Waypoint.$method"
+  "hashicorp.derrick.Derrick.$method"

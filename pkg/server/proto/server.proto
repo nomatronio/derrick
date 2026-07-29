@@ -4249,7 +4249,7 @@ message StatusReport {
   // Copied from the plugin generated raw SDK status report for convenient API access.
   repeated Health deprecated_resources_health = 9;
 
-  // count of active instance connections from waypoint-entrypoint (ceb). This
+  // count of active instance connections from derrick-entrypoint (ceb). This
   // is currently only applicable to deployment type status reports
   uint32 instances_count = 14;
 }

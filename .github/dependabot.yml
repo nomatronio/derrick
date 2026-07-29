@@ -6,11 +6,25 @@ updates:
     schedule:
       interval: weekly
     open-pull-requests-limit: 1
+    ignore:
+      # @hashicorp/pds-ember 0.6→4.x is a breaking UI redesign; track via dedicated upgrade issue
+      - dependency-name: "@hashicorp/pds-ember"
+        update-types: ["version-update:semver-major", "version-update:semver-minor"]
+
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "daily"
+
   - package-ecosystem: "gomod"
     directory: "/"
     schedule:
       interval: "weekly"
+    ignore:
+      # Require dedicated upgrade PRs with full CI regression — see tracking issues
+      - dependency-name: "github.com/docker/cli"
+      - dependency-name: "github.com/docker/docker"
+      - dependency-name: "k8s.io/client-go"
+      - dependency-name: "k8s.io/api"
+      - dependency-name: "k8s.io/apimachinery"
+      - dependency-name: "golang.org/x/sys"
