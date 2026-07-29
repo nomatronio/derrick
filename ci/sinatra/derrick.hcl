@@ -2,7 +2,7 @@ project = "sinatra"
 
 app "sinatra" {
   build {
-    use "pack" {}
+    use "docker" {}
 
     registry {
       use "docker" {
