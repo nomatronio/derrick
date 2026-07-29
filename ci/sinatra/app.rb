@@ -1,4 +1,4 @@
 require 'sinatra'
 get '/' do
-  'Welcome to Waypoint!'
+  'Welcome to Derrick!'
 end

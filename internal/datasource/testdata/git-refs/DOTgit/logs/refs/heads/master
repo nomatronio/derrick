@@ -1,2 +1,4 @@
 0000000000000000000000000000000000000000 29758b9c967019a414ace75a45801a03a55e39b4 Mitchell Hashimoto <mitchell.hashimoto@gmail.com> 1610076329 -0800	commit (initial): waypoint file
 29758b9c967019a414ace75a45801a03a55e39b4 a8984eddc90167fe12f93de968e32572b6afbb8d Mitchell Hashimoto <mitchell.hashimoto@gmail.com> 1610076367 -0800	commit: two
+a8984eddc90167fe12f93de968e32572b6afbb8d 8823cc8c58a27803cea8a20809b4721273adcb08 Test <test@example.com> 1785284646 +0000	commit (amend): two
+8823cc8c58a27803cea8a20809b4721273adcb08 7e485c3b472d25abc9c297c6daa63221343565a7 Test <test@example.com> 1785284646 +0000	filter-branch: rewrite

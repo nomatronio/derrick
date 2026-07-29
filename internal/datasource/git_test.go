@@ -212,7 +212,7 @@ func TestGitSourceGet(t *testing.T) {
 
 		// Verify ref
 		ref := refRaw.Ref.(*pb.Job_DataSource_Ref_Git).Git
-		require.Equal("b6bf15100c570f2be6a231a095d395ed16dfed81", ref.Commit)
+		require.Equal("816b6a2e16135f867b7d2277242e360edc6ccb8e", ref.Commit)
 		require.Equal("Fixes\n", ref.CommitMessage)
 
 		ts := ref.Timestamp.AsTime()
@@ -261,7 +261,7 @@ func TestGitSourceGet(t *testing.T) {
 				Source: &pb.Job_DataSource_Git{
 					Git: &pb.Job_Git{
 						Url: testGitFixture(t, "git-refs"),
-						Ref: "29758b9",
+						Ref: "c1f3cb7",
 					},
 				},
 			},

@@ -4,7 +4,7 @@ Retrieve the image ID of an image whose metadata is pushed to an HCP Packer regi
 ### Examples
 
 ```hcl
-// The waypoint.hcl file
+// The derrick.hcl file
 project = "example-reactjs-project"
 
 variable "image" {
