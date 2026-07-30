@@ -1,3 +1,5 @@
 ```release-note:bug
 ci: Fix invalid configure-aws-credentials action SHA in build workflow
+
+test: Wait for RUNNING job stream state instead of fixed sleep in TestServiceGetJobStream_complete
 ```
