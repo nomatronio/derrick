@@ -1,0 +1,7 @@
+{
+  "description": "Official Derrick on-demand runner (ODR) image for remote build and deploy operations.",
+  "architectures": ["x86-64", "ARM 64"],
+  "operatingSystems": ["Linux"],
+  "aboutText": "## Derrick ODR\n\nOn-demand runner image for [Derrick](https://github.com/nomatronio/derrick). Pair with the server image `public.ecr.aws/nomatronio/derrick`.\n\n- Source: https://github.com/nomatronio/derrick\n- Server image: https://gallery.ecr.aws/nomatronio/derrick",
+  "usageText": "## Pull\n\n```bash\ndocker pull public.ecr.aws/nomatronio/derrick-odr:latest\n```\n\n## Custom runner base\n\n```dockerfile\nFROM public.ecr.aws/nomatronio/derrick-odr:latest\n```"
+}
