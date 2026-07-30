@@ -217,7 +217,6 @@ jobs:
           smoke_test: .github/scripts/verify_docker.sh ${{ needs.get-product-version.outputs.product-version }}
           tags: |
             docker.io/nomatronio/${{env.repo}}:${{env.version}}
-            public.ecr.aws/nomatronio/${{env.repo}}:${{env.version}}
 
 
   package-docker-derrick-odr:
@@ -247,19 +246,49 @@ jobs:
           smoke_test: .github/scripts/verify_docker.sh ${{ needs.get-product-version.outputs.product-version }}
           tags: |
             docker.io/nomatronio/${{env.repo}}-odr:${{env.version}}
-            public.ecr.aws/nomatronio/${{env.repo}}-odr:${{env.version}}
+
+  publish-docker-ghcr:
+    name: Publish Docker images to GHCR
+    runs-on: ubuntu-latest
+    needs:
+      - get-product-version
+      - package-docker-derrick-server
+      - package-docker-derrick-odr
+    env:
+      version: ${{ needs.get-product-version.outputs.product-version }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Download Docker image tarballs
+        uses: actions/download-artifact@v4
+        with:
+          pattern: derrick_*_${{ env.version }}_${{ github.sha }}.docker.tar
+          merge-multiple: true
+      - name: GHCR Login
+        uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a # v2.1.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish server image
+        run: |
+          chmod +x .github/scripts/publish_ghcr.sh
+          .github/scripts/publish_ghcr.sh "${{ env.version }}" "${{ github.sha }}" "derrick" "crt"
+      - name: Publish ODR image
+        run: |
+          .github/scripts/publish_ghcr.sh "${{ env.version }}" "${{ github.sha }}" "derrick-odr" "odr-crt"
 
   end-to-end-tests:
     needs:
       - get-product-version
       - package-docker-derrick-server
       - package-docker-derrick-odr
+      - publish-docker-ghcr
     uses: ./.github/workflows/end-to-end.yml
     with:
       derrick-binary: derrick_${{needs.get-product-version.outputs.product-version}}_linux_amd64.zip
       derrick-tar: derrick_crt_linux_amd64_${{needs.get-product-version.outputs.product-version}}_${{github.sha}}.docker.tar
-      derrick-image: nomatronio/derrick:${{ needs.get-product-version.outputs.product-version }}
+      derrick-image: docker.io/nomatronio/derrick:${{ needs.get-product-version.outputs.product-version }}
       derrick-odr-tar: derrick_odr-crt_linux_amd64_${{needs.get-product-version.outputs.product-version}}_${{github.sha}}.docker.tar
-      derrick-odr-image: nomatronio/derrick-odr:${{ needs.get-product-version.outputs.product-version }}
+      derrick-odr-image: docker.io/nomatronio/derrick-odr:${{ needs.get-product-version.outputs.product-version }}
     secrets: inherit
 

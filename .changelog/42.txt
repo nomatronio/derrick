@@ -1,0 +1,3 @@
+```release-note:bug
+ci: Fix Docker smoke test proto panic and publish release images to GHCR
+```

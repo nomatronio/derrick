@@ -32,9 +32,12 @@ function main {
     exit 1
   fi
 
-  full_version=$(docker run --rm "${image_name}" version)
+  # Multiple builtin plugins register the same plugin.proto filename; warn instead of panic.
+  local proto_env=( -e GOLANG_PROTOBUF_REGISTRATION_CONFLICT=warn )
+
+  full_version=$(docker run --rm "${proto_env[@]}" "${image_name}" version)
   echo "Full version: ${full_version}"
-  got_version="$( awk '{print $2}' <(head -n1 <(docker run --rm "${image_name}" version)) )"
+  got_version="$( awk '{print $2}' <(head -n1 <(docker run --rm "${proto_env[@]}" "${image_name}" version)) )"
   if [[ "${got_version}" != "v${expect_version}" ]]; then
     echo "Version Test FAILED"
     echo "Got: ${got_version}, Want: v${expect_version}"
