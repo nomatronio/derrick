@@ -496,8 +496,39 @@ func (i *DockerInstaller) Upgrade(
 	}, nil
 }
 
-// Install is a method of DockerInstaller and implements the Installer interface to
-// remove the waypoint-server Docker container and associated image and volume
+func findDockerServerContainers(ctx context.Context, cli *client.Client) ([]types.Container, error) {
+	for _, label := range []string{containerLabel, "derrick-type=server"} {
+		containers, err := cli.ContainerList(ctx, types.ContainerListOptions{
+			All: true,
+			Filters: filters.NewArgs(filters.KeyValuePair{
+				Key:   "label",
+				Value: label,
+			}),
+		})
+		if err != nil {
+			return nil, err
+		}
+		if len(containers) > 0 {
+			return containers, nil
+		}
+	}
+
+	containers, err := cli.ContainerList(ctx, types.ContainerListOptions{
+		All: true,
+		Filters: filters.NewArgs(filters.KeyValuePair{
+			Key:   "name",
+			Value: serverName,
+		}),
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	return containers, nil
+}
+
+// Uninstall is a method of DockerInstaller and implements the Installer interface to
+// remove the Derrick server Docker container and associated image and volume
 func (i *DockerInstaller) Uninstall(
 	ctx context.Context,
 	opts *InstallOpts,
@@ -518,22 +549,15 @@ func (i *DockerInstaller) Uninstall(
 
 	cli.NegotiateAPIVersion(ctx)
 
-	containers, err := cli.ContainerList(ctx, types.ContainerListOptions{
-		All: true, // include stopped containers
-		Filters: filters.NewArgs(filters.KeyValuePair{
-			Key:   "label",
-			Value: containerLabel,
-		}),
-	})
-
+	containers, err := findDockerServerContainers(ctx, cli)
 	if err != nil {
 		return err
 	}
 
 	if len(containers) < 1 {
-		return fmt.Errorf(
-			"cannot find a Derrick Docker container; Derrick may already be uninstalled.",
-		)
+		s.Update("No Derrick server container found; skipping server uninstall")
+		s.Done()
+		return nil
 	}
 
 	// Pick the first container, as there should be only one.
