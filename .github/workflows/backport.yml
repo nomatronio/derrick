@@ -7,18 +7,34 @@ on:
       - labeled
 jobs:
   backport:
-    if: github.event.pull_request.merged
+    if: |
+      github.event.pull_request.merged &&
+      contains(join(github.event.pull_request.labels.*.name, ','), 'backport/')
     runs-on: ubuntu-latest
     container: hashicorpdev/backport-assistant:0.3.1
     steps:
+      - name: Verify elevated GitHub token
+        id: token-check
+        env:
+          ELEVATED_TOKEN: ${{ secrets.ELEVATED_GITHUB_TOKEN }}
+        run: |
+          if [ -z "$ELEVATED_TOKEN" ]; then
+            echo "::warning::ELEVATED_GITHUB_TOKEN is not configured; skipping backport assistant."
+            exit 1
+          fi
+        continue-on-error: true
+
       - name: Run Backport Assistant for stable-website
+        if: steps.token-check.outcome == 'success'
         run: |
           backport-assistant backport -automerge
         env:
           BACKPORT_LABEL_REGEXP: "backport/(?P<target>website)"
           BACKPORT_TARGET_TEMPLATE: "stable-{{.target}}"
           GITHUB_TOKEN: ${{ secrets.ELEVATED_GITHUB_TOKEN }}
+
       - name: Run Backport Assistant backport website changes to latest release branch
+        if: steps.token-check.outcome == 'success'
         run: |
           resp=$(curl -f -s "https://api.github.com/repos/$GITHUB_REPOSITORY/labels?per_page=100")
           ret="$?"
@@ -31,14 +47,21 @@ jobs:
           latest_backport_label=$(echo "$resp" | jq -r '.[] | select(.name | (startswith("backport/") and (contains("website") | not))) | .name' | sort -rV | head -n1)
           echo "Latest backport label: $latest_backport_label"
 
+          if [ -z "$latest_backport_label" ] || [ "$latest_backport_label" = "null" ]; then
+            echo "No release backport labels found; skipping."
+            exit 0
+          fi
+
           # set BACKPORT_TARGET_TEMPLATE for backport-assistant
           # trims backport/ from the beginning with parameter substitution
           export BACKPORT_TARGET_TEMPLATE="release/${latest_backport_label#backport/}"
           backport-assistant backport -automerge
         env:
-          BACKPORT_LABEL_REGEXP: "backport/(?P<target>website)"
+          BACKPORT_LABEL_REGEXP: "backport/(?P<target>\\d+\\.\\d+\\.\\w+)"
           GITHUB_TOKEN: ${{ secrets.ELEVATED_GITHUB_TOKEN }}
+
       - name: Run Backport Assistant for release branches
+        if: steps.token-check.outcome == 'success'
         run: |
           backport-assistant backport -automerge
         env:
