@@ -48,6 +48,21 @@ ECR Public **does not** auto-create repositories on `docker push` (unlike Docker
 Repositories must exist before the first push. CI runs `ensure_ecr_public_repos.sh`
 to create them if missing.
 
+**Custom alias vs registry ID:** Repositories live under your account registry
+(`748754852565`, etc.). CI resolves the push URI from `repositoryUri` returned by
+AWS. If custom alias `nomatronio` is still pending approval, AWS may only expose
+`public.ecr.aws/<default-alias>/derrick` until the custom alias activates — the
+publish script follows whatever URI AWS returns.
+
+Check your active URI:
+
+```bash
+aws ecr-public describe-repositories \
+  --repository-names derrick derrick-odr \
+  --region us-east-1 \
+  --query 'repositories[].repositoryUri'
+```
+
 ## 3. IAM user for GitHub Actions
 
 Create IAM user `github-deployer` (or dedicated `github-derrick-ecr-publish`) with **one** of:
