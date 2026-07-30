@@ -1,0 +1,3 @@
+```release-note:bug
+ci: Skip changelog checks for Dependabot PRs and avoid duplicate PR branch workflow runs
+```
