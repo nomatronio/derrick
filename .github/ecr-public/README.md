@@ -44,20 +44,58 @@ aws ecr-public create-repository \
 
 Or use the ECR console: **Create repository** → **Public** → name `derrick` / `derrick-odr`.
 
-Push creates repos too, but pre-creating with catalog data gives a better gallery listing.
+ECR Public **does not** auto-create repositories on `docker push` (unlike Docker Hub).
+Repositories must exist before the first push. CI runs `ensure_ecr_public_repos.sh`
+to create them if missing.
+
+**Custom alias vs registry ID:** Repositories live under your account registry
+(`748754852565`, etc.). CI resolves the push URI from `repositoryUri` returned by
+AWS. If custom alias `nomatronio` is still pending approval, AWS may only expose
+`public.ecr.aws/<default-alias>/derrick` until the custom alias activates — the
+publish script follows whatever URI AWS returns.
+
+Check your active URI:
+
+```bash
+aws ecr-public describe-repositories \
+  --repository-names derrick derrick-odr \
+  --region us-east-1 \
+  --query 'repositories[].repositoryUri'
+```
 
 ## 3. IAM user for GitHub Actions
 
-Create IAM user `github-derrick-ecr-publish` with this policy:
+Create IAM user `github-deployer` (or dedicated `github-derrick-ecr-publish`) with **one** of:
+
+### Option A (recommended): AWS managed policy
+
+Attach **`AmazonElasticContainerRegistryPublicFullAccess`** directly to the user.
+
+This managed policy includes both required actions in one statement:
+`ecr-public:*` and `sts:GetServiceBearerToken`.
+
+### Option B: Inline/custom policy
+
+If you prefer least-privilege custom policy, use this (note: **no Condition**
+on `sts:GetServiceBearerToken` — match the AWS managed policy shape):
 
 ```json
 {
   "Version": "2012-10-17",
   "Statement": [
     {
+      "Sid": "ECRPublicLogin",
       "Effect": "Allow",
       "Action": [
         "ecr-public:GetAuthorizationToken",
+        "sts:GetServiceBearerToken"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "ECRPublicPush",
+      "Effect": "Allow",
+      "Action": [
         "ecr-public:BatchCheckLayerAvailability",
         "ecr-public:InitiateLayerUpload",
         "ecr-public:UploadLayerPart",
@@ -68,20 +106,13 @@ Create IAM user `github-derrick-ecr-publish` with this policy:
         "ecr-public:CreateRepository"
       ],
       "Resource": "*"
-    },
-    {
-      "Effect": "Allow",
-      "Action": "sts:GetServiceBearerToken",
-      "Resource": "*",
-      "Condition": {
-        "StringEquals": {
-          "sts:AWSServiceName": "ecr-public.amazonaws.com"
-        }
-      }
     }
   ]
 }
 ```
+
+**Common mistake:** allowing `ecr-public:*` but omitting `sts:GetServiceBearerToken`.
+Both are required for `aws ecr-public get-login-password`.
 
 ## 4. GitHub repository secrets
 
@@ -92,9 +123,51 @@ Add to `nomatronio/derrick` → Settings → Secrets → Actions:
 | `AWS_ACCESS_KEY_ID` | IAM access key |
 | `AWS_SECRET_ACCESS_KEY` | IAM secret key |
 
-CI uses region `us-east-1` in the workflow. ECR publish is skipped until `AWS_ACCESS_KEY_ID` is set.
+CI uses region `us-east-1` in the workflow.
 
-## 5. Verify manually
+## 5. Troubleshooting ECR login in CI
+
+If CI fails with:
+
+```text
+not authorized to perform: sts:GetServiceBearerToken
+```
+
+check these in order:
+
+1. **Secrets match the IAM user** — In IAM → Users → `github-deployer` → Security credentials,
+   confirm the active access key ID equals GitHub secret `AWS_ACCESS_KEY_ID`.
+   If you rotated keys, update both GitHub secrets.
+
+2. **Policy is attached to the user** — Not only edited/saved as a standalone customer-managed
+   policy. Under Permissions, you should see either
+   `AmazonElasticContainerRegistryPublicFullAccess` or an inline policy containing
+   `sts:GetServiceBearerToken`.
+
+3. **No permissions boundary blocking STS** — User → Permissions boundary. If set, the boundary
+   must also allow `sts:GetServiceBearerToken`.
+
+4. **Simulate the permission** (AWS CLI as an admin):
+
+   ```bash
+   aws iam simulate-principal-policy \
+     --policy-source-arn arn:aws:iam::748754852565:user/github-deployer \
+     --action-names sts:GetServiceBearerToken ecr-public:GetAuthorizationToken \
+     --resource-arns "*"
+   ```
+
+   Both actions should return `"EvalDecision": "allowed"`.
+
+5. **Test with the same keys CI uses**:
+
+   ```bash
+   export AWS_ACCESS_KEY_ID=...      # from GitHub secret
+   export AWS_SECRET_ACCESS_KEY=...
+   aws sts get-caller-identity       # should show github-deployer
+   aws ecr-public get-login-password --region us-east-1
+   ```
+
+## 6. Verify manually
 
 ```bash
 aws ecr-public get-login-password --region us-east-1 \

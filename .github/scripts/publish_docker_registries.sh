@@ -54,6 +54,25 @@ function publish_registry() {
   publish_manifest "${registry_prefix}" "${arch_tags[@]}"
 }
 
+function ecr_public_registry_prefix() {
+  local repo_name="$1"
+  local uri
+
+  uri=$(aws ecr-public describe-repositories \
+    --repository-names "${repo_name}" \
+    --region us-east-1 \
+    --query 'repositories[0].repositoryUri' \
+    --output text)
+
+  if [[ -z "${uri}" || "${uri}" == "None" ]]; then
+    echo "ERROR: could not resolve ECR Public URI for ${repo_name}" >&2
+    exit 1
+  fi
+
+  # repositoryUri looks like public.ecr.aws/<registry-alias>/<repo>
+  echo "${uri%/*}"
+}
+
 function main {
   local version="${1:-}"
   local github_sha="${2:-}"
@@ -81,7 +100,10 @@ function main {
   fi
 
   if [[ "${PUBLISH_ECR:-true}" == "true" ]]; then
-    publish_registry "public.ecr.aws/nomatronio/${image_name}"
+    local ecr_prefix
+    ecr_prefix=$(ecr_public_registry_prefix "${image_name}")
+    echo "Publishing to ECR Public at ${ecr_prefix}/${image_name}"
+    publish_registry "${ecr_prefix}/${image_name}"
   fi
 
   if [[ "${PUBLISH_DOCKERHUB:-true}" == "true" ]]; then
