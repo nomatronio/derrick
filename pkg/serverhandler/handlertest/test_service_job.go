@@ -487,11 +487,9 @@ func TestServiceGetJobStream_complete(t *testing.T, factory Factory) {
 	}
 
 	// Wait for the job stream output reader to initialize before sending output.
-	// If this test becomes flakey, increase the timeout below.
-	require.Eventually(func() bool {
-		time.Sleep(100 * time.Millisecond)
-		return true
-	}, 2*time.Second, 100*time.Millisecond)
+	// getJobStreamOutputInit must finish before terminal events are sent; use a
+	// fixed delay because there is no readiness signal exposed to clients.
+	time.Sleep(1500 * time.Millisecond)
 
 	// Send some output
 	require.NoError(runnerStream.Send(&pb.RunnerJobStreamRequest{

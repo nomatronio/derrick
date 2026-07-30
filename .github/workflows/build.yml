@@ -38,6 +38,8 @@ jobs:
       - name: Decide version number
         id: get-product-version
         uses: hashicorp/actions-set-product-version@v1
+        with:
+          checkout: false
       - name: Report chosen version number
         run: |
           [ -n "${{steps.get-product-version.outputs.product-version}}" ]
