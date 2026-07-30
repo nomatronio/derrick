@@ -677,19 +677,25 @@ func (i *DockerInstaller) HasRunner(
 	defer cli.Close()
 	cli.NegotiateAPIVersion(ctx)
 
-	// Find and delete any runners. There could be zero, 1, or more.
-	containers, err := cli.ContainerList(ctx, types.ContainerListOptions{
-		All: true, // include stopped containers
-		Filters: filters.NewArgs(filters.KeyValuePair{
-			Key:   "label",
-			Value: containerKey + "=" + containerValueRunner,
-		}),
-	})
-	if err != nil {
-		return false, err
+	// Find any runners. There could be zero, 1, or more. Accept both label
+	// schemes while the Waypoint → Derrick rename is still in progress.
+	for _, label := range []string{"derrick-type=runner", "waypoint-type=runner"} {
+		containers, err := cli.ContainerList(ctx, types.ContainerListOptions{
+			All: true,
+			Filters: filters.NewArgs(filters.KeyValuePair{
+				Key:   "label",
+				Value: label,
+			}),
+		})
+		if err != nil {
+			return false, err
+		}
+		if len(containers) > 0 {
+			return true, nil
+		}
 	}
 
-	return len(containers) > 0, nil
+	return false, nil
 }
 
 func (i *DockerInstaller) InstallFlags(set *flag.Set) {
