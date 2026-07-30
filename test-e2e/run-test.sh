@@ -3,6 +3,9 @@ set -eo pipefail
 
 # Derrick end to end test runner
 
+# Builtin plugins and the plugin SDK both register plugin.proto; warn instead of panic.
+export GOLANG_PROTOBUF_REGISTRATION_CONFLICT="${GOLANG_PROTOBUF_REGISTRATION_CONFLICT:-warn}"
+
 # shell spinner: https://www.shellscript.sh/tips/spinner/
 spin()
 {
