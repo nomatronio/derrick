@@ -1,0 +1,3 @@
+```release-note:bug
+cli: Allow server uninstall without an active server connection when snapshot is disabled
+```
