@@ -1,6 +1,6 @@
 module github.com/nomatronio/derrick
 
-go 1.19
+go 1.25.0
 
 require (
 	contrib.go.opencensus.io/exporter/ocagent v0.6.0
@@ -111,7 +111,7 @@ require (
 	go.opencensus.io v0.24.0
 	go.uber.org/goleak v1.1.12
 	golang.org/x/crypto v0.0.0-20220622213112-05595931fe9d
-	golang.org/x/oauth2 v0.1.0
+	golang.org/x/oauth2 v0.36.0
 	golang.org/x/sys v0.5.0
 	google.golang.org/api v0.103.0
 	google.golang.org/genproto v0.0.0-20221201164419-0e50fba7f41c
@@ -129,8 +129,7 @@ require (
 
 require (
 	cloud.google.com/go v0.105.0 // indirect
-	cloud.google.com/go/compute v1.12.1 // indirect
-	cloud.google.com/go/compute/metadata v0.2.1 // indirect
+	cloud.google.com/go/compute/metadata v0.3.0 // indirect
 	cloud.google.com/go/iam v0.8.0 // indirect
 	cloud.google.com/go/storage v1.27.0 // indirect
 	github.com/Azure/go-ansiterm v0.0.0-20210617225240-d185dfc1b5a1 // indirect
