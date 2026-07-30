@@ -1,0 +1,3 @@
+```release-note:bug
+ci: Fix invalid configure-aws-credentials action SHA in build workflow
+```
