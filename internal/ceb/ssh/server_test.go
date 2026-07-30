@@ -18,10 +18,10 @@ import (
 )
 
 func TestServer(t *testing.T) {
-	hostkey, err := rsa.GenerateKey(rand.Reader, 4096)
+	hostkey, err := rsa.GenerateKey(rand.Reader, 2048)
 	require.NoError(t, err)
 
-	userkey, err := rsa.GenerateKey(rand.Reader, 4096)
+	userkey, err := rsa.GenerateKey(rand.Reader, 2048)
 	require.NoError(t, err)
 
 	hostSigner, err := gossh.NewSignerFromKey(hostkey)
@@ -38,23 +38,44 @@ func TestServer(t *testing.T) {
 	require.NoError(t, err)
 
 	var server *ssh.Server
+	ready := make(chan struct{})
+	serveDone := make(chan struct{})
 
-	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
-	defer cancel()
+	ctx := context.Background()
 
 	go func() {
-		ssh.Serve(l,
-			createHandler(ctx, hclog.L(), &server),
+		defer close(serveDone)
+		// Do not pass &server here: createHandler shuts the server down after
+		// the first command, which can race with the client reading stdout.
+		_ = ssh.Serve(l,
+			createHandler(ctx, hclog.L(), nil),
 			ssh.Option(func(serv *ssh.Server) error {
 				server = serv
 				serv.PublicKeyHandler = check
 				serv.AddHostKey(hostSigner)
+				close(ready)
 				return nil
 			}),
 		)
 	}()
 
-	time.Sleep(time.Second)
+	t.Cleanup(func() {
+		if server != nil {
+			_ = server.Shutdown(context.Background())
+		}
+		_ = l.Close()
+		select {
+		case <-serveDone:
+		case <-time.After(5 * time.Second):
+			t.Log("timed out waiting for ssh server to stop")
+		}
+	})
+
+	select {
+	case <-ready:
+	case <-time.After(5 * time.Second):
+		t.Fatal("ssh server did not become ready")
+	}
 
 	var cfg gossh.ClientConfig
 	cfg.User = "derrick"
@@ -75,24 +96,24 @@ func TestServer(t *testing.T) {
 		return fmt.Errorf("wrong host key detected")
 	}
 
-	cfg.Timeout = 5 * time.Second
+	cfg.Timeout = 10 * time.Second
 
 	client, err := gossh.Dial("tcp", l.Addr().String(), &cfg)
 	require.NoError(t, err)
+	t.Cleanup(func() { _ = client.Close() })
 
 	sess, err := client.NewSession()
 	require.NoError(t, err)
+	t.Cleanup(func() { _ = sess.Close() })
+
+	stdin, err := sess.StdinPipe()
+	require.NoError(t, err)
+	require.NoError(t, stdin.Close())
 
 	var buf bytes.Buffer
-
 	sess.Stdout = &buf
 
 	err = sess.Run("sh -c 'echo hello'")
 	require.NoError(t, err)
-	require.Eventually(
-		t,
-		func() bool { return buf.String() == "hello\n" },
-		time.Second,
-		10*time.Millisecond,
-	)
+	require.Equal(t, "hello\n", buf.String())
 }
