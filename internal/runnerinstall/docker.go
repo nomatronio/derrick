@@ -176,16 +176,15 @@ func (d DockerRunnerInstaller) Uninstall(ctx context.Context, opts *InstallOpts)
 	cli.NegotiateAPIVersion(ctx)
 
 	s.Update("Finding runner container")
-	containerNames := []string{
-		installutil.DefaultRunnerName(opts.Id),
-		defaultRunnerTagName,
-	}
 	var foundContainer types.Container
-	for _, containerName := range containerNames {
+
+	// Include stopped containers; a exited runner must still be removed on uninstall.
+	for _, label := range []string{"derrick-type=runner", "waypoint-type=runner"} {
 		containers, err := cli.ContainerList(ctx, types.ContainerListOptions{
+			All: true,
 			Filters: filters.NewArgs(filters.KeyValuePair{
-				Key:   "name",
-				Value: containerName,
+				Key:   "label",
+				Value: label,
 			}),
 		})
 		if err != nil {
@@ -197,9 +196,35 @@ func (d DockerRunnerInstaller) Uninstall(ctx context.Context, opts *InstallOpts)
 			break
 		}
 	}
+
 	if foundContainer.ID == "" {
-		s.Update("Could not find runner in docker.")
-		return fmt.Errorf("Runner not found.")
+		containerNames := []string{
+			installutil.DefaultRunnerName(opts.Id),
+			defaultRunnerTagName,
+		}
+		for _, containerName := range containerNames {
+			containers, err := cli.ContainerList(ctx, types.ContainerListOptions{
+				All: true,
+				Filters: filters.NewArgs(filters.KeyValuePair{
+					Key:   "name",
+					Value: containerName,
+				}),
+			})
+			if err != nil {
+				s.Update("Could not get container list")
+				return err
+			}
+			if len(containers) > 0 {
+				foundContainer = containers[0]
+				break
+			}
+		}
+	}
+
+	if foundContainer.ID == "" {
+		s.Update("No runner container found; skipping runner uninstall")
+		s.Done()
+		return nil
 	}
 
 	stopTimeout := time.Second * 30
