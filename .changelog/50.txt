@@ -1,0 +1,5 @@
+```release-note:bug
+ci: Load built Docker images in E2E tests instead of pulling :latest from Docker Hub
+
+docker: Treat missing server container as success on uninstall and detect both label schemes
+```
