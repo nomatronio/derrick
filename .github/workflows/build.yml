@@ -271,34 +271,25 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Configure AWS credentials
-        if: ${{ secrets.AWS_ACCESS_KEY_ID != '' }}
         uses: aws-actions/configure-aws-credentials@ececac1a0f0ebd08e8805c116e0d257ddaeec712 # v4.0.2
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
       - name: ECR Public Login
-        if: ${{ secrets.AWS_ACCESS_KEY_ID != '' }}
         run: |
           aws ecr-public get-login-password --region us-east-1 \
             | docker login --username AWS --password-stdin public.ecr.aws
       - name: Docker Hub Login
-        if: ${{ secrets.DOCKERHUB_TOKEN != '' }}
         uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a # v2.1.0
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Publish server image
-        env:
-          PUBLISH_ECR: ${{ secrets.AWS_ACCESS_KEY_ID != '' }}
-          PUBLISH_DOCKERHUB: ${{ secrets.DOCKERHUB_TOKEN != '' }}
         run: |
           chmod +x .github/scripts/publish_docker_registries.sh
           .github/scripts/publish_docker_registries.sh "${{ env.version }}" "${{ github.sha }}" "derrick" "crt"
       - name: Publish ODR image
-        env:
-          PUBLISH_ECR: ${{ secrets.AWS_ACCESS_KEY_ID != '' }}
-          PUBLISH_DOCKERHUB: ${{ secrets.DOCKERHUB_TOKEN != '' }}
         run: |
           .github/scripts/publish_docker_registries.sh "${{ env.version }}" "${{ github.sha }}" "derrick-odr" "odr-crt"
 
