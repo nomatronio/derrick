@@ -1,0 +1,3 @@
+```release-note:bug
+ci: Skip backport assistant when no backport labels or elevated token is configured
+```
