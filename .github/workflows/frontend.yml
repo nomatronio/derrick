@@ -1,7 +1,10 @@
 name: frontend
 on:
-  push:
   pull_request:
+  push:
+    branches:
+      - main
+      - release/*
 
 jobs:
   frontend-cache:
