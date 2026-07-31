@@ -59,7 +59,7 @@ func Test_setupLocalJobSystem(t *testing.T) {
 		c := TestProject(t,
 			WithClient(singleprocess.TestServer(t)),
 		)
-		t.Cleanup(func() { require.NoError(t, c.Close()) })
+		t.Cleanup(func() { require.NoError(c.Close()) })
 
 		project := &pb.Project{
 			Name:          c.project.Project,
