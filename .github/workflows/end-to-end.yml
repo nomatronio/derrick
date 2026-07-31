@@ -103,5 +103,5 @@ jobs:
           DERRICK_ODRIMAGE: ${{ inputs.derrick-odr-image }}
           DERRICK_SERVERIMAGE_UPGRADE: ${{ needs.publish-images.outputs.derrick-image }}
           DERRICK_ODRIMAGE_UPGRADE: ${{ needs.publish-images.outputs.derrick-odr-image }}
-          GOLANG_PROTOBUF_REGISTRATION_CONFLICT: warn
+          GOLANG_PROTOBUF_REGISTRATION_CONFLICT: ignore
         run: ./test-e2e/run-test.sh
