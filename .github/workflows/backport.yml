@@ -19,13 +19,14 @@ jobs:
           ELEVATED_TOKEN: ${{ secrets.ELEVATED_GITHUB_TOKEN }}
         run: |
           if [ -z "$ELEVATED_TOKEN" ]; then
+            echo "configured=false" >> "$GITHUB_OUTPUT"
             echo "::warning::ELEVATED_GITHUB_TOKEN is not configured; skipping backport assistant."
-            exit 1
+          else
+            echo "configured=true" >> "$GITHUB_OUTPUT"
           fi
-        continue-on-error: true
 
       - name: Run Backport Assistant for stable-website
-        if: steps.token-check.outcome == 'success'
+        if: steps.token-check.outputs.configured == 'true'
         run: |
           backport-assistant backport -automerge
         env:
@@ -34,7 +35,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.ELEVATED_GITHUB_TOKEN }}
 
       - name: Run Backport Assistant backport website changes to latest release branch
-        if: steps.token-check.outcome == 'success'
+        if: steps.token-check.outputs.configured == 'true'
         run: |
           resp=$(curl -f -s "https://api.github.com/repos/$GITHUB_REPOSITORY/labels?per_page=100")
           ret="$?"
@@ -61,7 +62,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.ELEVATED_GITHUB_TOKEN }}
 
       - name: Run Backport Assistant for release branches
-        if: steps.token-check.outcome == 'success'
+        if: steps.token-check.outputs.configured == 'true'
         run: |
           backport-assistant backport -automerge
         env:
