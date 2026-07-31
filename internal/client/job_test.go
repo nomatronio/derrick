@@ -43,17 +43,13 @@ func Test_setupLocalJobSystem(t *testing.T) {
 				WithClient(singleprocess.TestServer(t)),
 				WithUseLocalRunner(requestLocal),
 			)
-			defer c.Close()
-
-			// We don't need to upsert the project - it shouldn't need to make any API calls to
-			// choose a locality if we set it explicitly on the client.
 
 			isLocal, newCtx, err := c.setupLocalJobSystem(ctx)
 			require.Nil(err)
 			require.Equal(requestLocal, isLocal)
 
-			// Check that running setupLocalJobSystem had the right side effects
 			validateLocalSetupSideEffects(newCtx, c, requestLocal)
+			require.NoError(c.Close())
 		}
 	})
 
@@ -63,7 +59,7 @@ func Test_setupLocalJobSystem(t *testing.T) {
 		c := TestProject(t,
 			WithClient(singleprocess.TestServer(t)),
 		)
-		defer c.Close()
+		t.Cleanup(func() { require.NoError(t, c.Close()) })
 
 		project := &pb.Project{
 			Name:          c.project.Project,
