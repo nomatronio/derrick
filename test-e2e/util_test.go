@@ -29,12 +29,12 @@ func TestFilterBenignStderr(t *testing.T) {
 			want:   "",
 		},
 		{
-			name: "multiple proto warnings lf",
+			name:   "multiple proto warnings lf",
 			stderr: strings.Repeat(`WARNING: proto: file "plugin.proto" is already registered`+"\n", 3),
 			want:   "",
 		},
 		{
-			name: "multiple proto warnings crlf",
+			name:   "multiple proto warnings crlf",
 			stderr: strings.Repeat(`WARNING: proto: file "plugin.proto" is already registered`+"\r\n", 3),
 			want:   "",
 		},
