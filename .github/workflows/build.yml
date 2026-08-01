@@ -186,12 +186,12 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Download Derrick
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           path: archive
           name: derrick_${{env.version}}_linux_${{ matrix.arch }}.zip
       - name: Download Entrypoint
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           path: archive
           name: derrick-entrypoint_${{ env.version }}_linux_${{ matrix.arch }}.zip
@@ -260,7 +260,7 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Download Docker image tarballs
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           pattern: derrick_*_${{ env.version }}_${{ github.sha }}.docker.tar
           merge-multiple: true
