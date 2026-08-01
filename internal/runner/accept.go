@@ -523,7 +523,11 @@ RESTART_JOB_STREAM:
 			},
 		}); err != nil {
 			log.Error("error sending job complete message", "error", err)
-			return err
+			if err != io.EOF &&
+				status.Code(err) != codes.Unavailable &&
+				status.Code(err) != codes.NotFound {
+				return err
+			}
 		}
 	}
 
