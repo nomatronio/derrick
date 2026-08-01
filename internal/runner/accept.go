@@ -219,6 +219,7 @@ RESTART_JOB_STREAM:
 	// generation to increment.
 	if retry {
 		if r.waitStateGreater(&r.stateConfig, stateGen) {
+			streamCancel()
 			return status.Error(codes.Internal, "early exit while waiting for reconnect")
 		}
 	}
@@ -245,6 +246,7 @@ RESTART_JOB_STREAM:
 			goto RESTART_JOB_STREAM
 		}
 
+		streamCancel()
 		return err
 	}
 
@@ -263,6 +265,7 @@ RESTART_JOB_STREAM:
 			goto RESTART_JOB_STREAM
 		}
 
+		streamCancel()
 		return err
 	}
 
@@ -280,6 +283,7 @@ RESTART_JOB_STREAM:
 			goto RESTART_JOB_STREAM
 		}
 
+		streamCancel()
 		return err
 	}
 
@@ -291,6 +295,7 @@ RESTART_JOB_STREAM:
 	// We received an assignment!
 	assignment, ok := resp.Event.(*pb.RunnerJobStreamResponse_Assignment)
 	if !ok {
+		streamCancel()
 		return status.Errorf(codes.Aborted,
 			"expected job assignment, server sent %T",
 			resp.Event)
@@ -328,6 +333,7 @@ RESTART_JOB_STREAM:
 	}()
 
 	if shutdown {
+		streamCancel()
 		return errors.Wrapf(ErrClosed, "runner shutdown, dropped job: %s", jobId)
 	}
 
@@ -345,9 +351,11 @@ RESTART_JOB_STREAM:
 				// unexpected and erroneous: the server gave us a job that
 				// wasn't assignd to us! Let's return.
 
+				streamCancel()
 				return err
 			}
 
+			streamCancel()
 			return status.Errorf(codes.Aborted, "server sent us an invalid job")
 		}
 
@@ -373,6 +381,7 @@ RESTART_JOB_STREAM:
 			goto RESTART_JOB_STREAM
 		}
 
+		streamCancel()
 		return err
 	}
 
@@ -479,6 +488,7 @@ RESTART_JOB_STREAM:
 			// If we got an EOF then we were force cancelled.
 			if err == io.EOF {
 				log.Info("job force canceled")
+				streamCancel()
 				return nil
 			}
 		default:
@@ -510,6 +520,7 @@ RESTART_JOB_STREAM:
 			},
 		}); rpcerr != nil {
 			log.Warn("error sending error event, job may be dangling", "err", rpcerr)
+			streamCancel()
 			return rpcerr
 		}
 	} else {
@@ -523,6 +534,7 @@ RESTART_JOB_STREAM:
 			},
 		}); err != nil {
 			log.Error("error sending job complete message", "error", err)
+			streamCancel()
 			return err
 		}
 	}
@@ -531,9 +543,11 @@ RESTART_JOB_STREAM:
 	// that the server received our completion and updated the database.
 	err = <-errCh
 	if err == io.EOF {
+		streamCancel()
 		return nil
 	}
 
+	streamCancel()
 	return err
 }
 

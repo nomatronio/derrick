@@ -165,10 +165,11 @@ func TestInstance(t *testing.T, factory Factory, restartF RestartFactory) {
 		require.Len(list, 1)
 
 		// Should not for other app
-		//nolint:govet,copylocks
-		ref2 := *app
-		ref2.Application = "NO"
-		list, err = s.InstancesByApp(ctx, &ref2, nil, nil)
+		ref2 := &pb.Ref_Application{
+			Project:     app.Project,
+			Application: "NO",
+		}
+		list, err = s.InstancesByApp(ctx, ref2, nil, nil)
 		require.NoError(err)
 		require.Empty(list)
 	})
@@ -228,10 +229,10 @@ func TestInstance(t *testing.T, factory Factory, restartF RestartFactory) {
 		require.Len(list, 1)
 
 		// Should not for other app
-		//nolint:govet,copylocks
-		ref2 := *wsRef
-		ref2.Workspace = "NO"
-		list, err = s.InstancesByApp(ctx, app, &ref2, nil)
+		ref2 := &pb.Ref_Workspace{
+			Workspace: "NO",
+		}
+		list, err = s.InstancesByApp(ctx, app, ref2, nil)
 		require.NoError(err)
 		require.Empty(list)
 	})
