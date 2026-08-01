@@ -12,7 +12,7 @@ require (
 	github.com/adrg/xdg v0.2.1
 	github.com/armon/circbuf v0.0.0-20190214190532-5111143e8da2
 	github.com/aws/aws-sdk-go v1.55.5
-	github.com/bmatcuk/doublestar v1.1.5
+	github.com/bmatcuk/doublestar v1.3.4
 	github.com/buildpacks/pack v0.24.1
 	github.com/cenkalti/backoff/v4 v4.1.2
 	github.com/certifi/gocertifi v0.0.0-20200922220541-2c3bb06c6054
