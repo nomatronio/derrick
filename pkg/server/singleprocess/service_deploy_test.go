@@ -15,8 +15,7 @@ func TestServiceDeployment_URLService(t *testing.T) {
 	ctx := context.Background()
 
 	// Create our server
-	impl, err := New(WithDB(testDB(t)), TestWithURLService(t, nil))
-	require.NoError(t, err)
+	impl := mustNew(t, TestWithURLService(t, nil))
 	client := server.TestServer(t, impl)
 
 	// Simplify writing tests

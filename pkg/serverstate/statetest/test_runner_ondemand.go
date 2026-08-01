@@ -8,6 +8,7 @@ import (
 	"github.com/stretchr/testify/require"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
+	"google.golang.org/protobuf/proto"
 
 	pb "github.com/nomatronio/derrick/pkg/server/gen"
 	serverptypes "github.com/nomatronio/derrick/pkg/server/ptypes"
@@ -115,7 +116,7 @@ func TestOnDemandRunnerConfig(t *testing.T, factory Factory, restartF RestartFac
 		require.NoError(err)
 		require.NotEmpty(putResp.Id) // must have chosen an id
 		require.Equal(rec.Name, putResp.Name)
-		require.Equal(rec.TargetRunner.Target, putResp.TargetRunner.Target)
+		require.True(proto.Equal(rec.TargetRunner, putResp.TargetRunner))
 		require.Equal(rec.OciUrl, putResp.OciUrl)
 		require.Equal(rec.EnvironmentVariables, putResp.EnvironmentVariables)
 		require.Equal(rec.PluginConfig, putResp.PluginConfig)
@@ -133,7 +134,7 @@ func TestOnDemandRunnerConfig(t *testing.T, factory Factory, restartF RestartFac
 			// Ensure fields were saved correctly
 			require.Equal(putResp.Id, resp.Id)
 			require.Equal(rec.Name, resp.Name)
-			require.Equal(rec.TargetRunner.Target, resp.TargetRunner.Target)
+			require.True(proto.Equal(rec.TargetRunner, resp.TargetRunner))
 			require.Equal(rec.OciUrl, resp.OciUrl)
 			require.Equal(rec.EnvironmentVariables, resp.EnvironmentVariables)
 			require.Equal(rec.PluginConfig, resp.PluginConfig)
@@ -199,7 +200,7 @@ func TestOnDemandRunnerConfig(t *testing.T, factory Factory, restartF RestartFac
 		require.NoError(err)
 		require.NotEmpty(putResp.Id) // must have chosen an id
 		require.Equal(rec.Name, putResp.Name)
-		require.Equal(rec.TargetRunner.Target, putResp.TargetRunner.Target)
+		require.True(proto.Equal(rec.TargetRunner, putResp.TargetRunner))
 		require.Equal(rec.OciUrl, putResp.OciUrl)
 		require.Equal(rec.EnvironmentVariables, putResp.EnvironmentVariables)
 		require.Equal(rec.PluginConfig, putResp.PluginConfig)
@@ -217,7 +218,7 @@ func TestOnDemandRunnerConfig(t *testing.T, factory Factory, restartF RestartFac
 			// Ensure fields were saved correctly
 			require.Equal(putResp.Id, resp.Id)
 			require.Equal(rec.Name, resp.Name)
-			require.Equal(rec.TargetRunner.Target, resp.TargetRunner.Target)
+			require.True(proto.Equal(rec.TargetRunner, resp.TargetRunner))
 			require.Equal(rec.OciUrl, resp.OciUrl)
 			require.Equal(rec.EnvironmentVariables, resp.EnvironmentVariables)
 			require.Equal(rec.PluginConfig, resp.PluginConfig)

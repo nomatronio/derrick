@@ -117,7 +117,7 @@ func (r *Releaser) setNoAuthPolicy(
 		},
 	}).Context(ctx).Do()
 	if err != nil {
-		return status.Errorf(codes.Aborted, err.Error())
+		return status.Errorf(codes.Aborted, "%s", err.Error())
 	}
 
 	return nil

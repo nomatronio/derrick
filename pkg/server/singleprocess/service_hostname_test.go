@@ -19,8 +19,7 @@ func TestServiceHostname(t *testing.T) {
 		require := require.New(t)
 
 		// Create our server
-		impl, err := New(WithDB(testDB(t)))
-		require.NoError(err)
+		impl := mustNew(t)
 		client := server.TestServer(t, impl)
 
 		// Create a hostname
@@ -49,8 +48,7 @@ func TestServiceHostname(t *testing.T) {
 		require := require.New(t)
 
 		// Create our server
-		impl, err := New(WithDB(testDB(t)), TestWithURLService(t, nil))
-		require.NoError(err)
+		impl := mustNew(t, TestWithURLService(t, nil))
 		client := server.TestServer(t, impl)
 
 		// Should have no hostnames

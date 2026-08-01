@@ -3,7 +3,7 @@ package installutil
 import (
 	"fmt"
 
-	"github.com/distribution/distribution/v3/reference"
+	"github.com/distribution/reference"
 
 	pb "github.com/nomatronio/derrick/pkg/server/gen"
 )

@@ -17,8 +17,7 @@ func TestServicePipelineRun(t *testing.T) {
 		ctx := context.Background()
 
 		// Create our server
-		impl, err := New(WithDB(testDB(t)))
-		require.NoError(err)
+		impl := mustNew(t)
 		client := server.TestServer(t, impl)
 
 		// Initialize our app
@@ -96,8 +95,7 @@ func TestServicePipelineRun(t *testing.T) {
 		ctx := context.Background()
 
 		// Create our server
-		impl, err := New(WithDB(testDB(t)))
-		require.NoError(err)
+		impl := mustNew(t)
 		client := server.TestServer(t, impl)
 
 		// Initialize our app

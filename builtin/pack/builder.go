@@ -395,7 +395,7 @@ func (b *Builder) Build(
 			},
 		},
 		DefaultProcessType: b.config.ProcessType,
-		TrustBuilder:     func(string) bool { return true },
+		TrustBuilder:       func(string) bool { return true },
 	}
 
 	err = client.Build(ctx, bo)

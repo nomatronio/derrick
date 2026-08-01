@@ -363,6 +363,12 @@ func TestRunnerAccept_serverDownJobExec(t *testing.T) {
 	// Restart
 	restartCh <- struct{}{}
 
+	// Wait for the runner to reconnect before completing the job.
+	require.Eventually(func() bool {
+		_, err := client.GetRunner(ctx, &pb.GetRunnerRequest{RunnerId: runner.Id()})
+		return err == nil
+	}, 5*time.Second, 10*time.Millisecond)
+
 	// Let job complete
 	close(noopCh)
 

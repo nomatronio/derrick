@@ -99,12 +99,12 @@ func (s *State) InstanceCreate(ctx context.Context, rec *serverstate.Instance) e
 
 	// Create our instance
 	if err := txn.Insert(instanceTableName, rec); err != nil {
-		return status.Errorf(codes.Aborted, err.Error())
+		return status.Errorf(codes.Aborted, "%s", err.Error())
 	}
 
 	// Delete all the instance exec sessions. This should be empty anyways.
 	if _, err := txn.DeleteAll(instanceExecTableName, instanceExecInstanceIdIndexName, rec.Id); err != nil {
-		return status.Errorf(codes.Aborted, err.Error())
+		return status.Errorf(codes.Aborted, "%s", err.Error())
 	}
 
 	txn.Commit()
@@ -116,7 +116,7 @@ func (s *State) InstanceDelete(ctx context.Context, id string) error {
 	txn := s.inmem.Txn(true)
 	defer txn.Abort()
 	if _, err := txn.DeleteAll(instanceTableName, instanceIdIndexName, id); err != nil {
-		return status.Errorf(codes.Aborted, err.Error())
+		return status.Errorf(codes.Aborted, "%s", err.Error())
 	}
 	txn.Commit()
 

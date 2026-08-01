@@ -20,8 +20,7 @@ func TestServiceRestoreSnapshot_badOpen(t *testing.T) {
 	require := require.New(t)
 
 	// Create our server
-	impl, err := New(WithDB(testDB(t)))
-	require.NoError(err)
+	impl := mustNew(t)
 	client := server.TestServer(t, impl)
 
 	// Start exec with a bad starting message
@@ -45,8 +44,7 @@ func TestServiceRestoreSnapshot_full(t *testing.T) {
 	require := require.New(t)
 
 	// Create our server
-	impl, err := New(WithDB(testDB(t)))
-	require.NoError(err)
+	impl := mustNew(t)
 	client := server.TestServer(t, impl)
 
 	// Take a snapshot and write the contents to a buf

@@ -21,8 +21,7 @@ func TestServiceRunnerToken_happy(t *testing.T) {
 	require := require.New(t)
 
 	// Create our server
-	impl, err := New(WithDB(testDB(t)))
-	require.NoError(err)
+	impl := mustNew(t)
 	client := server.TestServer(t, impl)
 
 	// Get our cookied context
@@ -136,8 +135,7 @@ func TestServiceRunnerToken_reject(t *testing.T) {
 	require := require.New(t)
 
 	// Create our server
-	impl, err := New(WithDB(testDB(t)))
-	require.NoError(err)
+	impl := mustNew(t)
 	client := server.TestServer(t, impl)
 
 	// Get our cookied context
@@ -233,8 +231,7 @@ func TestServiceRunnerToken_invalidRunnerToken(t *testing.T) {
 	require := require.New(t)
 
 	// Create our server
-	impl, err := New(WithDB(testDB(t)))
-	require.NoError(err)
+	impl := mustNew(t)
 	client := server.TestServer(t, impl)
 
 	// Get our cookied context
@@ -329,8 +326,7 @@ func TestServiceRunnerToken_zeroToLabels(t *testing.T) {
 	require := require.New(t)
 
 	// Create our server
-	impl, err := New(WithDB(testDB(t)))
-	require.NoError(err)
+	impl := mustNew(t)
 	client := server.TestServer(t, impl)
 
 	// Get our cookied context
@@ -412,8 +408,7 @@ func TestServiceRunnerToken_changedLabels(t *testing.T) {
 	require := require.New(t)
 
 	// Create our server
-	impl, err := New(WithDB(testDB(t)))
-	require.NoError(err)
+	impl := mustNew(t)
 	client := server.TestServer(t, impl)
 
 	// Get our cookied context
@@ -493,8 +488,7 @@ func TestServiceRunnerToken_validTokenWithLabels(t *testing.T) {
 	require := require.New(t)
 
 	// Create our server
-	impl, err := New(WithDB(testDB(t)))
-	require.NoError(err)
+	impl := mustNew(t)
 	client := server.TestServer(t, impl)
 
 	// Get our cookied context
@@ -568,8 +562,7 @@ func TestServiceRunnerToken_noCookie(t *testing.T) {
 	require := require.New(t)
 
 	// Create our server
-	impl, err := New(WithDB(testDB(t)))
-	require.NoError(err)
+	impl := mustNew(t)
 
 	// Get the runner id
 	id, err := server.Id()
@@ -596,8 +589,7 @@ func TestServiceRunnerToken_noCookieValidToken(t *testing.T) {
 	require := require.New(t)
 
 	// Create our server
-	impl, err := New(WithDB(testDB(t)))
-	require.NoError(err)
+	impl := mustNew(t)
 
 	// Get the runner id
 	id, err := server.Id()
@@ -634,8 +626,7 @@ func TestServiceRunnerConfig_happy(t *testing.T) {
 	require := require.New(t)
 
 	// Create our server
-	impl, err := New(WithDB(testDB(t)))
-	require.NoError(err)
+	impl := mustNew(t)
 	client := server.TestServer(t, impl)
 
 	// Initialize our app
@@ -686,8 +677,7 @@ func TestServiceRunnerConfig_preadopt(t *testing.T) {
 	require := require.New(t)
 
 	// Create our server
-	impl, err := New(WithDB(testDB(t)))
-	require.NoError(err)
+	impl := mustNew(t)
 	client := server.TestServer(t, impl)
 
 	// Initialize our app
@@ -749,8 +739,7 @@ func TestServiceRunnerConfig_preadoptWrongId(t *testing.T) {
 	require := require.New(t)
 
 	// Create our server
-	impl, err := New(WithDB(testDB(t)))
-	require.NoError(err)
+	impl := mustNew(t)
 	client := server.TestServer(t, impl)
 
 	// Initialize our app
@@ -796,8 +785,7 @@ func TestServiceRunnerConfig_preadoptAnyLabels(t *testing.T) {
 	require := require.New(t)
 
 	// Create our server
-	impl, err := New(WithDB(testDB(t)))
-	require.NoError(err)
+	impl := mustNew(t)
 	client := server.TestServer(t, impl)
 
 	// Initialize our app
@@ -844,8 +832,7 @@ func TestServiceRunnerConfig_preadoptMismatchLabels(t *testing.T) {
 	require := require.New(t)
 
 	// Create our server
-	impl, err := New(WithDB(testDB(t)))
-	require.NoError(err)
+	impl := mustNew(t)
 	client := server.TestServer(t, impl)
 
 	// Initialize our app
@@ -896,8 +883,7 @@ func TestServiceRunnerConfig_odrNoJob(t *testing.T) {
 	require := require.New(t)
 
 	// Create our server
-	impl, err := New(WithDB(testDB(t)))
-	require.NoError(err)
+	impl := mustNew(t)
 	client := server.TestServer(t, impl)
 
 	// Get the runner
@@ -934,8 +920,7 @@ func TestServiceRunnerConfig_odrScopedConfig(t *testing.T) {
 	require := require.New(t)
 
 	// Create our server
-	impl, err := New(WithDB(testDB(t)))
-	require.NoError(err)
+	impl := mustNew(t)
 	client := server.TestServer(t, impl)
 
 	// Get the runner
@@ -1081,8 +1066,7 @@ func TestServiceRunnerJobStream_complete(t *testing.T) {
 	require := require.New(t)
 
 	// Create our server
-	impl, err := New(WithDB(testDB(t)))
-	require.NoError(err)
+	impl := mustNew(t)
 	client := server.TestServer(t, impl)
 
 	// Add a config source app variable for the job
@@ -1195,8 +1179,7 @@ func TestServiceRunnerJobStream_badOpen(t *testing.T) {
 	require := require.New(t)
 
 	// Create our server
-	impl, err := New(WithDB(testDB(t)))
-	require.NoError(err)
+	impl := mustNew(t)
 	client := server.TestServer(t, impl)
 
 	// Start exec with a bad starting message
@@ -1220,8 +1203,7 @@ func TestServiceRunnerJobStream_errorBeforeAck(t *testing.T) {
 	require := require.New(t)
 
 	// Create our server
-	impl, err := New(WithDB(testDB(t)))
-	require.NoError(err)
+	impl := mustNew(t)
 	client := server.TestServer(t, impl)
 
 	// Initialize our app
@@ -1282,8 +1264,7 @@ func TestServiceRunnerJobStream_cancel(t *testing.T) {
 	require := require.New(t)
 
 	// Create our server
-	impl, err := New(WithDB(testDB(t)))
-	require.NoError(err)
+	impl := mustNew(t)
 	client := server.TestServer(t, impl)
 
 	// Initialize our app
@@ -1365,8 +1346,7 @@ func TestServiceRunnerJobStream_adoptCantImpersonate(t *testing.T) {
 	require := require.New(t)
 
 	// Create our server
-	impl, err := New(WithDB(testDB(t)))
-	require.NoError(err)
+	impl := mustNew(t)
 	client := server.TestServer(t, impl)
 
 	// Create a job
@@ -1403,8 +1383,7 @@ func TestServiceRunnerJobStream_reattachHappy(t *testing.T) {
 	require := require.New(t)
 
 	// Create our server
-	impl, err := New(WithDB(testDB(t)))
-	require.NoError(err)
+	impl := mustNew(t)
 	client := server.TestServer(t, impl)
 
 	// Initialize our app
@@ -1536,8 +1515,7 @@ func TestServiceRunnerJobStream_reattachInvalidJobId(t *testing.T) {
 	require := require.New(t)
 
 	// Create our server
-	impl, err := New(WithDB(testDB(t)))
-	require.NoError(err)
+	impl := mustNew(t)
 	client := server.TestServer(t, impl)
 
 	// Initialize our app
@@ -1613,8 +1591,7 @@ func TestServiceRunnerJobStream_reattachInvalidRunner(t *testing.T) {
 	require := require.New(t)
 
 	// Create our server
-	impl, err := New(WithDB(testDB(t)))
-	require.NoError(err)
+	impl := mustNew(t)
 	client := server.TestServer(t, impl)
 
 	// Initialize our app
@@ -1693,8 +1670,7 @@ func TestServiceRunnerGetDeploymentConfig(t *testing.T) {
 		require := require.New(t)
 
 		// Create our server
-		impl, err := New(WithDB(testDB(t)))
-		require.NoError(err)
+		impl := mustNew(t)
 		client := server.TestServer(t, impl)
 
 		// Request deployment config
@@ -1707,12 +1683,11 @@ func TestServiceRunnerGetDeploymentConfig(t *testing.T) {
 		require := require.New(t)
 
 		// Create our server
-		impl, err := New(WithDB(testDB(t)))
-		require.NoError(err)
+		impl := mustNew(t)
 		client := server.TestServer(t, impl)
 
 		// Set some config
-		_, err = client.SetServerConfig(ctx, &pb.SetServerConfigRequest{
+		_, err := client.SetServerConfig(ctx, &pb.SetServerConfigRequest{
 			Config: serverptypes.TestServerConfig(t, nil),
 		})
 		require.NoError(err)

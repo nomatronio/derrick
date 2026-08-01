@@ -1,0 +1,3 @@
+```release-note:improvement
+Foundation hardening: align Go 1.25, fix builtin protobuf registration conflicts, bump tier-3b dependencies, add govulncheck CI, and stabilize singleprocess tests
+```

@@ -83,7 +83,7 @@ func (s *State) InstanceExecCreateByTargetedInstance(ctx context.Context, id str
 
 	// Insert
 	if err := txn.Insert(instanceExecTableName, exec); err != nil {
-		return status.Errorf(codes.Aborted, err.Error())
+		return status.Errorf(codes.Aborted, "%s", err.Error())
 	}
 	txn.Commit()
 
@@ -116,7 +116,7 @@ func (s *State) InstanceExecCreateForVirtualInstance(ctx context.Context, id str
 
 	// Insert
 	if err := txn.Insert(instanceExecTableName, exec); err != nil {
-		return status.Errorf(codes.Aborted, err.Error())
+		return status.Errorf(codes.Aborted, "%s", err.Error())
 	}
 	txn.Commit()
 
@@ -130,7 +130,7 @@ func (s *State) InstanceExecCreateByDeployment(ctx context.Context, did string, 
 	// Find all the instances by deployment
 	iter, err := txn.Get(instanceTableName, instanceDeploymentIdIndexName, did)
 	if err != nil {
-		return status.Errorf(codes.Aborted, err.Error())
+		return status.Errorf(codes.Aborted, "%s", err.Error())
 	}
 
 	// Go through each to try to find the least loaded. Most likely there
@@ -181,13 +181,13 @@ func (s *State) InstanceExecCreateByDeployment(ctx context.Context, did string, 
 	if min == nil {
 		// If we have no running instances then show a special error.
 		if empty {
-			return status.Errorf(codes.ResourceExhausted, strings.TrimSpace(errNoRunningInstances))
+			return status.Errorf(codes.ResourceExhausted, "%s", strings.TrimSpace(errNoRunningInstances))
 		}
 
 		// If we have at least one disabled, that means all have to be disabled
 		// to get to this error.
 		if disabled {
-			return status.Errorf(codes.ResourceExhausted, strings.TrimSpace(errExecAllDisabled))
+			return status.Errorf(codes.ResourceExhausted, "%s", strings.TrimSpace(errExecAllDisabled))
 		}
 
 		// This SHOULD be impossible since right now we'll always assign
@@ -205,7 +205,7 @@ func (s *State) InstanceExecCreateByDeployment(ctx context.Context, did string, 
 
 	// Insert
 	if err := txn.Insert(instanceExecTableName, exec); err != nil {
-		return status.Errorf(codes.Aborted, err.Error())
+		return status.Errorf(codes.Aborted, "%s", err.Error())
 	}
 	txn.Commit()
 
@@ -217,7 +217,7 @@ func (s *State) InstanceExecDelete(ctx context.Context, id int64) error {
 	defer txn.Abort()
 
 	if _, err := txn.DeleteAll(instanceExecTableName, instanceExecIdIndexName, id); err != nil {
-		return status.Errorf(codes.Aborted, err.Error())
+		return status.Errorf(codes.Aborted, "%s", err.Error())
 	}
 	txn.Commit()
 
@@ -258,7 +258,7 @@ func (s *State) instanceExecListByInstanceId(
 	// Find all the exec sessions
 	iter, err := txn.Get(instanceExecTableName, instanceExecInstanceIdIndexName, id)
 	if err != nil {
-		return nil, status.Errorf(codes.Aborted, err.Error())
+		return nil, status.Errorf(codes.Aborted, "%s", err.Error())
 	}
 
 	var result []*serverstate.InstanceExec

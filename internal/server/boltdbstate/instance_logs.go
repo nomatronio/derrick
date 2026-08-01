@@ -69,7 +69,7 @@ func (s *State) InstanceLogsCreate(ctx context.Context, id string, logs *Instanc
 
 	// Insert
 	if err := txn.Insert(instanceLogsTableName, logs); err != nil {
-		return status.Errorf(codes.Aborted, err.Error())
+		return status.Errorf(codes.Aborted, "%s", err.Error())
 	}
 	txn.Commit()
 
@@ -80,7 +80,7 @@ func (s *State) InstanceLogsDelete(ctx context.Context, id int64) error {
 	txn := s.inmem.Txn(true)
 	defer txn.Abort()
 	if _, err := txn.DeleteAll(instanceLogsTableName, instanceLogsIdIndexName, id); err != nil {
-		return status.Errorf(codes.Aborted, err.Error())
+		return status.Errorf(codes.Aborted, "%s", err.Error())
 	}
 	txn.Commit()
 
@@ -127,7 +127,7 @@ func (s *State) instanceLogsListByInstanceId(
 	// Find all the exec sessions
 	iter, err := txn.Get(instanceLogsTableName, instanceLogsInstanceIdIndexName, id)
 	if err != nil {
-		return nil, status.Errorf(codes.Aborted, err.Error())
+		return nil, status.Errorf(codes.Aborted, "%s", err.Error())
 	}
 
 	var result []*InstanceLogs

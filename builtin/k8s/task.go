@@ -612,8 +612,6 @@ func (p *TaskLauncher) WatchTask(
 				// Pod is still running, but no log output
 				continue
 			}
-
-			continue
 		}
 		// NOTE(briancain): it doesn't seem like the k8s API is sending an EOF
 		// Maybe some day this will work.

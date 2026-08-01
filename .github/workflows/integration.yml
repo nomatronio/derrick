@@ -49,7 +49,7 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: actions/setup-go@4d34df0c2316fe8122ab82dc22947d607c0c91f9 # v4.0.0
         with:
-          go-version-file: go.mod
+          go-version-file: .go-version
 
       - name: Restore UI cache
         uses: actions/cache@v4
@@ -92,8 +92,6 @@ jobs:
         with:
           name: derrick.tar
       - name: Execute Integration Tests
-        env:
-          GOLANG_PROTOBUF_REGISTRATION_CONFLICT: warn
         run: |-
           tar -xvf derrick.tar
           ./ci/integration.sh

@@ -24,8 +24,7 @@ func TestServiceEntrypointConfig(t *testing.T) {
 		require := require.New(t)
 
 		// Create our server
-		impl, err := New(WithDB(testDB(t)))
-		require.NoError(err)
+		impl := mustNew(t)
 		client := server.TestServer(t, impl)
 
 		// Create a deployment
@@ -61,8 +60,7 @@ func TestServiceEntrypointConfig(t *testing.T) {
 		require := require.New(t)
 
 		// Create our server
-		impl, err := New(WithDB(testDB(t)))
-		require.NoError(err)
+		impl := mustNew(t)
 		client := server.TestServer(t, impl)
 
 		// Create a deployment
@@ -97,8 +95,7 @@ func TestServiceEntrypointConfig(t *testing.T) {
 		require := require.New(t)
 
 		// Create our server
-		impl, err := New(WithDB(testDB(t)), TestWithURLService(t, nil))
-		require.NoError(err)
+		impl := mustNew(t, TestWithURLService(t, nil))
 		client := server.TestServer(t, impl)
 
 		// Create a deployment
@@ -139,12 +136,10 @@ func TestServiceEntrypointConfig(t *testing.T) {
 		require := require.New(t)
 
 		// Create our server
-		impl, err := New(
-			WithDB(testDB(t)),
+		impl := mustNew(t,
 			TestWithURLService(t, nil),
 			TestWithURLServiceGuestAccount(t),
 		)
-		require.NoError(err)
 		client := server.TestServer(t, impl)
 
 		// Create a deployment
@@ -185,8 +180,7 @@ func TestServiceEntrypointConfig(t *testing.T) {
 		require := require.New(t)
 
 		// Create our server
-		impl, err := New(WithDB(testDB(t)))
-		require.NoError(err)
+		impl := mustNew(t)
 		client := server.TestServer(t, impl)
 
 		// Create a deployment
@@ -295,8 +289,7 @@ func TestServiceEntrypointExecStream_badOpen(t *testing.T) {
 	require := require.New(t)
 
 	// Create our server
-	impl, err := New(WithDB(testDB(t)))
-	require.NoError(err)
+	impl := mustNew(t)
 	client := server.TestServer(t, impl)
 
 	// Start exec with a bad starting message
@@ -320,8 +313,7 @@ func TestServiceEntrypointExecStream_invalidInstanceId(t *testing.T) {
 	require := require.New(t)
 
 	// Create our server
-	impl, err := New(WithDB(testDB(t)))
-	require.NoError(err)
+	impl := mustNew(t)
 	client := server.TestServer(t, impl)
 
 	// Start exec with a bad starting message
@@ -348,8 +340,7 @@ func TestServiceEntrypointExecStream_invalidSessionId(t *testing.T) {
 	require := require.New(t)
 
 	// Create our server
-	impl, err := New(WithDB(testDB(t)))
-	require.NoError(err)
+	impl := mustNew(t)
 	client := server.TestServer(t, impl)
 
 	exec, closer := testRegisterExec(ctx, t, client, impl)
@@ -379,8 +370,7 @@ func TestServiceEntrypointExecStream_closeSend(t *testing.T) {
 	require := require.New(t)
 
 	// Create our server
-	impl, err := New(WithDB(testDB(t)))
-	require.NoError(err)
+	impl := mustNew(t)
 	client := server.TestServer(t, impl)
 
 	exec, closer := testRegisterExec(ctx, t, client, impl)
@@ -416,8 +406,7 @@ func TestServiceEntrypointExecStream_doubleStart(t *testing.T) {
 	require := require.New(t)
 
 	// Create our server
-	impl, err := New(WithDB(testDB(t)))
-	require.NoError(err)
+	impl := mustNew(t)
 	client := server.TestServer(t, impl)
 
 	exec, closer := testRegisterExec(ctx, t, client, impl)
