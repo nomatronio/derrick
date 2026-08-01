@@ -50,7 +50,11 @@ func mustNew(t testing.T, opts ...Option) pb.DerrickServer {
 	opts = append([]Option{WithDB(testDB(t)), WithPollingDisabled(true)}, opts...)
 	impl, err := New(opts...)
 	require.NoError(t, err)
-	t.Cleanup(func() { _ = testServiceImpl(impl).Close() })
+	t.Cleanup(func() {
+		if s, ok := impl.(*Service); ok {
+			_ = s.Close()
+		}
+	})
 
 	return impl
 }
@@ -62,7 +66,11 @@ func mustNewDB(t testing.T, db *bolt.DB, opts ...Option) pb.DerrickServer {
 	opts = append([]Option{WithDB(db), WithPollingDisabled(true)}, opts...)
 	impl, err := New(opts...)
 	require.NoError(t, err)
-	t.Cleanup(func() { _ = testServiceImpl(impl).Close() })
+	t.Cleanup(func() {
+		if s, ok := impl.(*Service); ok {
+			_ = s.Close()
+		}
+	})
 
 	return impl
 }
