@@ -24,7 +24,8 @@ jobs:
       - run: go mod download
       - name: lint
         run: |-
-          test -z "$(gofmt -l -s $(git ls-files '*.go'))"
+          unformatted=$(git ls-files '*.go' | xargs gofmt -l -s)
+          test -z "$unformatted"
           golangci-lint run --build-tags="$GOTAGS" -v --concurrency 2 \
             --default=none \
             --timeout 10m \
