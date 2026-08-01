@@ -18,18 +18,11 @@ jobs:
           go-version-file: .go-version
       - name: Download go modules
         run: go mod download
-      - name: Install golangci-lint
-        run: |-
-          curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b "$(go env GOPATH)/bin" v2.1.6
-      - run: go mod download
       - name: lint
         run: |-
           unformatted=$(git ls-files '*.go' | xargs gofmt -l -s)
           test -z "$unformatted"
-          golangci-lint run --build-tags="$GOTAGS" -v --concurrency 2 \
-            --default=none \
-            --timeout 10m \
-            --enable=govet
+          go vet -tags="$GOTAGS" ./...
 
   check-vendor:
     runs-on: ubuntu-latest
