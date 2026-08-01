@@ -12,7 +12,7 @@ jobs:
         with:
           go-version-file: .go-version
       - run: go mod download
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           path: "."
       - name: generate json plugin docs
@@ -29,7 +29,7 @@ jobs:
       - generate-json-docs
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           path: "embedJson"
           name: docs
