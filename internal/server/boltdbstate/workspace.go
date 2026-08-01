@@ -228,7 +228,7 @@ func (s *State) workspaceDelete(
 
 	// Delete from memdb
 	if _, err := memTxn.DeleteAll(workspaceTableName, workspaceIdIndexName, string(id)); err != nil {
-		return status.Errorf(codes.Aborted, err.Error())
+		return status.Errorf(codes.Aborted, "%s", err.Error())
 	}
 
 	return nil

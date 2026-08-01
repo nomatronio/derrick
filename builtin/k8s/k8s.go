@@ -5,7 +5,7 @@ import (
 	sdk "github.com/nomatronio/derrick-plugin-sdk"
 )
 
-//go:generate protoc -I. -I../../thirdparty/proto --go_out=paths=source_relative:. --go-grpc_out=paths=source_relative:. plugin.proto
+//go:generate protoc -I. -I../../thirdparty/proto --go_out=paths=source_relative:. --go-grpc_out=paths=source_relative:. k8s.proto
 
 const platformName = "kubernetes"
 

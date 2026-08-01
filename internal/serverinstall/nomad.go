@@ -1092,7 +1092,7 @@ func getHTTPFromAllocID(allocID string, client *api.Client) (string, error) {
 
 	for _, port := range alloc.AllocatedResources.Shared.Ports {
 		if port.Label == "ui" {
-			return fmt.Sprintf(port.HostIP + ":9702"), nil
+			return port.HostIP + ":9702", nil
 		}
 	}
 

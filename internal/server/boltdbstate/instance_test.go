@@ -10,6 +10,7 @@ import (
 	"github.com/stretchr/testify/require"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
+	"google.golang.org/protobuf/proto"
 
 	pb "github.com/nomatronio/derrick/pkg/server/gen"
 	"github.com/nomatronio/derrick/pkg/serverstate"
@@ -89,10 +90,9 @@ func TestInstancesByApp(t *testing.T) {
 	require.Len(list, 1)
 
 	// Should not for other app
-	//nolint:govet,copylocks
-	ref2 := *ref
+	ref2 := proto.Clone(ref).(*pb.Ref_Application)
 	ref2.Application = "NO"
-	list, err = s.InstancesByApp(ctx, &ref2, nil, nil)
+	list, err = s.InstancesByApp(ctx, ref2, nil, nil)
 	require.NoError(err)
 	require.Empty(list)
 }
@@ -137,10 +137,9 @@ func TestInstancesByAppWorkspace(t *testing.T) {
 	require.Len(list, 1)
 
 	// Should not for other app
-	//nolint:govet,copylocks
-	ref2 := *refWs
+	ref2 := proto.Clone(refWs).(*pb.Ref_Workspace)
 	ref2.Workspace = "NO"
-	list, err = s.InstancesByApp(ctx, ref, &ref2, nil)
+	list, err = s.InstancesByApp(ctx, ref, ref2, nil)
 	require.NoError(err)
 	require.Empty(list)
 }

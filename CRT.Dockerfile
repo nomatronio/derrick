@@ -52,8 +52,6 @@ USER derrick
 ENV USER derrick
 ENV HOME /home/derrick
 ENV XDG_RUNTIME_DIR=/run/user/100
-# Multiple builtin plugins register the same plugin.proto filename.
-ENV GOLANG_PROTOBUF_REGISTRATION_CONFLICT=warn
 
 ENTRYPOINT ["/usr/bin/derrick"]
 
@@ -91,7 +89,5 @@ RUN ["/kaniko/busybox", "--install", "-s", "/kaniko/bin"]
 # Need to add the dir with our tools in PATH
 ENV PATH $PATH:/kaniko/bin
 ENV TMPDIR /kaniko/tmp
-# Multiple builtin plugins register the same plugin.proto filename.
-ENV GOLANG_PROTOBUF_REGISTRATION_CONFLICT=warn
 
 ENTRYPOINT ["/kaniko/derrick"]

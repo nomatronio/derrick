@@ -30,8 +30,7 @@ func TestPollQueuer_peek(t *testing.T) {
 		defer cancel()
 
 		// Create our server
-		impl, err := New(WithDB(testDB(t)))
-		require.NoError(err)
+		impl := mustNew(t)
 
 		// Create our mock handler
 		mockH := &mocks.PollHandler{}
@@ -70,16 +69,13 @@ func TestPollQueuer_peek(t *testing.T) {
 
 	// Test that if the watchset triggers while we're waiting, we re-peek
 	t.Run("watchset trigger", func(t *testing.T) {
-		require := require.New(t)
-
 		var wg sync.WaitGroup
 		ctx, cancel := context.WithCancel(context.Background())
 		defer wg.Wait()
 		defer cancel()
 
 		// Create our server
-		impl, err := New(WithDB(testDB(t)))
-		require.NoError(err)
+		impl := mustNew(t)
 
 		// Create our mock handler
 		mockH := &mocks.PollHandler{}
@@ -129,16 +125,13 @@ func TestPollQueuer_peek(t *testing.T) {
 
 	// Test that watchset takes priority over a pending poll timer.
 	t.Run("long poll with watchset trigger", func(t *testing.T) {
-		require := require.New(t)
-
 		var wg sync.WaitGroup
 		ctx, cancel := context.WithCancel(context.Background())
 		defer wg.Wait()
 		defer cancel()
 
 		// Create our server
-		impl, err := New(WithDB(testDB(t)))
-		require.NoError(err)
+		impl := mustNew(t)
 
 		// Create our mock handler
 		mockH := &mocks.PollHandler{}
@@ -198,8 +191,7 @@ func TestPollQueuer_queue(t *testing.T) {
 		defer cancel()
 
 		// Create our server
-		impl, err := New(WithDB(testDB(t)))
-		require.NoError(err)
+		impl := mustNew(t)
 
 		// Create our mock handler
 		mockH := &mocks.PollHandler{}
@@ -233,8 +225,7 @@ func TestPollQueuer_queue(t *testing.T) {
 		defer cancel()
 
 		// Create our server
-		impl, err := New(WithDB(testDB(t)))
-		require.NoError(err)
+		impl := mustNew(t)
 
 		// Create our mock handler
 		mockH := &mocks.PollHandler{}
@@ -277,8 +268,7 @@ func TestPollQueuer_queue(t *testing.T) {
 		defer cancel()
 
 		// Create our server
-		impl, err := New(WithDB(testDB(t)))
-		require.NoError(err)
+		impl := mustNew(t)
 
 		// Create our mock handler
 		mockH := &mocks.PollHandler{}
@@ -321,12 +311,11 @@ func TestServicePollQueue(t *testing.T) {
 	ctx := context.Background()
 
 	// Create our server
-	impl, err := New(WithDB(testDB(t)))
-	require.NoError(err)
+	impl := mustNew(t, WithPollingDisabled(false))
 	client := server.TestServer(t, impl)
 
 	// Create a project
-	_, err = client.UpsertProject(ctx, &pb.UpsertProjectRequest{
+	_, err := client.UpsertProject(ctx, &pb.UpsertProjectRequest{
 		Project: serverptypes.TestProject(t, &pb.Project{
 			Name: "A",
 			DataSource: &pb.Job_DataSource{
@@ -385,12 +374,11 @@ func TestProjectPollHandler(t *testing.T) {
 	ctx := context.Background()
 
 	// Create our server
-	impl, err := New(WithDB(testDB(t)))
-	require.NoError(err)
+	impl := mustNew(t, WithPollingDisabled(false))
 	client := server.TestServer(t, impl)
 
 	// Create a project
-	_, err = client.UpsertProject(ctx, &pb.UpsertProjectRequest{
+	_, err := client.UpsertProject(ctx, &pb.UpsertProjectRequest{
 		Project: serverptypes.TestProject(t, &pb.Project{
 			Name: "Example",
 			DataSource: &pb.Job_DataSource{
@@ -464,8 +452,7 @@ func TestApplicationPollHandler(t *testing.T) {
 	ctx := context.Background()
 
 	// Create our server
-	impl, err := New(WithDB(testDB(t)))
-	require.NoError(err)
+	impl := mustNew(t, WithPollingDisabled(false))
 	client := server.TestServer(t, impl)
 
 	appName := "apple-app"
@@ -580,8 +567,7 @@ func TestApplicationPollHandler_fullLifecycle(t *testing.T) {
 	ctx := context.Background()
 
 	// Create our server
-	impl, err := New(WithDB(testDB(t)))
-	require.NoError(err)
+	impl := mustNew(t, WithPollingDisabled(false))
 	client := server.TestServer(t, impl)
 
 	appName := "apple-app"

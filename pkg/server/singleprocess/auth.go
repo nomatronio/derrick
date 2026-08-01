@@ -284,7 +284,7 @@ func (s *Service) authLogin(
 	if err != nil {
 		msg := "failed to decode id when authenticating login token"
 		log.Error(msg, "id", login.Login.UserId, "err", err)
-		return nil, status.Errorf(codes.Internal, msg)
+		return nil, status.Errorf(codes.Internal, "%s", msg)
 	}
 
 	// Look up the user that this token is for.
@@ -355,7 +355,7 @@ func (s *Service) decodeToken(ctx context.Context, token string) (*pb.TokenTrans
 
 	isValid, err := s.state(ctx).TokenSignatureVerify(ctx, tt.Body, tt.Signature, tt.KeyId)
 	if err != nil {
-		return nil, nil, errors.Wrapf(ErrInvalidToken, err.Error())
+		return nil, nil, errors.Wrapf(ErrInvalidToken, "%s", err.Error())
 	}
 	if !isValid {
 		return nil, nil, errors.Wrapf(ErrInvalidToken, "bad token signature")
@@ -540,7 +540,7 @@ func (s *Service) GenerateRunnerToken(
 			if k.Runner.Id != req.Id {
 				msg := "cannot generate a token for runner " + req.Id + " using a runner token for runner " + k.Runner.Id
 				log.Error(msg)
-				return nil, status.Errorf(codes.InvalidArgument, msg)
+				return nil, status.Errorf(codes.InvalidArgument, "%s", msg)
 			}
 		}
 	default:

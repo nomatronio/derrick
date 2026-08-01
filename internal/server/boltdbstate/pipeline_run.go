@@ -82,7 +82,7 @@ func (s *State) pipelineRunPut(
 	// issue if there are validation errors, we test again.
 
 	if err := ptypes.ValidatePipelineRun(value); err != nil {
-		return status.Errorf(codes.FailedPrecondition, err.Error())
+		return status.Errorf(codes.FailedPrecondition, "%s", err.Error())
 	}
 
 	// Get the global bucket and write the value to it.

@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: actions/setup-go@4d34df0c2316fe8122ab82dc22947d607c0c91f9 # v4.0.0
         with:
-          go-version-file: go.mod
+          go-version-file: .go-version
       - name: Download go modules
         run: go mod download
       - name: Install golangci-lint
@@ -38,7 +38,7 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: actions/setup-go@4d34df0c2316fe8122ab82dc22947d607c0c91f9 # v4.0.0
         with:
-          go-version-file: go.mod
+          go-version-file: .go-version
       - run: go mod tidy
         env:
           GOTOOLCHAIN: local
@@ -56,7 +56,7 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: actions/setup-go@4d34df0c2316fe8122ab82dc22947d607c0c91f9 # v4.0.0
         with:
-          go-version-file: './go.mod'
+          go-version-file: './.go-version'
       - name: Split tests
         id: split-tests
         env:
@@ -76,7 +76,6 @@ jobs:
       GOTESTSUM_RELEASE: 1.8.2
       GOTAGS: ''
       GOMAXPROCS: 4
-      GOLANG_PROTOBUF_REGISTRATION_CONFLICT: warn
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Start Services
@@ -84,7 +83,7 @@ jobs:
           docker compose -f .github/services/go-tests/docker-compose.yml up --detach --no-color --wait
       - uses: actions/setup-go@4d34df0c2316fe8122ab82dc22947d607c0c91f9 # v4.0.0
         with:
-          go-version-file: './go.mod'
+          go-version-file: './.go-version'
       - name: Install gotestsum
         run: |-
           url=https://github.com/gotestyourself/gotestsum/releases/download
@@ -131,7 +130,7 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: actions/setup-go@4d34df0c2316fe8122ab82dc22947d607c0c91f9 # v4.0.0
         with:
-          go-version-file: './go.mod'
+          go-version-file: './.go-version'
       - run: |-
           go install github.com/kevinburke/go-bindata/...
           make bin
@@ -143,10 +142,24 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: actions/setup-go@4d34df0c2316fe8122ab82dc22947d607c0c91f9 # v4.0.0
         with:
-          go-version-file: './go.mod'
+          go-version-file: './.go-version'
       - run: |-
           go install github.com/kevinburke/go-bindata/...
           make bin/windows
+
+  govulncheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-go@4d34df0c2316fe8122ab82dc22947d607c0c91f9 # v4.0.0
+        with:
+          go-version-file: './.go-version'
+      - run: go mod download
+      - name: Install govulncheck
+        run: go install golang.org/x/vuln/cmd/govulncheck@latest
+      - name: Run govulncheck
+        continue-on-error: true # informational until deferred findings in docs/security/vuln-triage.md are resolved
+        run: govulncheck ./...
 
 permissions:
   contents: read

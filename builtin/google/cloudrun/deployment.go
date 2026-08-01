@@ -48,7 +48,7 @@ func (d *Deployment) apiService(ctx context.Context) (*run.APIService, error) {
 		option.WithEndpoint("https://"+d.Resource.Location+"-run.googleapis.com"),
 	)
 	if err != nil {
-		return nil, status.Errorf(codes.Aborted, err.Error())
+		return nil, status.Errorf(codes.Aborted, "%s", err.Error())
 	}
 
 	return result, nil
@@ -58,7 +58,7 @@ func (d *Deployment) apiService(ctx context.Context) (*run.APIService, error) {
 func (d *Deployment) iamAPIService(ctx context.Context) (*iam.Service, error) {
 	result, err := iam.NewService(ctx)
 	if err != nil {
-		return nil, status.Errorf(codes.Aborted, err.Error())
+		return nil, status.Errorf(codes.Aborted, "%s", err.Error())
 	}
 
 	return result, nil

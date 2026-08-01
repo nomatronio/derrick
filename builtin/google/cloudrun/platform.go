@@ -9,7 +9,6 @@ import (
 	"strings"
 	"time"
 
-	"google.golang.org/api/iam/v1"
 	"google.golang.org/api/option"
 	run "google.golang.org/api/run/v1"
 	"google.golang.org/grpc/codes"
@@ -102,87 +101,89 @@ func (p *Platform) ValidateAuth(
 	apiService, err := deployment.apiService(ctx)
 	if err != nil {
 		ui.Output("Error constructing api client: "+err.Error(), terminal.WithErrorStyle())
-		return status.Errorf(codes.Aborted, err.Error())
+		return status.Errorf(codes.Aborted, "%s", err.Error())
 	}
 
 	// TODO auth doesn't work if the service isn't already created, which is a common case.
 	// Until that is fixed, we disable the auth checks.
+	_ = apiService
 	return nil
 
-	// We'll update the user in real time
-	st := ui.Status()
-	defer st.Close()
+	/*
+		st := ui.Status()
+		defer st.Close()
 
-	client := run.NewProjectsLocationsServicesService(apiService)
-
-	expectedPermissions := []string{
-		"roles/run.admin",
-	}
-
-	// run.admin encompasses all the permissions we should need
-	testReq := run.TestIamPermissionsRequest{
-		Permissions: expectedPermissions,
-	}
-
-	// The resource we are checking permissions on
-	apiResource := fmt.Sprintf("projects/%s/locations/%s/services/%s",
-		p.config.Project,
-		p.config.Location,
-		src.App,
-	)
-
-	st.Update("Testing Cloud Run IAM permissions...")
-	result, err := client.TestIamPermissions(apiResource, &testReq).Do()
-	if err != nil {
-		st.Step(terminal.StatusError, "Error testing Cloud Run IAM permissions: "+err.Error())
-		return err
-	}
-
-	// If our resulting permissions do not equal our expected permissions, auth does not validate
-	if !reflect.DeepEqual(result.Permissions, expectedPermissions) {
-		st.Step(terminal.StatusError, "Incorrect IAM permissions, received "+strings.Join(result.Permissions, ", "))
-		return status.Errorf(codes.PermissionDenied, "incorrect IAM permissions, received %s", strings.Join(result.Permissions, ", "))
-	}
-
-	// Validate if user has access to the service account specified
-	if p.config.ServiceAccountName != "" {
-
-		iamAPIService, err := deployment.iamAPIService(ctx)
-		if err != nil {
-			ui.Output("Error constructing api client: "+err.Error(), terminal.WithErrorStyle())
-			return status.Errorf(codes.Aborted, err.Error())
-		}
-
-		client := iam.NewProjectsServiceAccountsService(iamAPIService)
+		client := run.NewProjectsLocationsServicesService(apiService)
 
 		expectedPermissions := []string{
-			"iam.serviceAccounts.actAs",
+			"roles/run.admin",
 		}
 
-		// We need to ensure that the service creator has Service Account User role.
-		testReq := iam.TestIamPermissionsRequest{
+		// run.admin encompasses all the permissions we should need
+		testReq := run.TestIamPermissionsRequest{
 			Permissions: expectedPermissions,
 		}
 
-		apiResource := fmt.Sprintf("projects/%s/serviceAccounts/%s",
+		// The resource we are checking permissions on
+		apiResource := fmt.Sprintf("projects/%s/locations/%s/services/%s",
 			p.config.Project,
-			p.config.ServiceAccountName,
+			p.config.Location,
+			src.App,
 		)
 
-		st.Update("Testing IAM permissions on the supplied service account...")
+		st.Update("Testing Cloud Run IAM permissions...")
 		result, err := client.TestIamPermissions(apiResource, &testReq).Do()
 		if err != nil {
-			st.Step(terminal.StatusError, "Error testing IAM permissions of the Service Account: "+err.Error())
+			st.Step(terminal.StatusError, "Error testing Cloud Run IAM permissions: "+err.Error())
 			return err
 		}
 
 		// If our resulting permissions do not equal our expected permissions, auth does not validate
 		if !reflect.DeepEqual(result.Permissions, expectedPermissions) {
-			st.Step(terminal.StatusError, "Incorrect IAM permissions on the Service Account, received "+strings.Join(result.Permissions, ", "))
-			return status.Errorf(codes.PermissionDenied, "Incorrect IAM permissions on the Service Account, received %s", strings.Join(result.Permissions, ", "))
+			st.Step(terminal.StatusError, "Incorrect IAM permissions, received "+strings.Join(result.Permissions, ", "))
+			return status.Errorf(codes.PermissionDenied, "incorrect IAM permissions, received %s", strings.Join(result.Permissions, ", "))
 		}
-	}
-	return nil
+
+		// Validate if user has access to the service account specified
+		if p.config.ServiceAccountName != "" {
+
+			iamAPIService, err := deployment.iamAPIService(ctx)
+			if err != nil {
+				ui.Output("Error constructing api client: "+err.Error(), terminal.WithErrorStyle())
+				return status.Errorf(codes.Aborted, "%s", err.Error())
+			}
+
+			client := iam.NewProjectsServiceAccountsService(iamAPIService)
+
+			expectedPermissions := []string{
+				"iam.serviceAccounts.actAs",
+			}
+
+			// We need to ensure that the service creator has Service Account User role.
+			testReq := iam.TestIamPermissionsRequest{
+				Permissions: expectedPermissions,
+			}
+
+			apiResource := fmt.Sprintf("projects/%s/serviceAccounts/%s",
+				p.config.Project,
+				p.config.ServiceAccountName,
+			)
+
+			st.Update("Testing IAM permissions on the supplied service account...")
+			result, err := client.TestIamPermissions(apiResource, &testReq).Do()
+			if err != nil {
+				st.Step(terminal.StatusError, "Error testing IAM permissions of the Service Account: "+err.Error())
+				return err
+			}
+
+			// If our resulting permissions do not equal our expected permissions, auth does not validate
+			if !reflect.DeepEqual(result.Permissions, expectedPermissions) {
+				st.Step(terminal.StatusError, "Incorrect IAM permissions on the Service Account, received "+strings.Join(result.Permissions, ", "))
+				return status.Errorf(codes.PermissionDenied, "Incorrect IAM permissions on the Service Account, received %s", strings.Join(result.Permissions, ", "))
+			}
+		}
+		return nil
+	*/
 }
 
 func (p *Platform) resourceManager(log hclog.Logger) *resource.Manager {

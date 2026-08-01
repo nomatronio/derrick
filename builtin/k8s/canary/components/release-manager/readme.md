@@ -7,14 +7,14 @@ groups within your job for promotion, if you have multiple task groups in your c
 deployment.
 
 -> **Note:** Using the `-prune=false` flag is recommended for this releaser. By default,
-Waypoint prunes and destroys all unreleased deployments and keeps only one previous
-deployment. Therefore, if `-prune=false` is not set, Waypoint may delete
-your job via "pruning" a previous version. See [deployment pruning](/waypoint/docs/lifecycle/release#deployment-pruning)
+Derrick prunes and destroys all unreleased deployments and keeps only one previous
+deployment. Therefore, if `-prune=false` is not set, Derrick may delete
+your job via "pruning" a previous version. See [deployment pruning](/derrick/docs/lifecycle/release#deployment-pruning)
 for more information.
 
 ### Release URL
 
-If you want the URL of the release of your deployment to be published in Waypoint,
+If you want the URL of the release of your deployment to be published in Derrick,
 you must set the meta 'waypoint.hashicorp.com/release_url' in your jobspec. The
 value specified in this meta field will be published as the release URL for your
 application. In the future, this may source from Consul.
@@ -26,7 +26,7 @@ application. In the future, this may source from Consul.
 ### Examples
 
 ```hcl
-// The waypoint.hcl file
+// The derrick.hcl file
 release {
   use "nomad-jobspec-canary" {
     groups = [
@@ -115,7 +115,7 @@ job "web" {
     }
   }
   meta = {
-    // Ensure we set meta for Waypoint to detect the release URL
+    // Ensure we set meta for Derrick to detect the release URL
     "waypoint.hashicorp.com/release_url" = "http://app.ingress.dc1.consul:8080"
   }
 }

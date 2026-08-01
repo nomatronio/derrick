@@ -41,7 +41,7 @@ func (c *GetInviteCommand) Run(args []string) int {
 	}
 
 	// Warn of deprecation
-	fmt.Fprintf(os.Stderr, strings.TrimSpace(warnTokenDeprecated)+"\n\n")
+	fmt.Fprintf(os.Stderr, "%s\n\n", strings.TrimSpace(warnTokenDeprecated))
 
 	// We use fmt here and not the UI helpers because UI helpers will
 	// trim tokens horizontally on terminals that are narrow.
@@ -117,7 +117,7 @@ func (c *ExchangeInviteCommand) Run(args []string) int {
 	}
 
 	// Warn of deprecation
-	fmt.Fprintf(os.Stderr, strings.TrimSpace(warnTokenDeprecated)+"\n\n")
+	fmt.Fprintf(os.Stderr, "%s\n\n", strings.TrimSpace(warnTokenDeprecated))
 
 	// We use fmt here and not the UI helpers because UI helpers will
 	// trim tokens horizontally on terminals that are narrow.
@@ -180,7 +180,7 @@ func (c *GetTokenCommand) Run(args []string) int {
 	}
 
 	// Warn of deprecation
-	fmt.Fprintf(os.Stderr, strings.TrimSpace(warnTokenDeprecated)+"\n\n")
+	fmt.Fprintf(os.Stderr, "%s\n\n", strings.TrimSpace(warnTokenDeprecated))
 
 	// We use fmt here and not the UI helpers because UI helpers will
 	// trim tokens horizontally on terminals that are narrow.

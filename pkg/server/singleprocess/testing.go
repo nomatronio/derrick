@@ -3,8 +3,8 @@ package singleprocess
 import (
 	"context"
 	"fmt"
-	"io"
 	"io/ioutil"
+	"net"
 	"os"
 	"path/filepath"
 	"time"
@@ -39,14 +39,31 @@ func TestServer(t testing.T, opts ...Option) pb.DerrickClient {
 // TestImpl returns the waypoint server implementation. This can be used
 // with server.TestServer. It is easier to just use TestServer directly.
 func TestImpl(t testing.T, opts ...Option) pb.DerrickServer {
-	impl, err := New(append(
-		[]Option{WithDB(testDB(t))},
-		opts...,
-	)...)
+	return mustNew(t, opts...)
+}
+
+// mustNew creates a test Service with background polling disabled and
+// registers cleanup to stop background goroutines when the test ends.
+func mustNew(t testing.T, opts ...Option) pb.DerrickServer {
+	t.Helper()
+
+	opts = append([]Option{WithDB(testDB(t)), WithPollingDisabled(true)}, opts...)
+	impl, err := New(opts...)
 	require.NoError(t, err)
-	if c, ok := impl.(io.Closer); ok {
-		t.Cleanup(func() { c.Close() })
-	}
+	t.Cleanup(func() { _ = testServiceImpl(impl).Close() })
+
+	return impl
+}
+
+// mustNewDB is like mustNew but uses an existing bolt DB.
+func mustNewDB(t testing.T, db *bolt.DB, opts ...Option) pb.DerrickServer {
+	t.Helper()
+
+	opts = append([]Option{WithDB(db), WithPollingDisabled(true)}, opts...)
+	impl, err := New(opts...)
+	require.NoError(t, err)
+	t.Cleanup(func() { _ = testServiceImpl(impl).Close() })
+
 	return impl
 }
 
@@ -56,6 +73,10 @@ func TestImpl(t testing.T, opts ...Option) pb.DerrickServer {
 //
 // If out is non-nil, it will be written to with the DevSetup info.
 func TestWithURLService(t testing.T, out *hzntest.DevSetup) Option {
+	if !horizonIntegrationEnabled() {
+		t.Skip("Horizon URL service requires localstack on localhost:4566")
+	}
+
 	// Create the test server. On test end we close the channel which quits
 	// the Horizon test server.
 	setupCh := make(chan *hzntest.DevSetup, 1)
@@ -69,7 +90,13 @@ func TestWithURLService(t testing.T, out *hzntest.DevSetup) Option {
 		setupCh <- setup
 		<-closeCh
 	})
-	setup := <-setupCh
+
+	var setup *hzntest.DevSetup
+	select {
+	case setup = <-setupCh:
+	case <-time.After(30 * time.Second):
+		t.Skip("Horizon URL service dev environment unavailable; skipping integration test")
+	}
 
 	// Make our test registration API
 	wphzndata := wphzn.TestServer(t,
@@ -317,6 +344,15 @@ func testDB(t testing.T) *bolt.DB {
 	t.Cleanup(func() { db.Close() })
 
 	return db
+}
+
+func horizonIntegrationEnabled() bool {
+	conn, err := net.DialTimeout("tcp", "127.0.0.1:4566", 500*time.Millisecond)
+	if err != nil {
+		return false
+	}
+	_ = conn.Close()
+	return true
 }
 
 // WithDB return a server option with a boltdb state provider

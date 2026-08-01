@@ -42,7 +42,7 @@ func validateConfig(c Config) error {
 			}
 		}
 
-		return fmt.Errorf(errorMessage)
+		return fmt.Errorf("%s", errorMessage)
 	}
 
 	return nil

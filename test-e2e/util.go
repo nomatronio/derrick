@@ -17,30 +17,6 @@ import (
 	"github.com/pkg/errors"
 )
 
-var protoRegistrationWarning = regexp.MustCompile(`(?m)^WARNING: proto:\s+file "plugin\.proto" is already registered|^[\t ]*previously from:|^[\t ]*currently from:|^See https://developers\.google\.com/protocol-buffers/docs/reference/go/faq#namespace-conflict`)
-
-// filterBenignStderr removes known harmless stderr noise emitted when builtin
-// plugins and the plugin SDK both register plugin.proto.
-func filterBenignStderr(stderr string) string {
-	if stderr == "" {
-		return ""
-	}
-
-	// Release binaries can emit non-breaking spaces (U+00A0) in proto warnings.
-	stderr = strings.ReplaceAll(stderr, "\u00a0", " ")
-
-	var kept []string
-	for _, line := range strings.Split(stderr, "\n") {
-		line = strings.TrimSuffix(line, "\r")
-		if line == "" || protoRegistrationWarning.MatchString(line) {
-			continue
-		}
-		kept = append(kept, line)
-	}
-
-	return strings.TrimSpace(strings.Join(kept, "\n"))
-}
-
 // Test config settings used by the tests
 var (
 	wpBinary             = Getenv("DERRICK_BINARY", "derrick")
@@ -75,7 +51,6 @@ func (b *binary) NewCmd(args ...string) *exec.Cmd {
 
 	cmd.Env = append(cmd.Env,
 		"CHECKPOINT_DISABLE=1",
-		"GOLANG_PROTOBUF_REGISTRATION_CONFLICT=ignore",
 	)
 	return cmd
 }
@@ -218,7 +193,7 @@ func (b *binary) RunRaw(args ...string) (stdout, stderr string, err error) {
 	cmd.Stderr = &bytes.Buffer{}
 	err = cmd.Run()
 	stdout = cmd.Stdout.(*bytes.Buffer).String()
-	stderr = filterBenignStderr(cmd.Stderr.(*bytes.Buffer).String())
+	stderr = cmd.Stderr.(*bytes.Buffer).String()
 	return
 }
 

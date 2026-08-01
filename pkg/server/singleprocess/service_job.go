@@ -265,7 +265,7 @@ func (s *Service) QueueJob(
 		return nil, status.Errorf(codes.Unimplemented, "operation is nil or unknown")
 	}
 	if err := serverptypes.ValidateJob(req.Job); err != nil {
-		return nil, status.Errorf(codes.FailedPrecondition, err.Error())
+		return nil, status.Errorf(codes.FailedPrecondition, "%s", err.Error())
 	}
 
 	jobs, jobId, err := s.queueJobReqToJob(ctx, req)
