@@ -36,7 +36,7 @@ jobs:
           name: ${{ inputs.derrick-odr-tar }}
 
       - name: GHCR Login
-        uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a # v2.1.0
+        uses: docker/login-action@371161bbe7024a29a25c5e19bfcbc0804fe9ad2c # v4.5.2
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
