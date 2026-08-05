@@ -17,9 +17,34 @@ set -euo pipefail
 #   PUBLISH_GHCR=false    Skip GHCR (default: publish)
 #   PUBLISH_ECR=false     Skip ECR Public (default: publish)
 #   PUBLISH_DOCKERHUB=false Skip Docker Hub (default: publish)
+#   RETRY_ATTEMPTS=5      Retries for docker push / manifest push (default: 5)
+#   RETRY_INITIAL_DELAY_SECS=4  Initial backoff seconds between retries (default: 4)
 
 function usage {
   echo "Usage: $0 <version> <github_sha> <image_name> <docker_target>"
+}
+
+# Retry flaky registry operations (Docker Hub auth timeouts are common on manifest push).
+function retry() {
+  local max_attempts="${RETRY_ATTEMPTS:-5}"
+  local delay="${RETRY_INITIAL_DELAY_SECS:-4}"
+  local attempt=1
+
+  while true; do
+    if "$@"; then
+      return 0
+    fi
+
+    if (( attempt >= max_attempts )); then
+      echo "ERROR: command failed after ${max_attempts} attempts: $*" >&2
+      return 1
+    fi
+
+    echo "Attempt ${attempt}/${max_attempts} failed; retrying in ${delay}s: $*" >&2
+    sleep "${delay}"
+    delay=$(( delay * 2 ))
+    attempt=$(( attempt + 1 ))
+  done
 }
 
 function publish_manifest() {
@@ -29,13 +54,13 @@ function publish_manifest() {
 
   docker manifest rm "${registry_prefix}:${version}" >/dev/null 2>&1 || true
   docker manifest create "${registry_prefix}:${version}" "${tags[@]}"
-  docker manifest push "${registry_prefix}:${version}"
+  retry docker manifest push "${registry_prefix}:${version}"
   echo "Published ${registry_prefix}:${version}"
 
   if [[ "${PUBLISH_LATEST:-false}" == "true" ]]; then
     docker manifest rm "${registry_prefix}:latest" >/dev/null 2>&1 || true
     docker manifest create "${registry_prefix}:latest" "${tags[@]}"
-    docker manifest push "${registry_prefix}:latest"
+    retry docker manifest push "${registry_prefix}:latest"
     echo "Published ${registry_prefix}:latest"
   fi
 }
@@ -47,7 +72,7 @@ function publish_registry() {
   for arch in amd64 arm64; do
     local arch_tag="${registry_prefix}:${version}-${arch}"
     docker tag "${src_image}" "${arch_tag}"
-    docker push "${arch_tag}"
+    retry docker push "${arch_tag}"
     arch_tags+=( "${arch_tag}" )
   done
 
