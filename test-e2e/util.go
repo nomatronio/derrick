@@ -49,7 +49,9 @@ func (b *binary) NewCmd(args ...string) *exec.Cmd {
 	cmd.Dir = b.workingDir
 	cmd.Env = os.Environ()
 
-	cmd.Env = append(cmd.Env, "CHECKPOINT_DISABLE=1")
+	cmd.Env = append(cmd.Env,
+		"CHECKPOINT_DISABLE=1",
+	)
 	return cmd
 }
 

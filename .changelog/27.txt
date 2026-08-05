@@ -1,0 +1,15 @@
+```release-note:improvement
+core: Phase 0 foundation — CI rename-check gate, compat label dual-write (K8s/Docker), dependabot ignore rules for deferred upgrades
+```
+
+```release-note:improvement
+docs: Add public compatibility guide for Waypoint labels, entrypoint, tokens, and plugin handshake
+```
+
+```release-note:improvement
+ci: Replace broken dev-portal link checker with local legacy link validation; revert sinatra integration to pack builder
+```
+
+```release-note:improvement
+contrib: Rename waypoint-local and waypoint-grpc to derrick-local and derrick-grpc
+```

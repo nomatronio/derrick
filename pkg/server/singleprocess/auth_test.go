@@ -20,8 +20,7 @@ import (
 
 func TestServiceAuth(t *testing.T) {
 	// Create our server
-	impl, err := New(WithDB(testDB(t)))
-	require.NoError(t, err)
+	impl := mustNew(t)
 	s := impl.(*Service)
 	ctx := context.Background()
 
@@ -386,7 +385,6 @@ func TestServiceAuth(t *testing.T) {
 
 	t.Run("validate that a runner token can't be created for a different runner", func(t *testing.T) {
 		require := require.New(t)
-		require.NoError(err)
 
 		require.NoError(s.state(ctx).RunnerCreate(ctx, &pb.Runner{
 			Id: "A",
@@ -418,8 +416,7 @@ func TestServiceAuth(t *testing.T) {
 
 func TestServiceAuth_TriggerToken(t *testing.T) {
 	// Create our server
-	impl, err := New(WithDB(testDB(t)))
-	require.NoError(t, err)
+	impl := mustNew(t)
 	s := impl.(*Service)
 	ctx := context.Background()
 
@@ -460,8 +457,7 @@ func TestServiceBootstrapToken(t *testing.T) {
 	require := require.New(t)
 
 	// Create our server
-	impl, err := New(WithDB(testDB(t)))
-	require.NoError(err)
+	impl := mustNew(t)
 
 	{
 		// Initial bootstrap should return a token
@@ -484,8 +480,7 @@ func TestServiceDecodeToken(t *testing.T) {
 	require := require.New(t)
 
 	// Create our server
-	impl, err := New(WithDB(testDB(t)))
-	require.NoError(err)
+	impl := mustNew(t)
 
 	// Grab our bootstrap token, that'll work
 	resp, err := impl.BootstrapToken(ctx, &empty.Empty{})
@@ -501,8 +496,7 @@ func TestServiceDecodeToken(t *testing.T) {
 
 func TestServiceAuth_userSuperuserForced(t *testing.T) {
 	// Create our server
-	impl, err := New(WithDB(testDB(t)), WithSuperuser())
-	require.NoError(t, err)
+	impl := mustNew(t, WithSuperuser())
 	s := impl.(*Service)
 	ctx := context.Background()
 

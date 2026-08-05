@@ -24,6 +24,7 @@ import (
 	"github.com/nomatronio/derrick-plugin-sdk/framework/resource"
 	sdk "github.com/nomatronio/derrick-plugin-sdk/proto/gen"
 	"github.com/nomatronio/derrick-plugin-sdk/terminal"
+	"github.com/nomatronio/derrick/internal/pkg/derrlabels"
 )
 
 // DefaultPort is the port that a service will forward to the pod(s)
@@ -193,9 +194,9 @@ func (r *Releaser) resourceServiceCreate(
 
 	// Update the spec
 	service.Spec.Selector = map[string]string{
-		"name":  target.Name,
-		labelId: target.Id,
+		"name": target.Name,
 	}
+	derrlabels.ApplyID(service.Spec.Selector, target.Id)
 
 	if (r.config.Port != 0 || r.config.NodePort != 0) && r.config.Ports != nil {
 		return status.Errorf(codes.FailedPrecondition, "Cannot define both 'ports' and 'port' or 'node_port'."+

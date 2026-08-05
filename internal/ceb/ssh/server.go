@@ -158,6 +158,10 @@ func createHandler(ctx context.Context, logger hclog.Logger, server **ssh.Server
 			// s.Read to because finish but it's blocked inside SSH.
 			// But if we make normal pipes and copy between them, everything is
 			// fine, so here we are.
+			//
+			// We also can't use cmd.StdoutPipe with concurrent cmd.Wait because
+			// Wait closes the pipe when the process exits, which can drop output
+			// if io.Copy hasn't finished reading yet (see golang/go#60908).
 
 			stdin, err := cmd.StdinPipe()
 			if err != nil {
@@ -165,27 +169,35 @@ func createHandler(ctx context.Context, logger hclog.Logger, server **ssh.Server
 				return
 			}
 
-			stdout, err := cmd.StdoutPipe()
+			rdOut, wrOut, err := os.Pipe()
 			if err != nil {
 				fmt.Fprintf(s, "Error occured: %s\r\n", err)
 				return
 			}
 
-			cmd.Stderr = cmd.Stdout
+			cmd.Stdout = wrOut
+			cmd.Stderr = wrOut
 
 			// Create a new process group so we can kill this child and all its
 			// grandchildren when the time comes.
 			cmd.SysProcAttr = &syscall.SysProcAttr{Setpgid: true}
 
 			if err := cmd.Start(); err != nil {
+				_ = rdOut.Close()
+				_ = wrOut.Close()
 				fmt.Fprintf(s, "Error occured: %s\r\n", err)
 				return
 			}
 
+			// Close our copy of the write side so io.Copy terminates once the
+			// command exits and closes its stdout/stderr descriptors.
+			_ = wrOut.Close()
+
 			go io.Copy(stdin, s)
 			go func() {
 				defer close(outDoneCh)
-				io.Copy(s, stdout)
+				defer rdOut.Close()
+				io.Copy(s, rdOut)
 			}()
 		}
 
@@ -194,6 +206,17 @@ func createHandler(ctx context.Context, logger hclog.Logger, server **ssh.Server
 			logger.Debug("waiting for command to finish")
 			err := cmd.Wait()
 			logger.Debug("command has finished", "error", err)
+
+			// Wait for stdout copy to finish after the process exits. Calling
+			// Wait concurrently with io.Copy can close stdout before all output
+			// is forwarded to the client.
+			select {
+			case <-outDoneCh:
+				logger.Trace("output copy complete")
+			case <-time.After(5 * time.Second):
+				logger.Trace("output copy timeout, just forcing exit")
+			}
+
 			exitCh <- err
 		}()
 
@@ -212,16 +235,7 @@ func createHandler(ctx context.Context, logger hclog.Logger, server **ssh.Server
 				cmd.Process.Kill()
 				return
 			case err := <-exitCh:
-				logger.Debug("command has exited, waiting for output to complete")
-
-				select {
-				case <-outDoneCh:
-					logger.Trace("output copy complete")
-				case <-time.After(1 * time.Second):
-					// We don't want to block on poorly behaved commands. They
-					// should all finish copying relatively quickly.
-					logger.Trace("output copy timeout, just forcing exit")
-				}
+				logger.Debug("command has exited")
 
 				if err != nil {
 					if exiterr, ok := err.(*exec.ExitError); ok {

@@ -17,8 +17,7 @@ func TestServicePipeline_Basic(t *testing.T) {
 	ctx := context.Background()
 
 	// Create our server
-	impl, err := New(WithDB(testDB(t)))
-	require.NoError(t, err)
+	impl := mustNew(t)
 	client := server.TestServer(t, impl)
 
 	type Req = pb.UpsertPipelineRequest
@@ -107,8 +106,7 @@ func TestServicePipeline_Run(t *testing.T) {
 		ctx := context.Background()
 
 		// Create our server
-		impl, err := New(WithDB(testDB(t)))
-		require.NoError(err)
+		impl := mustNew(t)
 		client := server.TestServer(t, impl)
 
 		// Initialize our app
@@ -226,8 +224,7 @@ func TestServicePipeline_Run(t *testing.T) {
 		ctx := context.Background()
 
 		// Create our server
-		impl, err := New(WithDB(testDB(t)))
-		require.NoError(err)
+		impl := mustNew(t)
 		client := server.TestServer(t, impl)
 
 		// Initialize our app
@@ -378,8 +375,7 @@ func TestServicePipeline_Run(t *testing.T) {
 		ctx := context.Background()
 
 		// Create our server
-		impl, err := New(WithDB(testDB(t)))
-		require.NoError(err)
+		impl := mustNew(t)
 		client := server.TestServer(t, impl)
 
 		// Initialize our app
@@ -490,8 +486,7 @@ func TestServicePipeline_Run(t *testing.T) {
 		ctx := context.Background()
 
 		// Create our server
-		impl, err := New(WithDB(testDB(t)))
-		require.NoError(err)
+		impl := mustNew(t)
 		client := server.TestServer(t, impl)
 
 		// Create a job to use in TestJobNew that specifies the default
@@ -651,8 +646,7 @@ func TestServicePipeline_Run(t *testing.T) {
 		ctx := context.Background()
 
 		// Create our server
-		impl, err := New(WithDB(testDB(t)))
-		require.NoError(err)
+		impl := mustNew(t)
 		client := server.TestServer(t, impl)
 
 		// Initialize our app
@@ -702,7 +696,7 @@ func TestServicePipeline_Run(t *testing.T) {
 		}
 
 		// Create, should get an ID back
-		_, err = client.UpsertPipeline(ctx, &pb.UpsertPipelineRequest{
+		_, err := client.UpsertPipeline(ctx, &pb.UpsertPipelineRequest{
 			Pipeline: pipeline,
 		})
 		require.NoError(err)
@@ -782,8 +776,7 @@ func TestServicePipeline_Run(t *testing.T) {
 		ctx := context.Background()
 
 		// Create our server
-		impl, err := New(WithDB(testDB(t)))
-		require.NoError(err)
+		impl := mustNew(t)
 		client := server.TestServer(t, impl)
 
 		// Initialize our app
@@ -888,8 +881,7 @@ func TestServicePipeline_Run(t *testing.T) {
 		ctx := context.Background()
 
 		// Create our server
-		impl, err := New(WithDB(testDB(t)))
-		require.NoError(err)
+		impl := mustNew(t)
 		client := server.TestServer(t, impl)
 
 		// Initialize our app
@@ -952,7 +944,7 @@ func TestServicePipeline_Run(t *testing.T) {
 		}
 
 		// Create, should get an ID back
-		_, err = client.UpsertPipeline(ctx, &pb.UpsertPipelineRequest{
+		_, err := client.UpsertPipeline(ctx, &pb.UpsertPipelineRequest{
 			Pipeline: pipeline,
 		})
 		require.NoError(err)
@@ -1082,8 +1074,7 @@ func TestServicePipeline_Run(t *testing.T) {
 		ctx := context.Background()
 
 		// Create our server
-		impl, err := New(WithDB(testDB(t)))
-		require.NoError(err)
+		impl := mustNew(t)
 		client := server.TestServer(t, impl)
 
 		// Initialize our app
@@ -1207,8 +1198,7 @@ func TestServicePipeline_Run(t *testing.T) {
 		ctx := context.Background()
 
 		// Create our server
-		impl, err := New(WithDB(testDB(t)))
-		require.NoError(err)
+		impl := mustNew(t)
 		client := server.TestServer(t, impl)
 
 		// Initialize our app
@@ -1408,8 +1398,7 @@ func TestServicePipeline_List(t *testing.T) {
 	ctx := context.Background()
 
 	// Create our server
-	impl, err := New(WithDB(testDB(t)))
-	require.NoError(err)
+	impl := mustNew(t)
 	client := server.TestServer(t, impl)
 
 	// Initialize our app

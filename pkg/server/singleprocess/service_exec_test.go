@@ -23,8 +23,7 @@ func TestServiceStartExecStream_badOpen(t *testing.T) {
 	require := require.New(t)
 
 	// Create our server
-	impl, err := New(WithDB(testDB(t)))
-	require.NoError(err)
+	impl := mustNew(t)
 	client := server.TestServer(t, impl)
 
 	// Start exec with a bad starting message
@@ -48,8 +47,7 @@ func TestServiceStartExecStream_start(t *testing.T) {
 	require := require.New(t)
 
 	// Create our server
-	impl, err := New(WithDB(testDB(t)))
-	require.NoError(err)
+	impl := mustNew(t)
 	client := server.TestServer(t, impl)
 
 	// Create an instance
@@ -102,8 +100,7 @@ func TestServiceStartExecStream_eventExit(t *testing.T) {
 	require := require.New(t)
 
 	// Create our server
-	impl, err := New(WithDB(testDB(t)))
-	require.NoError(err)
+	impl := mustNew(t)
 	client := server.TestServer(t, impl)
 
 	// Create an instance
@@ -177,8 +174,7 @@ func TestServiceStartExecStream_eventError(t *testing.T) {
 	require := require.New(t)
 
 	// Create our server
-	impl, err := New(WithDB(testDB(t)))
-	require.NoError(err)
+	impl := mustNew(t)
 	client := server.TestServer(t, impl)
 
 	// Create an instance
@@ -253,8 +249,7 @@ func TestServiceStartExecStream_entrypointEventChClose(t *testing.T) {
 	require := require.New(t)
 
 	// Create our server
-	impl, err := New(WithDB(testDB(t)))
-	require.NoError(err)
+	impl := mustNew(t)
 	client := server.TestServer(t, impl)
 
 	// Create an instance
@@ -331,8 +326,7 @@ func TestServiceStartExecStream_targeted(t *testing.T) {
 	require := require.New(t)
 
 	// Create our server
-	impl, err := New(WithDB(testDB(t)))
-	require.NoError(err)
+	impl := mustNew(t)
 	client := server.TestServer(t, impl)
 
 	// Create an instance
@@ -385,8 +379,7 @@ func TestServiceStartExecStream_startPlugin(t *testing.T) {
 	require := require.New(t)
 
 	// Create our server
-	impl, err := New(WithDB(testDB(t)))
-	require.NoError(err)
+	impl := mustNew(t)
 	client := server.TestServer(t, impl)
 
 	// Create an instance
@@ -443,8 +436,7 @@ func TestService_waitOnJobStarted(t *testing.T) {
 	require := require.New(t)
 
 	// Create our server
-	impl, err := New(WithDB(testDB(t)))
-	require.NoError(err)
+	impl := mustNew(t)
 	client := server.TestServer(t, impl)
 
 	// Create an instance

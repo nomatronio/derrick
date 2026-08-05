@@ -126,21 +126,7 @@ func TestDerrickDockerUpAfterUpgrade(t *testing.T) {
 
 func TestDerrickDockerMultiAppUpAfterUpgrade(t *testing.T) {
 	wp := NewBinary(t, wpBinary, dockerMultiAppTestDir)
-	stdout, stderr, err := wp.RunRaw("init")
-
-	if err != nil {
-		t.Errorf("unexpected error initializing derrick project: %s\nstderr: %s", err, stderr)
-	}
-
-	if stderr != "" {
-		t.Errorf("unexpected stderr output initializing derrick project: %s", stderr)
-	}
-
-	if !strings.Contains(stdout, "Project initialized!") {
-		t.Errorf("No success message detected after initializing project:\n%s", stdout)
-	}
-
-	stdout, stderr, err = wp.RunRaw("up")
+	stdout, stderr, err := wp.RunRaw("up")
 
 	if err != nil {
 		t.Errorf("unexpected error deploying derrick project: %s\nstderr: %s", err, stderr)

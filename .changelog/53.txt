@@ -1,0 +1,3 @@
+```release-note:bug
+test-e2e: Fix proto stderr filtering for release binaries that emit non-breaking spaces
+```

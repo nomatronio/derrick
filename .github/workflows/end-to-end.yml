@@ -74,6 +74,19 @@ jobs:
         with: 
           name: ${{ inputs.derrick-binary }}
 
+      - name: Download Docker image tarballs
+        uses: actions/download-artifact@v4
+        with:
+          pattern: derrick_*_${{ github.sha }}.docker.tar
+          merge-multiple: true
+
+      - name: Load Docker images for install and upgrade
+        run: |
+          docker load < "${{ inputs.derrick-tar }}"
+          docker load < "${{ inputs.derrick-odr-tar }}"
+          docker tag "${{ inputs.derrick-image }}" "${{ needs.publish-images.outputs.derrick-image }}"
+          docker tag "${{ inputs.derrick-odr-image }}" "${{ needs.publish-images.outputs.derrick-odr-image }}"
+
       - name: install derrick binary
         id: install-derrick
         run: |
@@ -86,6 +99,8 @@ jobs:
         env: 
           E2E_PLATFORM: Docker
           DERRICK_BINARY: ${{ steps.install-derrick.outputs.wp-binary }}
+          DERRICK_SERVERIMAGE: ${{ inputs.derrick-image }}
+          DERRICK_ODRIMAGE: ${{ inputs.derrick-odr-image }}
           DERRICK_SERVERIMAGE_UPGRADE: ${{ needs.publish-images.outputs.derrick-image }}
           DERRICK_ODRIMAGE_UPGRADE: ${{ needs.publish-images.outputs.derrick-odr-image }}
         run: ./test-e2e/run-test.sh

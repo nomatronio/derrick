@@ -18,8 +18,7 @@ func TestServiceTask_GetTask(t *testing.T) {
 
 	// Create our server
 	db := testDB(t)
-	impl, err := New(WithDB(db))
-	require.NoError(t, err)
+	impl := mustNewDB(t, db)
 	client := server.TestServer(t, impl)
 
 	// Initialize our app
@@ -154,8 +153,7 @@ func TestServiceTask_ListTaskSimple(t *testing.T) {
 
 	// Create our server
 	db := testDB(t)
-	impl, err := New(WithDB(db))
-	require.NoError(t, err)
+	impl := mustNewDB(t, db)
 	client := server.TestServer(t, impl)
 
 	// Initialize our app
@@ -249,8 +247,7 @@ func TestServiceTask_ListTaskFilters(t *testing.T) {
 
 	// Create our server
 	db := testDB(t)
-	impl, err := New(WithDB(db))
-	require.NoError(t, err)
+	impl := mustNewDB(t, db)
 	client := server.TestServer(t, impl)
 
 	// Initialize our app
@@ -347,8 +344,7 @@ func TestServiceTask_CancelTask(t *testing.T) {
 
 	// Create our server
 	db := testDB(t)
-	impl, err := New(WithDB(db))
-	require.NoError(t, err)
+	impl := mustNewDB(t, db)
 	client := server.TestServer(t, impl)
 
 	// Initialize our app

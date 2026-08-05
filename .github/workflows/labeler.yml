@@ -8,6 +8,28 @@ permissions:
   pull-requests: write
 
 jobs:
+  # Dependabot dependency bumps do not need release-note changelog entries.
+  dependabot-no-changelog:
+    if: github.event.pull_request.user.login == 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c699beb48 # v7.0.1
+        with:
+          script: |
+            const labels = context.payload.pull_request.labels.map((label) => label.name);
+            if (labels.includes('pr/no-changelog')) {
+              return;
+            }
+
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.pull_request.number,
+              labels: ['pr/no-changelog'],
+            });
+
   triage:
     runs-on: ubuntu-latest
     permissions:

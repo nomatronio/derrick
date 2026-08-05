@@ -1,0 +1,3 @@
+```release-note:bug
+test-e2e: Ignore benign plugin.proto stderr warnings and prepare waypoint-examples for Derrick
+```

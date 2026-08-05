@@ -42,6 +42,7 @@ func (c *UninstallCommand) Run(args []string) int {
 		WithFlags(c.Flags()),
 		WithNoConfig(),
 		WithNoLocalServer(),
+		WithNoClient(),
 	); err != nil {
 		return 1
 	}
@@ -171,6 +172,20 @@ func (c *UninstallCommand) Run(args []string) int {
 			os.Remove(snapshotName)
 			return 1
 		}
+
+		if c.project == nil {
+			c.project, err = c.initClient(nil)
+			if err != nil {
+				s.Update("Failed to take server snapshot\n")
+				s.Status(terminal.StatusError)
+				s.Done()
+
+				c.ui.Output("Error connecting to server for snapshot: %s", clierrors.Humanize(err), terminal.WithErrorStyle())
+				os.Remove(snapshotName)
+				return 1
+			}
+		}
+
 		if err = clisnapshot.WriteSnapshot(ctx, c.project.Client(), w); err != nil {
 			s.Update("Failed to take server snapshot\n")
 			s.Status(terminal.StatusError)

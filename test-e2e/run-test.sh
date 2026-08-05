@@ -2,8 +2,6 @@
 set -eo pipefail
 
 # Derrick end to end test runner
-
-# shell spinner: https://www.shellscript.sh/tips/spinner/
 spin()
 {
   spinner="/|\\-/|\\-"
@@ -85,6 +83,14 @@ else
   echo "==> Using existing waypoint-examples repo for test..."
   echo
 fi
+
+# Upstream examples still ship waypoint.hcl; Derrick expects derrick.hcl.
+while IFS= read -r legacy_hcl; do
+  example_dir=$(dirname "${legacy_hcl}")
+  if [ ! -f "${example_dir}/derrick.hcl" ]; then
+    cp "${legacy_hcl}" "${example_dir}/derrick.hcl"
+  fi
+done < <(find "$DERRICK_EXAMPLES_PATH" -name waypoint.hcl -print)
 
 # 
 

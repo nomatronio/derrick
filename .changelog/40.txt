@@ -1,0 +1,7 @@
+```release-note:bug
+ci: Fix main build workflow failing with duplicate Authorization header on version step
+```
+
+```release-note:bug
+test: Stabilize TestServiceGetJobStream_complete on slow CI runners
+```

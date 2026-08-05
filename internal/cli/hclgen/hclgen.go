@@ -104,10 +104,10 @@ func HclGen(ui terminal.UI) bool {
 		exitSafe(hclFile, brackets, ui, hclFileByte)
 		return false
 	}
-	hclFileByte = append(hclFileByte, []byte(fmt.Sprintf(genIndent(brackets)+"build {\n"))...)
+	hclFileByte = append(hclFileByte, []byte(fmt.Sprintf("%sbuild {\n", genIndent(brackets)))...)
 	brackets++
 	if plug.Name != "" {
-		hclFileByte = append(hclFileByte, []byte(fmt.Sprintf(genIndent(brackets)+"use \"%s\" {\n", plug.Name))...)
+		hclFileByte = append(hclFileByte, []byte(fmt.Sprintf("%suse \"%s\" {\n", genIndent(brackets), plug.Name))...)
 		brackets++
 		fieldMap, close, err := populatePlugins(plug, ui)
 		if err != nil {
@@ -144,9 +144,9 @@ func HclGen(ui terminal.UI) bool {
 	}
 	// A registry stanza will only appear in the file if one is chosen
 	if plug.Name != "" {
-		hclFileByte = append(hclFileByte, []byte(fmt.Sprintf(genIndent(brackets)+"registry {\n"))...)
+		hclFileByte = append(hclFileByte, []byte(fmt.Sprintf("%sregistry {\n", genIndent(brackets)))...)
 		brackets++
-		hclFileByte = append(hclFileByte, []byte(fmt.Sprintf(genIndent(brackets)+"use \"%s\" {\n", plug.Name))...)
+		hclFileByte = append(hclFileByte, []byte(fmt.Sprintf("%suse \"%s\" {\n", genIndent(brackets), plug.Name))...)
 		brackets++
 		fieldMap, close, err := populatePlugins(plug, ui)
 		if err != nil {
@@ -184,9 +184,9 @@ func HclGen(ui terminal.UI) bool {
 
 	// A deployer stanza will only appear in the file if one is chosen
 	if plug.Name != "" {
-		hclFileByte = append(hclFileByte, []byte(fmt.Sprintf(genIndent(brackets)+"deploy {\n"))...)
+		hclFileByte = append(hclFileByte, []byte(fmt.Sprintf("%sdeploy {\n", genIndent(brackets)))...)
 		brackets++
-		hclFileByte = append(hclFileByte, []byte(fmt.Sprintf(genIndent(brackets)+"use \"%s\" {\n", plug.Name))...)
+		hclFileByte = append(hclFileByte, []byte(fmt.Sprintf("%suse \"%s\" {\n", genIndent(brackets), plug.Name))...)
 		brackets++
 		fieldMap, close, err := populatePlugins(plug, ui)
 		if err != nil {
@@ -222,9 +222,9 @@ func HclGen(ui terminal.UI) bool {
 
 	// A releaser stanza will only appear in the file if one is chosen
 	if plug.Name != "" {
-		hclFileByte = append(hclFileByte, []byte(fmt.Sprintf(genIndent(brackets)+"release {\n"))...)
+		hclFileByte = append(hclFileByte, []byte(fmt.Sprintf("%srelease {\n", genIndent(brackets)))...)
 		brackets++
-		hclFileByte = append(hclFileByte, []byte(fmt.Sprintf(genIndent(brackets)+"use \"%s\" {\n", plug.Name))...)
+		hclFileByte = append(hclFileByte, []byte(fmt.Sprintf("%suse \"%s\" {\n", genIndent(brackets), plug.Name))...)
 		brackets++
 		fieldMap, close, err := populatePlugins(plug, ui)
 		if err != nil {
@@ -267,21 +267,21 @@ func HclGen(ui terminal.UI) bool {
 func writeFields(byteS []byte, fieldMap map[string]fieldInfo, brackets int, ui terminal.UI) ([]byte, error) {
 	for key, elem := range fieldMap {
 		if elem.isParent {
-			byteS = append(byteS, []byte(fmt.Sprintf(genIndent(brackets)+"%s {\n", key))...)
+			byteS = append(byteS, []byte(fmt.Sprintf("%s%s {\n", genIndent(brackets), key))...)
 			brackets++
 			for name, cont := range elem.children {
 				if cont == "" {
-					byteS = append(byteS, []byte(fmt.Sprintf(genIndent(brackets)+"//The following field was skipped during file generation\n"))...)
+					byteS = append(byteS, []byte(fmt.Sprintf("%s//The following field was skipped during file generation\n", genIndent(brackets)))...)
 				}
-				byteS = append(byteS, []byte(fmt.Sprintf(genIndent(brackets)+"%s = \"%s\"\n", name, cont))...)
+				byteS = append(byteS, []byte(fmt.Sprintf("%s%s = \"%s\"\n", genIndent(brackets), name, cont))...)
 			}
 			byteS = closeBrackets(byteS, 1, brackets)
 			brackets--
 		} else {
 			if elem.contents == "" {
-				byteS = append(byteS, []byte(fmt.Sprintf(genIndent(brackets)+"//The following field was skipped during file generation\n"))...)
+				byteS = append(byteS, []byte(fmt.Sprintf("%s//The following field was skipped during file generation\n", genIndent(brackets)))...)
 			}
-			byteS = append(byteS, []byte(fmt.Sprintf(genIndent(brackets)+"%s = \"%s\"\n", key, elem.contents))...)
+			byteS = append(byteS, []byte(fmt.Sprintf("%s%s = \"%s\"\n", genIndent(brackets), key, elem.contents))...)
 		}
 	}
 	return byteS, nil
@@ -303,7 +303,7 @@ func closeBrackets(byteS []byte, toClose int, outstanding int) []byte {
 			toPrint = toPrint + "    "
 		}
 		toPrint = toPrint + "}\n"
-		byteS = append(byteS, []byte(fmt.Sprintf(toPrint))...)
+		byteS = append(byteS, []byte(toPrint)...)
 		toPrint = ""
 	}
 	return byteS

@@ -1,0 +1,5 @@
+```release-note:bug
+ci: Fix Docker smoke test proto panic and publish release images to GHCR, ECR Public, and Docker Hub
+
+ssh: Fix dropped stdout race in exec SSH server by using os.Pipe instead of cmd.StdoutPipe
+```

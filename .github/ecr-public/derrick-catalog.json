@@ -1,0 +1,7 @@
+{
+  "description": "Official Derrick server image (open core). Application delivery platform, MPL 2.0.",
+  "architectures": ["x86-64", "ARM 64"],
+  "operatingSystems": ["Linux"],
+  "aboutText": "## Derrick server\n\nOfficial container image for the [Derrick](https://github.com/nomatronio/derrick) server.\n\nDerrick is a developer-centric, multi-runtime application delivery platform. Open-core fork of HashiCorp Waypoint v0.11.4 (MPL 2.0).\n\n- Source: https://github.com/nomatronio/derrick\n- License: https://github.com/nomatronio/derrick/blob/main/LICENSE",
+  "usageText": "## Pull\n\n```bash\ndocker pull public.ecr.aws/nomatronio/derrick:latest\n```\n\n## Install\n\n```bash\nderrick install -platform=docker -accept-tos \\\n  -docker-server-image=public.ecr.aws/nomatronio/derrick:latest \\\n  -docker-odr-image=public.ecr.aws/nomatronio/derrick-odr:latest\n```"
+}

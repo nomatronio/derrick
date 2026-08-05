@@ -24,11 +24,7 @@ func TestServerConfigWithStartupConfig(t *testing.T) {
 
 	db := testDB(t)
 	// Create our server
-	impl, err := New(
-		WithDB(db),
-		WithConfig(cfg),
-	)
-	require.NoError(t, err)
+	impl := mustNewDB(t, db, WithConfig(cfg))
 	_ = server.TestServer(t, impl)
 
 	st, err := boltdbstate.New(hclog.L(), db)
@@ -52,10 +48,7 @@ func TestServerConfigWithNoStartupConfig(t *testing.T) {
 	ctx := context.Background()
 	db := testDB(t)
 	// Create our server
-	impl, err := New(
-		WithDB(db),
-	)
-	require.NoError(t, err)
+	impl := mustNewDB(t, db)
 	_ = server.TestServer(t, impl)
 
 	st, err := boltdbstate.New(hclog.L(), db)

@@ -78,7 +78,7 @@ func (s *State) pipelinePut(
 	// The data should be validated before this, but it is a critical
 	// issue if there are validation errors so we test again.
 	if err := ptypes.ValidatePipeline(value); err != nil {
-		return status.Errorf(codes.FailedPrecondition, err.Error())
+		return status.Errorf(codes.FailedPrecondition, "%s", err.Error())
 	}
 
 	// Get the global bucket and write the value to it.
@@ -192,7 +192,7 @@ func (s *State) pipelineDelete(
 
 	// Delete from memdb
 	if _, err := memTxn.DeleteAll(pipelineIndexTableName, pipelineIndexId, string(id)); err != nil {
-		return status.Errorf(codes.Aborted, err.Error())
+		return status.Errorf(codes.Aborted, "%s", err.Error())
 	}
 
 	return nil

@@ -95,7 +95,7 @@ func validateConfig(c Config) error {
 		}
 
 		// if
-		return fmt.Errorf(errorMessage)
+		return fmt.Errorf("%s", errorMessage)
 	}
 
 	return nil

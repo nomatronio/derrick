@@ -10,8 +10,10 @@ on:
 jobs:
   # checks that a .changelog entry is present for a PR
   changelog-check:
-    # If there  a `pr/no-changelog` label we ignore this check
-    if: "!contains(github.event.pull_request.labels.*.name, 'pr/no-changelog')"
+    # Skip dependency-bot PRs (auto-labeled pr/no-changelog) and explicit opt-outs.
+    if: >-
+      !contains(github.event.pull_request.labels.*.name, 'pr/no-changelog') &&
+      github.event.pull_request.user.login != 'dependabot[bot]'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1

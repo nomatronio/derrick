@@ -1347,7 +1347,7 @@ func (p *Platform) resourceTargetGroupCreate(
 		}
 
 		if *createTargetGroupInput.HealthCheckIntervalSeconds < *createTargetGroupInput.HealthCheckTimeoutSeconds {
-			return status.Errorf(codes.InvalidArgument, fmt.Sprintf("Health check interval cannot be shorter than the timeout"))
+			return status.Errorf(codes.InvalidArgument, "Health check interval cannot be shorter than the timeout")
 		}
 
 		if p.config.HealthCheck.HealthyThresholdCount != 0 {

@@ -360,7 +360,7 @@ To update the location you will need to manually destroy and recreate the resour
 	if log.IsTrace() {
 		bs, err := containerGroupResult.MarshalJSON()
 		if err != nil {
-			return nil, status.Errorf(codes.Aborted, err.Error())
+			return nil, status.Errorf(codes.Aborted, "%s", err.Error())
 		}
 
 		log.Trace("container group JSON", "json", base64.StdEncoding.EncodeToString(bs))

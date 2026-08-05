@@ -476,22 +476,29 @@ func TestServiceGetJobStream_complete(t *testing.T, factory Factory) {
 
 	// We should receive an initial state change
 	{
-		resp, err := stream.Recv()
-		require.NoError(err)
-		state, ok := resp.Event.(*pb.GetJobStreamResponse_State_)
-		require.True(ok, "should be a state change")
-		require.NotNil(state)
+		var state *pb.GetJobStreamResponse_State_
+		deadline := time.Now().Add(10 * time.Second)
+		for time.Now().Before(deadline) {
+			resp, err := stream.Recv()
+			require.NoError(err)
+			if s, ok := resp.Event.(*pb.GetJobStreamResponse_State_); ok {
+				state = s
+				break
+			}
+			t.Logf("received event before initial state: %T", resp.Event)
+		}
+		require.NotNil(state, "timeout waiting for initial state change")
 
 		require.Equal(pb.Job_UNKNOWN, state.State.Previous)
 		require.NotNil(state.State.Job)
+
+		if state.State.Current != pb.Job_RUNNING {
+			waitForJobStreamRunning(t, stream)
+		}
 	}
 
-	// Wait for the job stream output reader to initialize before sending output.
-	// If this test becomes flakey, increase the timeout below.
-	require.Eventually(func() bool {
-		time.Sleep(100 * time.Millisecond)
-		return true
-	}, 2*time.Second, 100*time.Millisecond)
+	// Brief pause after RUNNING so getJobStreamOutputInit can start before runner output.
+	time.Sleep(500 * time.Millisecond)
 
 	// Send some output
 	require.NoError(runnerStream.Send(&pb.RunnerJobStreamRequest{
@@ -519,9 +526,27 @@ func TestServiceGetJobStream_complete(t *testing.T, factory Factory) {
 
 	// Wait for output
 	{
-		resp := jobStreamRecv(t, stream, (*pb.GetJobStreamResponse_Terminal_)(nil))
-		event := resp.Event.(*pb.GetJobStreamResponse_Terminal_)
-		require.NotNil(event)
+		var event *pb.GetJobStreamResponse_Terminal_
+		deadline := time.Now().Add(15 * time.Second)
+		for time.Now().Before(deadline) {
+			resp, err := stream.Recv()
+			require.NoError(err)
+
+			terminal, ok := resp.Event.(*pb.GetJobStreamResponse_Terminal_)
+			if !ok {
+				t.Logf("received event while waiting for terminal output: %T", resp.Event)
+				continue
+			}
+			if len(terminal.Terminal.Events) == 0 {
+				t.Log("received empty terminal event, waiting for output")
+				continue
+			}
+
+			event = terminal
+			break
+		}
+		require.NotNil(event, "timeout waiting for terminal output")
+
 		if event.Terminal.Buffered {
 			require.Len(event.Terminal.Events, 2)
 			require.Equal("hello", event.Terminal.Events[0].Event.(*pb.GetJobStreamResponse_Terminal_Event_Line_).Line.Msg)
@@ -939,6 +964,28 @@ func TestServiceGetJobStream_expired(t *testing.T, factory Factory) {
 		require.NotNil(event)
 		require.Equal(int32(codes.Canceled), event.Complete.Error.Code)
 	}
+}
+
+// waitForJobStreamRunning reads from the job stream until the server reports
+// Job_RUNNING. getJobStreamOutputInit runs in that same server handler turn,
+// so terminal output is safe to send after this returns.
+func waitForJobStreamRunning(t *testing.T, stream pb.Derrick_GetJobStreamClient) {
+	t.Helper()
+
+	deadline := time.Now().Add(10 * time.Second)
+	for time.Now().Before(deadline) {
+		resp, err := stream.Recv()
+		require.NoError(t, err)
+
+		state, ok := resp.Event.(*pb.GetJobStreamResponse_State_)
+		if ok && state.State.Current == pb.Job_RUNNING {
+			return
+		}
+
+		t.Logf("received event while waiting for RUNNING: %T", resp.Event)
+	}
+
+	t.Fatal("timeout waiting for RUNNING state on job stream")
 }
 
 // jobStreamRecv receives on the stream until an event of the given

@@ -18,7 +18,7 @@ func (s *Service) SetServerConfig(
 	req *pb.SetServerConfigRequest,
 ) (*empty.Empty, error) {
 	if err := serverptypes.ValidateServerConfig(req.Config); err != nil {
-		return nil, status.Errorf(codes.FailedPrecondition, err.Error())
+		return nil, status.Errorf(codes.FailedPrecondition, "%s", err.Error())
 	}
 
 	if err := s.state(ctx).ServerConfigSet(ctx, req.Config); err != nil {

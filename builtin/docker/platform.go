@@ -32,11 +32,7 @@ import (
 	sdk "github.com/nomatronio/derrick-plugin-sdk/proto/gen"
 	"github.com/nomatronio/derrick-plugin-sdk/terminal"
 	wpdockerclient "github.com/nomatronio/derrick/builtin/docker/client"
-)
-
-const (
-	labelId    = "waypoint.hashicorp.com/id"
-	labelNonce = "waypoint.hashicorp.com/nonce"
+	"github.com/nomatronio/derrick/internal/pkg/derrlabels"
 )
 
 // Platform is the Platform implementation for Docker.
@@ -494,10 +490,10 @@ func (p *Platform) resourceContainerCreate(
 	// Setup the labels. We setup a set of defaults and then override them
 	// with any user configured labels.
 	defaultLabels := map[string]string{
-		labelId:     result.Id,
 		"app":       src.App,
 		"workspace": job.Workspace,
 	}
+	derrlabels.ApplyID(defaultLabels, result.Id)
 	if p.config.Labels != nil {
 		for k, v := range defaultLabels {
 			p.config.Labels[k] = v

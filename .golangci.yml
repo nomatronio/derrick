@@ -1,0 +1,11 @@
+version: "2"
+
+linters:
+  default: none
+  enable:
+    - govet
+  settings:
+    govet:
+      # lostcancel conflicts with the accept/reconnect loop in internal/runner.
+      disable:
+        - lostcancel

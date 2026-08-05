@@ -1,9 +1,5 @@
 # Contributing to Derrick
 
->**Note:** We take Derrick's security and our users' trust very seriously.
->If you believe you have found a security issue in Derrick, please responsibly
->disclose by contacting us at security@hashicorp.com.
-
 **First:** if you're unsure or afraid of _anything_, just ask or submit the
 issue or pull request anyways. You won't be yelled at for giving your best
 effort. The worst that can happen is that you'll be politely asked to change
@@ -28,7 +24,6 @@ work on an issue, comment on it first and tell us the approach you want to take.
 ### Reporting an Issue:
 
 >Note: Issues on GitHub for Derrick are intended to be related to bugs or feature requests.
->Questions should be directed to other community resources such as the [forum](https://discuss.hashicorp.com/)
 
 * Make sure you test against the latest released version. It is possible we
 already fixed the bug you're experiencing. However, if you are on an older

@@ -121,7 +121,7 @@ description: "%s"
 		matches := reUsage.FindStringSubmatch(usage)
 
 		if len(matches) > 0 {
-			fmt.Fprintf(w, fmt.Sprintf("## Usage\n\nUsage: `derrick %s`\n", matches[1]))
+			fmt.Fprintf(w, "## Usage\n\nUsage: `derrick %s`\n", matches[1])
 
 			hasAlias := false
 			if optionalAlias != "" {
@@ -129,7 +129,7 @@ description: "%s"
 				if len(matchAlias) > 0 {
 					hasAlias = true
 					aliasMatch := reUsage.FindStringSubmatch(optionalAlias)
-					fmt.Fprintf(w, fmt.Sprintf("\nAlias: `derrick %s`\n", aliasMatch[1]))
+					fmt.Fprintf(w, "\nAlias: `derrick %s`\n", aliasMatch[1])
 				}
 			}
 
