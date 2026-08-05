@@ -1,0 +1,3 @@
+```release-note:improvement
+docs: Document the Cursor Cloud development environment setup (toolchain, proto registration workaround, backend/UI build-test-lint, and local run steps) in AGENTS.md
+```
