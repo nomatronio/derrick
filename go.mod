@@ -36,7 +36,7 @@ require (
 	github.com/go-openapi/strfmt v0.21.3
 	github.com/go-openapi/swag v0.19.14
 	github.com/go-openapi/validate v0.20.2
-	github.com/go-ozzo/ozzo-validation/v4 v4.2.1
+	github.com/go-ozzo/ozzo-validation/v4 v4.3.0
 	github.com/go-playground/validator v9.31.0+incompatible
 	github.com/gofrs/flock v0.8.1
 	github.com/golang/protobuf v1.5.4
